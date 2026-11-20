@@ -1,1 +1,288 @@
-{"name":"玉虹游戏城","emerald":"johto_celadon_game_corner","size":[10,7],"spawn":[5,3],"npcs":[{"at":[2,1],"name":"店员","gfx":"clerk","lines":["欢迎光临，随便看看。","货都在货架上，别客气。"]},{"at":[1,1],"name":"居民","gfx":"man","lines":["你好。","路上小心。"]},{"at":[8,3],"name":"老师","gfx":"lass","lines":["这条路我闭着眼都能走。","听说北边的塔里住着传说中的宝可梦。","天快黑了，早点回去吧。"]},{"at":[5,3],"name":"居民","gfx":"man","lines":["你好。","路上小心。"]},{"at":[4,5],"name":"钓鱼人","gfx":"sailor","lines":["海风今天不错。","船期？看天，也看运气。"]},{"at":[3,4],"name":"钓鱼人","gfx":"sailor","lines":["海风今天不错。","船期？看天，也看运气。"]},{"at":[5,1],"name":"居民","gfx":"man","lines":["你好。","路上小心。"]},{"at":[1,4],"name":"老爷爷","gfx":"old_man","lines":["我年轻的时候，也到处跑。","现在腿脚不行了，就在这里看风景。"]}],"warps":[{"at":[7,6],"to":{"region":"johto","map":"johto_celadon_city","at":[9,10]}},{"at":[7,6],"to":{"region":"johto","map":"johto_celadon_city","at":[9,10]}}],"encounters":[],"encounter_rate":0.0,"objects":[{"at":[0,3],"kind":"sign","sprite":"sign","text":"玉虹游戏城\\n（城都地区的告示牌）"},{"at":[0,4],"kind":"sign","sprite":"sign","text":"玉虹游戏城\\n（城都地区的告示牌）"},{"at":[3,3],"kind":"sign","sprite":"sign","text":"玉虹游戏城\\n（城都地区的告示牌）"},{"at":[2,5],"kind":"sign","sprite":"sign","text":"玉虹游戏城\\n（城都地区的告示牌）"},{"at":[2,4],"kind":"sign","sprite":"sign","text":"玉虹游戏城\\n（城都地区的告示牌）"},{"at":[6,3],"kind":"sign","sprite":"sign","text":"玉虹游戏城\\n（城都地区的告示牌）"},{"at":[6,4],"kind":"sign","sprite":"sign","text":"玉虹游戏城\\n（城都地区的告示牌）"},{"at":[5,5],"kind":"sign","sprite":"sign","text":"玉虹游戏城\\n（城都地区的告示牌）"},{"at":[5,4],"kind":"sign","sprite":"sign","text":"玉虹游戏城\\n（城都地区的告示牌）"},{"at":[9,3],"kind":"sign","sprite":"sign","text":"玉虹游戏城\\n（城都地区的告示牌）"},{"at":[9,4],"kind":"sign","sprite":"sign","text":"玉虹游戏城\\n（城都地区的告示牌）"},{"at":[8,5],"kind":"sign","sprite":"sign","text":"玉虹游戏城\\n（城都地区的告示牌）"},{"at":[7,0],"kind":"sign","sprite":"sign","text":"玉虹游戏城\\n（城都地区的告示牌）"},{"at":[4,0],"kind":"sign","sprite":"sign","text":"玉虹游戏城\\n（城都地区的告示牌）"}],"weather":"","weather_name":"","cycling":false}
+{
+ "name": "玉虹游戏城",
+ "emerald": "johto_celadon_game_corner",
+ "size": [
+  10,
+  7
+ ],
+ "spawn": [
+  5,
+  3
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    1
+   ],
+   "name": "店员",
+   "gfx": "clerk",
+   "lines": [
+    "欢迎光临，随便看看。",
+    "货都在货架上，别客气。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    1
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    3
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    3
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    5
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    4
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    1
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    4
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_celadon_city",
+    "at": [
+     10,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_celadon_city",
+    "at": [
+     10,
+     7
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    0,
+    3
+   ],
+   "source_script": "CeladonGameCornerCardFlipScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "翻牌机，桌面上画着牌面和下注的位置。"
+  },
+  {
+   "at": [
+    0,
+    4
+   ],
+   "source_script": "CeladonGameCornerCardFlipScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "翻牌机，桌面上画着牌面和下注的位置。"
+  },
+  {
+   "at": [
+    3,
+    3
+   ],
+   "source_script": "CeladonGameCornerCardFlipScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "翻牌机，桌面上画着牌面和下注的位置。"
+  },
+  {
+   "at": [
+    2,
+    5
+   ],
+   "source_script": "CeladonGameCornerCardFlipScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "翻牌机，桌面上画着牌面和下注的位置。"
+  },
+  {
+   "at": [
+    2,
+    4
+   ],
+   "source_script": "CeladonGameCornerLuckySlotMachineScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一台装着三个转轮的老虎机。"
+  },
+  {
+   "at": [
+    6,
+    3
+   ],
+   "source_script": "CeladonGameCornerLuckySlotMachineScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一台装着三个转轮的老虎机。"
+  },
+  {
+   "at": [
+    6,
+    4
+   ],
+   "source_script": "CeladonGameCornerLuckySlotMachineScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一台装着三个转轮的老虎机。"
+  },
+  {
+   "at": [
+    5,
+    5
+   ],
+   "source_script": "CeladonGameCornerLuckySlotMachineScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一台装着三个转轮的老虎机。"
+  },
+  {
+   "at": [
+    5,
+    4
+   ],
+   "source_script": "CeladonGameCornerLuckySlotMachineScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一台装着三个转轮的老虎机。"
+  },
+  {
+   "at": [
+    9,
+    3
+   ],
+   "source_script": "CeladonGameCornerLuckySlotMachineScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一台装着三个转轮的老虎机。"
+  },
+  {
+   "at": [
+    9,
+    4
+   ],
+   "source_script": "CeladonGameCornerLighterScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这里落着一只打火机。"
+  },
+  {
+   "at": [
+    8,
+    5
+   ],
+   "source_script": "CeladonGameCornerLuckySlotMachineScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一台装着三个转轮的老虎机。"
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "source_script": "CeladonGameCornerPoster1Script",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "掀开海报一角，后面空空的。"
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "source_script": "CeladonGameCornerPoster2Script",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "掀开海报一角，后面空空的。"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

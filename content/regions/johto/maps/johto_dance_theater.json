@@ -216,18 +216,20 @@
     2,
     3
    ],
+   "source_script": "DanceTheaterFancyPanel",
    "kind": "sign",
    "sprite": "sign",
-   "text": "剧场\\n（城都地区的告示牌）"
+   "text": "精致的饰板上点缀着花朵。"
   },
   {
    "at": [
     3,
     3
    ],
+   "source_script": "DanceTheaterFancyPanel",
    "kind": "sign",
    "sprite": "sign",
-   "text": "剧场\\n（城都地区的告示牌）"
+   "text": "精致的饰板上点缀着花朵。"
   }
  ],
  "weather": "",

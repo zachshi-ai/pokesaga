@@ -7,13 +7,15 @@
   - 邻图边缘格 -> 本图往里第二行/列
 只给两边都可走的格子补，墙上的格子跳过。
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import re
 import sys
 
-ROOT = "/root/build/pokecrystal"
-PROJ = "/root/build/pokesaga"
+ROOT = source_path("crystal")
+PROJ = project_path()
 JDIR = os.path.join(PROJ, "content/regions/johto/maps")
 EMAPS = os.path.join(PROJ, "content/emerald_maps")
 

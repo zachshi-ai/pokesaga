@@ -212,7 +212,7 @@
     "region": "johto",
     "map": "johto_route_19_fuchsia_gate",
     "at": [
-     2,
+     1,
      1
     ]
    }
@@ -421,45 +421,50 @@
     10,
     7
    ],
+   "source_script": "FuchsiaCitySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "FuchsiaCity\\n（城都地区的告示牌）"
+   "text": "浅红市，一抹热情的桃红色。"
   },
   {
    "at": [
     2,
     14
    ],
+   "source_script": "FuchsiaGymSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "FuchsiaCity\\n（城都地区的告示牌）"
+   "text": "浅红道馆。馆主阿杏，精通毒系的忍者。"
   },
   {
    "at": [
     12,
     7
    ],
+   "source_script": "SafariZoneOfficeSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "FuchsiaCity\\n（城都地区的告示牌）"
+   "text": "狩猎地带事务所暂时关闭，开放日期另行通知。"
   },
   {
    "at": [
     13,
     14
    ],
+   "source_script": "WardensHomeSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "FuchsiaCity\\n（城都地区的告示牌）"
+   "text": "狩猎地带园长的家。"
   },
   {
    "at": [
     6,
     7
    ],
+   "source_script": "NoLitteringSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "FuchsiaCity\\n（城都地区的告示牌）"
+   "text": "请把垃圾带走，保持这里的清洁。"
   }
  ],
  "weather": "",

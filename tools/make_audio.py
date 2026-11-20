@@ -6,6 +6,8 @@
 输出到 assets/audio/bgm/*.ogg、assets/audio/sfx/*.wav
 用法: python3 tools/make_audio.py
 """
+from asset_paths import project_path, source_path
+
 import json
 import math
 import os
@@ -15,8 +17,8 @@ import wave
 
 import numpy as np
 
-ROOT = "/root/build/pokeemerald-expansion-master/sound/songs/midi"
-OUT = "/root/build/pokesaga/assets/audio"
+ROOT = source_path("emerald", "sound/songs/midi")
+OUT = project_path("assets/audio")
 SR = 22050
 
 # 游戏里用到的曲子：键 -> 原版文件
@@ -250,24 +252,31 @@ def noise(dur=0.15, amp=0.5):
 
 
 def main():
+    missing = [name for name in BGM.values() if not os.path.isfile(os.path.join(ROOT, name + ".mid"))]
+    if missing:
+        raise FileNotFoundError(f"{ROOT}: missing source MIDI: {', '.join(missing)}")
     os.makedirs(os.path.join(OUT, "bgm"), exist_ok=True)
     os.makedirs(os.path.join(OUT, "sfx"), exist_ok=True)
+    codecs = subprocess.check_output(["ffmpeg", "-hide_banner", "-encoders"], text=True)
+    if "libvorbis" in codecs:
+        vorbis = ["-c:a", "libvorbis", "-q:a", "2"]
+    elif " vorbis " in codecs:
+        vorbis = ["-c:a", "vorbis", "-strict", "-2", "-ac", "2", "-b:a", "80k"]
+    else:
+        raise RuntimeError("ffmpeg needs a Vorbis encoder")
     made = []
     for key, name in BGM.items():
         src = os.path.join(ROOT, name + ".mid")
-        if not os.path.exists(src):
-            print("缺曲谱", name)
-            continue
         notes = parse_midi(src)
         buf = render(notes)
         if len(buf) < SR:
-            print("曲谱太短，跳过", name)
-            continue
+            raise ValueError(f"曲谱太短: {name}")
         tmp = os.path.join(OUT, "bgm", key + ".wav")
         write_wav(tmp, buf)
         ogg = os.path.join(OUT, "bgm", key + ".ogg")
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp,
-                        "-c:a", "libvorbis", "-q:a", "2", ogg], check=True)
+                        "-fflags", "+bitexact", "-flags:a", "+bitexact", "-map_metadata", "-1",
+                        *vorbis, ogg], check=True)
         os.remove(tmp)
         made.append((key, name, round(len(buf) / SR, 1), os.path.getsize(ogg) // 1024))
 

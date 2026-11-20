@@ -260,36 +260,49 @@
     9,
     12
    ],
+   "source_script": "DragonShrineSignpost",
    "kind": "sign",
    "sprite": "sign",
-   "text": "龙穴\\n（城都地区的告示牌）"
+   "text": "龙之圣祠，供奉着传说曾居于龙穴的龙宝可梦。"
   },
   {
    "at": [
     16,
     14
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "龙穴\\n（城都地区的告示牌）"
+   "source_script": "DragonsDenB1FHiddenRevive",
+   "kind": "hidden",
+   "item": "ITEM_REVIVE",
+   "name": "活力碎片",
+   "category": "heal",
+   "flag": "johto:EVENT_DRAGONS_DEN_B1F_HIDDEN_REVIVE",
+   "count": 1
   },
   {
    "at": [
     8,
     11
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "龙穴\\n（城都地区的告示牌）"
+   "source_script": "DragonsDenB1FHiddenMaxPotion",
+   "kind": "hidden",
+   "item": "ITEM_MAX_POTION",
+   "name": "全满药",
+   "category": "heal",
+   "flag": "johto:EVENT_DRAGONS_DEN_B1F_HIDDEN_MAX_POTION",
+   "count": 1
   },
   {
    "at": [
     15,
     6
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "龙穴\\n（城都地区的告示牌）"
+   "source_script": "DragonsDenB1FHiddenMaxElixer",
+   "kind": "hidden",
+   "item": "ITEM_MAX_ELIXIR",
+   "name": "PP 多项全补剂",
+   "category": "heal",
+   "flag": "johto:EVENT_DRAGONS_DEN_B1F_HIDDEN_MAX_ELIXER",
+   "count": 1
   }
  ],
  "weather": "",

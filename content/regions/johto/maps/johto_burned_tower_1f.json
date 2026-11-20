@@ -342,18 +342,26 @@
     3,
     3
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "烧焦塔·1F\\n（城都地区的告示牌）"
+   "source_script": "BurnedTower1FHiddenEther",
+   "kind": "hidden",
+   "item": "ITEM_ETHER",
+   "name": "PP 单项小补剂",
+   "category": "heal",
+   "flag": "johto:EVENT_BURNED_TOWER_1F_HIDDEN_ETHER",
+   "count": 1
   },
   {
    "at": [
     6,
     5
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "烧焦塔·1F\\n（城都地区的告示牌）"
+   "source_script": "BurnedTower1FHiddenUltraBall",
+   "kind": "hidden",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "flag": "johto:EVENT_BURNED_TOWER_1F_HIDDEN_ULTRA_BALL",
+   "count": 1
   }
  ],
  "weather": "",

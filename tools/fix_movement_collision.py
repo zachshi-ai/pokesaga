@@ -7,13 +7,15 @@ metatile behavior 里的 impassable / jump 系列也会挡人。
 
 这里把 behavior 也算进去，重算每张图（以及拼好的大地图）的 collision。
 """
+from asset_paths import project_path, source_path
+
 import json, os, glob, struct
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-EMAPS = "/root/build/pokesaga/content/emerald_maps"
+ROOT = source_path("emerald")
+EMAPS = project_path("content/emerald_maps")
 
 import sys
-sys.path.insert(0, "/root/build/pokesaga/tools")
+sys.path.insert(0, project_path("tools"))
 from render_emerald_maps import get_primary, get_secondary
 from annotate_encounters import behaviors
 

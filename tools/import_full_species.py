@@ -5,10 +5,12 @@
 每个物种是一个 [SPECIES_XXX] = { ... } 块，里面有 base 六维、属性、捕获率、
 成长曲线、中文名、全国图鉴号、以及 evolutions 里的升级进化。
 """
+from asset_paths import project_path, source_path
+
 import re, json, glob, os
 
-SRC = "/root/build/pokeemerald-expansion-master/src/data/pokemon/species_info"
-OUT = "/root/build/pokesaga/content/species.json"
+SRC = source_path("emerald", "src/data/pokemon/species_info")
+OUT = project_path("content/species.json")
 
 TYPE_MAP = {
     "NORMAL": "normal", "FIGHTING": "fighting", "FLYING": "flying", "POISON": "poison",
@@ -98,7 +100,7 @@ def main():
     # 找全国图鉴号：用 include/constants/pokedex.h 里的 NATIONAL_DEX_XXX 枚举顺序
     # 全国图鉴号是隐式枚举（没有显式值），按出现顺序数
     dex_order = {}
-    pdex = "/root/build/pokeemerald-expansion-master/include/constants/pokedex.h"
+    pdex = source_path("emerald", "include/constants/pokedex.h")
     if os.path.exists(pdex):
         n = 0
         started = False

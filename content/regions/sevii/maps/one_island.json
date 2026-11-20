@@ -110,6 +110,90 @@
   {
    "at": [
     23,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     0,
+     120
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    3
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     0,
+     123
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    4
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     0,
+     124
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     0,
+     127
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     0,
+     130
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     0,
+     131
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
     12
    ],
    "to": {
@@ -117,7 +201,7 @@
     "map": "one_island_kindle_road",
     "at": [
      0,
-     19
+     132
     ]
    }
   },
@@ -131,7 +215,7 @@
     "map": "one_island_kindle_road",
     "at": [
      0,
-     20
+     133
     ]
    }
   },
@@ -244,76 +328,6 @@
     "at": [
      22,
      0
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    5
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "one_island_kindle_road",
-    "at": [
-     0,
-     13
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    6
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "one_island_kindle_road",
-    "at": [
-     0,
-     13
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    11
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "one_island_kindle_road",
-    "at": [
-     0,
-     18
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    14
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "one_island_kindle_road",
-    "at": [
-     0,
-     21
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    4
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "one_island_kindle_road",
-    "at": [
-     0,
-     12
     ]
    }
   }

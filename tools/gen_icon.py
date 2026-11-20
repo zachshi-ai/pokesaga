@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """启动图标 + 应用标题字标。"""
+from asset_paths import project_path
+
 from PIL import Image, ImageDraw
 import os
 
-OUT = "/root/build/pokesaga/assets/icons"
+OUT = project_path("assets/icons")
 os.makedirs(OUT, exist_ok=True)
 
 # 圆形宝球徽标，配色取自数据表里的地形色

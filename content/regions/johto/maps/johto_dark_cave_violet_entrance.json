@@ -206,9 +206,13 @@
     12,
     0
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "黑暗洞窟\\n（城都地区的告示牌）"
+   "source_script": "DarkCaveVioletEntranceHiddenElixer",
+   "kind": "hidden",
+   "item": "ITEM_ELIXIR",
+   "name": "PP 多项小补剂",
+   "category": "heal",
+   "flag": "johto:EVENT_DARK_CAVE_VIOLET_ENTRANCE_HIDDEN_ELIXER",
+   "count": 1
   }
  ],
  "weather": "",

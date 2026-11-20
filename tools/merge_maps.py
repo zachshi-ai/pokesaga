@@ -8,16 +8,18 @@
 输出 meta 里用 chunks 记录分块贴图（单张不要超过 4096px，手机纹理上限），
 game 侧按块摆放即可。
 """
+from asset_paths import project_path, source_path
+
 import json, os, glob, struct
 from PIL import Image
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-EMAPS = "/root/build/pokesaga/content/emerald_maps"
-OUT = "/root/build/pokesaga/content/emerald_maps"
+ROOT = source_path("emerald")
+EMAPS = project_path("content/emerald_maps")
+OUT = project_path("content/emerald_maps")
 CHUNK = 24          # 每块 24x24 格 = 384x384 px
 
 import sys
-sys.path.insert(0, "/root/build/pokesaga/tools")
+sys.path.insert(0, project_path("tools"))
 from render_emerald_maps import get_primary, get_secondary
 
 # 只拼室外、能走通的几组；室内保持单张

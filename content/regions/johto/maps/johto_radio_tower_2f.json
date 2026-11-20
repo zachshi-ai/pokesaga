@@ -226,18 +226,20 @@
     4,
     0
    ],
+   "source_script": "RadioTower2FBookshelf",
    "kind": "sign",
    "sprite": "sign",
-   "text": "无线电塔·2F\\n（城都地区的告示牌）"
+   "text": "书架上整齐地排着各种宝可梦杂志。"
   },
   {
    "at": [
     5,
     0
    ],
+   "source_script": "RadioTower2FBookshelf",
    "kind": "sign",
    "sprite": "sign",
-   "text": "无线电塔·2F\\n（城都地区的告示牌）"
+   "text": "书架上整齐地排着各种宝可梦杂志。"
   }
  ],
  "weather": "",

@@ -5,13 +5,15 @@
 不然在真新镇草地上也可能蹦出 25 号路的东西。
 用法: python3 tools/gen_kanto_zones.py
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 
-ROOT = "/root/build/pokesaga"
+ROOT = project_path()
 EMAPS = os.path.join(ROOT, "content/emerald_maps")
 REG = os.path.join(ROOT, "content/regions/kanto/maps", "kanto_main.json")
-FRLG = "/tmp/frlg/pokefirered-master/src/data/wild_encounters.json"
+FRLG = source_path("firered", "src/data/wild_encounters.json")
 
 # 大图成员 -> 显示用中文名（None 表示城里，没有陆地遇敌）
 AREA_CN = {

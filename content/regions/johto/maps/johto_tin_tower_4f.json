@@ -89,8 +89,8 @@
     "region": "johto",
     "map": "johto_tin_tower_5f",
     "at": [
-     4,
-     7
+     8,
+     3
     ]
    }
   }
@@ -152,9 +152,13 @@
     5,
     3
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "铃铛塔·4F\\n（城都地区的告示牌）"
+   "source_script": "TinTower4FHiddenMaxPotion",
+   "kind": "hidden",
+   "item": "ITEM_MAX_POTION",
+   "name": "全满药",
+   "category": "heal",
+   "flag": "johto:EVENT_TIN_TOWER_4F_HIDDEN_MAX_POTION",
+   "count": 1
   }
  ],
  "weather": "",

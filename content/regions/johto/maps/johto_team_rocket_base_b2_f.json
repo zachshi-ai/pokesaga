@@ -303,99 +303,113 @@
     7,
     6
    ],
+   "source_script": "TeamRocketBaseB2FLockedDoor",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB2F\\n（城都地区的告示牌）"
+   "text": "通往发射机的门装着密码锁。"
   },
   {
    "at": [
     9,
     3
    ],
+   "source_script": "TeamRocketBaseB2FTransmitterScript",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB2F\\n（城都地区的告示牌）"
+   "text": "这是用来发送异常电波的无线电发射机。"
   },
   {
    "at": [
     6,
     5
    ],
+   "source_script": "TeamRocketBaseB2FTransmitterScript",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB2F\\n（城都地区的告示牌）"
+   "text": "这是用来发送异常电波的无线电发射机。"
   },
   {
    "at": [
     5,
     3
    ],
+   "source_script": "TeamRocketBaseB2FTransmitterScript",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB2F\\n（城都地区的告示牌）"
+   "text": "这是用来发送异常电波的无线电发射机。"
   },
   {
    "at": [
     5,
     4
    ],
+   "source_script": "TeamRocketBaseB2FTransmitterScript",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB2F\\n（城都地区的告示牌）"
+   "text": "这是用来发送异常电波的无线电发射机。"
   },
   {
    "at": [
     5,
     2
    ],
+   "source_script": "TeamRocketBaseB2FTransmitterScript",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB2F\\n（城都地区的告示牌）"
+   "text": "这是用来发送异常电波的无线电发射机。"
   },
   {
    "at": [
     6,
     1
    ],
+   "source_script": "TeamRocketBaseB2FTransmitterScript",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB2F\\n（城都地区的告示牌）"
+   "text": "这是用来发送异常电波的无线电发射机。"
   },
   {
    "at": [
     7,
     1
    ],
+   "source_script": "TeamRocketBaseB2FTransmitterScript",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB2F\\n（城都地区的告示牌）"
+   "text": "这是用来发送异常电波的无线电发射机。"
   },
   {
    "at": [
     8,
     1
    ],
+   "source_script": "TeamRocketBaseB2FTransmitterScript",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB2F\\n（城都地区的告示牌）"
+   "text": "这是用来发送异常电波的无线电发射机。"
   },
   {
    "at": [
     9,
     2
    ],
+   "source_script": "TeamRocketBaseB2FTransmitterScript",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB2F\\n（城都地区的告示牌）"
+   "text": "这是用来发送异常电波的无线电发射机。"
   },
   {
    "at": [
     12,
     2
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "TeamRocketBaseB2F\\n（城都地区的告示牌）"
+   "source_script": "TeamRocketBaseB2FHiddenFullHeal",
+   "kind": "hidden",
+   "item": "ITEM_FULL_HEAL",
+   "name": "万灵药",
+   "category": "heal",
+   "flag": "johto:EVENT_TEAM_ROCKET_BASE_B2F_HIDDEN_FULL_HEAL",
+   "count": 1
   }
  ],
  "weather": "",

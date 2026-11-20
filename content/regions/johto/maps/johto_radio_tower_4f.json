@@ -143,7 +143,7 @@
  "warps": [
   {
    "at": [
-    4,
+    0,
     0
    ],
    "to": {
@@ -171,7 +171,7 @@
   },
   {
    "at": [
-    4,
+    6,
     0
    ],
    "to": {
@@ -185,7 +185,7 @@
   },
   {
    "at": [
-    4,
+    8,
     0
    ],
    "to": {
@@ -206,9 +206,10 @@
     3,
     0
    ],
+   "source_script": "RadioTower4FProductionSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "无线电塔·4F\\n（城都地区的告示牌）"
+   "text": "四楼，节目制作部。"
   }
  ],
  "weather": "",

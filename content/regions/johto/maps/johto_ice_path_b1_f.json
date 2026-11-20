@@ -253,9 +253,13 @@
     8,
     15
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "冰雪小径·B1F\\n（城都地区的告示牌）"
+   "source_script": "IcePathB1FHiddenMaxPotion",
+   "kind": "hidden",
+   "item": "ITEM_MAX_POTION",
+   "name": "全满药",
+   "category": "heal",
+   "flag": "johto:EVENT_ICE_PATH_B1F_HIDDEN_MAX_POTION",
+   "count": 1
   }
  ],
  "weather": "",

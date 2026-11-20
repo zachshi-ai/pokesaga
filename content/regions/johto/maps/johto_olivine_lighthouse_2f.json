@@ -69,14 +69,14 @@
     "region": "johto",
     "map": "johto_olivine_lighthouse_1f",
     "at": [
-     6,
-     7
+     1,
+     4
     ]
    }
   },
   {
    "at": [
-    5,
+    2,
     1
    ],
    "to": {
@@ -97,21 +97,21 @@
     "region": "johto",
     "map": "johto_olivine_lighthouse_1f",
     "at": [
-     8,
-     5
+     7,
+     6
     ]
    }
   },
   {
    "at": [
-    8,
+    7,
     6
    ],
    "to": {
     "region": "johto",
     "map": "johto_olivine_lighthouse_1f",
     "at": [
-     8,
+     7,
      5
     ]
    }
@@ -125,22 +125,22 @@
     "region": "johto",
     "map": "johto_olivine_lighthouse_3f",
     "at": [
-     2,
-     1
+     8,
+     6
     ]
    }
   },
   {
    "at": [
-    8,
+    7,
     5
    ],
    "to": {
     "region": "johto",
     "map": "johto_olivine_lighthouse_3f",
     "at": [
-     2,
-     1
+     7,
+     6
     ]
    }
   }

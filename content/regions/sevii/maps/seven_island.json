@@ -110,48 +110,6 @@
   {
    "at": [
     7,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "seven_island_trainer_tower",
-    "at": [
-     10,
-     39
-    ]
-   }
-  },
-  {
-   "at": [
-    8,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "seven_island_trainer_tower",
-    "at": [
-     11,
-     39
-    ]
-   }
-  },
-  {
-   "at": [
-    9,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "seven_island_trainer_tower",
-    "at": [
-     12,
-     39
-    ]
-   }
-  },
-  {
-   "at": [
-    7,
     19
    ],
    "to": {
@@ -188,6 +146,48 @@
     "at": [
      9,
      0
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_trainer_tower",
+    "at": [
+     55,
+     39
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_trainer_tower",
+    "at": [
+     56,
+     39
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_trainer_tower",
+    "at": [
+     57,
+     39
     ]
    }
   }

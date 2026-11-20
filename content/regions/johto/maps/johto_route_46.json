@@ -160,7 +160,7 @@
     "region": "johto",
     "map": "johto_route_29_route_46_gate",
     "at": [
-     2,
+     1,
      1
     ]
    }
@@ -360,9 +360,10 @@
     4,
     13
    ],
+   "source_script": "Route46Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "46 号道路\\n（城都地区的告示牌）"
+   "text": "46 号道路，前方是山路。"
   }
  ],
  "weather": "",

@@ -5,6 +5,8 @@ safarizone_center、celadon_city_pokemon_center_1f vs celadoncity_pokemoncenter_
 火箭队基地、百货电梯），就把那扇门去掉，避免自检里出现"传送目标不存在"。
 用法: python3 tools/fix_warp_targets.py [--dry]
 """
+from asset_paths import project_path
+
 import json
 import os
 import re
@@ -14,7 +16,7 @@ import sys as _sys
 for _a in _sys.argv:
     if _a.startswith("--region="):
         _REGION = _a.split("=")[1]
-REG = "/root/build/pokesaga/content/regions/%s/maps" % _REGION
+REG = project_path("content/regions/%s/maps") % _REGION
 BIG = "kanto_main" if _REGION == "kanto" else ""
 
 

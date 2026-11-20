@@ -6,6 +6,8 @@ FRLG 的水面 metatile behavior 在这套数据里统一是 MB_NORMAL（拿不�
 逐格取中心 4x4 像素投票，超过一半偏蓝就算水。
 输出 emerald_maps/<map>.json 的 water 字段（1 = 水面）。
 """
+from asset_paths import project_path
+
 import glob
 import json
 import os
@@ -13,7 +15,7 @@ from collections import Counter
 
 from PIL import Image
 
-EMAPS = "/root/build/pokesaga/content/emerald_maps"
+EMAPS = project_path("content/emerald_maps")
 
 
 def is_blue(r, g, b):

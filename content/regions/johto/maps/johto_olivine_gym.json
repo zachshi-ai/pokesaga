@@ -109,9 +109,10 @@
     1,
     5
    ],
+   "source_script": "OlivineGymStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "浅葱道馆。馆主阿蜜，以钢铁般的防守著称。"
   }
  ],
  "weather": "",

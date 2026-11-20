@@ -109,22 +109,22 @@
     "region": "johto",
     "map": "johto_olivine_lighthouse_5f",
     "at": [
-     4,
-     4
+     8,
+     2
     ]
    }
   },
   {
    "at": [
-    8,
+    7,
     2
    ],
    "to": {
     "region": "johto",
     "map": "johto_olivine_lighthouse_5f",
     "at": [
-     4,
-     4
+     7,
+     1
     ]
    }
   }

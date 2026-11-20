@@ -331,18 +331,20 @@
     5,
     6
    ],
+   "source_script": "Route19Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "19 号道路\\n（城都地区的告示牌）"
+   "text": "19 号道路，浅红市至双子岛。"
   },
   {
    "at": [
     5,
     0
    ],
+   "source_script": "CarefulSwimmingSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "19 号道路\\n（城都地区的告示牌）"
+   "text": "浅红市警署提醒：游向双子岛时，请留意海况。"
   }
  ],
  "weather": "",

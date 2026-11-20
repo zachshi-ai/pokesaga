@@ -34,8 +34,8 @@
     "region": "johto",
     "map": "johto_route_41",
     "at": [
-     7,
-     17
+     6,
+     19
     ]
    }
   },
@@ -90,8 +90,8 @@
     "region": "johto",
     "map": "johto_whirl_island_b2_f",
     "at": [
-     2,
-     5
+     6,
+     16
     ]
    }
   }

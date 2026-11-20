@@ -9,13 +9,15 @@
   1. 从 species_info 里把同图鉴号的其余结构体抽成 forms（带属性/种族值/特性/立绘）
   2. 按目录结构导出形态立绘到 assets/mon/forms/<图鉴号>_<形态>.png
 """
+from asset_paths import project_path, source_path
+
 import re, glob, os, json
 
-ROOT = "/root/build/pokeemerald-expansion-master"
+ROOT = source_path("emerald")
 ART = os.path.join(ROOT, "graphics/pokemon")
 SRC = os.path.join(ROOT, "src/data/pokemon/species_info")
-OUT = "/root/build/pokesaga/content"
-SPRITE_OUT = "/root/build/pokesaga/assets/mon/forms"
+OUT = project_path("content")
+SPRITE_OUT = project_path("assets/mon/forms")
 
 TYPE_MAP = {
     "NORMAL": "normal", "FIGHTING": "fighting", "FLYING": "flying", "POISON": "poison",

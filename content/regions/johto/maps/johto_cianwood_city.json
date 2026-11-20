@@ -610,45 +610,50 @@
     10,
     17
    ],
+   "source_script": "CianwoodCitySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "湛蓝市\\n（城都地区的告示牌）"
+   "text": "湛蓝市，一座被汹涌海浪环绕的港城。"
   },
   {
    "at": [
     3,
     22
    ],
+   "source_script": "CianwoodGymSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "湛蓝市\\n（城都地区的告示牌）"
+   "text": "湛蓝道馆。馆主阿四，以一双铁拳闻名。"
   },
   {
    "at": [
     9,
     23
    ],
+   "source_script": "CianwoodPharmacySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "湛蓝市\\n（城都地区的告示牌）"
+   "text": "湛蓝药店已有五百年历史，欢迎前来问药。"
   },
   {
    "at": [
     4,
     16
    ],
+   "source_script": "CianwoodPhotoStudioSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "湛蓝市\\n（城都地区的告示牌）"
+   "text": "湛蓝照相馆。让照片为旅途留个纪念。"
   },
   {
    "at": [
     4,
     12
    ],
+   "source_script": "CianwoodPokeSeerSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "湛蓝市\\n（城都地区的告示牌）"
+   "text": "宝可梦占卜师就在前面。"
   }
  ],
  "weather": "",

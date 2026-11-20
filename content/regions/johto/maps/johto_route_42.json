@@ -178,8 +178,8 @@
     "region": "johto",
     "map": "johto_mount_mortar_1f_outside",
     "at": [
-     12,
-     7
+     1,
+     17
     ]
    }
   },
@@ -192,8 +192,8 @@
     "region": "johto",
     "map": "johto_mount_mortar_1f_outside",
     "at": [
-     12,
-     7
+     8,
+     17
     ]
    }
   },
@@ -206,8 +206,8 @@
     "region": "johto",
     "map": "johto_mount_mortar_1f_outside",
     "at": [
-     16,
-     7
+     18,
+     17
     ]
    }
   },
@@ -362,36 +362,43 @@
     2,
     5
    ],
+   "source_script": "Route42Sign1",
    "kind": "sign",
    "sprite": "sign",
-   "text": "42 号道路\\n（城都地区的告示牌）"
+   "text": "42 号道路，圆朱市至卡吉镇。"
   },
   {
    "at": [
     22,
     4
    ],
+   "source_script": "MtMortarSign2",
    "kind": "sign",
    "sprite": "sign",
-   "text": "42 号道路\\n（城都地区的告示牌）"
+   "text": "擂钵山。山洞里有瀑布。"
   },
   {
    "at": [
     27,
     4
    ],
+   "source_script": "Route42Sign2",
    "kind": "sign",
    "sprite": "sign",
-   "text": "42 号道路\\n（城都地区的告示牌）"
+   "text": "42 号道路，圆朱市至卡吉镇。"
   },
   {
    "at": [
     6,
     3
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "42 号道路\\n（城都地区的告示牌）"
+   "source_script": "Route42HiddenMaxPotion",
+   "kind": "hidden",
+   "item": "ITEM_MAX_POTION",
+   "name": "全满药",
+   "category": "heal",
+   "flag": "johto:EVENT_ROUTE_42_HIDDEN_MAX_POTION",
+   "count": 1
   }
  ],
  "weather": "",

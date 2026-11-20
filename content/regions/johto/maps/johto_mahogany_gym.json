@@ -239,9 +239,10 @@
     1,
     6
    ],
+   "source_script": "MahoganyGymStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "卡吉道馆。馆主柳伯，教人领略严冬的修行者。"
   }
  ],
  "weather": "",

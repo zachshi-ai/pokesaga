@@ -274,45 +274,50 @@
     5,
     4
    ],
+   "source_script": "TeamRocketBaseB3FLockedDoor",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB3F\\n（城都地区的告示牌）"
+   "text": "通往老大办公室的门需要密码。"
   },
   {
    "at": [
     5,
     0
    ],
+   "source_script": "TeamRocketBaseB3FOathScript",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB3F\\n（城都地区的告示牌）"
+   "text": "火箭队的誓词写道：夺取宝可梦来牟利，利用宝可梦征服世界！"
   },
   {
    "at": [
     6,
     0
    ],
+   "source_script": "TeamRocketBaseB3FOathScript",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB3F\\n（城都地区的告示牌）"
+   "text": "火箭队的誓词写道：夺取宝可梦来牟利，利用宝可梦征服世界！"
   },
   {
    "at": [
     2,
     6
    ],
+   "source_script": "TeamRocketBaseB3FOathScript",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB3F\\n（城都地区的告示牌）"
+   "text": "火箭队的誓词写道：夺取宝可梦来牟利，利用宝可梦征服世界！"
   },
   {
    "at": [
     3,
     6
    ],
+   "source_script": "TeamRocketBaseB3FOathScript",
    "kind": "sign",
    "sprite": "sign",
-   "text": "TeamRocketBaseB3F\\n（城都地区的告示牌）"
+   "text": "火箭队的誓词写道：夺取宝可梦来牟利，利用宝可梦征服世界！"
   }
  ],
  "weather": "",

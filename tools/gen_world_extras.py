@@ -6,12 +6,14 @@
 trainers_frlg.party 里的队伍。
 用法: python3 tools/gen_world_extras.py
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import re
 
-PJ = "/root/build/pokesaga"
-ROOT = "/root/build/pokeemerald-expansion-master"
+PJ = project_path()
+ROOT = source_path("emerald")
 MD = os.path.join(ROOT, "data/maps")
 EM = os.path.join(PJ, "content/emerald_maps")
 

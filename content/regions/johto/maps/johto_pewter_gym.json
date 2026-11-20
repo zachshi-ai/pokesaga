@@ -94,18 +94,20 @@
     1,
     5
    ],
+   "source_script": "PewterGymStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "尼比道馆。馆主小刚，坚如磐石的训练家。"
   },
   {
    "at": [
     2,
     4
    ],
+   "source_script": "PewterGymStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "尼比道馆。馆主小刚，坚如磐石的训练家。"
   }
  ],
  "weather": "",

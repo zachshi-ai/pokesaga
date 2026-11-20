@@ -6,16 +6,18 @@
 岛和岛之间靠港口坐船（这里简化成一圈轮渡：1→2→…→7→1）。
 用法: python3 tools/gen_sevii.py [--dry]
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import re
 import sys
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-PJ = "/root/build/pokesaga"
+ROOT = source_path("emerald")
+PJ = project_path()
 EMAPS = os.path.join(PJ, "content/emerald_maps")
 REG = os.path.join(PJ, "content/regions/sevii/maps")
-FRLG_WILD = "/tmp/frlg/pokefirered-master/src/data/wild_encounters.json"
+FRLG_WILD = source_path("firered", "src/data/wild_encounters.json")
 
 INCLUDE = [
     "OneIsland", "TwoIsland", "ThreeIsland", "FourIsland", "FiveIsland",
@@ -375,7 +377,7 @@ def main():
             spot = far_spot(col, occ, h["spawn"])
             if spot:
                 h["warps"].append({"at": [spot[0], spot[1]],
-                                   "to": {"region": "kanto", "map": "kanto_main", "at": [287, 235]}})
+                                   "to": {"region": "kanto", "map": "kanto_main", "at": [287, 234]}})
                 json.dump(h, open(os.path.join(REG, "one_island_harbor.json"), "w"),
                           ensure_ascii=False, indent=1)
                 bp = os.path.join(PJ, "content/regions/kanto/maps/kanto_main.json")

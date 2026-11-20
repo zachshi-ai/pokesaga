@@ -97,7 +97,21 @@
   {
    "at": [
     1,
-    6
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fast_ship_1f",
+    "at": [
+     5,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    9
    ],
    "to": {
     "region": "johto",
@@ -111,7 +125,21 @@
   {
    "at": [
     1,
-    7
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fast_ship_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    15
    ],
    "to": {
     "region": "johto",
@@ -125,41 +153,13 @@
   {
    "at": [
     1,
-    7
+    15
    ],
    "to": {
     "region": "johto",
     "map": "johto_fast_ship_1f",
     "at": [
      9,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    1,
-    7
-   ],
-   "to": {
-    "region": "johto",
-    "map": "johto_fast_ship_1f",
-    "at": [
-     11,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    1,
-    7
-   ],
-   "to": {
-    "region": "johto",
-    "map": "johto_fast_ship_1f",
-    "at": [
-     11,
      8
     ]
    }
@@ -173,18 +173,20 @@
     3,
     1
    ],
+   "source_script": "FastShipBed",
    "kind": "sign",
    "sprite": "sign",
-   "text": "快速船·Cabins_SW_SSW_NW\\n（城都地区的告示牌）"
+   "text": "客舱的床铺平整又柔软，正适合休息。"
   },
   {
    "at": [
     3,
     3
    ],
+   "source_script": "FastShipCabinsNorthwestCabinTrashcan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "快速船·Cabins_SW_SSW_NW\\n（城都地区的告示牌）"
+   "text": "看了看垃圾桶，里面什么也没有。"
   }
  ],
  "weather": "",

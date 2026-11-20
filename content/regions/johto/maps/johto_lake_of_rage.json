@@ -289,18 +289,26 @@
     5,
     14
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "愤怒之湖\\n（城都地区的告示牌）"
+   "source_script": "LakeOfRageHiddenFullRestore",
+   "kind": "hidden",
+   "item": "ITEM_FULL_RESTORE",
+   "name": "全复药",
+   "category": "heal",
+   "flag": "johto:EVENT_LAKE_OF_RAGE_HIDDEN_FULL_RESTORE",
+   "count": 1
   },
   {
    "at": [
     17,
     2
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "愤怒之湖\\n（城都地区的告示牌）"
+   "source_script": "LakeOfRageHiddenMaxPotion",
+   "kind": "hidden",
+   "item": "ITEM_MAX_POTION",
+   "name": "全满药",
+   "category": "heal",
+   "flag": "johto:EVENT_LAKE_OF_RAGE_HIDDEN_MAX_POTION",
+   "count": 1
   }
  ],
  "weather": "",

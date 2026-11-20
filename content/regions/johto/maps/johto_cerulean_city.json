@@ -852,63 +852,74 @@
     11,
     11
    ],
+   "source_script": "CeruleanCitySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "CeruleanCity\\n（城都地区的告示牌）"
+   "text": "华蓝市，笼罩在神秘蓝色气息中的城市。"
   },
   {
    "at": [
     13,
     12
    ],
+   "source_script": "CeruleanGymSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "CeruleanCity\\n（城都地区的告示牌）"
+   "text": "华蓝道馆。馆主是人称「淘气美人鱼」的小霞。"
   },
   {
    "at": [
     5,
     14
    ],
+   "source_script": "CeruleanBikeShopSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "CeruleanCity\\n（城都地区的告示牌）"
+   "text": "搬迁通知：自行车店已经迁往城都的满金市。"
   },
   {
    "at": [
     12,
     8
    ],
+   "source_script": "CeruleanPoliceSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "CeruleanCity\\n（城都地区的告示牌）"
+   "text": "华蓝市警署：请协助防范盗窃，一起守护这座城市。"
   },
   {
    "at": [
     11,
     3
    ],
+   "source_script": "CeruleanCapeSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "CeruleanCity\\n（城都地区的告示牌）"
+   "text": "前方是华蓝海角。"
   },
   {
    "at": [
     8,
     13
    ],
+   "source_script": "CeruleanLockedDoor",
    "kind": "sign",
    "sprite": "sign",
-   "text": "CeruleanCity\\n（城都地区的告示牌）"
+   "text": "门锁上了。"
   },
   {
    "at": [
     0,
     5
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "CeruleanCity\\n（城都地区的告示牌）"
+   "source_script": "CeruleanCityHiddenBerserkGene",
+   "kind": "hidden",
+   "item": "ITEM_BERSERK_GENE",
+   "name": "破坏基因",
+   "category": "held",
+   "flag": "johto:EVENT_FOUND_BERSERK_GENE_IN_CERULEAN_CITY",
+   "count": 1,
+   "held": "BERSERK_GENE"
   }
  ],
  "weather": "",

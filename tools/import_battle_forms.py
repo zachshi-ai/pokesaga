@@ -10,6 +10,8 @@
 数据全部取自已开源的 pokeemerald-expansion 源码块，立绘取同一套素材，
 不另绘、不杜撰。已有同名形态的跳过。
 """
+from asset_paths import project_path
+
 import os
 import re
 import json
@@ -19,7 +21,7 @@ import glob
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import import_forms as F
 
-OUT = "/root/build/pokesaga/content"
+OUT = project_path("content")
 ART = F.ART
 SPRITE_OUT = F.SPRITE_OUT
 

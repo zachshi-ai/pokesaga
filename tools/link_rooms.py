@@ -4,12 +4,14 @@
 
 用法: python3 tools/link_rooms.py
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-EMAPS = "/root/build/pokesaga/content/emerald_maps"
-REG = "/root/build/pokesaga/content/regions/kanto/maps"
+ROOT = source_path("emerald")
+EMAPS = project_path("content/emerald_maps")
+REG = project_path("content/regions/kanto/maps")
 
 # 原版地图名 -> 游戏内 id
 INDOOR = [

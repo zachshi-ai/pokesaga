@@ -1,1 +1,56 @@
-{"name":"赤红家 2F","emerald":"johto_reds_house_2f","size":[4,4],"spawn":[2,2],"npcs":[],"warps":[{"at":[3,0],"to":{"region":"johto","map":"johto_reds_house_1f","at":[3,1]}}],"encounters":[],"encounter_rate":0.0,"objects":[{"at":[1,2],"kind":"sign","sprite":"sign","text":"赤红家 2F\\n（城都地区的告示牌）"},{"at":[0,0],"kind":"sign","sprite":"sign","text":"赤红家 2F\\n（城都地区的告示牌）"}],"weather":"","weather_name":"","cycling":false}
+{
+ "name": "赤红家 2F",
+ "emerald": "johto_reds_house_2f",
+ "size": [
+  4,
+  4
+ ],
+ "spawn": [
+  2,
+  2
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    3,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_reds_house_1f",
+    "at": [
+     3,
+     1
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    1,
+    2
+   ],
+   "source_script": "RedsHouse2FN64Script",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一台 Nintendo 64 游戏机。该出发了。"
+  },
+  {
+   "at": [
+    0,
+    0
+   ],
+   "source_script": "RedsHouse2FPCScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这台电脑似乎很久没人用过了。"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

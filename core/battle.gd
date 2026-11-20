@@ -4,6 +4,8 @@ extends RefCounted
 ## 这样做的好处是可以在 headless 下跑成千上万场做回归测试，
 ## 接新地区、新世代规则时只改这里的一方，不牵动界面。
 
+signal variant_seen(side: String, mon: Dictionary)
+
 const STAGE_MULT := [0.33, 0.4, 0.5, 0.66, 1.0, 1.5, 2.0, 2.5, 3.0]
 const FieldScript := preload("res://core/field.gd")
 
@@ -240,6 +242,7 @@ func transform(side: String, form_key: String) -> Dictionary:
 	}
 	c["forms_used"] = int(c.get("forms_used", 0)) + 1
 	c["gmax_active"] = kind == "gmax"
+	variant_seen.emit(side, c)
 	var verb := "极巨化了" if kind == "gmax" else "Mega 进化了"
 	return {"ok": true, "text": "%s %s！" % [old_name, verb]}
 
@@ -283,6 +286,7 @@ func switch_form(side: String, form_key: String, reason: String = "") -> bool:
 		"spd": int((2 * int(new_base.get("spd", 1)) + 31) * lv / 100.0) + 5,
 		"spe": int((2 * int(new_base.get("spe", 1)) + 31) * lv / 100.0) + 5,
 	}
+	variant_seen.emit(side, c)
 	if reason != "":
 		log.append(reason)
 	return true
@@ -522,6 +526,7 @@ func use_tera(side: String) -> Dictionary:
 	var old_name := String(c["name"])
 	c["types"] = [ty]
 	c["name"] = "%s（太晶）" % old_name
+	variant_seen.emit(side, c)
 	return {"ok": true, "text": "%s 太晶化了！属性变成 %s。" % [old_name, ty]}
 
 ## 换上场时踩钉子：尖刺、隐形岩、毒菱、黏网、钢刺
@@ -551,6 +556,7 @@ func _on_send_out(side: String) -> void:
 	var foe: Dictionary = cur_b() if side == "a" else cur_a()
 	if me.get("fainted", false):
 		return
+	variant_seen.emit(side, me)
 	var me_eff: Dictionary = Data.ability_effect(_ab(me))
 	# 出场自动开天气的特性
 	var weather_ab := {"扬沙": "sandstorm", "降雨": "rain", "日照": "sun", "降雪": "snow"}
@@ -680,8 +686,8 @@ func try_flee() -> Dictionary:
 	escape_tries += 1
 	var my_spe := float(maxi(1, int(cur_a().get("stats", {}).get("spe", 1))))
 	var foe_spe := float(maxi(1, int(cur_b().get("stats", {}).get("spe", 1))))
-	var p := clampf(0.55 + 0.35 * (my_spe / (my_spe + foe_spe) - 0.5) - 0.08 * (escape_tries - 1), 0.15, 0.95)
-	if rng.randf() < p:
+	var chance := my_spe * 128.0 / foe_spe + 30.0 * escape_tries
+	if my_spe >= foe_spe or rng.randi_range(0, 255) < chance:
 		fled = true
 		over = true
 		winner = "fled"
@@ -3692,8 +3698,10 @@ func _check_end() -> void:
 
 	if cur_a()["fainted"]:
 		active_a = _first_alive(team_a)
+		_on_send_out("a")
 	if cur_b()["fainted"]:
 		active_b = _first_alive(team_b)
+		_on_send_out("b")
 
 func _any_alive(team: Array) -> bool:
 	for c in team:

@@ -78,18 +78,20 @@
     2,
     5
    ],
+   "source_script": "Route7UndergroundPathSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "7 号道路\\n（城都地区的告示牌）"
+   "text": "玉虹市的通知：因地下通道内频发对战，影响附近居民，通道已封闭。"
   },
   {
    "at": [
     2,
     3
    ],
+   "source_script": "Route7LockedDoor",
    "kind": "sign",
    "sprite": "sign",
-   "text": "7 号道路\\n（城都地区的告示牌）"
+   "text": "门锁上了。"
   }
  ],
  "weather": "",

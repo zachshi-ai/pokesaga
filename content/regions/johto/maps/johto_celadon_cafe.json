@@ -1,1 +1,122 @@
-{"name":"玉虹咖啡厅","emerald":"johto_celadon_cafe","size":[6,4],"spawn":[3,2],"npcs":[{"at":[4,1],"name":"理科男","gfx":"scientist","lines":["研究数据是不会骗人的。","宝可梦的行为比人想的复杂得多。"]},{"at":[2,3],"name":"钓鱼人","gfx":"sailor","lines":["海风今天不错。","船期？看天，也看运气。"]},{"at":[0,3],"name":"钓鱼人","gfx":"sailor","lines":["海风今天不错。","船期？看天，也看运气。"]},{"at":[0,1],"name":"钓鱼人","gfx":"sailor","lines":["海风今天不错。","船期？看天，也看运气。"]},{"at":[2,1],"name":"老师","gfx":"lass","lines":["这条路我闭着眼都能走。","听说北边的塔里住着传说中的宝可梦。","天快黑了，早点回去吧。"]}],"warps":[{"at":[3,3],"to":{"region":"johto","map":"johto_celadon_city","at":[9,10]}},{"at":[3,3],"to":{"region":"johto","map":"johto_celadon_city","at":[9,10]}}],"encounters":[],"encounter_rate":0.0,"objects":[{"at":[2,0],"kind":"sign","sprite":"sign","text":"玉虹咖啡厅\\n（城都地区的告示牌）"}],"weather":"","weather_name":"","cycling":false}
+{
+ "name": "玉虹咖啡厅",
+ "emerald": "johto_celadon_cafe",
+ "size": [
+  6,
+  4
+ ],
+ "spawn": [
+  3,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    1
+   ],
+   "name": "理科男",
+   "gfx": "scientist",
+   "lines": [
+    "研究数据是不会骗人的。",
+    "宝可梦的行为比人想的复杂得多。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    0,
+    3
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    0,
+    1
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    1
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_celadon_city",
+    "at": [
+     12,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_celadon_city",
+    "at": [
+     12,
+     15
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    2,
+    0
+   ],
+   "source_script": "EatathonContestPoster",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "大胃王挑战！不限时，吃得最多的客人免单。"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

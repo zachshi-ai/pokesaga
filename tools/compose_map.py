@@ -5,11 +5,13 @@
 PNG 与碰撞表一起更新，输出成一张新的 emerald 地图。这样房子、道馆、宝可梦中心
 都能反复用在任何城镇里，不用每次重画。
 """
+from asset_paths import project_path
+
 import json, os, shutil
 from PIL import Image
 
-EMAPS = "/root/build/pokesaga/content/emerald_maps"
-PREFABS = "/root/build/pokesaga/content/prefabs"
+EMAPS = project_path("content/emerald_maps")
+PREFABS = project_path("content/prefabs")
 
 
 def load_base(name):

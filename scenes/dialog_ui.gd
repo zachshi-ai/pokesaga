@@ -28,15 +28,11 @@ var _full := ""
 var _typing := false
 
 func _ready() -> void:
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	_build()
 
 func _build() -> void:
-	var vp := get_viewport_rect().size
-	if vp.x < 10:
-		vp = Vector2(480, 320)
-	size = vp
 
 	box = Panel.new()
 	box.position = Vector2(8, size.y - 130)

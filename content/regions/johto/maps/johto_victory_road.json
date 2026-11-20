@@ -1,1 +1,253 @@
-{"name":"VictoryRoad","emerald":"johto_victory_road","size":[10,36],"spawn":[4,17],"npcs":[{"at":[9,6],"name":"劲敌","gfx":"youngster","lines":["我以后也要当很强的训练家！","你的宝可梦看起来很精神。"]},{"at":[1,14],"name":"道具球","gfx":"man","lines":["哟，眼生得很啊。","城都这地方，慢慢逛才有味道。","出远门记得带足伤药。"]},{"at":[7,24],"name":"道具球","gfx":"man","lines":["哟，眼生得很啊。","城都这地方，慢慢逛才有味道。","出远门记得带足伤药。"]},{"at":[8,15],"name":"道具球","gfx":"man","lines":["哟，眼生得很啊。","城都这地方，慢慢逛才有味道。","出远门记得带足伤药。"]},{"at":[8,24],"name":"道具球","gfx":"man","lines":["哟，眼生得很啊。","城都这地方，慢慢逛才有味道。","出远门记得带足伤药。"]},{"at":[3,19],"name":"道具球","gfx":"man","lines":["哟，眼生得很啊。","城都这地方，慢慢逛才有味道。","出远门记得带足伤药。"]}],"warps":[{"at":[4,21],"to":{"region":"johto","map":"johto_victory_road_gate","at":[4,1]}},{"at":[0,19],"to":{"region":"johto","map":"johto_victory_road","at":[0,18]}},{"at":[0,17],"to":{"region":"johto","map":"johto_victory_road","at":[0,18]}},{"at":[6,15],"to":{"region":"johto","map":"johto_victory_road","at":[5,14]}},{"at":[6,14],"to":{"region":"johto","map":"johto_victory_road","at":[6,16]}},{"at":[8,16],"to":{"region":"johto","map":"johto_victory_road","at":[5,14]}},{"at":[6,14],"to":{"region":"johto","map":"johto_victory_road","at":[8,17]}},{"at":[0,13],"to":{"region":"johto","map":"johto_victory_road","at":[0,14]}},{"at":[0,13],"to":{"region":"johto","map":"johto_victory_road","at":[0,14]}},{"at":[6,14],"to":{"region":"johto","map":"johto_route_23","at":[4,7]}}],"encounters":[],"encounter_rate":0.0,"objects":[{"at":[1,32],"kind":"sign","sprite":"sign","text":"VictoryRoad\\n（城都地区的告示牌）"}],"weather":"","weather_name":"","cycling":false}
+{
+ "name": "VictoryRoad",
+ "emerald": "johto_victory_road",
+ "size": [
+  10,
+  36
+ ],
+ "spawn": [
+  4,
+  17
+ ],
+ "npcs": [
+  {
+   "at": [
+    9,
+    6
+   ],
+   "name": "劲敌",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    14
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    24
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    15
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    24
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    19
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    33
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_victory_road_gate",
+    "at": [
+     4,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    24
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_victory_road",
+    "at": [
+     0,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_victory_road",
+    "at": [
+     0,
+     25
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_victory_road",
+    "at": [
+     6,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_victory_road",
+    "at": [
+     6,
+     16
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    16
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_victory_road",
+    "at": [
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_victory_road",
+    "at": [
+     8,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_victory_road",
+    "at": [
+     0,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_victory_road",
+    "at": [
+     0,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_23",
+    "at": [
+     4,
+     7
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    1,
+    32
+   ],
+   "source_script": "VictoryRoadHiddenFullHeal",
+   "kind": "hidden",
+   "item": "ITEM_FULL_HEAL",
+   "name": "万灵药",
+   "category": "heal",
+   "flag": "johto:EVENT_VICTORY_ROAD_HIDDEN_FULL_HEAL",
+   "count": 1
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

@@ -5,11 +5,13 @@
 但同一张图里出现两段一模一样的对话会显得像复制粘贴，这里按一张图内去重。
 用法: python3 tools/dedupe_lines.py [--dry]
 """
+from asset_paths import project_path
+
 import json
 import os
 import sys
 
-PJ = "/root/build/pokesaga"
+PJ = project_path()
 REGIONS = os.path.join(PJ, "content/regions")
 
 POOL = [

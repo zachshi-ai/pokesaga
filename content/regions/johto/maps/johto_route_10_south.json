@@ -304,9 +304,10 @@
     2,
     1
    ],
+   "source_script": "Route10Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "10 号道路\\n（城都地区的告示牌）"
+   "text": "10 号道路，华蓝市至紫苑镇。"
   }
  ],
  "weather": "",

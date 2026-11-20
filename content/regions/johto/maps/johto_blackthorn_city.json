@@ -394,27 +394,30 @@
     17,
     12
    ],
+   "source_script": "BlackthornCitySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "烟墨市\\n（城都地区的告示牌）"
+   "text": "烟墨市，群山深处的静谧小城。"
   },
   {
    "at": [
     3,
     15
    ],
+   "source_script": "MoveDeletersHouseSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "烟墨市\\n（城都地区的告示牌）"
+   "text": "招式遗忘爷爷的家。"
   },
   {
    "at": [
     2,
     12
    ],
+   "source_script": "BlackthornCityTrainerTips",
    "kind": "sign",
    "sprite": "sign",
-   "text": "烟墨市\\n（城都地区的告示牌）"
+   "text": "训练家心得：宝可梦携带奇迹果，可以靠它解除异常状态。"
   }
  ],
  "weather": "",

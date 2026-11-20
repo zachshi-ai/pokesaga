@@ -260,21 +260,7 @@
     "map": "six_island_water_path",
     "at": [
      0,
-     14
-    ]
-   }
-  },
-  {
-   "at": [
-    47,
-    8
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_water_path",
-    "at": [
-     0,
-     13
+     89
     ]
    }
   },
@@ -288,21 +274,21 @@
     "map": "six_island_water_path",
     "at": [
      0,
-     15
+     90
     ]
    }
   },
   {
    "at": [
     47,
-    12
+    11
    ],
    "to": {
     "region": "sevii",
     "map": "six_island_water_path",
     "at": [
      0,
-     17
+     91
     ]
    }
   }

@@ -1,1 +1,73 @@
-{"name":"超能先生家","emerald":"johto_mr_psychics_house","size":[4,4],"spawn":[2,2],"npcs":[{"at":[2,1],"name":"居民","gfx":"man","lines":["你好。","路上小心。"]}],"warps":[{"at":[1,3],"to":{"region":"johto","map":"johto_saffron_city","at":[13,15]}},{"at":[1,3],"to":{"region":"johto","map":"johto_saffron_city","at":[13,15]}}],"encounters":[],"encounter_rate":0.0,"objects":[{"at":[0,0],"kind":"sign","sprite":"sign","text":"超能先生家\\n（城都地区的告示牌）"}],"weather":"","weather_name":"","cycling":false}
+{
+ "name": "超能先生家",
+ "emerald": "johto_mr_psychics_house",
+ "size": [
+  4,
+  4
+ ],
+ "spawn": [
+  2,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    1
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_saffron_city",
+    "at": [
+     13,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_saffron_city",
+    "at": [
+     13,
+     15
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    0,
+    0
+   ],
+   "source_script": "MrPsychicsHouseBookshelf",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "书架上全是专业书籍，读起来有些费劲。"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

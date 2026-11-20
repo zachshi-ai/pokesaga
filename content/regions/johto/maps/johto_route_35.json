@@ -287,8 +287,8 @@
     "region": "johto",
     "map": "johto_route_35_goldenrod_gate",
     "at": [
-     2,
-     1
+     0,
+     0
     ]
    }
   },
@@ -451,18 +451,20 @@
     0,
     3
    ],
+   "source_script": "Route35Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "35 号道路\\n（城都地区的告示牌）"
+   "text": "35 号道路。"
   },
   {
    "at": [
     5,
     15
    ],
+   "source_script": "Route35Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "35 号道路\\n（城都地区的告示牌）"
+   "text": "35 号道路。"
   }
  ],
  "weather": "",

@@ -219,7 +219,7 @@
     "region": "johto",
     "map": "johto_route_43_mahogany_gate",
     "at": [
-     2,
+     1,
      1
     ]
    }
@@ -261,7 +261,7 @@
     "region": "johto",
     "map": "johto_route_43_gate",
     "at": [
-     2,
+     1,
      1
     ]
    }
@@ -447,27 +447,30 @@
     6,
     1
    ],
+   "source_script": "Route43Sign1",
    "kind": "sign",
    "sprite": "sign",
-   "text": "43 号道路\\n（城都地区的告示牌）"
+   "text": "43 号道路，愤怒之湖至卡吉镇。"
   },
   {
    "at": [
     5,
     24
    ],
+   "source_script": "Route43Sign2",
    "kind": "sign",
    "sprite": "sign",
-   "text": "43 号道路\\n（城都地区的告示牌）"
+   "text": "43 号道路，愤怒之湖至卡吉镇。"
   },
   {
    "at": [
     8,
     19
    ],
+   "source_script": "Route43TrainerTips",
    "kind": "sign",
    "sprite": "sign",
-   "text": "43 号道路\\n（城都地区的告示牌）"
+   "text": "训练家心得：留心属性相性，即使等级更高也可能被克制。"
   }
  ],
  "weather": "",

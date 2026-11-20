@@ -6,13 +6,15 @@
 走过去就到隔壁图的对应位置，效果和原版一路走到底差不多。
 用法: python3 tools/gen_connections.py --region=sevii [--dry]
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import re
 import sys
 
-PJ = "/root/build/pokesaga"
-ROOT = "/root/build/pokeemerald-expansion-master"
+PJ = project_path()
+ROOT = source_path("emerald")
 MD = os.path.join(ROOT, "data/maps")
 EM = os.path.join(PJ, "content/emerald_maps")
 
@@ -29,6 +31,11 @@ def norm(s):
 
 
 def main():
+    if REGION == "sevii":
+        from sevii_connections import rebuild
+        firered = source_path("firered", "data/maps")
+        rebuild(REG, EM, firered if os.path.isdir(firered) else MD, DRY)
+        return
     rooms = {}
     for f in os.listdir(REG):
         if f.endswith(".json"):

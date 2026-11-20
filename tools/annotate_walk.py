@@ -16,13 +16,15 @@
   dirblock  位掩码  1 北 / 2 南 / 4 东 / 8 西，从该方向进不来
   ledge     位掩码  该格可朝哪个方向跳下去
 """
+from asset_paths import project_path, source_path
+
 import json, os, glob, struct, sys
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-EMAPS = "/root/build/pokesaga/content/emerald_maps"
-REG = "/root/build/pokesaga/content/regions"
+ROOT = source_path("emerald")
+EMAPS = project_path("content/emerald_maps")
+REG = project_path("content/regions")
 
-sys.path.insert(0, "/root/build/pokesaga/tools")
+sys.path.insert(0, project_path("tools"))
 from render_emerald_maps import get_primary, get_secondary
 from annotate_encounters import behaviors, behavior_of
 

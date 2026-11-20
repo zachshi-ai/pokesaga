@@ -129,9 +129,13 @@
     1,
     5
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "冰雪小径·B2FBlackthornSide\\n（城都地区的告示牌）"
+   "source_script": "IcePathB2FBlackthornSideHiddenIceHeal",
+   "kind": "hidden",
+   "item": "ITEM_ICE_HEAL",
+   "name": "解冻药",
+   "category": "heal",
+   "flag": "johto:EVENT_ICE_PATH_B2F_BLACKTHORN_SIDE_HIDDEN_ICE_HEAL",
+   "count": 1
   }
  ],
  "weather": "",

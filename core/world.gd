@@ -377,7 +377,8 @@ func can_enter(p: Vector2i, dir: Vector2i, ignore_mask: bool = false) -> bool:
 		return false
 	var has_cleared := _is_cleared(p)
 	if not has_cleared:
-		if int(row[p.x]) != 0:
+		# 城都碰撞层把水面标为步行障碍；学会冲浪后只放行真正的水格。
+		if int(row[p.x]) != 0 and not (surfing and is_water(p)):
 			return false
 		# 水面：只有冲浪时能进；上了岸就自动结束冲浪
 		if is_water(p) and not surfing:
@@ -618,8 +619,13 @@ func can_step(dir: Vector2i) -> bool:
 	if target.x < 0 or target.y < 0 or target.x >= tile_size.x or target.y >= tile_size.y:
 		return false
 	# 坡沿是单行道：只准顺着坡的方向过去，反着走一律不行
-	if ledge_bits(target) != 0 and not _ledge_allows(target, dir):
-		return false
+	var ledge := ledge_bits(target)
+	if ledge != 0 and not _ledge_allows(target, dir):
+		# Crystal 的单向坡唇是 LAND_TILE，玩家可以沿坡唇横走（26 号道路的通路）。
+		# 仍然禁止从坡底逆向上坡，其他地区保留原来的阻挡规则。
+		var along_lip := (dir.x != 0 and ledge in [1, 2]) or (dir.y != 0 and ledge in [4, 8])
+		if map_data.get("region", "") != "johto" or not along_lip:
+			return false
 	if ledge_bits(target) != 0 and _ledge_allows(target, dir):
 		return jump_landing(dir).x >= 0
 	if can_enter(target, dir):
@@ -952,6 +958,7 @@ func _rebuild() -> void:
 		else:
 			var big := Sprite2D.new()
 			big.texture = load(emerald_png_path)
+			big.scale = Vector2(tile_size * TILE) / big.texture.get_size()
 			big.centered = false
 			big.position = Vector2.ZERO
 			big.z_index = 0
@@ -1167,6 +1174,8 @@ func apply_light() -> void:
 
 
 func _sync_dark() -> void:
+	if not is_inside_tree():
+		return
 	if _dark_rect == null:
 		_dark_rect = ColorRect.new()
 		_dark_rect.color = Color(0, 0, 0, 0.94)
@@ -1180,6 +1189,8 @@ func _sync_dark() -> void:
 
 
 func _sync_weather_fx() -> void:
+	if not is_inside_tree():
+		return
 	var want := weather in ["rain", "thunderstorm", "snow", "sandstorm", "volcanic_ash"]
 	if _weather_fx == null:
 		_weather_fx = CPUParticles2D.new()
@@ -1237,13 +1248,14 @@ func _add_overlay() -> void:
 		return
 	var path := emerald_png_path.replace(".png", "_fg.png")
 	if ResourceLoader.exists(path):
-		_add_fg_rows(load(path), Vector2.ZERO, 0)
+		var tex: Texture2D = load(path)
+		_add_fg_rows(tex, Vector2.ZERO, 0, roundi(tex.get_height() / float(tile_size.y)))
 
 
 ## 前景层按「行」切开放，每行跟着它所在的 y 排序。
 ## 整张前景压在一个大 z 上会带来两个老问题：站在树后看不见人（对），
 ## 但站在树前也被树盖住（错）；大图上人物 z 涨过前景后，又变成人踩在树上。
-func _add_fg_rows(tex: Texture2D, origin: Vector2, base_row: int) -> void:
+func _add_fg_rows(tex: Texture2D, origin: Vector2, base_row: int, row_h := TILE) -> void:
 	if tex == null:
 		return
 	var img: Image = tex.get_image()
@@ -1253,7 +1265,6 @@ func _add_fg_rows(tex: Texture2D, origin: Vector2, base_row: int) -> void:
 	var h := img.get_height()
 	if w <= 0 or h <= 0:
 		return
-	var row_h := TILE
 	var rows := int(ceil(float(h) / float(row_h)))
 	for r in rows:
 		var top := r * row_h
@@ -1275,7 +1286,8 @@ func _add_fg_rows(tex: Texture2D, origin: Vector2, base_row: int) -> void:
 		var sp := Sprite2D.new()
 		sp.texture = at
 		sp.centered = false
-		sp.position = origin + Vector2(0, top)
+		sp.scale = Vector2.ONE * float(TILE) / row_h
+		sp.position = origin + Vector2(0, r * TILE)
 		# 与人物同一套排序，行号大（更靠南）才盖住人
 		sp.z_index = Z_ACTOR + (base_row + r) * 2 + 1
 		if OS.get_environment("FG_TINT") == "1":

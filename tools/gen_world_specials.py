@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """特殊世界与岛屿：三层结构图（L0 主盘 / L1 地理附属 / L2 平行异层）。"""
+from asset_paths import project_path
+
 from PIL import Image, ImageDraw, ImageFont
-import math
+import math, json
+from pathlib import Path
+from gen_world_map import fb, fr
 
 W, H = 1600, 1100
 OCEAN = (9, 18, 26)
@@ -10,18 +14,6 @@ INK = (232, 240, 238)
 DIM = (138, 158, 160)
 MINT = (108, 205, 184)
 GOLD = (236, 206, 120)
-
-FB = "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc"
-FR = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
-
-
-def fb(s):
-    return ImageFont.truetype(FB, s, index=2)
-
-
-def fr(s):
-    return ImageFont.truetype(FR, s, index=2)
-
 
 # 主盘九地区（横排，保持东西向顺序：西→东）
 MAIN = [
@@ -92,6 +84,8 @@ def dashed(d, p0, p1, color, width=3, dash=12, gap=8):
 
 
 def main():
+    graph = json.loads(Path(project_path("content/world_graph.json")).read_text())
+    specials = {s["id"]:s["status"] for s in graph["specials"]}
     im = Image.new("RGB", (W, H), OCEAN)
     d = ImageDraw.Draw(im, "RGBA")
 
@@ -120,11 +114,11 @@ def main():
                             outline=(c[0], c[1], c[2], 240), width=2)
         d.rounded_rectangle([x, y, x + 6, y + th], radius=3, fill=c)
         d.text((x + 18, y + 10), name, font=fb(23), fill=INK)
-        d.text((x + 18, y + 40), "第%d世代 · %s" % (gen, proto), font=fr(13), fill=DIM)
+        d.text((x + 18, y + 40), "第%d世代 · %s" % (gen, graph["regions"][key]["status"]), font=fr(13), fill=DIM)
 
     # ---- L1 岛屿 ----
     l1y = 300
-    d.text((lx, l1y), "L1  地理附属 · 渡轮 / 火车 / 潜水艇可达", font=fb(20), fill=MINT)
+    d.text((lx, l1y), "L1  地理附属 · 七之岛与对战开拓区可乘船到达", font=fb(20), fill=MINT)
 
     iw, ih = 178, 108
     igap = 12
@@ -144,11 +138,11 @@ def main():
         d.text((x + 14, y + 40), "归属 " + dict((k, n) for k, n, *_ in MAIN)[parent],
                font=fr(13), fill=(120, 190, 200))
         d.text((x + 14, y + 60), route, font=fr(12), fill=DIM)
-        d.text((x + 14, y + 78), src, font=fr(12), fill=GOLD)
+        d.text((x + 14, y + 78), src + " · " + specials[key], font=fr(12), fill=GOLD)
 
     # ---- L2 异层 ----
     l2y = 540
-    d.text((lx, l2y), "L2  平行异层 · 同一地点 / 同一片海的不同层，要特殊入口", font=fb(20), fill=MINT)
+    d.text((lx, l2y), "L2  平行异层 · 以下入口均待建", font=fb(20), fill=MINT)
 
     lw, lh = 350, 118
     lgap = 20
@@ -161,7 +155,7 @@ def main():
         d.text((x + 18, y + 8), dict((k, n) for k, n, *_ in MAIN)[parent] + "  ›  异层",
                font=fr(12), fill=(150, 132, 200))
         d.text((x + 18, y + 30), name, font=fb(22), fill=INK)
-        d.text((x + 18, y + 66), kind, font=fr(13), fill=GOLD)
+        d.text((x + 18, y + 66), kind + " · " + specials[key], font=fr(13), fill=GOLD)
         d.text((x + 18, y + 84), entry, font=fr(12), fill=DIM)
         d.text((x + 18, y + 100), note, font=fr(11), fill=(150, 160, 165))
 
@@ -188,7 +182,7 @@ def main():
         d.text((lx + 108, y + 24), b, font=fr(14), fill=(206, 218, 220))
         y += 58
 
-    im.save("/root/build/pokesaga/doc/world_specials.png", quality=95)
+    im.save(project_path("doc/world_specials.png"), quality=95)
     print("saved", im.size)
 
 

@@ -11,10 +11,12 @@
   content/moves.json            补齐 Z / 极巨 / 超极巨招式
   content/gimmicks.json         变化系统表
 """
+from asset_paths import project_path, source_path
+
 import re, json, os
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-OUT = "/root/build/pokesaga/content"
+ROOT = source_path("emerald")
+OUT = project_path("content")
 
 TYPE_MAP = {
     "NORMAL": "normal", "FIGHTING": "fighting", "FLYING": "flying", "POISON": "poison",

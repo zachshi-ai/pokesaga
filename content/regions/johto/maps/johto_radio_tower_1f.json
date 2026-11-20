@@ -151,9 +151,10 @@
     1,
     0
    ],
+   "source_script": "RadioTower1FDirectory",
    "kind": "sign",
    "sprite": "sign",
-   "text": "无线电塔·1F\\n（城都地区的告示牌）"
+   "text": "楼层指南：一楼接待处，二楼营业部，三楼人事部，四楼制作部，五楼台长室。"
   }
  ],
  "weather": "",

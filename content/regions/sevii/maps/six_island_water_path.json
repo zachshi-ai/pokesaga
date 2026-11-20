@@ -288,7 +288,7 @@
   {
    "at": [
     0,
-    11
+    48
    ],
    "to": {
     "region": "sevii",
@@ -302,42 +302,28 @@
   {
    "at": [
     0,
-    18
+    52
    ],
    "to": {
     "region": "sevii",
     "map": "six_island",
     "at": [
      23,
-     15
+     12
     ]
    }
   },
   {
    "at": [
     0,
-    19
+    53
    ],
    "to": {
     "region": "sevii",
     "map": "six_island",
     "at": [
      23,
-     16
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    22
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island",
-    "at": [
-     23,
-     19
+     13
     ]
    }
   },
@@ -366,6 +352,48 @@
     "at": [
      71,
      1
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    2
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    3
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    4
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     4
     ]
    }
   },
@@ -512,6 +540,48 @@
   {
    "at": [
     0,
+    15
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    16
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     16
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    17
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
     18
    ],
    "to": {
@@ -540,35 +610,7 @@
   {
    "at": [
     0,
-    10
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island",
-    "at": [
-     23,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    14
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island",
-    "at": [
-     23,
-     12
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    14
+    89
    ],
    "to": {
     "region": "sevii",
@@ -582,189 +624,7 @@
   {
    "at": [
     0,
-    12
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island",
-    "at": [
-     23,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    15
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island",
-    "at": [
-     23,
-     12
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    17
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island",
-    "at": [
-     23,
-     14
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    20
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island",
-    "at": [
-     23,
-     17
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    21
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island",
-    "at": [
-     23,
-     18
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    23
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island",
-    "at": [
-     23,
-     20
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    2
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_green_path",
-    "at": [
-     71,
-     2
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    4
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_green_path",
-    "at": [
-     71,
-     4
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    15
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_green_path",
-    "at": [
-     71,
-     15
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    17
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_green_path",
-    "at": [
-     71,
-     17
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    9
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island",
-    "at": [
-     23,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    13
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island",
-    "at": [
-     23,
-     11
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    13
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_ruin_valley",
-    "at": [
-     47,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    15
+    90
    ],
    "to": {
     "region": "sevii",
@@ -778,14 +638,14 @@
   {
    "at": [
     0,
-    17
+    91
    ],
    "to": {
     "region": "sevii",
     "map": "six_island_ruin_valley",
     "at": [
      47,
-     12
+     11
     ]
    }
   }

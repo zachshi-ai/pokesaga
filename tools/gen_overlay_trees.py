@@ -6,12 +6,14 @@
 这里按颜色判断：不可走 + 绿色为主的格子视为树冠，把整格贴进 <map>_fg.png。
 只处理还没被遮挡层覆盖的格子，不碰别的建筑。
 """
+from asset_paths import project_path
+
 import json
 import os
 
 from PIL import Image
 
-EMAPS = "/root/build/pokesaga/content/emerald_maps"
+EMAPS = project_path("content/emerald_maps")
 
 
 def greenish(px):

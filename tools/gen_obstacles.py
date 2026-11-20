@@ -4,12 +4,14 @@
 只认 object_events 里的原始图形名，坐标和原版一致；已经存在的同格同类型物件
 不会重复添加，所以这个脚本可以反复跑。
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import re
 
-PJ = "/root/build/pokesaga"
-ROOT = "/root/build/pokeemerald-expansion-master"
+PJ = project_path()
+ROOT = source_path("emerald")
 MD = os.path.join(ROOT, "data/maps")
 EM = os.path.join(PJ, "content/emerald_maps")
 

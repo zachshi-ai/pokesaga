@@ -276,6 +276,20 @@
   {
    "at": [
     23,
+    27
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon",
+    "at": [
+     0,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
     28
    ],
    "to": {
@@ -297,7 +311,21 @@
     "map": "seven_island_sevault_canyon",
     "at": [
      0,
-     79
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    30
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon",
+    "at": [
+     0,
+     10
     ]
    }
   }

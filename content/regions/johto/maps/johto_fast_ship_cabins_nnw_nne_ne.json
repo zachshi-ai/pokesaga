@@ -195,6 +195,20 @@
   {
    "at": [
     1,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fast_ship_1f",
+    "at": [
+     13,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
     6
    ],
    "to": {
@@ -209,27 +223,13 @@
   {
    "at": [
     1,
-    6
+    12
    ],
    "to": {
     "region": "johto",
     "map": "johto_fast_ship_1f",
     "at": [
      9,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    1,
-    9
-   ],
-   "to": {
-    "region": "johto",
-    "map": "johto_fast_ship_1f",
-    "at": [
-     6,
      3
     ]
    }
@@ -243,18 +243,20 @@
     3,
     6
    ],
+   "source_script": "FastShipCabins_NNW_NNE_NETrashcan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "快速船·Cabins_NNW_NNE_NE\\n（城都地区的告示牌）"
+   "text": "看了看垃圾桶，里面什么也没有。"
   },
   {
    "at": [
     3,
     9
    ],
+   "source_script": "FastShipCabins_NNW_NNE_NETrashcan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "快速船·Cabins_NNW_NNE_NE\\n（城都地区的告示牌）"
+   "text": "看了看垃圾桶，里面什么也没有。"
   }
  ],
  "weather": "",

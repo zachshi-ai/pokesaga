@@ -1,1 +1,95 @@
-{"name":"邻居家","emerald":"johto_players_neighbors_house","size":[4,4],"spawn":[2,2],"npcs":[{"at":[1,1],"name":"训练家","gfx":"teala","lines":["你今天也很有精神呢。","慢慢来，不用急。"]},{"at":[2,1],"name":"宝可梦迷","gfx":"old_woman","lines":["我年轻的时候，也到处跑。","现在腿脚不行了，就在这里看风景。"]}],"warps":[{"at":[1,3],"to":{"region":"johto","map":"johto_new_bark_town","at":[1,6]}},{"at":[1,3],"to":{"region":"johto","map":"johto_new_bark_town","at":[1,6]}}],"encounters":[],"encounter_rate":0.0,"objects":[{"at":[0,0],"kind":"sign","sprite":"sign","text":"邻居家\\n（城都地区的告示牌）"},{"at":[3,0],"kind":"sign","sprite":"sign","text":"邻居家\\n（城都地区的告示牌）"}],"weather":"","weather_name":"","cycling":false}
+{
+ "name": "邻居家",
+ "emerald": "johto_players_neighbors_house",
+ "size": [
+  4,
+  4
+ ],
+ "spawn": [
+  2,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    1,
+    1
+   ],
+   "name": "训练家",
+   "gfx": "teala",
+   "lines": [
+    "你今天也很有精神呢。",
+    "慢慢来，不用急。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    1
+   ],
+   "name": "宝可梦迷",
+   "gfx": "old_woman",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_new_bark_town",
+    "at": [
+     1,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_new_bark_town",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    0,
+    0
+   ],
+   "source_script": "PlayersNeighborsHouseBookshelfScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "书架上整齐地排着各种宝可梦杂志。"
+  },
+  {
+   "at": [
+    3,
+    0
+   ],
+   "source_script": "PlayersNeighborsHouseRadioScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "邻居家的收音机调在宝可梦节目上。"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

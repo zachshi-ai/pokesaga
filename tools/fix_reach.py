@@ -6,6 +6,8 @@
 保证站在任何门上都走得动、也不会有死胡同把人困住。
 用法: python3 tools/fix_reach.py [--region=kanto|sevii]
 """
+from asset_paths import project_path
+
 import json
 import os
 import sys
@@ -15,8 +17,8 @@ REGION = "kanto"
 for a in sys.argv:
     if a.startswith("--region="):
         REGION = a.split("=")[1]
-EM = "/root/build/pokesaga/content/emerald_maps"
-REG = "/root/build/pokesaga/content/regions/%s/maps" % REGION
+EM = project_path("content/emerald_maps")
+REG = project_path("content/regions/%s/maps") % REGION
 
 
 def carve(col, start, seen):

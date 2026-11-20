@@ -13,17 +13,22 @@
   content/regions/johto/maps/<id>.json          地图（npc / warp / spawn）
   content/regions/johto/region.json             地区索引
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import re
 import sys
 
-sys.path.insert(0, "/root/build/pokesaga/tools")
+from johto_bg_events import background_object
+from johto_warps import blocking_objects, landing, place_warps
+
+sys.path.insert(0, project_path("tools"))
 from render_crystal_maps import render_map  # noqa: E402
 
-ROOT = "/root/build/pokecrystal"
-EMAPS = "/root/build/pokesaga/content/emerald_maps"
-REG = "/root/build/pokesaga/content/regions/johto"
+ROOT = source_path("crystal")
+EMAPS = project_path("content/emerald_maps")
+REG = project_path("content/regions/johto")
 
 # 镇/市/地点中文名
 PLACE = {
@@ -253,7 +258,7 @@ def parse_map_events(label, sizes):
         return [], [], []
     txt = read(path)
     warps, objs, signs = [], [], []
-    for m in re.finditer(r"^\s*warp_event\s+(\d+),\s*(\d+),\s*(\w+),\s*(\d+)", txt, re.M):
+    for m in re.finditer(r"^\s*warp_event\s+(\d+),\s*(\d+),\s*(\w+),\s*(-?\d+)", txt, re.M):
         warps.append({"at8": [int(m.group(1)), int(m.group(2))],
                       "to": m.group(3), "idx": int(m.group(4))})
     for m in re.finditer(r"^\s*object_event\s+(.+)$", txt, re.M):
@@ -335,95 +340,6 @@ def nearest_free(coll, pos, taken):
     return None
 
 
-def nearest_in(reached, pos):
-    best = None
-    bestd = 1e9
-    for p in reached:
-        d = abs(p[0] - pos[0]) + abs(p[1] - pos[1])
-        if d < bestd:
-            bestd = d
-            best = p
-    return best
-
-
-def reachable_set(coll, size, spawn, npcs, objects):
-    w, h = size
-    blocked = {(n["at"][0], n["at"][1]) for n in npcs}
-    blocked |= {(o["at"][0], o["at"][1]) for o in objects}
-    seen = {(spawn[0], spawn[1])}
-    q = [tuple(spawn)]
-    while q:
-        x, y = q.pop()
-        for dx, dy in ((0, 1), (0, -1), (1, 0), (-1, 0)):
-            nx, ny = x + dx, y + dy
-            if not (0 <= nx < w and 0 <= ny < h):
-                continue
-            if int(coll[ny][nx]) != 0:
-                continue
-            if (nx, ny) in blocked or (nx, ny) in seen:
-                continue
-            seen.add((nx, ny))
-            q.append((nx, ny))
-    return seen
-
-
-def ensure_reach(coll, size, spawn, warps, npcs, objects):
-    """门必须走得到：被 NPC 或告示牌堵住的门，把挡路的那一个撤掉。
-    原版里人站着的地方确实会挡路，但城都这批图有的 NPC 正好卡在门口，
-    不撤掉的话那一扇门永远进不去。"""
-    w, h = size
-    blocked = {}
-    for n in npcs:
-        blocked[(n["at"][0], n["at"][1])] = ("npc", n)
-    for o in objects:
-        blocked[(o["at"][0], o["at"][1])] = ("obj", o)
-
-    def reachable(start):
-        seen = {(start[0], start[1])}
-        q = [tuple(start)]
-        while q:
-            x, y = q.pop()
-            for dx, dy in ((0, 1), (0, -1), (1, 0), (-1, 0)):
-                nx, ny = x + dx, y + dy
-                if not (0 <= nx < w and 0 <= ny < h):
-                    continue
-                if int(coll[ny][nx]) != 0:
-                    continue
-                if (nx, ny) in blocked:
-                    continue
-                if (nx, ny) in seen:
-                    continue
-                seen.add((nx, ny))
-                q.append((nx, ny))
-        return seen
-
-    for _ in range(400):
-        seen = reachable(spawn)
-        fixed = False
-        for wp in warps:
-            key = (wp["at"][0], wp["at"][1])
-            if key in seen:
-                continue
-            # 门本身也可能是被挡住的：先看门四周有没有挡路的
-            cands = [key]
-            for dx, dy in ((0, 1), (0, -1), (1, 0), (-1, 0)):
-                cands.append((key[0] + dx, key[1] + dy))
-            for c in cands:
-                if c in blocked:
-                    kind, item = blocked.pop(c)
-                    if kind == "npc" and item in npcs:
-                        npcs.remove(item)
-                    elif kind == "obj" and item in objects:
-                        objects.remove(item)
-                    fixed = True
-                    break
-            if fixed:
-                break
-        if not fixed:
-            break
-    return npcs, objects
-
-
 def lines_for(sprite, cn):
     key = "default"
     for k, (gfx, _name) in GFX.items():
@@ -465,7 +381,7 @@ def main():
             print("  渲染 %d" % made)
     print("渲染完成 %d" % made)
 
-    # 第一遍：定门格、NPC 站位，并把走不到的门挪到最近能站的格子
+    # 第一遍：按原版楼梯的位置分配门格，并给后放的 NPC 预留通道。
     events, state = {}, {}
     for mp in maps:
         label = mp["label"]
@@ -476,7 +392,7 @@ def main():
         coll = meta["collision"]
         h = len(coll)
         w = len(coll[0])
-        wpos = [snap(meta, wp["at8"]) for wp in warps]
+        wpos = place_warps(meta, warps)
         taken = {tuple(p) for p in wpos}
         npcs = []
         for o in objs:
@@ -493,42 +409,20 @@ def main():
             if tuple(pos) in taken:
                 continue
             taken.add(tuple(pos))
-            objects.append({"at": pos, "kind": "sign", "sprite": "sign",
-                            "text": "%s\\n（城都地区的告示牌）" % cn_name(label)})
+            objects.append(background_object(sg, pos, ROOT))
         sp = find_spawn(coll, [w // 2, h // 2])
-        npcs, objects = ensure_reach(coll, [w, h], sp, [{"at": p} for p in wpos], npcs, objects)
-        reached = reachable_set(coll, [w, h], sp, npcs, objects)
-        for i, p in enumerate(wpos):
-            if tuple(p) not in reached:
-                near = nearest_in(reached, p)
-                if near:
-                    wpos[i] = list(near)
         events[label] = {"warps": warps, "wpos": wpos, "signs": signs}
         state[label] = {"npcs": npcs, "objects": objects, "spawn": sp}
 
     # 第二遍：算落点（落点不能停在门上或人身上）
-    occ = {lab: ({tuple(p) for p in ev["wpos"]} | {tuple(n["at"]) for n in st["npcs"]})
-           for lab, (ev, st) in ((k, (events[k], state[k])) for k in events)}
+    occupied = {lab: blocking_objects(room) for lab, room in state.items()}
+    door_tiles = {lab: set(map(tuple, event["wpos"])) for lab, event in events.items()}
 
     def arrival(tlabel, idx):
-        if idx - 1 >= len(events[tlabel]["wpos"]):
+        positions = events[tlabel]["wpos"]
+        if not 1 <= idx <= len(positions):
             return None
-        at = events[tlabel]["wpos"][idx - 1]
-        coll = metas[tlabel]["collision"]
-        blocked = occ.get(tlabel, set())
-        for d in [(0, 1), (0, -1), (1, 0), (-1, 0), (0, 2), (0, -2), (1, 1), (-1, 1)]:
-            x, y = at[0] + d[0], at[1] + d[1]
-            if 0 <= y < len(coll) and 0 <= x < len(coll[0]):
-                if int(coll[y][x]) == 0 and (x, y) not in blocked:
-                    return [x, y]
-        for r in range(1, 4):
-            for dy in range(-r, r + 1):
-                for dx in range(-r, r + 1):
-                    x, y = at[0] + dx, at[1] + dy
-                    if 0 <= y < len(coll) and 0 <= x < len(coll[0]):
-                        if int(coll[y][x]) == 0 and (x, y) not in blocked:
-                            return [x, y]
-        return None
+        return landing(metas[tlabel], positions[idx - 1], door_tiles[tlabel], occupied[tlabel])
 
     out_maps = []
     for mp in maps:

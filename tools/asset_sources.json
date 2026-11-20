@@ -1,0 +1,8 @@
+{
+  "crystal":  {"repository":"https://github.com/pret/pokecrystal", "revision":"9ce4c4e5068ffdf56e23ca3d8dc9178b2465d482"},
+  "firered":  {"repository":"https://github.com/pret/pokefirered", "revision":"ce6406d8c2eaf46d543c8a2606de0c3cb1951982"},
+  "emerald":  {"repository":"https://github.com/rh-hideout/pokeemerald-expansion", "revision":"759b2a1b8ec279ec923f3c493e6ebed9da2cee3c"},
+  "pokeapi":  {"repository":"https://github.com/PokeAPI/pokeapi", "revision":"193d8d4fbb57cf962e3f7c1ce5299a6fe847b3f8"},
+  "sprites":  {"repository":"https://github.com/PokeAPI/sprites", "revision":"c0542f7c51215d9672439012838c99f520596cbd"},
+  "noto":     {"repository":"https://github.com/notofonts/noto-cjk", "revision":"523d033d6cb47f4a80c58a35753646f5c3608a78"}
+}

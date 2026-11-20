@@ -277,45 +277,53 @@
     12,
     10
    ],
+   "source_script": "VioletCitySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "桔梗市\\n（城都地区的告示牌）"
+   "text": "桔梗市，一座散发怀旧气息的城市。"
   },
   {
    "at": [
     7,
     8
    ],
+   "source_script": "VioletGymSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "桔梗市\\n（城都地区的告示牌）"
+   "text": "桔梗道馆。馆主阿速，举止优雅的飞行系专家。"
   },
   {
    "at": [
     12,
     4
    ],
+   "source_script": "SproutTowerSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "桔梗市\\n（城都地区的告示牌）"
+   "text": "喇叭芽之塔，在此体会宝可梦的修行之道。"
   },
   {
    "at": [
     13,
     8
    ],
+   "source_script": "EarlsPokemonAcademySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "桔梗市\\n（城都地区的告示牌）"
+   "text": "宝可梦学塾，校长阿尔。"
   },
   {
    "at": [
     18,
     7
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "桔梗市\\n（城都地区的告示牌）"
+   "source_script": "VioletCityHiddenHyperPotion",
+   "kind": "hidden",
+   "item": "ITEM_HYPER_POTION",
+   "name": "厉害伤药",
+   "category": "heal",
+   "flag": "johto:EVENT_VIOLET_CITY_HIDDEN_HYPER_POTION",
+   "count": 1
   }
  ],
  "weather": "",

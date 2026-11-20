@@ -1,0 +1,235 @@
+# 一列是 pokecrystal 的地图脚本名或标准脚本名，另一列是地图上的简体中文读物。
+DifficultBookshelfScript	书架上全是专业书籍，读起来有些费劲。
+MagazineBookshelfScript	书架上整齐地排着各种宝可梦杂志。
+PictureBookshelfScript	架子上摆满了精装的宝可梦绘本。
+Radio2Script	收音机正在播放宝可梦频道。
+TrashCanScript	看了看垃圾桶，里面什么也没有。
+TeamRocketOathScript	火箭队的誓词写道：夺取宝可梦来牟利，利用宝可梦征服世界！
+AcademyBlackboard	黑板上列着宝可梦可能遇到的异常状态：中毒、麻痹、睡眠、灼伤和冰冻。
+AzaleaGymStatue	桧皮道馆的石碑，刻着馆主阿笔的名字。
+BattleTowerOutsideSign	对战塔。向训练家的巅峰发起挑战！
+BillsHouseSign	海角小屋，正辉的家。
+BlackthornCitySign	烟墨市，群山深处的静谧小城。
+BlackthornCityTrainerTips	训练家心得：宝可梦携带奇迹果，可以靠它解除异常状态。
+BlackthornGymStatue	烟墨道馆的石碑。馆主，小椿。
+BluesHouseSign	青绿的家。
+BugCatchingContestExplanationSign	捕虫大赛在周二、周四和周六举行。参赛者可以留下自己捕到的虫宝可梦。
+BurnedTowerSign	烧焦塔曾被一场神秘的大火焚毁。建筑危险，请勿靠近。
+CardKeySlotScript	门边有一道用来插入钥匙卡的狭槽。
+CarefulSwimmingSign	浅红市警署提醒：游向双子岛时，请留意海况。
+CeladonCityGameCornerSign	玉虹游戏城，欢迎来玩！
+CeladonCityMansionSign	玉虹大厦。
+CeladonCityTrainerTips	训练家心得：玉虹百货出售多种对战用品，其中也有能力防守。
+CeladonDeptStore6FVendingMachine GoldenrodVendingMachine	自动贩卖机的展示窗里摆着几种饮料。
+CeladonGameCornerCardFlipScript GoldenrodGameCornerCardFlipMachineScript	翻牌机，桌面上画着牌面和下注的位置。
+CeladonGameCornerLighterScript	这里落着一只打火机。
+CeladonGameCornerLuckySlotMachineScript GoldenrodGameCornerSlotsMachineScript	一台装着三个转轮的老虎机。
+CeladonGameCornerPoster1Script CeladonGameCornerPoster2Script	掀开海报一角，后面空空的。
+CeladonGameCornerPrizeRoomPokemonVendor	奖品柜台的牌子写着「宝可梦奖品」。
+CeladonGameCornerPrizeRoomTMVendor	奖品柜台的牌子写着「招式学习器」。
+CeladonGymStatue	玉虹道馆的石碑。馆主，莉佳。
+CeladonMansion2FMeetingRoomSign	GAME FREAK 会议室。
+CeladonMansion3FDevRoomSign	GAME FREAK 开发室。
+CeladonMansionManagersSuiteSign	玉虹大厦管理员住所。
+CeruleanBikeShopSign	搬迁通知：自行车店已经迁往城都的满金市。
+CeruleanCapeSign	前方是华蓝海角。
+CeruleanCitySign	华蓝市，笼罩在神秘蓝色气息中的城市。
+CeruleanGymSign CeruleanGymStatue1	华蓝道馆。馆主是人称「淘气美人鱼」的小霞。
+CeruleanLockedDoor Route7LockedDoor Route8LockedDoor	门锁上了。
+CeruleanPoliceSign	华蓝市警署：请协助防范盗窃，一起守护这座城市。
+CharcoalKilnSign	烧炭窑。
+CherrygroveCitySign	樱花镇，一座花儿小巧、香气四溢的城镇。
+CianwoodCitySign	湛蓝市，一座被汹涌海浪环绕的港城。
+CianwoodGymSign CianwoodGymStatue	湛蓝道馆。馆主阿四，以一双铁拳闻名。
+CianwoodPharmacySign	湛蓝药店已有五百年历史，欢迎前来问药。
+CianwoodPhotoStudioSign	湛蓝照相馆。让照片为旅途留个纪念。
+CianwoodPokeSeerSign	宝可梦占卜师就在前面。
+CinnabarGymSign	仔细看，牌子上写着「红莲道馆，馆主夏伯」。
+CinnabarIslandGymSign	夏伯留下的通知：红莲道馆已迁往双子岛。
+CinnabarIslandSign	红莲岛，燃烧着热情的火红小镇。
+ColosseumConsoleScript MobileBattleRoomConsoleScript	通信对战用的控制台。
+CyclingRoadSign	自行车道，全程下坡！
+DanceTheaterFancyPanel	精致的饰板上点缀着花朵。
+DarkCaveSign	黑暗洞窟。
+DayCareSign	宝可梦培育屋。把宝可梦交给我们照顾吧。
+DontLitterSign	月见山广场。请勿乱丢垃圾。
+DragonShrineSignpost	龙之圣祠，供奉着传说曾居于龙穴的龙宝可梦。
+EarlsPokemonAcademySign	宝可梦学塾，校长阿尔。
+EatathonContestPoster	大胃王挑战！不限时，吃得最多的客人免单。
+EcruteakCitySign	圆朱市，一座过去与现在相遇的历史名城。
+EcruteakGymSign	圆朱道馆。馆主松叶，能窥见未来的修行者。
+ElmsHousePC	空木博士的研究笔记：宝可梦从何而来，又会去往哪里？我想亲眼见证它们诞生的一刻。
+ElmsLabPC	显示器上写着「宝可梦进化观察记录」。
+ElmsLabTravelTip1 OaksLabPoster1	旅行手册：旅途中可以打开菜单，查看队伍和背包。
+ElmsLabTravelTip3	旅行手册：把道具放在背包里，使用时再打开背包寻找。
+FastShipBed	客舱的床铺平整又柔软，正适合休息。
+FightingDojoSign	格斗道场，欢迎每一位挑战者！
+FightingDojoSign1	今日所为，终有回响。
+FishingDudesHousePhoto	照片上的人们正一起钓鱼，个个笑得很开心。
+FishingSpotSign	垂钓点。
+FuchsiaCitySign	浅红市，一抹热情的桃红色。
+FuchsiaGymSign FuchsiaGymStatue	浅红道馆。馆主阿杏，精通毒系的忍者。
+GoldenrodBikeShopBicycle	一辆闪闪发亮的新自行车。
+GoldenrodCityBikeShopSign	自行车店，骑上车去看看世界！
+GoldenrodCityFlowerShopSign	满金花店，鲜花盛开。
+GoldenrodCityNameRaterSign	姓名鉴定师，为你的宝可梦点评昵称。
+GoldenrodCitySign	满金市，热闹繁华的节庆之城。
+GoldenrodCityStationSign	满金市车站。
+GoldenrodCityUndergroundSignSouth GoldenrodCityUndergroundSignNorth	地下通道入口。
+GoldenrodGameCornerLeftTheirDrinkScript	有人把饮料落在这里了，闻起来甜甜的。
+GoldenrodGymSign GoldenrodGymStatue	满金道馆。馆主，活泼可爱的小茜。
+GuideGentsHouseSign	向导老爷爷的家。
+IlexForestShrineScript	林中小祠，供奉着守护这片森林的宝可梦。
+IlexForestSignpost	桐树林树木繁茂，枝叶遮天。路上请留意掉在地上的道具。
+IndigoPlateauSign	石英高原，宝可梦联盟总部。这里是训练家们的目标。
+KurtsHouseOakPhoto	照片里的人，难道是年轻时的大木博士？
+KurtsHouseSign	钢铁先生的家。
+LavRadioTower1FDirectory RadioTower1FDirectory	楼层指南：一楼接待处，二楼营业部，三楼人事部，四楼制作部，五楼台长室。
+LavRadioTower1FPokeFluteSign	调到第 20 频道，听宝可梦之笛舒缓的旋律。
+LavenderTownSign	紫苑镇，高雅的紫色小镇。
+MahoganyGymSign MahoganyGymStatue	卡吉道馆。馆主柳伯，教人领略严冬的修行者。
+MahoganyTownRagecandybarSign	来到卡吉镇，别忘了尝尝特产愤怒馒头！
+MahoganyTownSign	卡吉镇，忍者的故乡。
+MobileTradeRoomConsoleScript TradeCenterConsoleScript	宝可梦通信交换用的控制台。
+MoomooFarmSign	哞哞牧场。欢迎品尝新鲜的哞哞牛奶。
+MoveDeletersHouseSign	招式遗忘爷爷的家。
+MrPokemonsHouseDirectionsSign	继续直走，就到宝可梦爷爷家了。
+MrPokemonsHouseSign	宝可梦爷爷的家。
+MrPokemonsHouse_BrokenComputer	一台硕大的电脑，好像坏了。
+MrPokemonsHouse_ForeignMagazines	架子上塞满了外国杂志，连封面标题都看不懂。
+MrPsychicsHouseSign	超能力大叔的家。
+MtMoonSquareSign Route3MtMoonSquareSign	沿阶梯往上，就是月见山广场。
+MtMortarSign2	擂钵山。山洞里有瀑布。
+MtSilverSign	白银山。
+NationalParkBattleNoticeSign	自然公园管理处：请在草丛里进行对战。
+NationalParkRelaxationSquareSign	自然公园休憩广场。
+NationalParkTrainerTipsSign	训练家心得：当年的通信设备还可以把收到的邮件打印出来。
+NewBarkTownElmsHouseSign	空木博士的家。
+NewBarkTownPlayersHouseSign	训练家的家。
+NewBarkTownSign	若叶镇，吹拂着启程之风的小镇。
+NoLitteringSign	请把垃圾带走，保持这里的清洁。
+OaksLabPC	空木博士给大木博士的邮件：我的研究还在继续。听说那位年轻训练家名气渐长，真叫人高兴！
+OaksLabTrashcan	垃圾桶里空空的。
+OlivineCityBattleTowerSign	前方是刚刚开放的对战塔。
+OlivineCityPortSign	浅葱港，高速船码头。
+OlivineCitySign	浅葱市，最靠近海外的港口。
+OlivineGymSign OlivineGymStatue	浅葱道馆。馆主阿蜜，以钢铁般的防守著称。
+OlivineLighthouseSign	浅葱灯塔，又名光辉灯塔。
+PalletTownSign	真新镇，宁静纯朴的起点。
+PewterCityMtMoonGiftShopSign	月见山礼品店现已开业。
+PewterCitySign	尼比市，岩石灰色的城市。
+PewterCityWelcomeSign	欢迎来到尼比市！
+PewterGymSign PewterGymStatue	尼比道馆。馆主小刚，坚如磐石的训练家。
+PewterMuseumSign	尼比科学博物馆因整修暂时闭馆。
+PlayersHouse1FTVScript	电视里正播着电影：漫天星光下，两个少年坐上了列车。
+PlayersNeighborsHouseRadioScript	邻居家的收音机调在宝可梦节目上。
+PokecomCenterAdminOfficeMobileComputer3	给通信中心同事的邮件：无线通信让各地的训练家相识，我们要把这项工作继续做好。
+PokemonFanClubBraggingSign	有人夸耀自己的宝可梦？你也来夸夸自己的吧！
+PokemonFanClubSign	宝可梦同好会，欢迎所有喜欢宝可梦的人。
+PowerPlantSign	关都发电厂。
+RadioTower3FPokemonMusicSign	宝可梦音乐节目，主持人 DJ 阿本。
+RadioTower4FProductionSign	四楼，节目制作部。
+RadioTower5FStudio1Sign	五楼，第一录音室。
+RedsHouse2FN64Script	一台 Nintendo 64 游戏机。该出发了。
+RedsHouse2FPCScript	这台电脑似乎很久没人用过了。
+RedsHouseSign	赤红的家。
+Route10Sign	10 号道路，华蓝市至紫苑镇。
+Route11Sign	11 号道路。
+Route12Sign	12 号道路。向北前往紫苑镇。
+Route13DirectionsSign	往北是紫苑镇，往西是浅红市。
+Route13Sign	13 号道路。向北前往寂静之桥。
+Route13TrainerTips	训练家心得：仔细看看，就在这块牌子的左边。
+Route15Sign	15 号道路，浅红市至紫苑镇。
+Route18Sign	18 号道路，玉虹市至浅红市。
+Route19Sign	19 号道路，浅红市至双子岛。
+Route1Sign	1 号道路，真新镇至常磐市。
+Route26Sign	26 号道路，前方是宝可梦联盟接待处。
+Route28Sign	28 号道路。
+Route29Sign1 Route29Sign2	29 号道路，樱花镇至若叶镇。
+Route2DiglettsCaveSign VermilionCityDiglettsCaveSign	地鼠洞穴。
+Route2Sign	2 号道路，常磐市至尼比市。
+Route30Sign	30 号道路，桔梗市至樱花镇。
+Route30TrainerTips	训练家心得：精灵球只对野生宝可梦使用。别人的宝可梦不能捕捉。
+Route31Sign	31 号道路，桔梗市至樱花镇。
+Route32RuinsSign	阿尔夫遗迹东入口。
+Route32Sign	32 号道路，桔梗市至桧皮镇。
+Route32UnionCaveSign	前方是互联洞窟。
+Route33Sign	33 号道路。
+Route34TrainerTips	训练家心得：树果树会重新结果，记下哪棵树上长着你需要的树果吧。
+Route35Sign	35 号道路。
+Route36Sign	36 号道路。
+Route36TrainerTips2	训练家心得：探索洞穴的训练家常用「挖洞」返回入口。
+Route37Sign	37 号道路。
+Route38Sign	38 号道路，浅葱市至圆朱市。
+Route38TrainerTips	训练家心得：有些训练家会在进化的途中叫停，暂时让伙伴保持原样。
+Route39Sign	39 号道路，浅葱市至圆朱市。
+Route39TrainerTips	训练家心得：对着树干使出「头锤」，有时会有栖息在枝头的宝可梦掉下来。
+Route40Sign	40 号水路，湛蓝市至浅葱市。
+Route42Sign1 Route42Sign2	42 号道路，圆朱市至卡吉镇。
+Route43Sign1 Route43Sign2	43 号道路，愤怒之湖至卡吉镇。
+Route43TrainerTips	训练家心得：留心属性相性，即使等级更高也可能被克制。
+Route44Sign1	44 号道路，前方是冰雪小径。
+Route44Sign2	44 号道路，卡吉镇至烟墨市。
+Route45Sign	45 号道路，前方是山路。
+Route46Sign	46 号道路，前方是山路。
+Route6UndergroundPathSign	地下通道，连接华蓝市与枯叶市。
+Route7UndergroundPathSign	玉虹市的通知：因地下通道内频发对战，影响附近居民，通道已封闭。
+Route9Sign	9 号道路，华蓝市至岩山隧道。
+RuinsOfAlphInnerChamberStatue	这是一尊古代宝可梦的仿制像。
+RuinsOfAlphNorthSign	阿尔夫遗迹北入口。
+RuinsOfAlphOutsideMysteryChamberSign	谜之石板室。
+RuinsOfAlphResearchCenterBookshelf	学术书架上有《古代遗迹》和《古人的谜团》等著作。
+RuinsOfAlphResearchCenterPrinter	研究所角落里放着一台打印机。
+RuinsOfAlphResearchCenterSign	阿尔夫遗迹研究所，专门研究此地的遗迹。
+SafariZoneOfficeSign	狩猎地带事务所暂时关闭，开放日期另行通知。
+SafariZonePhoto	辽阔草原上，几只罕见的宝可梦正追逐嬉戏。
+SaffronCityMagnetTrainStationSign	金黄市磁浮列车站。
+SaffronCitySign	金黄市，闪耀着金色光芒的商业都市。
+SaffronGymSign	金黄道馆。馆主娜姿，精通超能力宝可梦。
+SilphCoSign	西尔佛公司办公大楼。
+SlowpokeWellSign	呆呆兽之井，也叫「唤雨之井」。相传四百年前，一只呆呆兽打的哈欠唤来了久旱后的甘霖。
+SproutTower1FStatue SproutTower2FStatue SproutTower3FStatue	一尊仪态庄严的宝可梦雕像。
+SproutTowerSign	喇叭芽之塔，在此体会宝可梦的修行之道。
+Switch1Script	开关旁的标签写着「一号」。
+Switch2Script	开关旁的标签写着「二号」。
+Switch3Script	开关旁的标签写着「三号」。
+TeamRocketBaseB1FSecretSwitch	桌子下方藏着一个秘密开关。
+TeamRocketBaseB1FSecurityCamera	猫老大的雕像。那双眼睛亮得有些古怪。
+TeamRocketBaseB2FLockedDoor	通往发射机的门装着密码锁。
+TeamRocketBaseB2FTransmitterScript	这是用来发送异常电波的无线电发射机。
+TeamRocketBaseB3FLockedDoor	通往老大办公室的门需要密码。
+TimeCapsuleConsoleScript	时间胶囊的通信控制台。
+TinTowerSign	铃铛塔。传说有一只宝可梦栖息在塔顶。
+TohjoFallsSign	都汇瀑布，连接关都与城都。
+TrainerHouseSign	训练家之家，高手切磋的俱乐部。
+TrainerHouseSign1	地下训练厅举办练习赛，欢迎有实力的训练家参加。
+TrainerHouseSign2	练习赛与野外对战一样，没有额外的比赛规则。
+VermilionCityPortSign	枯叶港入口。
+VermilionCitySign	枯叶市，夕阳绚丽的港口。
+VermilionGymSign VermilionGymStatue	枯叶道馆。馆主马志士，人称「闪电硬汉」。
+VermilionGymTrashCan	翻了翻，只看到垃圾。
+VictoryRoadEntranceSign	宝可梦联盟，冠军之路入口。
+VioletCitySign	桔梗市，一座散发怀旧气息的城市。
+VioletGymSign	桔梗道馆。馆主阿速，举止优雅的飞行系专家。
+ViridianCitySign	常磐市，常绿的乐园。
+ViridianCityWelcomeSign	欢迎来到常磐市，通往石英高原的门户。
+ViridianGymSign	常磐道馆。馆主名字所在的地方已经看不清了。
+ViridianGymStatue	常磐道馆的石碑。
+VolunteerPokemonHouseSign	紫苑镇宝可梦志愿者之家。
+WardenPhoto	照片里，一群宝可梦簇拥着一位笑容灿烂的老人。
+WardensHomeSign	狩猎地带园长的家。
+AzaleaTownIlextForestSign	桐树林入口。
+Binoculars2	透过望远镜，可以看到路上的训练家正在对战，飞散的叶片掠过空中。
+CeladonCitySign	玉虹市，彩虹色的梦之城。
+CeladonGymSign	玉虹道馆。馆主莉佳，喜爱大自然的大小姐。
+GoldenrodDeptStoreElevatorScript CeladonDeptStoreElevatorScript	百货商店的电梯。
+KantoRadioStationSign	关都广播电台，全天播送你喜爱的节目。
+MagikarpHouseSignScript	钓鱼名人的家。
+OaksLabSign	大木宝可梦研究所。
+RadioTower3FPersonnelSign	三楼，人事部。
+RadioTower5FDirectorsOfficeSign	五楼，台长室。
+RuinsOfAlphAerodactylChamberAncientReplica RuinsOfAlphAerodactylItemRoomAncientReplica RuinsOfAlphHoOhChamberAncientReplica RuinsOfAlphHoOhItemRoomAncientReplica RuinsOfAlphKabutoChamberAncientReplica RuinsOfAlphKabutoItemRoomAncientReplica RuinsOfAlphOmanyteChamberAncientReplica RuinsOfAlphOmanyteItemRoomAncientReplica	一尊古代宝可梦的仿制像。
+RuinsOfAlphAerodactylChamberDescriptionSign	石板上的飞行宝可梦用锯齿状的尖牙袭击猎物。
+RuinsOfAlphHoOhChamberDescriptionSign	传说，这只宝可梦曾展开彩虹色的双翼，优雅地飞过天空。
+RuinsOfAlphOmanyteChamberDescriptionSign	石板上的宝可梦以十条触手划动，在古代的海洋中漂游。
+SafariZoneClosedSign	园长出国旅行，狩猎地带暂时关闭。

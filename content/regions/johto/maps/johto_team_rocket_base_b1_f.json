@@ -192,72 +192,83 @@
     8,
     4
    ],
+   "source_script": "TeamRocketBaseB1FSecretSwitch",
    "kind": "sign",
    "sprite": "sign",
-   "text": "火箭队基地\\n（城都地区的告示牌）"
+   "text": "桌子下方藏着一个秘密开关。"
   },
   {
    "at": [
     12,
     0
    ],
+   "source_script": "TeamRocketBaseB1FSecurityCamera",
    "kind": "sign",
    "sprite": "sign",
-   "text": "火箭队基地\\n（城都地区的告示牌）"
+   "text": "猫老大的雕像。那双眼睛亮得有些古怪。"
   },
   {
    "at": [
     3,
     0
    ],
+   "source_script": "TeamRocketBaseB1FSecurityCamera",
    "kind": "sign",
    "sprite": "sign",
-   "text": "火箭队基地\\n（城都地区的告示牌）"
+   "text": "猫老大的雕像。那双眼睛亮得有些古怪。"
   },
   {
    "at": [
     4,
     7
    ],
+   "source_script": "TeamRocketBaseB1FSecurityCamera",
    "kind": "sign",
    "sprite": "sign",
-   "text": "火箭队基地\\n（城都地区的告示牌）"
+   "text": "猫老大的雕像。那双眼睛亮得有些古怪。"
   },
   {
    "at": [
     11,
     7
    ],
+   "source_script": "TeamRocketBaseB1FSecurityCamera",
    "kind": "sign",
    "sprite": "sign",
-   "text": "火箭队基地\\n（城都地区的告示牌）"
+   "text": "猫老大的雕像。那双眼睛亮得有些古怪。"
   },
   {
    "at": [
     12,
     2
    ],
+   "source_script": "TeamRocketBaseB1FSecurityCamera",
    "kind": "sign",
    "sprite": "sign",
-   "text": "火箭队基地\\n（城都地区的告示牌）"
+   "text": "猫老大的雕像。那双眼睛亮得有些古怪。"
   },
   {
    "at": [
     10,
     5
    ],
+   "source_script": "TeamRocketBaseB1FBookshelf",
    "kind": "sign",
    "sprite": "sign",
-   "text": "火箭队基地\\n（城都地区的告示牌）"
+   "text": "火箭队的誓词写道：夺取宝可梦来牟利，利用宝可梦征服世界！"
   },
   {
    "at": [
     1,
     5
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "火箭队基地\\n（城都地区的告示牌）"
+   "source_script": "TeamRocketBaseB1FHiddenRevive",
+   "kind": "hidden",
+   "item": "ITEM_REVIVE",
+   "name": "活力碎片",
+   "category": "heal",
+   "flag": "johto:EVENT_TEAM_ROCKET_BASE_B1F_HIDDEN_REVIVE",
+   "count": 1
   }
  ],
  "weather": "",

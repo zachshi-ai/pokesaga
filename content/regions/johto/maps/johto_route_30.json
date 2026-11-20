@@ -342,45 +342,53 @@
     4,
     21
    ],
+   "source_script": "Route30Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "30 号道路\\n（城都地区的告示牌）"
+   "text": "30 号道路，桔梗市至樱花镇。"
   },
   {
    "at": [
     6,
     14
    ],
+   "source_script": "MrPokemonsHouseDirectionsSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "30 号道路\\n（城都地区的告示牌）"
+   "text": "继续直走，就到宝可梦爷爷家了。"
   },
   {
    "at": [
     7,
     2
    ],
+   "source_script": "MrPokemonsHouseSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "30 号道路\\n（城都地区的告示牌）"
+   "text": "宝可梦爷爷的家。"
   },
   {
    "at": [
     1,
     10
    ],
+   "source_script": "Route30TrainerTips",
    "kind": "sign",
    "sprite": "sign",
-   "text": "30 号道路\\n（城都地区的告示牌）"
+   "text": "训练家心得：精灵球只对野生宝可梦使用。别人的宝可梦不能捕捉。"
   },
   {
    "at": [
     7,
     4
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "30 号道路\\n（城都地区的告示牌）"
+   "source_script": "Route30HiddenPotion",
+   "kind": "hidden",
+   "item": "ITEM_POTION",
+   "name": "伤药",
+   "category": "heal",
+   "flag": "johto:EVENT_ROUTE_30_HIDDEN_POTION",
+   "count": 1
   }
  ],
  "weather": "",

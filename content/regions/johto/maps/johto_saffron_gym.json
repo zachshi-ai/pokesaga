@@ -121,28 +121,28 @@
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     5,
-     6
+     8,
+     8
     ]
    }
   },
   {
    "at": [
-    5,
+    9,
     7
    ],
    "to": {
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     5,
+     9,
      3
     ]
    }
   },
   {
    "at": [
-    5,
+    9,
     5
    ],
    "to": {
@@ -191,7 +191,7 @@
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     0,
+     1,
      6
     ]
    }
@@ -205,28 +205,28 @@
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     5,
+     9,
      3
     ]
    }
   },
   {
    "at": [
-    5,
+    9,
     1
    ],
    "to": {
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     5,
+     7,
      6
     ]
    }
   },
   {
    "at": [
-    5,
+    7,
     8
    ],
    "to": {
@@ -275,28 +275,28 @@
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     5,
+     7,
      6
     ]
    }
   },
   {
    "at": [
-    5,
+    7,
     4
    ],
    "to": {
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     5,
+     7,
      0
     ]
    }
   },
   {
    "at": [
-    5,
+    7,
     2
    ],
    "to": {
@@ -318,13 +318,13 @@
     "map": "johto_saffron_gym",
     "at": [
      5,
-     3
+     5
     ]
    }
   },
   {
    "at": [
-    5,
+    9,
     8
    ],
    "to": {
@@ -332,20 +332,20 @@
     "map": "johto_saffron_gym",
     "at": [
      5,
-     6
+     8
     ]
    }
   },
   {
    "at": [
-    5,
+    9,
     4
    ],
    "to": {
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     5,
+     9,
      6
     ]
    }
@@ -359,7 +359,7 @@
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     5,
+     9,
      6
     ]
    }
@@ -373,8 +373,8 @@
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     0,
-     6
+     1,
+     5
     ]
    }
   },
@@ -395,7 +395,7 @@
   {
    "at": [
     0,
-    8
+    6
    ],
    "to": {
     "region": "johto",
@@ -408,7 +408,7 @@
   },
   {
    "at": [
-    5,
+    9,
     2
    ],
    "to": {
@@ -416,20 +416,20 @@
     "map": "johto_saffron_gym",
     "at": [
      0,
-     6
+     8
     ]
    }
   },
   {
    "at": [
-    5,
+    7,
     7
    ],
    "to": {
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     5,
+     9,
      0
     ]
    }
@@ -443,8 +443,8 @@
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     5,
-     6
+     8,
+     8
     ]
    }
   },
@@ -478,7 +478,7 @@
   },
   {
    "at": [
-    5,
+    7,
     5
    ],
    "to": {
@@ -492,14 +492,14 @@
   },
   {
    "at": [
-    5,
+    7,
     1
    ],
    "to": {
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     5,
+     7,
      3
     ]
    }
@@ -513,7 +513,7 @@
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     5,
+     7,
      3
     ]
    }

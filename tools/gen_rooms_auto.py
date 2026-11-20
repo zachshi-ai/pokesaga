@@ -8,12 +8,14 @@
 - 单元内的门按 dest_map/dest_warp_id 互连；通往室外的门落进关都大图并补反向门
 用法: python3 tools/gen_rooms_auto.py [--dry]
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import sys
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-PJ = "/root/build/pokesaga"
+ROOT = source_path("emerald")
+PJ = project_path()
 EMAPS = os.path.join(PJ, "content/emerald_maps")
 REG = os.path.join(PJ, "content/regions/kanto/maps")
 BIG = "kanto_main"

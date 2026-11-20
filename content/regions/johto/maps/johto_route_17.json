@@ -292,18 +292,26 @@
     4,
     26
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "17 号道路\\n（城都地区的告示牌）"
+   "source_script": "Route17HiddenMaxEther",
+   "kind": "hidden",
+   "item": "ITEM_MAX_ETHER",
+   "name": "PP 单项全补剂",
+   "category": "heal",
+   "flag": "johto:EVENT_ROUTE_17_HIDDEN_MAX_ETHER",
+   "count": 1
   },
   {
    "at": [
     4,
     38
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "17 号道路\\n（城都地区的告示牌）"
+   "source_script": "Route17HiddenMaxElixer",
+   "kind": "hidden",
+   "item": "ITEM_MAX_ELIXIR",
+   "name": "PP 多项全补剂",
+   "category": "heal",
+   "flag": "johto:EVENT_ROUTE_17_HIDDEN_MAX_ELIXER",
+   "count": 1
   }
  ],
  "weather": "",

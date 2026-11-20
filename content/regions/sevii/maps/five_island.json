@@ -96,202 +96,6 @@
   },
   {
    "at": [
-    2,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_water_labyrinth",
-    "at": [
-     5,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    3,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_water_labyrinth",
-    "at": [
-     6,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    6,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_water_labyrinth",
-    "at": [
-     9,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    7,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_water_labyrinth",
-    "at": [
-     10,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    8,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_water_labyrinth",
-    "at": [
-     11,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    9,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_water_labyrinth",
-    "at": [
-     12,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    10,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_water_labyrinth",
-    "at": [
-     13,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    13,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_water_labyrinth",
-    "at": [
-     16,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    14,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_water_labyrinth",
-    "at": [
-     17,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    15,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_water_labyrinth",
-    "at": [
-     18,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    16,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_water_labyrinth",
-    "at": [
-     19,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    17,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_water_labyrinth",
-    "at": [
-     20,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    22,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_water_labyrinth",
-    "at": [
-     25,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_water_labyrinth",
-    "at": [
-     26,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
     23,
     0
    ],
@@ -335,6 +139,62 @@
   {
    "at": [
     23,
+    3
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    4
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     0,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     0,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     0,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
     12
    ],
    "to": {
@@ -357,6 +217,48 @@
     "at": [
      0,
      13
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    14
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     0,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    15
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     0,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    16
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     0,
+     16
     ]
    }
   },
@@ -404,57 +306,155 @@
   },
   {
    "at": [
-    23,
-    3
+    0,
+    0
    ],
    "to": {
     "region": "sevii",
-    "map": "five_island_meadow",
+    "map": "five_island_water_labyrinth",
     "at": [
-     0,
-     3
+     48,
+     19
     ]
    }
   },
   {
    "at": [
-    23,
-    11
+    3,
+    0
    ],
    "to": {
     "region": "sevii",
-    "map": "five_island_meadow",
+    "map": "five_island_water_labyrinth",
     "at": [
-     0,
-     11
+     51,
+     19
     ]
    }
   },
   {
    "at": [
-    23,
-    14
+    7,
+    0
    ],
    "to": {
     "region": "sevii",
-    "map": "five_island_meadow",
+    "map": "five_island_water_labyrinth",
     "at": [
-     0,
-     14
+     55,
+     19
     ]
    }
   },
   {
    "at": [
-    23,
-    16
+    8,
+    0
    ],
    "to": {
     "region": "sevii",
-    "map": "five_island_meadow",
+    "map": "five_island_water_labyrinth",
     "at": [
-     0,
-     16
+     56,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     57,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     58,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     62,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    15,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     63,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     64,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     67,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    22,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     70,
+     19
     ]
    }
   }

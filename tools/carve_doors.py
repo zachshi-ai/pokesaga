@@ -3,11 +3,13 @@
 门格原本算建筑碰撞，玩家走不到；但门必须能站上去才能触发传送。
 用法: python3 tools/carve_doors.py
 """
+from asset_paths import project_path
+
 import glob
 import json
 import os
 
-PJ = "/root/build/pokesaga"
+PJ = project_path()
 EM = os.path.join(PJ, "content/emerald_maps")
 REG = os.path.join(PJ, "content/regions")
 

@@ -133,54 +133,60 @@
     4,
     0
    ],
+   "source_script": "ElmsLabBookshelf",
    "kind": "sign",
    "sprite": "sign",
-   "text": "空木研究所\\n（城都地区的告示牌）"
+   "text": "书架上全是专业书籍，读起来有些费劲。"
   },
   {
    "at": [
     0,
     3
    ],
+   "source_script": "ElmsLabTravelTip1",
    "kind": "sign",
    "sprite": "sign",
-   "text": "空木研究所\\n（城都地区的告示牌）"
+   "text": "旅行手册：旅途中可以打开菜单，查看队伍和背包。"
   },
   {
    "at": [
     1,
     3
    ],
+   "source_script": "ElmsLabTravelTip3",
    "kind": "sign",
    "sprite": "sign",
-   "text": "空木研究所\\n（城都地区的告示牌）"
+   "text": "旅行手册：把道具放在背包里，使用时再打开背包寻找。"
   },
   {
    "at": [
     3,
     3
    ],
+   "source_script": "ElmsLabBookshelf",
    "kind": "sign",
    "sprite": "sign",
-   "text": "空木研究所\\n（城都地区的告示牌）"
+   "text": "书架上全是专业书籍，读起来有些费劲。"
   },
   {
    "at": [
     4,
     3
    ],
+   "source_script": "ElmsLabBookshelf",
    "kind": "sign",
    "sprite": "sign",
-   "text": "空木研究所\\n（城都地区的告示牌）"
+   "text": "书架上全是专业书籍，读起来有些费劲。"
   },
   {
    "at": [
     1,
     2
    ],
+   "source_script": "ElmsLabPC",
    "kind": "sign",
    "sprite": "sign",
-   "text": "空木研究所\\n（城都地区的告示牌）"
+   "text": "显示器上写着「宝可梦进化观察记录」。"
   }
  ],
  "weather": "",

@@ -1,1 +1,95 @@
-{"name":"自己家 2F","emerald":"johto_players_house_2f","size":[4,3],"spawn":[2,1],"npcs":[{"at":[2,1],"name":"居民","gfx":"man","lines":["你好。","路上小心。"]},{"at":[2,2],"name":"居民","gfx":"man","lines":["你好。","路上小心。"]},{"at":[1,1],"name":"居民","gfx":"man","lines":["你好。","路上小心。"]},{"at":[0,0],"name":"居民","gfx":"man","lines":["你好。","路上小心。"]}],"warps":[{"at":[3,0],"to":{"region":"johto","map":"johto_players_house_1f","at":[4,1]}}],"encounters":[],"encounter_rate":0.0,"objects":[{"at":[2,0],"kind":"sign","sprite":"sign","text":"自己家 2F\\n（城都地区的告示牌）"}],"weather":"","weather_name":"","cycling":false}
+{
+ "name": "自己家 2F",
+ "emerald": "johto_players_house_2f",
+ "size": [
+  4,
+  3
+ ],
+ "spawn": [
+  2,
+  1
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    1
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    1
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    0,
+    0
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_players_house_1f",
+    "at": [
+     4,
+     1
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    2,
+    0
+   ],
+   "source_script": "PlayersHouseBookshelfScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "架子上摆满了精装的宝可梦绘本。"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

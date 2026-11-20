@@ -216,9 +216,10 @@
     18,
     5
    ],
+   "source_script": "CinnabarGymSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "20 号道路\\n（城都地区的告示牌）"
+   "text": "仔细看，牌子上写着「红莲道馆，馆主夏伯」。"
   }
  ],
  "weather": "",

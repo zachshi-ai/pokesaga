@@ -3,11 +3,13 @@
 
 自动生成的地图边缘门容易出现"落点在墙里"，玩家一传送就卡住。
 """
+from asset_paths import project_path
+
 import json
 import glob
 import os
 
-ROOT = "/root/build/pokesaga"
+ROOT = project_path()
 CACHE = {}
 
 

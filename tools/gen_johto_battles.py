@@ -9,13 +9,15 @@
 
 坐标：原版 8x8 小格 / 2 = 我们的一格，跟 gen_johto.py 用同一套吸附规则。
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import re
 import sys
 
-ROOT = "/root/build/pokecrystal"
-PROJ = "/root/build/pokesaga"
+ROOT = source_path("crystal")
+PROJ = project_path()
 MAPSDIR = os.path.join(PROJ, "content/regions/johto/maps")
 EMAPS = os.path.join(PROJ, "content/emerald_maps")
 
@@ -96,6 +98,8 @@ def sid(name):
 
 
 def mid(name):
+    name = {"PSYCHIC_M": "PSYCHIC", "FAINT_ATTACK": "FEINT_ATTACK",
+            "HI_JUMP_KICK": "HIGH_JUMP_KICK"}.get(name, name)
     r = MOVES.get(re.sub(r"[^A-Z0-9]", "", name.upper()))
     return int(r["id"]) if r else 0
 
@@ -523,8 +527,49 @@ def main():
         if changed:
             json.dump(data, open(mj, "w"), ensure_ascii=False, indent=1)
 
+    stat["league_teams"] = write_league()
     print(json.dumps(stat, ensure_ascii=False))
 
 
+def write_league():
+    with open(os.path.join(PROJ, "content/regions/johto/league.json")) as f:
+        league = json.load(f)
+    for row in league["rounds"]:
+        team = GROUPS[row["group"]][0]["team"]
+        expected = 6 if row["group"] == "Champion" else 5
+        if len(team) != expected or any(len(mon.get("moves", [])) != 4 for mon in team):
+            raise ValueError(f'Incomplete source party: {row["group"]}')
+        path = os.path.join(MAPSDIR, row["room"] + ".json")
+        with open(path) as f:
+            data = json.load(f)
+        trainer = data["npcs"][0]  # first object in each chamber's map script
+        trainer.update(name=row["name"], lines=[row["intro"]], after=[row["after"]],
+                       trainer=row["group"], league_flag=row["flag"], battle={"team": team})
+        with open(path, "w") as f:
+            json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
+    # The nurse and shopkeeper are scripted NPCs (not trainer events).
+    path = os.path.join(MAPSDIR, league["lobby"] + ".json")
+    with open(path) as f:
+        lobby = json.load(f)
+    for npc in lobby["npcs"]:
+        if npc.get("gfx") == "nurse":
+            npc["heal"] = True
+        if npc.get("gfx") == "clerk":
+            npc["shop"] = True
+    with open(path, "w") as f:
+        json.dump(lobby, f, ensure_ascii=False, separators=(",", ":"))
+    path = os.path.join(MAPSDIR, league["hall"] + ".json")
+    with open(path) as f:
+        hall = json.load(f)
+    hall["npcs"][0].update(name="阿渡", hall_record=True)
+    with open(path, "w") as f:
+        json.dump(hall, f, ensure_ascii=False, separators=(",", ":"))
+    return len(league["rounds"])
+
+
 if __name__ == "__main__":
-    main()
+    if "--league-only" in sys.argv:
+        parse_parties()
+        print("League teams:", write_league())
+    else:
+        main()

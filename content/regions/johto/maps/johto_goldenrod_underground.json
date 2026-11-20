@@ -188,8 +188,8 @@
  "warps": [
   {
    "at": [
-    9,
-    12
+    1,
+    1
    ],
    "to": {
     "region": "johto",
@@ -202,14 +202,14 @@
   },
   {
    "at": [
-    9,
-    15
+    1,
+    17
    ],
    "to": {
     "region": "johto",
     "map": "johto_goldenrod_underground_switch_room_entrances",
     "at": [
-     8,
+     2,
      13
     ]
    }
@@ -217,7 +217,7 @@
   {
    "at": [
     9,
-    12
+    3
    ],
    "to": {
     "region": "johto",
@@ -238,7 +238,7 @@
     "map": "johto_goldenrod_underground",
     "at": [
      9,
-     13
+     4
     ]
    }
   },
@@ -252,7 +252,7 @@
     "map": "johto_goldenrod_underground",
     "at": [
      9,
-     13
+     4
     ]
    }
   },
@@ -265,8 +265,8 @@
     "region": "johto",
     "map": "johto_goldenrod_underground_switch_room_entrances",
     "at": [
-     12,
-     11
+     11,
+     2
     ]
    }
   }
@@ -279,27 +279,39 @@
     3,
     6
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "满金地下通道\\n（城都地区的告示牌）"
+   "source_script": "GoldenrodUndergroundHiddenParlyzHeal",
+   "kind": "hidden",
+   "item": "ITEM_PARALYZE_HEAL",
+   "name": "麻痹药",
+   "category": "heal",
+   "flag": "johto:EVENT_GOLDENROD_UNDERGROUND_HIDDEN_PARLYZ_HEAL",
+   "count": 1
   },
   {
    "at": [
     2,
     9
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "满金地下通道\\n（城都地区的告示牌）"
+   "source_script": "GoldenrodUndergroundHiddenSuperPotion",
+   "kind": "hidden",
+   "item": "ITEM_SUPER_POTION",
+   "name": "好伤药",
+   "category": "heal",
+   "flag": "johto:EVENT_GOLDENROD_UNDERGROUND_HIDDEN_SUPER_POTION",
+   "count": 1
   },
   {
    "at": [
     8,
     4
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "满金地下通道\\n（城都地区的告示牌）"
+   "source_script": "GoldenrodUndergroundHiddenAntidote",
+   "kind": "hidden",
+   "item": "ITEM_ANTIDOTE",
+   "name": "解毒药",
+   "category": "heal",
+   "flag": "johto:EVENT_GOLDENROD_UNDERGROUND_HIDDEN_ANTIDOTE",
+   "count": 1
   }
  ],
  "weather": "",

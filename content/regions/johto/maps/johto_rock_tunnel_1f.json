@@ -131,18 +131,26 @@
     11,
     2
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "岩山隧道·1F\\n（城都地区的告示牌）"
+   "source_script": "RockTunnel1FHiddenXAccuracy",
+   "kind": "hidden",
+   "item": "ITEM_X_ACCURACY",
+   "name": "命中强化",
+   "category": "battle",
+   "flag": "johto:EVENT_ROCK_TUNNEL_1F_HIDDEN_X_ACCURACY",
+   "count": 1
   },
   {
    "at": [
     10,
     7
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "岩山隧道·1F\\n（城都地区的告示牌）"
+   "source_script": "RockTunnel1FHiddenXDefend",
+   "kind": "hidden",
+   "item": "ITEM_X_DEFEND",
+   "name": "防御强化",
+   "category": "battle",
+   "flag": "johto:EVENT_ROCK_TUNNEL_1F_HIDDEN_X_DEFEND",
+   "count": 1
   }
  ],
  "weather": "",

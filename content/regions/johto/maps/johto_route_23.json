@@ -1,1 +1,88 @@
-{"name":"23 号道路","emerald":"johto_route_23","size":[10,9],"spawn":[5,4],"npcs":[],"warps":[{"at":[4,2],"to":{"region":"johto","map":"johto_indigo_plateau_pokecenter_1f","at":[2,5]}},{"at":[5,2],"to":{"region":"johto","map":"johto_indigo_plateau_pokecenter_1f","at":[3,5]}},{"at":[4,6],"to":{"region":"johto","map":"johto_victory_road","at":[5,14]}},{"at":[5,6],"to":{"region":"johto","map":"johto_victory_road","at":[5,14]}}],"encounters":[],"encounter_rate":0.0,"objects":[{"at":[5,3],"kind":"sign","sprite":"sign","text":"23 号道路\\n（城都地区的告示牌）"}],"weather":"","weather_name":"","cycling":false}
+{
+ "name": "23 号道路",
+ "emerald": "johto_route_23",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    4,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_indigo_plateau_pokecenter_1f",
+    "at": [
+     2,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_indigo_plateau_pokecenter_1f",
+    "at": [
+     3,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_victory_road",
+    "at": [
+     6,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_victory_road",
+    "at": [
+     6,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    5,
+    3
+   ],
+   "source_script": "IndigoPlateauSign",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "石英高原，宝可梦联盟总部。这里是训练家们的目标。"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

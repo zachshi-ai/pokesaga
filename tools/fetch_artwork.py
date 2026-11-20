@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 """补拉官方立绘（缺的才拉），jsDelivr 优先，回退 GitHub raw。"""
+from asset_paths import project_path, cache_path
+
 import json
 import os
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
-OUT = "/root/build/pokesaga/assets/party_hd"
-RAW = "/root/build/pokesaga/assets/_artwork_raw"
-SIZE = 160
+OUT = project_path("assets/party_hd")
+RAW = cache_path("official-artwork-c0542f7")
+SIZE = 128
 
 SRC = [
-    "https://cdn.jsdelivr.net/gh/PokeAPI/sprites@master/sprites/pokemon/other/official-artwork/%d.png",
-    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/%d.png",
+    "https://cdn.jsdelivr.net/gh/PokeAPI/sprites@c0542f7c51215d9672439012838c99f520596cbd/sprites/pokemon/other/official-artwork/%d.png",
+    "https://raw.githubusercontent.com/PokeAPI/sprites/c0542f7c51215d9672439012838c99f520596cbd/sprites/pokemon/other/official-artwork/%d.png",
 ]
 
 
@@ -41,7 +43,7 @@ def fetch(sid):
 def main():
     os.makedirs(OUT, exist_ok=True)
     os.makedirs(RAW, exist_ok=True)
-    species = json.load(open("/root/build/pokesaga/content/species.json"))
+    species = json.load(open(project_path("content/species.json")))
     ids = sorted({int(s["id"]) for s in species if int(s["id"]) > 0})
     miss = [i for i in ids if not (os.path.exists(os.path.join(RAW, "%d.png" % i))
                                    and os.path.getsize(os.path.join(RAW, "%d.png" % i)) > 1000)]
@@ -74,6 +76,8 @@ def main():
         canvas.save(os.path.join(OUT, "%d.png" % sid), optimize=True)
         made += 1
     print("生成 %d 张" % made, flush=True)
+    if made != len(ids):
+        raise SystemExit("有立绘未成功获取或转换")
 
 
 if __name__ == "__main__":

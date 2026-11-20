@@ -5,7 +5,8 @@
  "music": "route",
  "maps": [
   "littleroot_town",
-  "route101"
+  "route101",
+  "demo_town"
  ],
  "encounters": [
   {

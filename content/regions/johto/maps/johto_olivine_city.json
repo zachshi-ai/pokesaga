@@ -169,7 +169,7 @@
     "region": "johto",
     "map": "johto_olivine_lighthouse_1f",
     "at": [
-     6,
+     5,
      7
     ]
    }
@@ -197,7 +197,7 @@
     "region": "johto",
     "map": "johto_olivine_port_passage",
     "at": [
-     7,
+     6,
      1
     ]
    }
@@ -376,45 +376,50 @@
     8,
     5
    ],
+   "source_script": "OlivineCitySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "浅葱市\\n（城都地区的告示牌）"
+   "text": "浅葱市，最靠近海外的港口。"
   },
   {
    "at": [
     10,
     12
    ],
+   "source_script": "OlivineCityPortSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "浅葱市\\n（城都地区的告示牌）"
+   "text": "浅葱港，高速船码头。"
   },
   {
    "at": [
     3,
     5
    ],
+   "source_script": "OlivineGymSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "浅葱市\\n（城都地区的告示牌）"
+   "text": "浅葱道馆。馆主阿蜜，以钢铁般的防守著称。"
   },
   {
    "at": [
     15,
     14
    ],
+   "source_script": "OlivineLighthouseSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "浅葱市\\n（城都地区的告示牌）"
+   "text": "浅葱灯塔，又名光辉灯塔。"
   },
   {
    "at": [
     1,
     11
    ],
+   "source_script": "OlivineCityBattleTowerSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "浅葱市\\n（城都地区的告示牌）"
+   "text": "前方是刚刚开放的对战塔。"
   }
  ],
  "weather": "",

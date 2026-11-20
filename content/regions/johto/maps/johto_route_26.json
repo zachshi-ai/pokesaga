@@ -383,9 +383,10 @@
     4,
     3
    ],
+   "source_script": "Route26Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "26 号道路\\n（城都地区的告示牌）"
+   "text": "26 号道路，前方是宝可梦联盟接待处。"
   }
  ],
  "weather": "",

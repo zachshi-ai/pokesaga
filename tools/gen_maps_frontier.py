@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """对战开拓区：码头岛 + 对战塔大厅（室内）。挂在丰缘东南，坐船进出。"""
+from asset_paths import project_path
+from hoenn_ferry import FRONTIER_GUIDE, HOENN_LANDING
+
 import json, os, random
 
-OUT = "/root/build/pokesaga/content/regions"
+OUT = project_path("content/regions")
 
 
 def blank(w, h, fill=0):
@@ -57,14 +60,15 @@ blob(g, 19, 8, 2, 1, 312)
 blob(g, 8, 6, 2, 11, 313)               # 高草
 blob(g, 20, 14, 2, 11, 314)
 # 木栈道：南侧码头到北侧塔门
-rect(g, 13, 3, 15, 16, 3)
+rect(g, 13, 2, 15, 16, 3)
 rect(g, 11, 15, 17, 17, 3)
 g[1][14] = 8                            # 塔门（室内入口）
 g[0][14] = 6
 write("frontier", "harbor", "对战开拓区·码头", g, (14, 15),
       [{"at": [14, 1], "to": {"region": "frontier", "map": "tower_lobby", "at": [9, 14]}},
-       {"at": [14, 17], "to": {"region": "hoenn", "map": "test_town", "at": [29, 13]}}],
-      [{"at": [12, 15], "name": "港口水手"},
+       {"at": [14, 17], "to": {"region": "hoenn", "map": "littleroot_town", "at": HOENN_LANDING}},
+       {"at": [14, 4], "to": {"region": "kanto", "map": "kanto_main", "at": [287, 234]}}],
+      [{"at": [12, 15], "name": "港口水手", "gfx": "sailor", "lines": FRONTIER_GUIDE},
        {"at": [16, 15], "name": "开拓少女"},
        {"at": [11, 6], "name": "岛上的游客"}])
 
@@ -80,6 +84,7 @@ rect(g, 6, 1, 11, 4, 14)                # 地毯
 rect(g, 8, 4, 9, 13, 13)
 rect(g, 2, 2, 5, 3, 6)                  # 左侧柜台
 rect(g, 12, 2, 15, 3, 6)                # 右侧柜台
+g[15][9] = 13                           # leave the south exit passable
 write("frontier", "tower_lobby", "对战塔 · 大厅", g, (9, 13),
       [{"at": [9, 15], "to": {"region": "frontier", "map": "harbor", "at": [14, 2]}}],
       [{"at": [9, 3], "name": "对战塔前台", "facility": True},

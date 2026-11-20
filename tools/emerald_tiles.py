@@ -8,10 +8,12 @@ GBA 规则（Emerald）：
   tiles.png 每格 8x8，像素值就是调色板索引（0-15），真实颜色在 palettes/NN.pal
   顶层索引为 0 的像素透明
 """
+from asset_paths import cache_path, source_path
+
 import struct, os, json
 from PIL import Image, ImageOps
 
-BASE = "/root/build/pokeemerald-expansion-master/data/tilesets"
+BASE = source_path("emerald", "data/tilesets")
 
 
 def load_pal(path):
@@ -181,5 +183,5 @@ if __name__ == "__main__":
     for i in range(32):
         sheet.paste(ts.render(i), ((i % 16) * 16, (i // 16) * 16))
     sheet = sheet.resize((sheet.width * 4, sheet.height * 4), Image.NEAREST)
-    sheet.save("/root/.openclaw/workspace/tmpimg/emerald_meta_test.png")
+    sheet.save(cache_path("emerald_meta_test.png"))
     print("saved test sheet")

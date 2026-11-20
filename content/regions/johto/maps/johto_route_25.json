@@ -397,18 +397,23 @@
     22,
     2
    ],
+   "source_script": "BillsHouseSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "25 号道路\\n（城都地区的告示牌）"
+   "text": "海角小屋，正辉的家。"
   },
   {
    "at": [
     2,
     2
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "25 号道路\\n（城都地区的告示牌）"
+   "source_script": "Route25HiddenPotion",
+   "kind": "hidden",
+   "item": "ITEM_POTION",
+   "name": "伤药",
+   "category": "heal",
+   "flag": "johto:EVENT_ROUTE_25_HIDDEN_POTION",
+   "count": 1
   }
  ],
  "weather": "",

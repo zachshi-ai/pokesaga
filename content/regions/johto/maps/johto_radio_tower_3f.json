@@ -185,7 +185,7 @@
     "region": "johto",
     "map": "johto_radio_tower_4f",
     "at": [
-     4,
+     8,
      1
     ]
    }
@@ -199,18 +199,20 @@
     4,
     0
    ],
+   "source_script": "RadioTower3FPokemonMusicSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "无线电塔·3F\\n（城都地区的告示牌）"
+   "text": "宝可梦音乐节目，主持人 DJ 阿本。"
   },
   {
    "at": [
     6,
     1
    ],
+   "source_script": "CardKeySlotScript",
    "kind": "sign",
    "sprite": "sign",
-   "text": "无线电塔·3F\\n（城都地区的告示牌）"
+   "text": "门边有一道用来插入钥匙卡的狭槽。"
   }
  ],
  "weather": "",

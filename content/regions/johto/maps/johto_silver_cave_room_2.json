@@ -177,9 +177,13 @@
     7,
     15
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "白银山\\n（城都地区的告示牌）"
+   "source_script": "SilverCaveRoom2HiddenMaxPotion",
+   "kind": "hidden",
+   "item": "ITEM_MAX_POTION",
+   "name": "全满药",
+   "category": "heal",
+   "flag": "johto:EVENT_SILVER_CAVE_ROOM_2_HIDDEN_MAX_POTION",
+   "count": 1
   }
  ],
  "weather": "",

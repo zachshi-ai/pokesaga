@@ -159,27 +159,30 @@
     4,
     4
    ],
+   "source_script": "NewBarkTownSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "若叶镇\\n（城都地区的告示牌）"
+   "text": "若叶镇，吹拂着启程之风的小镇。"
   },
   {
    "at": [
     5,
     2
    ],
+   "source_script": "NewBarkTownPlayersHouseSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "若叶镇\\n（城都地区的告示牌）"
+   "text": "训练家的家。"
   },
   {
    "at": [
     4,
     6
    ],
+   "source_script": "NewBarkTownElmsHouseSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "若叶镇\\n（城都地区的告示牌）"
+   "text": "空木博士的家。"
   }
  ],
  "weather": "",

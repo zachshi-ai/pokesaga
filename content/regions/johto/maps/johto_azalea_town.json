@@ -165,8 +165,8 @@
   },
   {
    "at": [
-    7,
-    4
+    4,
+    2
    ],
    "to": {
     "region": "johto",
@@ -207,7 +207,7 @@
   },
   {
    "at": [
-    6,
+    1,
     5
    ],
    "to": {
@@ -221,15 +221,15 @@
   },
   {
    "at": [
-    6,
+    2,
     5
    ],
    "to": {
     "region": "johto",
     "map": "johto_ilex_forest_azalea_gate",
     "at": [
-     4,
-     3
+     3,
+     1
     ]
    }
   },
@@ -287,27 +287,30 @@
     5,
     4
    ],
+   "source_script": "KurtsHouseSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "桧皮镇\\n（城都地区的告示牌）"
+   "text": "钢铁先生的家。"
   },
   {
    "at": [
     14,
     3
    ],
+   "source_script": "SlowpokeWellSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "桧皮镇\\n（城都地区的告示牌）"
+   "text": "呆呆兽之井，也叫「唤雨之井」。相传四百年前，一只呆呆兽打的哈欠唤来了久旱后的甘霖。"
   },
   {
    "at": [
     9,
     6
    ],
+   "source_script": "CharcoalKilnSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "桧皮镇\\n（城都地区的告示牌）"
+   "text": "烧炭窑。"
   }
  ],
  "weather": "",

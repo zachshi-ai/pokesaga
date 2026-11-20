@@ -313,27 +313,30 @@
     3,
     4
    ],
+   "source_script": "PalletTownSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "PalletTown\\n（城都地区的告示牌）"
+   "text": "真新镇，宁静纯朴的起点。"
   },
   {
    "at": [
     1,
     2
    ],
+   "source_script": "RedsHouseSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "PalletTown\\n（城都地区的告示牌）"
+   "text": "赤红的家。"
   },
   {
    "at": [
     5,
     2
    ],
+   "source_script": "BluesHouseSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "PalletTown\\n（城都地区的告示牌）"
+   "text": "青绿的家。"
   }
  ],
  "weather": "",

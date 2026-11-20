@@ -280,7 +280,7 @@
   },
   {
    "at": [
-    3,
+    48,
     0
    ],
    "to": {
@@ -294,7 +294,7 @@
   },
   {
    "at": [
-    4,
+    49,
     0
    ],
    "to": {
@@ -308,21 +308,35 @@
   },
   {
    "at": [
-    5,
+    53,
     0
    ],
    "to": {
     "region": "sevii",
     "map": "seven_island_sevault_canyon",
     "at": [
-     2,
+     5,
      79
     ]
    }
   },
   {
    "at": [
-    18,
+    54,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon",
+    "at": [
+     6,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    63,
     0
    ],
    "to": {
@@ -336,7 +350,7 @@
   },
   {
    "at": [
-    19,
+    64,
     0
    ],
    "to": {
@@ -344,20 +358,6 @@
     "map": "seven_island_sevault_canyon",
     "at": [
      16,
-     79
-    ]
-   }
-  },
-  {
-   "at": [
-    24,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "seven_island_sevault_canyon",
-    "at": [
-     21,
      79
     ]
    }

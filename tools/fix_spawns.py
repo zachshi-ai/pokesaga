@@ -2,6 +2,8 @@
 """出生点体检：出生格在碰撞里是墙（或者地图边界外）就挪到最近的可走格。
 用法: python3 tools/fix_spawns.py [--region=sevii]
 """
+from asset_paths import project_path
+
 import json
 import os
 import sys
@@ -11,8 +13,8 @@ REGION = "kanto"
 for a in sys.argv:
     if a.startswith("--region="):
         REGION = a.split("=")[1]
-REG = "/root/build/pokesaga/content/regions/%s/maps" % REGION
-EM = "/root/build/pokesaga/content/emerald_maps"
+REG = project_path("content/regions/%s/maps") % REGION
+EM = project_path("content/emerald_maps")
 
 
 def main():

@@ -273,9 +273,10 @@
     2,
     5
    ],
+   "source_script": "PowerPlantSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "10 号道路\\n（城都地区的告示牌）"
+   "text": "关都发电厂。"
   }
  ],
  "weather": "",

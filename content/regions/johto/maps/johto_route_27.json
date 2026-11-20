@@ -379,9 +379,10 @@
     12,
     3
    ],
+   "source_script": "TohjoFallsSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "27 号道路\\n（城都地区的告示牌）"
+   "text": "都汇瀑布，连接关都与城都。"
   }
  ],
  "weather": "",

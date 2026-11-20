@@ -339,9 +339,10 @@
     9,
     4
    ],
+   "source_script": "Route15Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "15 号道路\\n（城都地区的告示牌）"
+   "text": "15 号道路，浅红市至紫苑镇。"
   }
  ],
  "weather": "",

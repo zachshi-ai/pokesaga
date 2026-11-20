@@ -127,15 +127,15 @@
   },
   {
    "at": [
-    3,
-    4
+    1,
+    2
    ],
    "to": {
     "region": "johto",
     "map": "johto_olivine_lighthouse_4f",
     "at": [
-     5,
-     1
+     1,
+     3
     ]
    }
   },
@@ -148,43 +148,43 @@
     "region": "johto",
     "map": "johto_olivine_lighthouse_4f",
     "at": [
-     2,
-     1
+     4,
+     3
     ]
    }
   },
   {
    "at": [
-    4,
+    8,
     3
    ],
    "to": {
     "region": "johto",
     "map": "johto_olivine_lighthouse_4f",
     "at": [
-     8,
+     7,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_lighthouse_4f",
+    "at": [
+     7,
      2
     ]
    }
   },
   {
    "at": [
-    4,
-    3
-   ],
-   "to": {
-    "region": "johto",
-    "map": "johto_olivine_lighthouse_4f",
-    "at": [
-     8,
-     2
-    ]
-   }
-  },
-  {
-   "at": [
-    4,
-    3
+    8,
+    2
    ],
    "to": {
     "region": "johto",
@@ -197,14 +197,14 @@
   },
   {
    "at": [
-    4,
-    3
+    7,
+    2
    ],
    "to": {
     "region": "johto",
     "map": "johto_olivine_lighthouse_6f",
     "at": [
-     8,
+     7,
      3
     ]
    }

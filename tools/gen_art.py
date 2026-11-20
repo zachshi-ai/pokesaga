@@ -2,12 +2,14 @@
 """PokeSaga 美术生成：16x16 瓦片图集 + 16x24 角色行走图集。
 纯像素绘制，无抗锯齿；配色走明亮清新的 GBA 风。
 """
+from asset_paths import project_path
+
 from PIL import Image, ImageDraw
 import random
 import math
 
 T = 16
-OUT = "/root/build/pokesaga/assets"
+OUT = project_path("assets")
 
 # ---------- 调色板 ----------
 C = {
@@ -678,7 +680,7 @@ def build_creatures():
     """按 content/species.json 全量出图，属性取自第一条，颜色随属性走。
     这样补一条物种数据就自动多一张图，不用改这份脚本。"""
     import json
-    rows = json.load(open("/root/build/pokesaga/content/species.json"))
+    rows = json.load(open(project_path("content/species.json")))
     made = []
     for row in rows:
         sid = int(row["id"])

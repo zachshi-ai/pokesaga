@@ -201,6 +201,15 @@
     {"say": ["八枚徽章在背包里碰出轻响。", "前面就是联盟，过的这一路都算数。", "先把队伍养好——里面没人会让你。"], "who": "旁白"},
     {"flag": "johto_victory_done"}
    ]
+  },
+  {
+   "id": "johto_hall_of_fame",
+   "trigger": {"type": "map_enter", "map": "johto_hall_of_fame"},
+   "require": {"flags_all": ["johto_league_will", "johto_league_koga", "johto_league_bruno", "johto_league_karen", "johto_league_lance"], "flags_none": ["johto_champion"], "has_party": true},
+   "steps": [
+    {"hall_of_fame": "johto"},
+    {"say": ["把伙伴的精灵球放到登记台上吧。", "你们的名字已经载入名人堂。恭喜你，城都联盟的新冠军！"], "who": "阿渡"}
+   ]
   }
  ]
 }

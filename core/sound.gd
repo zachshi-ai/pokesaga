@@ -12,6 +12,9 @@ var _fade := 0.0
 
 
 func _ready() -> void:
+	if DisplayServer.get_name() == "headless":
+		music_on = false
+		sfx_on = false
 	bgm = AudioStreamPlayer.new()
 	bgm.bus = "Master"
 	bgm.volume_db = -8.0
@@ -79,10 +82,8 @@ func stop_music() -> void:
 
 
 func play_sfx(key: String) -> void:
-	if not sfx_on:
-		return
 	var s := _load_stream("res://assets/audio/sfx/%s.wav" % key)
-	if s == null:
+	if s == null or not sfx_on:
 		return
 	for p in sfx_pool:
 		if not (p as AudioStreamPlayer).playing:

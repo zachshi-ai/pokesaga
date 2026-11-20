@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """导出原版窗口边框（文字窗口 9 宫格）与光标，供 UI 直接使用。"""
+from asset_paths import project_path, source_path
+
 import os
 from PIL import Image
 
-SRC = "/root/build/pokeemerald-expansion-master/graphics"
-OUT = "/root/build/pokesaga/assets/ui"
+SRC = source_path("emerald", "graphics")
+OUT = project_path("assets/ui")
 
 
 def pal(path):

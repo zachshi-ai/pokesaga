@@ -104,49 +104,7 @@
     "map": "six_island_water_path",
     "at": [
      0,
-     11
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    15
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_water_path",
-    "at": [
-     0,
-     18
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    16
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_water_path",
-    "at": [
-     0,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    19
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_water_path",
-    "at": [
-     0,
-     22
+     48
     ]
    }
   },
@@ -160,105 +118,7 @@
     "map": "six_island_water_path",
     "at": [
      0,
-     14
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    17
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_water_path",
-    "at": [
-     0,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    7
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_water_path",
-    "at": [
-     0,
-     10
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    9
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_water_path",
-    "at": [
-     0,
-     12
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    11
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_water_path",
-    "at": [
-     0,
-     14
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    14
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_water_path",
-    "at": [
-     0,
-     17
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    18
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_water_path",
-    "at": [
-     0,
-     21
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    20
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_water_path",
-    "at": [
-     0,
-     23
+     52
     ]
    }
   },
@@ -272,7 +132,7 @@
     "map": "six_island_water_path",
     "at": [
      0,
-     15
+     53
     ]
    }
   }

@@ -275,18 +275,20 @@
     3,
     2
    ],
+   "source_script": "Route31Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "31 号道路\\n（城都地区的告示牌）"
+   "text": "31 号道路，桔梗市至樱花镇。"
   },
   {
    "at": [
     15,
     2
    ],
+   "source_script": "DarkCaveSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "31 号道路\\n（城都地区的告示牌）"
+   "text": "黑暗洞窟。"
   }
  ],
  "weather": "",

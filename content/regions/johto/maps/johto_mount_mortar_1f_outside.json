@@ -40,8 +40,8 @@
  "warps": [
   {
    "at": [
-    12,
-    8
+    1,
+    16
    ],
    "to": {
     "region": "johto",
@@ -54,8 +54,8 @@
   },
   {
    "at": [
-    12,
-    8
+    8,
+    16
    ],
    "to": {
     "region": "johto",
@@ -68,8 +68,8 @@
   },
   {
    "at": [
-    16,
-    8
+    18,
+    16
    ],
    "to": {
     "region": "johto",
@@ -82,8 +82,8 @@
   },
   {
    "at": [
-    14,
-    4
+    8,
+    2
    ],
    "to": {
     "region": "johto",
@@ -96,8 +96,8 @@
   },
   {
    "at": [
-    12,
-    8
+    5,
+    10
    ],
    "to": {
     "region": "johto",
@@ -111,7 +111,7 @@
   {
    "at": [
     14,
-    8
+    10
    ],
    "to": {
     "region": "johto",
@@ -124,8 +124,8 @@
   },
   {
    "at": [
-    12,
-    8
+    8,
+    14
    ],
    "to": {
     "region": "johto",
@@ -138,7 +138,7 @@
   },
   {
    "at": [
-    12,
+    3,
     6
    ],
    "to": {
@@ -216,9 +216,13 @@
     13,
     11
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "MountMortar1FOutside\\n（城都地区的告示牌）"
+   "source_script": "MountMortar1FOutsideHiddenHyperPotion",
+   "kind": "hidden",
+   "item": "ITEM_HYPER_POTION",
+   "name": "厉害伤药",
+   "category": "heal",
+   "flag": "johto:EVENT_MOUNT_MORTAR_1F_OUTSIDE_HIDDEN_HYPER_POTION",
+   "count": 1
   }
  ],
  "weather": "",

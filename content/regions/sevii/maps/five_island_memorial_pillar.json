@@ -164,7 +164,7 @@
     "map": "five_island_meadow",
     "at": [
      23,
-     2
+     20
     ]
    }
   },
@@ -178,329 +178,7 @@
     "map": "five_island_meadow",
     "at": [
      23,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    4
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     6
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    5
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    6
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    9
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     11
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    10
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     12
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    11
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     13
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    12
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     14
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    15
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     17
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    18
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     20
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    19
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
      21
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    25
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     27
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    26
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     28
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    27
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     29
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    28
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     30
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    29
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     31
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    30
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     32
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    33
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     35
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    37
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     39
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    7
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    20
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     21
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    31
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     32
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    34
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     35
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    38
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     39
     ]
    }
   },
@@ -514,7 +192,7 @@
     "map": "five_island_meadow",
     "at": [
      23,
-     4
+     22
     ]
    }
   },
@@ -528,84 +206,42 @@
     "map": "five_island_meadow",
     "at": [
      23,
-     5
+     23
     ]
    }
   },
   {
    "at": [
     0,
-    8
+    4
    ],
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
-     10
+     24
     ]
    }
   },
   {
    "at": [
     0,
-    13
+    5
    ],
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
-     15
+     25
     ]
    }
   },
   {
    "at": [
     0,
-    14
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     16
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    16
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     18
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    17
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    24
+    6
    ],
    "to": {
     "region": "sevii",
@@ -619,7 +255,105 @@
   {
    "at": [
     0,
-    32
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     23,
+     27
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     23,
+     28
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     23,
+     29
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     23,
+     30
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     23,
+     31
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     23,
+     32
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     23,
+     33
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    14
    ],
    "to": {
     "region": "sevii",
@@ -633,7 +367,35 @@
   {
    "at": [
     0,
-    35
+    15
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     23,
+     35
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    16
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     23,
+     36
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    17
    ],
    "to": {
     "region": "sevii",
@@ -647,7 +409,7 @@
   {
    "at": [
     0,
-    36
+    18
    ],
    "to": {
     "region": "sevii",
@@ -661,14 +423,14 @@
   {
    "at": [
     0,
-    21
+    19
    ],
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
-     22
+     39
     ]
    }
   }

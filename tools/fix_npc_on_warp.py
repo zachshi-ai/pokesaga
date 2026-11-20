@@ -4,11 +4,13 @@
 原版有些 NPC 本来就站在门口（水手、门卫），我们照着放会把门堵死，
 玩家明明看到门却进不去。这里统一挪一格，保证每扇门都能踩到。
 """
+from asset_paths import project_path
+
 import json
 import glob
 import os
 
-ROOT = "/root/build/pokesaga"
+ROOT = project_path()
 
 
 def free(npc_at, warps, collision, npc_set, w, h):

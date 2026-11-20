@@ -391,27 +391,33 @@
     5,
     13
    ],
+   "source_script": "Route12Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "12 号道路\\n（城都地区的告示牌）"
+   "text": "12 号道路。向北前往紫苑镇。"
   },
   {
    "at": [
     6,
     4
    ],
+   "source_script": "FishingSpotSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "12 号道路\\n（城都地区的告示牌）"
+   "text": "垂钓点。"
   },
   {
    "at": [
     7,
     6
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "12 号道路\\n（城都地区的告示牌）"
+   "source_script": "Route12HiddenElixer",
+   "kind": "hidden",
+   "item": "ITEM_ELIXIR",
+   "name": "PP 多项小补剂",
+   "category": "heal",
+   "flag": "johto:EVENT_ROUTE_12_HIDDEN_ELIXER",
+   "count": 1
   }
  ],
  "weather": "",

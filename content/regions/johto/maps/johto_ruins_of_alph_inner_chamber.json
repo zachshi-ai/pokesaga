@@ -107,8 +107,8 @@
   },
   {
    "at": [
-    7,
-    1
+    8,
+    2
    ],
    "to": {
     "region": "johto",
@@ -191,198 +191,220 @@
     1,
     1
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     1,
     0
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     4,
     1
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     4,
     0
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     7,
     0
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     1,
     4
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     2,
     4
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     4,
     4
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     5,
     4
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     7,
     4
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     8,
     4
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     1,
     6
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     7,
     5
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     1,
     9
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     2,
     9
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     4,
     9
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     7,
     9
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     8,
     9
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     1,
     12
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     2,
     12
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     4,
     12
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   },
   {
    "at": [
     5,
     12
    ],
+   "source_script": "RuinsOfAlphInnerChamberStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "这是一尊古代宝可梦的仿制像。"
   }
  ],
  "weather": "",

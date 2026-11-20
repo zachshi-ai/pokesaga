@@ -279,9 +279,10 @@
     2,
     1
    ],
+   "source_script": "Route37Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "37 号道路\\n（城都地区的告示牌）"
+   "text": "37 号道路。"
   }
  ],
  "weather": "",

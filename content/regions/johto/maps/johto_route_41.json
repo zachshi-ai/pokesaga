@@ -122,8 +122,8 @@
  "warps": [
   {
    "at": [
-    8,
-    16
+    6,
+    8
    ],
    "to": {
     "region": "johto",
@@ -136,8 +136,8 @@
   },
   {
    "at": [
-    9,
-    16
+    18,
+    9
    ],
    "to": {
     "region": "johto",
@@ -150,8 +150,8 @@
   },
   {
    "at": [
-    9,
-    17
+    6,
+    18
    ],
    "to": {
     "region": "johto",
@@ -164,8 +164,8 @@
   },
   {
    "at": [
-    9,
-    17
+    18,
+    22
    ],
    "to": {
     "region": "johto",
@@ -680,9 +680,13 @@
     4,
     17
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "41 号道路\\n（城都地区的告示牌）"
+   "source_script": "Route41HiddenMaxEther",
+   "kind": "hidden",
+   "item": "ITEM_MAX_ETHER",
+   "name": "PP 单项全补剂",
+   "category": "heal",
+   "flag": "johto:EVENT_ROUTE_41_HIDDEN_MAX_ETHER",
+   "count": 1
   }
  ],
  "weather": "",

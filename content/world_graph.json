@@ -1,6 +1,6 @@
 {
  "version": 1,
- "note": "世界大盘：九地区的盘面坐标与通道表。加地区只改这里与 regions/<id>/，内核不认地区名。",
+ "note": "已开放的地区、附属区域与交通按当前游戏地图登记。其余坐标和待建路线用于规划。",
  "plate": {
   "size": [
    1600,
@@ -17,7 +17,7 @@
     1225,
     425
    ],
-   "status": "已实现"
+   "status": "已开放"
   },
   "johto": {
    "name": "城都",
@@ -27,7 +27,7 @@
     1055,
     520
    ],
-   "status": "待建"
+   "status": "已开放"
   },
   "hoenn": {
    "name": "丰缘",
@@ -37,7 +37,8 @@
     880,
     645
    ],
-   "status": "已实现"
+   "status": "部分开放",
+   "scope": "未白镇、101号道路、样板小镇"
   },
   "sinnoh": {
    "name": "神奥",
@@ -104,79 +105,99 @@
   {
    "a": "kanto",
    "b": "johto",
-   "kind": "land",
-   "label": "29 号道路 / 磁浮",
-   "gate": null
+   "kind": "sea",
+   "label": "枯叶港 ⇄ 浅葱港",
+   "gate": null,
+   "status": "已开放"
+  },
+  {
+   "a": "kanto",
+   "b": "hoenn",
+   "kind": "sea",
+   "label": "枯叶港 ⇄ 开拓区码头 ⇄ 未白镇",
+   "gate": null,
+   "status": "已开放",
+   "via": "frontier"
   },
   {
    "a": "johto",
    "b": "hoenn",
    "kind": "sea",
    "label": "渡轮 · 内海航线",
-   "gate": null
+   "gate": null,
+   "status": "待建"
   },
   {
    "a": "johto",
    "b": "sinnoh",
    "kind": "sea",
    "label": "渡轮 · 东北航线",
-   "gate": null
+   "gate": null,
+   "status": "待建"
   },
   {
    "a": "kanto",
    "b": "sinnoh",
    "kind": "air",
    "label": "飞空艇",
-   "gate": null
+   "gate": null,
+   "status": "待建"
   },
   {
    "a": "galar",
    "b": "kalos",
    "kind": "tunnel",
    "label": "海底隧道",
-   "gate": null
+   "gate": null,
+   "status": "待建"
   },
   {
    "a": "kalos",
    "b": "paldea",
    "kind": "land",
    "label": "山道",
-   "gate": null
+   "gate": null,
+   "status": "待建"
   },
   {
    "a": "paldea",
    "b": "unova",
    "kind": "sea",
    "label": "跨洋渡轮",
-   "gate": null
+   "gate": null,
+   "status": "待建"
   },
   {
    "a": "unova",
    "b": "alola",
    "kind": "air",
    "label": "跨洋航线",
-   "gate": null
+   "gate": null,
+   "status": "待建"
   },
   {
    "a": "unova",
    "b": "galar",
    "kind": "air",
    "label": "跨大西洋空路",
-   "gate": null
+   "gate": null,
+   "status": "待建"
   },
   {
    "a": "kanto",
    "b": "unova",
    "kind": "air",
    "label": "跨太平洋空路",
-   "gate": null
+   "gate": null,
+   "status": "待建"
   },
   {
    "a": "alola",
    "b": "hoenn",
    "kind": "air",
    "label": "南洋航线",
-   "gate": null
+   "gate": null,
+   "status": "待建"
   }
  ],
  "axes": [
@@ -190,7 +211,7 @@
    "extra": [
     "sinnoh"
    ],
-   "note": "陆路为主，关都与城都之间可直接走过去"
+   "note": "目前通过关都枯叶港往返城都及开拓区。未白镇经开拓区接驳。"
   },
   {
    "name": "欧洲轴",
@@ -199,7 +220,7 @@
     "kalos",
     "paldea"
    ],
-   "note": "海底隧道 + 山道，全陆路可通"
+   "note": "规划中的陆路连接"
   },
   {
    "name": "跨洋桥",
@@ -207,7 +228,7 @@
     "unova",
     "alola"
    ],
-   "note": "合众既是欧洲轴与东亚轴之间的中转，也是去阿罗拉的门户"
+   "note": "规划中的跨洋航线"
   }
  ],
  "layers": {
@@ -223,7 +244,7 @@
    "parent": "kanto",
    "source": "火红·叶绿",
    "access": "port",
-   "status": "待建"
+   "status": "已开放"
   },
   {
    "id": "orange",
@@ -286,7 +307,7 @@
    "parent": "hoenn",
    "source": "绿宝石",
    "access": "port",
-   "status": "待建"
+   "status": "已开放"
   },
   {
    "id": "hisui",

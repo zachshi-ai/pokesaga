@@ -134,7 +134,7 @@
     "region": "johto",
     "map": "johto_saffron_gym",
     "at": [
-     3,
+     5,
      8
     ]
    }
@@ -375,54 +375,60 @@
     10,
     2
    ],
+   "source_script": "SaffronCitySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "SaffronCity\\n（城都地区的告示牌）"
+   "text": "金黄市，闪耀着金色光芒的商业都市。"
   },
   {
    "at": [
     16,
     2
    ],
+   "source_script": "SaffronGymSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "SaffronCity\\n（城都地区的告示牌）"
+   "text": "金黄道馆。馆主娜姿，精通超能力宝可梦。"
   },
   {
    "at": [
     12,
     2
    ],
+   "source_script": "FightingDojoSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "SaffronCity\\n（城都地区的告示牌）"
+   "text": "格斗道场，欢迎每一位挑战者！"
   },
   {
    "at": [
     7,
     10
    ],
+   "source_script": "SilphCoSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "SaffronCity\\n（城都地区的告示牌）"
+   "text": "西尔佛公司办公大楼。"
   },
   {
    "at": [
     12,
     14
    ],
+   "source_script": "MrPsychicsHouseSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "SaffronCity\\n（城都地区的告示牌）"
+   "text": "超能力大叔的家。"
   },
   {
    "at": [
     5,
     2
    ],
+   "source_script": "SaffronCityMagnetTrainStationSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "SaffronCity\\n（城都地区的告示牌）"
+   "text": "金黄市磁浮列车站。"
   }
  ],
  "weather": "",

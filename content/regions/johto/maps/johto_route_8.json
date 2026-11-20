@@ -245,9 +245,10 @@
     6,
     1
    ],
+   "source_script": "Route8LockedDoor",
    "kind": "sign",
    "sprite": "sign",
-   "text": "8 号道路\\n（城都地区的告示牌）"
+   "text": "门锁上了。"
   }
  ],
  "weather": "",

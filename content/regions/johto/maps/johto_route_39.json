@@ -393,36 +393,43 @@
     2,
     15
    ],
+   "source_script": "Route39TrainerTips",
    "kind": "sign",
    "sprite": "sign",
-   "text": "39 号道路\\n（城都地区的告示牌）"
+   "text": "训练家心得：对着树干使出「头锤」，有时会有栖息在枝头的宝可梦掉下来。"
   },
   {
    "at": [
     4,
     2
    ],
+   "source_script": "MoomooFarmSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "39 号道路\\n（城都地区的告示牌）"
+   "text": "哞哞牧场。欢迎品尝新鲜的哞哞牛奶。"
   },
   {
    "at": [
     7,
     3
    ],
+   "source_script": "Route39Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "39 号道路\\n（城都地区的告示牌）"
+   "text": "39 号道路，浅葱市至圆朱市。"
   },
   {
    "at": [
     2,
     6
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "39 号道路\\n（城都地区的告示牌）"
+   "source_script": "Route39HiddenNugget",
+   "kind": "hidden",
+   "item": "ITEM_NUGGET",
+   "name": "金珠",
+   "category": "other",
+   "flag": "johto:EVENT_ROUTE_39_HIDDEN_NUGGET",
+   "count": 1
   }
  ],
  "weather": "",

@@ -256,9 +256,10 @@
     9,
     2
    ],
+   "source_script": "Route6UndergroundPathSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "6 号道路\\n（城都地区的告示牌）"
+   "text": "地下通道，连接华蓝市与枯叶市。"
   }
  ],
  "weather": "",

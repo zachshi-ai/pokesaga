@@ -34,8 +34,8 @@
     "region": "johto",
     "map": "johto_victory_road_gate",
     "at": [
-     4,
-     4
+     0,
+     2
     ]
    }
   },
@@ -123,18 +123,23 @@
     15,
     2
    ],
+   "source_script": "Route28Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "28 号道路\\n（城都地区的告示牌）"
+   "text": "28 号道路。"
   },
   {
    "at": [
     12,
     1
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "28 号道路\\n（城都地区的告示牌）"
+   "source_script": "Route28HiddenRareCandy",
+   "kind": "hidden",
+   "item": "ITEM_RARE_CANDY",
+   "name": "神奇糖果",
+   "category": "other",
+   "flag": "johto:EVENT_ROUTE_28_HIDDEN_RARE_CANDY",
+   "count": 1
   }
  ],
  "weather": "",

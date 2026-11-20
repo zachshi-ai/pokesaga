@@ -9,15 +9,17 @@
 
 以后要在别的城镇放一栋房子，直接贴 prefab，不用再拼瓦片。
 """
+from asset_paths import project_path, source_path
+
 import json, os, struct, glob
 from PIL import Image
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-EMAPS = "/root/build/pokesaga/content/emerald_maps"
-OUT = "/root/build/pokesaga/content/prefabs"
+ROOT = source_path("emerald")
+EMAPS = project_path("content/emerald_maps")
+OUT = project_path("content/prefabs")
 
 import sys
-sys.path.insert(0, "/root/build/pokesaga/tools")
+sys.path.insert(0, project_path("tools"))
 from emerald_tiles import Tileset
 
 PRIMARY = {}

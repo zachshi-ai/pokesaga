@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """九地区世界大盘示意图：按现实原型地理位置排布，标注陆路 / 海路 / 空路三类通道。"""
+from asset_paths import project_path
+
 from PIL import Image, ImageDraw, ImageFont
 import json, math
+from pathlib import Path
 
 W, H = 1600, 1080
 OCEAN = (9, 18, 26)
@@ -15,11 +18,11 @@ FONT_R = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
 
 
 def fb(sz):
-    return ImageFont.truetype(FONT_B, sz, index=2)
+    return ImageFont.truetype(FONT_B, sz, index=2) if Path(FONT_B).exists() else ImageFont.truetype(project_path("assets/fonts/field-sans.otf"), sz)
 
 
 def fr(sz):
-    return ImageFont.truetype(FONT_R, sz, index=2)
+    return ImageFont.truetype(FONT_R, sz, index=2) if Path(FONT_R).exists() else ImageFont.truetype(project_path("assets/fonts/field-sans.otf"), sz)
 
 
 # 地区：中心点、色、原型、世代
@@ -38,19 +41,11 @@ REGIONS = {
 BW, BH = 210, 112
 
 # 通道：a, b, 类型, 标签, 控制点（曲线绕行）
-LINKS = [
-    ("kanto", "johto", "land", "29 号道路 / 磁浮", (1140, 445)),
-    ("johto", "hoenn", "sea", "渡轮 · 内海航线", (960, 610)),
-    ("johto", "sinnoh", "sea", "渡轮 · 东北航线", (1210, 380)),
-    ("kanto", "sinnoh", "air", "飞空艇", (1352, 330)),
-    ("galar", "kalos", "tunnel", "海底隧道", (520, 300)),
-    ("kalos", "paldea", "land", "山道", (585, 460)),
-    ("paldea", "unova", "sea", "跨洋渡轮", (330, 665)),
-    ("unova", "alola", "air", "跨洋航线", (230, 745)),
-    ("unova", "galar", "air", "跨大西洋空路", (300, 380)),
-    ("kanto", "unova", "air", "跨太平洋空路", (700, 900)),
-    ("alola", "hoenn", "air", "南洋航线", (520, 940)),
-]
+CONTROL = {("kanto","johto"):(1140,445), ("kanto","hoenn"):(1170,683), ("johto","hoenn"):(960,610),
+           ("johto","sinnoh"):(1210,380), ("kanto","sinnoh"):(1352,330), ("galar","kalos"):(520,300),
+           ("kalos","paldea"):(585,460), ("paldea","unova"):(330,665), ("unova","alola"):(230,745),
+           ("unova","galar"):(300,380), ("kanto","unova"):(700,900), ("alola","hoenn"):(520,940)}
+
 
 
 def quad(p0, p1, pc, n=60):
@@ -100,6 +95,9 @@ def edge_pt(center, target, w=BW / 2 + 8, h=BH / 2 + 8):
 
 
 def main():
+    graph = json.loads(Path(project_path("content/world_graph.json")).read_text())
+    links = [(w["a"], w["b"], w["kind"], w["label"] + (" · 待建" if w["status"] == "待建" else ""),
+              CONTROL[w["a"],w["b"]]) for w in graph["links"]]
     im = Image.new("RGB", (W, H), OCEAN)
     d = ImageDraw.Draw(im, "RGBA")
 
@@ -111,11 +109,11 @@ def main():
 
     # 标题
     d.text((60, 34), "宝可梦 · 九地区世界大盘", font=fb(38), fill=INK)
-    d.text((60, 86), "按现实原型的地理位置排布，标出陆路 / 海路 / 空路三类通道",
+    d.text((60, 86), "关都与城都由渡轮往返。关都经对战开拓区接驳丰缘，其他路线尚待建设。",
            font=fr(19), fill=DIM)
 
     # 通道
-    for a, b, kind, label, ctrl in LINKS:
+    for a, b, kind, label, ctrl in links:
         pa, pb = REGIONS[a]["xy"], REGIONS[b]["xy"]
         p0 = edge_pt(pa, ctrl if ctrl else pb)
         p1 = edge_pt(pb, ctrl if ctrl else pa)
@@ -145,7 +143,7 @@ def main():
 
     f = fr(14)
     placed = []
-    for a, b, kind, label, ctrl in LINKS:
+    for a, b, kind, label, ctrl in links:
         if not label:
             continue
         pa, pb = REGIONS[a]["xy"], REGIONS[b]["xy"]
@@ -189,7 +187,7 @@ def main():
         d.rounded_rectangle([box[0], box[1], box[0] + 7, box[3]], radius=4, fill=c)
         d.text((cx - BW / 2 + 22, cy - 40), r["name"], font=fb(30), fill=INK)
         d.text((cx - BW / 2 + 22, cy + 2), "原型 " + r["proto"], font=fr(15), fill=(210, 222, 220))
-        d.text((cx - BW / 2 + 22, cy + 26), "第 %d 世代" % r["gen"], font=fr(14), fill=DIM)
+        d.text((cx - BW / 2 + 22, cy + 26), "第 %d 世代 · %s" % (r["gen"],graph["regions"][key]["status"]), font=fr(14), fill=DIM)
 
     # 图例
     lx, ly = 1140, 830
@@ -211,14 +209,14 @@ def main():
         d.text((lx + 92, y), text, font=fr(14), fill=(206, 218, 220))
 
     # 底部说明
-    d.text((60, H - 66), "加地区 = 加一个 content/regions/<id>/ 目录 + 一份 region.json；盘面坐标与通道写在 world_graph.json，内核不认识任何具体地区。",
+    d.text((60, H - 66), "丰缘当前开放未白镇、101 号道路和样板小镇。",
            font=fr(15), fill=DIM)
 
-    im.save("/root/build/pokesaga/doc/world_map.png", quality=95)
+    im.save(project_path("doc/world_map.png"), quality=95)
     print("saved", im.size)
 
 
 if __name__ == "__main__":
     import os
-    os.makedirs("/root/build/pokesaga/doc", exist_ok=True)
+    os.makedirs(project_path("doc"), exist_ok=True)
     main()

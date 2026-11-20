@@ -182,18 +182,20 @@
     15,
     4
    ],
+   "source_script": "CherrygroveCitySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "樱花镇\\n（城都地区的告示牌）"
+   "text": "樱花镇，一座花儿小巧、香气四溢的城镇。"
   },
   {
    "at": [
     11,
     4
    ],
+   "source_script": "GuideGentsHouseSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "樱花镇\\n（城都地区的告示牌）"
+   "text": "向导老爷爷的家。"
   }
  ],
  "weather": "",

@@ -218,7 +218,7 @@
   },
   {
    "at": [
-    0,
+    1,
     3
    ],
    "to": {
@@ -247,7 +247,7 @@
   {
    "at": [
     3,
-    3
+    2
    ],
    "to": {
     "region": "johto",
@@ -267,9 +267,10 @@
     0,
     6
    ],
+   "source_script": "BlackthornGymStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆 1F\\n（城都地区的告示牌）"
+   "text": "烟墨道馆的石碑。馆主，小椿。"
   }
  ],
  "weather": "",

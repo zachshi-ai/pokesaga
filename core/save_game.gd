@@ -4,15 +4,24 @@ extends RefCounted
 
 const PATH := "user://save.json"
 const VERSION := 2
+static var slot := PATH
+
+static func use_test_slot() -> void:
+	slot = "user://selftest-%s-%s.json" % [OS.get_process_id(), Time.get_ticks_usec()]
+
+static func clear_test_slot() -> void:
+	if slot != PATH and FileAccess.file_exists(slot):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(slot))
+	slot = PATH
+
 
 static func empty() -> Dictionary:
 	return {
 		"version": VERSION,
 		# 新档落在关都·真新镇的出生点（和 content/regions/kanto/region.json 的 start 一致）。
-		# 之前这里写的是 [10, 8]，那是尼比市（道馆城市）中间，一开局就被扔到城里去了。
 		"region": "kanto",
 		"map": "kanto_main",
-		"pos": [24, 217],
+		"pos": [],
 		"party": [],
 		"money": 3000,
 		"badges": [],
@@ -20,12 +29,13 @@ static func empty() -> Dictionary:
 		"flags": {},
 		"dex_seen": [],
 		"dex_caught": [],
+		"dex_variants": {},
 		"play_time": 0.0,
 	}
 
 static func save(data: Dictionary) -> bool:
 	data["version"] = VERSION
-	var f := FileAccess.open(PATH, FileAccess.WRITE)
+	var f := FileAccess.open(slot, FileAccess.WRITE)
 	if f == null:
 		push_error("存档写入失败")
 		return false
@@ -34,9 +44,9 @@ static func save(data: Dictionary) -> bool:
 	return true
 
 static func load_game() -> Dictionary:
-	if not FileAccess.file_exists(PATH):
+	if not FileAccess.file_exists(slot):
 		return empty()
-	var f := FileAccess.open(PATH, FileAccess.READ)
+	var f := FileAccess.open(slot, FileAccess.READ)
 	if f == null:
 		return empty()
 	var parsed = JSON.parse_string(f.get_as_text())

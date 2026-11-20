@@ -163,9 +163,10 @@
     1,
     6
    ],
+   "source_script": "CeruleanGymStatue1",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "华蓝道馆。馆主是人称「淘气美人鱼」的小霞。"
   }
  ],
  "weather": "",

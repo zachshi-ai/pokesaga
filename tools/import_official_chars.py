@@ -3,11 +3,13 @@
 
 原图是 P 模式索引色，索引 0 需要转成透明，否则会带一块底色。
 """
+from asset_paths import project_path, source_path
+
 import os
 from PIL import Image
 
-SRC = "/root/build/pokeemerald-expansion-master/graphics/object_events/pics/people"
-OUT = "/root/build/pokesaga/assets"
+SRC = source_path("emerald", "graphics/object_events/pics/people")
+OUT = project_path("assets")
 
 
 def to_rgba(path):

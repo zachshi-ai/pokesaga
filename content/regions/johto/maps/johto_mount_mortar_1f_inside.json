@@ -179,8 +179,8 @@
     "region": "johto",
     "map": "johto_mount_mortar_1f_outside",
     "at": [
-     12,
-     7
+     5,
+     11
     ]
    }
   },
@@ -194,7 +194,7 @@
     "map": "johto_mount_mortar_1f_outside",
     "at": [
      14,
-     7
+     11
     ]
    }
   },
@@ -207,7 +207,7 @@
     "region": "johto",
     "map": "johto_mount_mortar_1f_outside",
     "at": [
-     12,
+     3,
      7
     ]
    }
@@ -318,9 +318,13 @@
     15,
     5
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "MountMortar1FInside\\n（城都地区的告示牌）"
+   "source_script": "MountMortar1FInsideHiddenMaxRepel",
+   "kind": "hidden",
+   "item": "ITEM_MAX_REPEL",
+   "name": "黄金喷雾",
+   "category": "other",
+   "flag": "johto:EVENT_MOUNT_MORTAR_1F_INSIDE_HIDDEN_MAX_REPEL",
+   "count": 1
   }
  ],
  "weather": "",

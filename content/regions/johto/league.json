@@ -1,0 +1,12 @@
+{
+ "lobby": "johto_indigo_plateau_pokecenter_1f",
+ "hall": "johto_hall_of_fame",
+ "badges": ["飞翼徽章", "昆虫徽章", "标准徽章", "魅影徽章", "打击徽章", "矿物徽章", "冰川徽章", "升龙徽章"],
+ "rounds": [
+  {"room":"johto_wills_room", "group":"Will", "flag":"johto_league_will", "name":"四天王 一树", "intro":"在世界各地修行之后，我带着超能力宝可梦来到这里。让我看看你的实力吧。", "after":"我会继续修行。穿过北门，阿桔正等着你。"},
+  {"room":"johto_kogas_room", "group":"Koga", "flag":"johto_league_koga", "name":"四天王 阿桔", "intro":"即使看穿忍术，毒也可能悄然生效。来领教一下吧。", "after":"你识破了我的招式。下一间是希巴的道场。"},
+  {"room":"johto_brunos_room", "group":"Bruno", "flag":"johto_league_bruno", "name":"四天王 希巴", "intro":"我和伙伴每天一起锻炼。来，让我见识你们的力量！", "after":"我认输。梨花会在北边迎接你。"},
+  {"room":"johto_karens_room", "group":"Karen", "flag":"johto_league_karen", "name":"四天王 梨花", "intro":"我喜欢恶属性宝可梦的个性。你的搭档又有什么长处？", "after":"去吧。能让自己喜欢的宝可梦赢得比赛，正是训练家的本事。"},
+  {"room":"johto_lances_room", "group":"Champion", "flag":"johto_league_lance", "name":"冠军 阿渡", "intro":"我一直在等你。用尽全力吧，这会是一场值得铭记的对战。", "after":"你已经赢得冠军的称号。跟我去北边的名人堂，给你的伙伴留下记录吧。"}
+ ]
+}

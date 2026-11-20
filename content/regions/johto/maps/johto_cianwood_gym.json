@@ -263,18 +263,20 @@
     0,
     6
    ],
+   "source_script": "CianwoodGymStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "湛蓝道馆。馆主阿四，以一双铁拳闻名。"
   },
   {
    "at": [
     3,
     7
    ],
+   "source_script": "CianwoodGymStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "湛蓝道馆。馆主阿四，以一双铁拳闻名。"
   }
  ],
  "weather": "",

@@ -85,9 +85,13 @@
     7,
     5
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "VermilionPort\\n（城都地区的告示牌）"
+   "source_script": "VermilionPortHiddenIron",
+   "kind": "hidden",
+   "item": "ITEM_IRON",
+   "name": "防御增强剂",
+   "category": "other",
+   "flag": "johto:EVENT_VERMILION_PORT_HIDDEN_IRON",
+   "count": 1
   }
  ],
  "weather": "",

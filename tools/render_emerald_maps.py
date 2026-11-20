@@ -4,15 +4,17 @@
 这样房子、树、水、路全部是原版拼好的样子，我不用拿单个 metatile 去拼，
 也就不会出现"房子贴图不对、比例不对"的问题。
 """
+from asset_paths import project_path, source_path
+
 import json, os, re, struct
 from PIL import Image
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-OUT = "/root/build/pokesaga/content/emerald_maps"
+ROOT = source_path("emerald")
+OUT = project_path("content/emerald_maps")
 TS = os.path.join(ROOT, "data/tilesets")
 
 import sys
-sys.path.insert(0, "/root/build/pokesaga/tools")
+sys.path.insert(0, project_path("tools"))
 from emerald_tiles import Tileset
 
 

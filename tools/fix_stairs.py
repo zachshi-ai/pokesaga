@@ -7,6 +7,8 @@
 保证人能站得上去、也走得出去。
 用法: python3 tools/fix_stairs.py [--dry]
 """
+from asset_paths import project_path
+
 import json
 import os
 import sys
@@ -15,8 +17,8 @@ _REGION = "kanto"
 for _a in sys.argv:
     if _a.startswith("--region="):
         _REGION = _a.split("=")[1]
-REG = "/root/build/pokesaga/content/regions/%s/maps" % _REGION
-EM = "/root/build/pokesaga/content/emerald_maps"
+REG = project_path("content/regions/%s/maps") % _REGION
+EM = project_path("content/emerald_maps")
 BIG = "kanto_main" if _REGION == "kanto" else ""
 
 

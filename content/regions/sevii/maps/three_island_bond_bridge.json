@@ -296,6 +296,34 @@
   {
    "at": [
     95,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     0,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    95,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     0,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    95,
     7
    ],
    "to": {
@@ -366,34 +394,6 @@
   {
    "at": [
     95,
-    13
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "three_island",
-    "at": [
-     0,
-     13
-    ]
-   }
-  },
-  {
-   "at": [
-    95,
-    6
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "three_island",
-    "at": [
-     0,
-     6
-    ]
-   }
-  },
-  {
-   "at": [
-    95,
     12
    ],
    "to": {
@@ -408,6 +408,20 @@
   {
    "at": [
     95,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     0,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    95,
     14
    ],
    "to": {
@@ -416,6 +430,20 @@
     "at": [
      0,
      14
+    ]
+   }
+  },
+  {
+   "at": [
+    95,
+    15
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     0,
+     15
     ]
    }
   }

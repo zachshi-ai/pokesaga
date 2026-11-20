@@ -74,525 +74,21 @@
  "warps": [
   {
    "at": [
-    3,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     0,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    4,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     1,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    10,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     7,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    11,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     8,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    12,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     9,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    13,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     10,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    14,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     11,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    15,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     12,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    16,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     13,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    19,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     16,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    20,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     17,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     20,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    24,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     21,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    25,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     22,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    30,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     27,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    31,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     28,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    32,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     29,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    37,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     34,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    38,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     35,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    39,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     36,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    40,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     37,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    41,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     38,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    44,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     41,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    45,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     42,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    46,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     43,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    47,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     44,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
     48,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     45,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    49,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     46,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    50,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     47,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    57,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     54,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    58,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     55,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    59,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     56,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    60,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     57,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    69,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     66,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    70,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     67,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    71,
-    0
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_resort_gorgeous",
-    "at": [
-     68,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    5,
     19
    ],
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
-     2,
+     0,
      0
     ]
    }
   },
   {
    "at": [
-    6,
+    51,
     19
    ],
    "to": {
@@ -606,21 +102,7 @@
   },
   {
    "at": [
-    9,
-    19
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island",
-    "at": [
-     6,
-     0
-    ]
-   }
-  },
-  {
-   "at": [
-    10,
+    55,
     19
    ],
    "to": {
@@ -634,7 +116,7 @@
   },
   {
    "at": [
-    11,
+    56,
     19
    ],
    "to": {
@@ -648,7 +130,7 @@
   },
   {
    "at": [
-    12,
+    57,
     19
    ],
    "to": {
@@ -662,7 +144,7 @@
   },
   {
    "at": [
-    13,
+    58,
     19
    ],
    "to": {
@@ -676,21 +158,7 @@
   },
   {
    "at": [
-    16,
-    19
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island",
-    "at": [
-     13,
-     0
-    ]
-   }
-  },
-  {
-   "at": [
-    17,
+    62,
     19
    ],
    "to": {
@@ -704,7 +172,7 @@
   },
   {
    "at": [
-    18,
+    63,
     19
    ],
    "to": {
@@ -718,7 +186,7 @@
   },
   {
    "at": [
-    19,
+    64,
     19
    ],
    "to": {
@@ -732,21 +200,21 @@
   },
   {
    "at": [
-    20,
+    67,
     19
    ],
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
-     17,
+     19,
      0
     ]
    }
   },
   {
    "at": [
-    25,
+    70,
     19
    ],
    "to": {
@@ -760,15 +228,225 @@
   },
   {
    "at": [
-    26,
-    19
+    48,
+    0
    ],
    "to": {
     "region": "sevii",
-    "map": "five_island",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     0,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    49,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     1,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    50,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     2,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    55,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     7,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    56,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     8,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    57,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     9,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    58,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     10,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    59,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     11,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    60,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     12,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    63,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     15,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    64,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     16,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    65,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     17,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    68,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     20,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    69,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     21,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    70,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     22,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
     "at": [
      23,
-     0
+     19
     ]
    }
   }

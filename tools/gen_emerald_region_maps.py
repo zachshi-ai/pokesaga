@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """把预渲染的原版地图接成游戏地图：自动找边缘开口当 warp，写 region map json。"""
+from asset_paths import project_path
+from hoenn_ferry import apply_transfer
+
 import json, os
 
-MAPS = "/root/build/pokesaga/content/emerald_maps"
-REG = "/root/build/pokesaga/content/regions"
+MAPS = project_path("content/emerald_maps")
+REG = project_path("content/regions")
 
 SPEC = [
     # 游戏内 map id, region, 显示名, emerald 图, 北出口(游戏内目标), 南出口(游戏内目标)
@@ -88,6 +91,9 @@ def main():
         os.makedirs(os.path.dirname(out), exist_ok=True)
         json.dump(data, open(out, "w"), ensure_ascii=False, indent=1)
         print(rid, mid, w, h, "warps", [(w2["at"], w2["to"]["map"]) for w2 in warps])
+
+
+    apply_transfer()
 
 
 if __name__ == "__main__":

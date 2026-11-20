@@ -5,12 +5,14 @@ anim_front.png 是 64x128 的两帧动画，取上半帧做静态立绘；
 像素值是调色板索引，颜色来自 normal.pal（JASC-PAL）。
 索引 0 视为透明。
 """
+from asset_paths import project_path, source_path
+
 import csv, json, os
 from PIL import Image
 
-ART = "/root/build/pokeemerald-expansion-master/graphics/pokemon"
-POKEAPI = "/root/build/pokeapi/pokemon_species.csv"
-OUT = "/root/build/pokesaga/assets/mon"
+ART = source_path("emerald", "graphics/pokemon")
+POKEAPI = source_path("pokeapi_csv", "pokemon_species.csv")
+OUT = project_path("assets/mon")
 
 
 def load_pal(path):
@@ -70,7 +72,7 @@ def main():
     for r in csv.DictReader(open(POKEAPI)):
         names[int(r["id"])] = r["identifier"]
     os.makedirs(OUT, exist_ok=True)
-    species = json.load(open("/root/build/pokesaga/content/species.json"))
+    species = json.load(open(project_path("content/species.json")))
     ok, miss = 0, []
     for row in species:
         sid = int(row["id"])

@@ -144,29 +144,29 @@
  "warps": [
   {
    "at": [
-    3,
+    1,
     6
    ],
    "to": {
     "region": "johto",
     "map": "johto_goldenrod_underground_switch_room_entrances",
     "at": [
-     12,
-     11
+     11,
+     5
     ]
    }
   },
   {
    "at": [
-    3,
-    6
+    1,
+    5
    ],
    "to": {
     "region": "johto",
     "map": "johto_goldenrod_underground_switch_room_entrances",
     "at": [
-     12,
-     11
+     10,
+     6
     ]
    }
   },

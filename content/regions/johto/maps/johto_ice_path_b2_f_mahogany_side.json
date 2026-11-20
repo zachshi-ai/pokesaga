@@ -250,9 +250,13 @@
     0,
     8
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "冰雪小径·B2FMahoganySide\\n（城都地区的告示牌）"
+   "source_script": "IcePathB2FMahoganySideHiddenCarbos",
+   "kind": "hidden",
+   "item": "ITEM_CARBOS",
+   "name": "速度增强剂",
+   "category": "other",
+   "flag": "johto:EVENT_ICE_PATH_B2F_MAHOGANY_SIDE_HIDDEN_CARBOS",
+   "count": 1
   }
  ],
  "weather": "",

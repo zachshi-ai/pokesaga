@@ -2,6 +2,7 @@ extends RefCounted
 ## 对战塔：连续挑战的规则都在这里，纯逻辑。
 ## 进塔一律 Lv50 平级对战（不消耗队伍真实血量），连胜越高对手越硬。
 
+const Party := preload("res://core/party.gd")
 const LEVEL := 50
 const POOL := [149, 143, 130, 6, 9, 3, 92, 95, 67, 75, 64, 134, 148]
 
@@ -66,8 +67,17 @@ static func tower_team(party: Array) -> Array:
 				moves.append(int(mid))
 		if moves.is_empty():
 			moves = [33]
-		out.append(_combatant(sid, LEVEL, moves))
-		if out.size() >= 6:
+		mon["level"] = LEVEL
+		Party.recalc(mon)
+		mon["hp"] = mon.max_hp
+		mon["fainted"] = false
+		mon["status"] = ""
+		mon["moves"] = moves
+		mon["pp"] = []
+		for move in moves:
+			mon.pp.append(int(Data.move_of(move).get("pp", 10)))
+		out.append(mon)
+		if out.size() >= Party.MAX_SIZE:
 			break
 	if out.is_empty():
 		out.append(_combatant(25, LEVEL, [84, 33]))

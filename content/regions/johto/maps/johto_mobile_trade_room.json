@@ -1,1 +1,60 @@
-{"name":"房间","emerald":"johto_mobile_trade_room","size":[5,4],"spawn":[2,2],"npcs":[],"warps":[{"at":[2,3],"to":{"region":"johto","map":"johto_pokecenter_2f","at":[4,1]}},{"at":[2,3],"to":{"region":"johto","map":"johto_pokecenter_2f","at":[4,1]}}],"encounters":[],"encounter_rate":0.0,"objects":[{"at":[3,0],"kind":"sign","sprite":"sign","text":"房间\\n（城都地区的告示牌）"}],"weather":"","weather_name":"","cycling":false}
+{
+ "name": "房间",
+ "emerald": "johto_mobile_trade_room",
+ "size": [
+  5,
+  4
+ ],
+ "spawn": [
+  2,
+  2
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    2,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pokecenter_2f",
+    "at": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pokecenter_2f",
+    "at": [
+     2,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    3,
+    0
+   ],
+   "source_script": "MobileTradeRoomConsoleScript",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "宝可梦通信交换用的控制台。"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

@@ -10,14 +10,16 @@
 这里只抠出「该盖住人」的那部分，单独出 <map>_fg.png，
 运行时摆到角色之上，遮挡关系就跟原版一致了。
 """
+from asset_paths import project_path, source_path
+
 import json, os, glob, struct, sys
 from PIL import Image
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-EMAPS = "/root/build/pokesaga/content/emerald_maps"
-REG = "/root/build/pokesaga/content/regions"
+ROOT = source_path("emerald")
+EMAPS = project_path("content/emerald_maps")
+REG = project_path("content/regions")
 
-sys.path.insert(0, "/root/build/pokesaga/tools")
+sys.path.insert(0, project_path("tools"))
 from render_emerald_maps import get_primary, get_secondary
 
 LAYOUTS = {}

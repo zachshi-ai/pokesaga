@@ -303,45 +303,50 @@
     12,
     11
    ],
+   "source_script": "PewterCitySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "PewterCity\\n（城都地区的告示牌）"
+   "text": "尼比市，岩石灰色的城市。"
   },
   {
    "at": [
     5,
     8
    ],
+   "source_script": "PewterGymSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "PewterCity\\n（城都地区的告示牌）"
+   "text": "尼比道馆。馆主小刚，坚如磐石的训练家。"
   },
   {
    "at": [
     7,
     4
    ],
+   "source_script": "PewterMuseumSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "PewterCity\\n（城都地区的告示牌）"
+   "text": "尼比科学博物馆因整修暂时闭馆。"
   },
   {
    "at": [
     16,
     9
    ],
+   "source_script": "PewterCityMtMoonGiftShopSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "PewterCity\\n（城都地区的告示牌）"
+   "text": "月见山礼品店现已开业。"
   },
   {
    "at": [
     9,
     14
    ],
+   "source_script": "PewterCityWelcomeSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "PewterCity\\n（城都地区的告示牌）"
+   "text": "欢迎来到尼比市！"
   }
  ],
  "weather": "",

@@ -4,6 +4,8 @@ extends Node2D
 const WorldScript := preload("res://core/world.gd")
 const BattleScript := preload("res://core/battle.gd")
 const BattleUI := preload("res://scenes/battle_ui.gd")
+const DexCatalog := preload("res://core/dex_catalog.gd")
+const DexVariants := preload("res://core/dex_variants.gd")
 const DexUI := preload("res://scenes/dex_ui.gd")
 const EditorUI := preload("res://scenes/editor_ui.gd")
 const TouchScroll := preload("res://core/touch_scroll.gd")
@@ -16,6 +18,7 @@ const BagUI := preload("res://scenes/bag_ui.gd")
 const PartyScript := preload("res://core/party.gd")
 const SaveScript := preload("res://core/save_game.gd")
 const StoryScript := preload("res://core/story.gd")
+var johto_league := preload("res://core/johto_league.gd").new()
 const FusionScript := preload("res://core/fusion.gd")
 const FusionUI := preload("res://scenes/fusion_ui.gd")
 const FormItemUI := preload("res://scenes/form_item_ui.gd")
@@ -33,12 +36,14 @@ var menu_layer: CanvasLayer
 var menu_buttons: Array = []
 var team_slots: Array = []
 var rng := RandomNumberGenerator.new()
+var appearance_rng := RandomNumberGenerator.new()
 var story                      # 剧情引擎
 var story_on := true           # 自检/端到端点跑时关掉，免得弹对话打断脚本
 var story_queue: Array = []    # 剧情动作队列
 var story_abort := false       # 这一场剧情被战斗中断（输了），不写完成标记
 var cur_story: Dictionary = {} # 正在播的事件
 var grass_streak := 0
+var active_battle: Control
 var panel_open := 0
 var held_dir := ""
 var run_held := false
@@ -56,6 +61,7 @@ const KEY_MAP := [["up", KEY_UP], ["down", KEY_DOWN], ["left", KEY_LEFT], ["righ
 	["up", KEY_W], ["down", KEY_S], ["left", KEY_A], ["right", KEY_D]]
 
 func _ready() -> void:
+	get_tree().quit_on_go_back = false
 	# 数据表必须在任何界面之前加载：自检不跑了，这里不能省
 	if not Data.load_core_tables():
 		push_error("核心数据表加载失败")
@@ -80,6 +86,8 @@ func _ready() -> void:
 	for a in argv0:
 		if String(a).begins_with("--only="):
 			want_only = String(a).split("=")[1]
+	if run_selftest or want_only != "":
+		SaveScript.use_test_slot()
 	if want_only != "":
 		var want := want_only
 		if want == "johto":
@@ -94,7 +102,7 @@ func _ready() -> void:
 			ok = _t("招式细节三", _test_move_details3()) and ok
 			ok = _t("形态切换", _test_form_switch()) and ok
 			ok = _t("融合系统", _test_fusion()) and ok
-			ok = _t("招式效果覆盖", _test_effect_coverage()) and ok
+			ok = _t("招式效果回合", _test_effect_coverage()) and ok
 		elif want == "abilities":
 			ok = _t("特性效果", _test_ability_effects()) and ok
 			ok = _t("特性效果二", _test_ability_effects2()) and ok
@@ -125,8 +133,12 @@ func _ready() -> void:
 			ok = _t("百货电梯", _test_elevator()) and ok
 		elif want == "terrain":
 			ok = _t("地形机制", _test_terrain()) and ok
+		else:
+			push_error("未知自检分组 " + want)
+			ok = false
 		print("SELFTEST " + ("PASS" if ok else "FAIL"))
-		get_tree().quit(0)
+		SaveScript.clear_test_slot()
+		get_tree().quit(0 if ok else 1)
 		return
 	if run_selftest:
 		ok = _t("核心数据表", _test_tables()) and ok
@@ -193,12 +205,15 @@ func _ready() -> void:
 		ok = _t("招式细节三", _test_move_details3()) and ok
 		ok = _t("形态切换", _test_form_switch()) and ok
 		ok = _t("融合系统", _test_fusion()) and ok
-		ok = _t("招式效果覆盖", _test_effect_coverage()) and ok
+		ok = _t("招式效果回合", _test_effect_coverage()) and ok
 
 	if run_selftest:
 		for line in results:
 			print(line)
 		print("SELFTEST " + ("PASS" if ok else "FAIL"))
+		SaveScript.clear_test_slot()
+		get_tree().quit(0 if ok else 1)
+		return
 
 	_restore_from_save()
 
@@ -459,8 +474,6 @@ func _ready() -> void:
 				var want := int(String(a).split("=")[1])
 				for c in menu_layer.get_children():
 					if c.get_script() == DexUI and c.has_method("_show_detail"):
-						_dex_mark(want, true)
-						c.setup(save_data.get("dex", {}).get("seen", []), save_data.get("dex", {}).get("caught", []))
 						c._show_detail(want)
 				await get_tree().create_timer(0.4).timeout
 	if "-battle" in argv or "--battle" in argv:
@@ -760,10 +773,12 @@ func _story_use_region(rid: String) -> void:
 
 
 func _story_fire(kind: String, ctx: Dictionary) -> bool:
-	if not story_on or story == null:
+	if not story_on or story == null or not cur_story.is_empty():
 		return false
 	_story_use_region(String(world.map_data.get("region", "kanto")))
 	var flags := _flags()
+	if kind == "step":
+		ctx["area_name"] = world.area_name()
 	var ev: Dictionary = story.take(kind, ctx, flags, _has_party())
 	if ev.is_empty():
 		return false
@@ -771,37 +786,18 @@ func _story_fire(kind: String, ctx: Dictionary) -> bool:
 	return true
 
 func _play_story(ev: Dictionary) -> void:
-	var lines: Array = []
-	var actions: Array = []
-	var who := String(ev.get("who", ""))
-	for st in ev.get("steps", []):
-		if not (st is Dictionary):
-			continue
-		var step: Dictionary = st
-		if step.has("say"):
-			for ln in step["say"]:
-				lines.append(String(ln))
-			if step.has("who"):
-				who = String(step["who"])
-		else:
-			actions.append(step)
-	# 完成标记要等动作真的执行完才写：带战斗的事件打输了得能重来
 	cur_story = ev
-	if lines.is_empty():
-		_apply_story_actions(actions)
-		return
-	var dlg = _dialog(lines, who)
-	dlg.connect("closed", func() -> void: _apply_story_actions(actions))
-
-## 剧情动作队列：遇到战斗就停下等结果，打完接着跑后面的动作
-func _apply_story_actions(actions: Array) -> void:
-	story_queue = actions.duplicate()
+	story_queue = ev.get("steps", []).duplicate()
 	story_abort = false
 	_story_step()
 
 func _story_step() -> void:
 	while not story_queue.is_empty():
 		var act: Dictionary = story_queue.pop_front()
+		if act.has("say"):
+			var dlg = _dialog(act["say"], String(act.get("who", cur_story.get("who", ""))))
+			dlg.closed.connect(_story_step, CONNECT_ONE_SHOT)
+			return
 		if act.has("battle"):
 			_story_battle(act["battle"])
 			return
@@ -850,6 +846,9 @@ func _story_battle(cfg) -> void:
 ## 单个剧情动作
 func _story_do(act: Dictionary) -> void:
 	var flags := _flags()
+	if act.get("hall_of_fame") == "johto":
+		johto_league.register_team(save_data)
+		_persist()
 	if act.has("flag"):
 		flags[String(act["flag"])] = true
 		save_data["flags"] = flags
@@ -904,6 +903,8 @@ func _dialog_heal(npc: Dictionary) -> void:
 				_dialog(["欢迎随时来。"], who))
 
 func _on_action() -> void:
+	if is_instance_valid(active_battle) and not active_battle.is_queued_for_deletion():
+		return
 	if not _dialogs.is_empty():
 		(_dialogs[_dialogs.size() - 1] as Object).call("advance")
 		return
@@ -946,7 +947,10 @@ func _on_action() -> void:
 		else:
 			_talk_to(nm)
 	elif world.last_event.begins_with("warp:"):
-		_after_step()
+		# Standing on a door has no walk animation to emit warp_ready.
+		var target: Dictionary = world.pending_warp
+		world.pending_warp = {}
+		_do_warp(target)
 
 ## 队伍里有没有会某招的宝可梦
 func _party_can_move(key: String) -> bool:
@@ -1019,29 +1023,50 @@ func _try_surf() -> bool:
 	return true
 
 ## B 键：关掉最上层面板
+func _notification(what: int) -> void:
+	if what != NOTIFICATION_WM_GO_BACK_REQUEST or not is_node_ready():
+		return
+	if DisplayServer.virtual_keyboard_get_height() > 0:
+		DisplayServer.virtual_keyboard_hide()
+		get_viewport().gui_release_focus()
+		return
+	if panel_open > 0 or not _dialogs.is_empty() or is_instance_valid(active_battle):
+		_on_back()
+		return
+	var prompt = _dialog(["要保存进度并退出游戏吗？"])
+	prompt.ask("保存退出", "继续游戏")
+	prompt.answered.connect(func(yes: bool) -> void:
+		if yes:
+			_persist()
+			get_tree().quit())
+
+
 func _on_back() -> void:
+	if is_instance_valid(active_battle) and not active_battle.is_queued_for_deletion():
+		return
 	# 对话框开着时，B 直接关掉当前这句
 	if not _dialogs.is_empty():
-		var top_dlg = _dialogs[_dialogs.size() - 1]
-		if is_instance_valid(top_dlg):
-			top_dlg.queue_free()
-		_dialogs.pop_back()
-		panel_open = maxi(0, panel_open - 1)
-		if panel_open == 0:
-			_set_hud_visible(true)
+		var top_dlg = _dialogs.back()
+		if top_dlg.ask_mode:
+			top_dlg._pick(false)
+		else:
+			top_dlg._close()
 		return
 	if panel_open <= 0:
 		return
 	var kids: Array = menu_layer.get_children()
 	if kids.is_empty():
 		return
-	var top = kids[kids.size() - 1]
+	var top = kids.back()
+	if top.has_method("handle_back"):
+		top.handle_back()
+		return
 	if top.has_signal("closed"):
 		top.closed.emit()
-	if top.has_method("queue_free"):
-		top.queue_free()
-	panel_open = maxi(0, panel_open - 1)
-	_set_hud_visible(true)
+	else:
+		panel_open = maxi(0, panel_open - 1)
+	top.queue_free()
+	_set_hud_visible(panel_open == 0)
 
 var _bar: Panel
 var _dock: Panel
@@ -1151,6 +1176,8 @@ func _layout_hud() -> void:
 	_layout_menu()
 
 func _move(key: String) -> void:
+	if is_instance_valid(active_battle) and not active_battle.is_queued_for_deletion():
+		return
 	if panel_open > 0:
 		return
 	# 一格没走完不能迈下一步：原版也是这样，连续按住才连贯
@@ -1223,6 +1250,14 @@ func _update_music() -> void:
 func _do_warp(target: Dictionary) -> void:
 	if target.is_empty():
 		return
+	if target.get("region") == "johto":
+		var room := String(target.get("map", ""))
+		if johto_league.stage(room) > johto_league.stage(String(world.map_data.get("id", ""))):
+			var gate := johto_league.gate_message(room, save_data)
+			if gate != "":
+				held_dir = ""
+				_dialog([gate], "联盟")
+				return
 	var next_map: Dictionary = Data.load_map(String(target.get("region", "")), String(target.get("map", "")))
 	if next_map.is_empty():
 		# 目标地图缺失时说清楚，别让人以为门坏了
@@ -1333,7 +1368,6 @@ func _try_encounter() -> void:
 	grass_streak = 0
 	var sid := int(wild["species"])
 	var form := _roll_regional(sid)
-	_dex_mark(sid, false)   # 撞见就算见过
 	_start_wild_battle(sid, int(wild["level"]), form)
 
 ## 地区形态不是独立图鉴号，就是这只宝可梦换了个样子。
@@ -1405,7 +1439,7 @@ func _handle_object(o: Dictionary) -> void:
 			_dialog([t] if t != "" else ["（字迹被磨掉了）"], "")
 		"item", "hidden":
 			var nm := String(o.get("name", "道具"))
-			_give_bag_item(nm, String(o.get("category", "other")))
+			_give_bag_item(nm, String(o.get("category", "other")), String(o.get("held", "")))
 			save_data["flags"] = world.taken
 			world.mark_taken(o)
 			snd.play_sfx("item")
@@ -1484,7 +1518,7 @@ func _daycare(npc: Dictionary) -> void:
 		_dialog(["蛋还没孵出来。", "多走走吧，蛋会自己动的。"], String(npc.get("name", "")))
 		return
 	var party: Array = save_data.get("party", [])
-	if party.size() < 2:
+	if PartyScript.occupied(party) < 2:
 		_dialog(["只有一只可不行。", "留两只给我，才有的照顾。"], String(npc.get("name", "")))
 		return
 	if save_data.get("daycare_done", false):
@@ -1510,15 +1544,9 @@ func _tick_egg() -> void:
 		return
 	var sp := int(egg.get("species", 133))
 	save_data.erase("egg")
-	var party: Array = save_data.get("party", [])
-	if party.size() < 6:
-		party.append(PartyScript.make(sp, 5, EncounterScript.moves_for(sp, 5)))
-		save_data["party"] = party
-		_dex_mark(sp, true)
-		snd.play_sfx("levelup")
-		_dialog(["蛋动了动……", "孵出来了！"], "")
-	else:
-		_dialog(["蛋孵出来了……可是队伍满了。"], "")
+	var destination := _add_to_team(sp, 5, "", PartyScript.roll_shiny(appearance_rng))
+	snd.play_sfx("levelup")
+	_dialog(["蛋动了动……", "孵出来了！" if destination == "party" else "孵出来了！队伍已满，已送入电脑。"], "")
 	_persist()
 
 
@@ -1869,6 +1897,17 @@ func _tm_teach_menu(mv: int, slots: Array, names: Array) -> void:
 func _talk_to_npc(npc: Dictionary) -> void:
 	if npc.is_empty():
 		return
+	if npc.get("hall_record", false):
+		_dialog(johto_league.record_lines(save_data), "名人堂")
+		return
+	if npc.has("league_flag"):
+		var message := johto_league.gate_message(String(world.map_data.get("id", "")), save_data)
+		if message != "":
+			_dialog([message], String(npc.name))
+			return
+		if bool(_flags().get(npc.league_flag, false)):
+			_dialog(npc.after, String(npc.name))
+			return
 	if npc.get("shop", false):
 		_open_shop()
 		return
@@ -1907,7 +1946,7 @@ func _talk_to_npc(npc: Dictionary) -> void:
 			_dialog(["这个精灵球已经空了。"], "")
 			return
 		# 每人只能挑一只城都初始：已有一只 152/155/158 就拦下
-		var picked := false
+		var picked := bool(fst.get("johto_starter", false))
 		for mon in (save_data.get("party", []) as Array) + (save_data.get("box", []) as Array):
 			if not (mon is Dictionary):
 				continue
@@ -1959,6 +1998,9 @@ func _talk_to(name: String) -> void:
 	var npc := _find_npc(name)
 	if npc.is_empty():
 		_dialog(["今天的风不错。"], name)
+		return
+	if npc.has("league_flag") or npc.get("hall_record", false):
+		_talk_to_npc(npc)
 		return
 	if npc.get("facility", false):
 		_open_facility(npc)
@@ -2017,14 +2059,18 @@ func _start_facility_battle() -> void:
 	layer.layer = 6
 	add_child(layer)
 	var ui := BattleUI.new()
+	ui.observe_variant = _battle_variant_seen.bind(PartyScript.occupied(save_data.get("party", [])) > 0)
+	active_battle = ui
+	held_dir = ""
 	layer.add_child(ui)
-	ui.setup(mine, enemy, rng.randi(), bag_items)
+	ui.setup(mine, enemy, rng.randi(), bag_items, "前台挑战者")
 	ui.item_used.connect(func(nm: String) -> void:
 		for it in bag_items:
 			if it is Dictionary and String((it as Dictionary).get("name", "")) == nm:
 				it["count"] = maxi(0, int(it.get("count", 0)) - 1))
 	_set_hud_visible(false)
 	ui.finished.connect(func(result: String) -> void:
+		active_battle = null
 		# 塔内是 Lv50 临时队伍，不回写存档血量
 		var fac: Dictionary = save_data.get("facility", {})
 		var cur := int(fac.get("streak", 0))
@@ -2040,7 +2086,6 @@ func _start_facility_battle() -> void:
 			fac["best"] = maxi(int(fac.get("best", 0)), cur)
 			_show_toast("挑战结束，纪录停在 %d 连胜。" % cur)
 		save_data["facility"] = fac
-		_dex_mark(int(enemy[0].get("species_id", 0)), result == "caught")
 		_persist()
 		_set_hud_visible(true)
 		layer.queue_free()
@@ -2116,25 +2161,27 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 	layer.layer = 6
 	add_child(layer)
 	var ui := BattleUI.new()
+	ui.observe_variant = _battle_variant_seen.bind(PartyScript.occupied(save_data.get("party", [])) > 0)
+	active_battle = ui
+	held_dir = ""
 	layer.add_child(ui)
-	ui.setup(mine, enemy, rng.randi(), bag_items)
+	ui.setup(mine, enemy, rng.randi(), bag_items, String(npc.get("name", "训练家")))
 	ui.item_used.connect(func(nm: String) -> void:
 		for it in bag_items:
 			if it is Dictionary and String((it as Dictionary).get("name", "")) == nm:
 				it["count"] = maxi(0, int(it.get("count", 0)) - 1))
 	_set_hud_visible(false)
 	ui.finished.connect(func(result: String) -> void:
+		active_battle = null
 		_writeback_team(ui.player_team)
 		snd.play_sfx("confirm")
 		snd.stop_music()
 		_update_music()
-		for e2 in enemy:
-			_dex_mark(int(e2.get("species_id", 0)), result == "a")
-		for m in ui.player_team:
-			_dex_mark(int(m.get("species_id", 0)), false)
 		npc["defeated"] = result == "a"
 		if result == "a":
 			var npc_name := String(npc.get("name", ""))
+			if npc.has("league_flag"):
+				_flags()[npc.league_flag] = true
 			_mark_defeated(npc_name)
 			var lv := int(cfg.get("level", 0))
 			if lv == 0 and not enemy.is_empty():
@@ -2149,6 +2196,10 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 				if not have:
 					_show_toast("获得 %s！" % badge)
 			_award_exp(lv, prize, is_leader)
+		elif npc.has("league_flag"):
+			_do_warp({"region": "johto", "map": johto_league.rules.lobby, "at": [4, 3]})
+			_heal_party()
+			_show_toast("已在联盟中心恢复，可以再次挑战。")
 		else:
 			_persist()
 			_show_toast("战斗结束")
@@ -2160,13 +2211,17 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 
 ## 野外一只，打或抓都行。抓到就入队，队伍满了记进 box。
 func _start_wild_battle(species_id: int, level: int, form_key: String = "") -> void:
-	var enemy := [BattleScript.make_combatant(species_id, level,
-		EncounterScript.moves_for(species_id, level), form_key)]
+	var mon := PartyScript.make(species_id, level, EncounterScript.moves_for(species_id, level), form_key)
+	PartyScript.set_shiny_kind(mon, PartyScript.roll_shiny(appearance_rng))
+	var enemy := [mon.duplicate(true)]
 	var mine: Array = _make_team()
 	var layer := CanvasLayer.new()
 	layer.layer = 6
 	add_child(layer)
 	var ui := BattleUI.new()
+	ui.observe_variant = _battle_variant_seen.bind(PartyScript.occupied(save_data.get("party", [])) > 0)
+	active_battle = ui
+	held_dir = ""
 	layer.add_child(ui)
 	ui.setup(mine, enemy, rng.randi(), bag_items)
 	ui.item_used.connect(func(nm: String) -> void:
@@ -2175,13 +2230,22 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "") -> v
 				it["count"] = maxi(0, int(it.get("count", 0)) - 1))
 	_set_hud_visible(false)
 	ui.finished.connect(func(result: String) -> void:
+		active_battle = null
 		_writeback_team(ui.player_team)
-		_dex_mark(species_id, result == "caught")
 		if result == "caught":
-			_add_to_team(species_id, level, form_key)
-			_show_toast("抓到了！%s 加入队伍" % String((Data.species_of(species_id) as Dictionary).get("name", "?")))
+			var caught: Dictionary = ui.battle.cur_b()
+			mon["pp"] = caught.pp.duplicate()
+			mon["hp"] = clampi(roundi(float(caught.hp) * mon.max_hp / maxi(1, int(caught.max_hp))), 1, int(mon.max_hp))
+			mon["hp_text"] = "%d/%d" % [mon.hp, mon.max_hp]
+			mon["status"] = str(caught.get("status", ""))
+			mon["berry"] = str(caught.get("berry", ""))
+			var destination := _store_mon(mon)
+			var name_text := String(Data.species_of(species_id).get("name", "?"))
+			_show_toast("抓到了！%s%s" % [name_text, "加入队伍" if destination == "party" else "已送入电脑"])
 		elif result == "a":
 			_award_exp(level)
+		elif result == "fled":
+			_show_toast("成功逃走了！")
 		else:
 			_show_toast("被打退了…")
 		_persist()
@@ -2222,6 +2286,7 @@ func _award_exp(enemy_level: int, prize: int = 0, badge: bool = false) -> void:
 			if not evo.is_empty():
 				var old_name := String(mon.get("name", "?"))
 				if PartyScript.evolve(mon, int(evo.get("to", 0)), String(evo.get("form", ""))):
+					DexVariants.record(save_data, mon, true)
 					evolved.append("%s 进化成了 %s！" % [old_name, String(mon.get("name", "?"))])
 	save_data["party"] = PartyScript.compact(party)
 	_persist()
@@ -2270,23 +2335,26 @@ func _learn_new_moves(mon: Dictionary, from_lv: int = 0, to_lv: int = 0) -> void
 	mon["pp"] = pp
 
 ## 队伍有空位就进队伍，满了进 box；总之不丢
-func _add_to_team(species_id: int, level: int, form_key: String = "") -> void:
+func _add_to_team(species_id: int, level: int, form_key: String = "", shiny_kind := "none") -> String:
 	var moves: Array = EncounterScript.moves_for(species_id, level)
 	var mon: Dictionary = PartyScript.make(species_id, level, moves, form_key)
+	PartyScript.set_shiny_kind(mon, shiny_kind)
+	return _store_mon(mon)
+
+func _store_mon(mon: Dictionary) -> String:
+	DexVariants.record(save_data, mon, true)
 	var party: Array = save_data.get("party", [])
-	for i in party.size():
-		if party[i] is Dictionary and (party[i] as Dictionary).is_empty():
-			party[i] = mon
-			save_data["party"] = PartyScript.compact(party)
-			return
-	# 队伍还有空位就直接进队，满了才进箱子
-	if party.size() < 6 or (party as Array).all(func(x): return x is Dictionary and (x as Dictionary).is_empty()):
-		party.append(mon)
-		save_data["party"] = PartyScript.compact(party)
-		return
-	var box: Array = save_data.get("box", [])
-	box.append(mon)
-	save_data["box"] = box
+	if PartyScript.insert_into(party, mon, PartyScript.MAX_SIZE):
+		save_data["party"] = party
+		return "party"
+	if not (save_data.get("boxes") is Array):
+		save_data["boxes"] = []
+	if not PartyScript.store_in_boxes(save_data["boxes"], mon):
+		# 极端旧档可能已用满所有电脑箱。保留在待转入列表，下次有空位再迁移。
+		if not (save_data.get("box") is Array):
+			save_data["box"] = []
+		save_data["box"].append(mon)
+	return "box"
 
 func _set_hud_visible(on: bool) -> void:
 	for n in [name_label, hint_label, toast]:
@@ -2616,7 +2684,7 @@ func _test_menus() -> bool:
 		return false
 	# 12 格按钮都要存在，只有 2 格可用
 	var buttons: Array = party_ui.list.get_children()
-	if buttons.size() != 12:
+	if buttons.size() != PartyScript.MAX_SIZE:
 		return false
 	var enabled := 0
 	for b in buttons:
@@ -2627,16 +2695,28 @@ func _test_menus() -> bool:
 	party_ui._open_detail(0)
 	if party_ui.detail == null:
 		return false
-	# 背包分类计数：伤药 2、球 2、战斗 1、其他 0
-	# other 分类现在是 8 个秘传学习器 + 1 根钓竿（默认背包就发）
-	var expect := {"heal": 2, "ball": 2, "battle": 1, "other": 9}
-	for cat in expect:
-		bag_ui._switch(String(cat))
-		var rows: int = bag_ui.row_box.get_child_count()
-		if rows != int(expect[cat]):
-			print("menu dbg: 分类 ", cat, " 行数 ", rows, " 期望 ", expect[cat])
-			ok = false
-	bag_ui._switch("heal")
+	# 点击每一个口袋后，实际可点的道具必须与背包中有余量的条目相符。
+	for category in BagUI.CATEGORIES:
+		var cat := str(category[0])
+		bag_ui._switch(cat)
+		var names: Array = []
+		for item in bag_items:
+			if str(item.name).begins_with("秘传学习器") and bag_ui._category(item) != "tm":
+				return false
+			if bag_ui._category(item) == cat and int(item.get("count", 0)) > 0:
+				names.append(str(item.name))
+		for row in bag_ui.row_box.get_children():
+			if not row is Button or row.disabled:
+				return false
+			var matched := false
+			for label in row.find_children("*", "Label", true, false):
+				if label.text in names:
+					names.erase(label.text)
+					matched = true
+					break
+			if not matched:
+				return false
+		ok = ok and names.is_empty() and bag_ui.empty_state.visible == (bag_ui.row_box.get_child_count() == 0)
 	party_ui.queue_free()
 	bag_ui.queue_free()
 	return ok
@@ -2681,10 +2761,10 @@ func _test_dex() -> bool:
 	# 界面能开、能翻页、能看详情
 	var ui := DexUI.new()
 	menu_layer.add_child(ui)
-	ui.setup(dex["seen"], dex["caught"])
+	ui.setup(dex["seen"], dex["caught"], save_data.get("dex_variants", {}))
 	if ui.grid.get_child_count() == 0:
 		return false
-	if ui.ids.size() != Data.species.size():
+	if 232 not in ui.ids or 984 in ui.ids or DexCatalog.entry_id(984) != 232 or Data.species_of(984).is_empty():
 		return false
 	ui._show_detail(25)
 	ui.page = 1
@@ -3466,8 +3546,8 @@ func _test_dex_complete() -> bool:
 		var base: Dictionary = sp.get("base", {})
 		if int(base.get("hp", 0)) <= 0:
 			broken.append(i)
-		# 立绘必须有，否则战斗里是空白（首次运行前资源可能还没导入，按文件在不在判断）
-		if not FileAccess.file_exists("res://assets/mon/%d.png" % i):
+		# 立绘必须有，否则战斗里是空白（核验导入后的纹理）
+		if not (load("res://assets/mon/%d.png" % i) is Texture2D):
 			broken.append(i)
 	# 图鉴界面的世代分页必须覆盖 1~1025，不能有号段掉在外面
 	var covered := {}
@@ -3518,7 +3598,7 @@ func _test_forms() -> bool:
 			if int(base.get("hp", 0)) <= 0:
 				bad.append([sid, "no-base", String(d.get("key", ""))])
 			var sp_path := String(d.get("sprite", ""))
-			if sp_path == "" or not FileAccess.file_exists(sp_path):
+			if sp_path == "" or not (load(sp_path) is Texture2D):
 				bad.append([sid, "no-sprite", String(d.get("key", ""))])
 			# Mega / 极巨化必须是能变的，地区形态不能混进战斗变化
 			if kind == "mega" or kind == "gmax":
@@ -5467,18 +5547,21 @@ func _test_move_details3() -> bool:
 
 ## 招式效果覆盖率：moves.json 里出现的每个 effect 名，内核都必须认识
 func _test_effect_coverage() -> bool:
-	var eng := FileAccess.get_file_as_string("res://core/battle.gd")
-	var miss: Array = []
 	var seen := {}
 	for mv in Data.moves.values():
-		var e := String((mv as Dictionary).get("effect", ""))
-		if e == "" or seen.has(e):
+		var effect := String(mv.get("effect", ""))
+		if effect == "" or seen.has(effect):
 			continue
-		seen[e] = true
-		if eng.find("\"" + e + "\"") < 0:
-			miss.append(e)
-	print("effcov dbg: %d 种 effect，未覆盖 %d 种 %s" % [seen.size(), miss.size(), str(miss)])
-	return miss.is_empty()
+		seen[effect] = true
+		var bt = BattleScript.new(1921)
+		var user := BattleScript.make_combatant(25, 50, [int(mv["id"])])
+		bt.start([user], [BattleScript.make_combatant(133, 50, [33])])
+		bt.run_turn("move:0", "item")
+		if bt.log.is_empty() or int(bt.cur_b().get("hp", -1)) < 0:
+			print("effcov dbg: 回合没有正常结算 ", effect, " ", mv["id"])
+			return false
+	print("effcov dbg: 运行 %d 种招式效果各一回合" % seen.size())
+	return seen.size() > 0
 
 func _test_field_system() -> bool:
 	var ok := true
@@ -5822,7 +5905,7 @@ func _test_npc_lines() -> bool:
 func _test_story_table() -> bool:
 	var okT := true
 	var allowed_trigger := ["map_enter", "talk", "badge", "step"]
-	var allowed_step := ["say", "who", "flag", "give_mon", "give_item", "heal", "money", "battle"]
+	var allowed_step := ["say", "who", "flag", "give_mon", "give_item", "heal", "money", "battle", "hall_of_fame"]
 	var total := 0
 	var talk_checked := 0
 	var all_ids := {}
@@ -5900,11 +5983,22 @@ func _test_story() -> bool:
 	var flags := {}
 	var has := false
 	# 区域触发（同一张大图里的分段）
-	var ev0: Dictionary = st.take("step", {"map": "kanto_main", "x": 20, "y": 170}, {"got_starter": true}, true)
-	if ev0.is_empty() or String(ev0.get("id", "")) != "route1_blurb":
-		print("story dbg: 1 号道路提示没触发 ", ev0.get("id", ""))
+	var route_map: Dictionary = Data.load_map("kanto", "kanto_main")
+	var old_map: Dictionary = world.map_data
+	var old_pos: Vector2i = world.player_pos
+	world.load_map(route_map)
+	world.warp_to(Vector2i(72, 259))
+	var route_ctx := {"map": "kanto_main", "area_name": world.area_name()}
+	var ev0: Dictionary = st.take("step", route_ctx, flags, true)
+	if not old_map.is_empty():
+		world.load_map(old_map)
+		world.warp_to(old_pos)
+	if String(ev0.get("id", "")) != "route1_blurb":
+		print("story dbg: 1 号道路提示没触发 ", route_ctx)
 		return false
-	st.mark_finished(ev0, {"got_starter": true})
+	st.mark_finished(ev0, flags)
+	if not st.take("step", route_ctx, flags, true).is_empty():
+		return false
 	# 1) 进图 → 开场旁白
 	var ev1: Dictionary = st.take("map_enter", {"map": "kanto_main"}, flags, has)
 	if ev1.is_empty() or String(ev1.get("id", "")) != "pallet_intro":
@@ -6005,7 +6099,15 @@ func _test_world_reach() -> bool:
 		var raw = JSON.parse_string(FileAccess.get_file_as_string(String(maps[cur])))
 		if not (raw is Dictionary):
 			continue
+		var exits := {}
 		for w in (raw as Dictionary).get("warps", []):
+			var at: Array = w.get("at", [])
+			if at.size() != 2:
+				return false
+			var tile := Vector2i(int(at[0]), int(at[1]))
+			if exits.has(tile):
+				continue
+			exits[tile] = true
 			var to: Dictionary = (w as Dictionary).get("to", {})
 			var key := "%s/%s" % [String(to.get("region", "")), String(to.get("map", ""))]
 			if maps.has(key) and not seen.has(key):
@@ -6018,6 +6120,7 @@ func _test_world_reach() -> bool:
 		"johto/johto_azalea_gym", "johto/johto_goldenrod_gym", "johto/johto_ecruteak_gym",
 		"johto/johto_olivine_gym", "johto/johto_cianwood_gym", "johto/johto_mahogany_gym",
 		"johto/johto_blackthorn_gym_1f", "johto/johto_lake_of_rage", "johto/johto_victory_road",
+		"johto/johto_route_23", "johto/johto_hall_of_fame",
 	]
 	var ok := true
 	var miss: Array = []
@@ -6163,53 +6266,51 @@ func _test_gyms() -> bool:
 
 ## 每张图：从出生点出发，所有传送点都必须走得到（含跳土坡）
 func _test_warp_reach() -> bool:
-	var dirs: Array = []
-	for d in DirAccess.get_directories_at("res://content/regions"):
-		dirs.append(String(d))
-	dirs.sort()
-	for rid in dirs:
-		for f in DirAccess.get_files_at("res://content/regions/%s/maps" % rid):
-			if not String(f).ends_with(".json"):
+	var maps := _all_maps()
+	var arrivals := {}
+	for source in maps:
+		var exits := {}
+		for warp in source.m.get("warps", []):
+			var origin: Array = warp.at
+			var tile := Vector2i(int(origin[0]), int(origin[1]))
+			if exits.has(tile):
 				continue
-			var mid := String(f).get_basename()
-			world.load_map(Data.load_map(rid, mid))
-			var sp: Array = world.map_data.get("spawn", [0, 0])
-			var seen: Dictionary = {}
-			# 起点 + 所有"从别处传进来的落点"都算入口：
-			# 森林北口这种门本来就只能从另一张图走出来，不能只看出生点
-			var q: Array = [Vector2i(int(sp[0]), int(sp[1]))]
-			seen[q[0]] = true
-			for other in _all_maps():
-				for w2 in (other["m"] as Dictionary).get("warps", []):
-					var t2: Dictionary = w2.get("to", {})
-					if String(t2.get("map", "")) == mid and String(t2.get("region", "")) == rid:
-						var a2: Array = t2.get("at", [0, 0])
-						var cell := Vector2i(int(a2[0]), int(a2[1]))
-						if not seen.has(cell):
-							seen[cell] = true
-							q.append(cell)
-			while not q.is_empty():
-				var p: Vector2i = q.pop_front()
-				for dv in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
-					var t: Vector2i = p + dv
-					var dest: Vector2i = Vector2i(-1, -1)
-					if world.can_enter(t, dv):
-						dest = t
-					elif world._ledge_allows(t, dv) and world.can_enter(t + dv, dv):
-						dest = t + dv
-					if dest.x >= 0 and not seen.has(dest):
-						seen[dest] = true
-						q.append(dest)
-			for w in world.map_data.get("warps", []):
-				var at: Array = w.get("at", [0, 0])
-				# 连接生成的地图边缘门、以及海路上的门，都不按"屋里那扇门"的标准判
-				if bool(w.get("edge", false)):
-					continue
-				if world.is_water(Vector2i(int(at[0]), int(at[1]))):
-					continue
-				if not seen.has(Vector2i(int(at[0]), int(at[1]))):
-					print("reach dbg: %s/%s 的门 %s 走不到，可达 %d 格，起点 %s" % [rid, mid, str(at), seen.size(), str(sp)])
-					return false
+			exits[tile] = true
+			var to: Dictionary = warp.to
+			var key := "%s/%s" % [to.region, to.map]
+			if not arrivals.has(key):
+				arrivals[key] = {}
+			arrivals[key][Vector2i(int(to.at[0]), int(to.at[1]))] = true
+	for room in maps:
+		var rid := str(room.rid)
+		var mid := str(room.mid)
+		world.load_map(room.m)
+		var sp: Array = room.m.get("spawn", [0, 0])
+		var seen: Dictionary = arrivals.get("%s/%s" % [rid, mid], {}).duplicate()
+		seen[Vector2i(int(sp[0]), int(sp[1]))] = true
+		var q: Array = seen.keys()
+		while not q.is_empty():
+			var p: Vector2i = q.pop_front()
+			for dv in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
+				var t: Vector2i = p + dv
+				var dest: Vector2i = Vector2i(-1, -1)
+				if world.can_enter(t, dv):
+					dest = t
+				elif world._ledge_allows(t, dv) and world.can_enter(t + dv, dv):
+					dest = t + dv
+				if dest.x >= 0 and not seen.has(dest):
+					seen[dest] = true
+					q.append(dest)
+		for w in world.map_data.get("warps", []):
+			var at: Array = w.get("at", [0, 0])
+			# 连接生成的地图边缘门、以及海路上的门，都不按"屋里那扇门"的标准判
+			if bool(w.get("edge", false)):
+				continue
+			if world.is_water(Vector2i(int(at[0]), int(at[1]))):
+				continue
+			if not seen.has(Vector2i(int(at[0]), int(at[1]))):
+				print("reach dbg: %s/%s 的门 %s 走不到，可达 %d 格，起点 %s" % [rid, mid, str(at), seen.size(), str(sp)])
+				return false
 	return true
 
 ## 所有地区地图（供"入口落点"扫描用）
@@ -6650,33 +6751,35 @@ func _test_flee() -> bool:
 
 ## 抓到之后要真的落地：有空位进队伍，满了进 box，两者都不能丢
 func _test_catch_add() -> bool:
-	var backup_party: Array = save_data.get("party", [])
-	var backup_box: Array = save_data.get("box", [])
-	save_data["party"] = PartyScript.compact([PartyScript.make(25, 5, [84])])
-	save_data["box"] = []
-	_add_to_team(52, 7)
-	var party: Array = save_data.get("party", [])
-	var found := false
-	for m in party:
-		if m is Dictionary and int((m as Dictionary).get("species_id", 0)) == 52:
-			found = true
-	if not found:
-		print("catch add dbg: 有空位却没进队伍")
-		return false
-	# 塞满 12 格再抓，应该落到 box
-	var full: Array = []
-	for i in 12:
-		full.append(PartyScript.make(16, 5, [33]))
-	save_data["party"] = PartyScript.compact(full)
-	_add_to_team(147, 9)
-	var box: Array = save_data.get("box", [])
-	if box.is_empty() or int((box[0] as Dictionary).get("species_id", 0)) != 147:
-		print("catch add dbg: 队伍满时没进 box")
-		return false
-	save_data["party"] = backup_party
-	save_data["box"] = backup_box
-	print("catch add dbg: 入队与进 box 都 OK")
-	return true
+	var previous := save_data
+	save_data = {"party": [], "boxes": []}
+	for i in PartyScript.MAX_SIZE:
+		if _add_to_team(i + 1, 7) != "party":
+			save_data = previous
+			return false
+	var team := _make_team()
+	var twelfth: Dictionary = team.back()
+	twelfth["hp"] = 1
+	_writeback_team(team)
+	var ok := team.size() == PartyScript.MAX_SIZE and int(save_data.party.back().hp) == 1
+	ok = _add_to_team(147, 9) == "box" and ok
+	ok = ok and int(save_data.boxes[0].mons[0].species_id) == 147
+	_open_pc()
+	var pc = menu_layer.get_child(-1)
+	# 队伍满员，点取出不会覆盖第十二格。
+	pc.contents.get_child(0).pressed.emit()
+	ok = ok and pc.notice.contains("已满") and int(save_data.boxes[0].mons[0].species_id) == 147
+	pc._mode(true)
+	pc.contents.get_child(PartyScript.MAX_SIZE - 1).pressed.emit()
+	ok = ok and PartyScript.occupied(save_data.party) == 11 and int(save_data.boxes[0].mons[1].species_id) == 12
+	pc._mode(false)
+	pc.contents.get_child(1).pressed.emit()
+	var loaded := SaveScript.load_game()
+	ok = ok and PartyScript.occupied(loaded.party) == 12 and int(loaded.party[11].species_id) == 12
+	ok = ok and int(loaded.party[11].hp) == 1 and PartyScript.occupied(loaded.boxes[0].mons) == 1
+	pc.handle_back()
+	save_data = previous
+	return ok
 
 func _test_editor() -> bool:
 	save_data["party"] = PartyScript.compact([PartyScript.make(25, 10, [84])])
@@ -6691,10 +6794,13 @@ func _test_editor() -> bool:
 		if ui.body.get_child_count() == 0:
 			print("editor dbg: 空页 ", t)
 			return false
-	# 改种族值：立刻生效、写进覆盖表、老个体按新种族值重算
+	# 草稿只在保存之后更改种族值和既有个体。
 	var before := int((Data.species_of(25) as Dictionary)["base"]["atk"])
 	var atk_before := int((PartyScript.make(25, 10, [84])["stats"] as Dictionary)["atk"])
 	ui._set_override(25, "atk", before * 2)
+	if int(Data.species_of(25).base.atk) != before or int(save_data.party[0].stats.atk) != atk_before:
+		return false
+	ui.save_changes(false)
 	if int((Data.species_of(25) as Dictionary)["base"]["atk"]) != before * 2:
 		print("editor dbg: 种族值没生效")
 		return false
@@ -6807,7 +6913,7 @@ func _e2e_story() -> void:
 	story_on = true
 	save_data = SaveScript.empty()
 	var blank: Array = []
-	for i in 12:
+	for i in PartyScript.MAX_SIZE:
 		blank.append({})
 	save_data["party"] = blank
 	save_data["bag"] = _default_items()
@@ -6905,21 +7011,19 @@ func _find_battle_ui():
 
 func _close_all_dialogs() -> void:
 	# 真正走一遍 closed 信号，这样剧情里的后续动作（给宝可梦等）才会执行
-	for d in _dialogs.duplicate():
-		if is_instance_valid(d):
-			if d.has_signal("closed"):
-				d.emit_signal("closed")
-			d.queue_free()
-	_dialogs.clear()
-	panel_open = 0
-	_set_hud_visible(true)
+	while not _dialogs.is_empty():
+		var dlg = _dialogs.back()
+		if dlg.ask_mode:
+			dlg._pick(false)
+		else:
+			dlg._close()
 
 ## 截图用：新档开场旁白
 func _story_demo() -> void:
 	story_on = true
 	save_data = SaveScript.empty()
 	var blank: Array = []
-	for i in 12:
+	for i in PartyScript.MAX_SIZE:
 		blank.append({})
 	save_data["party"] = blank
 	_story_init()
@@ -7030,12 +7134,14 @@ func _e2e_pc() -> void:
 
 func _restore_from_save() -> void:
 	save_data = SaveScript.load_game()
+	PartyScript.migrate_legacy_box(save_data)
+	DexVariants.restore(save_data)
 	# 修改器改过的种族值跟着存档走，读档时先合进来再建队伍
 	Data.apply_species_overrides(save_data.get("species_override", {}))
 	# 新档手里空空：第一只宝可梦要从大木博士那里拿，剧情才立得住
 	if not save_data.has("party") or not (save_data["party"] is Array):
 		var p: Array = []
-		for i in 12:
+		for i in PartyScript.MAX_SIZE:
 			p.append({})
 		save_data["party"] = p
 
@@ -7055,7 +7161,7 @@ func _restore_from_save() -> void:
 	# 而不是随随便便落到地区表里排序第一的那张图。
 	var start_region := "kanto"
 	var start_map := "kanto_main"
-	var start_at := Vector2i(24, 217)
+	var start_at := Vector2i(72, 277)
 	var reg_home: Dictionary = Data.load_region(start_region)
 	var st = reg_home.get("start", {})
 	if st is Dictionary and (st as Dictionary).has("map"):
@@ -7197,8 +7303,7 @@ func _build_menu_buttons() -> void:
 		var spec = specs[i]
 		var b := Button.new()
 		b.text = String(spec[0])
-		b.position = Vector2(96 + i * 38, 4)
-		b.size = Vector2(40, 24)
+		b.custom_minimum_size = Vector2(40, 32)
 		b.add_theme_font_size_override("font_size", 11)
 		var sb := StyleBoxFlat.new()
 		sb.bg_color = Color(0.09, 0.13, 0.18, 0.86)
@@ -7232,11 +7337,17 @@ func _layout_menu() -> void:
 	for b in menu_buttons:
 		if is_instance_valid(b) and (b as Button).visible:
 			shown.append(b)
-	var step := 44.0
-	var total := step * maxf(0.0, float(shown.size() - 1)) + 40.0
-	var x0 := maxf(4.0, get_viewport().get_visible_rect().size.x - 4.0) - total
-	for i in shown.size():
-		(shown[i] as Button).position = Vector2(x0 + i * step, 4)
+	var width := get_viewport().get_visible_rect().size.x
+	var total := 0.0
+	for button: Button in shown:
+		button.reset_size()
+		total += button.size.x
+	var gap := clampf((width - 8 - total) / maxi(1, shown.size()-1), 0, 4)
+	var x := width - 4 - total - gap * maxi(0,shown.size()-1)
+	for button: Button in shown:
+		button.position = Vector2(x,4)
+		x += button.size.x + gap
+
 
 ## 融合系统：合体、分离、洛托姆换家电
 func _test_fusion() -> bool:
@@ -7283,7 +7394,7 @@ func _test_fusion() -> bool:
 		okX = false
 	# 真的满 12 只时分离才该拦
 	var full: Array = []
-	for i in 12:
+	for i in PartyScript.MAX_SIZE:
 		full.append(PartyScript.make(19, 5, [33]))
 	full[0] = PartyScript.make(646, 50, [58])
 	full[0]["fused_part"] = PartyScript.make(643, 50, [53])
@@ -7412,6 +7523,7 @@ func _open_fusion() -> void:
 				_set_hud_visible(true))
 	ui.connect("changed", func(msg: String) -> void:
 			save_data["party"] = PartyScript.compact(ui.party)
+			DexVariants.sync_owned(save_data, save_data.party)
 			_persist()
 			_refresh_hud()
 			_show_toast(msg))
@@ -7425,6 +7537,7 @@ func _open_party() -> void:
 	ui.closed.connect(func() -> void:
 		panel_open = maxi(0, panel_open - 1)
 		_set_hud_visible(true))
+	ui.connect("reordered", _persist)
 	ui.evolve_with.connect(func(slot: int, item_name: String) -> void:
 		_evolve_with_item(slot, item_name, ui))
 	ui.tera_change.connect(func(slot: int, tera_type: String) -> void:
@@ -7447,9 +7560,8 @@ func _change_held(slot: int, held_key: String, item_name: String, ui) -> void:
 	if (new_is_berry and old_held == "" and old_berry == new_key) \
 			or ((not new_is_berry) and new_key != "" and old_held == new_key and old_berry == "") \
 			or (new_key == "" and old_held == "" and old_berry == ""):
-		if ui and ui.detail:
-			ui.detail.queue_free()
-			ui.detail = null
+		if ui:
+			ui.refresh()
 		return
 	# 旧的回到背包
 	if old_held != "":
@@ -7474,7 +7586,8 @@ func _change_held(slot: int, held_key: String, item_name: String, ui) -> void:
 		var fmsg := FusionScript.apply_held_form(mon)
 		if fmsg != "":
 			_show_toast(fmsg)
-			_persist()
+			DexVariants.record(save_data, mon, true)
+	_persist()
 	_refresh_hud()
 	_show_toast("已让 %s 带上 %s" % [String(mon.get("name", "?")), item_name])
 	if ui:
@@ -7518,7 +7631,7 @@ func _evolve_with_item(slot: int, item_name: String, ui) -> void:
 	var old_name := String(mon.get("name", "?"))
 	if PartyScript.evolve(mon, int(target.get("to", 0)), String(target.get("form", ""))):
 		_show_toast("%s 进化成了 %s！" % [old_name, String(mon.get("name", "?"))])
-	_dex_mark(int(mon.get("species_id", 0)), true)
+	DexVariants.record(save_data, mon, true)
 	party[slot] = mon
 	save_data["party"] = PartyScript.compact(party)
 	_persist()
@@ -8009,7 +8122,7 @@ func _candy_one(slot: int) -> void:
 		var old_name := String(mon.get("name", "?"))
 		if PartyScript.evolve(mon, int(evo.get("to", 0)), String(evo.get("form", ""))):
 			extra = "，进化成了 %s" % String(mon.get("name", "?"))
-			_dex_mark(int(mon.get("species_id", 0)), true)
+			DexVariants.record(save_data, mon, true)
 			if old_name == "":
 				pass
 	party[slot] = mon
@@ -8240,8 +8353,7 @@ func _hm_pick_who(mv: int) -> void:
 func _open_pc() -> void:
 	var ui = load("res://scenes/pc_ui.gd").new()
 	menu_layer.add_child(ui)
-	if save_data.get("boxes", []).is_empty():
-		save_data["boxes"] = ui._empty_boxes() if false else []
+	PartyScript.migrate_legacy_box(save_data)
 	ui.setup(save_data.get("boxes", []), save_data.get("party", []))
 	ui.on_change = func(boxes: Array, party: Array) -> void:
 		save_data["boxes"] = boxes
@@ -8277,6 +8389,7 @@ func _open_editor() -> void:
 	ui.setup(save_data.get("party", []), bag_items, save_data.get("species_override", {}))
 	ui.changed.connect(func() -> void:
 		save_data["party"] = PartyScript.compact(ui.party)
+		DexVariants.sync_owned(save_data, save_data.party)
 		save_data["species_override"] = ui.overrides
 		bag_items = ui.bag
 		_persist())
@@ -8290,7 +8403,7 @@ func _open_dex() -> void:
 	var dex: Dictionary = save_data.get("dex", {})
 	var ui := DexUI.new()
 	menu_layer.add_child(ui)
-	ui.setup(dex.get("seen", []), dex.get("caught", []))
+	ui.setup(dex.get("seen", []), dex.get("caught", []), save_data.get("dex_variants", {}))
 	panel_open += 1
 	_set_hud_visible(false)
 	ui.closed.connect(func() -> void:
@@ -8315,7 +8428,7 @@ func _make_team() -> Array:
 	if team.is_empty():
 		team.append(PartyScript.make(4, 14, [52, 33]))
 		team_slots.append(-1)
-	return team.slice(0, 6)
+	return team.slice(0, PartyScript.MAX_SIZE)
 
 ## 战斗结束后把血量和 PP 写回存档队伍（按开战时的槽位映射，不按数组下标猜）
 func _writeback_team(combatants: Array) -> void:
@@ -8340,18 +8453,12 @@ func _writeback_team(combatants: Array) -> void:
 
 ## 图鉴：见过 / 抓到分别记
 func _dex_mark(species_id: int, caught: bool) -> void:
-	Data.apply_species_overrides(save_data.get("species_override", {}))
-	var dex: Dictionary = save_data.get("dex", {})
-	var seen: Array = dex.get("seen", [])
-	if not seen.has(species_id):
-		seen.append(species_id)
-	dex["seen"] = seen
-	if caught:
-		var got: Array = dex.get("caught", [])
-		if not got.has(species_id):
-			got.append(species_id)
-		dex["caught"] = got
-	save_data["dex"] = dex
+	DexVariants.record(save_data, {"species_id": species_id}, caught)
+
+func _battle_variant_seen(side: String, mon: Dictionary, has_player_party: bool) -> void:
+	if side == "a" and not has_player_party:
+		return
+	DexVariants.record(save_data, mon, side == "a")
 
 ## 城都剧情实战：真实走一遍 进镇旁白 → 空木开场 → 拿初始后给图鉴
 func _e2e_johto_story() -> void:

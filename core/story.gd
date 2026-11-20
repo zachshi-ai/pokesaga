@@ -70,6 +70,8 @@ func _trigger_match(ev: Dictionary, kind: String, ctx: Dictionary) -> bool:
 			var sm := String(tr.get("map", ""))
 			if sm != "" and sm != String(ctx.get("map", "")):
 				return false
+			if tr.has("area_name"):
+				return String(tr["area_name"]) == String(ctx.get("area_name", ""))
 			var area = tr.get("area", [])
 			if not (area is Array) or (area as Array).size() != 4:
 				return false

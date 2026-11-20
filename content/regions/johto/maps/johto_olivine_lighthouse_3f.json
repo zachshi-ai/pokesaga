@@ -52,7 +52,7 @@
  "warps": [
   {
    "at": [
-    4,
+    6,
     1
    ],
    "to": {
@@ -66,14 +66,14 @@
   },
   {
    "at": [
-    4,
+    2,
     1
    ],
    "to": {
     "region": "johto",
     "map": "johto_olivine_lighthouse_2f",
     "at": [
-     6,
+     3,
      1
     ]
    }
@@ -87,43 +87,43 @@
     "region": "johto",
     "map": "johto_olivine_lighthouse_4f",
     "at": [
-     5,
-     1
+     4,
+     2
     ]
    }
   },
   {
    "at": [
-    4,
-    2
+    8,
+    5
    ],
    "to": {
     "region": "johto",
     "map": "johto_olivine_lighthouse_2f",
     "at": [
-     7,
+     8,
      5
     ]
    }
   },
   {
    "at": [
-    4,
-    2
+    7,
+    5
    ],
    "to": {
     "region": "johto",
     "map": "johto_olivine_lighthouse_2f",
     "at": [
      7,
-     5
+     4
     ]
    }
   },
   {
    "at": [
-    4,
-    2
+    8,
+    4
    ],
    "to": {
     "region": "johto",
@@ -136,21 +136,21 @@
   },
   {
    "at": [
-    4,
-    2
+    8,
+    3
    ],
    "to": {
     "region": "johto",
     "map": "johto_olivine_lighthouse_4f",
     "at": [
-     8,
+     7,
      5
     ]
    }
   },
   {
    "at": [
-    4,
+    7,
     1
    ],
    "to": {
@@ -164,15 +164,15 @@
   },
   {
    "at": [
-    4,
-    1
+    2,
+    2
    ],
    "to": {
     "region": "johto",
     "map": "johto_olivine_lighthouse_4f",
     "at": [
-     5,
-     1
+     2,
+     2
     ]
    }
   }

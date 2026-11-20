@@ -416,84 +416,14 @@
   {
    "at": [
     0,
-    79
+    7
    ],
    "to": {
     "region": "sevii",
-    "map": "seven_island_tanoby_ruins",
+    "map": "seven_island_sevault_canyon_entrance",
     "at": [
-     3,
-     0
-    ]
-   }
-  },
-  {
-   "at": [
-    1,
-    79
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "seven_island_tanoby_ruins",
-    "at": [
-     4,
-     0
-    ]
-   }
-  },
-  {
-   "at": [
-    2,
-    79
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "seven_island_tanoby_ruins",
-    "at": [
-     5,
-     0
-    ]
-   }
-  },
-  {
-   "at": [
-    15,
-    79
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "seven_island_tanoby_ruins",
-    "at": [
-     18,
-     0
-    ]
-   }
-  },
-  {
-   "at": [
-    16,
-    79
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "seven_island_tanoby_ruins",
-    "at": [
-     19,
-     0
-    ]
-   }
-  },
-  {
-   "at": [
-    21,
-    79
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "seven_island_tanoby_ruins",
-    "at": [
-     24,
-     0
+     23,
+     27
     ]
    }
   },
@@ -514,7 +444,7 @@
   {
    "at": [
     0,
-    79
+    9
    ],
    "to": {
     "region": "sevii",
@@ -522,6 +452,104 @@
     "at": [
      23,
      29
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon_entrance",
+    "at": [
+     23,
+     30
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins",
+    "at": [
+     48,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins",
+    "at": [
+     49,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins",
+    "at": [
+     53,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins",
+    "at": [
+     54,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    15,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins",
+    "at": [
+     63,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins",
+    "at": [
+     64,
+     0
     ]
    }
   }

@@ -190,18 +190,23 @@
     8,
     6
    ],
+   "source_script": "MtSilverSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "白银山\\n（城都地区的告示牌）"
+   "text": "白银山。"
   },
   {
    "at": [
     4,
     12
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "白银山\\n（城都地区的告示牌）"
+   "source_script": "SilverCaveOutsideHiddenFullRestore",
+   "kind": "hidden",
+   "item": "ITEM_FULL_RESTORE",
+   "name": "全复药",
+   "category": "heal",
+   "flag": "johto:EVENT_SILVER_CAVE_OUTSIDE_HIDDEN_FULL_RESTORE",
+   "count": 1
   }
  ],
  "weather": "",

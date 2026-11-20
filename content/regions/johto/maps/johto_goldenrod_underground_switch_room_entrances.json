@@ -238,7 +238,7 @@
   {
    "at": [
     11,
-    11
+    1
    ],
    "to": {
     "region": "johto",
@@ -252,48 +252,48 @@
   {
    "at": [
     11,
-    11
+    5
    ],
    "to": {
     "region": "johto",
     "map": "johto_goldenrod_underground_warehouse",
     "at": [
-     3,
-     5
+     1,
+     6
     ]
    }
   },
   {
    "at": [
     11,
-    11
+    6
    ],
    "to": {
     "region": "johto",
     "map": "johto_goldenrod_underground_warehouse",
     "at": [
-     3,
-     5
+     1,
+     4
     ]
    }
   },
   {
    "at": [
-    8,
+    2,
     12
    ],
    "to": {
     "region": "johto",
     "map": "johto_goldenrod_underground",
     "at": [
-     9,
-     14
+     1,
+     16
     ]
    }
   },
   {
    "at": [
-    8,
+    2,
     14
    ],
    "to": {
@@ -307,7 +307,7 @@
   },
   {
    "at": [
-    8,
+    2,
     14
    ],
    "to": {
@@ -328,8 +328,8 @@
     "region": "johto",
     "map": "johto_goldenrod_underground",
     "at": [
-     9,
-     13
+     1,
+     2
     ]
    }
   },
@@ -370,45 +370,56 @@
     7,
     1
    ],
+   "source_script": "Switch1Script",
    "kind": "sign",
    "sprite": "sign",
-   "text": "满金地下通道\\n（城都地区的告示牌）"
+   "text": "开关旁的标签写着「一号」。"
   },
   {
    "at": [
     4,
     1
    ],
+   "source_script": "Switch2Script",
    "kind": "sign",
    "sprite": "sign",
-   "text": "满金地下通道\\n（城都地区的告示牌）"
+   "text": "开关旁的标签写着「二号」。"
   },
   {
    "at": [
     0,
     1
    ],
+   "source_script": "Switch3Script",
    "kind": "sign",
    "sprite": "sign",
-   "text": "满金地下通道\\n（城都地区的告示牌）"
+   "text": "开关旁的标签写着「三号」。"
   },
   {
    "at": [
     4,
     4
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "满金地下通道\\n（城都地区的告示牌）"
+   "source_script": "GoldenrodUndergroundSwitchRoomEntrancesHiddenMaxPotion",
+   "kind": "hidden",
+   "item": "ITEM_MAX_POTION",
+   "name": "全满药",
+   "category": "heal",
+   "flag": "johto:EVENT_GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES_HIDDEN_MAX_POTION",
+   "count": 1
   },
   {
    "at": [
     0,
     4
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "满金地下通道\\n（城都地区的告示牌）"
+   "source_script": "GoldenrodUndergroundSwitchRoomEntrancesHiddenRevive",
+   "kind": "hidden",
+   "item": "ITEM_REVIVE",
+   "name": "活力碎片",
+   "category": "heal",
+   "flag": "johto:EVENT_GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES_HIDDEN_REVIVE",
+   "count": 1
   }
  ],
  "weather": "",

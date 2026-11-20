@@ -332,45 +332,53 @@
     7,
     10
    ],
+   "source_script": "EcruteakCitySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "圆朱市\\n（城都地区的告示牌）"
+   "text": "圆朱市，一座过去与现在相遇的历史名城。"
   },
   {
    "at": [
     19,
     5
    ],
+   "source_script": "TinTowerSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "圆朱市\\n（城都地区的告示牌）"
+   "text": "铃铛塔。传说有一只宝可梦栖息在塔顶。"
   },
   {
    "at": [
     4,
     14
    ],
+   "source_script": "EcruteakGymSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "圆朱市\\n（城都地区的告示牌）"
+   "text": "圆朱道馆。馆主松叶，能窥见未来的修行者。"
   },
   {
    "at": [
     1,
     5
    ],
+   "source_script": "BurnedTowerSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "圆朱市\\n（城都地区的告示牌）"
+   "text": "烧焦塔曾被一场神秘的大火焚毁。建筑危险，请勿靠近。"
   },
   {
    "at": [
     11,
     7
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "圆朱市\\n（城都地区的告示牌）"
+   "source_script": "EcruteakCityHiddenHyperPotion",
+   "kind": "hidden",
+   "item": "ITEM_HYPER_POTION",
+   "name": "厉害伤药",
+   "category": "heal",
+   "flag": "johto:EVENT_ECRUTEAK_CITY_HIDDEN_HYPER_POTION",
+   "count": 1
   }
  ],
  "weather": "",

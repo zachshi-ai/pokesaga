@@ -484,36 +484,40 @@
     8,
     8
    ],
+   "source_script": "ViridianCitySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "ViridianCity\\n（城都地区的告示牌）"
+   "text": "常磐市，常绿的乐园。"
   },
   {
    "at": [
     13,
     3
    ],
+   "source_script": "ViridianGymSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "ViridianCity\\n（城都地区的告示牌）"
+   "text": "常磐道馆。馆主名字所在的地方已经看不清了。"
   },
   {
    "at": [
     9,
     0
    ],
+   "source_script": "ViridianCityWelcomeSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "ViridianCity\\n（城都地区的告示牌）"
+   "text": "欢迎来到常磐市，通往石英高原的门户。"
   },
   {
    "at": [
     10,
     7
    ],
+   "source_script": "TrainerHouseSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "ViridianCity\\n（城都地区的告示牌）"
+   "text": "训练家之家，高手切磋的俱乐部。"
   }
  ],
  "weather": "",

@@ -6,14 +6,16 @@
 2. encounters —— 直接抄原版 wild_encounters.json 里这张图的陆地分布
    （species / 等级区间 / 权重），连触发率一起带过来。
 """
+from asset_paths import project_path, source_path
+
 import json, os, glob, struct
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-EMAPS = "/root/build/pokesaga/content/emerald_maps"
-REG = "/root/build/pokesaga/content/regions"
+ROOT = source_path("emerald")
+EMAPS = project_path("content/emerald_maps")
+REG = project_path("content/regions")
 
 import sys
-sys.path.insert(0, "/root/build/pokesaga/tools")
+sys.path.insert(0, project_path("tools"))
 from render_emerald_maps import get_primary, get_secondary
 
 

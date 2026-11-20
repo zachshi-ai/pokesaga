@@ -7,13 +7,15 @@
 大图上缺哪一格就补哪一格，并保证房间那一侧也有对得上的门。
 用法: python3 tools/fix_missing_doors.py [--dry]
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import re
 import sys
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-PJ = "/root/build/pokesaga"
+ROOT = source_path("emerald")
+PJ = project_path()
 EM = os.path.join(PJ, "content/emerald_maps")
 REG = os.path.join(PJ, "content/regions/kanto/maps")
 BIG = "kanto_main"

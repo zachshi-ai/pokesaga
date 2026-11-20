@@ -381,27 +381,30 @@
     14,
     0
    ],
+   "source_script": "Route36TrainerTips2",
    "kind": "sign",
    "sprite": "sign",
-   "text": "36 号道路\\n（城都地区的告示牌）"
+   "text": "训练家心得：探索洞穴的训练家常用「挖洞」返回入口。"
   },
   {
    "at": [
     22,
     5
    ],
+   "source_script": "RuinsOfAlphNorthSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "36 号道路\\n（城都地区的告示牌）"
+   "text": "阿尔夫遗迹北入口。"
   },
   {
    "at": [
     27,
     3
    ],
+   "source_script": "Route36Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "36 号道路\\n（城都地区的告示牌）"
+   "text": "36 号道路。"
   }
  ],
  "weather": "",

@@ -364,9 +364,10 @@
     24,
     6
    ],
+   "source_script": "Route3MtMoonSquareSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "3 号道路\\n（城都地区的告示牌）"
+   "text": "沿阶梯往上，就是月见山广场。"
   }
  ],
  "weather": "",

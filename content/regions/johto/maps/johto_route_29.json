@@ -220,18 +220,20 @@
     25,
     3
    ],
+   "source_script": "Route29Sign1",
    "kind": "sign",
    "sprite": "sign",
-   "text": "29 号道路\\n（城都地区的告示牌）"
+   "text": "29 号道路，樱花镇至若叶镇。"
   },
   {
    "at": [
     1,
     2
    ],
+   "source_script": "Route29Sign2",
    "kind": "sign",
    "sprite": "sign",
-   "text": "29 号道路\\n（城都地区的告示牌）"
+   "text": "29 号道路，樱花镇至若叶镇。"
   }
  ],
  "weather": "",

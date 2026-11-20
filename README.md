@@ -1,38 +1,49 @@
-# PokeSaga
+# PokeSaga · 安卓学习版
 
-Godot 4.7.2 制作的多地区宝可梦同人游戏（Android）。关都、七岛、城都三套地图，战斗、图鉴、队伍、背包、电脑、修改器、融合、秘传技能、昼夜与天气全部在同一个工程里。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.47.0-study`，versionCode 为 80，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
 
-- 包名：`com.stepx.pokesaga`
-- 引擎：Godot 4.7.2（`renderer` 用兼容模式，横屏 480×320，`aspect=keep`）
-- 当前版本：4.46.0（versionCode 79）
-- 安装包：见 Releases 页
+## 从真新镇开始
 
-## 目录
+进大木研究所选择初始伙伴，再向北进入 1 号道路。草丛里可以遇敌、投球、练级，常磐市的宝可梦中心可以治疗队伍。经 2 号道路和常磐森林抵达尼比市，打赢小刚即可获得首枚徽章。城都另有八徽章门禁、四天王、冠军与名人堂登记。
 
-```
-scenes/      boot.gd（主控 + 自检）、battle_ui、party_ui、dex_ui、bag_ui、pc_ui、shop_ui、editor_ui、fusion_ui、form_item_ui、dialog_ui
-core/        world（地图/移动/坡/水面/树冠）、battle、data_hub、party、growth、encounter、facility、field、fusion、save_game、sound、story、touch_scroll
-content/     regions/{kanto,sevii,johto,frontier,hoenn}/maps/*.json + emerald_maps/*.json+png（+*_fg.png）
-             items / moves / species / abilities / berries / tm_map / trainers_db / story
-assets/      tiles 图集、人物与树冠贴花、party_hd 立绘（1025 张 128×128）、audio（26 BGM + 16 SFX）
-tools/       地图渲染、连边生成、落点修正、告示牌文本等离线脚本
-```
+工程装入了 757 张地图配置，关都 216 张、七之岛 159 张、城都 377 张、丰缘 3 张、对战开拓区 2 张。丰缘可从枯叶港经开拓区往返未白镇。世界盘面另列的神奥等地区属于规划。城都书架、路牌、设施说明和隐藏道具已按原事件接入，通信终端等设施仅有场景说明。
 
-## 自己编译
+## 队伍与触屏菜单
 
-需要 Godot 4.7.2 与 Android 导出模板：
+- 同行队伍可带 12 只。满员后捕获的成员进电脑；在电脑中点选具体成员存入或取回，最后一只留在队伍中。旧存档的单箱收藏会迁入电脑。
+- 队伍、背包、图鉴、修改器共用触屏控件。可以在卡片上直接滑动，松手后再点选。修改器支持按名字或编号查找、选招式和道具，保存后同时写入队伍与背包；取消会放弃本次草稿。
+- 图鉴以主编号组织形态，1,025 个战斗物种归入 1,003 个主条目。按本作设计，22 只悖谬种归在其原型下。输入 `990` 或铁辙迹会打开顿甲 No.0232 中的铁辙迹，战斗与存档继续使用铁辙迹自己的物种 ID。
+- 图鉴详情分别选形态、闪光和战斗状态。地区形态、Mega、超极巨、不同属性、颜色、花纹和造型可单独查看。星星闪和方块闪共用该形态真实的异色配色，预览与战斗使用不同的闪光图形。普通极巨和通用太晶采用图层表现。多形态示例包括彩粉蝶的 20 种花纹、未知图腾的 28 种字形，以及霜奶仙的 9 种奶油 × 7 种糖饰。
+- “该编号已捕获”表示物种收集进度。“外观预览”“已见过此外观”“已拥有此外观”对应具体形态、闪光和太晶组合。图鉴预览不会新增捕获记录。旧个体只有布尔型闪光字段时按星星闪迁移，缺少个体证据的旧历史只保留编号进度。
+
+## 从源码安装
+
+在 Godot 4.7.2 中导入本目录的 `project.godot`，按 F6 运行当前场景或 F5 启动游戏。命令行从项目根目录执行：
 
 ```bash
-godot --headless --path . -- --selftest            # 65 项自检
-godot --headless --path . --export-release "Android" PokeSaga.apk
+godot --headless --path . --import
+godot --path .
+tools/build_android.sh ../交付/PokeSaga-4.47.0-study.apk
 ```
 
-导出配置见 `export_presets.cfg`（版本号在第 34/35 行）。
+构建 Android 需要匹配的 Godot 导出模板、JDK 17、Android SDK、platform-tools、build-tools 和 Godot 可访问的本机调试签名。已配置的机器可用 `GODOT_BIN`、`JAVA_HOME`、`ANDROID_HOME` 选择工具路径。本机脚本也识别 `~/Library/Application Support/PokeSagaBuild`。学习版使用 `Android Study` 导出预设，目标架构为 ARM64，输出为签名调试 APK。安装可用 `adb install -r ../交付/PokeSaga-4.47.0-study.apk`。
 
-## 素材来源
+## 验证改动
 
-- 地图数据：pokeemerald-expansion（GBA 关都/七岛）与 pokecrystal（城都），自建渲染管线导出为 PNG + 碰撞/坡/水面网格
-- 立绘：PokeAPI official-artwork，缩放到 128×128
-- 音频：原版曲谱 `.mid` + 自写合成器渲染成 ogg，不含 ROM 采样
+```bash
+godot --headless --path . -- --selftest
+python3 tools/test_first_chapter.py --godot /path/to/godot
+godot --headless --fixed-fps 60 --path . --script tools/test_collection.gd
+godot --headless --path . --script tools/test_dex_catalog.gd
+godot --headless --fixed-fps 60 --path . --script tools/test_johto_passage.gd
+godot --headless --fixed-fps 60 --path . --script tools/test_johto_league.gd
+godot --headless --fixed-fps 60 --path . --script tools/test_hoenn_ferry.gd
+```
 
-本项目为非商业同人作品，宝可梦相关名称与形象版权归任天堂 / Game Freak / Creatures 所有。
+首章测试用独立新档实际走路、遇敌、投球、治疗、打馆，再启动第二个进程读回徽章。联盟测试会检查门禁、战败治疗、五连战及名人堂快照。手机图鉴专项 `tools/test_android_dex.py --help` 列出设备序列号、ADB 与截图目录参数；它在已安装学习版的 3:2 横屏模拟器上运行。
+
+## 从素材开始学习
+
+游戏自带运行所需的素材，直接导入工程即可游玩。重新制作图片、碰撞和音频的步骤及素材版本见 [素材重建说明](doc/素材重建.md)。核心代码集中在 `core/`，各触屏菜单在 `scenes/`，地图、剧情、招式、道具和形态表在 `content/`。
+
+本项目用于非商业同人学习。宝可梦的名称与形象归相应权利人所有。中文字库的开放字体许可随 `assets/fonts/OFL.txt` 提供。

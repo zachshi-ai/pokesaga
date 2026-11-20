@@ -343,18 +343,20 @@
     16,
     3
    ],
+   "source_script": "Route38Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "38 号道路\\n（城都地区的告示牌）"
+   "text": "38 号道路，浅葱市至圆朱市。"
   },
   {
    "at": [
     2,
     6
    ],
+   "source_script": "Route38TrainerTips",
    "kind": "sign",
    "sprite": "sign",
-   "text": "38 号道路\\n（城都地区的告示牌）"
+   "text": "训练家心得：有些训练家会在进化的途中叫停，暂时让伙伴保持原样。"
   }
  ],
  "weather": "",

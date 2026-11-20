@@ -388,45 +388,50 @@
     12,
     1
    ],
+   "source_script": "VermilionCitySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "VermilionCity\\n（城都地区的告示牌）"
+   "text": "枯叶市，夕阳绚丽的港口。"
   },
   {
    "at": [
     2,
     9
    ],
+   "source_script": "VermilionGymSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "VermilionCity\\n（城都地区的告示牌）"
+   "text": "枯叶道馆。馆主马志士，人称「闪电硬汉」。"
   },
   {
    "at": [
     2,
     6
    ],
+   "source_script": "PokemonFanClubSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "VermilionCity\\n（城都地区的告示牌）"
+   "text": "宝可梦同好会，欢迎所有喜欢宝可梦的人。"
   },
   {
    "at": [
     16,
     4
    ],
+   "source_script": "VermilionCityDiglettsCaveSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "VermilionCity\\n（城都地区的告示牌）"
+   "text": "地鼠洞穴。"
   },
   {
    "at": [
     13,
     7
    ],
+   "source_script": "VermilionCityPortSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "VermilionCity\\n（城都地区的告示牌）"
+   "text": "枯叶港入口。"
   }
  ],
  "weather": "",

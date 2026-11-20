@@ -66,8 +66,8 @@
   },
   {
    "at": [
-    9,
-    5
+    8,
+    3
    ],
    "to": {
     "region": "johto",
@@ -108,8 +108,8 @@
   },
   {
    "at": [
-    5,
-    3
+    4,
+    0
    ],
    "to": {
     "region": "johto",
@@ -324,27 +324,30 @@
     0,
     2
    ],
+   "source_script": "MahoganyTownSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "卡吉镇\\n（城都地区的告示牌）"
+   "text": "卡吉镇，忍者的故乡。"
   },
   {
    "at": [
     4,
     3
    ],
+   "source_script": "MahoganyTownRagecandybarSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "卡吉镇\\n（城都地区的告示牌）"
+   "text": "来到卡吉镇，别忘了尝尝特产愤怒馒头！"
   },
   {
    "at": [
     1,
     6
    ],
+   "source_script": "MahoganyGymSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "卡吉镇\\n（城都地区的告示牌）"
+   "text": "卡吉道馆。馆主柳伯，教人领略严冬的修行者。"
   }
  ],
  "weather": "",

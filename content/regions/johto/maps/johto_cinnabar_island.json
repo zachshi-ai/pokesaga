@@ -197,27 +197,33 @@
     4,
     5
    ],
+   "source_script": "CinnabarIslandGymSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "CinnabarIsland\\n（城都地区的告示牌）"
+   "text": "夏伯留下的通知：红莲道馆已迁往双子岛。"
   },
   {
    "at": [
     3,
     3
    ],
+   "source_script": "CinnabarIslandSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "CinnabarIsland\\n（城都地区的告示牌）"
+   "text": "红莲岛，燃烧着热情的火红小镇。"
   },
   {
    "at": [
     4,
     0
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "CinnabarIsland\\n（城都地区的告示牌）"
+   "source_script": "CinnabarIslandHiddenRareCandy",
+   "kind": "hidden",
+   "item": "ITEM_RARE_CANDY",
+   "name": "神奇糖果",
+   "category": "other",
+   "flag": "johto:EVENT_CINNABAR_ISLAND_HIDDEN_RARE_CANDY",
+   "count": 1
   }
  ],
  "weather": "",

@@ -3,12 +3,14 @@
 种族值默认沿用本体；体型有差异的（南瓜精/南瓜怪人）单独给。
 用法: python3 tools/import_all_forms.py
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import sys
 
-ROOT = "/root/build/pokesaga"
-GFX = "/root/build/pokeemerald-expansion-master/graphics/pokemon"
+ROOT = project_path()
+GFX = source_path("emerald", "graphics/pokemon")
 OUT = os.path.join(ROOT, "assets/mon/forms")
 
 sys.path.insert(0, os.path.join(ROOT, "tools"))

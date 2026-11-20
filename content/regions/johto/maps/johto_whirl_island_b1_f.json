@@ -183,8 +183,8 @@
     "region": "johto",
     "map": "johto_whirl_island_b2_f",
     "at": [
-     2,
-     5
+     4,
+     2
     ]
    }
   },
@@ -197,8 +197,8 @@
     "region": "johto",
     "map": "johto_whirl_island_b2_f",
     "at": [
-     2,
-     5
+     3,
+     6
     ]
    }
   },
@@ -268,27 +268,39 @@
     14,
     2
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "涡卷岛\\n（城都地区的告示牌）"
+   "source_script": "WhirlIslandB1FHiddenRareCandy",
+   "kind": "hidden",
+   "item": "ITEM_RARE_CANDY",
+   "name": "神奇糖果",
+   "category": "other",
+   "flag": "johto:EVENT_WHIRL_ISLAND_B1F_HIDDEN_RARE_CANDY",
+   "count": 1
   },
   {
    "at": [
     17,
     8
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "涡卷岛\\n（城都地区的告示牌）"
+   "source_script": "WhirlIslandB1FHiddenUltraBall",
+   "kind": "hidden",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "flag": "johto:EVENT_WHIRL_ISLAND_B1F_HIDDEN_ULTRA_BALL",
+   "count": 1
   },
   {
    "at": [
     1,
     11
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "涡卷岛\\n（城都地区的告示牌）"
+   "source_script": "WhirlIslandB1FHiddenFullRestore",
+   "kind": "hidden",
+   "item": "ITEM_FULL_RESTORE",
+   "name": "全复药",
+   "category": "heal",
+   "flag": "johto:EVENT_WHIRL_ISLAND_B1F_HIDDEN_FULL_RESTORE",
+   "count": 1
   }
  ],
  "weather": "",

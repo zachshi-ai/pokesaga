@@ -2,3 +2,4 @@
 *.apk
 *.idsig
 *.tmp
+__pycache__/

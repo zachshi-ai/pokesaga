@@ -20,8 +20,8 @@
     "region": "johto",
     "map": "johto_victory_road_gate",
     "at": [
-     5,
-     4
+     8,
+     2
     ]
    }
   },
@@ -169,9 +169,10 @@
     7,
     3
    ],
+   "source_script": "VictoryRoadEntranceSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "22 号道路\\n（城都地区的告示牌）"
+   "text": "宝可梦联盟，冠军之路入口。"
   }
  ],
  "weather": "",

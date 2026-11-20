@@ -4,19 +4,22 @@
 跟 render_emerald_maps.py 同一套输出格式（content/emerald_maps/<id>.png/.json），
 这样游戏内核不用为城都改任何东西。
 
-tileset 的贴图是 4 级灰度（GBC 2bpp），颜色来自 palette map 里给每个 metatile
-指定的调色板（GRAY/RED/GREEN/WATER/YELLOW/BROWN/ROOF），配色取 bg_tiles.pal 的
-白天那一组。碰撞取 data/tilesets/<ts>_collision.asm，四象限里取左上角那一格。
+每块 4×4 个 8 像素图块。按上游双显存区、分图块配色与分组屋顶绘制，游戏显示时缩放到逻辑格，保留原生像素。
+--active-art 仅更新在用地图图像，保留已修正的碰撞、门点和事件。
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import re
 import sys
+from functools import lru_cache
+from pathlib import Path
 
 from PIL import Image
 
-ROOT = "/root/build/pokecrystal"
-OUT_MAIN = "/root/build/pokesaga/content/emerald_maps"
+ROOT = source_path("crystal")
+OUT_MAIN = project_path("content/emerald_maps")
 
 TS_DIR_PNG = os.path.join(ROOT, "gfx/tilesets")
 TS_DIR_META = os.path.join(ROOT, "data/tilesets")
@@ -43,178 +46,133 @@ def read(path):
         return f.read().replace("\r", "")
 
 
-def parse_pal_file(path, want=None):
-    """解析 .pal：返回 {段名: [(r,g,b), ...]}（扁平，4 个一组）。"""
-    if not os.path.exists(path):
-        return {}
-    out = {}
-    cur = None
-    lines = read(path).split("\n")
-    for ln in lines:
-        s = ln.strip()
-        if not s:
-            continue
-        if s.startswith(";"):
-            name = s[1:].strip().lower()
-            if not name:
-                continue
-            if want and name != want:
-                cur = None
-                continue
-            cur = name
-            out.setdefault(cur, [])
-            continue
-        if s.upper().startswith("RGB") and cur:
-            nums = [int(x) for x in re.findall(r"\d+", s.split(";")[0])]
-            for i in range(0, len(nums) - 2, 3):
-                r, g, b = nums[i], nums[i + 1], nums[i + 2]
-                out[cur].append(((r * 255) // 31, (g * 255) // 31, (b * 255) // 31))
-    return out
+def palette_colors(line):
+    values = [int(n) * 255 // 31 for n in re.findall(r"\d+", line.split(";")[0])]
+    return list(zip(values[::3], values[1::3], values[2::3]))
 
 
-_BG_PAL = None
+@lru_cache(None)
+def palette_sections(filename):
+    groups = {"": []}
+    label = ""
+    for line in Path(TS_DIR_PNG, filename).read_text().splitlines():
+        line = line.strip()
+        if line.startswith(";"):
+            label = line[1:].strip().lower()
+            groups.setdefault(label, [])
+        elif line.startswith("RGB "):
+            groups[label].extend(palette_colors(line))
+    return groups
 
 
-# bg_tiles.pal 里 8 组配色的固定顺序
-BG_ORDER = ["gray", "red", "green", "water", "yellow", "brown", "roof", "text"]
+@lru_cache(None)
+def map_profiles():
+    group = 0
+    profiles = {}
+    for line in Path(ROOT, "data/maps/maps.asm").read_text().splitlines():
+        if re.match(r"MapGroup_\w+:$", line):
+            group += 1
+        match = re.match(r"\s*map (\w+), TILESET_\w+, (\w+),", line)
+        if match:
+            profiles[match[1]] = (group, match[2])
+    return profiles
 
 
-def bg_palettes():
-    """bg_tiles.pal 的白天配色，拆成 {gray:[4色], red:[4色], ...}。"""
-    global _BG_PAL
-    if _BG_PAL is None:
-        flat = parse_pal_file(os.path.join(TS_DIR_PNG, "bg_tiles.pal"), want="day").get("day", [])
-        out = {}
-        for i, nm in enumerate(BG_ORDER):
-            cols = flat[i * 4:i * 4 + 4]
-            if len(cols) == 4:
-                out[nm] = cols
-        _BG_PAL = out
-    return _BG_PAL
+@lru_cache(None)
+def roof_types():
+    table = read(os.path.join(ROOT, "data/maps/roofs.asm")).split("MapGroupRoofs:", 1)[1]
+    return re.findall(r"^\s*db (ROOF_\w+|-1)", table, re.M)
+
+
+@lru_cache(None)
+def tiles_from(filename):
+    # White is palette index 0 in the upstream 2bpp graphics.
+    img = Image.open(os.path.join(TS_DIR_PNG, filename)).convert("L")
+    img = img.point([3 - min(3, (v + 42) // 85) for v in range(256)])
+    return [img.crop((x, y, x+8, y+8)) for y in range(0, img.height, 8)
+            for x in range(0, img.width, 8)]
 
 
 class Tileset:
-    def __init__(self, name):
-        self.name = name
-        img = Image.open(os.path.join(TS_DIR_PNG, name + ".png")).convert("L")
-        self.w, self.h = img.size
-        self.cols = self.w // 8
-        self.tiles = []
-        px = img.load()
-        for ty in range(self.h // 8):
-            for tx in range(self.cols):
-                tile = [[0] * 8 for _ in range(8)]
-                for y in range(8):
-                    for x in range(8):
-                        v = px[tx * 8 + x, ty * 8 + y]
-                        tile[y][x] = min(3, (v + 42) // 85)
-                self.tiles.append(tile)
-
-        meta_path = os.path.join(TS_DIR_META, name + "_metatiles.bin")
-        raw = open(meta_path, "rb").read()
-        self.count = len(raw) // 16
-        self.meta = [raw[i * 16:(i + 1) * 16] for i in range(self.count)]
-
-        # 碰撞：每行 4 个象限
+    def __init__(self, name, group, environment):
+        blocks = Path(TS_DIR_META, name + "_metatiles.bin").read_bytes()
+        self.meta = [blocks[i:i+16] for i in range(0, len(blocks), 16)]
         self.coll = []
-        cpath = os.path.join(TS_DIR_META, name + "_collision.asm")
-        if os.path.exists(cpath):
-            for ln in read(cpath).split("\n"):
-                s = ln.strip()
-                if not s.startswith("tilecoll"):
-                    continue
-                body = s.split(";")[0]
-                args = [a.strip() for a in body.split(",", 1)[1].split(",")]
-                self.coll.append([coll_value(a) for a in args])
+        for line in Path(TS_DIR_META, name + "_collision.asm").read_text().splitlines():
+            line = line.partition(";")[0].strip()
+            if line.startswith("tilecoll "):
+                self.coll.append([coll_value(v) for v in line.split(None, 1)[1].split(",")])
 
-        # palette map
-        self.palmap = {}
-        ppath = os.path.join(TS_DIR_PNG, name + "_palette_map.asm")
-        if os.path.exists(ppath):
-            for ln in read(ppath).split("\n"):
-                s = ln.strip()
-                if not s.startswith("tilepal"):
-                    continue
-                parts = [p.strip() for p in s.split(",")]
-                grp = int(parts[0].split()[1])
-                names = parts[1:]
-                base = grp * 128 + len([k for k in self.palmap if k // 128 == grp]) * 8
-                for i, nm in enumerate(names[:8]):
-                    self.palmap[base + i] = PAL_NAMES.index(nm) if nm in PAL_NAMES else 0
+        colors = palette_sections("bg_tiles.pal")
+        outside = environment in ("TOWN", "ROUTE")
+        base = colors["indoor" if environment in ("GATE", "INDOOR") else "day"]
+        palettes = [base[n:n+4] for n in range(0, 32, 4)]
+        if outside:
+            palettes[3] = colors["overworld water"][:4]
+            roofs = palette_sections("roofs.pal")
+            roof_colors = next(v for k, v in roofs.items() if k.startswith(f"group {group} "))
+            palettes[6] = [palettes[6][0], *roof_colors[:2], palettes[6][3]]
+        special = ("mansion_1" if name == "mansion" else name) + ".pal"
+        if Path(TS_DIR_PNG, special).exists() and not (name == "ice_path" and environment == "INDOOR"):
+            custom = [c for part in palette_sections(special).values() for c in part]
+            palettes = [custom[i:i+4] for i in range(0,32,4)]
+            if name == "mansion":
+                palettes[3], palettes[6] = custom[24:28], custom[32:36]
+                palettes[4] = next(v[:4] for v in palette_sections("mansion_2.pal").values() if v)
 
-        self.pal = bg_palettes()
-        # 少数 tileset（house / battle_tower_inside 等）自带一份 .pal，按顺序覆盖
-        own = parse_pal_file(os.path.join(TS_DIR_PNG, name + ".pal"))
-        for seg, flat in own.items():
-            if seg in ("morn", "day", "nite", "dark"):
+        # The two VRAM banks hold 96 tiles each, addressed at $00 and $80.
+        flat = tiles_from(name + ".png")
+        art = {i if i < 96 else i+32: tile for i, tile in enumerate(flat)}
+        if name in ("johto", "johto_modern", "battle_tower_outside"):
+            roof = roof_types()[group]
+            if roof != "-1":
+                art.update(enumerate(tiles_from("roofs/"+roof[5:].lower()+".png"), 10))
+        if name in ("johto", "johto_modern", "kanto", "park", "forest", "port"):
+            art[0x14] = tiles_from("water/water.png")[0]
+            if name != "port":
+                art[3] = tiles_from("flower/cgb_1.png")[0]
+
+        self.tiles = {}
+        cursor = [0, 128]
+        for line in Path(TS_DIR_PNG, name + "_palette_map.asm").read_text().splitlines():
+            match = re.match(r"\s*tilepal ([01]), (.+)", line.partition(";")[0])
+            if not match:
                 continue
-            for i, nm in enumerate(BG_ORDER):
-                cols = flat[i * 4:i * 4 + 4]
-                if len(cols) == 4:
-                    self.pal[nm] = cols
-
-    def colors(self, mid):
-        idx = self.palmap.get(mid, 0)
-        name = PAL_NAMES[idx].lower()
-        cols = self.pal.get(name)
-        if not cols or len(cols) < 4:
-            cols = self.pal.get("gray") or [(255, 255, 255), (170, 170, 170), (85, 85, 85), (0, 0, 0)]
-        return cols
-
-    def render_fg(self, mid):
-        """只画「盖住人物」的那一半：属性字节的 bit5 是优先级（树冠、屋顶）。"""
-        if mid >= len(self.meta):
-            mid = 0
-        cols = self.colors(mid)
-        entry = self.meta[mid]
-        img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
-        px = img.load()
-        for i in range(4):
-            tid = entry[i * 2]
-            attr = entry[i * 2 + 1]
-            if not (attr & 0x20):
-                continue
-            tile = self.tiles[tid] if tid < len(self.tiles) else [[0] * 8 for _ in range(8)]
-            ox = (i % 2) * 8
-            oy = (i // 2) * 8
-            fx = bool(attr & 0x08)
-            fy = bool(attr & 0x10)
-            for y in range(8):
-                for x in range(8):
-                    sx = 7 - x if fx else x
-                    sy = 7 - y if fy else y
-                    v = tile[sy][sx]
-                    if v == 0:
-                        continue
-                    r, g, b = cols[v]
-                    px[ox + x, oy + y] = (r, g, b, 255)
-        return img
+            bank = int(match[1])
+            for entry in match[2].split(","):
+                tid = cursor[bank]
+                cursor[bank] += 1
+                if tid in art:
+                    tile = art[tid].convert("P")
+                    color = palettes[PAL_NAMES.index(entry.strip())]
+                    tile.putpalette([c for triplet in color for c in triplet])
+                    self.tiles[tid] = tile.convert("RGB")
+        self.blocks = {}
+        self.foregrounds = {}
 
     def render(self, mid):
-        """返回 16x16 RGB 图。"""
-        if mid >= len(self.meta):
-            mid = 0
-        cols = self.colors(mid)
-        entry = self.meta[mid]
-        img = Image.new("RGB", (16, 16))
-        px = img.load()
-        for i in range(4):
-            tid = entry[i * 2]
-            attr = entry[i * 2 + 1]
-            if tid >= len(self.tiles):
-                tile = [[0] * 8 for _ in range(8)]
-            else:
-                tile = self.tiles[tid]
-            ox = (i % 2) * 8
-            oy = (i // 2) * 8
-            fx = bool(attr & 0x20)
-            fy = bool(attr & 0x40)
-            for y in range(8):
-                for x in range(8):
-                    sx = 7 - x if fx else x
-                    sy = 7 - y if fy else y
-                    px[ox + x, oy + y] = cols[tile[sy][sx]]
-        return img
+        if mid not in self.blocks:
+            cell = Image.new("RGB", (32, 32))
+            for i, tid in enumerate(self.meta[mid]):
+                tile = self.tiles.get(tid)
+                if tile is None:
+                    raise ValueError(f"Missing tile {tid:#x} in metatile {mid:#x}")
+                cell.paste(tile, ((i % 4) * 8, (i // 4)*8))
+            self.blocks[mid] = cell
+        return self.blocks[mid]
+
+    def render_fg(self, mid):
+        # Only tree quadrants occlude a passing player. The sixteen block bytes
+        # are tile IDs and contain no sprite-priority or flip flags.
+        if mid not in self.foregrounds:
+            art = self.render(mid)
+            layer = Image.new("RGBA", art.size)
+            for i, kind in enumerate(self.coll[mid][:4]):
+                if kind in (0x15, 0x1d):
+                    x, y = i%2*16, i//2*16
+                    layer.paste(art.crop((x,y,x+16,y+16)), (x,y))
+            self.foregrounds[mid] = layer
+        return self.foregrounds[mid]
 
 
 def cls_of(c):
@@ -271,13 +229,9 @@ def coll_value(name):
         return 0
 
 
-_ts_cache = {}
-
-
-def tileset(name):
-    if name not in _ts_cache:
-        _ts_cache[name] = Tileset(name)
-    return _ts_cache[name]
+@lru_cache(None)
+def tileset(name, group, environment):
+    return Tileset(name, group, environment)
 
 
 _BLOCK_ALIAS = None
@@ -319,13 +273,13 @@ def load_blockdata(map_name):
     raise FileNotFoundError(rel or path)
 
 
-def render_map(map_name, ts_name, w, h, out_dir=OUT_MAIN, out_id=None):
-    ts = tileset(ts_name)
+def render_map(map_name, ts_name, w, h, out_dir=OUT_MAIN, out_id=None, art_only=False):
+    ts = tileset(ts_name, *map_profiles()[map_name])
     data = load_blockdata(map_name)
     if len(data) < w * h:
         return None
-    img = Image.new("RGB", (w * 16, h * 16), (0, 0, 0))
-    fg = Image.new("RGBA", (w * 16, h * 16), (0, 0, 0, 0))
+    img = Image.new("RGB", (w * 32, h * 32), (0, 0, 0))
+    fg = Image.new("RGBA", (w * 32, h * 32), (0, 0, 0, 0))
     collision = [[0] * w for _ in range(h)]
     water = [[0] * w for _ in range(h)]
     ledge = [[0] * w for _ in range(h)]
@@ -335,8 +289,10 @@ def render_map(map_name, ts_name, w, h, out_dir=OUT_MAIN, out_id=None):
         for x in range(w):
             bid = data[y * w + x]
             if bid < len(ts.meta):
-                img.paste(ts.render(bid), (x * 16, y * 16))
-                fg.paste(ts.render_fg(bid), (x * 16, y * 16), ts.render_fg(bid))
+                img.paste(ts.render(bid), (x * 32, y * 32))
+                fg.paste(ts.render_fg(bid), (x * 32, y * 32))
+            if art_only:
+                continue
             # 一块 16x16 在原版里是 4 个 8x8 象限，各自有碰撞。
             # 引擎一格就是整块，所以按「四象限里有一块能站」判定，
             # 只取左上角会把很多门前的路误判成墙（道馆、塔的门口全是这种）。
@@ -366,6 +322,8 @@ def render_map(map_name, ts_name, w, h, out_dir=OUT_MAIN, out_id=None):
     png = os.path.join(out_dir, name + ".png")
     img.save(png)
     fg.save(png.replace(".png", "_fg.png"))
+    if art_only:
+        return name, w, h
     meta = {
         "id": name,
         "size": [w, h],
@@ -385,6 +343,17 @@ def render_map(map_name, ts_name, w, h, out_dir=OUT_MAIN, out_id=None):
 
 if __name__ == "__main__":
     args = sys.argv[1:]
+    if args == ["--active-art"]:
+        rooms = sorted(Path(project_path("content/regions/johto/maps")).glob("*.json"))
+        if not rooms:
+            sys.exit("No active Johto maps found")
+        for path in rooms:
+            key = json.loads(path.read_text())["emerald"]
+            meta = json.loads(Path(OUT_MAIN, key + ".json").read_text())
+            if not render_map(meta["map"], meta["tileset"], *meta["size"], out_id=key, art_only=True):
+                sys.exit(f"Invalid size: {key}")
+        print(f"Rendered {len(rooms)} active Johto maps")
+        sys.exit()
     map_name = args[0] if args else "NewBarkTown"
     ts_name = args[1] if len(args) > 1 else "johto"
     w = int(args[2]) if len(args) > 2 else 10

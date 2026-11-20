@@ -315,9 +315,10 @@
     3,
     13
    ],
+   "source_script": "Route1Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "1 号道路\\n（城都地区的告示牌）"
+   "text": "1 号道路，真新镇至常磐市。"
   }
  ],
  "weather": "",

@@ -9,14 +9,16 @@ NPC 也站在原版位置，不用手标。
   content/emerald_maps/<layout>.png/.json   （渲染好的整图 + 碰撞）
   content/regions/kanto/maps/<id>.json       （warps / npcs / spawn）
 """
+from asset_paths import project_path, source_path
+
 import json, os, glob, struct
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-EMAPS = "/root/build/pokesaga/content/emerald_maps"
-REG = "/root/build/pokesaga/content/regions"
+ROOT = source_path("emerald")
+EMAPS = project_path("content/emerald_maps")
+REG = project_path("content/regions")
 
 import sys
-sys.path.insert(0, "/root/build/pokesaga/tools")
+sys.path.insert(0, project_path("tools"))
 from render_emerald_maps import get_primary, get_secondary, PRIMARY, SECONDARY
 from PIL import Image
 

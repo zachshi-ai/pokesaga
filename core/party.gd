@@ -5,6 +5,25 @@ extends RefCounted
 const MAX_SIZE := 12
 const Growth := preload("res://core/growth.gd")
 
+const SHINY_KINDS := ["none", "star", "square"]
+
+static func shiny_kind(mon: Dictionary) -> String:
+	var kind := str(mon.get("shiny_kind", ""))
+	if kind in SHINY_KINDS:
+		return kind
+	return "star" if bool(mon.get("shiny", false)) else "none"
+
+static func set_shiny_kind(mon: Dictionary, kind: String) -> void:
+	mon["shiny_kind"] = kind if kind in SHINY_KINDS else "none"
+	mon["shiny"] = mon.shiny_kind != "none"
+
+## 两类合计 1/4096，其中 1/16 为方块闪。野外与孵蛋使用同一次抽取。
+static func roll_shiny(rng: RandomNumberGenerator) -> String:
+	var roll := rng.randi_range(0, 65535)
+	if roll == 0:
+		return "square"
+	return "star" if roll < 16 else "none"
+
 ## 野生携带的树果：回血与解状态常见，抗性果和能力果少见
 static func _random_berry() -> String:
 	var common: Array = []
@@ -75,6 +94,7 @@ static func make(species_id: int, level: int, move_ids: Array, form_key: String 
 		"exp": Growth.exp_for_level(level, String(sp.get("growth", "medium_fast"))),
 		"nature": "坦率",
 		"shiny": false,
+		"shiny_kind": "none",
 	}
 
 ## 进化：换物种、按新种族值重算、保留等级与当前血量比例
@@ -160,3 +180,52 @@ static func sync_hp(from_combatants: Array, party: Array) -> void:
 			var hp := int(from_combatants[i].get("hp", party[i].get("hp", 0)))
 			party[i]["hp"] = clampi(hp, 0, int(party[i].get("max_hp", 1)))
 			party[i]["hp_text"] = "%d/%d" % [int(party[i]["hp"]), int(party[i].get("max_hp", 1))]
+
+const BOX_COUNT := 200
+const BOX_SIZE := 30
+
+static func occupied(slots: Array) -> int:
+	var count := 0
+	for mon in slots:
+		if mon is Dictionary and not mon.is_empty():
+			count += 1
+	return count
+
+## Keep the original indices of occupied slots when filling holes in an old save.
+static func insert_into(slots: Array, mon: Dictionary, capacity: int) -> bool:
+	if mon.is_empty():
+		return false
+	for i in mini(slots.size(), capacity):
+		if slots[i] == null or (slots[i] is Dictionary and slots[i].is_empty()):
+			slots[i] = mon
+			return true
+	if slots.size() < capacity:
+		slots.append(mon)
+		return true
+	return false
+
+static func store_in_boxes(boxes: Array, mon: Dictionary) -> bool:
+	for i in BOX_COUNT:
+		if i == boxes.size():
+			boxes.append({"name": "箱子 %d" % (i+1), "mons": []})
+		if boxes[i] is Dictionary:
+			if not boxes[i].has("mons"):
+				boxes[i]["mons"] = []
+			if boxes[i].mons is Array and insert_into(boxes[i].mons, mon, BOX_SIZE):
+				return true
+	return false
+
+static func migrate_legacy_box(save: Dictionary) -> void:
+	var legacy = save.get("box", [])
+	if not legacy is Array or legacy.is_empty():
+		return
+	if not save.get("boxes") is Array:
+		save["boxes"] = []
+	var pending: Array = []
+	for mon in legacy:
+		if mon is Dictionary and not mon.is_empty() and not store_in_boxes(save.boxes, mon):
+			pending.append(mon)
+	if pending.is_empty():
+		save.erase("box")
+	else:
+		save["box"] = pending

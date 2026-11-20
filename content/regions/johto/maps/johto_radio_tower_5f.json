@@ -119,7 +119,7 @@
     "region": "johto",
     "map": "johto_radio_tower_4f",
     "at": [
-     4,
+     0,
      1
     ]
    }
@@ -133,7 +133,7 @@
     "region": "johto",
     "map": "johto_radio_tower_4f",
     "at": [
-     4,
+     6,
      1
     ]
    }
@@ -147,27 +147,30 @@
     5,
     0
    ],
+   "source_script": "RadioTower5FStudio1Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "无线电塔·5F\\n（城都地区的告示牌）"
+   "text": "五楼，第一录音室。"
   },
   {
    "at": [
     7,
     0
    ],
+   "source_script": "RadioTower5FStudio1Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "无线电塔·5F\\n（城都地区的告示牌）"
+   "text": "五楼，第一录音室。"
   },
   {
    "at": [
     8,
     0
    ],
+   "source_script": "RadioTower5FBookshelf",
    "kind": "sign",
    "sprite": "sign",
-   "text": "无线电塔·5F\\n（城都地区的告示牌）"
+   "text": "书架上整齐地排着各种宝可梦杂志。"
   }
  ],
  "weather": "",

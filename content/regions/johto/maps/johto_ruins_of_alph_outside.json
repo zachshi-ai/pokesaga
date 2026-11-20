@@ -205,21 +205,21 @@
     "region": "johto",
     "map": "johto_route_32_ruins_of_alph_gate",
     "at": [
-     0,
-     1
+     1,
+     2
     ]
    }
   },
   {
    "at": [
-    6,
+    5,
     10
    ],
    "to": {
     "region": "johto",
     "map": "johto_route_32_ruins_of_alph_gate",
     "at": [
-     0,
+     1,
      1
     ]
    }
@@ -282,18 +282,20 @@
     8,
     4
    ],
+   "source_script": "RuinsOfAlphOutsideMysteryChamberSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "谜之石板室。"
   },
   {
    "at": [
     9,
     6
    ],
+   "source_script": "RuinsOfAlphResearchCenterSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "阿尔夫遗迹\\n（城都地区的告示牌）"
+   "text": "阿尔夫遗迹研究所，专门研究此地的遗迹。"
   }
  ],
  "weather": "",

@@ -3,11 +3,13 @@
 2) 室内地图出生点若在墙里，挪到最近可走格
 用法: python3 tools/fix_links.py
 """
+from asset_paths import project_path
+
 import glob
 import json
 import os
 
-PJ = "/root/build/pokesaga"
+PJ = project_path()
 EM = os.path.join(PJ, "content/emerald_maps")
 REG = os.path.join(PJ, "content/regions/kanto/maps")
 BIG = "kanto_main"

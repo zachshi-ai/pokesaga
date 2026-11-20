@@ -472,9 +472,10 @@
     7,
     5
    ],
+   "source_script": "Route40Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "40 号道路\\n（城都地区的告示牌）"
+   "text": "40 号水路，湛蓝市至浅葱市。"
   }
  ],
  "weather": "",

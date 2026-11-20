@@ -4,11 +4,13 @@
 
 坐标规则：大图坐标 = 该城市在大图里的偏移 + 原版房间内的本地坐标。
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-PJ = "/root/build/pokesaga"
+ROOT = source_path("emerald")
+PJ = project_path()
 EMAPS = os.path.join(PJ, "content/emerald_maps")
 REGMAPS = os.path.join(PJ, "content/regions/kanto/maps")
 

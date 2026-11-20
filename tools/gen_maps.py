@@ -2,9 +2,11 @@
 """生成两个地区的测试地图（手工布局，不用随机）。
 地形编号：0 草 1 树 2 水 3 路 4 花 5 石 6 墙 7 屋顶 8 门 9 栅栏 10 沙
 """
+from asset_paths import project_path
+
 import json, os
 
-OUT = "/root/build/pokesaga/content/regions"
+OUT = project_path("content/regions")
 
 
 def blank(w, h, fill=0):

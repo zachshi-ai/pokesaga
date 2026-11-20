@@ -168,18 +168,26 @@
     8,
     11
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "白银山\\n（城都地区的告示牌）"
+   "source_script": "SilverCaveRoom1HiddenDireHit",
+   "kind": "hidden",
+   "item": "ITEM_DIRE_HIT",
+   "name": "要害攻击",
+   "category": "battle",
+   "flag": "johto:EVENT_SILVER_CAVE_ROOM_1_HIDDEN_DIRE_HIT",
+   "count": 1
   },
   {
    "at": [
     8,
     6
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "白银山\\n（城都地区的告示牌）"
+   "source_script": "SilverCaveRoom1HiddenUltraBall",
+   "kind": "hidden",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "flag": "johto:EVENT_SILVER_CAVE_ROOM_1_HIDDEN_ULTRA_BALL",
+   "count": 1
   }
  ],
  "weather": "",

@@ -12,13 +12,15 @@
 
 位掩码统一用 1 上 / 2 下 / 4 右 / 8 左 / 16 右上 / 32 左上 / 64 右下 / 128 左下。
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import struct
 import sys
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-POKE = "/root/build/pokesaga"
+ROOT = source_path("emerald")
+POKE = project_path()
 EMAPS = os.path.join(POKE, "content/emerald_maps")
 
 sys.path.insert(0, os.path.join(POKE, "tools"))

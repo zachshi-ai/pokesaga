@@ -3,13 +3,15 @@
 里面按楼层排好，一格电梯门对一层，双向可走。
 用法: python3 tools/gen_elevators.py
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import re
 import sys
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-PJ = "/root/build/pokesaga"
+ROOT = source_path("emerald")
+PJ = project_path()
 EMAPS = os.path.join(PJ, "content/emerald_maps")
 KANTO = os.path.join(PJ, "content/regions/kanto/maps")
 SEVII = os.path.join(PJ, "content/regions/sevii/maps")

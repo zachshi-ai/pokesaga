@@ -10,10 +10,12 @@ abilities.json 和 items.json 是空的，所以打起来所有宝可梦都一�
   src/data/pokemon/species_info/*.h      -> content/species.json（含特性/经验值/进化）
   src/data/pokemon/level_up_learnsets/*  -> 每只的升级招式表
 """
+from asset_paths import cache_path, project_path, source_path
+
 import re, json, glob, os
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-OUT = "/root/build/pokesaga/content"
+ROOT = source_path("emerald")
+OUT = project_path("content")
 
 # 招式中文名：源码里有几条没翻译，这里按官方中文补
 NAME_FIX = {
@@ -550,7 +552,7 @@ def import_species(move_ids, ability_ids):
 # ---------- 补缺口：源码里没有条目的少数物种 ----------
 
 POKEAPI = "https://pokeapi.co/api/v2"
-CACHE = "/tmp/pokeapi_cache"
+CACHE = cache_path("pokeapi")
 GROWTH_ALIAS = {
     "fast": "fast", "medium": "medium_fast", "medium-fast": "medium_fast",
     "medium-slow": "medium_slow", "slow": "slow", "erratic": "erratic",

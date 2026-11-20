@@ -293,8 +293,8 @@
  "warps": [
   {
    "at": [
-    6,
-    27
+    5,
+    36
    ],
    "to": {
     "region": "johto",
@@ -307,8 +307,8 @@
   },
   {
    "at": [
-    5,
-    21
+    2,
+    1
    ],
    "to": {
     "region": "johto",
@@ -321,22 +321,22 @@
   },
   {
    "at": [
-    5,
-    21
+    3,
+    1
    ],
    "to": {
     "region": "johto",
     "map": "johto_route_32_ruins_of_alph_gate",
     "at": [
-     4,
+     3,
      3
     ]
    }
   },
   {
    "at": [
-    6,
-    27
+    3,
+    39
    ],
    "to": {
     "region": "johto",
@@ -537,36 +537,43 @@
     6,
     2
    ],
+   "source_script": "Route32Sign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "32 号道路\\n（城都地区的告示牌）"
+   "text": "32 号道路，桔梗市至桧皮镇。"
   },
   {
    "at": [
     4,
     0
    ],
+   "source_script": "Route32RuinsSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "32 号道路\\n（城都地区的告示牌）"
+   "text": "阿尔夫遗迹东入口。"
   },
   {
    "at": [
     5,
     42
    ],
+   "source_script": "Route32UnionCaveSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "32 号道路\\n（城都地区的告示牌）"
+   "text": "前方是互联洞窟。"
   },
   {
    "at": [
     5,
     20
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "32 号道路\\n（城都地区的告示牌）"
+   "source_script": "Route32HiddenSuperPotion",
+   "kind": "hidden",
+   "item": "ITEM_SUPER_POTION",
+   "name": "好伤药",
+   "category": "heal",
+   "flag": "johto:EVENT_ROUTE_32_HIDDEN_SUPER_POTION",
+   "count": 1
   }
  ],
  "weather": "",

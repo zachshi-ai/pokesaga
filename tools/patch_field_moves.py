@@ -6,10 +6,12 @@
 只会写「是什么效果」，不会写在哪个属性上，所以这里统一翻译成自己的字段：
   {"field": {"kind": "weather", "weather": "rain"}}
 """
+from asset_paths import project_path, source_path
+
 import re, json, os
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-OUT = "/root/build/pokesaga/content/moves.json"
+ROOT = source_path("emerald")
+OUT = project_path("content/moves.json")
 
 WEATHER = {
     "SANDSTORM": "sandstorm", "RAIN": "rain", "SUN": "sun",

@@ -167,117 +167,130 @@
     0,
     3
    ],
+   "source_script": "VermilionGymTrashCan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "翻了翻，只看到垃圾。"
   },
   {
    "at": [
     1,
     3
    ],
+   "source_script": "VermilionGymTrashCan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "翻了翻，只看到垃圾。"
   },
   {
    "at": [
     3,
     3
    ],
+   "source_script": "VermilionGymTrashCan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "翻了翻，只看到垃圾。"
   },
   {
    "at": [
     4,
     3
    ],
+   "source_script": "VermilionGymTrashCan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "翻了翻，只看到垃圾。"
   },
   {
    "at": [
     0,
     4
    ],
+   "source_script": "VermilionGymTrashCan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "翻了翻，只看到垃圾。"
   },
   {
    "at": [
     1,
     4
    ],
+   "source_script": "VermilionGymTrashCan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "翻了翻，只看到垃圾。"
   },
   {
    "at": [
     2,
     4
    ],
+   "source_script": "VermilionGymTrashCan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "翻了翻，只看到垃圾。"
   },
   {
    "at": [
     3,
     4
    ],
+   "source_script": "VermilionGymTrashCan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "翻了翻，只看到垃圾。"
   },
   {
    "at": [
     1,
     5
    ],
+   "source_script": "VermilionGymTrashCan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "翻了翻，只看到垃圾。"
   },
   {
    "at": [
     2,
     5
    ],
+   "source_script": "VermilionGymTrashCan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "翻了翻，只看到垃圾。"
   },
   {
    "at": [
     3,
     5
    ],
+   "source_script": "VermilionGymTrashCan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "翻了翻，只看到垃圾。"
   },
   {
    "at": [
     4,
     5
    ],
+   "source_script": "VermilionGymTrashCan",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "翻了翻，只看到垃圾。"
   },
   {
    "at": [
     0,
     6
    ],
+   "source_script": "VermilionGymStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "枯叶道馆。馆主马志士，人称「闪电硬汉」。"
   }
  ],
  "weather": "",

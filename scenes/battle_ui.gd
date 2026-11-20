@@ -4,6 +4,10 @@ extends Control
 signal finished(result: String)
 signal item_used(item_name: String)
 
+const Party := preload("res://core/party.gd")
+const DexArt := preload("res://core/dex_art.gd")
+const DexEffect := preload("res://core/dex_effect.gd")
+
 const INK := Color(0.06, 0.09, 0.13, 0.94)
 const INK_SOFT := Color(0.10, 0.14, 0.20, 0.96)
 const MINT := Color(0.42, 0.80, 0.72)
@@ -15,6 +19,7 @@ const HP_MID := Color(0.94, 0.78, 0.34)
 const HP_LO := Color(0.90, 0.40, 0.36)
 
 var battle
+var observe_variant: Callable
 var enemy_team: Array = []
 var player_team: Array = []
 
@@ -31,29 +36,30 @@ var msg: Label
 var menu: Control
 var move_menu: Control
 var flash_t := 0.0
+var trainer_name := ""
 var fast := false   # 自检时压缩等待
 var shake_t := 0.0
 var bag: Array = []          # 只读引用，投球时弹窗列出来
 var field_label: Label      # 顶部的天气 / 场地提示
 
-func setup(p_team: Array, e_team: Array, seed_value: int = 0, p_bag: Array = []) -> void:
+func setup(p_team: Array, e_team: Array, seed_value: int = 0, p_bag: Array = [], trainer := "") -> void:
+	trainer_name = trainer
 	player_team = p_team
 	enemy_team = e_team
 	bag = p_bag
 	battle = preload("res://core/battle.gd").new(seed_value)
+	if observe_variant.is_valid():
+		battle.variant_seen.connect(observe_variant)
 	battle.start(player_team, enemy_team)
 	_build()
-	_say("野生的 %s 出现了！" % battle.cur_b().get("name", "?"))
+	var opponent := _display_name(battle.cur_b())
+	_say("野生的 %s 出现了！" % opponent if trainer_name == "" else "%s 派出了 %s！" % [trainer_name, opponent])
 	state = "intro"
 	wait = _dur(0.9)
 
 func _build() -> void:
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_STOP
-	var vp := get_viewport_rect().size
-	if vp.x < 10:
-		vp = Vector2(480, 320)
-	size = vp
 	position = Vector2.ZERO
 
 	bg = Control.new()
@@ -114,7 +120,12 @@ func _panel(pos: Vector2, size: Vector2, radius := 8) -> Panel:
 
 func _make_sprite(c: Dictionary, pos: Vector2, scale_f: float) -> TextureRect:
 	var t := TextureRect.new()
-	t.texture = load(Data.sprite_path(int(c.get("species_id", 143)), String(c.get("form", ""))))
+	t.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	var effect := DexEffect.new()
+	effect.name = "Appearance"
+	t.add_child(effect)
+	effect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_apply_appearance(t, c)
 	t.position = pos
 	t.custom_minimum_size = Vector2(64, 64)
 	t.size = Vector2(64, 64)
@@ -133,7 +144,7 @@ func _make_hpbox(pos: Vector2, c: Dictionary) -> Control:
 	name_l.position = Vector2(12, 5)
 	name_l.clip_text = true
 	name_l.size = Vector2(126, 20)
-	name_l.text = String(c.get("name", "?"))
+	name_l.text = _display_name(c)
 	name_l.add_theme_font_size_override("font_size", 15)
 	name_l.add_theme_color_override("font_color", CREAM)
 	box.add_child(name_l)
@@ -307,6 +318,7 @@ func _process(delta: float) -> void:
 		"end":
 			wait -= delta
 			if wait <= 0:
+				state = "finished"
 				finished.emit(battle.winner)
 				queue_free()
 
@@ -490,6 +502,10 @@ const BALL_BONUS := {"精灵球": 1.0, "超级球": 1.5, "高级球": 2.0, "大�
 func _open_balls() -> void:
 	if state != "menu":
 		return
+	if trainer_name != "":
+		menu.visible = true
+		msg.text = "训练家对战不能投球。"
+		return
 	var ball_rows: Array = []
 	for it in bag:
 		if not (it is Dictionary):
@@ -579,11 +595,11 @@ func _open_switch() -> void:
 		return
 	var panel := Control.new()
 	panel.name = "SwitchPanel"
-	panel.position = Vector2(150, 40)
+	panel.position = Vector2(20, 30)
 	add_child(panel)
 	var bg := ColorRect.new()
 	bg.color = Color(0.05, 0.08, 0.11, 0.97)
-	bg.size = Vector2(300, 60 + player_team.size() * 30)
+	bg.size = Vector2(440, 90 + ceili(player_team.size() / 2.0) * 28)
 	panel.add_child(bg)
 
 	var title := Label.new()
@@ -597,8 +613,8 @@ func _open_switch() -> void:
 	for i in player_team.size():
 		var c: Dictionary = player_team[i]
 		var b := Button.new()
-		b.position = Vector2(12, 34 + i * 30)
-		b.size = Vector2(276, 26)
+		b.position = Vector2(12 + (i % 2) * 211, 32 + floori(i / 2.0) * 28)
+		b.size = Vector2(207, 26)
 		b.add_theme_font_size_override("font_size", 12)
 		_style_button(b)
 		var is_active: bool = i == int(battle.active_a)
@@ -615,7 +631,7 @@ func _open_switch() -> void:
 
 	if alive_other == 0:
 		var t := Label.new()
-		t.position = Vector2(12, 36)
+		t.position = Vector2(12, bg.size.y - 55)
 		t.text = "没有可以换上场的宝可梦。"
 		t.add_theme_font_size_override("font_size", 12)
 		t.add_theme_color_override("font_color", CREAM)
@@ -624,7 +640,7 @@ func _open_switch() -> void:
 	var back := Button.new()
 	back.text = "返回"
 	back.position = Vector2(12, bg.size.y - 34)
-	back.size = Vector2(276, 26)
+	back.size = Vector2(416, 26)
 	_style_button(back)
 	back.pressed.connect(func() -> void:
 		panel.queue_free()
@@ -633,6 +649,9 @@ func _open_switch() -> void:
 
 func _try_flee() -> void:
 	if state != "menu":
+		return
+	if trainer_name != "":
+		msg.text = "训练家对战不能逃跑。"
 		return
 	state = "resolve"
 	pending.clear()
@@ -732,16 +751,31 @@ func _refresh_field_label() -> void:
 
 ## 换人后精灵与名字都要跟着换，否则两只叠在一起
 func _sync_sprites() -> void:
-	var a: Dictionary = battle.cur_a()
-	var b: Dictionary = battle.cur_b()
-	if player_sprite and is_instance_valid(player_sprite):
-		var at: String = Data.sprite_path(int(a.get("species_id", 1)), String(a.get("form", "")))
-		if player_sprite.texture == null or player_sprite.texture.resource_path != at:
-			player_sprite.texture = load(at)
-	if enemy_sprite and is_instance_valid(enemy_sprite):
-		var bt: String = Data.sprite_path(int(b.get("species_id", 1)), String(b.get("form", "")))
-		if enemy_sprite.texture == null or enemy_sprite.texture.resource_path != bt:
-			enemy_sprite.texture = load(bt)
+	_apply_appearance(player_sprite, battle.cur_a())
+	_apply_appearance(enemy_sprite, battle.cur_b())
+
+func _display_name(mon: Dictionary) -> String:
+	var marker: String = {"star":"★ ", "square":"◇ "}.get(Party.shiny_kind(mon), "")
+	return marker + str(mon.get("name", "?"))
+
+func _apply_appearance(sprite: TextureRect, mon: Dictionary) -> void:
+	var sid := int(mon.get("species_id", 0))
+	var form := str(mon.get("form", ""))
+	var shine := Party.shiny_kind(mon)
+	var tera := str(mon.get("tera_type", "")) if mon.get("tera_active", false) else ""
+	var identity := "%d|%s|%s|%s" % [sid, form, shine, tera]
+	if sprite.get_meta("identity", "") == identity:
+		return
+	sprite.set_meta("identity", identity)
+	var texture := DexArt.texture(sid, form, true) if shine != "none" else null
+	sprite.texture = texture if texture != null else load(Data.sprite_path(sid, form))
+	var effect = sprite.get_node("Appearance")
+	effect.shine = shine
+	effect.tera = tera
+	effect.giant = bool(mon.get("gmax_active", false))
+	effect.visible = shine != "none" or tera != "" or effect.giant
+	effect.set_process(effect.visible)
+	effect.queue_redraw()
 
 func _update_hpbox(box: Control, c: Dictionary) -> void:
 	var track: ColorRect = box.get_node("Track")
@@ -753,7 +787,7 @@ func _update_hpbox(box: Control, c: Dictionary) -> void:
 	hp_l.text = "%d/%d" % [int(c["hp"]), int(c["max_hp"])]
 	var nm: Label = box.get_node_or_null("Name")
 	if nm:
-		nm.text = String(c.get("name", "?"))
+		nm.text = _display_name(c)
 	var lv2: Label = box.get_node_or_null("Lv")
 	if lv2:
 		lv2.text = "Lv %d" % int(c.get("level", 1))

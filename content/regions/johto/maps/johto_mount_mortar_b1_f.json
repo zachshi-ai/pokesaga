@@ -125,8 +125,8 @@
     "region": "johto",
     "map": "johto_mount_mortar_1f_outside",
     "at": [
-     12,
-     7
+     8,
+     15
     ]
    }
   }
@@ -182,9 +182,13 @@
     2,
     3
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "MountMortarB1F\\n（城都地区的告示牌）"
+   "source_script": "MountMortarB1FHiddenMaxRevive",
+   "kind": "hidden",
+   "item": "ITEM_MAX_REVIVE",
+   "name": "活力块",
+   "category": "heal",
+   "flag": "johto:EVENT_MOUNT_MORTAR_B1F_HIDDEN_MAX_REVIVE",
+   "count": 1
   }
  ],
  "weather": "",

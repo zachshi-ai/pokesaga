@@ -2,12 +2,14 @@
 """批量生成城市室内（宝可梦中心 / 商店 / 道馆）并接进关都大图。
 用法: python3 tools/gen_city_rooms.py [城市名...]   不带参数就处理全部
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import sys
 
-ROOT = "/root/build/pokeemerald-expansion-master"
-PJ = "/root/build/pokesaga"
+ROOT = source_path("emerald")
+PJ = project_path()
 EMAPS = os.path.join(PJ, "content/emerald_maps")
 REG = os.path.join(PJ, "content/regions/kanto/maps")
 

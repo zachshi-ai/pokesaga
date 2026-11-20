@@ -210,9 +210,10 @@
     0,
     5
    ],
+   "source_script": "AzaleaGymStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "桧皮道馆的石碑，刻着馆主阿笔的名字。"
   }
  ],
  "weather": "",

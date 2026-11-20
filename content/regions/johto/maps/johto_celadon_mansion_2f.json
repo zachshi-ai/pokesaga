@@ -1,1 +1,88 @@
-{"name":"玉虹大厦·2F","emerald":"johto_celadon_mansion_2f","size":[4,5],"spawn":[3,1],"npcs":[],"warps":[{"at":[0,2],"to":{"region":"johto","map":"johto_celadon_mansion_1f","at":[3,1]}},{"at":[0,2],"to":{"region":"johto","map":"johto_celadon_mansion_3f","at":[3,1]}},{"at":[3,0],"to":{"region":"johto","map":"johto_celadon_mansion_3f","at":[3,1]}},{"at":[3,0],"to":{"region":"johto","map":"johto_celadon_mansion_1f","at":[3,1]}}],"encounters":[],"encounter_rate":0.0,"objects":[{"at":[2,4],"kind":"sign","sprite":"sign","text":"玉虹大厦·2F\\n（城都地区的告示牌）"}],"weather":"","weather_name":"","cycling":false}
+{
+ "name": "玉虹大厦·2F",
+ "emerald": "johto_celadon_mansion_2f",
+ "size": [
+  4,
+  5
+ ],
+ "spawn": [
+  3,
+  1
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    0,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_celadon_mansion_1f",
+    "at": [
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_celadon_mansion_3f",
+    "at": [
+     3,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_celadon_mansion_3f",
+    "at": [
+     3,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_celadon_mansion_1f",
+    "at": [
+     3,
+     1
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    2,
+    4
+   ],
+   "source_script": "CeladonMansion2FMeetingRoomSign",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "GAME FREAK 会议室。"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

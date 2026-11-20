@@ -3,14 +3,16 @@
 种族值/属性取自 Showdown pokedex，立绘从 pokeemerald-expansion 图形目录转。
 用法: python3 tools/import_extra_forms.py
 """
+from asset_paths import cache_path, project_path, source_path
+
 import json
 import os
 import sys
 
-ROOT = "/root/build/pokesaga"
-GFX = "/root/build/pokeemerald-expansion-master/graphics/pokemon"
+ROOT = project_path()
+GFX = source_path("emerald", "graphics/pokemon")
 OUT = os.path.join(ROOT, "assets/mon/forms")
-DEX = "/tmp/showdown_dex.json"
+DEX = cache_path("showdown_dex.json")
 
 # (图鉴号, showdown key, 图形子目录, key 后缀, 中文标签, 是否战斗内触发)
 TARGETS = [

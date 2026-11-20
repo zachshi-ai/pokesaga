@@ -228,12 +228,7 @@
    "trigger": {
     "type": "step",
     "map": "kanto_main",
-    "area": [
-     0,
-     160,
-     48,
-     200
-    ]
+    "area_name": "1 号道路"
    },
    "steps": [
     {
@@ -251,12 +246,7 @@
    "trigger": {
     "type": "step",
     "map": "kanto_main",
-    "area": [
-     0,
-     120,
-     48,
-     160
-    ]
+    "area_name": "常磐市"
    },
    "steps": [
     {
@@ -274,17 +264,7 @@
    "trigger": {
     "type": "step",
     "map": "kanto_main",
-    "area": [
-     0,
-     40,
-     48,
-     120
-    ]
-   },
-   "require": {
-    "flags_all": [
-     "beat_brock"
-    ]
+    "area_name": "2 号道路"
    },
    "steps": [
     {
@@ -302,12 +282,7 @@
    "trigger": {
     "type": "step",
     "map": "kanto_main",
-    "area": [
-     0,
-     0,
-     48,
-     40
-    ]
+    "area_name": "尼比市"
    },
    "steps": [
     {
@@ -608,22 +583,29 @@
    "id": "two_badges_next",
    "once": true,
    "trigger": {
-    "type": "badge",
-    "badge": "绿色徽章"
+    "type": "map_enter",
+    "map": "kanto_main"
    },
    "steps": [
     {
      "who": "旁白",
      "say": [
-      "两枚徽章到手了。",
-      "下一个道馆在华蓝市，往北走穿过 4 号道路就是。",
-      "那条路现在还在修，暂时过不去。"
+      "拿到灰色徽章了。",
+      "从尼比市往东沿 3 号道路去月见山，穿过山洞，4 号道路通向华蓝市。"
      ]
     },
     {
      "flag": "two_badges_done"
     }
-   ]
+   ],
+   "require": {
+    "flags_all": [
+     "beat_brock"
+    ],
+    "flags_none": [
+     "two_badges_done"
+    ]
+   }
   }
  ]
 }

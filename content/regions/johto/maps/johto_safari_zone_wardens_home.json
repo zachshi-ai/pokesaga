@@ -1,1 +1,94 @@
-{"name":"SafariZoneWardensHome","emerald":"johto_safari_zone_wardens_home","size":[5,4],"spawn":[3,1],"npcs":[{"at":[0,2],"name":"少女","gfx":"lass","lines":["这条路我闭着眼都能走。","听说北边的塔里住着传说中的宝可梦。","天快黑了，早点回去吧。"]}],"warps":[{"at":[1,3],"to":{"region":"johto","map":"johto_fuchsia_city","at":[13,14]}},{"at":[1,3],"to":{"region":"johto","map":"johto_fuchsia_city","at":[13,14]}}],"encounters":[],"encounter_rate":0.0,"objects":[{"at":[0,0],"kind":"sign","sprite":"sign","text":"SafariZoneWardensHome\\n（城都地区的告示牌）"},{"at":[3,0],"kind":"sign","sprite":"sign","text":"SafariZoneWardensHome\\n（城都地区的告示牌）"},{"at":[4,0],"kind":"sign","sprite":"sign","text":"SafariZoneWardensHome\\n（城都地区的告示牌）"}],"weather":"","weather_name":"","cycling":false}
+{
+ "name": "SafariZoneWardensHome",
+ "emerald": "johto_safari_zone_wardens_home",
+ "size": [
+  5,
+  4
+ ],
+ "spawn": [
+  3,
+  1
+ ],
+ "npcs": [
+  {
+   "at": [
+    0,
+    2
+   ],
+   "name": "少女",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fuchsia_city",
+    "at": [
+     13,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fuchsia_city",
+    "at": [
+     13,
+     14
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    0,
+    0
+   ],
+   "source_script": "WardensHomeBookshelf",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "架子上摆满了精装的宝可梦绘本。"
+  },
+  {
+   "at": [
+    3,
+    0
+   ],
+   "source_script": "WardenPhoto",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "照片里，一群宝可梦簇拥着一位笑容灿烂的老人。"
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "source_script": "SafariZonePhoto",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "辽阔草原上，几只罕见的宝可梦正追逐嬉戏。"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

@@ -127,8 +127,8 @@
     "region": "johto",
     "map": "johto_mount_mortar_1f_outside",
     "at": [
-     14,
-     5
+     8,
+     3
     ]
    }
   },
@@ -204,9 +204,13 @@
     11,
     4
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "MountMortar2FInside\\n（城都地区的告示牌）"
+   "source_script": "MountMortar2FInsideHiddenFullRestore",
+   "kind": "hidden",
+   "item": "ITEM_FULL_RESTORE",
+   "name": "全复药",
+   "category": "heal",
+   "flag": "johto:EVENT_MOUNT_MORTAR_2F_INSIDE_HIDDEN_FULL_RESTORE",
+   "count": 1
   }
  ],
  "weather": "",

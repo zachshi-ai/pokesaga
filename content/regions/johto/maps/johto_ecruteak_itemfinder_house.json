@@ -1,1 +1,85 @@
-{"name":"民宅","emerald":"johto_ecruteak_itemfinder_house","size":[4,4],"spawn":[2,2],"npcs":[{"at":[1,1],"name":"训练家","gfx":"cooltrainer_m","lines":["要不要来一场？","我可是练了很久的。"]},{"at":[0,0],"name":"居民","gfx":"man","lines":["你好。","路上小心。"]}],"warps":[{"at":[1,3],"to":{"region":"johto","map":"johto_ecruteak_city","at":[6,14]}},{"at":[2,3],"to":{"region":"johto","map":"johto_ecruteak_city","at":[6,14]}}],"encounters":[],"encounter_rate":0.0,"objects":[{"at":[1,0],"kind":"sign","sprite":"sign","text":"民宅\\n（城都地区的告示牌）"}],"weather":"","weather_name":"","cycling":false}
+{
+ "name": "民宅",
+ "emerald": "johto_ecruteak_itemfinder_house",
+ "size": [
+  4,
+  4
+ ],
+ "spawn": [
+  2,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    1,
+    1
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "要不要来一场？",
+    "我可是练了很久的。"
+   ]
+  },
+  {
+   "at": [
+    0,
+    0
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ecruteak_city",
+    "at": [
+     6,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ecruteak_city",
+    "at": [
+     6,
+     14
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    1,
+    0
+   ],
+   "source_script": "ItemFinderHouseRadio",
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "收音机正在播放宝可梦频道。"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

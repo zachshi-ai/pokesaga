@@ -409,18 +409,20 @@
     5,
     1
    ],
+   "source_script": "LavenderTownSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "LavenderTown\\n（城都地区的告示牌）"
+   "text": "紫苑镇，高雅的紫色小镇。"
   },
   {
    "at": [
     1,
     4
    ],
+   "source_script": "VolunteerPokemonHouseSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "LavenderTown\\n（城都地区的告示牌）"
+   "text": "紫苑镇宝可梦志愿者之家。"
   }
  ],
  "weather": "",

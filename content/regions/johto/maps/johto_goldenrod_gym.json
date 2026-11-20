@@ -225,9 +225,10 @@
     0,
     6
    ],
+   "source_script": "GoldenrodGymStatue",
    "kind": "sign",
    "sprite": "sign",
-   "text": "道馆\\n（城都地区的告示牌）"
+   "text": "满金道馆。馆主，活泼可爱的小茜。"
   }
  ],
  "weather": "",

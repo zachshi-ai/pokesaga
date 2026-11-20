@@ -27,7 +27,10 @@ const CORE_TABLES := {
 }
 
 func _ready() -> void:
-	pass
+	# Install the bundled CJK font after resources are imported, including standalone UI scenes.
+	var theme := ThemeDB.get_default_theme()
+	theme.default_font = load("res://assets/fonts/field-sans.otf")
+	ThemeDB.fallback_font = theme.default_font
 
 func load_json(path: String) -> Variant:
 	if not FileAccess.file_exists(path):

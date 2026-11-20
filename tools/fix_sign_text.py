@@ -7,13 +7,15 @@
 所以先全局建"文本标签 -> 文字"，再顺着 msgbox 找到牌子真正要说的那句。
 以前的做法是把整张图的 .string 全连一起，牌子上全是别人的对话。
 """
+from asset_paths import project_path, source_path
+
 import json
 import os
 import re
 
-ROOT = "/root/build/pokesaga"
-SRC_MAPS = "/root/build/pokeemerald-expansion-master/data/maps"
-SRC_EXTRA = "/root/build/pokeemerald-expansion-master/data"
+ROOT = project_path()
+SRC_MAPS = source_path("emerald", "data/maps")
+SRC_EXTRA = source_path("emerald", "data")
 LABEL = re.compile(r"^([A-Za-z_][A-Za-z0-9_]*)::?\s*$")
 
 

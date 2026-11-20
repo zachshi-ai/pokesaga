@@ -338,7 +338,7 @@
     "region": "johto",
     "map": "johto_goldenrod_underground_switch_room_entrances",
     "at": [
-     8,
+     2,
      13
     ]
    }
@@ -352,8 +352,8 @@
     "region": "johto",
     "map": "johto_goldenrod_pokecenter_1f",
     "at": [
-     1,
-     2
+     0,
+     3
     ]
    }
   },
@@ -576,63 +576,70 @@
     5,
     7
    ],
+   "source_script": "GoldenrodCityStationSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "满金市\\n（城都地区的告示牌）"
+   "text": "满金市车站。"
   },
   {
    "at": [
     13,
     4
    ],
+   "source_script": "GoldenrodGymSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "满金市\\n（城都地区的告示牌）"
+   "text": "满金道馆。馆主，活泼可爱的小茜。"
   },
   {
    "at": [
     11,
     9
    ],
+   "source_script": "GoldenrodCitySign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "满金市\\n（城都地区的告示牌）"
+   "text": "满金市，热闹繁华的节庆之城。"
   },
   {
    "at": [
     14,
     15
    ],
+   "source_script": "GoldenrodCityBikeShopSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "满金市\\n（城都地区的告示牌）"
+   "text": "自行车店，骑上车去看看世界！"
   },
   {
    "at": [
     6,
     3
    ],
+   "source_script": "GoldenrodCityNameRaterSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "满金市\\n（城都地区的告示牌）"
+   "text": "姓名鉴定师，为你的宝可梦点评昵称。"
   },
   {
    "at": [
     6,
     15
    ],
+   "source_script": "GoldenrodCityUndergroundSignSouth",
    "kind": "sign",
    "sprite": "sign",
-   "text": "满金市\\n（城都地区的告示牌）"
+   "text": "地下通道入口。"
   },
   {
    "at": [
     15,
     3
    ],
+   "source_script": "GoldenrodCityFlowerShopSign",
    "kind": "sign",
    "sprite": "sign",
-   "text": "满金市\\n（城都地区的告示牌）"
+   "text": "满金花店，鲜花盛开。"
   }
  ],
  "weather": "",
