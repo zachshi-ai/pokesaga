@@ -1,33 +1,38 @@
-# PokeSaga —— 多地区宝可梦 RPG 底座
+# PokeSaga
 
-目标：一个底座装下所有地区（关都 / 城都 / 丰缘 / 神奥 / 合众 / 卡洛斯 / 阿罗拉 / 伽勒尔 / 帕底亚），
-新增地区只加资源包，不改内核代码。
+Godot 4.7.2 制作的多地区宝可梦同人游戏（Android）。关都、七岛、城都三套地图，战斗、图鉴、队伍、背包、电脑、修改器、融合、秘传技能、昼夜与天气全部在同一个工程里。
 
-## 分层
+- 包名：`com.stepx.pokesaga`
+- 引擎：Godot 4.7.2（`renderer` 用兼容模式，横屏 480×320，`aspect=keep`）
+- 当前版本：4.46.0（versionCode 79）
+- 安装包：见 Releases 页
 
-- `core/` 内核：数据加载、地图与碰撞、战斗、存档。代码里不出现任何具体地区的名字。
-- `content/` 内容：通用表（物种/招式/属性）+ `regions/<地区>/`。每个地区自带 `region.json` 和地图 JSON。
-- `scenes/` 表现层：启动、后续的战斗界面、菜单、修改器面板。
-
-## 数据格式
-
-- `content/types.json`：属性克制表，attacker -> {defender: 倍率}，未列出一律 1.0
-- `content/species.json`：物种（id / 名称 / 属性 / 种族值 / 捕获率 / 成长曲线）
-- `content/moves.json`：招式（id / 名称 / 属性 / 威力 / 命中 / PP / 物理特殊 / 附加效果）
-- `content/regions/<id>/region.json`：地区元信息（名称、图块集、BGM、地图列表）
-- `content/regions/<id>/maps/<map>.json`：地图（尺寸、瓦片二维数组、出生点、NPC、传送点）
-
-## 自检
+## 目录
 
 ```
-/root/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path . --quit-after 120
+scenes/      boot.gd（主控 + 自检）、battle_ui、party_ui、dex_ui、bag_ui、pc_ui、shop_ui、editor_ui、fusion_ui、form_item_ui、dialog_ui
+core/        world（地图/移动/坡/水面/树冠）、battle、data_hub、party、growth、encounter、facility、field、fusion、save_game、sound、story、touch_scroll
+content/     regions/{kanto,sevii,johto,frontier,hoenn}/maps/*.json + emerald_maps/*.json+png（+*_fg.png）
+             items / moves / species / abilities / berries / tm_map / trainers_db / story
+assets/      tiles 图集、人物与树冠贴花、party_hd 立绘（1025 张 128×128）、audio（26 BGM + 16 SFX）
+tools/       地图渲染、连边生成、落点修正、告示牌文本等离线脚本
 ```
 
-覆盖：数据表加载、地图加载、碰撞与移动、跨地区传送、战斗回合跑完、存档读写。
-当前 6/6 通过。
+## 自己编译
 
-## 设计约定
+需要 Godot 4.7.2 与 Android 导出模板：
 
-1. 战斗是纯逻辑（`core/battle.gd`），不引用渲染和输入，可在 headless 下跑几万场做回归。
-2. 存档一份跨地区，结构与地区解耦：`region` + `map` + `pos` + `party` + `flags` + `dex`。
-3. 新增地区不新增引擎分支；地区差异通过数据字段表达（图块集、遭遇表、规则开关）。
+```bash
+godot --headless --path . -- --selftest            # 65 项自检
+godot --headless --path . --export-release "Android" PokeSaga.apk
+```
+
+导出配置见 `export_presets.cfg`（版本号在第 34/35 行）。
+
+## 素材来源
+
+- 地图数据：pokeemerald-expansion（GBA 关都/七岛）与 pokecrystal（城都），自建渲染管线导出为 PNG + 碰撞/坡/水面网格
+- 立绘：PokeAPI official-artwork，缩放到 128×128
+- 音频：原版曲谱 `.mid` + 自写合成器渲染成 ogg，不含 ROM 采样
+
+本项目为非商业同人作品，宝可梦相关名称与形象版权归任天堂 / Game Freak / Creatures 所有。
