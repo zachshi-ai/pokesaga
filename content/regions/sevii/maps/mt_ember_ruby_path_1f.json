@@ -1,0 +1,243 @@
+{
+ "name": "七之岛·焰之山 红宝石之路 1F",
+ "emerald": "mt_ember_ruby_path_1f",
+ "size": [
+  27,
+  19
+ ],
+ "spawn": [
+  22,
+  17
+ ],
+ "npcs": [
+  {
+   "at": [
+    18,
+    11
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "往北走有条小路。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    23,
+    16
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "听说洞里藏着东西。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    20,
+    12
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这里的果子比别处甜。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    19,
+    7
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我在这住了大半辈子。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    21,
+    15
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "夏天的游客最多。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    22,
+    17
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_exterior",
+    "at": [
+     42,
+     39
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    1
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_b1f",
+    "at": [
+     9,
+     21
+    ]
+   }
+  },
+  {
+   "at": [
+    24,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_b2_f_stairs",
+    "at": [
+     1,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 74,
+   "min": 36,
+   "max": 36,
+   "weight": 20
+  },
+  {
+   "species": 66,
+   "min": 38,
+   "max": 38,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 32,
+   "max": 32,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 34,
+   "max": 34,
+   "weight": 10
+  },
+  {
+   "species": 66,
+   "min": 34,
+   "max": 34,
+   "weight": 10
+  },
+  {
+   "species": 66,
+   "min": 36,
+   "max": 36,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 38,
+   "max": 38,
+   "weight": 5
+  },
+  {
+   "species": 67,
+   "min": 40,
+   "max": 40,
+   "weight": 5
+  },
+  {
+   "species": 74,
+   "min": 40,
+   "max": 40,
+   "weight": 4
+  },
+  {
+   "species": 67,
+   "min": 42,
+   "max": 42,
+   "weight": 4
+  },
+  {
+   "species": 74,
+   "min": 40,
+   "max": 40,
+   "weight": 1
+  },
+  {
+   "species": 67,
+   "min": 42,
+   "max": 42,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true,
+ "objects": [
+  {
+   "at": [
+    18,
+    11
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    23,
+    16
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    20,
+    12
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    19,
+    7
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    21,
+    15
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  }
+ ]
+}

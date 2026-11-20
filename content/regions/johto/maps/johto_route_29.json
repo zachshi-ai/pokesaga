@@ -1,0 +1,240 @@
+{
+ "name": "29 号道路",
+ "emerald": "johto_route_29",
+ "size": [
+  30,
+  9
+ ],
+ "spawn": [
+  15,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    25,
+    6
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "要不要来一场？",
+    "我可是练了很久的。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    8
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    5
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    1
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    1
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "要不要来一场？",
+    "我可是练了很久的。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    6
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    23,
+    1
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    13,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_29_route_46_gate",
+    "at": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    29,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_new_bark_town",
+    "at": [
+     1,
+     4
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cherrygrove_city",
+    "at": [
+     17,
+     3
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [
+  {
+   "species": 16,
+   "min": 2,
+   "max": 2,
+   "weight": 60
+  },
+  {
+   "species": 161,
+   "min": 2,
+   "max": 2,
+   "weight": 60
+  },
+  {
+   "species": 19,
+   "min": 2,
+   "max": 2,
+   "weight": 45
+  },
+  {
+   "species": 16,
+   "min": 3,
+   "max": 3,
+   "weight": 40
+  },
+  {
+   "species": 163,
+   "min": 2,
+   "max": 2,
+   "weight": 30
+  },
+  {
+   "species": 163,
+   "min": 3,
+   "max": 3,
+   "weight": 25
+  },
+  {
+   "species": 161,
+   "min": 3,
+   "max": 3,
+   "weight": 20
+  },
+  {
+   "species": 187,
+   "min": 3,
+   "max": 3,
+   "weight": 10
+  },
+  {
+   "species": 19,
+   "min": 3,
+   "max": 3,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.1,
+ "objects": [
+  {
+   "at": [
+    25,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "29 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "29 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

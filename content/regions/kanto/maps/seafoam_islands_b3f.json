@@ -1,0 +1,208 @@
+{
+ "name": "关都·双子岛·b3f",
+ "emerald": "seafoam_islands_b3f",
+ "size": [
+  38,
+  24
+ ],
+ "spawn": [
+  8,
+  14
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    8,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b2f",
+    "at": [
+     7,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    31,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b2f",
+    "at": [
+     32,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    31,
+    16
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b2f",
+    "at": [
+     31,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b4f",
+    "at": [
+     15,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    29,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b4f",
+    "at": [
+     32,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b2f",
+    "at": [
+     7,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    24,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b2f",
+    "at": [
+     7,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b4f",
+    "at": [
+     8,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b4f",
+    "at": [
+     9,
+     17
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    5,
+    12
+   ],
+   "kind": "hidden",
+   "item": "ITEM_NUGGET",
+   "name": "金珠",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SEAFOAM_ISLANDS_B3F_NUGGET",
+   "count": 1
+  },
+  {
+   "at": [
+    23,
+    8
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    24,
+    8
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    12,
+    16
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    13,
+    16
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    9,
+    16
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    6,
+    17
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

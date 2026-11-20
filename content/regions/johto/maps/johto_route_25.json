@@ -1,0 +1,417 @@
+{
+ "name": "25 号道路",
+ "emerald": "johto_route_25",
+ "size": [
+  30,
+  9
+ ],
+ "spawn": [
+  15,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    22,
+    3
+   ],
+   "name": "馆主 小霞",
+   "gfx": "teala",
+   "lines": [
+    "你今天也很有精神呢。",
+    "慢慢来，不用急。"
+   ]
+  },
+  {
+   "at": [
+    22,
+    6
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "要不要来一场？",
+    "我可是练了很久的。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    4
+   ],
+   "name": "学生 Dudley",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 35,
+      "species": 43
+     }
+    ]
+   },
+   "trainer": "SchoolboyDudley"
+  },
+  {
+   "at": [
+    8,
+    5
+   ],
+   "name": "少女 Ellen",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 30,
+      "species": 40
+     },
+     {
+      "level": 34,
+      "species": 210
+     }
+    ]
+   },
+   "trainer": "LassEllen"
+  },
+  {
+   "at": [
+    10,
+    4
+   ],
+   "name": "学生 Joe",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 33,
+      "species": 114
+     },
+     {
+      "level": 33,
+      "species": 134
+     }
+    ]
+   },
+   "trainer": "SchoolboyJoe"
+  },
+  {
+   "at": [
+    11,
+    3
+   ],
+   "name": "少女 Laura",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 28,
+      "species": 44
+     },
+     {
+      "level": 31,
+      "species": 17
+     },
+     {
+      "level": 31,
+      "species": 182
+     }
+    ]
+   },
+   "trainer": "LassLaura"
+  },
+  {
+   "at": [
+    12,
+    2
+   ],
+   "name": "露营少年 Lloyd",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 34,
+      "species": 34
+     }
+    ]
+   },
+   "trainer": "CamperLloyd"
+  },
+  {
+   "at": [
+    14,
+    5
+   ],
+   "name": "少女 Shannon",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 29,
+      "species": 46
+     },
+     {
+      "level": 29,
+      "species": 46
+     },
+     {
+      "level": 32,
+      "species": 47
+     }
+    ]
+   },
+   "trainer": "LassShannon"
+  },
+  {
+   "at": [
+    15,
+    3
+   ],
+   "name": "理科男 Pat",
+   "gfx": "scientist",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 36,
+      "species": 137
+     }
+    ]
+   },
+   "trainer": "SuperNerdPat"
+  },
+  {
+   "at": [
+    18,
+    4
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "要不要来一场？",
+    "我可是练了很久的。"
+   ]
+  },
+  {
+   "at": [
+    16,
+    2
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    23,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_bills_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_24",
+    "at": [
+     1,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    2,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_24",
+    "at": [
+     1,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    3,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_24",
+    "at": [
+     4,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_24",
+    "at": [
+     4,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_24",
+    "at": [
+     5,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_24",
+    "at": [
+     6,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_24",
+    "at": [
+     7,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_24",
+    "at": [
+     8,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_24",
+    "at": [
+     9,
+     1
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    22,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "25 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "25 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

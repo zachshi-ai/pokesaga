@@ -1,0 +1,87 @@
+{
+ "name": "三号岛·宝可梦中心 2F",
+ "emerald": "pokemon_center_2f_frlg",
+ "size": [
+  15,
+  10
+ ],
+ "spawn": [
+  1,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没有大医院。",
+    "果子熟了随便摘。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "火种这条路不太好走。",
+    "果子熟了随便摘。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我们这儿靠打鱼过活。",
+    "果子熟了随便摘。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你要去山上是吧。",
+    "果子熟了随便摘。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_pokemon_center_1f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

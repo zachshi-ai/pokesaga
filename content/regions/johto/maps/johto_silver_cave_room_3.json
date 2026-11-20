@@ -1,0 +1,109 @@
+{
+ "name": "白银山",
+ "emerald": "johto_silver_cave_room_3",
+ "size": [
+  10,
+  18
+ ],
+ "spawn": [
+  4,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    16
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_silver_cave_room_2",
+    "at": [
+     5,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 42,
+   "min": 51,
+   "max": 51,
+   "weight": 90
+  },
+  {
+   "species": 95,
+   "min": 48,
+   "max": 48,
+   "weight": 90
+  },
+  {
+   "species": 75,
+   "min": 48,
+   "max": 48,
+   "weight": 60
+  },
+  {
+   "species": 217,
+   "min": 50,
+   "max": 50,
+   "weight": 20
+  },
+  {
+   "species": 246,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  },
+  {
+   "species": 42,
+   "min": 49,
+   "max": 49,
+   "weight": 10
+  },
+  {
+   "species": 246,
+   "min": 15,
+   "max": 15,
+   "weight": 8
+  },
+  {
+   "species": 55,
+   "min": 45,
+   "max": 45,
+   "weight": 5
+  },
+  {
+   "species": 42,
+   "min": 53,
+   "max": 53,
+   "weight": 5
+  },
+  {
+   "species": 247,
+   "min": 20,
+   "max": 20,
+   "weight": 2
+  }
+ ],
+ "encounter_rate": 0.06,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

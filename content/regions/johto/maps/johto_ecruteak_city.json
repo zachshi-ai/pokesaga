@@ -1,0 +1,400 @@
+{
+ "name": "圆朱市",
+ "emerald": "johto_ecruteak_city",
+ "size": [
+  20,
+  18
+ ],
+ "spawn": [
+  10,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    9,
+    7
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    10
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    14
+   ],
+   "name": "少女",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    4
+   ],
+   "name": "少女",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    11
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    3
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    17,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_42_ecruteak_gate",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_42_ecruteak_gate",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ecruteak_tin_tower_entrance",
+    "at": [
+     3,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_wise_trios_room",
+    "at": [
+     3,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_wise_trios_room",
+    "at": [
+     3,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ecruteak_pokecenter_1f",
+    "at": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ecruteak_lugia_speech_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_dance_theater",
+    "at": [
+     2,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ecruteak_mart",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ecruteak_gym",
+    "at": [
+     3,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ecruteak_itemfinder_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_tin_tower_1f",
+    "at": [
+     4,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_1f",
+    "at": [
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_38_ecruteak_gate",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_38_ecruteak_gate",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_37",
+    "at": [
+     3,
+     1
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    7,
+    10
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "圆朱市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    19,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "圆朱市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    4,
+    14
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "圆朱市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    1,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "圆朱市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    11,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "圆朱市\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 60,
+   "min": 20,
+   "max": 20,
+   "weight": 60
+  },
+  {
+   "species": 60,
+   "min": 15,
+   "max": 15,
+   "weight": 30
+  },
+  {
+   "species": 61,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.02
+}

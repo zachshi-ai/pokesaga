@@ -1,0 +1,155 @@
+{
+ "name": "关都·华蓝市·道馆",
+ "emerald": "cerulean_city_gym",
+ "size": [
+  17,
+  20
+ ],
+ "spawn": [
+  7,
+  18
+ ],
+ "npcs": [
+  {
+   "at": [
+    10,
+    12
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "你见过会变形的宝可梦吗？",
+    "我这只跟了我三年。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "这条街我闭着眼都能走。",
+    "挑这时候挑战正合适。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    6
+   ],
+   "gfx": "man",
+   "name": "馆主 小霞",
+   "badge": "蓝色徽章",
+   "battle": {
+    "team": [
+     {
+      "species": 120,
+      "level": 18,
+      "moves": [
+       33,
+       55
+      ]
+     },
+     {
+      "species": 121,
+      "level": 21,
+      "moves": [
+       55,
+       129
+      ]
+     }
+    ]
+   },
+   "lines": [
+    "馆主 小霞：能走到这里，说明你有点本事。",
+    "蓝色徽章 就交给你了。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    16
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "宝可梦的体力靠平时的照顾。",
+    "挑这时候挑战正合适。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     295,
+     61
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     295,
+     61
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     295,
+     61
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    6,
+    17
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "华蓝宝可梦道馆\n馆主：小霞\n优胜训练家：\n{RIVAL}"
+  },
+  {
+   "at": [
+    10,
+    17
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "华蓝宝可梦道馆\n馆主：小霞\n优胜训练家：\n{RIVAL}"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,444 @@
+{
+ "name": "烟墨市",
+ "emerald": "johto_blackthorn_city",
+ "size": [
+  20,
+  18
+ ],
+ "spawn": [
+  10,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    8,
+    6
+   ],
+   "name": "理科男",
+   "gfx": "scientist",
+   "lines": [
+    "研究数据是不会骗人的。",
+    "宝可梦的行为比人想的复杂得多。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    1
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    15
+   ],
+   "name": "空手道王",
+   "gfx": "blackbelt",
+   "lines": [
+    "心技体，缺一不可！",
+    "来，跟我练两招。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    12
+   ],
+   "name": "训练家",
+   "gfx": "teala",
+   "lines": [
+    "你今天也很有精神呢。",
+    "慢慢来，不用急。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    7
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    10
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    17,
+    9
+   ],
+   "name": "训练家",
+   "gfx": "teala",
+   "lines": [
+    "你今天也很有精神呢。",
+    "慢慢来，不用急。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    9,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_blackthorn_gym_1f",
+    "at": [
+     2,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_blackthorn_dragon_speech_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    11
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_blackthorn_emys_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_blackthorn_mart",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_blackthorn_pokecenter_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_move_deleters_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ice_path_1f",
+    "at": [
+     18,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_dragons_den_1f",
+    "at": [
+     1,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     0,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     4,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     5,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     6,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     7,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     8,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     9,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_44",
+    "at": [
+     28,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_44",
+    "at": [
+     28,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    11
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_44",
+    "at": [
+     28,
+     2
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_44",
+    "at": [
+     28,
+     3
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    17,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "烟墨市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    3,
+    15
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "烟墨市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    2,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "烟墨市\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 129,
+   "min": 15,
+   "max": 15,
+   "weight": 60
+  },
+  {
+   "species": 129,
+   "min": 10,
+   "max": 10,
+   "weight": 30
+  },
+  {
+   "species": 129,
+   "min": 5,
+   "max": 5,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.04
+}

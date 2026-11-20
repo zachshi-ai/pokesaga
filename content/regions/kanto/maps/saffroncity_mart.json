@@ -1,0 +1,102 @@
+{
+ "name": "关都·金黄市·友好商店",
+ "emerald": "mart_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    3
+   ],
+   "gfx": "clerk",
+   "name": "店员",
+   "lines": [
+    "训练家最重要的是判断。",
+    "后来是只波波带我出去的。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    7
+   ],
+   "gfx": "youngster",
+   "name": "短裤小子",
+   "lines": [
+    "你在收集徽章吗？",
+    "后来是只波波带我出去的。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    5
+   ],
+   "gfx": "lass",
+   "name": "少女",
+   "lines": [
+    "商店今天补货了。",
+    "后来是只波波带我出去的。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     304,
+     141
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     304,
+     141
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     304,
+     141
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,727 @@
+{
+ "name": "七号岛·七宝峡谷",
+ "emerald": "seven_island_sevault_canyon",
+ "size": [
+  24,
+  80
+ ],
+ "spawn": [
+  14,
+  61
+ ],
+ "npcs": [
+  {
+   "at": [
+    13,
+    43
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没有大医院。",
+    "这岛不大，走走就到。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    36
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "火种这条路不太好走。",
+    "这岛不大，走走就到。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    35
+   ],
+   "name": "岛民",
+   "gfx": "camper",
+   "lines": [
+    "我们这儿靠打鱼过活。",
+    "这岛不大，走走就到。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    36
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你要去山上是吧。",
+    "这岛不大，走走就到。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    56
+   ],
+   "name": "岛民",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "太阳落山就起雾。",
+    "这岛不大，走走就到。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    63
+   ],
+   "name": "岛民",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "有事问船夫。",
+    "这岛不大，走走就到。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    13
+   ],
+   "name": "岛民",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这座岛上的风是咸的。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    14
+   ],
+   "name": "岛民",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "船一天只来两趟。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    41
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你从关都来的吧。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    44
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没什么人，安静。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    47
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "往北走有条小路。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    46
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "听说洞里藏着东西。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    16,
+    47
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这里的果子比别处甜。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    31
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我在这住了大半辈子。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    26
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "夏天的游客最多。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    36
+   ],
+   "name": "Tamer 的 EVAN",
+   "gfx": "man",
+   "lines": [
+    "如果你偶然拥有了最强的宝可梦，\n那也不要紧……\n若你不能正确地使用它们，\n那你仍然一无是处！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_TAMER_EVAN",
+    "party": [
+     {
+      "species": 28,
+      "level": 48
+     },
+     {
+      "species": 108,
+      "level": 48
+     },
+     {
+      "species": 217,
+      "level": 49
+     }
+    ],
+    "name": "EVAN",
+    "class": "Tamer"
+   },
+   "post": [
+    "你一定是经常见到，\n训练家拥有强大的宝可梦却不知道如何使用。\n所以在训练宝可梦之前，\n训练家首先自己要成长。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    3,
+    35
+   ],
+   "name": "Pkmn Ranger 的 JACKSON",
+   "gfx": "camper",
+   "lines": [
+    "我致力于保护自然环境。\n相应地，大自然也会保护我！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PKMN_RANGER_JACKSON",
+    "party": [
+     {
+      "species": 114,
+      "level": 49
+     },
+     {
+      "species": 102,
+      "level": 49
+     },
+     {
+      "species": 103,
+      "level": 49
+     }
+    ],
+    "name": "JACKSON",
+    "class": "Pkmn Ranger"
+   },
+   "post": [
+    "在众多星系之中，\n我们的就如一滴水那么小。\n但是我们想为了每个人\n去保护这滴水。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    3,
+    36
+   ],
+   "name": "Pkmn Ranger 的 KATELYN",
+   "gfx": "lass",
+   "lines": [
+    "你穿的那双鞋可真漂亮。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PKMN_RANGER_KATELYN",
+    "party": [
+     {
+      "species": 113,
+      "level": 52
+     }
+    ],
+    "name": "KATELYN",
+    "class": "Pkmn Ranger"
+   },
+   "post": [
+    "你妈妈给你买了这双\n漂亮的跑步鞋？\n她一定很爱你。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    7,
+    56
+   ],
+   "name": "Cooltrainer 的 LEROY",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "你看起来很强大。\n请让我和你战斗吧！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_COOLTRAINER_LEROY",
+    "party": [
+     {
+      "species": 112,
+      "level": 47
+     },
+     {
+      "species": 80,
+      "level": 48
+     },
+     {
+      "species": 115,
+      "level": 47
+     },
+     {
+      "species": 67,
+      "level": 48
+     },
+     {
+      "species": 217,
+      "level": 50
+     }
+    ],
+    "name": "LEROY",
+    "class": "Cooltrainer"
+   },
+   "post": [
+    "你战斗的方式\n给了我许多启发。\n太感谢了！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    11,
+    63
+   ],
+   "name": "Cooltrainer 的 MICHELLE",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "我受到了最好的教育，\n就是为了变得像今天这样强大。\n我不想输给任何人！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_COOLTRAINER_MICHELLE",
+    "party": [
+     {
+      "species": 53,
+      "level": 47
+     },
+     {
+      "species": 87,
+      "level": 47
+     },
+     {
+      "species": 38,
+      "level": 48
+     },
+     {
+      "species": 78,
+      "level": 48
+     },
+     {
+      "species": 203,
+      "level": 50
+     }
+    ],
+    "name": "MICHELLE",
+    "class": "Cooltrainer"
+   },
+   "post": [
+    "有的时候，\n我会因为一些小事感到愤怒。\n我要深呼吸是我自己\n镇定下来。"
+   ],
+   "sight": 1
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    17
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon_tanoby_key",
+    "at": [
+     7,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    61
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon_house",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins",
+    "at": [
+     3,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins",
+    "at": [
+     4,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins",
+    "at": [
+     5,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    15,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins",
+    "at": [
+     18,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins",
+    "at": [
+     19,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    21,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins",
+    "at": [
+     24,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon_entrance",
+    "at": [
+     23,
+     28
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon_entrance",
+    "at": [
+     23,
+     29
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 74,
+   "min": 46,
+   "max": 46,
+   "weight": 20
+  },
+  {
+   "species": 231,
+   "min": 15,
+   "max": 15,
+   "weight": 20
+  },
+  {
+   "species": 104,
+   "min": 46,
+   "max": 46,
+   "weight": 10
+  },
+  {
+   "species": 22,
+   "min": 50,
+   "max": 50,
+   "weight": 10
+  },
+  {
+   "species": 105,
+   "min": 52,
+   "max": 52,
+   "weight": 10
+  },
+  {
+   "species": 52,
+   "min": 43,
+   "max": 43,
+   "weight": 10
+  },
+  {
+   "species": 95,
+   "min": 54,
+   "max": 54,
+   "weight": 5
+  },
+  {
+   "species": 227,
+   "min": 30,
+   "max": 30,
+   "weight": 5
+  },
+  {
+   "species": 246,
+   "min": 15,
+   "max": 15,
+   "weight": 4
+  },
+  {
+   "species": 53,
+   "min": 49,
+   "max": 49,
+   "weight": 4
+  },
+  {
+   "species": 246,
+   "min": 20,
+   "max": 20,
+   "weight": 1
+  },
+  {
+   "species": 53,
+   "min": 52,
+   "max": 52,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "objects": [
+  {
+   "at": [
+    18,
+    45
+   ],
+   "kind": "item",
+   "item": "ITEM_KINGS_ROCK",
+   "name": "ITEM_KINGS_ROCK",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    7,
+    38
+   ],
+   "kind": "item",
+   "item": "ITEM_MAX_ELIXIR",
+   "name": "PP 多项全补剂",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    17,
+    23
+   ],
+   "kind": "item",
+   "item": "ITEM_NUGGET",
+   "name": "金珠",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    15,
+    66
+   ],
+   "kind": "hidden",
+   "item": "ITEM_CHERI_BERRY",
+   "name": "樱子果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_SEVEN_ISLAND_SEVAULT_CANYON_CHERI_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    16,
+    71
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "七宝溪谷\n前方是阿斯卡纳遗迹"
+  },
+  {
+   "at": [
+    3,
+    41
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    13,
+    47
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    7,
+    44
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    12,
+    47
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    15,
+    46
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    16,
+    47
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    17,
+    47
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    11,
+    31
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

@@ -1,0 +1,47 @@
+{
+ "name": "关都·宝可梦联盟·hall of fame",
+ "emerald": "pokemon_league_hall_of_fame",
+ "size": [
+  11,
+  13
+ ],
+ "spawn": [
+  5,
+  12
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    4
+   ],
+   "name": "居民",
+   "gfx": "oak",
+   "lines": [
+    "你看起来像个训练家。",
+    "我什么都没说。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    12
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_league_champions_room",
+    "at": [
+     6,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

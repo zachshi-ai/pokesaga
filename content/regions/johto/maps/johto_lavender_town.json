@@ -1,0 +1,429 @@
+{
+ "name": "LavenderTown",
+ "emerald": "johto_lavender_town",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    3
+   ],
+   "name": "宝可梦迷",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    7
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    6
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    5
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_lavender_pokecenter_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mr_fujis_house",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_lavender_speech_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_lavender_name_rater",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_lavender_mart",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_soul_house",
+    "at": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_lav_radio_tower_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_12",
+    "at": [
+     0,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    1,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_12",
+    "at": [
+     0,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    2,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_12",
+    "at": [
+     1,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_12",
+    "at": [
+     4,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_12",
+    "at": [
+     4,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_12",
+    "at": [
+     5,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_12",
+    "at": [
+     6,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_12",
+    "at": [
+     7,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_12",
+    "at": [
+     8,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_10_south",
+    "at": [
+     0,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    1,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_10_south",
+    "at": [
+     1,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    3,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_10_south",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_10_south",
+    "at": [
+     4,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_10_south",
+    "at": [
+     5,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_10_south",
+    "at": [
+     9,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_8",
+    "at": [
+     18,
+     4
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    5,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "LavenderTown\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    1,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "LavenderTown\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

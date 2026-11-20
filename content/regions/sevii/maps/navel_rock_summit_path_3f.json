@@ -1,0 +1,48 @@
+{
+ "name": "七之岛·肚脐岩 山顶 PATH 3F",
+ "emerald": "navel_rock_summit_path_3f",
+ "size": [
+  7,
+  7
+ ],
+ "spawn": [
+  4,
+  4
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "navel_rock_summit_path_2f",
+    "at": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "navel_rock_summit_path_4f",
+    "at": [
+     4,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

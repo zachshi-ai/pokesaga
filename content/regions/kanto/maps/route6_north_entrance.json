@@ -1,0 +1,89 @@
+{
+ "name": "关都·6 号道路·north entrance",
+ "emerald": "saffron_city_north_south_entrance",
+ "size": [
+  9,
+  11
+ ],
+ "spawn": [
+  4,
+  1
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "东西涨价涨得厉害。",
+    "这个我不太清楚。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    1
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     298,
+     166
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    1
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     298,
+     166
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     288,
+     165
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     288,
+     165
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

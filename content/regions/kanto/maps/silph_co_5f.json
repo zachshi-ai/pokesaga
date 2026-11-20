@@ -1,0 +1,292 @@
+{
+ "name": "关都·silph·co·5f",
+ "emerald": "silph_co_5f",
+ "size": [
+  36,
+  22
+ ],
+ "spawn": [
+  28,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    35,
+    7
+   ],
+   "name": "火箭队手下",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "这里被我们接管了。",
+    "想上去？先过我这关。",
+    "门牌是十年前的。"
+   ]
+  },
+  {
+   "at": [
+    23,
+    13
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "有人在追查这里。",
+    "电梯要先拿到卡。",
+    "电梯要先拿到卡。"
+   ]
+  },
+  {
+   "at": [
+    16,
+    13
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "这层是研究部。",
+    "电梯要先拿到卡。",
+    "走廊上安静得吓人。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    6
+   ],
+   "name": "研究员",
+   "gfx": "scientist",
+   "lines": [
+    "样本别乱碰。",
+    "这层的实验还没做完。",
+    "这楼高得看不到顶。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    21
+   ],
+   "name": "火箭队手下",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "这里被我们接管了。",
+    "想上去？先过我这关。",
+    "电梯要先拿到卡。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    7
+   ],
+   "name": "研究员",
+   "gfx": "scientist",
+   "lines": [
+    "样本别乱碰。",
+    "这层的实验还没做完。",
+    "别碰那些机器。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    28,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_4f",
+    "at": [
+     28,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    15,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_3f",
+    "at": [
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    30,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_6f",
+    "at": [
+     26,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    20
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_9f",
+    "at": [
+     22,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    20
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_3f",
+    "at": [
+     3,
+     20
+    ]
+   }
+  },
+  {
+   "at": [
+    33,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_7f",
+    "at": [
+     25,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    22,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_elevator",
+    "at": [
+     4,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    4,
+    9
+   ],
+   "kind": "item",
+   "item": "ITEM_PROTEIN",
+   "name": "攻击增强剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    1,
+    18
+   ],
+   "kind": "item",
+   "item": "ITEM_TM01",
+   "name": "ITEM_TM01",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    22,
+    21
+   ],
+   "kind": "item",
+   "item": "ITEM_CARD_KEY",
+   "name": "ITEM_CARD_KEY",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    13,
+    16
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ELIXIR",
+   "name": "PP 多项小补剂",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_5F_ELIXIR",
+   "count": 1
+  },
+  {
+   "at": [
+    28,
+    11
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这是一份宝可梦研究报告！\n有些宝可梦已经被确认\n在他们被交换时会进化。"
+  },
+  {
+   "at": [
+    30,
+    13
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这是一份宝可梦研究报告！\n已证实存在350个宝可梦\n的技能。"
+  },
+  {
+   "at": [
+    25,
+    15
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这是一份宝可梦研究报告！\n宝可梦实验室创造了多边兽，\n第一个虚拟现实的宝可梦。"
+  },
+  {
+   "at": [
+    32,
+    9
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PP_UP",
+   "name": "PP 提升剂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_5F_PP_UP",
+   "count": 1
+  },
+  {
+   "at": [
+    29,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "西尔佛公司总部\n5层"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

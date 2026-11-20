@@ -1,0 +1,98 @@
+{
+ "name": "关都·狩猎区·入口",
+ "emerald": "fuchsia_city_safari_zone_entrance",
+ "size": [
+  9,
+  9
+ ],
+ "spawn": [
+  5,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    3
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "洞里比外面冷。",
+    "我把灯留给你。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "回音很大，小声点。",
+    "我把灯留给你。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    1
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_center",
+    "at": [
+     26,
+     30
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     216,
+     305
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     216,
+     305
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     216,
+     305
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0
+}

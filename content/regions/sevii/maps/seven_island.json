@@ -1,0 +1,211 @@
+{
+ "name": "七号岛",
+ "emerald": "seven_island",
+ "size": [
+  24,
+  20
+ ],
+ "spawn": [
+  11,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    18
+   ],
+   "name": "岛民",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "我养了三只宝可梦。",
+    "海风会把人吹傻。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    7
+   ],
+   "name": "岛民",
+   "gfx": "old_woman",
+   "lines": [
+    "岛上没有大医院。",
+    "海风会把人吹傻。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "scientist",
+   "lines": [
+    "火种这条路不太好走。",
+    "海风会把人吹傻。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    11,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_house_room1",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_mart",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    3
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_pokemon_center_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_harbor",
+    "at": [
+     8,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_trainer_tower",
+    "at": [
+     10,
+     39
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_trainer_tower",
+    "at": [
+     11,
+     39
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_trainer_tower",
+    "at": [
+     12,
+     39
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon_entrance",
+    "at": [
+     7,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon_entrance",
+    "at": [
+     8,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon_entrance",
+    "at": [
+     9,
+     0
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    17,
+    9
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "是一块刻着宝可梦，\n密密麻麻写着不认识的古文字的巨大石匾。"
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

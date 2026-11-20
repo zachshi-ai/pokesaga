@@ -1,0 +1,218 @@
+{
+ "name": "关都·宝可梦塔 5F",
+ "emerald": "pokemon_tower_5f",
+ "size": [
+  24,
+  20
+ ],
+ "spawn": [
+  4,
+  10
+ ],
+ "npcs": [
+  {
+   "at": [
+    11,
+    4
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "洞里比外面冷。",
+    "出去记得晒太阳。"
+   ]
+  },
+  {
+   "at": [
+    19,
+    7
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "回音很大，小声点。",
+    "出去记得晒太阳。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    12
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "前面塌了一段。",
+    "出去记得晒太阳。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    16
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "火把快烧完了。",
+    "出去记得晒太阳。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    8
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这层我来过三回。",
+    "出去记得晒太阳。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemontower_4f",
+    "at": [
+     4,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemontower_6f",
+    "at": [
+     18,
+     10
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 92,
+   "min": 15,
+   "max": 15,
+   "weight": 20
+  },
+  {
+   "species": 92,
+   "min": 16,
+   "max": 16,
+   "weight": 20
+  },
+  {
+   "species": 92,
+   "min": 17,
+   "max": 17,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 13,
+   "max": 13,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 14,
+   "max": 14,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 18,
+   "max": 18,
+   "weight": 10
+  },
+  {
+   "species": 93,
+   "min": 20,
+   "max": 20,
+   "weight": 5
+  },
+  {
+   "species": 104,
+   "min": 15,
+   "max": 15,
+   "weight": 5
+  },
+  {
+   "species": 92,
+   "min": 17,
+   "max": 17,
+   "weight": 4
+  },
+  {
+   "species": 104,
+   "min": 17,
+   "max": 17,
+   "weight": 4
+  },
+  {
+   "species": 92,
+   "min": 17,
+   "max": 17,
+   "weight": 1
+  },
+  {
+   "species": 92,
+   "min": 19,
+   "max": 19,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.06,
+ "objects": [
+  {
+   "at": [
+    6,
+    16
+   ],
+   "kind": "item",
+   "item": "ITEM_NUGGET",
+   "name": "金珠",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    11,
+    9
+   ],
+   "kind": "item",
+   "item": "ITEM_CLEANSE_TAG",
+   "name": "ITEM_CLEANSE_TAG",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    7,
+    3
+   ],
+   "kind": "hidden",
+   "item": "ITEM_BIG_MUSHROOM",
+   "name": "大蘑菇",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_POKEMON_TOWER_5F_BIG_MUSHROOM",
+   "count": 1
+  }
+ ],
+ "weather": "fog_horizontal",
+ "weather_name": "雾",
+ "cycling": false
+}

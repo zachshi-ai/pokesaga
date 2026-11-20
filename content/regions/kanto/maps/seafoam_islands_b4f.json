@@ -1,0 +1,148 @@
+{
+ "name": "关都·双子岛·b4f",
+ "emerald": "seafoam_islands_b4f",
+ "size": [
+  38,
+  24
+ ],
+ "spawn": [
+  15,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    9,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "这附近有只野猫。",
+    "问别人吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    15,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b3f",
+    "at": [
+     12,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    32,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b3f",
+    "at": [
+     29,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    17
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b3f",
+    "at": [
+     6,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    17
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b3f",
+    "at": [
+     9,
+     18
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    22,
+    19
+   ],
+   "kind": "item",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    13,
+    8
+   ],
+   "kind": "hidden",
+   "item": "ITEM_WATER_STONE",
+   "name": "水之石",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SEAFOAM_ISLANDS_B4F_WATER_STONE",
+   "count": 1
+  },
+  {
+   "at": [
+    30,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "危险\n水流湍急！"
+  },
+  {
+   "at": [
+    14,
+    18
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "提示：岩石可能会改变\n水的流向。"
+  },
+  {
+   "at": [
+    8,
+    18
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    9,
+    18
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

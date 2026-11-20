@@ -1,0 +1,236 @@
+{
+ "name": "互联洞窟",
+ "emerald": "johto_union_cave_b2_f",
+ "size": [
+  10,
+  18
+ ],
+ "spawn": [
+  5,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    9
+   ],
+   "name": "训练家 Nick",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 26,
+      "species": 4,
+      "moves": [
+       52,
+       108,
+       99,
+       184
+      ]
+     },
+     {
+      "level": 26,
+      "species": 7,
+      "moves": [
+       110,
+       55,
+       44,
+       174
+      ]
+     },
+     {
+      "level": 26,
+      "species": 1,
+      "moves": [
+       73,
+       77,
+       79,
+       75
+      ]
+     }
+    ]
+   },
+   "trainer": "CooltrainerMNick"
+  },
+  {
+   "at": [
+    2,
+    6
+   ],
+   "name": "训练家 Gwen",
+   "gfx": "teala",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 26,
+      "species": 133
+     },
+     {
+      "level": 22,
+      "species": 136
+     },
+     {
+      "level": 22,
+      "species": 134
+     },
+     {
+      "level": 22,
+      "species": 135
+     }
+    ]
+   },
+   "trainer": "CooltrainerFGwen"
+  },
+  {
+   "at": [
+    1,
+    15
+   ],
+   "name": "训练家 Emma",
+   "gfx": "teala",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 28,
+      "species": 61
+     }
+    ]
+   },
+   "trainer": "CooltrainerFEmma"
+  },
+  {
+   "at": [
+    8,
+    1
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    9
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    13
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_union_cave_b1_f",
+    "at": [
+     8,
+     16
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 41,
+   "min": 22,
+   "max": 22,
+   "weight": 130
+  },
+  {
+   "species": 42,
+   "min": 22,
+   "max": 22,
+   "weight": 90
+  },
+  {
+   "species": 20,
+   "min": 21,
+   "max": 21,
+   "weight": 30
+  },
+  {
+   "species": 195,
+   "min": 22,
+   "max": 22,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 20,
+   "max": 20,
+   "weight": 15
+  },
+  {
+   "species": 95,
+   "min": 23,
+   "max": 23,
+   "weight": 15
+  }
+ ],
+ "encounter_rate": 0.04,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 72,
+   "min": 15,
+   "max": 15,
+   "weight": 60
+  },
+  {
+   "species": 195,
+   "min": 20,
+   "max": 20,
+   "weight": 30
+  },
+  {
+   "species": 73,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.04
+}

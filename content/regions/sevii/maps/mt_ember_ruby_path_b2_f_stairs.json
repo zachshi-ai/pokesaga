@@ -1,0 +1,166 @@
+{
+ "name": "七之岛·mt ember ruby path b2f stairs",
+ "emerald": "mt_ember_ruby_path_b2f_stairs",
+ "size": [
+  8,
+  6
+ ],
+ "spawn": [
+  1,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    3
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "太阳落山就起雾。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "有事问船夫。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    1
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_b1_f_stairs",
+    "at": [
+     1,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    4
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_1f",
+    "at": [
+     24,
+     5
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 74,
+   "min": 38,
+   "max": 38,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 36,
+   "max": 36,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 34,
+   "max": 34,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 40,
+   "max": 40,
+   "weight": 10
+  },
+  {
+   "species": 218,
+   "min": 24,
+   "max": 24,
+   "weight": 10
+  },
+  {
+   "species": 218,
+   "min": 26,
+   "max": 26,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 42,
+   "max": 42,
+   "weight": 5
+  },
+  {
+   "species": 218,
+   "min": 28,
+   "max": 28,
+   "weight": 5
+  },
+  {
+   "species": 74,
+   "min": 42,
+   "max": 42,
+   "weight": 4
+  },
+  {
+   "species": 218,
+   "min": 30,
+   "max": 30,
+   "weight": 4
+  },
+  {
+   "species": 74,
+   "min": 42,
+   "max": 42,
+   "weight": 1
+  },
+  {
+   "species": 218,
+   "min": 30,
+   "max": 30,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true,
+ "objects": [
+  {
+   "at": [
+    4,
+    3
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  }
+ ]
+}

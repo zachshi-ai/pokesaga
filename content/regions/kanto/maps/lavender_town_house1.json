@@ -1,0 +1,87 @@
+{
+ "name": "关都·紫苑镇·民居 1",
+ "emerald": "house5_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "居民",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "今天天气不错。",
+    "记得带伞。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "小心别踩到我的花。",
+    "记得带伞。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     389,
+     146
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     389,
+     146
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     389,
+     146
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

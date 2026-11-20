@@ -1,0 +1,283 @@
+{
+ "name": "道馆",
+ "emerald": "johto_cianwood_gym",
+ "size": [
+  5,
+  9
+ ],
+ "spawn": [
+  2,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    0
+   ],
+   "name": "馆主 阿四",
+   "gfx": "blackbelt",
+   "lines": [
+    "想挑战道馆，先过我这关。",
+    "让我看看你的实力。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 27,
+      "species": 57,
+      "moves": [
+       43,
+       99,
+       2,
+       154
+      ]
+     },
+     {
+      "level": 30,
+      "species": 62,
+      "moves": [
+       95,
+       170,
+       57,
+       223
+      ]
+     }
+    ]
+   },
+   "badge": "打击徽章",
+   "trainer": "Chuck"
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "name": "空手道王 Yoshi",
+   "gfx": "blackbelt",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 27,
+      "species": 106,
+      "moves": [
+       24,
+       96,
+       26,
+       116
+      ]
+     }
+    ]
+   },
+   "trainer": "BlackbeltYoshi"
+  },
+  {
+   "at": [
+    3,
+    6
+   ],
+   "name": "空手道王 Lao",
+   "gfx": "blackbelt",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 27,
+      "species": 107,
+      "moves": [
+       4,
+       9,
+       8,
+       7
+      ]
+     }
+    ]
+   },
+   "trainer": "BlackbeltLao"
+  },
+  {
+   "at": [
+    1,
+    4
+   ],
+   "name": "空手道王 Nob",
+   "gfx": "blackbelt",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 25,
+      "species": 66,
+      "moves": [
+       43,
+       116,
+       2,
+       69
+      ]
+     },
+     {
+      "level": 25,
+      "species": 67,
+      "moves": [
+       43,
+       2,
+       69,
+       157
+      ]
+     }
+    ]
+   },
+   "trainer": "BlackbeltNob"
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "name": "空手道王 Lung",
+   "gfx": "blackbelt",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 23,
+      "species": 56
+     },
+     {
+      "level": 23,
+      "species": 56
+     },
+     {
+      "level": 25,
+      "species": 57
+     }
+    ]
+   },
+   "trainer": "BlackbeltLung"
+  },
+  {
+   "at": [
+    3,
+    0
+   ],
+   "name": "岩石",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    3
+   ],
+   "name": "岩石",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "name": "岩石",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "name": "岩石",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cianwood_city",
+    "at": [
+     4,
+     22
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cianwood_city",
+    "at": [
+     4,
+     22
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    0,
+    6
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "道馆\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    3,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "道馆\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

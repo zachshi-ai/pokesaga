@@ -1,0 +1,194 @@
+{
+ "name": "满金地下仓库",
+ "emerald": "johto_goldenrod_underground_warehouse",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  4,
+  3
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "火箭队队员 Grunt 24",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 25,
+      "species": 109
+     },
+     {
+      "level": 25,
+      "species": 109
+     }
+    ]
+   },
+   "trainer": "GruntM#24"
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "name": "火箭队队员 Grunt 14",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 24,
+      "species": 20
+     },
+     {
+      "level": 24,
+      "species": 42
+     }
+    ]
+   },
+   "trainer": "GruntM#14"
+  },
+  {
+   "at": [
+    7,
+    1
+   ],
+   "name": "火箭队队员 Grunt 15",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 26,
+      "species": 88
+     },
+     {
+      "level": 23,
+      "species": 110
+     }
+    ]
+   },
+   "trainer": "GruntM#15"
+  },
+  {
+   "at": [
+    6,
+    4
+   ],
+   "name": "绅士",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    6
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    5
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    0
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_underground_switch_room_entrances",
+    "at": [
+     12,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_underground_switch_room_entrances",
+    "at": [
+     12,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_dept_store_b1_f",
+    "at": [
+     8,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

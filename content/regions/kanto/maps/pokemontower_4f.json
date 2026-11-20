@@ -1,0 +1,193 @@
+{
+ "name": "关都·宝可梦塔 4F",
+ "emerald": "pokemon_tower_4f",
+ "size": [
+  24,
+  20
+ ],
+ "spawn": [
+  4,
+  10
+ ],
+ "npcs": [
+  {
+   "at": [
+    17,
+    7
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "我在这儿歇一会儿。",
+    "我把灯留给你。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    13
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "墙上有旧的刻痕。",
+    "我把灯留给你。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    12
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这层的路是个圈。",
+    "我把灯留给你。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemontower_5f",
+    "at": [
+     4,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemontower_3f",
+    "at": [
+     18,
+     10
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 92,
+   "min": 15,
+   "max": 15,
+   "weight": 20
+  },
+  {
+   "species": 92,
+   "min": 16,
+   "max": 16,
+   "weight": 20
+  },
+  {
+   "species": 92,
+   "min": 17,
+   "max": 17,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 13,
+   "max": 13,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 14,
+   "max": 14,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 18,
+   "max": 18,
+   "weight": 10
+  },
+  {
+   "species": 93,
+   "min": 20,
+   "max": 20,
+   "weight": 5
+  },
+  {
+   "species": 104,
+   "min": 15,
+   "max": 15,
+   "weight": 5
+  },
+  {
+   "species": 92,
+   "min": 17,
+   "max": 17,
+   "weight": 4
+  },
+  {
+   "species": 104,
+   "min": 17,
+   "max": 17,
+   "weight": 4
+  },
+  {
+   "species": 92,
+   "min": 17,
+   "max": 17,
+   "weight": 1
+  },
+  {
+   "species": 92,
+   "min": 19,
+   "max": 19,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.04,
+ "objects": [
+  {
+   "at": [
+    12,
+    11
+   ],
+   "kind": "item",
+   "item": "ITEM_ELIXIR",
+   "name": "PP 多项小补剂",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    8,
+    11
+   ],
+   "kind": "item",
+   "item": "ITEM_AWAKENING",
+   "name": "解眠药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    11,
+    16
+   ],
+   "kind": "item",
+   "item": "ITEM_GREAT_BALL",
+   "name": "超级球",
+   "category": "ball",
+   "sprite": "ball"
+  }
+ ],
+ "weather": "fog_horizontal",
+ "weather_name": "雾",
+ "cycling": false
+}

@@ -1,0 +1,102 @@
+{
+ "name": "关都·浅红市·友好商店",
+ "emerald": "mart_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    3
+   ],
+   "gfx": "clerk",
+   "name": "店员",
+   "lines": [
+    "你见过会变形的宝可梦吗？",
+    "不是谁先出手。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    3
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "这条街我闭着眼都能走。",
+    "八枚就能去石英高原。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    5
+   ],
+   "gfx": "teala",
+   "name": "训练家",
+   "lines": [
+    "宝可梦的体力靠平时的照顾。",
+    "八枚就能去石英高原。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     203,
+     315
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     203,
+     315
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     203,
+     315
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

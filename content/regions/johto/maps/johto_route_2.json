@@ -1,0 +1,335 @@
+{
+ "name": "2 号道路",
+ "emerald": "johto_route_2",
+ "size": [
+  10,
+  27
+ ],
+ "spawn": [
+  4,
+  12
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    22
+   ],
+   "name": "捕虫少年 Rob",
+   "gfx": "bug_catcher",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 32,
+      "species": 15
+     },
+     {
+      "level": 32,
+      "species": 12
+     }
+    ]
+   },
+   "trainer": "BugCatcherRob"
+  },
+  {
+   "at": [
+    3,
+    2
+   ],
+   "name": "捕虫少年 Ed",
+   "gfx": "bug_catcher",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 30,
+      "species": 15
+     },
+     {
+      "level": 30,
+      "species": 15
+     },
+     {
+      "level": 30,
+      "species": 15
+     }
+    ]
+   },
+   "trainer": "BugCatcherEd"
+  },
+  {
+   "at": [
+    0,
+    20
+   ],
+   "name": "捕虫少年 Doug",
+   "gfx": "bug_catcher",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 34,
+      "species": 168
+     }
+    ]
+   },
+   "trainer": "BugCatcherDoug"
+  },
+  {
+   "at": [
+    0,
+    14
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    0,
+    11
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    1
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    25
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_2_nugget_house",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_2_gate",
+    "at": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_2_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_2_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_digletts_cave",
+    "at": [
+     7,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pewter_city",
+    "at": [
+     9,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    3,
+    26
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_viridian_city",
+    "at": [
+     8,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    26
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_viridian_city",
+    "at": [
+     9,
+     1
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    3,
+    25
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "2 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    5,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "2 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    4,
+    10
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "2 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    1,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "2 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    2,
+    13
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "2 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    5,
+    14
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "2 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

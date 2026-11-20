@@ -1,0 +1,58 @@
+{
+ "name": "关都·华蓝市·民居 5",
+ "emerald": "cerulean_city_house5",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  4,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    4
+   ],
+   "name": "居民",
+   "gfx": "old_man",
+   "lines": [
+    "风一吹就想起小时候。",
+    "再坐一会儿吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     281,
+     51
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    3,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一封电子邮件\n…… …… ……\n世界上有三只传说中的\n鸟宝可梦。\n他们是急冻鸟，闪电鸟，和\n火焰鸟。\n它们的栖息地还是个未解之谜。\n我们计划先从\n华蓝附近的山洞开始寻找。\n来自：宝可梦研究组……"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

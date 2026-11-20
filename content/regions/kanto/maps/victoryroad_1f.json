@@ -1,0 +1,145 @@
+{
+ "name": "关都·冠军之路 1F",
+ "emerald": "victory_road_1f_frlg",
+ "size": [
+  48,
+  22
+ ],
+ "spawn": [
+  11,
+  20
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    2
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "回音很大，小声点。",
+    "常有小拳石滚下来。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    6
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "前面塌了一段。",
+    "常有小拳石滚下来。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_2f",
+    "at": [
+     1,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    20
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     5,
+     58
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    12,
+    3
+   ],
+   "kind": "item",
+   "item": "ITEM_RARE_CANDY",
+   "name": "神奇糖果",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    14,
+    1
+   ],
+   "kind": "item",
+   "item": "ITEM_TM02",
+   "name": "ITEM_TM02",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    12,
+    12
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_VICTORY_ROAD_1F_ULTRA_BALL",
+   "count": 1
+  },
+  {
+   "at": [
+    16,
+    1
+   ],
+   "kind": "hidden",
+   "item": "ITEM_FULL_RESTORE",
+   "name": "全复药",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_VICTORY_ROAD_1F_FULL_RESTORE",
+   "count": 1
+  },
+  {
+   "at": [
+    7,
+    18
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    4,
+    12
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    16,
+    3
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

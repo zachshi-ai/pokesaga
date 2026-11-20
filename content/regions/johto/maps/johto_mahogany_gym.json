@@ -1,0 +1,250 @@
+{
+ "name": "道馆",
+ "emerald": "johto_mahogany_gym",
+ "size": [
+  5,
+  9
+ ],
+ "spawn": [
+  2,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    1
+   ],
+   "name": "馆主 柳伯",
+   "gfx": "old_man",
+   "lines": [
+    "想挑战道馆，先过我这关。",
+    "让我看看你的实力。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 27,
+      "species": 86,
+      "moves": [
+       29,
+       196,
+       62,
+       156
+      ]
+     },
+     {
+      "level": 29,
+      "species": 87,
+      "moves": [
+       29,
+       196,
+       62,
+       156
+      ]
+     },
+     {
+      "level": 31,
+      "species": 221,
+      "moves": [
+       196,
+       31,
+       54,
+       59
+      ]
+     }
+    ]
+   },
+   "badge": "冰川徽章",
+   "trainer": "Pryce"
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "name": "滑雪者 Roxanne",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 28,
+      "species": 124
+     }
+    ]
+   },
+   "trainer": "SkierRoxanne"
+  },
+  {
+   "at": [
+    0,
+    8
+   ],
+   "name": "滑板少年 Ronald",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 24,
+      "species": 86
+     },
+     {
+      "level": 25,
+      "species": 87
+     },
+     {
+      "level": 24,
+      "species": 86
+     }
+    ]
+   },
+   "trainer": "BoarderRonald"
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "name": "滑雪者 Clarissa",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 28,
+      "species": 87
+     }
+    ]
+   },
+   "trainer": "SkierClarissa"
+  },
+  {
+   "at": [
+    2,
+    4
+   ],
+   "name": "滑板少年 Brad",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 26,
+      "species": 220
+     },
+     {
+      "level": 26,
+      "species": 220
+     }
+    ]
+   },
+   "trainer": "BoarderBrad"
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "name": "滑板少年 Douglas",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 24,
+      "species": 90
+     },
+     {
+      "level": 25,
+      "species": 91
+     },
+     {
+      "level": 24,
+      "species": 90
+     }
+    ]
+   },
+   "trainer": "BoarderDouglas"
+  },
+  {
+   "at": [
+    3,
+    7
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mahogany_town",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mahogany_town",
+    "at": [
+     3,
+     7
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    1,
+    6
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "道馆\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

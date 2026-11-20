@@ -1,0 +1,76 @@
+{
+ "name": "关都·5 号道路·饲养屋",
+ "emerald": "route5_pokemon_day_care",
+ "size": [
+  12,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    3
+   ],
+   "name": "培育屋爷爷",
+   "gfx": "old_man",
+   "daycare": true,
+   "lines": [
+    "培育屋，欢迎。",
+    "宝可梦放在这儿，它们自己会熟起来。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     287,
+     105
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     287,
+     105
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     287,
+     105
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

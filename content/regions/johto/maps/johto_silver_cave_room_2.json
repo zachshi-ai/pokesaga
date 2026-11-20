@@ -1,0 +1,209 @@
+{
+ "name": "白银山",
+ "emerald": "johto_silver_cave_room_2",
+ "size": [
+  15,
+  18
+ ],
+ "spawn": [
+  7,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    11,
+    5
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    11
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    10
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    8,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_silver_cave_room_1",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_silver_cave_room_3",
+    "at": [
+     4,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_silver_cave_item_rooms",
+    "at": [
+     6,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_silver_cave_item_rooms",
+    "at": [
+     3,
+     8
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 42,
+   "min": 48,
+   "max": 48,
+   "weight": 90
+  },
+  {
+   "species": 67,
+   "min": 48,
+   "max": 48,
+   "weight": 60
+  },
+  {
+   "species": 217,
+   "min": 47,
+   "max": 47,
+   "weight": 40
+  },
+  {
+   "species": 47,
+   "min": 46,
+   "max": 46,
+   "weight": 30
+  },
+  {
+   "species": 55,
+   "min": 48,
+   "max": 48,
+   "weight": 30
+  },
+  {
+   "species": 42,
+   "min": 46,
+   "max": 46,
+   "weight": 20
+  },
+  {
+   "species": 47,
+   "min": 48,
+   "max": 48,
+   "weight": 15
+  },
+  {
+   "species": 246,
+   "min": 15,
+   "max": 15,
+   "weight": 8
+  },
+  {
+   "species": 200,
+   "min": 45,
+   "max": 45,
+   "weight": 5
+  },
+  {
+   "species": 246,
+   "min": 20,
+   "max": 20,
+   "weight": 2
+  }
+ ],
+ "encounter_rate": 0.06,
+ "objects": [
+  {
+   "at": [
+    7,
+    15
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "白银山\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 119,
+   "min": 35,
+   "max": 35,
+   "weight": 60
+  },
+  {
+   "species": 55,
+   "min": 35,
+   "max": 35,
+   "weight": 30
+  },
+  {
+   "species": 118,
+   "min": 35,
+   "max": 35,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.02
+}

@@ -1,0 +1,19 @@
+{
+ "name": "七之岛·训练家塔 ELEVATOR",
+ "emerald": "trainer_tower_elevator",
+ "size": [
+  5,
+  7
+ ],
+ "spawn": [
+  2,
+  5
+ ],
+ "npcs": [],
+ "warps": [],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

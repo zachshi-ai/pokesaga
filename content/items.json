@@ -1,0 +1,410 @@
+[
+ {
+  "key": "LEFTOVERS",
+  "name": "吃剩的东西",
+  "desc": "每回合回复最大体力的 1/16",
+  "id": 1
+ },
+ {
+  "key": "CHOICE_BAND",
+  "name": "讲究头带",
+  "desc": "物理招式威力 1.5 倍，但只能重复用同一招",
+  "id": 2
+ },
+ {
+  "key": "CHOICE_SPECS",
+  "name": "讲究眼镜",
+  "desc": "特殊招式威力 1.5 倍，但只能重复用同一招",
+  "id": 3
+ },
+ {
+  "key": "CHOICE_SCARF",
+  "name": "讲究围巾",
+  "desc": "速度 1.5 倍，但只能重复用同一招",
+  "id": 4
+ },
+ {
+  "key": "LIFE_ORB",
+  "name": "生命宝珠",
+  "desc": "招式威力 1.3 倍，每次出手损失 1/10 体力",
+  "id": 5
+ },
+ {
+  "key": "FOCUS_SASH",
+  "name": "气势披带",
+  "desc": "满体力时被打倒会留下 1 点体力",
+  "id": 6
+ },
+ {
+  "key": "ASSAULT_VEST",
+  "name": "突击背心",
+  "desc": "特防 1.5 倍，但不能使用变化招式",
+  "id": 7
+ },
+ {
+  "key": "HEAT_ROCK",
+  "name": "炽热岩石",
+  "desc": "自己开的晴天持续 8 回合",
+  "id": 8
+ },
+ {
+  "key": "DAMP_ROCK",
+  "name": "潮湿岩石",
+  "desc": "自己开的雨天持续 8 回合",
+  "id": 9
+ },
+ {
+  "key": "SMOOTH_ROCK",
+  "name": "沙沙岩石",
+  "desc": "自己开的沙暴持续 8 回合",
+  "id": 10
+ },
+ {
+  "key": "ICY_ROCK",
+  "name": "冰冷岩石",
+  "desc": "自己开的雪天持续 8 回合",
+  "id": 11
+ },
+ {
+  "key": "MEMORY_NORMAL",
+  "name": "存储碟（一般）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成一般属性",
+  "id": 12
+ },
+ {
+  "key": "MEMORY_FIGHTING",
+  "name": "存储碟（格斗）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成格斗属性",
+  "id": 13
+ },
+ {
+  "key": "MEMORY_FLYING",
+  "name": "存储碟（飞行）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成飞行属性",
+  "id": 14
+ },
+ {
+  "key": "MEMORY_POISON",
+  "name": "存储碟（毒）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成毒属性",
+  "id": 15
+ },
+ {
+  "key": "MEMORY_GROUND",
+  "name": "存储碟（地面）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成地面属性",
+  "id": 16
+ },
+ {
+  "key": "MEMORY_ROCK",
+  "name": "存储碟（岩石）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成岩石属性",
+  "id": 17
+ },
+ {
+  "key": "MEMORY_BUG",
+  "name": "存储碟（虫）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成虫属性",
+  "id": 18
+ },
+ {
+  "key": "MEMORY_GHOST",
+  "name": "存储碟（幽灵）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成幽灵属性",
+  "id": 19
+ },
+ {
+  "key": "MEMORY_STEEL",
+  "name": "存储碟（钢）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成钢属性",
+  "id": 20
+ },
+ {
+  "key": "MEMORY_FIRE",
+  "name": "存储碟（火）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成火属性",
+  "id": 21
+ },
+ {
+  "key": "MEMORY_WATER",
+  "name": "存储碟（水）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成水属性",
+  "id": 22
+ },
+ {
+  "key": "MEMORY_GRASS",
+  "name": "存储碟（草）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成草属性",
+  "id": 23
+ },
+ {
+  "key": "MEMORY_ELECTRIC",
+  "name": "存储碟（电）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成电属性",
+  "id": 24
+ },
+ {
+  "key": "MEMORY_PSYCHIC",
+  "name": "存储碟（超能力）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成超能力属性",
+  "id": 25
+ },
+ {
+  "key": "MEMORY_ICE",
+  "name": "存储碟（冰）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成冰属性",
+  "id": 26
+ },
+ {
+  "key": "MEMORY_DRAGON",
+  "name": "存储碟（龙）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成龙属性",
+  "id": 27
+ },
+ {
+  "key": "MEMORY_DARK",
+  "name": "存储碟（恶）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成恶属性",
+  "id": 28
+ },
+ {
+  "key": "MEMORY_FAIRY",
+  "name": "存储碟（妖精）",
+  "desc": "银伴战兽携带后由ＡＲ系统变成妖精属性",
+  "id": 29
+ },
+ {
+  "key": "OGERPON_TEAL_MASK",
+  "name": "碧草面具",
+  "desc": "厄诡椪携带后变成碧草形态",
+  "id": 30
+ },
+ {
+  "key": "OGERPON_WELLSPRING_MASK",
+  "name": "水井面具",
+  "desc": "厄诡椪携带后变成水井形态",
+  "id": 31
+ },
+ {
+  "key": "OGERPON_HEARTHFLAME_MASK",
+  "name": "炉火面具",
+  "desc": "厄诡椪携带后变成炉火形态",
+  "id": 32
+ },
+ {
+  "key": "OGERPON_CORNERSTONE_MASK",
+  "name": "础石面具",
+  "desc": "厄诡椪携带后变成础石形态",
+  "id": 33
+ },
+ {
+  "key": "ROTOM_HEAT",
+  "name": "微波炉",
+  "desc": "洛托姆携带后变成加热形态（电/火）",
+  "id": 34
+ },
+ {
+  "key": "ROTOM_WASH",
+  "name": "洗衣机",
+  "desc": "洛托姆携带后变成清洗形态（电/水）",
+  "id": 35
+ },
+ {
+  "key": "ROTOM_FROST",
+  "name": "冰箱",
+  "desc": "洛托姆携带后变成结冰形态（电/冰）",
+  "id": 36
+ },
+ {
+  "key": "ROTOM_FAN",
+  "name": "电风扇",
+  "desc": "洛托姆携带后变成旋转形态（电/飞行）",
+  "id": 37
+ },
+ {
+  "key": "ROTOM_MOW",
+  "name": "割草机",
+  "desc": "洛托姆携带后变成切割形态（电/草）",
+  "id": 38
+ },
+ {
+  "key": "RED_ORB",
+  "name": "朱红宝珠",
+  "desc": "固拉多携带后回复原始形态",
+  "id": 39
+ },
+ {
+  "key": "BLUE_ORB",
+  "name": "靛蓝宝珠",
+  "desc": "盖欧卡携带后回复原始形态",
+  "id": 40
+ },
+ {
+  "key": "ULTRANECROZIUM_Z",
+  "name": "究极爆裂结晶",
+  "desc": "奈克洛兹玛携带后变成究极形态",
+  "id": 41
+ },
+ {
+  "key": "FLAME_PLATE",
+  "name": "火球石板",
+  "desc": "阿尔宙斯携带后属性变成fire，制裁光砾随之变化",
+  "id": 42
+ },
+ {
+  "key": "SPLASH_PLATE",
+  "name": "水滴石板",
+  "desc": "阿尔宙斯携带后属性变成water，制裁光砾随之变化",
+  "id": 43
+ },
+ {
+  "key": "ZAP_PLATE",
+  "name": "雷电石板",
+  "desc": "阿尔宙斯携带后属性变成electric，制裁光砾随之变化",
+  "id": 44
+ },
+ {
+  "key": "MEADOW_PLATE",
+  "name": "碧绿石板",
+  "desc": "阿尔宙斯携带后属性变成grass，制裁光砾随之变化",
+  "id": 45
+ },
+ {
+  "key": "ICICLE_PLATE",
+  "name": "冰柱石板",
+  "desc": "阿尔宙斯携带后属性变成ice，制裁光砾随之变化",
+  "id": 46
+ },
+ {
+  "key": "FIST_PLATE",
+  "name": "拳头石板",
+  "desc": "阿尔宙斯携带后属性变成fighting，制裁光砾随之变化",
+  "id": 47
+ },
+ {
+  "key": "TOXIC_PLATE",
+  "name": "剧毒石板",
+  "desc": "阿尔宙斯携带后属性变成poison，制裁光砾随之变化",
+  "id": 48
+ },
+ {
+  "key": "EARTH_PLATE",
+  "name": "大地石板",
+  "desc": "阿尔宙斯携带后属性变成ground，制裁光砾随之变化",
+  "id": 49
+ },
+ {
+  "key": "SKY_PLATE",
+  "name": "蓝天石板",
+  "desc": "阿尔宙斯携带后属性变成flying，制裁光砾随之变化",
+  "id": 50
+ },
+ {
+  "key": "MIND_PLATE",
+  "name": "神奇石板",
+  "desc": "阿尔宙斯携带后属性变成psychic，制裁光砾随之变化",
+  "id": 51
+ },
+ {
+  "key": "INSECT_PLATE",
+  "name": "玉虫石板",
+  "desc": "阿尔宙斯携带后属性变成bug，制裁光砾随之变化",
+  "id": 52
+ },
+ {
+  "key": "STONE_PLATE",
+  "name": "岩石石板",
+  "desc": "阿尔宙斯携带后属性变成rock，制裁光砾随之变化",
+  "id": 53
+ },
+ {
+  "key": "SPOOKY_PLATE",
+  "name": "妖怪石板",
+  "desc": "阿尔宙斯携带后属性变成ghost，制裁光砾随之变化",
+  "id": 54
+ },
+ {
+  "key": "DRACO_PLATE",
+  "name": "龙之石板",
+  "desc": "阿尔宙斯携带后属性变成dragon，制裁光砾随之变化",
+  "id": 55
+ },
+ {
+  "key": "DREAD_PLATE",
+  "name": "恶颜石板",
+  "desc": "阿尔宙斯携带后属性变成dark，制裁光砾随之变化",
+  "id": 56
+ },
+ {
+  "key": "IRON_PLATE",
+  "name": "钢铁石板",
+  "desc": "阿尔宙斯携带后属性变成steel，制裁光砾随之变化",
+  "id": 57
+ },
+ {
+  "key": "PIXIE_PLATE",
+  "name": "妖精石板",
+  "desc": "阿尔宙斯携带后属性变成fairy，制裁光砾随之变化",
+  "id": 58
+ },
+ {
+  "key": "DOUSE_DRIVE",
+  "name": "水滴卡带",
+  "desc": "盖诺赛克特携带后改变形态，高科技光炮属性随卡带变化",
+  "id": 59
+ },
+ {
+  "key": "SHOCK_DRIVE",
+  "name": "闪电卡带",
+  "desc": "盖诺赛克特携带后改变形态，高科技光炮属性随卡带变化",
+  "id": 60
+ },
+ {
+  "key": "BURN_DRIVE",
+  "name": "火焰卡带",
+  "desc": "盖诺赛克特携带后改变形态，高科技光炮属性随卡带变化",
+  "id": 61
+ },
+ {
+  "key": "CHILL_DRIVE",
+  "name": "冰冻卡带",
+  "desc": "盖诺赛克特携带后改变形态，高科技光炮属性随卡带变化",
+  "id": 62
+ },
+ {
+  "key": "GRACIDEA",
+  "name": "葛拉西蒂亚花",
+  "desc": "谢米携带后变成天空形态",
+  "id": 63
+ },
+ {
+  "key": "RUSTED_SWORD",
+  "name": "腐朽之剑",
+  "desc": "苍响携带后变成王形态",
+  "id": 64
+ },
+ {
+  "key": "RUSTED_SHIELD",
+  "name": "腐朽之盾",
+  "desc": "藏玛然特携带后变成王形态",
+  "id": 65
+ },
+ {
+  "key": "GRISEOUS_ORB",
+  "name": "白金宝珠",
+  "desc": "骑拉帝纳携带后变为起源形态",
+  "id": 66
+ },
+ {
+  "key": "PRISON_BOTTLE",
+  "name": "惩戒之壶",
+  "desc": "胡帕携带后变为解放形态",
+  "id": 67
+ },
+ {
+  "key": "REVEAL_GLASS",
+  "name": "现形镜",
+  "desc": "三云携带后变为灵兽形态",
+  "id": 68
+ }
+]

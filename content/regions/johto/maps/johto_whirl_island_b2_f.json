@@ -1,0 +1,181 @@
+{
+ "name": "涡卷岛",
+ "emerald": "johto_whirl_island_b2_f",
+ "size": [
+  10,
+  18
+ ],
+ "spawn": [
+  2,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    5
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    2
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    6
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_whirl_island_b1_f",
+    "at": [
+     12,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_whirl_island_b1_f",
+    "at": [
+     6,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_whirl_island_lugia_chamber",
+    "at": [
+     7,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_whirl_island_sw",
+    "at": [
+     8,
+     8
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 98,
+   "min": 24,
+   "max": 24,
+   "weight": 110
+  },
+  {
+   "species": 41,
+   "min": 25,
+   "max": 25,
+   "weight": 90
+  },
+  {
+   "species": 86,
+   "min": 24,
+   "max": 24,
+   "weight": 40
+  },
+  {
+   "species": 98,
+   "min": 26,
+   "max": 26,
+   "weight": 30
+  },
+  {
+   "species": 42,
+   "min": 27,
+   "max": 27,
+   "weight": 15
+  },
+  {
+   "species": 86,
+   "min": 26,
+   "max": 26,
+   "weight": 10
+  },
+  {
+   "species": 42,
+   "min": 26,
+   "max": 26,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.06,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 116,
+   "min": 15,
+   "max": 15,
+   "weight": 60
+  },
+  {
+   "species": 116,
+   "min": 20,
+   "max": 20,
+   "weight": 30
+  },
+  {
+   "species": 73,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.04
+}

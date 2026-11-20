@@ -1,0 +1,114 @@
+{
+ "name": "五号岛·宝可梦中心",
+ "emerald": "pokemon_center_1f_frlg",
+ "size": [
+  15,
+  10
+ ],
+ "spawn": [
+  1,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "nurse",
+   "lines": [
+    "这座岛上的风是咸的。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    4
+   ],
+   "name": "岛民",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "船一天只来两趟。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你从关都来的吧。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    1
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没什么人，安静。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    1
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "往北走有条小路。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     18,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_pokemon_center_2f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,62 @@
+{
+ "name": "七之岛·训练家塔 ROOF",
+ "emerald": "trainer_tower_roof",
+ "size": [
+  18,
+  16
+ ],
+ "spawn": [
+  4,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    9,
+    7
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这里的果子比别处甜。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    13,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "trainer_tower_elevator",
+    "at": [
+     2,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "trainer_tower_8f",
+    "at": [
+     15,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

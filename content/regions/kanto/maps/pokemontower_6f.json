@@ -1,0 +1,182 @@
+{
+ "name": "关都·宝可梦塔 6F",
+ "emerald": "pokemon_tower_6f",
+ "size": [
+  24,
+  20
+ ],
+ "spawn": [
+  11,
+  16
+ ],
+ "npcs": [
+  {
+   "at": [
+    13,
+    10
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "脚下滑，慢点走。",
+    "出去记得晒太阳。"
+   ]
+  },
+  {
+   "at": [
+    18,
+    6
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "你听见水滴声了吗。",
+    "出去记得晒太阳。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    6
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "别往深处乱走。",
+    "出去记得晒太阳。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    11,
+    16
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemontower_7f",
+    "at": [
+     11,
+     16
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemontower_5f",
+    "at": [
+     18,
+     10
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 92,
+   "min": 16,
+   "max": 16,
+   "weight": 20
+  },
+  {
+   "species": 92,
+   "min": 17,
+   "max": 17,
+   "weight": 20
+  },
+  {
+   "species": 92,
+   "min": 18,
+   "max": 18,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 14,
+   "max": 14,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 15,
+   "max": 15,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 19,
+   "max": 19,
+   "weight": 10
+  },
+  {
+   "species": 93,
+   "min": 21,
+   "max": 21,
+   "weight": 5
+  },
+  {
+   "species": 104,
+   "min": 17,
+   "max": 17,
+   "weight": 5
+  },
+  {
+   "species": 92,
+   "min": 18,
+   "max": 18,
+   "weight": 4
+  },
+  {
+   "species": 104,
+   "min": 19,
+   "max": 19,
+   "weight": 4
+  },
+  {
+   "species": 92,
+   "min": 18,
+   "max": 18,
+   "weight": 1
+  },
+  {
+   "species": 93,
+   "min": 23,
+   "max": 23,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.08,
+ "objects": [
+  {
+   "at": [
+    5,
+    15
+   ],
+   "kind": "item",
+   "item": "ITEM_RARE_CANDY",
+   "name": "神奇糖果",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    15,
+    15
+   ],
+   "kind": "item",
+   "item": "ITEM_X_ACCURACY",
+   "name": "ITEM_X_ACCURACY",
+   "category": "other",
+   "sprite": "ball"
+  }
+ ],
+ "weather": "fog_horizontal",
+ "weather_name": "雾",
+ "cycling": false
+}

@@ -1,0 +1,137 @@
+{
+ "name": "关都·宝可梦塔 1F",
+ "emerald": "pokemon_tower_1f",
+ "size": [
+  24,
+  20
+ ],
+ "spawn": [
+  10,
+  19
+ ],
+ "npcs": [
+  {
+   "at": [
+    18,
+    13
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "前面塌了一段。",
+    "我把灯留给你。"
+   ]
+  },
+  {
+   "at": [
+    18,
+    7
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "火把快烧完了。",
+    "我把灯留给你。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    6
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这层我来过三回。",
+    "我把灯留给你。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    8
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "脚下滑，慢点走。",
+    "我把灯留给你。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    12
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "你听见水滴声了吗。",
+    "我把灯留给你。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    10,
+    19
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     402,
+     136
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     402,
+     136
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    19
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     402,
+     136
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemontower_2f",
+    "at": [
+     18,
+     10
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

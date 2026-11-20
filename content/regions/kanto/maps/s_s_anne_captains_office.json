@@ -1,0 +1,76 @@
+{
+ "name": "关都·圣安奴号·captains office",
+ "emerald": "ssanne_captains_office",
+ "size": [
+  9,
+  10
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "今天天气不错。",
+    "这年头谁都不容易。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_2_f_corridor",
+    "at": [
+     30,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    2,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "怎么样才能克服晕船……\n船长正在阅读中！"
+  },
+  {
+   "at": [
+    5,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "真恶心！\n早知就不应该看！"
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "怎么样才能克服晕船……\n船长正在阅读中！"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,203 @@
+{
+ "name": "二号岛·海角",
+ "emerald": "two_island_cape_brink",
+ "size": [
+  24,
+  40
+ ],
+ "spawn": [
+  12,
+  16
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    12,
+    16
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island_cape_brink_house",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    39
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island",
+    "at": [
+     36,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    39
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island",
+    "at": [
+     37,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    39
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island",
+    "at": [
+     38,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    15,
+    39
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island",
+    "at": [
+     39,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    39
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island",
+    "at": [
+     40,
+     0
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 21,
+   "min": 31,
+   "max": 31,
+   "weight": 20
+  },
+  {
+   "species": 43,
+   "min": 30,
+   "max": 30,
+   "weight": 20
+  },
+  {
+   "species": 43,
+   "min": 32,
+   "max": 32,
+   "weight": 10
+  },
+  {
+   "species": 44,
+   "min": 36,
+   "max": 36,
+   "weight": 10
+  },
+  {
+   "species": 22,
+   "min": 36,
+   "max": 36,
+   "weight": 10
+  },
+  {
+   "species": 52,
+   "min": 31,
+   "max": 31,
+   "weight": 10
+  },
+  {
+   "species": 44,
+   "min": 38,
+   "max": 38,
+   "weight": 5
+  },
+  {
+   "species": 54,
+   "min": 31,
+   "max": 31,
+   "weight": 5
+  },
+  {
+   "species": 55,
+   "min": 37,
+   "max": 37,
+   "weight": 4
+  },
+  {
+   "species": 53,
+   "min": 37,
+   "max": 37,
+   "weight": 4
+  },
+  {
+   "species": 55,
+   "min": 40,
+   "max": 40,
+   "weight": 1
+  },
+  {
+   "species": 53,
+   "min": 40,
+   "max": 40,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "objects": [
+  {
+   "at": [
+    16,
+    28
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PP_MAX",
+   "name": "PP 极限提升剂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_TWO_ISLAND_CAPE_BRINK_PP_MAX",
+   "count": 1
+  },
+  {
+   "at": [
+    15,
+    13
+   ],
+   "kind": "hidden",
+   "item": "ITEM_RARE_CANDY",
+   "name": "神奇糖果",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_TWO_ISLAND_CAPE_BRINK_RARE_CANDY",
+   "count": 1
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

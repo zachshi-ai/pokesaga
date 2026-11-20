@@ -1,0 +1,417 @@
+{
+ "name": "满金地下通道",
+ "emerald": "johto_goldenrod_underground_switch_room_entrances",
+ "size": [
+  15,
+  18
+ ],
+ "spawn": [
+  8,
+  11
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    6
+   ],
+   "name": "训练家 Duncan",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 23,
+      "species": 109
+     },
+     {
+      "level": 25,
+      "species": 126
+     },
+     {
+      "level": 23,
+      "species": 109
+     }
+    ]
+   },
+   "trainer": "BurglarDuncan"
+  },
+  {
+   "at": [
+    2,
+    4
+   ],
+   "name": "训练家 Eddie",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 26,
+      "species": 58,
+      "moves": [
+       46,
+       52,
+       43,
+       36
+      ]
+     },
+     {
+      "level": 24,
+      "species": 109,
+      "moves": [
+       33,
+       123,
+       124,
+       108
+      ]
+     }
+    ]
+   },
+   "trainer": "BurglarEddie"
+  },
+  {
+   "at": [
+    8,
+    1
+   ],
+   "name": "火箭队队员 Grunt 13",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 27,
+      "species": 19
+     }
+    ]
+   },
+   "trainer": "GruntM#13"
+  },
+  {
+   "at": [
+    5,
+    1
+   ],
+   "name": "火箭队队员 Grunt 11",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 23,
+      "species": 89
+     },
+     {
+      "level": 23,
+      "species": 109
+     },
+     {
+      "level": 25,
+      "species": 19
+     }
+    ]
+   },
+   "trainer": "GruntM#11"
+  },
+  {
+   "at": [
+    1,
+    1
+   ],
+   "name": "火箭队队员 Grunt 25",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 24,
+      "species": 109
+     },
+     {
+      "level": 24,
+      "species": 89
+     }
+    ]
+   },
+   "trainer": "GruntM#25"
+  },
+  {
+   "at": [
+    9,
+    6
+   ],
+   "name": "火箭队队员 Grunt 3",
+   "gfx": "team_rocket_f",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 25,
+      "species": 44
+     },
+     {
+      "level": 25,
+      "species": 44
+     }
+    ]
+   },
+   "trainer": "GruntF#3"
+  },
+  {
+   "at": [
+    1,
+    13
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    13
+   ],
+   "name": "理科男",
+   "gfx": "scientist",
+   "lines": [
+    "研究数据是不会骗人的。",
+    "宝可梦的行为比人想的复杂得多。"
+   ]
+  },
+  {
+   "at": [
+    0,
+    6
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    4
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    11,
+    11
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_underground",
+    "at": [
+     11,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    11
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_underground_warehouse",
+    "at": [
+     3,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    11
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_underground_warehouse",
+    "at": [
+     3,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_underground",
+    "at": [
+     9,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_city",
+    "at": [
+     5,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_city",
+    "at": [
+     5,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_underground",
+    "at": [
+     9,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_city",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_city",
+    "at": [
+     4,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    7,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "满金地下通道\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    4,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "满金地下通道\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    0,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "满金地下通道\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "满金地下通道\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    0,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "满金地下通道\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

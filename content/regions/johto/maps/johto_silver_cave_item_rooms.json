@@ -1,0 +1,125 @@
+{
+ "name": "白银山",
+ "emerald": "johto_silver_cave_item_rooms",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    1
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    5
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_silver_cave_room_2",
+    "at": [
+     6,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_silver_cave_room_2",
+    "at": [
+     7,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 42,
+   "min": 48,
+   "max": 48,
+   "weight": 90
+  },
+  {
+   "species": 42,
+   "min": 46,
+   "max": 46,
+   "weight": 60
+  },
+  {
+   "species": 42,
+   "min": 50,
+   "max": 50,
+   "weight": 60
+  },
+  {
+   "species": 47,
+   "min": 46,
+   "max": 46,
+   "weight": 30
+  },
+  {
+   "species": 200,
+   "min": 45,
+   "max": 45,
+   "weight": 30
+  },
+  {
+   "species": 47,
+   "min": 48,
+   "max": 48,
+   "weight": 15
+  },
+  {
+   "species": 47,
+   "min": 50,
+   "max": 50,
+   "weight": 12
+  },
+  {
+   "species": 47,
+   "min": 52,
+   "max": 52,
+   "weight": 3
+  }
+ ],
+ "encounter_rate": 0.06,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

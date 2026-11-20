@@ -1,0 +1,1 @@
+{"id":"petalburg_city_0","from":"petalburg_city","size":[6,3],"metatiles":[[48,49,50,51,468,469],[56,57,58,59,476,477],[96,65,66,67,468,469]],"collision":[[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1]],"door":[1,2],"primary":"gTileset_General","secondary":"gTileset_Petalburg"}

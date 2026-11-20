@@ -1,0 +1,253 @@
+{
+ "name": "烧焦塔·B1F",
+ "emerald": "johto_burned_tower_b1_f",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    8,
+    4
+   ],
+   "name": "岩石",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    1
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    1
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    0
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    1
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    2
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    6
+   ],
+   "name": "理科男",
+   "gfx": "scientist",
+   "lines": [
+    "研究数据是不会骗人的。",
+    "宝可梦的行为比人想的复杂得多。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_1f",
+    "at": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_1f",
+    "at": [
+     4,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_1f",
+    "at": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_1f",
+    "at": [
+     2,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_1f",
+    "at": [
+     6,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_1f",
+    "at": [
+     3,
+     5
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 19,
+   "min": 14,
+   "max": 14,
+   "weight": 90
+  },
+  {
+   "species": 109,
+   "min": 14,
+   "max": 14,
+   "weight": 90
+  },
+  {
+   "species": 109,
+   "min": 16,
+   "max": 16,
+   "weight": 72
+  },
+  {
+   "species": 41,
+   "min": 15,
+   "max": 15,
+   "weight": 30
+  },
+  {
+   "species": 109,
+   "min": 12,
+   "max": 12,
+   "weight": 15
+  },
+  {
+   "species": 110,
+   "min": 16,
+   "max": 16,
+   "weight": 3
+  }
+ ],
+ "encounter_rate": 0.06,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

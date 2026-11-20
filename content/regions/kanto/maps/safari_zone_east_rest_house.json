@@ -1,0 +1,99 @@
+{
+ "name": "关都·狩猎区·east rest house",
+ "emerald": "safari_zone_rest_house_frlg",
+ "size": [
+  13,
+  11
+ ],
+ "spawn": [
+  3,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    5
+   ],
+   "name": "居民",
+   "gfx": "scientist",
+   "lines": [
+    "这附近有只野猫。",
+    "这个我不太清楚。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    3
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "听说是有人把门锁了。",
+    "这个我不太清楚。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    3
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "柜台后面那位脾气不好。",
+    "这个我不太清楚。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_east",
+    "at": [
+     40,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_east",
+    "at": [
+     40,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_east",
+    "at": [
+     40,
+     14
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

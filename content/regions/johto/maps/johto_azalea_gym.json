@@ -1,0 +1,221 @@
+{
+ "name": "道馆",
+ "emerald": "johto_azalea_gym",
+ "size": [
+  5,
+  8
+ ],
+ "spawn": [
+  2,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    3
+   ],
+   "name": "馆主 阿笔",
+   "gfx": "bug_catcher",
+   "lines": [
+    "想挑战道馆，先过我这关。",
+    "让我看看你的实力。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 14,
+      "species": 11,
+      "moves": [
+       33,
+       81,
+       106
+      ]
+     },
+     {
+      "level": 14,
+      "species": 14,
+      "moves": [
+       40,
+       81,
+       106
+      ]
+     },
+     {
+      "level": 16,
+      "species": 123,
+      "moves": [
+       98,
+       43,
+       210
+      ]
+     }
+    ]
+   },
+   "badge": "昆虫徽章",
+   "trainer": "Bugsy"
+  },
+  {
+   "at": [
+    2,
+    1
+   ],
+   "name": "捕虫少年 Benny",
+   "gfx": "bug_catcher",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 7,
+      "species": 13
+     },
+     {
+      "level": 9,
+      "species": 14
+     },
+     {
+      "level": 12,
+      "species": 15
+     }
+    ]
+   },
+   "trainer": "BugCatcherBenny"
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "捕虫少年 Al",
+   "gfx": "bug_catcher",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 12,
+      "species": 10
+     },
+     {
+      "level": 12,
+      "species": 13
+     }
+    ]
+   },
+   "trainer": "BugCatcherAl"
+  },
+  {
+   "at": [
+    0,
+    1
+   ],
+   "name": "捕虫少年 Josh",
+   "gfx": "bug_catcher",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 13,
+      "species": 46
+     }
+    ]
+   },
+   "trainer": "BugCatcherJosh"
+  },
+  {
+   "at": [
+    2,
+    5
+   ],
+   "name": "双胞胎",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    4
+   ],
+   "name": "双胞胎",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_azalea_town",
+    "at": [
+     5,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_azalea_town",
+    "at": [
+     5,
+     8
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    0,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "道馆\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

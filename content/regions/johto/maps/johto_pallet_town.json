@@ -1,0 +1,342 @@
+{
+ "name": "PalletTown",
+ "emerald": "johto_pallet_town",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  4,
+  3
+ ],
+ "npcs": [
+  {
+   "at": [
+    1,
+    4
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    7
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_reds_house_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_blues_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_oaks_lab",
+    "at": [
+     2,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     2,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     4,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     5,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     6,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     7,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     8,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     9,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     0,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    2,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     0,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    3,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     4,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     4,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     5,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     6,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     7,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     8,
+     1
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    3,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "PalletTown\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "PalletTown\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    5,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "PalletTown\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

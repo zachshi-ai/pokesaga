@@ -1,0 +1,308 @@
+{
+ "name": "六号岛",
+ "emerald": "six_island",
+ "size": [
+  24,
+  30
+ ],
+ "spawn": [
+  20,
+  11
+ ],
+ "npcs": [
+  {
+   "at": [
+    10,
+    15
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "往北走有条小路。",
+    "有事就喊。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    13
+   ],
+   "name": "岛民",
+   "gfx": "hiker",
+   "lines": [
+    "听说洞里藏着东西。",
+    "有事就喊。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    11,
+    23
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_harbor",
+    "at": [
+     8,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_pokemon_center_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    17
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_house",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    20,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_mart",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    15
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    16
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     22
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    17
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    14
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    18
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     21
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    20
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     23
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     15
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    9,
+    17
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "六之岛\n古代智慧传承之岛"
+  },
+  {
+   "at": [
+    9,
+    7
+   ],
+   "kind": "hidden",
+   "item": "ITEM_LEPPA_BERRY",
+   "name": "苹野果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_SIX_ISLAND_LEPPA_BERRY",
+   "count": 1
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

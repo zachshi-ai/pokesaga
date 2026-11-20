@@ -1,0 +1,103 @@
+{
+ "name": "关都·15 号道路·西口 1F",
+ "emerald": "entrance_1f",
+ "size": [
+  13,
+  12
+ ],
+ "spawn": [
+  1,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "东西涨价涨得厉害。",
+    "你自己看吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     249,
+     321
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     249,
+     321
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     256,
+     321
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     256,
+     321
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route15_west_entrance_2f",
+    "at": [
+     10,
+     9
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

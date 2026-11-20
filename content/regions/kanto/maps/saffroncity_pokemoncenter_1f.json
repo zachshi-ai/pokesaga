@@ -1,0 +1,151 @@
+{
+ "name": "关都·金黄市·宝可梦中心",
+ "emerald": "pokemon_center_1f_frlg",
+ "size": [
+  15,
+  10
+ ],
+ "spawn": [
+  6,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    2
+   ],
+   "gfx": "nurse",
+   "name": "护士",
+   "heal": true
+  },
+  {
+   "at": [
+    14,
+    6
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "我刚从北边过来，风挺大。",
+    "后来是只波波带我出去的。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "gfx": "lass",
+   "name": "大姐",
+   "lines": [
+    "你队伍里有几只？",
+    "后来是只波波带我出去的。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    6
+   ],
+   "gfx": "youngster",
+   "name": "短裤小子",
+   "lines": [
+    "听说馆主今天心情不错。",
+    "后来是只波波带我出去的。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    1
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "这附近的水很干净。",
+    "后来是只波波带我出去的。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    1
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "我小时候在这里迷过路。",
+    "后来是只波波带我出去的。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     288,
+     158
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     288,
+     158
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     288,
+     158
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffron_city_pokemon_center_2f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

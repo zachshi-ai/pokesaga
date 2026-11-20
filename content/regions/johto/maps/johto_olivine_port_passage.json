@@ -1,0 +1,105 @@
+{
+ "name": "OlivinePortPassage",
+ "emerald": "johto_olivine_port_passage",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  6,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    8,
+    0
+   ],
+   "name": "宝可梦迷",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_city",
+    "at": [
+     9,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_city",
+    "at": [
+     10,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_port_passage",
+    "at": [
+     6,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_port_passage",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_port",
+    "at": [
+     4,
+     7
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

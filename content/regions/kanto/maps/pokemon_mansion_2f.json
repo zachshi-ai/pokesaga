@@ -1,0 +1,165 @@
+{
+ "name": "关都·宝可梦屋·2f",
+ "emerald": "pokemon_mansion_2f",
+ "size": [
+  38,
+  38
+ ],
+ "spawn": [
+  9,
+  3
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    23
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我把钥匙忘在楼上了。",
+    "我什么都没说。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    9,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_3f",
+    "at": [
+     8,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    34,
+    22
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_3f",
+    "at": [
+     34,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_1f",
+    "at": [
+     10,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_3f",
+    "at": [
+     11,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    27,
+    17
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_3f",
+    "at": [
+     23,
+     18
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    36,
+    8
+   ],
+   "kind": "item",
+   "item": "ITEM_CALCIUM",
+   "name": "特攻增强剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    18,
+    23
+   ],
+   "kind": "item",
+   "item": "ITEM_ZINC",
+   "name": "特防增强剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    35,
+    17
+   ],
+   "kind": "item",
+   "item": "ITEM_HP_UP",
+   "name": "HP 增强剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    2,
+    16
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一个秘密的开关！\n要按下它吗？谁不愿意？还没到时候呢！我出不去！\n这个古老的地方是一个巨大的迷宫。不！！\n这是我的战利品！拨动这里的开关可以……"
+  },
+  {
+   "at": [
+    6,
+    31
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "日记：7月10日\n我们把新发现的宝可梦称为梦幻。"
+  },
+  {
+   "at": [
+    25,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "日记：7月5日\n圭亚那，南美洲\n在丛林深处发现了\n一只新的宝可梦。"
+  }
+ ],
+ "weather": "shade",
+ "weather_name": "阴",
+ "cycling": false
+}

@@ -1,0 +1,155 @@
+{
+ "name": "关都·红莲岛·宝可梦研究所",
+ "emerald": "cinnabar_island_pokemon_lab_entrance",
+ "size": [
+  28,
+  11
+ ],
+ "spawn": [
+  3,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    4
+   ],
+   "name": "居民",
+   "gfx": "scientist",
+   "lines": [
+    "我在这儿等人。",
+    "再坐一会儿吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     68,
+     389
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     68,
+     389
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     68,
+     389
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabar_island_pokemon_lab_lounge",
+    "at": [
+     7,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabar_island_pokemon_lab_research_room",
+    "at": [
+     7,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    25,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabar_island_pokemon_lab_experiment_room",
+    "at": [
+     7,
+     9
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    4,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一张研究所的创始人的照片……\n富士博士？！"
+  },
+  {
+   "at": [
+    12,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "宝可梦实验室\n会客室"
+  },
+  {
+   "at": [
+    18,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "宝可梦实验室\n研究与发展办公室"
+  },
+  {
+   "at": [
+    24,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "宝可梦实验室\n聊天室"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

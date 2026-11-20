@@ -1,0 +1,117 @@
+{
+ "name": "关都·11 号道路·东口 1F",
+ "emerald": "entrance_1f",
+ "size": [
+  13,
+  12
+ ],
+ "spawn": [
+  1,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你知道道馆在哪边吗。",
+    "有事就问我。",
+    "这条街我住了几十年。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    10
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我刚从医院回来。",
+    "有事就问我。",
+    "这条街我住了几十年。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     370,
+     220
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     370,
+     220
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     377,
+     220
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     377,
+     220
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route11_east_entrance_2f",
+    "at": [
+     10,
+     9
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

@@ -1,0 +1,82 @@
+{
+ "name": "关都·玉虹市·公寓楼顶",
+ "emerald": "celadon_city_condominiums_roof",
+ "size": [
+  14,
+  23
+ ],
+ "spawn": [
+  4,
+  2
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    4,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_condominiums_3f",
+    "at": [
+     4,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_condominiums_3f",
+    "at": [
+     12,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    12
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_condominiums_roof_room",
+    "at": [
+     4,
+     7
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    4,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我知道这个世界的一切！"
+  },
+  {
+   "at": [
+    3,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我知道这个世界的一切！"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

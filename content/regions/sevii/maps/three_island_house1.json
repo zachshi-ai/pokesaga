@@ -1,0 +1,59 @@
+{
+ "name": "三号岛·民居 1",
+ "emerald": "three_island_house1",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  4,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    4
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "有事问船夫。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     3,
+     31
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    2,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "上面列出了对战塔的规则。"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

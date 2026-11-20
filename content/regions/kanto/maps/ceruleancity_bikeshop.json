@@ -1,0 +1,151 @@
+{
+ "name": "关都·华蓝市·自行车店",
+ "emerald": "cerulean_city_bike_shop",
+ "size": [
+  11,
+  10
+ ],
+ "spawn": [
+  4,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    4
+   ],
+   "name": "自行车店老板",
+   "gfx": "clerk",
+   "lines": [
+    "欢迎光临！",
+    "这台车……看你的样子，我送你了。",
+    "路上小心，别骑太快。"
+   ],
+   "gives_bike": true
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     277,
+     68
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     277,
+     68
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     277,
+     68
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    4,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一辆闪亮的新自行车！"
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一辆闪亮的新自行车！"
+  },
+  {
+   "at": [
+    4,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一辆闪亮的新自行车！"
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一辆闪亮的新自行车！"
+  },
+  {
+   "at": [
+    1,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一辆闪亮的新自行车！"
+  },
+  {
+   "at": [
+    2,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一辆闪亮的新自行车！"
+  },
+  {
+   "at": [
+    2,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一辆闪亮的新自行车！"
+  },
+  {
+   "at": [
+    2,
+    8
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一辆闪亮的新自行车！"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

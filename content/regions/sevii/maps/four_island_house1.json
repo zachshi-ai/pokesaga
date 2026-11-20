@@ -1,0 +1,61 @@
+{
+ "name": "四号岛·民居 1",
+ "emerald": "house3_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  4,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    8,
+    3
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "有事问船夫。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    3
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这座岛上的风是咸的。",
+    "有空再来。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island",
+    "at": [
+     25,
+     14
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

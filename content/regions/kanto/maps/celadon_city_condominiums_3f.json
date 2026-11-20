@@ -1,0 +1,199 @@
+{
+ "name": "关都·玉虹市·公寓 3F",
+ "emerald": "celadon_city_condominiums_3f",
+ "size": [
+  15,
+  20
+ ],
+ "spawn": [
+  2,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    0,
+    10
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "这楼里的电梯总在修。",
+    "有事就问我。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    8
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "别看我这样，年轻时也旅行过。",
+    "有事就问我。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    10
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我的宝可梦在睡午觉。",
+    "有事就问我。"
+   ]
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "东西涨价涨得厉害。",
+    "有事就问我。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_condominiums_2f",
+    "at": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_condominiums_roof",
+    "at": [
+     4,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_condominiums_roof",
+    "at": [
+     10,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_condominiums_2f",
+    "at": [
+     11,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    8,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "GAME FREAK开发室"
+  },
+  {
+   "at": [
+    1,
+    9
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这是游戏程序！弄乱了的话\n游戏会出故障的！"
+  },
+  {
+   "at": [
+    5,
+    9
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有些人是在玩游戏，\n没在工作！"
+  },
+  {
+   "at": [
+    1,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这是脚本！\n可别偷看结局哦！"
+  },
+  {
+   "at": [
+    7,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "GAME FREAK开发室"
+  },
+  {
+   "at": [
+    0,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这是脚本！\n可别偷看结局哦！"
+  },
+  {
+   "at": [
+    0,
+    9
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这是游戏程序！弄乱了的话\n游戏会出故障的！"
+  },
+  {
+   "at": [
+    4,
+    9
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有些人是在玩游戏，\n没在工作！"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

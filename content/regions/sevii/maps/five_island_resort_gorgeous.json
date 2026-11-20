@@ -1,0 +1,858 @@
+{
+ "name": "五号岛·豪华度假村",
+ "emerald": "five_island_resort_gorgeous",
+ "size": [
+  72,
+  20
+ ],
+ "spawn": [
+  64,
+  13
+ ],
+ "npcs": [
+  {
+   "at": [
+    44,
+    10
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "别在礁石上乱跑。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    33,
+    12
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "遗迹那边不让人进。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    10
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "海面今天很平。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    23,
+    9
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "码头那位脾气怪。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    33,
+    8
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "我养了三只宝可梦。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    33,
+    3
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没有大医院。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    56,
+    7
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "火种这条路不太好走。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    39,
+    9
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "我们这儿靠打鱼过活。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    44,
+    10
+   ],
+   "name": "Painter 的 DAISY",
+   "gfx": "lass",
+   "lines": [
+    "用这双手，\n我要创造我的胜利！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PAINTER_DAISY",
+    "party": [
+     {
+      "species": 235,
+      "level": 50
+     }
+    ],
+    "name": "DAISY",
+    "class": "Painter"
+   },
+   "post": [
+    "噢，我的涂料管\n散乱得到处都是！"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    33,
+    12
+   ],
+   "name": "Painter 的 CELINA",
+   "gfx": "lass",
+   "lines": [
+    "不好意思！\n我正忙着画画。请你别挡我的视线！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PAINTER_CELINA",
+    "party": [
+     {
+      "species": 235,
+      "level": 50
+     }
+    ],
+    "name": "CELINA",
+    "class": "Painter"
+   },
+   "post": [
+    "雪野？\n请稍微倾斜一下你的头部……好了！这就是我想要的姿势！"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    12,
+    10
+   ],
+   "name": "Painter 的 RAYNA",
+   "gfx": "lass",
+   "lines": [
+    "唔……\n这鱼钓的，这儿真不安静……"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PAINTER_RAYNA",
+    "party": [
+     {
+      "species": 235,
+      "level": 50
+     }
+    ],
+    "name": "RAYNA",
+    "class": "Painter"
+   },
+   "post": [
+    "天空和海洋……\n它们都是变幻无常的。\n它们的这种特性\n使得人们很难征服它们。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    33,
+    3
+   ],
+   "name": "Youngster 的 DESTIN",
+   "gfx": "youngster",
+   "lines": [
+    "我很擅长跑步。\n我速度可是很快的！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_YOUNGSTER_DESTIN",
+    "party": [
+     {
+      "species": 20,
+      "level": 48
+     },
+     {
+      "species": 17,
+      "level": 48
+     }
+    ],
+    "name": "DESTIN",
+    "class": "Youngster"
+   },
+   "post": [
+    "当我迎着风奔跑时，\n我感觉我能飞起来！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    56,
+    7
+   ],
+   "name": "Swimmer M 的 TOBY",
+   "gfx": "man",
+   "lines": [
+    "我发现这个度假胜地之中\n这些海上生物跟我很合拍。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_TOBY",
+    "party": [
+     {
+      "species": 61,
+      "level": 48
+     },
+     {
+      "species": 72,
+      "level": 48
+     },
+     {
+      "species": 73,
+      "level": 48
+     }
+    ],
+    "name": "TOBY",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "变得这么严重……\n多么荒谬啊。"
+   ],
+   "sight": 1
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    64,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_lost_cave_entrance",
+    "at": [
+     5,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    39,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous_house",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     3,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     4,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     10,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     11,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     12,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     13,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     14,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     15,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     16,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     19,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     20,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    20,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     23,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    21,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     24,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    22,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     25,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    27,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     30,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    28,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     31,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    29,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     32,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    34,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     37,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    35,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     38,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    36,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     39,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    37,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     40,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    38,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     41,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    41,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     44,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    42,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     45,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    43,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     46,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    44,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     47,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    45,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     48,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    46,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     49,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    47,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     50,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    54,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     57,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    55,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     58,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    56,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     59,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    57,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     60,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    66,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     69,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    67,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     70,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    68,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_water_labyrinth",
+    "at": [
+     71,
+     0
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    10,
+    7
+   ],
+   "kind": "hidden",
+   "item": "ITEM_NEST_BALL",
+   "name": "巢穴球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_FIVE_ISLAND_RESORT_GORGEOUS_NEST_BALL",
+   "count": 1
+  },
+  {
+   "at": [
+    27,
+    11
+   ],
+   "kind": "hidden",
+   "item": "ITEM_STARDUST",
+   "name": "星砂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_FIVE_ISLAND_RESORT_GORGEOUS_STARDUST",
+   "count": 1
+  },
+  {
+   "at": [
+    40,
+    12
+   ],
+   "kind": "hidden",
+   "item": "ITEM_STAR_PIECE",
+   "name": "星之碎片",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_FIVE_ISLAND_RESORT_GORGEOUS_STAR_PIECE",
+   "count": 1
+  },
+  {
+   "at": [
+    27,
+    5
+   ],
+   "kind": "hidden",
+   "item": "ITEM_STARDUST",
+   "name": "星砂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_FIVE_ISLAND_RESORT_GORGEOUS_STARDUST_2",
+   "count": 1
+  },
+  {
+   "at": [
+    42,
+    9
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "秋穗的家"
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

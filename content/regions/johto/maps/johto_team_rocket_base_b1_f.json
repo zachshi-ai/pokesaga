@@ -1,0 +1,266 @@
+{
+ "name": "火箭队基地",
+ "emerald": "johto_team_rocket_base_b1_f",
+ "size": [
+  15,
+  9
+ ],
+ "spawn": [
+  7,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    0,
+    0
+   ],
+   "name": "火箭队队员",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "别挡路。",
+    "这里没你的事。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "name": "火箭队队员 Grunt 16",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 16,
+      "species": 19
+     },
+     {
+      "level": 16,
+      "species": 19
+     },
+     {
+      "level": 16,
+      "species": 19
+     },
+     {
+      "level": 16,
+      "species": 19
+     }
+    ]
+   },
+   "trainer": "GruntM#16"
+  },
+  {
+   "at": [
+    9,
+    6
+   ],
+   "name": "研究员 Jed",
+   "gfx": "scientist",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 20,
+      "species": 81
+     },
+     {
+      "level": 20,
+      "species": 81
+     },
+     {
+      "level": 20,
+      "species": 81
+     }
+    ]
+   },
+   "trainer": "ScientistJed"
+  },
+  {
+   "at": [
+    13,
+    3
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    7
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    6
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    13,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mahogany_mart_1f",
+    "at": [
+     3,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_team_rocket_base_b2_f",
+    "at": [
+     1,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_team_rocket_base_b1_f",
+    "at": [
+     12,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_team_rocket_base_b1_f",
+    "at": [
+     2,
+     8
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    8,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "火箭队基地\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    12,
+    0
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "火箭队基地\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    3,
+    0
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "火箭队基地\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "火箭队基地\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    11,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "火箭队基地\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    12,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "火箭队基地\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    10,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "火箭队基地\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    1,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "火箭队基地\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

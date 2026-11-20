@@ -1,0 +1,340 @@
+{
+ "version": 1,
+ "note": "世界大盘：九地区的盘面坐标与通道表。加地区只改这里与 regions/<id>/，内核不认地区名。",
+ "plate": {
+  "size": [
+   1600,
+   1080
+  ],
+  "axis": "x 向东，y 向南"
+ },
+ "regions": {
+  "kanto": {
+   "name": "关都",
+   "gen": 1,
+   "proto": "日本·关东",
+   "at": [
+    1225,
+    425
+   ],
+   "status": "已实现"
+  },
+  "johto": {
+   "name": "城都",
+   "gen": 2,
+   "proto": "日本·关西",
+   "at": [
+    1055,
+    520
+   ],
+   "status": "待建"
+  },
+  "hoenn": {
+   "name": "丰缘",
+   "gen": 3,
+   "proto": "日本·九州",
+   "at": [
+    880,
+    645
+   ],
+   "status": "已实现"
+  },
+  "sinnoh": {
+   "name": "神奥",
+   "gen": 4,
+   "proto": "日本·北海道",
+   "at": [
+    1270,
+    240
+   ],
+   "status": "待建"
+  },
+  "unova": {
+   "name": "合众",
+   "gen": 5,
+   "proto": "美国·纽约",
+   "at": [
+    300,
+    615
+   ],
+   "status": "待建"
+  },
+  "kalos": {
+   "name": "卡洛斯",
+   "gen": 6,
+   "proto": "法国",
+   "at": [
+    640,
+    380
+   ],
+   "status": "待建"
+  },
+  "alola": {
+   "name": "阿罗拉",
+   "gen": 7,
+   "proto": "美国·夏威夷",
+   "at": [
+    200,
+    855
+   ],
+   "status": "待建"
+  },
+  "galar": {
+   "name": "伽勒尔",
+   "gen": 8,
+   "proto": "英国",
+   "at": [
+    430,
+    235
+   ],
+   "status": "待建"
+  },
+  "paldea": {
+   "name": "帕底亚",
+   "gen": 9,
+   "proto": "西班牙",
+   "at": [
+    490,
+    540
+   ],
+   "status": "待建"
+  }
+ },
+ "links": [
+  {
+   "a": "kanto",
+   "b": "johto",
+   "kind": "land",
+   "label": "29 号道路 / 磁浮",
+   "gate": null
+  },
+  {
+   "a": "johto",
+   "b": "hoenn",
+   "kind": "sea",
+   "label": "渡轮 · 内海航线",
+   "gate": null
+  },
+  {
+   "a": "johto",
+   "b": "sinnoh",
+   "kind": "sea",
+   "label": "渡轮 · 东北航线",
+   "gate": null
+  },
+  {
+   "a": "kanto",
+   "b": "sinnoh",
+   "kind": "air",
+   "label": "飞空艇",
+   "gate": null
+  },
+  {
+   "a": "galar",
+   "b": "kalos",
+   "kind": "tunnel",
+   "label": "海底隧道",
+   "gate": null
+  },
+  {
+   "a": "kalos",
+   "b": "paldea",
+   "kind": "land",
+   "label": "山道",
+   "gate": null
+  },
+  {
+   "a": "paldea",
+   "b": "unova",
+   "kind": "sea",
+   "label": "跨洋渡轮",
+   "gate": null
+  },
+  {
+   "a": "unova",
+   "b": "alola",
+   "kind": "air",
+   "label": "跨洋航线",
+   "gate": null
+  },
+  {
+   "a": "unova",
+   "b": "galar",
+   "kind": "air",
+   "label": "跨大西洋空路",
+   "gate": null
+  },
+  {
+   "a": "kanto",
+   "b": "unova",
+   "kind": "air",
+   "label": "跨太平洋空路",
+   "gate": null
+  },
+  {
+   "a": "alola",
+   "b": "hoenn",
+   "kind": "air",
+   "label": "南洋航线",
+   "gate": null
+  }
+ ],
+ "axes": [
+  {
+   "name": "东亚轴",
+   "order": [
+    "kanto",
+    "johto",
+    "hoenn"
+   ],
+   "extra": [
+    "sinnoh"
+   ],
+   "note": "陆路为主，关都与城都之间可直接走过去"
+  },
+  {
+   "name": "欧洲轴",
+   "order": [
+    "galar",
+    "kalos",
+    "paldea"
+   ],
+   "note": "海底隧道 + 山道，全陆路可通"
+  },
+  {
+   "name": "跨洋桥",
+   "order": [
+    "unova",
+    "alola"
+   ],
+   "note": "合众既是欧洲轴与东亚轴之间的中转，也是去阿罗拉的门户"
+  }
+ ],
+ "layers": {
+  "L0": "现世主盘，九个地区，有盘面坐标",
+  "L1": "地理附属岛，不占主盘坐标，parent 指回主地区，入口是码头/车站/潜水",
+  "L2": "平行异层，同一地点或同一片海的另一层，layer_of 指向同一地点，入口是裂缝/时代/梦境"
+ },
+ "specials": [
+  {
+   "id": "sevii",
+   "name": "七之岛",
+   "kind": "island",
+   "parent": "kanto",
+   "source": "火红·叶绿",
+   "access": "port",
+   "status": "待建"
+  },
+  {
+   "id": "orange",
+   "name": "橘子群岛",
+   "kind": "island",
+   "parent": "kanto",
+   "source": "动画设定",
+   "access": "port",
+   "status": "待建"
+  },
+  {
+   "id": "armor",
+   "name": "铠岛",
+   "kind": "island",
+   "parent": "galar",
+   "source": "剑·盾 DLC",
+   "access": "train",
+   "status": "待建"
+  },
+  {
+   "id": "crown",
+   "name": "王冠雪原",
+   "kind": "island",
+   "parent": "galar",
+   "source": "剑·盾 DLC",
+   "access": "train",
+   "status": "待建"
+  },
+  {
+   "id": "kitakami",
+   "name": "北上乡",
+   "kind": "island",
+   "parent": "paldea",
+   "source": "朱·紫 DLC",
+   "access": "train",
+   "status": "待建"
+  },
+  {
+   "id": "blueberry",
+   "name": "蓝莓学园",
+   "kind": "island",
+   "parent": "unova",
+   "source": "朱·紫 DLC",
+   "access": "dive",
+   "status": "待建"
+  },
+  {
+   "id": "aether",
+   "name": "以太乐园",
+   "kind": "island",
+   "parent": "alola",
+   "source": "日·月",
+   "access": "port",
+   "status": "待建"
+  },
+  {
+   "id": "frontier",
+   "name": "对战开拓区",
+   "kind": "island",
+   "parent": "hoenn",
+   "source": "绿宝石",
+   "access": "port",
+   "status": "待建"
+  },
+  {
+   "id": "hisui",
+   "name": "洗翠地区",
+   "kind": "layer",
+   "parent": "sinnoh",
+   "layer_of": "sinnoh",
+   "source": "传说 阿尔宙斯",
+   "access": "time",
+   "status": "待建"
+  },
+  {
+   "id": "distortion",
+   "name": "反转世界",
+   "kind": "layer",
+   "parent": "sinnoh",
+   "layer_of": "sinnoh",
+   "source": "钻石·珍珠",
+   "access": "rift",
+   "status": "待建"
+  },
+  {
+   "id": "ultra",
+   "name": "究极空间",
+   "kind": "layer",
+   "parent": "alola",
+   "layer_of": "alola",
+   "source": "日·月",
+   "access": "rift",
+   "status": "待建"
+  },
+  {
+   "id": "dream",
+   "name": "梦世界",
+   "kind": "layer",
+   "parent": "unova",
+   "layer_of": "unova",
+   "source": "黑·白",
+   "access": "dream",
+   "status": "待建"
+  }
+ ],
+ "access_types": {
+  "port": "码头渡轮",
+  "train": "车站列车",
+  "dive": "潜水艇",
+  "rift": "空间裂缝",
+  "time": "时代回溯",
+  "dream": "梦境同步"
+ }
+}

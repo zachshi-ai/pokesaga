@@ -1,0 +1,304 @@
+{
+ "name": "24 号道路",
+ "emerald": "johto_route_24",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    2
+   ],
+   "name": "火箭队队员",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "别挡路。",
+    "这里没你的事。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     0,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     1,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     2,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     3,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     6,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    2,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     6,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    3,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     10,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     10,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     11,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    1,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_25",
+    "at": [
+     1,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    2,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_25",
+    "at": [
+     2,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    3,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_25",
+    "at": [
+     3,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_25",
+    "at": [
+     4,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_25",
+    "at": [
+     5,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_25",
+    "at": [
+     6,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_25",
+    "at": [
+     7,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_25",
+    "at": [
+     8,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_25",
+    "at": [
+     9,
+     7
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

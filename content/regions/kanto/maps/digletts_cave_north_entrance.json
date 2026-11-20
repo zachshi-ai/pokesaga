@@ -1,0 +1,61 @@
+{
+ "name": "关都·地鼠洞·north entrance",
+ "emerald": "digletts_cave_north_entrance",
+ "size": [
+  10,
+  8
+ ],
+ "spawn": [
+  4,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "居民",
+   "gfx": "hiker",
+   "lines": [
+    "最近路上不太平。",
+    "下次再来。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "digletts_cave_b1f",
+    "at": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     77,
+     111
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

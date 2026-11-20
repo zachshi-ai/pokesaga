@@ -1,0 +1,48 @@
+{
+ "name": "三号岛·民居 3",
+ "emerald": "house3_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  4,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    8,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你从关都来的吧。",
+    "果子熟了随便摘。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     12,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,406 @@
+{
+ "name": "七号岛·七宝峡谷 入口",
+ "emerald": "seven_island_sevault_canyon_entrance",
+ "size": [
+  24,
+  40
+ ],
+ "spawn": [
+  7,
+  1
+ ],
+ "npcs": [
+  {
+   "at": [
+    12,
+    6
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "别在礁石上乱跑。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    34
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "遗迹那边不让人进。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    34
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "海面今天很平。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    26
+   ],
+   "name": "岛民",
+   "gfx": "camper",
+   "lines": [
+    "码头那位脾气怪。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    26
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我养了三只宝可梦。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    17
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没有大医院。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    -2
+   ],
+   "name": "岛民",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "火种这条路不太好走。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    6
+   ],
+   "name": "Aroma Lady 的 MIAH",
+   "gfx": "man",
+   "lines": [
+    "哈哈！\n我可以毫不费力地把你轰走！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_AROMA_LADY_MIAH",
+    "party": [
+     {
+      "species": 182,
+      "level": 50
+     },
+     {
+      "species": 182,
+      "level": 50
+     }
+    ],
+    "name": "MIAH",
+    "class": "Aroma Lady"
+   },
+   "post": [
+    "那是什么？\n我没有展现出我应有的实力吗？\n嘿，那是我的战术！"
+   ],
+   "sight": 5
+  },
+  {
+   "at": [
+    11,
+    26
+   ],
+   "name": "Pkmn Ranger 的 NICOLAS",
+   "gfx": "camper",
+   "lines": [
+    "这座岛太宽广了……\n这个地方不容易巡查啊。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PKMN_RANGER_NICOLAS",
+    "party": [
+     {
+      "species": 70,
+      "level": 51
+     },
+     {
+      "species": 71,
+      "level": 51
+     }
+    ],
+    "name": "NICOLAS",
+    "class": "Pkmn Ranger"
+   },
+   "post": [
+    "他们是像你这样来自\n城市的训练家，当然很强。\n你要前往塔，\n是吗？"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    10,
+    26
+   ],
+   "name": "Pkmn Ranger 的 MADELINE",
+   "gfx": "lass",
+   "lines": [
+    "虐待宝可梦的人，\n我要好好地惩罚他们。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PKMN_RANGER_MADELINE",
+    "party": [
+     {
+      "species": 44,
+      "level": 51
+     },
+     {
+      "species": 45,
+      "level": 51
+     }
+    ],
+    "name": "MADELINE",
+    "class": "Pkmn Ranger"
+   },
+   "post": [
+    "如果你友好地对待你的宝可梦，\n他们能体会到的。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    11,
+    17
+   ],
+   "name": "Juggler 的 MASON",
+   "gfx": "man",
+   "lines": [
+    "嗨！\n你是我的后援会的成员吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_JUGGLER_MASON",
+    "party": [
+     {
+      "species": 100,
+      "level": 47
+     },
+     {
+      "species": 204,
+      "level": 47
+     },
+     {
+      "species": 100,
+      "level": 47
+     },
+     {
+      "species": 204,
+      "level": 47
+     }
+    ],
+    "name": "MASON",
+    "class": "Juggler"
+   },
+   "post": [
+    "啦啦……\n我的宝可梦，我把它们送出去了，所有的女孩都在尖叫、呐喊。"
+   ],
+   "sight": 1
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island",
+    "at": [
+     7,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island",
+    "at": [
+     8,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island",
+    "at": [
+     9,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    28
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon",
+    "at": [
+     0,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    29
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon",
+    "at": [
+     0,
+     79
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 21,
+   "min": 44,
+   "max": 44,
+   "weight": 20
+  },
+  {
+   "species": 161,
+   "min": 10,
+   "max": 10,
+   "weight": 20
+  },
+  {
+   "species": 231,
+   "min": 10,
+   "max": 10,
+   "weight": 10
+  },
+  {
+   "species": 22,
+   "min": 48,
+   "max": 48,
+   "weight": 10
+  },
+  {
+   "species": 161,
+   "min": 15,
+   "max": 15,
+   "weight": 10
+  },
+  {
+   "species": 52,
+   "min": 41,
+   "max": 41,
+   "weight": 10
+  },
+  {
+   "species": 22,
+   "min": 50,
+   "max": 50,
+   "weight": 5
+  },
+  {
+   "species": 54,
+   "min": 41,
+   "max": 41,
+   "weight": 5
+  },
+  {
+   "species": 231,
+   "min": 15,
+   "max": 15,
+   "weight": 4
+  },
+  {
+   "species": 53,
+   "min": 47,
+   "max": 47,
+   "weight": 4
+  },
+  {
+   "species": 231,
+   "min": 15,
+   "max": 15,
+   "weight": 1
+  },
+  {
+   "species": 53,
+   "min": 50,
+   "max": 50,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "objects": [
+  {
+   "at": [
+    8,
+    29
+   ],
+   "kind": "hidden",
+   "item": "ITEM_RAWST_BERRY",
+   "name": "莓莓果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_SEVEN_ISLAND_SEVAULT_CANYON_ENTRANCE_RAWST_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    14,
+    26
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "七宝溪谷入口\n训练家禁止\n毁坏溪谷的植物。"
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

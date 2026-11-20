@@ -1,0 +1,14 @@
+{
+ "id": "frontier",
+ "name": "对战开拓区",
+ "kind": "island",
+ "parent": "hoenn",
+ "tileset": "hoenn_general",
+ "music": "frontier",
+ "maps": [
+  "harbor",
+  "tower_lobby"
+ ],
+ "encounters": [],
+ "encounter_rate": 0
+}

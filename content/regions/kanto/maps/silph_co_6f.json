@@ -1,0 +1,240 @@
+{
+ "name": "关都·silph·co·6f",
+ "emerald": "silph_co_6f",
+ "size": [
+  31,
+  19
+ ],
+ "spawn": [
+  14,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    21,
+    5
+   ],
+   "name": "火箭队手下",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "这里被我们接管了。",
+    "想上去？先过我这关。",
+    "楼梯绕得人头晕。"
+   ]
+  },
+  {
+   "at": [
+    23,
+    9
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "楼下的大厅很气派。",
+    "别碰那些机器。",
+    "我这就下班了。"
+   ]
+  },
+  {
+   "at": [
+    24,
+    9
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "听说顶楼有人守着。",
+    "别碰那些机器。",
+    "别碰那些机器。"
+   ]
+  },
+  {
+   "at": [
+    22,
+    13
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "空气里有股机油味。",
+    "别碰那些机器。",
+    "门牌是十年前的。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    9
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "我这就下班了。",
+    "别碰那些机器。",
+    "楼下的大厅很气派。"
+   ]
+  },
+  {
+   "at": [
+    16,
+    12
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "走廊上安静得吓人。",
+    "别碰那些机器。",
+    "这层是研究部。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    11
+   ],
+   "name": "研究员",
+   "gfx": "scientist",
+   "lines": [
+    "样本别乱碰。",
+    "这层的实验还没做完。",
+    "门牌是十年前的。"
+   ]
+  },
+  {
+   "at": [
+    18,
+    17
+   ],
+   "name": "火箭队手下",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "这里被我们接管了。",
+    "想上去？先过我这关。",
+    "有人在追查这里。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    14,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_7f",
+    "at": [
+     19,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    29,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_2f",
+    "at": [
+     7,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    26,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_5f",
+    "at": [
+     30,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_4f",
+    "at": [
+     18,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    20,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_elevator",
+    "at": [
+     0,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    2,
+    14
+   ],
+   "kind": "item",
+   "item": "ITEM_HP_UP",
+   "name": "HP 增强剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    1,
+    17
+   ],
+   "kind": "item",
+   "item": "ITEM_X_SPECIAL",
+   "name": "ITEM_X_SPECIAL",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    1,
+    8
+   ],
+   "kind": "hidden",
+   "item": "ITEM_CARBOS",
+   "name": "速度增强剂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_6F_CARBOS",
+   "count": 1
+  },
+  {
+   "at": [
+    25,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "西尔佛公司总部\n6层"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

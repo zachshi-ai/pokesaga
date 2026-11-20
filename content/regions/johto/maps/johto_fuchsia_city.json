@@ -1,0 +1,468 @@
+{
+ "name": "FuchsiaCity",
+ "emerald": "johto_fuchsia_city",
+ "size": [
+  20,
+  18
+ ],
+ "spawn": [
+  10,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    11,
+    9
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    4
+   ],
+   "name": "宝可梦迷",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    7
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fuchsia_mart",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_safari_zone_main_office",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fuchsia_gym",
+    "at": [
+     2,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_bills_older_sisters_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fuchsia_pokecenter_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_safari_zone_wardens_home",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_safari_zone_fuchsia_gate_beta",
+    "at": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    11
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_15_fuchsia_gate",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    11
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_15_fuchsia_gate",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19_fuchsia_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19_fuchsia_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19",
+    "at": [
+     0,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    1,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19",
+    "at": [
+     1,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19",
+    "at": [
+     5,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19",
+    "at": [
+     6,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19",
+    "at": [
+     7,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19",
+    "at": [
+     8,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_18",
+    "at": [
+     8,
+     2
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_18",
+    "at": [
+     8,
+     3
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    11
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_18",
+    "at": [
+     8,
+     4
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_18",
+    "at": [
+     8,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_18",
+    "at": [
+     8,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_18",
+    "at": [
+     8,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_18",
+    "at": [
+     8,
+     8
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    10,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "FuchsiaCity\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    2,
+    14
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "FuchsiaCity\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    12,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "FuchsiaCity\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    13,
+    14
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "FuchsiaCity\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    6,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "FuchsiaCity\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,75 @@
+{
+ "name": "四号岛·港口",
+ "emerald": "island_harbor_frlg",
+ "size": [
+  17,
+  13
+ ],
+ "spawn": [
+  8,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    8,
+    9
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你要去山上是吧。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    6
+   ],
+   "name": "岛民",
+   "gfx": "sailor",
+   "lines": [
+    "太阳落山就起雾。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    8,
+    2
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island",
+    "at": [
+     10,
+     28
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    1
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_harbor",
+    "at": [
+     8,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

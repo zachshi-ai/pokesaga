@@ -1,0 +1,75 @@
+{
+ "name": "七号岛·港口",
+ "emerald": "island_harbor_frlg",
+ "size": [
+  17,
+  13
+ ],
+ "spawn": [
+  8,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    8,
+    9
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我们这儿靠打鱼过活。",
+    "海风会把人吹傻。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    6
+   ],
+   "name": "岛民",
+   "gfx": "sailor",
+   "lines": [
+    "你要去山上是吧。",
+    "海风会把人吹傻。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    8,
+    2
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island",
+    "at": [
+     16,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    1
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "navel_rock_harbor",
+    "at": [
+     8,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

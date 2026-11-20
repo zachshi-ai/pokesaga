@@ -1,0 +1,101 @@
+{
+ "name": "三号岛·宝可梦中心",
+ "emerald": "pokemon_center_1f_frlg",
+ "size": [
+  15,
+  10
+ ],
+ "spawn": [
+  1,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "nurse",
+   "lines": [
+    "遗迹那边不让人进。",
+    "果子熟了随便摘。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "海面今天很平。",
+    "果子熟了随便摘。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    4
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "码头那位脾气怪。",
+    "果子熟了随便摘。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "sailor",
+   "lines": [
+    "我养了三只宝可梦。",
+    "果子熟了随便摘。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     14,
+     27
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_pokemon_center_2f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

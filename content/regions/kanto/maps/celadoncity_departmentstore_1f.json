@@ -1,0 +1,166 @@
+{
+ "name": "关都·玉虹市·百货大楼 1F",
+ "emerald": "celadon_city_department_store_1f",
+ "size": [
+  13,
+  16
+ ],
+ "spawn": [
+  0,
+  14
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    10
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "宝可梦的体力靠平时的照顾。",
+    "后来是只波波带我出去的。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    15
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     191,
+     134
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     191,
+     134
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    15
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     191,
+     134
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    15
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     195,
+     134
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     195,
+     134
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    15
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     195,
+     134
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_department_store_2f",
+    "at": [
+     3,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    1
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_department_store_elevator",
+    "at": [
+     0,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    9,
+    11
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一楼：服务台\n二楼：训练家商店\n三楼：电玩商店\n四楼：神秘的礼物\n五楼：药店\n天台：自动售货机"
+  },
+  {
+   "at": [
+    8,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一楼：服务台"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

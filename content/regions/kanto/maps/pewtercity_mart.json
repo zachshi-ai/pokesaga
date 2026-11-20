@@ -1,0 +1,102 @@
+{
+ "name": "关都·尼比市·友好商店",
+ "emerald": "mart_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    8,
+    2
+   ],
+   "gfx": "youngster",
+   "name": "短裤小子",
+   "lines": [
+    "我小时候在这里迷过路。",
+    "帽子差点被吹跑。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    4
+   ],
+   "gfx": "youngster",
+   "name": "小男孩",
+   "lines": [
+    "训练家最重要的是判断。",
+    "帽子差点被吹跑。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "gfx": "clerk",
+   "name": "店员",
+   "lines": [
+    "你在收集徽章吗？",
+    "帽子差点被吹跑。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     76,
+     78
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     76,
+     78
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     76,
+     78
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

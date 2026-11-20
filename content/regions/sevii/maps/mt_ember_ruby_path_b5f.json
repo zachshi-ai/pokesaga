@@ -1,0 +1,48 @@
+{
+ "name": "七之岛·mt ember ruby path b5f",
+ "emerald": "mt_ember_ruby_path_b5f",
+ "size": [
+  16,
+  15
+ ],
+ "spawn": [
+  11,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    7
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这里的果子比别处甜。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    11,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_b4f",
+    "at": [
+     14,
+     14
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

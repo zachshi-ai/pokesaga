@@ -1,0 +1,60 @@
+{
+ "name": "关都·圣安奴号·b1f room3",
+ "emerald": "ssanne_room2",
+ "size": [
+  6,
+  9
+ ],
+ "spawn": [
+  4,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "居民",
+   "gfx": "sailor",
+   "lines": [
+    "屋里比外面暖和。",
+    "这年头谁都不容易。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_b1_f_corridor",
+    "at": [
+     10,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    1,
+    5
+   ],
+   "kind": "item",
+   "item": "ITEM_ETHER",
+   "name": "PP 单项小补剂",
+   "category": "heal",
+   "sprite": "ball"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,171 @@
+{
+ "name": "关都·宝可梦塔 3F",
+ "emerald": "pokemon_tower_3f",
+ "size": [
+  24,
+  20
+ ],
+ "spawn": [
+  4,
+  10
+ ],
+ "npcs": [
+  {
+   "at": [
+    10,
+    14
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这石头有股硫磺味。",
+    "我把灯留给你。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    9
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "一个人进来太危险。",
+    "我把灯留给你。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    4
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "洞口的风是往外吹的。",
+    "我把灯留给你。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemontower_2f",
+    "at": [
+     4,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemontower_4f",
+    "at": [
+     18,
+     10
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 92,
+   "min": 15,
+   "max": 15,
+   "weight": 20
+  },
+  {
+   "species": 92,
+   "min": 16,
+   "max": 16,
+   "weight": 20
+  },
+  {
+   "species": 92,
+   "min": 17,
+   "max": 17,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 13,
+   "max": 13,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 14,
+   "max": 14,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 18,
+   "max": 18,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 19,
+   "max": 19,
+   "weight": 5
+  },
+  {
+   "species": 104,
+   "min": 15,
+   "max": 15,
+   "weight": 5
+  },
+  {
+   "species": 92,
+   "min": 17,
+   "max": 17,
+   "weight": 4
+  },
+  {
+   "species": 104,
+   "min": 17,
+   "max": 17,
+   "weight": 4
+  },
+  {
+   "species": 92,
+   "min": 17,
+   "max": 17,
+   "weight": 1
+  },
+  {
+   "species": 93,
+   "min": 20,
+   "max": 20,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.02,
+ "objects": [
+  {
+   "at": [
+    13,
+    2
+   ],
+   "kind": "item",
+   "item": "ITEM_ESCAPE_ROPE",
+   "name": "离洞绳",
+   "category": "other",
+   "sprite": "ball"
+  }
+ ],
+ "weather": "fog_horizontal",
+ "weather_name": "雾",
+ "cycling": false
+}

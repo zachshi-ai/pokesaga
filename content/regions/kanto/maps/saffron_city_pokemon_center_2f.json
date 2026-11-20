@@ -1,0 +1,83 @@
+{
+ "name": "关都·金黄市·宝可梦中心 2F",
+ "emerald": "pokemon_center_2f_frlg",
+ "size": [
+  15,
+  10
+ ],
+ "spawn": [
+  1,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "今天天气不错。",
+    "问别人吧。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "小心别踩到我的花。",
+    "问别人吧。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你看起来像个训练家。",
+    "问别人吧。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我在这儿等人。",
+    "问别人吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_pokemoncenter_1f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,83 @@
+{
+ "name": "关都·紫苑镇·宝可梦中心 2F",
+ "emerald": "pokemon_center_1f_frlg",
+ "size": [
+  15,
+  10
+ ],
+ "spawn": [
+  1,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你知道道馆在哪边吗。",
+    "有事就问我。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我刚从医院回来。",
+    "有事就问我。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "风一吹就想起小时候。",
+    "有事就问我。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "屋里比外面暖和。",
+    "有事就问我。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavendertown_pokemoncenter_1f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

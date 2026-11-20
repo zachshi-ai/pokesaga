@@ -1,0 +1,62 @@
+{
+ "name": "七之岛·肚脐岩 山顶",
+ "emerald": "navel_rock_summit",
+ "size": [
+  19,
+  25
+ ],
+ "spawn": [
+  10,
+  18
+ ],
+ "npcs": [
+  {
+   "at": [
+    9,
+    6
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这座岛上的风是咸的。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    10,
+    18
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "navel_rock_summit_path_5f",
+    "at": [
+     4,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    9,
+    11
+   ],
+   "kind": "hidden",
+   "item": "ITEM_SACRED_ASH",
+   "name": "圣灰",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_NAVEL_ROCK_SUMMIT_SACRED_ASH",
+   "count": 1
+  }
+ ],
+ "weather": "shade",
+ "weather_name": "阴",
+ "cycling": false
+}

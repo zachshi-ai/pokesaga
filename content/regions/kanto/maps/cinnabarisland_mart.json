@@ -1,0 +1,102 @@
+{
+ "name": "关都·红莲岛·友好商店",
+ "emerald": "mart_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    3
+   ],
+   "gfx": "clerk",
+   "name": "店员",
+   "lines": [
+    "这条街我闭着眼都能走。",
+    "精灵球管够。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "gfx": "lass",
+   "name": "大姐",
+   "lines": [
+    "宝可梦的体力靠平时的照顾。",
+    "精灵球管够。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    2
+   ],
+   "gfx": "scientist",
+   "name": "研究员",
+   "lines": [
+    "我刚从北边过来，风挺大。",
+    "精灵球管够。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     79,
+     391
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     79,
+     391
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     79,
+     391
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

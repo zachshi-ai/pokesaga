@@ -1,0 +1,61 @@
+{
+ "name": "七之岛·诞生之岛 FRLG",
+ "emerald": "birth_island_exterior_frlg",
+ "size": [
+  30,
+  30
+ ],
+ "spawn": [
+  15,
+  24
+ ],
+ "npcs": [
+  {
+   "at": [
+    15,
+    12
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这座岛上的风是咸的。",
+    "路上小心。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    3
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "船一天只来两趟。",
+    "路上小心。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    15,
+    24
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "birth_island_harbor",
+    "at": [
+     8,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

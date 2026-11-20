@@ -1,0 +1,232 @@
+{
+ "name": "七之岛·mt ember ruby path b2f",
+ "emerald": "mt_ember_ruby_path_b2f",
+ "size": [
+  16,
+  11
+ ],
+ "spawn": [
+  13,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    8
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没有大医院。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    8
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "火种这条路不太好走。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我们这儿靠打鱼过活。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你要去山上是吧。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_b1f",
+    "at": [
+     6,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_b3f",
+    "at": [
+     1,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 74,
+   "min": 40,
+   "max": 40,
+   "weight": 20
+  },
+  {
+   "species": 218,
+   "min": 26,
+   "max": 26,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 42,
+   "max": 42,
+   "weight": 10
+  },
+  {
+   "species": 218,
+   "min": 24,
+   "max": 24,
+   "weight": 10
+  },
+  {
+   "species": 218,
+   "min": 28,
+   "max": 28,
+   "weight": 10
+  },
+  {
+   "species": 218,
+   "min": 30,
+   "max": 30,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 44,
+   "max": 44,
+   "weight": 5
+  },
+  {
+   "species": 218,
+   "min": 32,
+   "max": 32,
+   "weight": 5
+  },
+  {
+   "species": 74,
+   "min": 44,
+   "max": 44,
+   "weight": 4
+  },
+  {
+   "species": 218,
+   "min": 22,
+   "max": 22,
+   "weight": 4
+  },
+  {
+   "species": 74,
+   "min": 44,
+   "max": 44,
+   "weight": 1
+  },
+  {
+   "species": 218,
+   "min": 22,
+   "max": 22,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true,
+ "objects": [
+  {
+   "at": [
+    9,
+    3
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    12,
+    5
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    12,
+    2
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    1,
+    8
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    4,
+    5
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    5,
+    5
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+  "region": "sevii",
+  "events": [
+    {
+      "id": "sevii_arrive",
+      "once": true,
+      "trigger": {"type": "map_enter", "map": "one_island_harbor"},
+      "require": {"flags_none": ["sevii_arrived"]},
+      "steps": [
+        {"say": ["船靠岸了。", "风里有很重的咸味，码头上有几只长翅鸥在抢食。", "这里是七之岛的一号岛。"], "who": "旁白"},
+        {"flag": "sevii_arrived"}
+      ]
+    },
+    {
+      "id": "sevii_kindled",
+      "once": true,
+      "trigger": {"type": "map_enter", "map": "one_island_kindle_road"},
+      "require": {"flags_all": ["sevii_arrived"]},
+      "steps": [
+        {"say": ["路面越来越烫，火种之路的名字不是白叫的。", "山脚那边有条小路，往上就是焰之山。"], "who": "旁白"},
+        {"flag": "sevii_kindle_seen"}
+      ]
+    },
+    {
+      "id": "sevii_ember_top",
+      "once": true,
+      "trigger": {"type": "map_enter", "map": "mt_ember_summit"},
+      "require": {"flags_all": ["sevii_kindle_seen"]},
+      "steps": [
+        {"say": ["火山口冒着热气，脚下是滚烫的岩石。", "这里什么都没有——或者说，现在还没有。"], "who": "旁白"},
+        {"flag": "sevii_ember_top"}
+      ]
+    },
+    {
+      "id": "sevii_berry_forest",
+      "once": true,
+      "trigger": {"type": "map_enter", "map": "three_island_berry_forest"},
+      "steps": [
+        {"say": ["整片林子都是树果树。", "地上有松过的土，看起来以前有人在这里种树果。"], "who": "旁白"},
+        {"give_item": {"name": "橙橙果", "category": "berry", "count": 3, "berry": "ORAN_BERRY"}},
+        {"flag": "sevii_berry_seen"}
+      ]
+    },
+    {
+      "id": "sevii_tanoby",
+      "once": true,
+      "trigger": {"type": "map_enter", "map": "seven_island_tanoby_ruins"},
+      "require": {"flags_all": ["sevii_arrived"]},
+      "steps": [
+        {"say": ["石壁上刻着看不懂的字。", "七个石室，七种符号。", "有人在这里留过东西。"], "who": "旁白"},
+        {"flag": "sevii_tanoby_seen"}
+      ]
+    },
+    {
+      "id": "sevii_rocket_warehouse",
+      "once": true,
+      "trigger": {"type": "map_enter", "map": "five_island_rocket_warehouse"},
+      "require": {"flags_all": ["sevii_arrived"]},
+      "steps": [
+        {"say": ["仓库里堆满了木箱，灰尘很厚。", "墙上还留着火箭队的标记。"], "who": "旁白"},
+        {"flag": "sevii_rocket_seen"}
+      ]
+    }
+  ]
+}

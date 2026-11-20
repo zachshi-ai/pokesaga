@@ -1,0 +1,217 @@
+{
+ "name": "三号岛·码头",
+ "emerald": "three_island_port",
+ "size": [
+  48,
+  20
+ ],
+ "spawn": [
+  16,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    14,
+    9
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "太阳落山就起雾。",
+    "果子熟了随便摘。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    8
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "有事问船夫。",
+    "果子熟了随便摘。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    10
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这座岛上的风是咸的。",
+    "路标不太准。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    16,
+    4
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_dunsparce_tunnel",
+    "at": [
+     3,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    38,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_dunsparce_tunnel",
+    "at": [
+     25,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_harbor",
+    "at": [
+     8,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     10,
+     39
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     11,
+     39
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     12,
+     39
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 206,
+   "min": 15,
+   "max": 15,
+   "weight": 20
+  },
+  {
+   "species": 206,
+   "min": 15,
+   "max": 15,
+   "weight": 20
+  },
+  {
+   "species": 206,
+   "min": 10,
+   "max": 10,
+   "weight": 10
+  },
+  {
+   "species": 206,
+   "min": 10,
+   "max": 10,
+   "weight": 10
+  },
+  {
+   "species": 206,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  },
+  {
+   "species": 206,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  },
+  {
+   "species": 206,
+   "min": 25,
+   "max": 25,
+   "weight": 5
+  },
+  {
+   "species": 206,
+   "min": 30,
+   "max": 30,
+   "weight": 5
+  },
+  {
+   "species": 206,
+   "min": 25,
+   "max": 25,
+   "weight": 4
+  },
+  {
+   "species": 206,
+   "min": 30,
+   "max": 30,
+   "weight": 4
+  },
+  {
+   "species": 206,
+   "min": 5,
+   "max": 5,
+   "weight": 1
+  },
+  {
+   "species": 206,
+   "min": 35,
+   "max": 35,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.01,
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

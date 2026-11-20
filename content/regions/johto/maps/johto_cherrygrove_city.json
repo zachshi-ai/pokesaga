@@ -1,0 +1,223 @@
+{
+ "name": "樱花镇",
+ "emerald": "johto_cherrygrove_city",
+ "size": [
+  20,
+  9
+ ],
+ "spawn": [
+  10,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    16,
+    3
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    18,
+    3
+   ],
+   "name": "劲敌",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    6
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    3
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    6
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    11,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cherrygrove_mart",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cherrygrove_pokecenter_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cherrygrove_gym_speech_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_guide_gents_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    15,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cherrygrove_evolution_speech_house",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_30",
+    "at": [
+     3,
+     25
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_29",
+    "at": [
+     1,
+     3
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    15,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "樱花镇\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    11,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "樱花镇\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 72,
+   "min": 20,
+   "max": 20,
+   "weight": 60
+  },
+  {
+   "species": 72,
+   "min": 15,
+   "max": 15,
+   "weight": 30
+  },
+  {
+   "species": 73,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.06
+}

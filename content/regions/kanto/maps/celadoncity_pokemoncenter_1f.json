@@ -1,0 +1,125 @@
+{
+ "name": "关都·玉虹市·宝可梦中心",
+ "emerald": "pokemon_center_1f_frlg",
+ "size": [
+  15,
+  10
+ ],
+ "spawn": [
+  6,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    2
+   ],
+   "gfx": "nurse",
+   "name": "护士",
+   "heal": true
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "我小时候在这里迷过路。",
+    "能看到鱼在游。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    6
+   ],
+   "gfx": "teala",
+   "name": "训练家",
+   "lines": [
+    "训练家最重要的是判断。",
+    "能看到鱼在游。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    5
+   ],
+   "gfx": "youngster",
+   "name": "短裤小子",
+   "lines": [
+    "你在收集徽章吗？",
+    "能看到鱼在游。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     228,
+     131
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     228,
+     131
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     228,
+     131
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_pokemon_center_2f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

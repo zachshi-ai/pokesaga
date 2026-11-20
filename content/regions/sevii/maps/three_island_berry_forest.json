@@ -1,0 +1,486 @@
+{
+ "name": "三号岛·树果园",
+ "emerald": "three_island_berry_forest",
+ "size": [
+  57,
+  47
+ ],
+ "spawn": [
+  43,
+  41
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    8
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "夏天的游客最多。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    43,
+    41
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_bond_bridge",
+    "at": [
+     12,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    42,
+    41
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_bond_bridge",
+    "at": [
+     12,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    44,
+    41
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_bond_bridge",
+    "at": [
+     13,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 17,
+   "min": 37,
+   "max": 37,
+   "weight": 20
+  },
+  {
+   "species": 44,
+   "min": 35,
+   "max": 35,
+   "weight": 20
+  },
+  {
+   "species": 16,
+   "min": 32,
+   "max": 32,
+   "weight": 10
+  },
+  {
+   "species": 43,
+   "min": 30,
+   "max": 30,
+   "weight": 10
+  },
+  {
+   "species": 48,
+   "min": 34,
+   "max": 34,
+   "weight": 10
+  },
+  {
+   "species": 96,
+   "min": 34,
+   "max": 34,
+   "weight": 10
+  },
+  {
+   "species": 102,
+   "min": 35,
+   "max": 35,
+   "weight": 5
+  },
+  {
+   "species": 54,
+   "min": 31,
+   "max": 31,
+   "weight": 5
+  },
+  {
+   "species": 49,
+   "min": 37,
+   "max": 37,
+   "weight": 4
+  },
+  {
+   "species": 97,
+   "min": 37,
+   "max": 37,
+   "weight": 4
+  },
+  {
+   "species": 49,
+   "min": 40,
+   "max": 40,
+   "weight": 1
+  },
+  {
+   "species": 97,
+   "min": 40,
+   "max": 40,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "objects": [
+  {
+   "at": [
+    12,
+    5
+   ],
+   "kind": "item",
+   "item": "ITEM_MAX_ETHER",
+   "name": "PP 单项全补剂",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    27,
+    11
+   ],
+   "kind": "item",
+   "item": "ITEM_FULL_HEAL",
+   "name": "万灵药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    12,
+    43
+   ],
+   "kind": "item",
+   "item": "ITEM_MAX_ELIXIR",
+   "name": "PP 多项全补剂",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    7,
+    27
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "当心野生的，喜爱树果\n的宝可梦！"
+  },
+  {
+   "at": [
+    39,
+    35
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "欢迎来到树果森林\n请友好地和其他人与\n宝可梦分享树果。"
+  },
+  {
+   "at": [
+    31,
+    25
+   ],
+   "kind": "hidden",
+   "item": "ITEM_RAZZ_BERRY",
+   "name": "蔓莓果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_RAZZ_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    15,
+    15
+   ],
+   "kind": "hidden",
+   "item": "ITEM_BLUK_BERRY",
+   "name": "墨莓果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_BLUK_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    25,
+    24
+   ],
+   "kind": "hidden",
+   "item": "ITEM_NANAB_BERRY",
+   "name": "蕉香果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_NANAB_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    11,
+    24
+   ],
+   "kind": "hidden",
+   "item": "ITEM_WEPEAR_BERRY",
+   "name": "西梨果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_WEPEAR_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    37,
+    18
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ORAN_BERRY",
+   "name": "橙橙果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_ORAN_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    14,
+    23
+   ],
+   "kind": "hidden",
+   "item": "ITEM_CHERI_BERRY",
+   "name": "樱子果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_CHERI_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    47,
+    5
+   ],
+   "kind": "hidden",
+   "item": "ITEM_CHESTO_BERRY",
+   "name": "零余子果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_CHESTO_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    7,
+    30
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PECHA_BERRY",
+   "name": "桃桃果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_PECHA_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    16,
+    5
+   ],
+   "kind": "hidden",
+   "item": "ITEM_RAWST_BERRY",
+   "name": "莓莓果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_RAWST_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    25,
+    6
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ASPEAR_BERRY",
+   "name": "利木果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_ASPEAR_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    46,
+    32
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PERSIM_BERRY",
+   "name": "柿仔果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_PERSIM_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    43,
+    16
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PINAP_BERRY",
+   "name": "凰梨果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_PINAP_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    8,
+    5
+   ],
+   "kind": "hidden",
+   "item": "ITEM_LUM_BERRY",
+   "name": "木子果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_LUM_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    3,
+    5
+   ],
+   "kind": "soil",
+   "sprite": "soil"
+  },
+  {
+   "at": [
+    4,
+    5
+   ],
+   "kind": "soil",
+   "sprite": "soil"
+  },
+  {
+   "at": [
+    5,
+    5
+   ],
+   "kind": "soil",
+   "sprite": "soil"
+  },
+  {
+   "at": [
+    6,
+    5
+   ],
+   "kind": "soil",
+   "sprite": "soil"
+  },
+  {
+   "at": [
+    7,
+    5
+   ],
+   "kind": "soil",
+   "sprite": "soil"
+  },
+  {
+   "at": [
+    13,
+    5
+   ],
+   "kind": "soil",
+   "sprite": "soil"
+  },
+  {
+   "at": [
+    12,
+    11
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    19,
+    7
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    23,
+    17
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    38,
+    23
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    44,
+    23
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    44,
+    29
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    16,
+    43
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    17,
+    39
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    14,
+    39
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    11,
+    39
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  }
+ ],
+ "weather": "shade",
+ "weather_name": "阴",
+ "cycling": true
+}

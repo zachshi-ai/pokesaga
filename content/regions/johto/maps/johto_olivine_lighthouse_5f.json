@@ -1,0 +1,219 @@
+{
+ "name": "浅葱灯塔·5F",
+ "emerald": "johto_olivine_lighthouse_5f",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    5
+   ],
+   "name": "水手 Ernest",
+   "gfx": "sailor",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 18,
+      "species": 66
+     },
+     {
+      "level": 18,
+      "species": 66
+     },
+     {
+      "level": 18,
+      "species": 61
+     }
+    ]
+   },
+   "trainer": "SailorErnest"
+  },
+  {
+   "at": [
+    4,
+    1
+   ],
+   "name": "养鸟人 Denis",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 18,
+      "species": 21
+     },
+     {
+      "level": 20,
+      "species": 22
+     },
+     {
+      "level": 18,
+      "species": 21
+     }
+    ]
+   },
+   "trainer": "BirdKeeperDenis"
+  },
+  {
+   "at": [
+    7,
+    6
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    7
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_lighthouse_6f",
+    "at": [
+     4,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_lighthouse_4f",
+    "at": [
+     5,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_lighthouse_4f",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_lighthouse_4f",
+    "at": [
+     8,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_lighthouse_4f",
+    "at": [
+     8,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_lighthouse_6f",
+    "at": [
+     8,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_lighthouse_6f",
+    "at": [
+     8,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

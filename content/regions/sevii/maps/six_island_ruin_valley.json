@@ -1,0 +1,496 @@
+{
+ "name": "六号岛·遗迹之谷",
+ "emerald": "six_island_ruin_valley",
+ "size": [
+  48,
+  40
+ ],
+ "spawn": [
+  24,
+  24
+ ],
+ "npcs": [
+  {
+   "at": [
+    24,
+    25
+   ],
+   "name": "岛民",
+   "gfx": "scientist",
+   "lines": [
+    "船一天只来两趟。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    32,
+    11
+   ],
+   "name": "岛民",
+   "gfx": "hiker",
+   "lines": [
+    "你从关都来的吧。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    33,
+    16
+   ],
+   "name": "岛民",
+   "gfx": "hiker",
+   "lines": [
+    "岛上没什么人，安静。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    31,
+    24
+   ],
+   "name": "岛民",
+   "gfx": "hiker",
+   "lines": [
+    "往北走有条小路。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    10
+   ],
+   "name": "岛民",
+   "gfx": "hiker",
+   "lines": [
+    "听说洞里藏着东西。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    21,
+    29
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这里的果子比别处甜。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    32,
+    11
+   ],
+   "name": "Ruin Maniac 的 STANLY",
+   "gfx": "hiker",
+   "lines": [
+    "在这个世界上显然还有\n很多秘密是没有解开的。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_RUIN_MANIAC_STANLY",
+    "party": [
+     {
+      "species": 75,
+      "level": 48
+     },
+     {
+      "species": 95,
+      "level": 48
+     },
+     {
+      "species": 75,
+      "level": 48
+     }
+    ],
+    "name": "STANLY",
+    "class": "Ruin Maniac"
+   },
+   "post": [
+    "我建议你在某一天\n也来思考一下这个世界的未解之谜。"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    33,
+    16
+   ],
+   "name": "Ruin Maniac 的 FOSTER",
+   "gfx": "hiker",
+   "lines": [
+    "我很好奇，是什么\n驱使你来这儿的？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_RUIN_MANIAC_FOSTER",
+    "party": [
+     {
+      "species": 76,
+      "level": 50
+     }
+    ],
+    "name": "FOSTER",
+    "class": "Ruin Maniac"
+   },
+   "post": [
+    "在七岛有几个遗址\n大部分都可以追溯至\n很久很久以前了。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    31,
+    24
+   ],
+   "name": "Ruin Maniac 的 LARRY",
+   "gfx": "hiker",
+   "lines": [
+    "据说在这座岛上\n有一些神秘的石头。\n我怀疑它们与\n这些遗址有关"
+   ],
+   "battle": {
+    "trainer": "TRAINER_RUIN_MANIAC_LARRY",
+    "party": [
+     {
+      "species": 67,
+      "level": 49
+     },
+     {
+      "species": 67,
+      "level": 49
+     }
+    ],
+    "name": "LARRY",
+    "class": "Ruin Maniac"
+   },
+   "post": [
+    "那些遗址……\n我想我没有这个运气\n找到方法进去。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    14,
+    10
+   ],
+   "name": "Hiker 的 DARYL",
+   "gfx": "hiker",
+   "lines": [
+    "和你战斗一场，太兴奋了！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_HIKER_DARYL",
+    "party": [
+     {
+      "species": 185,
+      "level": 50
+     }
+    ],
+    "name": "DARYL",
+    "class": "Hiker"
+   },
+   "post": [
+    "体验攀岩的乐趣！"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    21,
+    29
+   ],
+   "name": "Pokemaniac 的 HECTOR",
+   "gfx": "man",
+   "lines": [
+    "在这个地区\n我对这块陆地实在太熟悉了。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_POKEMANIAC_HECTOR",
+    "party": [
+     {
+      "species": 111,
+      "level": 49
+     },
+     {
+      "species": 115,
+      "level": 49
+     }
+    ],
+    "name": "HECTOR",
+    "class": "Pokemaniac"
+   },
+   "post": [
+    "通往遗址的门……\n在外面有一些奇怪的花纹刻在上面。\n不过，\n我不知道它们代表什么。"
+   ],
+   "sight": 1
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    24,
+    24
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_dotted_hole_1f",
+    "at": [
+     6,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    47,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    47,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    47,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    47,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     17
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 177,
+   "min": 15,
+   "max": 15,
+   "weight": 20
+  },
+  {
+   "species": 21,
+   "min": 44,
+   "max": 44,
+   "weight": 20
+  },
+  {
+   "species": 193,
+   "min": 18,
+   "max": 18,
+   "weight": 10
+  },
+  {
+   "species": 194,
+   "min": 15,
+   "max": 15,
+   "weight": 10
+  },
+  {
+   "species": 22,
+   "min": 49,
+   "max": 49,
+   "weight": 10
+  },
+  {
+   "species": 52,
+   "min": 43,
+   "max": 43,
+   "weight": 10
+  },
+  {
+   "species": 202,
+   "min": 25,
+   "max": 25,
+   "weight": 5
+  },
+  {
+   "species": 54,
+   "min": 41,
+   "max": 41,
+   "weight": 5
+  },
+  {
+   "species": 177,
+   "min": 20,
+   "max": 20,
+   "weight": 4
+  },
+  {
+   "species": 53,
+   "min": 49,
+   "max": 49,
+   "weight": 4
+  },
+  {
+   "species": 177,
+   "min": 20,
+   "max": 20,
+   "weight": 1
+  },
+  {
+   "species": 53,
+   "min": 52,
+   "max": 52,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "objects": [
+  {
+   "at": [
+    5,
+    33
+   ],
+   "kind": "item",
+   "item": "ITEM_HP_UP",
+   "name": "HP 增强剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    19,
+    11
+   ],
+   "kind": "item",
+   "item": "ITEM_FULL_RESTORE",
+   "name": "全复药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    43,
+    32
+   ],
+   "kind": "item",
+   "item": "ITEM_SUN_STONE",
+   "name": "日之石",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    24,
+    24
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这扇门动都没动一下。\n再认真检查一遍吧？"
+  },
+  {
+   "at": [
+    17,
+    10
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    17,
+    12
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    18,
+    11
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    6,
+    33
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    6,
+    34
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    41,
+    32
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    41,
+    33
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    42,
+    33
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

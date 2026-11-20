@@ -1,0 +1,109 @@
+{
+ "name": "关都·圣安奴号·deck",
+ "emerald": "ssanne_deck",
+ "size": [
+  24,
+  19
+ ],
+ "spawn": [
+  16,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    12,
+    10
+   ],
+   "name": "居民",
+   "gfx": "sailor",
+   "lines": [
+    "小心别踩到我的花。",
+    "这年头谁都不容易。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    11
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你看起来像个训练家。",
+    "这年头谁都不容易。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    13
+   ],
+   "name": "居民",
+   "gfx": "sailor",
+   "lines": [
+    "我在这儿等人。",
+    "这年头谁都不容易。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    9
+   ],
+   "name": "居民",
+   "gfx": "sailor",
+   "lines": [
+    "这附近有只野猫。",
+    "这年头谁都不容易。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "听说是有人把门锁了。",
+    "这年头谁都不容易。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    16,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_3_f_corridor",
+    "at": [
+     1,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_3_f_corridor",
+    "at": [
+     1,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

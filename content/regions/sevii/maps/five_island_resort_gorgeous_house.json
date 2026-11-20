@@ -1,0 +1,61 @@
+{
+ "name": "五号岛·豪华度假村 HOUSE",
+ "emerald": "five_island_resort_gorgeous_house",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  4,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "你要去山上是吧。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "太阳落山就起雾。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     39,
+     8
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

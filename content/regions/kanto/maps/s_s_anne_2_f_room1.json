@@ -1,0 +1,47 @@
+{
+ "name": "关都·圣安奴号·2f room1",
+ "emerald": "ssanne_room2",
+ "size": [
+  6,
+  9
+ ],
+ "spawn": [
+  4,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    1,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "今天天气不错。",
+    "我记性不太好。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_2_f_corridor",
+    "at": [
+     6,
+     10
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

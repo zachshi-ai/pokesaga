@@ -1,0 +1,227 @@
+{
+ "name": "关都·圣安奴号·1f corridor",
+ "emerald": "ssanne_1f_corridor",
+ "size": [
+  31,
+  21
+ ],
+ "spawn": [
+  3,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    18,
+    8
+   ],
+   "name": "居民",
+   "gfx": "sailor",
+   "lines": [
+    "听说是有人把门锁了。",
+    "问别人吧。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    9
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "柜台后面那位脾气不好。",
+    "问别人吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_2_f_corridor",
+    "at": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_kitchen",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    1
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_exterior",
+    "at": [
+     32,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    20,
+    0
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_exterior",
+    "at": [
+     33,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    20
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_kitchen",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    28,
+    17
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_b1_f_corridor",
+    "at": [
+     19,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_1_f_room1",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_1_f_room2",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_1_f_room3",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_1_f_room4",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_1_f_room5",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_1_f_room7",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    20,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_1_f_room6",
+    "at": [
+     2,
+     1
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

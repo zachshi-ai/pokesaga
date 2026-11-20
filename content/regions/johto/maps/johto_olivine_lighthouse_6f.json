@@ -1,0 +1,138 @@
+{
+ "name": "浅葱灯塔·6F",
+ "emerald": "johto_olivine_lighthouse_6f",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "馆主 阿蜜",
+   "gfx": "teala",
+   "lines": [
+    "想挑战道馆，先过我这关。",
+    "让我看看你的实力。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 30,
+      "species": 81,
+      "moves": [
+       85,
+       48,
+       49,
+       86
+      ]
+     },
+     {
+      "level": 30,
+      "species": 81,
+      "moves": [
+       85,
+       48,
+       49,
+       86
+      ]
+     },
+     {
+      "level": 35,
+      "species": 208,
+      "moves": [
+       103,
+       241,
+       88,
+       231
+      ]
+     }
+    ]
+   },
+   "badge": "矿物徽章",
+   "trainer": "Jasmine"
+  },
+  {
+   "at": [
+    3,
+    3
+   ],
+   "name": "宝可梦",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_lighthouse_5f",
+    "at": [
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_lighthouse_5f",
+    "at": [
+     4,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_lighthouse_5f",
+    "at": [
+     4,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

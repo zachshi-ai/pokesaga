@@ -1,0 +1,83 @@
+{
+ "name": "关都·浅红市·宝可梦中心 2F",
+ "emerald": "pokemon_center_2f_frlg",
+ "size": [
+  15,
+  10
+ ],
+ "spawn": [
+  1,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我的宝可梦在睡午觉。",
+    "下次再来。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "东西涨价涨得厉害。",
+    "下次再来。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "今天天气不错。",
+    "下次再来。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "小心别踩到我的花。",
+    "下次再来。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsiacity_pokemoncenter_1f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

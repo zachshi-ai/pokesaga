@@ -1,0 +1,327 @@
+{
+ "name": "关都·狩猎区·中央",
+ "emerald": "safari_zone_center",
+ "size": [
+  51,
+  36
+ ],
+ "spawn": [
+  25,
+  30
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    25,
+    30
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_entrance",
+    "at": [
+     4,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    26,
+    30
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_entrance",
+    "at": [
+     4,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    27,
+    30
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_entrance",
+    "at": [
+     4,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    25,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     30,
+     34
+    ]
+   }
+  },
+  {
+   "at": [
+    26,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     31,
+     34
+    ]
+   }
+  },
+  {
+   "at": [
+    27,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     32,
+     34
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    17
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_west",
+    "at": [
+     40,
+     26
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_west",
+    "at": [
+     40,
+     27
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    19
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_west",
+    "at": [
+     40,
+     28
+    ]
+   }
+  },
+  {
+   "at": [
+    43,
+    15
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_east",
+    "at": [
+     8,
+     26
+    ]
+   }
+  },
+  {
+   "at": [
+    43,
+    16
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_east",
+    "at": [
+     8,
+     27
+    ]
+   }
+  },
+  {
+   "at": [
+    43,
+    17
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_east",
+    "at": [
+     8,
+     28
+    ]
+   }
+  },
+  {
+   "at": [
+    29,
+    25
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safari_zone_center_rest_house",
+    "at": [
+     3,
+     9
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 111,
+   "min": 25,
+   "max": 25,
+   "weight": 20
+  },
+  {
+   "species": 32,
+   "min": 22,
+   "max": 22,
+   "weight": 20
+  },
+  {
+   "species": 102,
+   "min": 24,
+   "max": 24,
+   "weight": 10
+  },
+  {
+   "species": 102,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  },
+  {
+   "species": 48,
+   "min": 22,
+   "max": 22,
+   "weight": 10
+  },
+  {
+   "species": 33,
+   "min": 31,
+   "max": 31,
+   "weight": 10
+  },
+  {
+   "species": 30,
+   "min": 31,
+   "max": 31,
+   "weight": 5
+  },
+  {
+   "species": 47,
+   "min": 30,
+   "max": 30,
+   "weight": 5
+  },
+  {
+   "species": 48,
+   "min": 22,
+   "max": 22,
+   "weight": 4
+  },
+  {
+   "species": 123,
+   "min": 23,
+   "max": 23,
+   "weight": 4
+  },
+  {
+   "species": 48,
+   "min": 22,
+   "max": 22,
+   "weight": 1
+  },
+  {
+   "species": 113,
+   "min": 23,
+   "max": 23,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "objects": [
+  {
+   "at": [
+    24,
+    15
+   ],
+   "kind": "item",
+   "item": "ITEM_NUGGET",
+   "name": "金珠",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    30,
+    26
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "休息屋"
+  },
+  {
+   "at": [
+    25,
+    27
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "训练家贴士\n按开始检查\n剩下的时间。"
+  },
+  {
+   "at": [
+    27,
+    15
+   ],
+   "kind": "hidden",
+   "item": "ITEM_LEAF_STONE",
+   "name": "叶之石",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SAFARI_ZONE_CENTER_LEAF_STONE",
+   "count": 1
+  },
+  {
+   "at": [
+    33,
+    20
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "中部栖息地"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

@@ -1,0 +1,76 @@
+{
+ "name": "三号岛·dunsparce tunnel",
+ "emerald": "three_island_dunsparce_tunnel",
+ "size": [
+  30,
+  7
+ ],
+ "spawn": [
+  3,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    23,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我们这儿靠打鱼过活。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    4
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_port",
+    "at": [
+     16,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    25,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_port",
+    "at": [
+     38,
+     5
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    21,
+    3
+   ],
+   "kind": "hidden",
+   "item": "ITEM_NUGGET",
+   "name": "金珠",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_DUNSPARCE_TUNNEL_NUGGET",
+   "count": 1
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

@@ -1,0 +1,120 @@
+{
+ "name": "道馆",
+ "emerald": "johto_olivine_gym",
+ "size": [
+  5,
+  8
+ ],
+ "spawn": [
+  2,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    1
+   ],
+   "name": "馆主 阿蜜",
+   "gfx": "teala",
+   "lines": [
+    "想挑战道馆，先过我这关。",
+    "让我看看你的实力。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 30,
+      "species": 81,
+      "moves": [
+       85,
+       48,
+       49,
+       86
+      ]
+     },
+     {
+      "level": 30,
+      "species": 81,
+      "moves": [
+       85,
+       48,
+       49,
+       86
+      ]
+     },
+     {
+      "level": 35,
+      "species": 208,
+      "moves": [
+       103,
+       241,
+       88,
+       231
+      ]
+     }
+    ]
+   },
+   "badge": "矿物徽章",
+   "trainer": "Jasmine"
+  },
+  {
+   "at": [
+    3,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_city",
+    "at": [
+     5,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_city",
+    "at": [
+     5,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    1,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "道馆\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

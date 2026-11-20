@@ -1,0 +1,362 @@
+{
+ "name": "烧焦塔·1F",
+ "emerald": "johto_burned_tower_1f",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    1
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    6
+   ],
+   "name": "馆主 松叶",
+   "gfx": "scientist",
+   "lines": [
+    "想挑战道馆，先过我这关。",
+    "让我看看你的实力。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 21,
+      "species": 92,
+      "moves": [
+       122,
+       180,
+       212,
+       174
+      ]
+     },
+     {
+      "level": 21,
+      "species": 93,
+      "moves": [
+       95,
+       102,
+       174,
+       101
+      ]
+     },
+     {
+      "level": 25,
+      "species": 94,
+      "moves": [
+       95,
+       247,
+       212,
+       138
+      ]
+     },
+     {
+      "level": 23,
+      "species": 93,
+      "moves": [
+       180,
+       212,
+       102,
+       101
+      ]
+     }
+    ]
+   },
+   "badge": "魅影徽章",
+   "trainer": "Morty"
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "劲敌",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    6
+   ],
+   "name": "馆主 松叶",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ecruteak_city",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ecruteak_city",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_b1_f",
+    "at": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_b1_f",
+    "at": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_b1_f",
+    "at": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_b1_f",
+    "at": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_b1_f",
+    "at": [
+     9,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_b1_f",
+    "at": [
+     9,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_b1_f",
+    "at": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_b1_f",
+    "at": [
+     0,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_b1_f",
+    "at": [
+     0,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_b1_f",
+    "at": [
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_b1_f",
+    "at": [
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_burned_tower_b1_f",
+    "at": [
+     3,
+     8
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 19,
+   "min": 13,
+   "max": 13,
+   "weight": 90
+  },
+  {
+   "species": 109,
+   "min": 14,
+   "max": 14,
+   "weight": 90
+  },
+  {
+   "species": 19,
+   "min": 15,
+   "max": 15,
+   "weight": 75
+  },
+  {
+   "species": 41,
+   "min": 14,
+   "max": 14,
+   "weight": 30
+  },
+  {
+   "species": 20,
+   "min": 15,
+   "max": 15,
+   "weight": 15
+  }
+ ],
+ "encounter_rate": 0.04,
+ "objects": [
+  {
+   "at": [
+    3,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "烧焦塔·1F\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    6,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "烧焦塔·1F\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

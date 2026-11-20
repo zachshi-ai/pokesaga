@@ -1,0 +1,114 @@
+{
+ "name": "道馆",
+ "emerald": "johto_pewter_gym",
+ "size": [
+  5,
+  7
+ ],
+ "spawn": [
+  2,
+  3
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    0
+   ],
+   "name": "馆主 小刚",
+   "gfx": "brock",
+   "lines": [
+    "岩石的坚硬，就是我的信念。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "name": "露营少年 Jerry",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 37,
+      "species": 28
+     }
+    ]
+   },
+   "trainer": "CamperJerry"
+  },
+  {
+   "at": [
+    2,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pewter_city",
+    "at": [
+     8,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pewter_city",
+    "at": [
+     8,
+     9
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    1,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "道馆\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    2,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "道馆\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

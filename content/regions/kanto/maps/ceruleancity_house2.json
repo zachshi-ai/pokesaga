@@ -1,0 +1,114 @@
+{
+ "name": "关都·华蓝市·民宅",
+ "emerald": "cerulean_city_house2",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  2,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    1,
+    2
+   ],
+   "gfx": "hiker",
+   "name": "登山男",
+   "lines": [
+    "我小时候在这里迷过路。",
+    "挑这时候挑战正合适。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    6
+   ],
+   "gfx": "lass",
+   "name": "少女",
+   "lines": [
+    "训练家最重要的是判断。",
+    "挑这时候挑战正合适。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     294,
+     51
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     294,
+     51
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     294,
+     51
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    1
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     295,
+     48
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    4,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "宝可梦讲座\n用无线适配器游戏"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

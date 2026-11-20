@@ -1,0 +1,337 @@
+{
+ "name": "四号岛",
+ "emerald": "four_island",
+ "size": [
+  48,
+  40
+ ],
+ "spawn": [
+  12,
+  13
+ ],
+ "npcs": [
+  {
+   "at": [
+    16,
+    13
+   ],
+   "name": "岛民",
+   "gfx": "old_man",
+   "lines": [
+    "我在这住了大半辈子。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    9
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "夏天的游客最多。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    7
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "别在礁石上乱跑。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    7
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "遗迹那边不让人进。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    17,
+    9
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "海面今天很平。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    26,
+    19
+   ],
+   "name": "岛民",
+   "gfx": "old_woman",
+   "lines": [
+    "码头那位脾气怪。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    11
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我养了三只宝可梦。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    25
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没有大医院。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    36,
+    13
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "火种这条路不太好走。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    31,
+    21
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "我们这儿靠打鱼过活。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    18,
+    20
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island_pokemon_center_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island_pokemon_day_care",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    25,
+    14
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island_house1",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    38,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island_icefall_cave_entrance",
+    "at": [
+     17,
+     30
+    ]
+   }
+  },
+  {
+   "at": [
+    33,
+    23
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island_loreleis_house",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    25,
+    26
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island_house2",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    28
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island_harbor",
+    "at": [
+     8,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    22,
+    26
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island_mart",
+    "at": [
+     4,
+     7
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    5,
+    6
+   ],
+   "kind": "item",
+   "item": "ITEM_STAR_PIECE",
+   "name": "星之碎片",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    32,
+    19
+   ],
+   "kind": "item",
+   "item": "ITEM_STARDUST",
+   "name": "星砂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    13,
+    19
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "四之岛\n温暖的蓝色浮冰之岛"
+  },
+  {
+   "at": [
+    22,
+    34
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PEARL",
+   "name": "珍珠",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_FOUR_ISLAND_PEARL",
+   "count": 1
+  },
+  {
+   "at": [
+    6,
+    21
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_FOUR_ISLAND_ULTRA_BALL",
+   "count": 1
+  },
+  {
+   "at": [
+    31,
+    23
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "哇，好冰！\n我用冻瀑洞窟里采集到的冰\n又做了一杯冰沙。\n冰爽又美味哦！"
+  },
+  {
+   "at": [
+    5,
+    11
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

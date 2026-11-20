@@ -1,0 +1,286 @@
+{
+ "name": "二号岛",
+ "emerald": "two_island",
+ "size": [
+  48,
+  20
+ ],
+ "spawn": [
+  21,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    28,
+    4
+   ],
+   "name": "岛民",
+   "gfx": "clerk",
+   "lines": [
+    "我在这住了大半辈子。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    31,
+    6
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "夏天的游客最多。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    30,
+    11
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "别在礁石上乱跑。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    26,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "sailor",
+   "lines": [
+    "遗迹那边不让人进。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    27,
+    6
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "海面今天很平。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    37,
+    12
+   ],
+   "name": "岛民",
+   "gfx": "youngster",
+   "lines": [
+    "码头那位脾气怪。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    24,
+    12
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我养了三只宝可梦。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    39,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island_joyful_game_corner",
+    "at": [
+     5,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    33,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island_house",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    21,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island_pokemon_center_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island_harbor",
+    "at": [
+     8,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    36,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island_cape_brink",
+    "at": [
+     12,
+     39
+    ]
+   }
+  },
+  {
+   "at": [
+    37,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island_cape_brink",
+    "at": [
+     13,
+     39
+    ]
+   }
+  },
+  {
+   "at": [
+    38,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island_cape_brink",
+    "at": [
+     14,
+     39
+    ]
+   }
+  },
+  {
+   "at": [
+    39,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island_cape_brink",
+    "at": [
+     15,
+     39
+    ]
+   }
+  },
+  {
+   "at": [
+    40,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island_cape_brink",
+    "at": [
+     16,
+     39
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    39,
+    16
+   ],
+   "kind": "item",
+   "item": "ITEM_REVIVE",
+   "name": "活力碎片",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    29,
+    8
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "二之岛\n又叫友谊岛"
+  },
+  {
+   "at": [
+    40,
+    10
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "跳绳和树果！\n欢乐的游戏厅"
+  },
+  {
+   "at": [
+    8,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "危险！水流湍急！\n禁止钓鱼和冲浪！"
+  },
+  {
+   "at": [
+    30,
+    16
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

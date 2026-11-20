@@ -1,0 +1,59 @@
+{
+ "name": "关都·红莲岛·pokemon lab experiment room",
+ "emerald": "cinnabar_island_pokemon_lab_experiment_room",
+ "size": [
+  15,
+  11
+ ],
+ "spawn": [
+  7,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    11,
+    8
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "这附近有只野猫。",
+    "再坐一会儿吧。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    3
+   ],
+   "name": "居民",
+   "gfx": "scientist",
+   "lines": [
+    "听说是有人把门锁了。",
+    "再坐一会儿吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabar_island_pokemon_lab_entrance",
+    "at": [
+     25,
+     5
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,98 @@
+{
+ "name": "7 号道路",
+ "emerald": "johto_route_7",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    7,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_7_saffron_gate",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_7_saffron_gate",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_celadon_city",
+    "at": [
+     18,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_saffron_city",
+    "at": [
+     0,
+     16
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    2,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "7 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "7 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

@@ -1,0 +1,87 @@
+{
+ "name": "关都·silph·co·1f",
+ "emerald": "silph_co_1f",
+ "size": [
+  36,
+  22
+ ],
+ "spawn": [
+  7,
+  21
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "走廊上安静得吓人。",
+    "这楼高得看不到顶。",
+    "这层是研究部。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    31,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_2f",
+    "at": [
+     30,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    21
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     297,
+     150
+    ]
+   }
+  },
+  {
+   "at": [
+    22,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_elevator",
+    "at": [
+     0,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    30,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "西尔佛公司总部\n1层"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

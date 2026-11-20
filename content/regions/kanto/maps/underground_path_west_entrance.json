@@ -1,0 +1,89 @@
+{
+ "name": "关都·地下通道·west entrance",
+ "emerald": "underground_path_entrance",
+ "size": [
+  13,
+  10
+ ],
+ "spawn": [
+  5,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "别看我这样，年轻时也旅行过。",
+    "能帮就帮一把。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     247,
+     144
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     247,
+     144
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     247,
+     144
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "underground_path_east_west_tunnel",
+    "at": [
+     3,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

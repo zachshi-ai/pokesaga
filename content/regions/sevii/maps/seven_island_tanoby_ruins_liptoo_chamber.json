@@ -1,0 +1,107 @@
+{
+ "name": "七号岛·田能寺遗迹 LIPTOO CHAMBER",
+ "emerald": "seven_island_tanoby_ruins_liptoo_chamber",
+ "size": [
+  23,
+  17
+ ],
+ "spawn": [
+  11,
+  15
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    11,
+    15
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins",
+    "at": [
+     103,
+     10
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 201,
+   "min": 25,
+   "max": 25,
+   "weight": 20
+  },
+  {
+   "species": 201,
+   "min": 25,
+   "max": 25,
+   "weight": 20
+  },
+  {
+   "species": 201,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  },
+  {
+   "species": 201,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  },
+  {
+   "species": 201,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  },
+  {
+   "species": 201,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  },
+  {
+   "species": 201,
+   "min": 25,
+   "max": 25,
+   "weight": 5
+  },
+  {
+   "species": 201,
+   "min": 25,
+   "max": 25,
+   "weight": 5
+  },
+  {
+   "species": 201,
+   "min": 25,
+   "max": 25,
+   "weight": 4
+  },
+  {
+   "species": 201,
+   "min": 25,
+   "max": 25,
+   "weight": 4
+  },
+  {
+   "species": 201,
+   "min": 25,
+   "max": 25,
+   "weight": 1
+  },
+  {
+   "species": 201,
+   "min": 25,
+   "max": 25,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

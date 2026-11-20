@@ -1,0 +1,413 @@
+{
+ "name": "关都·华蓝洞窟 2F",
+ "emerald": "cerulean_cave_2f",
+ "size": [
+  40,
+  23
+ ],
+ "spawn": [
+  33,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    33,
+    10
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这层我来过三回。",
+    "水源在第三层。"
+   ]
+  },
+  {
+   "at": [
+    33,
+    9
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "脚下滑，慢点走。",
+    "水源在第三层。"
+   ]
+  },
+  {
+   "at": [
+    25,
+    11
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "你听见水滴声了吗。",
+    "水源在第三层。"
+   ]
+  },
+  {
+   "at": [
+    28,
+    20
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "别往深处乱走。",
+    "水源在第三层。"
+   ]
+  },
+  {
+   "at": [
+    30,
+    20
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "我把备用绳放这儿了。",
+    "水源在第三层。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    13
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这石头有股硫磺味。",
+    "水源在第三层。"
+   ]
+  },
+  {
+   "at": [
+    23,
+    16
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "一个人进来太危险。",
+    "水源在第三层。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    6
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "洞口的风是往外吹的。",
+    "水源在第三层。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    12
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "我在这儿歇一会儿。",
+    "水源在第三层。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    20
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "墙上有旧的刻痕。",
+    "水源在第三层。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    33,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_1f",
+    "at": [
+     34,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_1f",
+    "at": [
+     10,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_1f",
+    "at": [
+     5,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    26,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_1f",
+    "at": [
+     30,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_1f",
+    "at": [
+     24,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_1f",
+    "at": [
+     2,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 42,
+   "min": 49,
+   "max": 49,
+   "weight": 20
+  },
+  {
+   "species": 67,
+   "min": 49,
+   "max": 49,
+   "weight": 20
+  },
+  {
+   "species": 82,
+   "min": 52,
+   "max": 52,
+   "weight": 10
+  },
+  {
+   "species": 47,
+   "min": 52,
+   "max": 52,
+   "weight": 10
+  },
+  {
+   "species": 64,
+   "min": 55,
+   "max": 55,
+   "weight": 10
+  },
+  {
+   "species": 132,
+   "min": 55,
+   "max": 55,
+   "weight": 10
+  },
+  {
+   "species": 42,
+   "min": 58,
+   "max": 58,
+   "weight": 5
+  },
+  {
+   "species": 202,
+   "min": 58,
+   "max": 58,
+   "weight": 5
+  },
+  {
+   "species": 101,
+   "min": 61,
+   "max": 61,
+   "weight": 4
+  },
+  {
+   "species": 47,
+   "min": 61,
+   "max": 61,
+   "weight": 4
+  },
+  {
+   "species": 64,
+   "min": 64,
+   "max": 64,
+   "weight": 1
+  },
+  {
+   "species": 132,
+   "min": 64,
+   "max": 64,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "objects": [
+  {
+   "at": [
+    9,
+    18
+   ],
+   "kind": "item",
+   "item": "ITEM_PP_UP",
+   "name": "PP 提升剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    29,
+    16
+   ],
+   "kind": "item",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    33,
+    12
+   ],
+   "kind": "item",
+   "item": "ITEM_FULL_RESTORE",
+   "name": "全复药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    33,
+    10
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    33,
+    9
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    25,
+    11
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    28,
+    20
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    30,
+    20
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    9,
+    13
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    23,
+    16
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    13,
+    6
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    4,
+    12
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    10,
+    20
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

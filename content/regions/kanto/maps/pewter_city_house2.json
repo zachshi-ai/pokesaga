@@ -1,0 +1,87 @@
+{
+ "name": "关都·尼比市·民居 2",
+ "emerald": "house2_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    3
+   ],
+   "name": "居民",
+   "gfx": "old_man",
+   "lines": [
+    "这楼里的电梯总在修。",
+    "有事就问我。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    3
+   ],
+   "name": "居民",
+   "gfx": "youngster",
+   "lines": [
+    "别看我这样，年轻时也旅行过。",
+    "有事就问我。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     57,
+     90
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     57,
+     90
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     57,
+     90
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

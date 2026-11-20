@@ -1,0 +1,89 @@
+{
+ "name": "关都·地下通道·north entrance",
+ "emerald": "underground_path_entrance",
+ "size": [
+  13,
+  10
+ ],
+ "spawn": [
+  5,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    6
+   ],
+   "name": "居民",
+   "gfx": "lass",
+   "lines": [
+    "屋里比外面暖和。",
+    "能帮就帮一把。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     295,
+     111
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     295,
+     111
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     295,
+     111
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "underground_path_north_south_tunnel",
+    "at": [
+     4,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,568 @@
+{
+ "name": "34 号道路",
+ "emerald": "johto_route_34",
+ "size": [
+  10,
+  27
+ ],
+ "spawn": [
+  5,
+  13
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    3
+   ],
+   "name": "露营少年 Todd",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 14,
+      "species": 54
+     }
+    ]
+   },
+   "trainer": "CamperTodd"
+  },
+  {
+   "at": [
+    7,
+    16
+   ],
+   "name": "短裤小子 Samuel",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 7,
+      "species": 19
+     },
+     {
+      "level": 10,
+      "species": 27
+     },
+     {
+      "level": 8,
+      "species": 21
+     },
+     {
+      "level": 8,
+      "species": 21
+     }
+    ]
+   },
+   "trainer": "YoungsterSamuel"
+  },
+  {
+   "at": [
+    5,
+    10
+   ],
+   "name": "短裤小子 Ian",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 10,
+      "species": 56
+     },
+     {
+      "level": 12,
+      "species": 50
+     }
+    ]
+   },
+   "trainer": "YoungsterIan"
+  },
+  {
+   "at": [
+    5,
+    13
+   ],
+   "name": "野餐少女 Gina",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 9,
+      "species": 187
+     },
+     {
+      "level": 9,
+      "species": 187
+     },
+     {
+      "level": 12,
+      "species": 1
+     }
+    ]
+   },
+   "trainer": "PicnickerGina"
+  },
+  {
+   "at": [
+    4,
+    5
+   ],
+   "name": "巡警",
+   "gfx": "clerk",
+   "lines": [
+    "欢迎光临，随便看看。",
+    "货都在货架上，别客气。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    14
+   ],
+   "name": "宝可梦迷 Brandon",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 13,
+      "species": 209
+     }
+    ]
+   },
+   "trainer": "PokefanMBrandon"
+  },
+  {
+   "at": [
+    7,
+    8
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    9
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    9
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    24
+   ],
+   "name": "训练家 Irene",
+   "gfx": "teala",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 22,
+      "species": 118
+     },
+     {
+      "level": 24,
+      "species": 119
+     }
+    ]
+   },
+   "trainer": "CooltrainerFIrene"
+  },
+  {
+   "at": [
+    1,
+    24
+   ],
+   "name": "训练家 Jenn",
+   "gfx": "teala",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 24,
+      "species": 120
+     },
+     {
+      "level": 26,
+      "species": 121
+     }
+    ]
+   },
+   "trainer": "CooltrainerFJenn"
+  },
+  {
+   "at": [
+    3,
+    25
+   ],
+   "name": "训练家 Kate",
+   "gfx": "teala",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 26,
+      "species": 90
+     },
+     {
+      "level": 28,
+      "species": 91
+     }
+    ]
+   },
+   "trainer": "CooltrainerFKate"
+  },
+  {
+   "at": [
+    3,
+    15
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    18
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_34_ilex_forest_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    18
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_34_ilex_forest_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_day_care",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_day_care",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_day_care",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_city",
+    "at": [
+     2,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_city",
+    "at": [
+     2,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_city",
+    "at": [
+     3,
+     15
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    1,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_city",
+    "at": [
+     5,
+     15
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    2,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_city",
+    "at": [
+     7,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_city",
+    "at": [
+     9,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_city",
+    "at": [
+     11,
+     15
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [
+  {
+   "species": 19,
+   "min": 11,
+   "max": 11,
+   "weight": 90
+  },
+  {
+   "species": 209,
+   "min": 10,
+   "max": 10,
+   "weight": 60
+  },
+  {
+   "species": 16,
+   "min": 12,
+   "max": 12,
+   "weight": 40
+  },
+  {
+   "species": 63,
+   "min": 10,
+   "max": 10,
+   "weight": 30
+  },
+  {
+   "species": 96,
+   "min": 12,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 163,
+   "min": 12,
+   "max": 12,
+   "weight": 20
+  },
+  {
+   "species": 39,
+   "min": 12,
+   "max": 12,
+   "weight": 15
+  },
+  {
+   "species": 132,
+   "min": 10,
+   "max": 10,
+   "weight": 15
+  }
+ ],
+ "encounter_rate": 0.1,
+ "objects": [
+  {
+   "at": [
+    6,
+    16
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "34 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    4,
+    6
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "34 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    3,
+    16
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "34 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true,
+ "water_encounters": [
+  {
+   "species": 72,
+   "min": 20,
+   "max": 20,
+   "weight": 60
+  },
+  {
+   "species": 72,
+   "min": 15,
+   "max": 15,
+   "weight": 30
+  },
+  {
+   "species": 73,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.06
+}

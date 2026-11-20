@@ -1,0 +1,137 @@
+{
+ "name": "关都·10 号道路·宝可梦中心",
+ "emerald": "pokemon_center_1f_frlg",
+ "size": [
+  15,
+  10
+ ],
+ "spawn": [
+  6,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    2
+   ],
+   "name": "居民",
+   "gfx": "nurse",
+   "lines": [
+    "我的宝可梦在睡午觉。",
+    "有事就问我。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "东西涨价涨得厉害。",
+    "有事就问我。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "今天天气不错。",
+    "有事就问我。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "小心别踩到我的花。",
+    "有事就问我。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    5
+   ],
+   "name": "居民",
+   "gfx": "scientist",
+   "lines": [
+    "你看起来像个训练家。",
+    "有事就问我。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     397,
+     69
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     397,
+     69
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     397,
+     69
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route10_pokemon_center_2f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

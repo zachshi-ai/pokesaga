@@ -1,0 +1,350 @@
+{
+ "name": "15 号道路",
+ "emerald": "johto_route_15",
+ "size": [
+  20,
+  9
+ ],
+ "spawn": [
+  10,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    5
+   ],
+   "name": "学生 Kipp",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 27,
+      "species": 100
+     },
+     {
+      "level": 27,
+      "species": 81
+     },
+     {
+      "level": 31,
+      "species": 100
+     },
+     {
+      "level": 31,
+      "species": 82
+     }
+    ]
+   },
+   "trainer": "SchoolboyKipp"
+  },
+  {
+   "at": [
+    7,
+    6
+   ],
+   "name": "学生 Tommy",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 32,
+      "species": 178
+     },
+     {
+      "level": 34,
+      "species": 65
+     }
+    ]
+   },
+   "trainer": "SchoolboyTommy"
+  },
+  {
+   "at": [
+    16,
+    5
+   ],
+   "name": "学生 Johnny",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 29,
+      "species": 69
+     },
+     {
+      "level": 31,
+      "species": 70
+     },
+     {
+      "level": 33,
+      "species": 71
+     }
+    ]
+   },
+   "trainer": "SchoolboyJohnny"
+  },
+  {
+   "at": [
+    13,
+    5
+   ],
+   "name": "学生 Billy",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 27,
+      "species": 46
+     },
+     {
+      "level": 27,
+      "species": 46
+     },
+     {
+      "level": 27,
+      "species": 61
+     },
+     {
+      "level": 35,
+      "species": 132
+     }
+    ]
+   },
+   "trainer": "SchoolboyBilly"
+  },
+  {
+   "at": [
+    15,
+    6
+   ],
+   "name": "老师 Colette",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 36,
+      "species": 35
+     }
+    ]
+   },
+   "trainer": "TeacherColette"
+  },
+  {
+   "at": [
+    10,
+    5
+   ],
+   "name": "老师 Hillary",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 32,
+      "species": 190
+     },
+     {
+      "level": 36,
+      "species": 104
+     }
+    ]
+   },
+   "trainer": "TeacherHillary"
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_15_fuchsia_gate",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_15_fuchsia_gate",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_14",
+    "at": [
+     2,
+     10
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_14",
+    "at": [
+     1,
+     12
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_14",
+    "at": [
+     1,
+     13
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_14",
+    "at": [
+     1,
+     14
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_14",
+    "at": [
+     1,
+     15
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_14",
+    "at": [
+     1,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_14",
+    "at": [
+     1,
+     17
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    9,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "15 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

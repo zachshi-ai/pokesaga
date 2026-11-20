@@ -1,0 +1,522 @@
+{
+ "name": "ViridianCity",
+ "emerald": "johto_viridian_city",
+ "size": [
+  20,
+  18
+ ],
+ "spawn": [
+  10,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    9,
+    2
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    4
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    11
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    10
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    16,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_viridian_gym",
+    "at": [
+     2,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_viridian_nickname_speech_house",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_trainer_house_1f",
+    "at": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_viridian_mart",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_viridian_pokecenter_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_2",
+    "at": [
+     3,
+     25
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_2",
+    "at": [
+     4,
+     25
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    11,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     1,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    12,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     2,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     4,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    15,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     5,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    16,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     6,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    17,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     7,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    18,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     8,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_1",
+    "at": [
+     9,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_22",
+    "at": [
+     18,
+     4
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_22",
+    "at": [
+     18,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_22",
+    "at": [
+     18,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_22",
+    "at": [
+     18,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_22",
+    "at": [
+     18,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_22",
+    "at": [
+     18,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_22",
+    "at": [
+     18,
+     2
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_22",
+    "at": [
+     18,
+     3
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_22",
+    "at": [
+     18,
+     4
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_22",
+    "at": [
+     18,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_22",
+    "at": [
+     18,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    11
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_22",
+    "at": [
+     18,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_22",
+    "at": [
+     18,
+     8
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    8,
+    8
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "ViridianCity\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    13,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "ViridianCity\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "ViridianCity\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    10,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "ViridianCity\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

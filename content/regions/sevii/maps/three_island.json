@@ -1,0 +1,485 @@
+{
+ "name": "三号岛",
+ "emerald": "three_island",
+ "size": [
+  24,
+  40
+ ],
+ "spawn": [
+  13,
+  19
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    24
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我们这儿靠打鱼过活。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    23
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你要去山上是吧。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    24
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "太阳落山就起雾。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    23
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "有事问船夫。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    24
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这座岛上的风是咸的。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    22
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "船一天只来两趟。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    24
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你从关都来的吧。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    23
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没什么人，安静。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    7
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "往北走有条小路。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    14
+   ],
+   "name": "岛民",
+   "gfx": "youngster",
+   "lines": [
+    "听说洞里藏着东西。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    14
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这里的果子比别处甜。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    31
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我在这住了大半辈子。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    31
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_house1",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    27
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_pokemon_center_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_mart",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_house2",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_house3",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_house4",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_house5",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    39
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_port",
+    "at": [
+     10,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    39
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_port",
+    "at": [
+     11,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    39
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_port",
+    "at": [
+     12,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_bond_bridge",
+    "at": [
+     95,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_bond_bridge",
+    "at": [
+     95,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_bond_bridge",
+    "at": [
+     95,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_bond_bridge",
+    "at": [
+     95,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_bond_bridge",
+    "at": [
+     95,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_bond_bridge",
+    "at": [
+     95,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_bond_bridge",
+    "at": [
+     95,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_bond_bridge",
+    "at": [
+     95,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    14
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_bond_bridge",
+    "at": [
+     95,
+     14
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    18,
+    17
+   ],
+   "kind": "item",
+   "item": "ITEM_ZINC",
+   "name": "特防增强剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    12,
+    31
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "三之岛\n大小一同的家庭之岛"
+  },
+  {
+   "at": [
+    5,
+    13
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PP_UP",
+   "name": "PP 提升剂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_PP_UP",
+   "count": 1
+  },
+  {
+   "at": [
+    20,
+    7
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

@@ -1,0 +1,292 @@
+{
+ "name": "关都·冠军之路 3F",
+ "emerald": "victory_road_3f",
+ "size": [
+  45,
+  22
+ ],
+ "spawn": [
+  5,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    40,
+    7
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这石头有股硫磺味。",
+    "常有小拳石滚下来。"
+   ]
+  },
+  {
+   "at": [
+    21,
+    5
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "一个人进来太危险。",
+    "常有小拳石滚下来。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    17
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "洞口的风是往外吹的。",
+    "常有小拳石滚下来。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    16
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "我在这儿歇一会儿。",
+    "常有小拳石滚下来。"
+   ]
+  },
+  {
+   "at": [
+    38,
+    13
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "墙上有旧的刻痕。",
+    "常有小拳石滚下来。"
+   ]
+  },
+  {
+   "at": [
+    39,
+    13
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这层的路是个圈。",
+    "常有小拳石滚下来。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_2f",
+    "at": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    34,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_2f",
+    "at": [
+     34,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    37,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_2f",
+    "at": [
+     38,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    39,
+    17
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_2f",
+    "at": [
+     36,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    34,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_2f",
+    "at": [
+     34,
+     19
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 66,
+   "min": 32,
+   "max": 32,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 32,
+   "max": 32,
+   "weight": 20
+  },
+  {
+   "species": 95,
+   "min": 40,
+   "max": 40,
+   "weight": 10
+  },
+  {
+   "species": 95,
+   "min": 43,
+   "max": 43,
+   "weight": 10
+  },
+  {
+   "species": 95,
+   "min": 46,
+   "max": 46,
+   "weight": 10
+  },
+  {
+   "species": 41,
+   "min": 32,
+   "max": 32,
+   "weight": 10
+  },
+  {
+   "species": 24,
+   "min": 44,
+   "max": 44,
+   "weight": 5
+  },
+  {
+   "species": 42,
+   "min": 44,
+   "max": 44,
+   "weight": 5
+  },
+  {
+   "species": 105,
+   "min": 44,
+   "max": 44,
+   "weight": 4
+  },
+  {
+   "species": 67,
+   "min": 44,
+   "max": 44,
+   "weight": 4
+  },
+  {
+   "species": 67,
+   "min": 46,
+   "max": 46,
+   "weight": 1
+  },
+  {
+   "species": 105,
+   "min": 46,
+   "max": 46,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "objects": [
+  {
+   "at": [
+    38,
+    7
+   ],
+   "kind": "item",
+   "item": "ITEM_MAX_REVIVE",
+   "name": "活力块",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    12,
+    9
+   ],
+   "kind": "item",
+   "item": "ITEM_TM50",
+   "name": "ITEM_TM50",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    19,
+    15
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    33,
+    18
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    35,
+    13
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    32,
+    5
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

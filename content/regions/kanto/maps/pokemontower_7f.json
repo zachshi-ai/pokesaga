@@ -1,0 +1,170 @@
+{
+ "name": "关都·宝可梦塔 7F",
+ "emerald": "pokemon_tower_7f",
+ "size": [
+  24,
+  20
+ ],
+ "spawn": [
+  11,
+  16
+ ],
+ "npcs": [
+  {
+   "at": [
+    11,
+    4
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "我把备用绳放这儿了。",
+    "出去记得晒太阳。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    10
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这石头有股硫磺味。",
+    "出去记得晒太阳。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    8
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "一个人进来太危险。",
+    "出去记得晒太阳。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    6
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "洞口的风是往外吹的。",
+    "出去记得晒太阳。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    11,
+    16
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemontower_6f",
+    "at": [
+     11,
+     16
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 92,
+   "min": 16,
+   "max": 16,
+   "weight": 20
+  },
+  {
+   "species": 92,
+   "min": 17,
+   "max": 17,
+   "weight": 20
+  },
+  {
+   "species": 92,
+   "min": 18,
+   "max": 18,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 15,
+   "max": 15,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 19,
+   "max": 19,
+   "weight": 10
+  },
+  {
+   "species": 93,
+   "min": 23,
+   "max": 23,
+   "weight": 10
+  },
+  {
+   "species": 104,
+   "min": 17,
+   "max": 17,
+   "weight": 5
+  },
+  {
+   "species": 104,
+   "min": 19,
+   "max": 19,
+   "weight": 5
+  },
+  {
+   "species": 92,
+   "min": 18,
+   "max": 18,
+   "weight": 4
+  },
+  {
+   "species": 93,
+   "min": 23,
+   "max": 23,
+   "weight": 4
+  },
+  {
+   "species": 92,
+   "min": 18,
+   "max": 18,
+   "weight": 1
+  },
+  {
+   "species": 93,
+   "min": 25,
+   "max": 25,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.1,
+ "objects": [
+  {
+   "at": [
+    11,
+    4
+   ],
+   "kind": "hidden",
+   "item": "ITEM_SOOTHE_BELL",
+   "name": "安抚之铃",
+   "category": "held",
+   "flag": "FLAG_HIDDEN_ITEM_POKEMON_TOWER_7F_SOOTHE_BELL",
+   "count": 1
+  }
+ ],
+ "weather": "fog_horizontal",
+ "weather_name": "雾",
+ "cycling": false
+}

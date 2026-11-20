@@ -1,0 +1,112 @@
+{
+ "name": "铃铛塔·6F",
+ "emerald": "johto_tin_tower_6f",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_tin_tower_7f",
+    "at": [
+     1,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_tin_tower_5f",
+    "at": [
+     4,
+     7
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 19,
+   "min": 22,
+   "max": 22,
+   "weight": 70
+  },
+  {
+   "species": 19,
+   "min": 20,
+   "max": 20,
+   "weight": 60
+  },
+  {
+   "species": 19,
+   "min": 21,
+   "max": 21,
+   "weight": 60
+  },
+  {
+   "species": 92,
+   "min": 20,
+   "max": 20,
+   "weight": 30
+  },
+  {
+   "species": 92,
+   "min": 21,
+   "max": 21,
+   "weight": 30
+  },
+  {
+   "species": 92,
+   "min": 22,
+   "max": 22,
+   "weight": 20
+  },
+  {
+   "species": 19,
+   "min": 23,
+   "max": 23,
+   "weight": 15
+  },
+  {
+   "species": 19,
+   "min": 24,
+   "max": 24,
+   "weight": 15
+  }
+ ],
+ "encounter_rate": 0.02,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,257 @@
+{
+ "name": "关都·无人发电所",
+ "emerald": "power_plant",
+ "size": [
+  49,
+  40
+ ],
+ "spawn": [
+  4,
+  39
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    11
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "我在这儿歇一会儿。",
+    "出去记得晒太阳。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    39
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     391,
+     90
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    38
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     391,
+     90
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    39
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     391,
+     90
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    11
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     386,
+     87
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     391,
+     90
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 100,
+   "min": 22,
+   "max": 22,
+   "weight": 20
+  },
+  {
+   "species": 81,
+   "min": 22,
+   "max": 22,
+   "weight": 20
+  },
+  {
+   "species": 100,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  },
+  {
+   "species": 81,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  },
+  {
+   "species": 25,
+   "min": 22,
+   "max": 22,
+   "weight": 10
+  },
+  {
+   "species": 25,
+   "min": 24,
+   "max": 24,
+   "weight": 10
+  },
+  {
+   "species": 82,
+   "min": 31,
+   "max": 31,
+   "weight": 5
+  },
+  {
+   "species": 82,
+   "min": 34,
+   "max": 34,
+   "weight": 5
+  },
+  {
+   "species": 25,
+   "min": 26,
+   "max": 26,
+   "weight": 4
+  },
+  {
+   "species": 125,
+   "min": 32,
+   "max": 32,
+   "weight": 4
+  },
+  {
+   "species": 25,
+   "min": 26,
+   "max": 26,
+   "weight": 1
+  },
+  {
+   "species": 125,
+   "min": 35,
+   "max": 35,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "objects": [
+  {
+   "at": [
+    7,
+    27
+   ],
+   "kind": "item",
+   "item": "ITEM_MAX_POTION",
+   "name": "全满药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    40,
+    22
+   ],
+   "kind": "item",
+   "item": "ITEM_TM17",
+   "name": "ITEM_TM17",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    46,
+    37
+   ],
+   "kind": "item",
+   "item": "ITEM_TM25",
+   "name": "ITEM_TM25",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    45,
+    4
+   ],
+   "kind": "item",
+   "item": "ITEM_THUNDER_STONE",
+   "name": "雷之石",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    26,
+    22
+   ],
+   "kind": "item",
+   "item": "ITEM_ELIXIR",
+   "name": "PP 多项小补剂",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    29,
+    16
+   ],
+   "kind": "hidden",
+   "item": "ITEM_MAX_ELIXIR",
+   "name": "PP 多项全补剂",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_POWER_PLANT_MAX_ELIXIR",
+   "count": 1
+  },
+  {
+   "at": [
+    8,
+    12
+   ],
+   "kind": "hidden",
+   "item": "ITEM_THUNDER_STONE",
+   "name": "雷之石",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_POWER_PLANT_THUNDER_STONE",
+   "count": 1
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,75 @@
+{
+ "name": "七之岛·诞生之岛 港口 FRLG",
+ "emerald": "island_harbor_frlg",
+ "size": [
+  17,
+  13
+ ],
+ "spawn": [
+  8,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    8,
+    9
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你从关都来的吧。",
+    "路上小心。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    6
+   ],
+   "name": "岛民",
+   "gfx": "sailor",
+   "lines": [
+    "岛上没什么人，安静。",
+    "路上小心。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    8,
+    2
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "birth_island_exterior",
+    "at": [
+     15,
+     24
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    1
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_harbor",
+    "at": [
+     8,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

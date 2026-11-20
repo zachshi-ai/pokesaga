@@ -1,0 +1,47 @@
+{
+ "name": "关都·浅红市·民居 3",
+ "emerald": "house1_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  4,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "别看我这样，年轻时也旅行过。",
+    "下次再来。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     211,
+     331
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

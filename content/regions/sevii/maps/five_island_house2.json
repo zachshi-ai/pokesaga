@@ -1,0 +1,48 @@
+{
+ "name": "五号岛·民居 2",
+ "emerald": "house3_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  4,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    3
+   ],
+   "name": "岛民",
+   "gfx": "old_man",
+   "lines": [
+    "别在礁石上乱跑。",
+    "路上小心。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     22,
+     9
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

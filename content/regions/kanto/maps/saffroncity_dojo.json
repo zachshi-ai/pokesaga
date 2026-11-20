@@ -1,0 +1,162 @@
+{
+ "name": "关都·金黄··dojo",
+ "emerald": "saffron_city_dojo",
+ "size": [
+  13,
+  16
+ ],
+ "spawn": [
+  5,
+  14
+ ],
+ "npcs": [
+  {
+   "at": [
+    11,
+    10
+   ],
+   "name": "空手道弟子",
+   "gfx": "man",
+   "lines": [
+    "我们道场的招式，只有「空手劈」。",
+    "练到极致，一拳就够。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    10
+   ],
+   "name": "空手道王",
+   "gfx": "man",
+   "lines": [
+    "想把格斗的筋骨练出来，得先站得住。",
+    "你站得挺稳。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    8
+   ],
+   "name": "空手道弟子",
+   "gfx": "blackbelt",
+   "lines": [
+    "师父说，输给超能力系不丢人。",
+    "丢人的是不敢再来。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    8
+   ],
+   "name": "武馆前辈",
+   "gfx": "man",
+   "lines": [
+    "隔壁道馆的人常来踢馆。",
+    "我们输多赢少，可没服过。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    5
+   ],
+   "name": "空手道师父",
+   "gfx": "blackbelt",
+   "lines": [
+    "这座道场，跟隔壁的超能力道馆争了很多年。",
+    "谁强谁弱，你自己去试试。",
+    "练武的人，话不多——去吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     304,
+     132
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     304,
+     132
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     304,
+     132
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    3,
+    13
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "格斗道场"
+  },
+  {
+   "at": [
+    9,
+    13
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "格斗道场"
+  },
+  {
+   "at": [
+    5,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "四面楚歌"
+  },
+  {
+   "at": [
+    7,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "因果报应"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

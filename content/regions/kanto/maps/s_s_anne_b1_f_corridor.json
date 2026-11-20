@@ -1,0 +1,118 @@
+{
+ "name": "关都·圣安奴号·b1f corridor",
+ "emerald": "ssanne_b1f_corridor",
+ "size": [
+  23,
+  7
+ ],
+ "spawn": [
+  19,
+  3
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    19,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_1_f_corridor",
+    "at": [
+     28,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_b1_f_room1",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_b1_f_room2",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_b1_f_room3",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_b1_f_room4",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_b1_f_room5",
+    "at": [
+     4,
+     7
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    21,
+    5
+   ],
+   "kind": "hidden",
+   "item": "ITEM_HYPER_POTION",
+   "name": "厉害伤药",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_SSANNE_B1F_CORRIDOR_HYPER_POTION",
+   "count": 1
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

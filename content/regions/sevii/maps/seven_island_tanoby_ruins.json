@@ -1,0 +1,421 @@
+{
+ "name": "七号岛·田能寺遗迹",
+ "emerald": "seven_island_tanoby_ruins",
+ "size": [
+  144,
+  20
+ ],
+ "spawn": [
+  11,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    35,
+    7
+   ],
+   "name": "岛民",
+   "gfx": "hiker",
+   "lines": [
+    "太阳落山就起雾。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    121,
+    11
+   ],
+   "name": "岛民",
+   "gfx": "hiker",
+   "lines": [
+    "有事问船夫。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    85,
+    8
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这座岛上的风是咸的。",
+    "有事就喊。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    85,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "船一天只来两趟。",
+    "有事就喊。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    35,
+    7
+   ],
+   "name": "Ruin Maniac 的 BRANDON",
+   "gfx": "hiker",
+   "lines": [
+    "你知道关于这个\n石头房间的事吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_RUIN_MANIAC_BRANDON",
+    "party": [
+     {
+      "species": 95,
+      "level": 50
+     }
+    ],
+    "name": "BRANDON",
+    "class": "Ruin Maniac"
+   },
+   "post": [
+    "阿斯卡纳遗迹可以追溯到1500年以前。\n但是它为什么会被建造出来\n仍然是一个谜。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    121,
+    11
+   ],
+   "name": "Ruin Maniac 的 BENJAMIN",
+   "gfx": "hiker",
+   "lines": [
+    "据说有一只神秘的宝可梦\n在里面沉睡。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_RUIN_MANIAC_BENJAMIN",
+    "party": [
+     {
+      "species": 74,
+      "level": 48
+     },
+     {
+      "species": 75,
+      "level": 48
+     },
+     {
+      "species": 75,
+      "level": 48
+     }
+    ],
+    "name": "BENJAMIN",
+    "class": "Ruin Maniac"
+   },
+   "post": [
+    "我听说这儿还有一些\n其他的遗址。\n也许它们是另一些神秘的\n宝可梦的长眠之地？"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    85,
+    8
+   ],
+   "name": "Painter 的 EDNA",
+   "gfx": "lass",
+   "lines": [
+    "阿棕正在教我如何画画。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PAINTER_EDNA",
+    "party": [
+     {
+      "species": 235,
+      "level": 50
+     }
+    ],
+    "name": "EDNA",
+    "class": "Painter"
+   },
+   "post": [
+    "我说我想画一个古老的建筑。\n所以阿棕就把我带到这儿来了。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    85,
+    5
+   ],
+   "name": "Gentleman 的 CLIFFORD",
+   "gfx": "old_man",
+   "lines": [
+    "今天，除了我们的课程之外，\n我们还要去看看那个石室。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_GENTLEMAN_CLIFFORD",
+    "party": [
+     {
+      "species": 105,
+      "level": 49
+     },
+     {
+      "species": 55,
+      "level": 49
+     }
+    ],
+    "name": "CLIFFORD",
+    "class": "Gentleman"
+   },
+   "post": [
+    "啊，你是在自己学习宝可梦……\n没错，你确实也是个特别的人。"
+   ],
+   "sight": 1
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    120,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins_monean_chamber",
+    "at": [
+     11,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    103,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins_liptoo_chamber",
+    "at": [
+     11,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    88,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins_weepth_chamber",
+    "at": [
+     11,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    44,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins_dilford_chamber",
+    "at": [
+     11,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    32,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins_scufib_chamber",
+    "at": [
+     11,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    15
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins_rixy_chamber",
+    "at": [
+     11,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_tanoby_ruins_viapois_chamber",
+    "at": [
+     11,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon",
+    "at": [
+     0,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon",
+    "at": [
+     1,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon",
+    "at": [
+     2,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon",
+    "at": [
+     15,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon",
+    "at": [
+     16,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    24,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon",
+    "at": [
+     21,
+     79
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    33,
+    10
+   ],
+   "kind": "hidden",
+   "item": "ITEM_HEART_SCALE",
+   "name": "心之鳞片",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SEVEN_ISLAND_TANOBY_RUINS_HEART_SCALE",
+   "count": 1
+  },
+  {
+   "at": [
+    86,
+    9
+   ],
+   "kind": "hidden",
+   "item": "ITEM_HEART_SCALE",
+   "name": "心之鳞片",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SEVEN_ISLAND_TANOBY_RUINS_HEART_SCALE_2",
+   "count": 1
+  },
+  {
+   "at": [
+    125,
+    5
+   ],
+   "kind": "hidden",
+   "item": "ITEM_HEART_SCALE",
+   "name": "心之鳞片",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SEVEN_ISLAND_TANOBY_RUINS_HEART_SCALE_3",
+   "count": 1
+  },
+  {
+   "at": [
+    8,
+    2
+   ],
+   "kind": "hidden",
+   "item": "ITEM_HEART_SCALE",
+   "name": "心之鳞片",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SEVEN_ISLAND_TANOBY_RUINS_HEART_SCALE_4",
+   "count": 1
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

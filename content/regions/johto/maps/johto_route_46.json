@@ -1,0 +1,371 @@
+{
+ "name": "46 号道路",
+ "emerald": "johto_route_46",
+ "size": [
+  10,
+  18
+ ],
+ "spawn": [
+  5,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    9
+   ],
+   "name": "登山男 Bailey",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 13,
+      "species": 74
+     },
+     {
+      "level": 13,
+      "species": 74
+     },
+     {
+      "level": 13,
+      "species": 74
+     },
+     {
+      "level": 13,
+      "species": 74
+     },
+     {
+      "level": 13,
+      "species": 74
+     }
+    ]
+   },
+   "trainer": "HikerBailey"
+  },
+  {
+   "at": [
+    2,
+    7
+   ],
+   "name": "露营少年 Ted",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 17,
+      "species": 56
+     }
+    ]
+   },
+   "trainer": "CamperTed"
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "name": "野餐少女 Erin",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 16,
+      "species": 77
+     },
+     {
+      "level": 16,
+      "species": 77
+     }
+    ]
+   },
+   "trainer": "PicnickerErin"
+  },
+  {
+   "at": [
+    3,
+    2
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    3
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    0,
+    7
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    16
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_29_route_46_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    16
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_29_route_46_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_dark_cave_violet_entrance",
+    "at": [
+     17,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     1,
+     35
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     0,
+     36
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     1,
+     38
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     1,
+     39
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     1,
+     40
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     0,
+     40
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     0,
+     41
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     0,
+     42
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_45",
+    "at": [
+     1,
+     44
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [
+  {
+   "species": 74,
+   "min": 2,
+   "max": 2,
+   "weight": 90
+  },
+  {
+   "species": 21,
+   "min": 2,
+   "max": 2,
+   "weight": 60
+  },
+  {
+   "species": 74,
+   "min": 3,
+   "max": 3,
+   "weight": 60
+  },
+  {
+   "species": 19,
+   "min": 2,
+   "max": 2,
+   "weight": 55
+  },
+  {
+   "species": 19,
+   "min": 3,
+   "max": 3,
+   "weight": 30
+  },
+  {
+   "species": 231,
+   "min": 2,
+   "max": 2,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.1,
+ "objects": [
+  {
+   "at": [
+    4,
+    13
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "46 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

@@ -1,0 +1,89 @@
+{
+ "name": "关都·8 号道路·west entrance",
+ "emerald": "saffron_city_east_west_entrance",
+ "size": [
+  13,
+  9
+ ],
+ "spawn": [
+  1,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "小心别踩到我的花。",
+    "这个我不太清楚。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     322,
+     147
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     322,
+     147
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     319,
+     140
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     319,
+     140
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

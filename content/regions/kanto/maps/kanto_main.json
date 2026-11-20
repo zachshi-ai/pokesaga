@@ -1,0 +1,12759 @@
+{
+ "name": "关都·真新镇～尼比市",
+ "emerald": "kanto_main",
+ "size": [
+  408,
+  400
+ ],
+ "spawn": [
+  72,
+  277
+ ],
+ "npcs": [
+  {
+   "at": [
+    63,
+    270
+   ],
+   "name": "大姐",
+   "gfx": "lass",
+   "lines": [
+    "这孩子是自己一个人来的？",
+    "真新镇这种地方，一年到头见不到几个生面孔。",
+    "大木博士的研究所就在北边那栋。"
+   ]
+  },
+  {
+   "at": [
+    73,
+    277
+   ],
+   "name": "胖大叔",
+   "gfx": "man",
+   "lines": [
+    "哟，你不是那家的孩子吗。",
+    "你妈今天早上还在门口张望呢。",
+    "要出远门就早点回，别学那些年轻人。"
+   ]
+  },
+  {
+   "at": [
+    70,
+    268
+   ],
+   "name": "大木博士",
+   "gfx": "oak",
+   "lines": [
+    "你要是往北走，替我看看常磐市那家店还开着没。",
+    "我年轻的时候在那儿买过一颗精灵球。"
+   ]
+  },
+  {
+   "at": [
+    66,
+    248
+   ],
+   "name": "店员",
+   "gfx": "clerk",
+   "lines": [
+    "我在这儿摆摊卖伤药。",
+    "草丛里的宝可梦白天也挺凶，别托大。"
+   ]
+  },
+  {
+   "at": [
+    79,
+    236
+   ],
+   "name": "小男孩",
+   "gfx": "youngster",
+   "lines": [
+    "你看见刚才那只波波了吗？",
+    "它飞得比我跑得快多了。",
+    "我长大要当飞行属性大师。"
+   ]
+  },
+  {
+   "at": [
+    56,
+    206
+   ],
+   "name": "胖大叔",
+   "gfx": "man",
+   "lines": [
+    "常磐市的道馆是关都最难打的一个。",
+    "馆主那个人……总之你别急着进去。"
+   ]
+  },
+  {
+   "at": [
+    82,
+    191
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，常磐森林还没这么厚的雾。",
+    "现在进去都看不见脚。"
+   ]
+  },
+  {
+   "at": [
+    69,
+    186
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "往北是二号道路，一直走能到尼比市。",
+    "路上有人打架，你避开点。"
+   ]
+  },
+  {
+   "at": [
+    68,
+    192
+   ],
+   "name": "女士",
+   "gfx": "lass",
+   "lines": [
+    "宝可梦中心在街角，红顶的那栋。",
+    "受伤了就去，别硬撑。"
+   ]
+  },
+  {
+   "at": [
+    81,
+    206
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我昨天在草丛里被小拉达追了半条街。",
+    "宝可梦没带够，真不敢乱走。"
+   ]
+  },
+  {
+   "at": [
+    64,
+    202
+   ],
+   "name": "小男孩",
+   "gfx": "youngster",
+   "lines": [
+    "你有没有甩过精灵球？",
+    "要瞄准了再扔，不然会滚到草里。"
+   ]
+  },
+  {
+   "at": [
+    54,
+    75
+   ],
+   "name": "少女",
+   "gfx": "lass",
+   "lines": [
+    "尼比市的房子全是灰的。",
+    "洗了衣服挂出去，收回来还是灰的。"
+   ]
+  },
+  {
+   "at": [
+    81,
+    77
+   ],
+   "name": "大叔",
+   "gfx": "man",
+   "lines": [
+    "博物馆里有远古宝可梦的化石。",
+    "门票五十，值。"
+   ]
+  },
+  {
+   "at": [
+    69,
+    88
+   ],
+   "name": "胖大叔",
+   "gfx": "man",
+   "lines": [
+    "道馆就在前面。",
+    "小刚那家伙，拿石头砸人从来不留手。"
+   ]
+  },
+  {
+   "at": [
+    81,
+    87
+   ],
+   "name": "捕虫少年",
+   "gfx": "bug_catcher",
+   "lines": [
+    "我抓了七只独角虫。",
+    "七只！你抓了几只？"
+   ]
+  },
+  {
+   "at": [
+    90,
+    80
+   ],
+   "name": "小男孩",
+   "gfx": "youngster",
+   "lines": [
+    "我爸爸说，往东走能到月见山。",
+    "山上有个洞，洞里会发光。"
+   ]
+  },
+  {
+   "at": [
+    94,
+    80
+   ],
+   "name": "研究员",
+   "gfx": "scientist",
+   "lines": [
+    "我在研究尼比市周边的地质。",
+    "这一带的岩层，比宝可梦还老。"
+   ]
+  },
+  {
+   "at": [
+    391,
+    110
+   ],
+   "name": "Picnicker 的 CAROL",
+   "gfx": "lass",
+   "lines": [
+    "我现在有点头晕，\n好久都没有登山了。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_CAROL",
+    "party": [
+     {
+      "species": 16,
+      "level": 21
+     },
+     {
+      "species": 17,
+      "level": 21
+     }
+    ],
+    "name": "CAROL",
+    "class": "Picnicker"
+   },
+   "post": [
+    "这座山里生活的宝可梦\n都是矮矮胖胖的那种……\n我希望能有一种宝可梦，\n它粉色的皮肤上有花瓣花纹！"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    388,
+    112
+   ],
+   "name": "Hiker 的 CLARK",
+   "gfx": "hiker",
+   "lines": [
+    "哈哈-哈哈-啊哈哈"
+   ],
+   "battle": {
+    "trainer": "TRAINER_HIKER_CLARK",
+    "party": [
+     {
+      "species": 74,
+      "level": 21
+     },
+     {
+      "species": 95,
+      "level": 21
+     }
+    ],
+    "name": "CLARK",
+    "class": "Hiker"
+   },
+   "post": [
+    "啊啊-啊嚏！\n啊嚏！抽鼻子，擦鼻涕。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    399,
+    120
+   ],
+   "name": "Pokemaniac 的 HERMAN",
+   "gfx": "man",
+   "lines": [
+    "嘿，小子！\n想看我的宝可梦"
+   ],
+   "battle": {
+    "trainer": "TRAINER_POKEMANIAC_HERMAN",
+    "party": [
+     {
+      "species": 104,
+      "level": 20
+     },
+     {
+      "species": 79,
+      "level": 20
+     }
+    ],
+    "name": "HERMAN",
+    "class": "Pokemaniac"
+   },
+   "post": [
+    "我讨厌你。\n比我强的人我都不喜欢！"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    388,
+    118
+   ],
+   "name": "Hiker 的 TRENT",
+   "gfx": "hiker",
+   "lines": [
+    "哈！\n这山里的空气真爽！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_HIKER_TRENT",
+    "party": [
+     {
+      "species": 95,
+      "level": 19
+     },
+     {
+      "species": 75,
+      "level": 19
+     }
+    ],
+    "name": "TRENT",
+    "class": "Hiker"
+   },
+   "post": [
+    "这样的空气里人都像要飞起来了！"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    397,
+    94
+   ],
+   "name": "Pokemaniac 的 MARK",
+   "gfx": "man",
+   "lines": [
+    "哇，你历经磨难终于到了我这里？\n也许你也是一个怪兽狂对吗？想要看看我的收藏吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_POKEMANIAC_MARK",
+    "party": [
+     {
+      "species": 111,
+      "level": 29
+     },
+     {
+      "species": 108,
+      "level": 29
+     }
+    ],
+    "name": "MARK",
+    "class": "Pokemaniac"
+   },
+   "post": [
+    "我还有很多稀有的宝可梦\n放在家里呢"
+   ],
+   "sight": 5
+  },
+  {
+   "at": [
+    393,
+    77
+   ],
+   "name": "Picnicker 的 HEIDI",
+   "gfx": "lass",
+   "lines": [
+    "我已经在宝可梦道馆中辗转\n奋战多时。\n…可总是输多赢少。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_HEIDI",
+    "party": [
+     {
+      "species": 25,
+      "level": 20
+     },
+     {
+      "species": 35,
+      "level": 20
+     }
+    ],
+    "name": "HEIDI",
+    "class": "Picnicker"
+   },
+   "post": [
+    "我发现一些怪兽狂\n正在附近徘徊的踪迹。\n你想象得出来吗？\n从这山顶往下俯视的样子？"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    331,
+    218
+   ],
+   "name": "Youngster 的 EDDIE",
+   "gfx": "youngster",
+   "lines": [
+    "来吧！但不许耍赖！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_YOUNGSTER_EDDIE",
+    "party": [
+     {
+      "species": 23,
+      "level": 21
+     }
+    ],
+    "name": "EDDIE",
+    "class": "Youngster"
+   },
+   "post": [
+    "我尽力了。\n我不遗憾。"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    328,
+    227
+   ],
+   "name": "Gamer 的 HUGO",
+   "gfx": "man",
+   "lines": [
+    "要么胜，要么败，否则就是平手！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_GAMER_HUGO",
+    "party": [
+     {
+      "species": 60,
+      "level": 18
+     },
+     {
+      "species": 116,
+      "level": 18
+     }
+    ],
+    "name": "HUGO",
+    "class": "Gamer"
+   },
+   "post": [
+    "宝可梦就是生命！\n生命在于竞技！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    343,
+    218
+   ],
+   "name": "Youngster 的 DILLON",
+   "gfx": "youngster",
+   "lines": [
+    "虽然我成为训练家没多久。\n但是，这一战我坚信我能赢。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_YOUNGSTER_DILLON",
+    "party": [
+     {
+      "species": 27,
+      "level": 19
+     },
+     {
+      "species": 41,
+      "level": 19
+     }
+    ],
+    "name": "DILLON",
+    "class": "Youngster"
+   },
+   "post": [
+    "刚才发生了什么？\n让我一个人静一静！"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    340,
+    220
+   ],
+   "name": "Youngster 的 DAVE",
+   "gfx": "youngster",
+   "lines": [
+    "我已经精心锻炼了我的宝可梦。\n它们早已为这一刻已做好了准备！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_YOUNGSTER_DAVE",
+    "party": [
+     {
+      "species": 32,
+      "level": 18
+     },
+     {
+      "species": 33,
+      "level": 18
+     }
+    ],
+    "name": "DAVE",
+    "class": "Youngster"
+   },
+   "post": [
+    "切……\n我最好还是去找只更强的来！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    350,
+    225
+   ],
+   "name": "Gamer 的 JASPER",
+   "gfx": "man",
+   "lines": [
+    "竞技！\n这一点还满足不了我！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_GAMER_JASPER",
+    "party": [
+     {
+      "species": 69,
+      "level": 18
+     },
+     {
+      "species": 43,
+      "level": 18
+     }
+    ],
+    "name": "JASPER",
+    "class": "Gamer"
+   },
+   "post": [
+    "在宝可梦的世界里\n你不能做胆小鬼！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    362,
+    214
+   ],
+   "name": "Gamer 的 DARIAN",
+   "gfx": "man",
+   "lines": [
+    "我还从来没赢过……"
+   ],
+   "battle": {
+    "trainer": "TRAINER_GAMER_DARIAN",
+    "party": [
+     {
+      "species": 58,
+      "level": 18
+     },
+     {
+      "species": 37,
+      "level": 18
+     }
+    ],
+    "name": "DARIAN",
+    "class": "Gamer"
+   },
+   "post": [
+    "我的运气还是像往常那样不好。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    354,
+    218
+   ],
+   "name": "Engineer 的 BRAXTON",
+   "gfx": "man",
+   "lines": [
+    "当心点！\n我正在接电线呢！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_ENGINEER_BRAXTON",
+    "party": [
+     {
+      "species": 81,
+      "level": 21
+     }
+    ],
+    "name": "BRAXTON",
+    "class": "Engineer"
+   },
+   "post": [
+    "覆盖整个世界运输能源！"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    362,
+    224
+   ],
+   "name": "Youngster 的 YASU",
+   "gfx": "youngster",
+   "lines": [
+    "在班里我是最强的。\n每天早上我都要特训。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_YOUNGSTER_YASU",
+    "party": [
+     {
+      "species": 19,
+      "level": 17
+     },
+     {
+      "species": 19,
+      "level": 17
+     },
+     {
+      "species": 20,
+      "level": 17
+     }
+    ],
+    "name": "YASU",
+    "class": "Youngster"
+   },
+   "post": [
+    "那里有一只胖乎乎的宝可梦\n是从山上下来的。\n如果你能收服它\n肯定会得到一个强力伙伴的。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    369,
+    226
+   ],
+   "name": "Gamer 的 DIRK",
+   "gfx": "man",
+   "lines": [
+    "哇哈哈哈！\n我从来还没输过呢！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_GAMER_DIRK",
+    "party": [
+     {
+      "species": 100,
+      "level": 18
+     },
+     {
+      "species": 81,
+      "level": 18
+     }
+    ],
+    "name": "DIRK",
+    "class": "Gamer"
+   },
+   "post": [
+    "你只是走了狗屎运罢了。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    344,
+    228
+   ],
+   "name": "Engineer 的 BERNIE",
+   "gfx": "man",
+   "lines": [
+    "当心电线"
+   ],
+   "battle": {
+    "trainer": "TRAINER_ENGINEER_BERNIE",
+    "party": [
+     {
+      "species": 81,
+      "level": 18
+     },
+     {
+      "species": 81,
+      "level": 18
+     },
+     {
+      "species": 82,
+      "level": 18
+     }
+    ],
+    "name": "BERNIE",
+    "class": "Engineer"
+   },
+   "post": [
+    "唉，还是回去工作吧。"
+   ],
+   "sight": 6
+  },
+  {
+   "at": [
+    401,
+    182
+   ],
+   "name": "Fisherman 的 NED",
+   "gfx": "sailor",
+   "lines": [
+    "好！\n咬钩了！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_FISHERMAN_NED",
+    "party": [
+     {
+      "species": 118,
+      "level": 22
+     },
+     {
+      "species": 60,
+      "level": 22
+     },
+     {
+      "species": 118,
+      "level": 22
+     }
+    ],
+    "name": "NED",
+    "class": "Fisherman"
+   },
+   "post": [
+    "坚持就是胜利！\n我的鱼线有反应了！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    393,
+    190
+   ],
+   "name": "Fisherman 的 CHIP",
+   "gfx": "sailor",
+   "lines": [
+    "心如止水。\n钓鱼就是比的耐心。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_FISHERMAN_CHIP",
+    "party": [
+     {
+      "species": 72,
+      "level": 24
+     },
+     {
+      "species": 118,
+      "level": 24
+     }
+    ],
+    "name": "CHIP",
+    "class": "Fisherman"
+   },
+   "post": [
+    "用这根好点的钓竿 \n就可以钓起来更好的宝可梦……"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    400,
+    197
+   ],
+   "name": "Fisherman 的 HANK",
+   "gfx": "sailor",
+   "lines": [
+    "钓鱼白痴VS\n宝可梦小孩！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_FISHERMAN_HANK",
+    "party": [
+     {
+      "species": 118,
+      "level": 27
+     }
+    ],
+    "name": "HANK",
+    "class": "Fisherman"
+   },
+   "post": [
+    "我猜你在你爱好的事情方面\n很在行。\n我承认你在宝可梦方面赢了我，\n但在垂钓方面你撼动不了我的王座。"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    397,
+    209
+   ],
+   "name": "Fisherman 的 ELLIOT",
+   "gfx": "sailor",
+   "lines": [
+    "我热爱钓鱼，你可别冤枉了我。\n但是我如果有更多的活可干\n就更好了。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_FISHERMAN_ELLIOT",
+    "party": [
+     {
+      "species": 60,
+      "level": 21
+     },
+     {
+      "species": 90,
+      "level": 21
+     },
+     {
+      "species": 118,
+      "level": 21
+     },
+     {
+      "species": 116,
+      "level": 21
+     }
+    ],
+    "name": "ELLIOT",
+    "class": "Fisherman"
+   },
+   "post": [
+    "没关系。\n失败不能影响我。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    397,
+    242
+   ],
+   "name": "Rocker 的 LUCA",
+   "gfx": "man",
+   "lines": [
+    "电属性就是我的特长。\n海里的宝可梦什么的，\n我完全不懂。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_ROCKER_LUCA",
+    "party": [
+     {
+      "species": 100,
+      "level": 29
+     },
+     {
+      "species": 101,
+      "level": 29
+     }
+    ],
+    "name": "LUCA",
+    "class": "Rocker"
+   },
+   "post": [
+    "水导电，\n所以电能打败海里的宝可梦。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    394,
+    249
+   ],
+   "name": "Camper 的 JUSTIN",
+   "gfx": "camper",
+   "lines": [
+    "我在寻找月之石。\n你有看到过吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CAMPER_JUSTIN",
+    "party": [
+     {
+      "species": 32,
+      "level": 29
+     },
+     {
+      "species": 33,
+      "level": 29
+     }
+    ],
+    "name": "JUSTIN",
+    "class": "Camper"
+   },
+   "post": [
+    "我的宝可梦需要靠\n月之石进化。\n我打赌一定会赢的。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    402,
+    258
+   ],
+   "name": "Fisherman 的 ANDREW",
+   "gfx": "sailor",
+   "lines": [
+    "钓到了什么？\n你永远不能提前知道\n你钓到了什么！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_FISHERMAN_ANDREW",
+    "party": [
+     {
+      "species": 129,
+      "level": 24
+     },
+     {
+      "species": 129,
+      "level": 24
+     }
+    ],
+    "name": "ANDREW",
+    "class": "Fisherman"
+   },
+   "post": [
+    "什么，又是鲤鱼王？\n我钓到的总是它！真的。\n可它们实在太弱了。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    398,
+    276
+   ],
+   "name": "Picnicker 的 ALMA",
+   "gfx": "lass",
+   "lines": [
+    "有一次我去山洞探险的时候，\n捡到了一个速度增强剂。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_ALMA",
+    "party": [
+     {
+      "species": 118,
+      "level": 28
+     },
+     {
+      "species": 60,
+      "level": 28
+     },
+     {
+      "species": 116,
+      "level": 28
+     }
+    ],
+    "name": "ALMA",
+    "class": "Picnicker"
+   },
+   "post": [
+    "我的宝可梦速度之高便是\n拜速度增强剂所赐。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    399,
+    282
+   ],
+   "name": "Bird Keeper 的 SEBASTIAN",
+   "gfx": "man",
+   "lines": [
+    "我的飞行属性宝可梦\n想要和你比试！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_SEBASTIAN",
+    "party": [
+     {
+      "species": 16,
+      "level": 29
+     },
+     {
+      "species": 17,
+      "level": 29
+     }
+    ],
+    "name": "SEBASTIAN",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "虽然输了\n但我的宝可梦看起来很高兴。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    390,
+    281
+   ],
+   "name": "Picnicker 的 SUSIE",
+   "gfx": "lass",
+   "lines": [
+    "我想说我肯定比一个孩子要厉害。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_SUSIE",
+    "party": [
+     {
+      "species": 16,
+      "level": 24
+     },
+     {
+      "species": 52,
+      "level": 24
+     },
+     {
+      "species": 19,
+      "level": 24
+     },
+     {
+      "species": 25,
+      "level": 24
+     },
+     {
+      "species": 52,
+      "level": 24
+     }
+    ],
+    "name": "SUSIE",
+    "class": "Picnicker"
+   },
+   "post": [
+    "我想要成为一名强大的训练家。\n如你所见，我很努力的训练。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    378,
+    277
+   ],
+   "name": "Beauty 的 SHEILA",
+   "gfx": "lass",
+   "lines": [
+    "你想跟我的宝可梦战斗吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BEAUTY_SHEILA",
+    "party": [
+     {
+      "species": 35,
+      "level": 29
+     },
+     {
+      "species": 52,
+      "level": 29
+     }
+    ],
+    "name": "SHEILA",
+    "class": "Beauty"
+   },
+   "post": [
+    "实际上我不知道\n任何关于宝可梦的知识。\n至于我用的这些……\n我抓住它们只是因为它们好看！"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    379,
+    277
+   ],
+   "name": "Beauty 的 LOLA",
+   "gfx": "lass",
+   "lines": [
+    "好，那开始我们的游戏吧，小甜心。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BEAUTY_LOLA",
+    "party": [
+     {
+      "species": 19,
+      "level": 27
+     },
+     {
+      "species": 25,
+      "level": 27
+     },
+     {
+      "species": 19,
+      "level": 27
+     }
+    ],
+    "name": "LOLA",
+    "class": "Beauty"
+   },
+   "post": [
+    "我很好奇哪一种宝可梦会厉害一点？\n雄性的还是雌性的？"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    371,
+    280
+   ],
+   "name": "Picnicker 的 VALERIE",
+   "gfx": "lass",
+   "lines": [
+    "哇塞！\n你的徽章太酷了！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_VALERIE",
+    "party": [
+     {
+      "species": 60,
+      "level": 30
+     },
+     {
+      "species": 60,
+      "level": 30
+     }
+    ],
+    "name": "VALERIE",
+    "class": "Picnicker"
+   },
+   "post": [
+    "你这些徽章都是从\n道馆馆主手里得到的，我懂的！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    365,
+    281
+   ],
+   "name": "Picnicker 的 GWEN",
+   "gfx": "lass",
+   "lines": [
+    "我可爱的宝可梦想要和你\n亲热亲热。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_GWEN",
+    "party": [
+     {
+      "species": 16,
+      "level": 27
+     },
+     {
+      "species": 52,
+      "level": 27
+     },
+     {
+      "species": 16,
+      "level": 27
+     },
+     {
+      "species": 17,
+      "level": 27
+     }
+    ],
+    "name": "GWEN",
+    "class": "Picnicker"
+   },
+   "post": [
+    "要想让你的宝可梦更强大，\n就得在战斗中磨练它们。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    345,
+    284
+   ],
+   "name": "Bird Keeper 的 ROBERT",
+   "gfx": "man",
+   "lines": [
+    "我经常和鸟系宝可梦一起。\n我毕生精力都倾注于此。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_ROBERT",
+    "party": [
+     {
+      "species": 16,
+      "level": 26
+     },
+     {
+      "species": 17,
+      "level": 26
+     },
+     {
+      "species": 21,
+      "level": 26
+     },
+     {
+      "species": 22,
+      "level": 26
+     }
+    ],
+    "name": "ROBERT",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "我希望我能像\n波波和比比鸟一样飞翔……"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    352,
+    275
+   ],
+   "name": "Bird Keeper 的 PERRY",
+   "gfx": "man",
+   "lines": [
+    "风向如此之顺畅。\n我一定能赢你！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_PERRY",
+    "party": [
+     {
+      "species": 21,
+      "level": 25
+     },
+     {
+      "species": 16,
+      "level": 25
+     },
+     {
+      "species": 16,
+      "level": 25
+     },
+     {
+      "species": 21,
+      "level": 25
+     },
+     {
+      "species": 21,
+      "level": 25
+     }
+    ],
+    "name": "PERRY",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "我输了。\n我想我要使用飞翔回家了。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    350,
+    278
+   ],
+   "name": "Biker 的 JARED",
+   "gfx": "hiker",
+   "lines": [
+    "你在看什么呢？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_JARED",
+    "party": [
+     {
+      "species": 109,
+      "level": 28
+     },
+     {
+      "species": 109,
+      "level": 28
+     },
+     {
+      "species": 109,
+      "level": 28
+     }
+    ],
+    "name": "JARED",
+    "class": "Biker"
+   },
+   "post": [
+    "迷路了！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    319,
+    307
+   ],
+   "name": "Biker 的 GERALD",
+   "gfx": "hiker",
+   "lines": [
+    "这里地方很宽敞，\n所以我们就骑车过来了。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_GERALD",
+    "party": [
+     {
+      "species": 109,
+      "level": 29
+     },
+     {
+      "species": 89,
+      "level": 29
+     }
+    ],
+    "name": "GERALD",
+    "class": "Biker"
+   },
+   "post": [
+    "你把你的宝可梦培育得这么厉害，\n实在太酷了。\n速度即是力量！\n看来你已经领悟到了！"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    330,
+    305
+   ],
+   "name": "Bird Keeper 的 DONALD",
+   "gfx": "man",
+   "lines": [
+    "你听说过传说中\n飞行的幻影吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_DONALD",
+    "party": [
+     {
+      "species": 83,
+      "level": 33
+     }
+    ],
+    "name": "DONALD",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "飞行的幻影指的是\n传说中的鸟系宝可梦。\n有三只：急冻鸟，\n闪电鸟和火焰鸟。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    322,
+    284
+   ],
+   "name": "Bird Keeper 的 BECK",
+   "gfx": "man",
+   "lines": [
+    "玉虹百货大楼\n出售技能学习机。\n技能学习机并不是十分稀少，\n但是拥有它的人也不多。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_BECK",
+    "party": [
+     {
+      "species": 17,
+      "level": 29
+     },
+     {
+      "species": 22,
+      "level": 29
+     }
+    ],
+    "name": "BECK",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "让宝可梦学习与它自身属性\n相符的技能。\n这样技能的强劲会有显著提升。"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    328,
+    286
+   ],
+   "name": "Bird Keeper 的 MARLON",
+   "gfx": "man",
+   "lines": [
+    "你教过你的鸟系宝可梦\n如何飞翔了吗？\n你可以跟它一同在天空中\n翱翔！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_MARLON",
+    "party": [
+     {
+      "species": 21,
+      "level": 28
+     },
+     {
+      "species": 84,
+      "level": 28
+     },
+     {
+      "species": 22,
+      "level": 28
+     }
+    ],
+    "name": "MARLON",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "鸟系宝可梦是我最钟爱的。\n任何其他的宝可梦都让我兴趣索然。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    319,
+    301
+   ],
+   "name": "Biker 的 ISAAC",
+   "gfx": "hiker",
+   "lines": [
+    "我想打发点时间。\n少废话，开打吧。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_ISAAC",
+    "party": [
+     {
+      "species": 88,
+      "level": 28
+     },
+     {
+      "species": 88,
+      "level": 28
+     },
+     {
+      "species": 109,
+      "level": 28
+     }
+    ],
+    "name": "ISAAC",
+    "class": "Biker"
+   },
+   "post": [
+    "培育宝可梦真是个累赘。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    319,
+    304
+   ],
+   "name": "Biker 的 MALIK",
+   "gfx": "hiker",
+   "lines": [
+    "宝可梦对战？\n太激动了！来吧！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_MALIK",
+    "party": [
+     {
+      "species": 109,
+      "level": 29
+     },
+     {
+      "species": 88,
+      "level": 29
+     }
+    ],
+    "name": "MALIK",
+    "class": "Biker"
+   },
+   "post": [
+    "你知道谁是胜者，\n不是你就是我！"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    320,
+    279
+   ],
+   "name": "Bird Keeper 的 MITCH",
+   "gfx": "man",
+   "lines": [
+    "我的鸟类宝可梦已经\n备战完毕。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_MITCH",
+    "party": [
+     {
+      "species": 16,
+      "level": 26
+     },
+     {
+      "species": 21,
+      "level": 26
+     },
+     {
+      "species": 16,
+      "level": 26
+     },
+     {
+      "species": 22,
+      "level": 26
+     }
+    ],
+    "name": "MITCH",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "我的鸟系宝可梦需要\n学习更强的技能。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    319,
+    276
+   ],
+   "name": "Bird Keeper 的 CARTER",
+   "gfx": "man",
+   "lines": [
+    "要想让你的宝可梦学到更强劲\n的技能就要善用技能机。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_CARTER",
+    "party": [
+     {
+      "species": 16,
+      "level": 28
+     },
+     {
+      "species": 84,
+      "level": 28
+     },
+     {
+      "species": 17,
+      "level": 28
+     }
+    ],
+    "name": "CARTER",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "你已经得到秘传机了吗？宝可梦不会\n轻易忘记从上面学得的技能。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    322,
+    307
+   ],
+   "name": "Biker 的 LUKAS",
+   "gfx": "hiker",
+   "lines": [
+    "来吧，开战。\n擂鼓，呐喊，冲锋！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_LUKAS",
+    "party": [
+     {
+      "species": 109,
+      "level": 26
+     },
+     {
+      "species": 109,
+      "level": 26
+     },
+     {
+      "species": 88,
+      "level": 26
+     },
+     {
+      "species": 109,
+      "level": 26
+     }
+    ],
+    "name": "LUKAS",
+    "class": "Biker"
+   },
+   "post": [
+    "啊？什么？怎么了？\n你还想干嘛？"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    330,
+    317
+   ],
+   "name": "Bird Keeper 的 BENNY",
+   "gfx": "man",
+   "lines": [
+    "我没有进去过，不过没关系。\n我们出发吧！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_BENNY",
+    "party": [
+     {
+      "species": 21,
+      "level": 29
+     },
+     {
+      "species": 22,
+      "level": 29
+     }
+    ],
+    "name": "BENNY",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "输与赢……\n在宽广的天空下皆是浮云。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    262,
+    323
+   ],
+   "name": "Picnicker 的 YAZMIN",
+   "gfx": "lass",
+   "lines": [
+    "想和我的宝可梦战斗吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_YAZMIN",
+    "party": [
+     {
+      "species": 69,
+      "level": 29
+     },
+     {
+      "species": 43,
+      "level": 29
+     },
+     {
+      "species": 114,
+      "level": 29
+     }
+    ],
+    "name": "YAZMIN",
+    "class": "Picnicker"
+   },
+   "post": [
+    "我还是跟弱一点的人训练吧。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    271,
+    322
+   ],
+   "name": "Bird Keeper 的 EDWIN",
+   "gfx": "man",
+   "lines": [
+    "只要我吹一声口哨，\n就能召唤出鸟系宝可梦。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_EDWIN",
+    "party": [
+     {
+      "species": 17,
+      "level": 26
+     },
+     {
+      "species": 83,
+      "level": 26
+     },
+     {
+      "species": 84,
+      "level": 26
+     },
+     {
+      "species": 16,
+      "level": 26
+     }
+    ],
+    "name": "EDWIN",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "可能我不擅长战斗。\n大概是我把属性弄错了吧。"
+   ],
+   "sight": 5
+  },
+  {
+   "at": [
+    277,
+    324
+   ],
+   "name": "Bird Keeper 的 CHESTER",
+   "gfx": "man",
+   "lines": [
+    "嗯？我的鸟儿们在颤抖！\n你很强，我没说错吧？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_CHESTER",
+    "party": [
+     {
+      "species": 85,
+      "level": 28
+     },
+     {
+      "species": 84,
+      "level": 28
+     },
+     {
+      "species": 84,
+      "level": 28
+     }
+    ],
+    "name": "CHESTER",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "很明显，你不会不了解的，\n其实……\n像地震和地裂这样的技能\n是不会对鸟系宝可梦造成伤害的。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    284,
+    323
+   ],
+   "name": "Picnicker 的 KINDRA",
+   "gfx": "lass",
+   "lines": [
+    "我刚刚通过交换得到了新的宝可梦。\n可以和你比试一下吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_KINDRA",
+    "party": [
+     {
+      "species": 44,
+      "level": 28
+     },
+     {
+      "species": 43,
+      "level": 28
+     },
+     {
+      "species": 43,
+      "level": 28
+     }
+    ],
+    "name": "KINDRA",
+    "class": "Picnicker"
+   },
+   "post": [
+    "在交换中取得的宝可梦是无法\n改变其昵称的。\n只有最初得到它的训练家\n能改变昵称。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    290,
+    322
+   ],
+   "name": "Beauty 的 OLIVIA",
+   "gfx": "lass",
+   "lines": [
+    "我培育宝可梦是为了保护自己，\n因为我是一人军团。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BEAUTY_OLIVIA",
+    "party": [
+     {
+      "species": 1,
+      "level": 29
+     },
+     {
+      "species": 2,
+      "level": 29
+     }
+    ],
+    "name": "OLIVIA",
+    "class": "Beauty"
+   },
+   "post": [
+    "我喜欢当我回到家时宝可梦上前\n迎接我的那种感觉。\n真的很温暖。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    299,
+    322
+   ],
+   "name": "Biker 的 ALEX",
+   "gfx": "hiker",
+   "lines": [
+    "你要是输掉的话，\n就把你身上的钱都交出来，小子！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_ALEX",
+    "party": [
+     {
+      "species": 109,
+      "level": 28
+     },
+     {
+      "species": 88,
+      "level": 28
+     },
+     {
+      "species": 110,
+      "level": 28
+     }
+    ],
+    "name": "ALEX",
+    "class": "Biker"
+   },
+   "post": [
+    "我刚刚是开玩笑的。\n不要动我的钱呀。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    303,
+    323
+   ],
+   "name": "Biker 的 ERNEST",
+   "gfx": "hiker",
+   "lines": [
+    "嘿，小子！来吧！\n这是我从废物们手里得到的战利品！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_ERNEST",
+    "party": [
+     {
+      "species": 109,
+      "level": 25
+     },
+     {
+      "species": 109,
+      "level": 25
+     },
+     {
+      "species": 110,
+      "level": 25
+     },
+     {
+      "species": 109,
+      "level": 25
+     },
+     {
+      "species": 88,
+      "level": 25
+     }
+    ],
+    "name": "ERNEST",
+    "class": "Biker"
+   },
+   "post": [
+    "人生苦短。\n当一个坏蛋是很刺激的。所以火箭队万岁！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    292,
+    318
+   ],
+   "name": "Picnicker 的 BECKY",
+   "gfx": "lass",
+   "lines": [
+    "你看着软绵绵的，\n所以我应该能打败你。\n我要开始了！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_BECKY",
+    "party": [
+     {
+      "species": 25,
+      "level": 29
+     },
+     {
+      "species": 26,
+      "level": 29
+     }
+    ],
+    "name": "BECKY",
+    "class": "Picnicker"
+   },
+   "post": [
+    "我有点怕飙车族。\n它们看起来丑陋且卑鄙！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    294,
+    322
+   ],
+   "name": "Beauty 的 GRACE",
+   "gfx": "lass",
+   "lines": [
+    "噢，你有一点儿讨人喜欢！\n就像一只可爱的宝可梦！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BEAUTY_GRACE",
+    "party": [
+     {
+      "species": 17,
+      "level": 29
+     },
+     {
+      "species": 40,
+      "level": 29
+     }
+    ],
+    "name": "GRACE",
+    "class": "Beauty"
+   },
+   "post": [
+    "我不会怪你。\n我搞得定你的。我可是个成熟的女孩。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    268,
+    316
+   ],
+   "name": "Picnicker 的 CELIA",
+   "gfx": "lass",
+   "lines": [
+    "什么事又酷又刺激？\n当然交换宝可梦！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_CELIA",
+    "party": [
+     {
+      "species": 35,
+      "level": 33
+     }
+    ],
+    "name": "CELIA",
+    "class": "Picnicker"
+   },
+   "post": [
+    "我经常和我的朋友\n交换宝可梦。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    148,
+    142
+   ],
+   "name": "Biker 的 LAO",
+   "gfx": "hiker",
+   "lines": [
+    "你想要干什么？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_LAO",
+    "party": [
+     {
+      "species": 88,
+      "level": 29
+     },
+     {
+      "species": 109,
+      "level": 29
+     }
+    ],
+    "name": "LAO",
+    "class": "Biker"
+   },
+   "post": [
+    "我们喜欢在这里游荡。\n你呢？"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    146,
+    144
+   ],
+   "name": "Cue Ball 的 KOJI",
+   "gfx": "hiker",
+   "lines": [
+    "漂亮的自行车！\n交出来！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CUE_BALL_KOJI",
+    "party": [
+     {
+      "species": 66,
+      "level": 28
+     },
+     {
+      "species": 56,
+      "level": 28
+     },
+     {
+      "species": 66,
+      "level": 28
+     }
+    ],
+    "name": "KOJI",
+    "class": "Cue Ball"
+   },
+   "post": [
+    "刚才我啥也没说，谁想要你的自行车！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    144,
+    142
+   ],
+   "name": "Cue Ball 的 LUKE",
+   "gfx": "hiker",
+   "lines": [
+    "出来打一架吧，胆小鬼！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CUE_BALL_LUKE",
+    "party": [
+     {
+      "species": 56,
+      "level": 29
+     },
+     {
+      "species": 66,
+      "level": 29
+     }
+    ],
+    "name": "LUKE",
+    "class": "Cue Ball"
+   },
+   "post": [
+    "输掉什么的最讨厌了！\n赶快从我眼前消失！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    140,
+    142
+   ],
+   "name": "Biker 的 RUBEN",
+   "gfx": "hiker",
+   "lines": [
+    "喂，朋友！\n来玩儿一把怎么样！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_RUBEN",
+    "party": [
+     {
+      "species": 110,
+      "level": 28
+     },
+     {
+      "species": 109,
+      "level": 28
+     },
+     {
+      "species": 110,
+      "level": 28
+     }
+    ],
+    "name": "RUBEN",
+    "class": "Biker"
+   },
+   "post": [
+    "我和我讨厌的宝可梦通过骚扰人们\n来获得快乐。\n它们吓唬人可是能手，\n当然了，咬人也不差。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    142,
+    144
+   ],
+   "name": "Biker 的 HIDEO",
+   "gfx": "hiker",
+   "lines": [
+    "嘿，你刚才撞着我了！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_HIDEO",
+    "party": [
+     {
+      "species": 110,
+      "level": 33
+     }
+    ],
+    "name": "HIDEO",
+    "class": "Biker"
+   },
+   "post": [
+    "管你看的顺不顺眼，\n我们就爱在这儿周围转。\n你可以沿着海岸从浅红\n绕路去枯叶。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    138,
+    144
+   ],
+   "name": "Cue Ball 的 CAMRON",
+   "gfx": "hiker",
+   "lines": [
+    "我感到又饿又心烦！\n我需要一个出气筒！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CUE_BALL_CAMRON",
+    "party": [
+     {
+      "species": 56,
+      "level": 29
+     },
+     {
+      "species": 66,
+      "level": 29
+     }
+    ],
+    "name": "CAMRON",
+    "class": "Cue Ball"
+   },
+   "post": [
+    "要是我有了宝可梦，\n他们必将成为我的凶器。\n我会用它们\n把我的敌人撕烂。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    136,
+    168
+   ],
+   "name": "Biker 的 VIRGIL",
+   "gfx": "hiker",
+   "lines": [
+    "你想去浅红？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_VIRGIL",
+    "party": [
+     {
+      "species": 110,
+      "level": 28
+     },
+     {
+      "species": 109,
+      "level": 28
+     },
+     {
+      "species": 110,
+      "level": 28
+     }
+    ],
+    "name": "VIRGIL",
+    "class": "Biker"
+   },
+   "post": [
+    "我喜欢骑下坡！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    143,
+    165
+   ],
+   "name": "Cue Ball 的 ISAIAH",
+   "gfx": "hiker",
+   "lines": [
+    "我的身体超棒的，\n对决吧！老兄。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CUE_BALL_ISAIAH",
+    "party": [
+     {
+      "species": 66,
+      "level": 29
+     },
+     {
+      "species": 68,
+      "level": 29
+     }
+    ],
+    "name": "ISAIAH",
+    "class": "Cue Ball"
+   },
+   "post": [
+    "我可以把你从这儿撞飞！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    147,
+    174
+   ],
+   "name": "Cue Ball 的 RAUL",
+   "gfx": "hiker",
+   "lines": [
+    "跟小孩战斗可不是什么赚钱\n的捷径。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CUE_BALL_RAUL",
+    "party": [
+     {
+      "species": 56,
+      "level": 29
+     },
+     {
+      "species": 57,
+      "level": 29
+     }
+    ],
+    "name": "RAUL",
+    "class": "Cue Ball"
+   },
+   "post": [
+    "在单车路你会捡到\n一些好的东西。\n如果把它们拿去卖，\n能赚到不少钱。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    150,
+    191
+   ],
+   "name": "Biker 的 NIKOLAS",
+   "gfx": "hiker",
+   "lines": [
+    "让霹雳电球电你一下！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_NIKOLAS",
+    "party": [
+     {
+      "species": 100,
+      "level": 29
+     },
+     {
+      "species": 100,
+      "level": 29
+     }
+    ],
+    "name": "NIKOLAS",
+    "class": "Biker"
+   },
+   "post": [
+    "我在废弃的无人发电厂\n遇到了我的霹雳电球。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    139,
+    188
+   ],
+   "name": "Biker 的 BILLY",
+   "gfx": "hiker",
+   "lines": [
+    "我们是飙车族！\n这条路我们说了算，懂吗！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_BILLY",
+    "party": [
+     {
+      "species": 89,
+      "level": 33
+     }
+    ],
+    "name": "BILLY",
+    "class": "Biker"
+   },
+   "post": [
+    "你在寻求冒险生活吗？"
+   ],
+   "sight": 5
+  },
+  {
+   "at": [
+    134,
+    211
+   ],
+   "name": "Cue Ball 的 JAMAL",
+   "gfx": "hiker",
+   "lines": [
+    "我得练习练习！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CUE_BALL_JAMAL",
+    "party": [
+     {
+      "species": 56,
+      "level": 26
+     },
+     {
+      "species": 56,
+      "level": 26
+     },
+     {
+      "species": 68,
+      "level": 26
+     },
+     {
+      "species": 66,
+      "level": 26
+     }
+    ],
+    "name": "JAMAL",
+    "class": "Cue Ball"
+   },
+   "post": [
+    "我一定就是在那儿减肥的没错！"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    153,
+    211
+   ],
+   "name": "Cue Ball 的 ZEEK",
+   "gfx": "hiker",
+   "lines": [
+    "我提升了我的宝可梦等级，\n但是它不进化，为什么？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CUE_BALL_ZEEK",
+    "party": [
+     {
+      "species": 67,
+      "level": 33
+     }
+    ],
+    "name": "ZEEK",
+    "class": "Cue Ball"
+   },
+   "post": [
+    "也许有一些宝可梦需要用\n属性石来进化。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    150,
+    244
+   ],
+   "name": "Cue Ball 的 COREY",
+   "gfx": "hiker",
+   "lines": [
+    "成为一个逆反的人！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CUE_BALL_COREY",
+    "party": [
+     {
+      "species": 57,
+      "level": 29
+     },
+     {
+      "species": 67,
+      "level": 29
+     }
+    ],
+    "name": "COREY",
+    "class": "Cue Ball"
+   },
+   "post": [
+    "准备好为你的信念而战斗！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    148,
+    284
+   ],
+   "name": "Biker 的 WILLIAM",
+   "gfx": "hiker",
+   "lines": [
+    "输了，小子！\n我太累了！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_WILLIAM",
+    "party": [
+     {
+      "species": 109,
+      "level": 25
+     },
+     {
+      "species": 110,
+      "level": 25
+     },
+     {
+      "species": 109,
+      "level": 25
+     },
+     {
+      "species": 109,
+      "level": 25
+     },
+     {
+      "species": 110,
+      "level": 25
+     }
+    ],
+    "name": "WILLIAM",
+    "class": "Biker"
+   },
+   "post": [
+    "我得去打个小盹！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    136,
+    266
+   ],
+   "name": "Biker 的 JAXON",
+   "gfx": "hiker",
+   "lines": [
+    "漂亮的自行车！\n怎么入手的？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_JAXON",
+    "party": [
+     {
+      "species": 110,
+      "level": 29
+     },
+     {
+      "species": 89,
+      "level": 29
+     }
+    ],
+    "name": "JAXON",
+    "class": "Biker"
+   },
+   "post": [
+    "在斜坡上很难掌控它啊！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    178,
+    324
+   ],
+   "name": "Bird Keeper 的 JACOB",
+   "gfx": "man",
+   "lines": [
+    "这是我的草地！\n快出去！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_JACOB",
+    "party": [
+     {
+      "species": 21,
+      "level": 26
+     },
+     {
+      "species": 21,
+      "level": 26
+     },
+     {
+      "species": 22,
+      "level": 26
+     },
+     {
+      "species": 21,
+      "level": 26
+     }
+    ],
+    "name": "JACOB",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "这是我最喜欢收服\n宝可梦的地方。"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    173,
+    325
+   ],
+   "name": "Bird Keeper 的 RAMIRO",
+   "gfx": "man",
+   "lines": [
+    "咕咕！\n你喜欢我学的鸟叫声吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_RAMIRO",
+    "party": [
+     {
+      "species": 85,
+      "level": 34
+     }
+    ],
+    "name": "RAMIRO",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "我在周末喜欢收集海洋的宝可梦，\n因为大海离我太近了。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    171,
+    322
+   ],
+   "name": "Bird Keeper 的 WILTON",
+   "gfx": "man",
+   "lines": [
+    "我总是踏遍每一个草丛\n来寻找新的宝可梦。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_WILTON",
+    "party": [
+     {
+      "species": 21,
+      "level": 29
+     },
+     {
+      "species": 22,
+      "level": 29
+     }
+    ],
+    "name": "WILTON",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "我希望有一辆自行车！"
+   ],
+   "sight": 6
+  },
+  {
+   "at": [
+    219,
+    350
+   ],
+   "name": "Swimmer M 的 REECE",
+   "gfx": "man",
+   "lines": [
+    "等等！慢慢来！\n你的心脏会受不了的！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_REECE",
+    "party": [
+     {
+      "species": 118,
+      "level": 29
+     },
+     {
+      "species": 116,
+      "level": 29
+     },
+     {
+      "species": 120,
+      "level": 29
+     }
+    ],
+    "name": "REECE",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "注意玛瑙水母。\n被蛰到会很疼。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    214,
+    349
+   ],
+   "name": "Swimmer M 的 RICHARD",
+   "gfx": "man",
+   "lines": [
+    "在出去游泳前\n我必须先热身。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_RICHARD",
+    "party": [
+     {
+      "species": 72,
+      "level": 30
+     },
+     {
+      "species": 90,
+      "level": 30
+     }
+    ],
+    "name": "RICHARD",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "谢谢你，孩子！\n我准备好去游泳了。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    216,
+    357
+   ],
+   "name": "Swimmer M 的 TONY",
+   "gfx": "man",
+   "lines": [
+    "我凝视着大海，就为忘掉\n所有不愉快的事情。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_TONY",
+    "party": [
+     {
+      "species": 116,
+      "level": 30
+     },
+     {
+      "species": 116,
+      "level": 30
+     }
+    ],
+    "name": "TONY",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "我正凝视着大海，\n这样就会忘掉所有的不快！"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    222,
+    373
+   ],
+   "name": "Swimmer M 的 MATTHEW",
+   "gfx": "man",
+   "lines": [
+    "我喜欢游泳！\n你呢？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_MATTHEW",
+    "party": [
+     {
+      "species": 60,
+      "level": 30
+     },
+     {
+      "species": 61,
+      "level": 30
+     }
+    ],
+    "name": "MATTHEW",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "在海里畅游之时即便是遇到\n海中的宝可梦我也毫无惧色。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    212,
+    367
+   ],
+   "name": "Swimmer M 的 DOUGLAS",
+   "gfx": "man",
+   "lines": [
+    "地平线外是什么？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_DOUGLAS",
+    "party": [
+     {
+      "species": 116,
+      "level": 27
+     },
+     {
+      "species": 72,
+      "level": 27
+     },
+     {
+      "species": 72,
+      "level": 27
+     },
+     {
+      "species": 118,
+      "level": 27
+     }
+    ],
+    "name": "DOUGLAS",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "我看见远处环绕着\n一些小岛！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    220,
+    362
+   ],
+   "name": "Swimmer M 的 DAVID",
+   "gfx": "man",
+   "lines": [
+    "我试着和宝可梦一起潜水，\n但是失败了。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_DAVID",
+    "party": [
+     {
+      "species": 118,
+      "level": 29
+     },
+     {
+      "species": 90,
+      "level": 29
+     },
+     {
+      "species": 119,
+      "level": 29
+     }
+    ],
+    "name": "DAVID",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "我想你必须得钓上\n海里的宝可梦。"
+   ],
+   "sight": 6
+  },
+  {
+   "at": [
+    215,
+    387
+   ],
+   "name": "Swimmer M 的 AXLE",
+   "gfx": "man",
+   "lines": [
+    "喂，小子！\n这儿的水流很急啊！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_AXLE",
+    "party": [
+     {
+      "species": 72,
+      "level": 27
+     },
+     {
+      "species": 72,
+      "level": 27
+     },
+     {
+      "species": 120,
+      "level": 27
+     },
+     {
+      "species": 116,
+      "level": 27
+     },
+     {
+      "species": 73,
+      "level": 27
+     }
+    ],
+    "name": "AXLE",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "我，我的腿！抽筋了！\n糟了……"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    218,
+    388
+   ],
+   "name": "Swimmer F 的 ALICE",
+   "gfx": "man",
+   "lines": [
+    "游泳最棒！\n太阳什么的最讨厌了！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_FEMALE_ALICE",
+    "party": [
+     {
+      "species": 118,
+      "level": 30
+     },
+     {
+      "species": 119,
+      "level": 30
+     }
+    ],
+    "name": "ALICE",
+    "class": "Swimmer F"
+   },
+   "post": [
+    "我男朋友想要游去\n双子岛。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    216,
+    389
+   ],
+   "name": "Swimmer F 的 CONNIE",
+   "gfx": "man",
+   "lines": [
+    "我和我的朋友一路游了过来……\n好累……"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_FEMALE_CONNIE",
+    "party": [
+     {
+      "species": 120,
+      "level": 29
+     },
+     {
+      "species": 120,
+      "level": 29
+     },
+     {
+      "species": 120,
+      "level": 29
+     }
+    ],
+    "name": "CONNIE",
+    "class": "Swimmer F"
+   },
+   "post": [
+    "如果我要在海上骑一只宝可梦航行，\n那就是拉普拉斯啦。\n拉普拉斯好大的，\n能让我在海上不沾一点儿水。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    213,
+    388
+   ],
+   "name": "Swimmer F 的 ANYA",
+   "gfx": "man",
+   "lines": [
+    "我好喜欢你的坐骑啊！\n如果我赢了能把它送给我吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_FEMALE_ANYA",
+    "party": [
+     {
+      "species": 60,
+      "level": 27
+     },
+     {
+      "species": 118,
+      "level": 27
+     },
+     {
+      "species": 119,
+      "level": 27
+     },
+     {
+      "species": 118,
+      "level": 27
+     },
+     {
+      "species": 60,
+      "level": 27
+     }
+    ],
+    "name": "ANYA",
+    "class": "Swimmer F"
+   },
+   "post": [
+    "去双子岛\n还有老远的一大段路啊……\n我还是回浅红算了……"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    92,
+    391
+   ],
+   "name": "Swimmer F 的 MELISSA",
+   "gfx": "man",
+   "lines": [
+    "在红莲西方，\n有一个宝可梦的研究所。\n我的爸爸在那儿工作。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_FEMALE_MELISSA",
+    "party": [
+     {
+      "species": 60,
+      "level": 31
+     },
+     {
+      "species": 119,
+      "level": 31
+     }
+    ],
+    "name": "MELISSA",
+    "class": "Swimmer F"
+   },
+   "post": [
+    "红莲是一个火山岛。\n我听说在某一次火山喷发时，\n它从海上生成了。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    100,
+    394
+   ],
+   "name": "Picnicker 的 MISSY",
+   "gfx": "lass",
+   "lines": [
+    "我从红莲镇游过来的。\n跟你讲，这可不轻松。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_MISSY",
+    "party": [
+     {
+      "species": 118,
+      "level": 31
+     },
+     {
+      "species": 119,
+      "level": 31
+     }
+    ],
+    "name": "MISSY",
+    "class": "Picnicker"
+   },
+   "post": [
+    "在红莲，宝可梦占据了\n那所被遗弃的大厦。\n那儿现在叫做宝可梦屋。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    118,
+    387
+   ],
+   "name": "Swimmer F 的 NORA",
+   "gfx": "man",
+   "lines": [
+    "我的男朋友给了我大颗的珍珠。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_FEMALE_NORA",
+    "party": [
+     {
+      "species": 90,
+      "level": 30
+     },
+     {
+      "species": 90,
+      "level": 30
+     },
+     {
+      "species": 91,
+      "level": 30
+     }
+    ],
+    "name": "NORA",
+    "class": "Swimmer F"
+   },
+   "post": [
+    "我的珍珠放在刺甲贝\n里面会变大吗？"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    127,
+    389
+   ],
+   "name": "Bird Keeper 的 ROGER",
+   "gfx": "man",
+   "lines": [
+    "我乘着我的鸟系宝可梦来这。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIRD_KEEPER_ROGER",
+    "party": [
+     {
+      "species": 22,
+      "level": 30
+     },
+     {
+      "species": 22,
+      "level": 30
+     },
+     {
+      "species": 17,
+      "level": 30
+     }
+    ],
+    "name": "ROGER",
+    "class": "Bird Keeper"
+   },
+   "post": [
+    "我的宝可梦筋疲力尽了。\n它们不能带我飞翔回去了！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    107,
+    390
+   ],
+   "name": "Swimmer M 的 DEAN",
+   "gfx": "man",
+   "lines": [
+    "检查一下我充满肌肉的体格！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_DEAN",
+    "party": [
+     {
+      "species": 120,
+      "level": 35
+     }
+    ],
+    "name": "DEAN",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "我应该让宝可梦的体格变强壮，\n而不是我的！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    157,
+    396
+   ],
+   "name": "Picnicker 的 IRENE",
+   "gfx": "lass",
+   "lines": [
+    "你也在度假吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_IRENE",
+    "party": [
+     {
+      "species": 72,
+      "level": 30
+     },
+     {
+      "species": 116,
+      "level": 30
+     },
+     {
+      "species": 86,
+      "level": 30
+     }
+    ],
+    "name": "IRENE",
+    "class": "Picnicker"
+   },
+   "post": [
+    "在很久以前，\n双子岛是一座独立的小岛。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    195,
+    389
+   ],
+   "name": "Swimmer M 的 BARRY",
+   "gfx": "man",
+   "lines": [
+    "这儿的水很浅。\n有很多人在这儿游泳。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_BARRY",
+    "party": [
+     {
+      "species": 90,
+      "level": 31
+     },
+     {
+      "species": 91,
+      "level": 31
+     }
+    ],
+    "name": "BARRY",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "我希望能骑着我的宝可梦。\n你应该还不算太累。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    190,
+    391
+   ],
+   "name": "Swimmer M 的 DARRIN",
+   "gfx": "man",
+   "lines": [
+    "你为什么骑着宝可梦？\n你不会游泳吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_DARRIN",
+    "party": [
+     {
+      "species": 116,
+      "level": 28
+     },
+     {
+      "species": 116,
+      "level": 28
+     },
+     {
+      "species": 117,
+      "level": 28
+     },
+     {
+      "species": 116,
+      "level": 28
+     }
+    ],
+    "name": "DARRIN",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "骑着宝可梦看起来确实很有趣！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    177,
+    390
+   ],
+   "name": "Swimmer F 的 SHIRLEY",
+   "gfx": "man",
+   "lines": [
+    "双子岛是一个安静的度假场所。\n我就是正在这儿休假。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_FEMALE_SHIRLEY",
+    "party": [
+     {
+      "species": 117,
+      "level": 30
+     },
+     {
+      "species": 116,
+      "level": 30
+     },
+     {
+      "species": 117,
+      "level": 30
+     }
+    ],
+    "name": "SHIRLEY",
+    "class": "Swimmer F"
+   },
+   "post": [
+    "这座岛下有个巨大的洞穴。"
+   ],
+   "sight": 5
+  },
+  {
+   "at": [
+    138,
+    391
+   ],
+   "name": "Swimmer F 的 TIFFANY",
+   "gfx": "man",
+   "lines": [
+    "我喜欢和鱼儿们一起\n飘游在波浪之中。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_FEMALE_TIFFANY",
+    "party": [
+     {
+      "species": 119,
+      "level": 35
+     }
+    ],
+    "name": "TIFFANY",
+    "class": "Swimmer F"
+   },
+   "post": [
+    "想和我一起飘游吗？"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    67,
+    307
+   ],
+   "name": "Fisherman 的 RONALD",
+   "gfx": "sailor",
+   "lines": [
+    "你想不想知道这儿的鱼是否咬人？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_FISHERMAN_RONALD",
+    "party": [
+     {
+      "species": 119,
+      "level": 28
+     },
+     {
+      "species": 118,
+      "level": 28
+     },
+     {
+      "species": 119,
+      "level": 28
+     },
+     {
+      "species": 119,
+      "level": 28
+     }
+    ],
+    "name": "RONALD",
+    "class": "Fisherman"
+   },
+   "post": [
+    "我什么也捉不到。\n没有一只好的宝可梦！"
+   ],
+   "sight": 0
+  },
+  {
+   "at": [
+    76,
+    306
+   ],
+   "name": "Fisherman 的 WADE",
+   "gfx": "sailor",
+   "lines": [
+    "我收服了好多好多！\n你想不想要呢？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_FISHERMAN_WADE",
+    "party": [
+     {
+      "species": 129,
+      "level": 27
+     },
+     {
+      "species": 129,
+      "level": 27
+     },
+     {
+      "species": 129,
+      "level": 27
+     },
+     {
+      "species": 129,
+      "level": 27
+     },
+     {
+      "species": 129,
+      "level": 27
+     },
+     {
+      "species": 129,
+      "level": 27
+     }
+    ],
+    "name": "WADE",
+    "class": "Fisherman"
+   },
+   "post": [
+    "我只想抓鲤鱼王！"
+   ],
+   "sight": 0
+  },
+  {
+   "at": [
+    72,
+    324
+   ],
+   "name": "Swimmer M 的 SPENCER",
+   "gfx": "man",
+   "lines": [
+    "海洋洗涤了我的身体和灵魂！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_SPENCER",
+    "party": [
+     {
+      "species": 117,
+      "level": 33
+     },
+     {
+      "species": 73,
+      "level": 33
+     }
+    ],
+    "name": "SPENCER",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "大海是很伟大的，能包容一切，\n但是我也很喜欢山。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    71,
+    338
+   ],
+   "name": "Fisherman 的 CLAUDE",
+   "gfx": "sailor",
+   "lines": [
+    "嘿，不要把鱼吓走了！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_FISHERMAN_CLAUDE",
+    "party": [
+     {
+      "species": 90,
+      "level": 31
+     },
+     {
+      "species": 91,
+      "level": 31
+     }
+    ],
+    "name": "CLAUDE",
+    "class": "Fisherman"
+   },
+   "post": [
+    "我什么也没有收服。\n难道这个地方实际上只是一个大水池或是其他什么鬼地方吗？"
+   ],
+   "sight": 0
+  },
+  {
+   "at": [
+    74,
+    345
+   ],
+   "name": "Fisherman 的 NOLAN",
+   "gfx": "sailor",
+   "lines": [
+    "陪着我直到我游不动了为止。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_FISHERMAN_NOLAN",
+    "party": [
+     {
+      "species": 119,
+      "level": 33
+     },
+     {
+      "species": 118,
+      "level": 33
+     }
+    ],
+    "name": "NOLAN",
+    "class": "Fisherman"
+   },
+   "post": [
+    "噢，等等！\n我钓到一竿，耶！"
+   ],
+   "sight": 0
+  },
+  {
+   "at": [
+    75,
+    354
+   ],
+   "name": "Swimmer M 的 JACK",
+   "gfx": "man",
+   "lines": [
+    "我在海里获得了我的宝可梦。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_JACK",
+    "party": [
+     {
+      "species": 121,
+      "level": 37
+     }
+    ],
+    "name": "JACK",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "你在哪儿获得你的宝可梦？"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    75,
+    368
+   ],
+   "name": "Swimmer M 的 JEROME",
+   "gfx": "man",
+   "lines": [
+    "现在，我在参加三项全能的竞赛。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_JEROME",
+    "party": [
+     {
+      "species": 120,
+      "level": 33
+     },
+     {
+      "species": 8,
+      "level": 33
+     }
+    ],
+    "name": "JEROME",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "我输了！但是，我仍然可以\n进行自行车和马拉松的比赛！"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    70,
+    359
+   ],
+   "name": "Swimmer M 的 ROLAND",
+   "gfx": "man",
+   "lines": [
+    "啊！\n去感受风和阳光！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_ROLAND",
+    "party": [
+     {
+      "species": 61,
+      "level": 32
+     },
+     {
+      "species": 72,
+      "level": 32
+     },
+     {
+      "species": 117,
+      "level": 32
+     }
+    ],
+    "name": "ROLAND",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "我被晒黑了！"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    288,
+    19
+   ],
+   "name": "Camper 的 ETHAN",
+   "gfx": "camper",
+   "lines": [
+    "嗯！我是5号！\n我要把你踏在脚下！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CAMPER_ETHAN",
+    "party": [
+     {
+      "species": 56,
+      "level": 18
+     }
+    ],
+    "name": "ETHAN",
+    "class": "Camper"
+   },
+   "post": [
+    "我尽力了，我不后悔！"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    286,
+    22
+   ],
+   "name": "Lass 的 RELI",
+   "gfx": "lass",
+   "lines": [
+    "我是4号！\n感觉累了吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_LASS_RELI",
+    "party": [
+     {
+      "species": 32,
+      "level": 16
+     },
+     {
+      "species": 29,
+      "level": 16
+     }
+    ],
+    "name": "RELI",
+    "class": "Lass"
+   },
+   "post": [
+    "我尽力了，我不后悔！"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    288,
+    25
+   ],
+   "name": "Youngster 的 TIMMY",
+   "gfx": "youngster",
+   "lines": [
+    "3号在这儿！\n我可没那么容易搞定！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_YOUNGSTER_TIMMY",
+    "party": [
+     {
+      "species": 27,
+      "level": 14
+     },
+     {
+      "species": 23,
+      "level": 14
+     }
+    ],
+    "name": "TIMMY",
+    "class": "Youngster"
+   },
+   "post": [
+    "我尽力了，我不后悔！"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    286,
+    28
+   ],
+   "name": "Lass 的 ALI",
+   "gfx": "lass",
+   "lines": [
+    "我是2号！\n现在要认真了！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_LASS_ALI",
+    "party": [
+     {
+      "species": 16,
+      "level": 12
+     },
+     {
+      "species": 43,
+      "level": 12
+     },
+     {
+      "species": 69,
+      "level": 12
+     }
+    ],
+    "name": "ALI",
+    "class": "Lass"
+   },
+   "post": [
+    "我尽力了，我不后悔！"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    288,
+    31
+   ],
+   "name": "Bug Catcher 的 CALE",
+   "gfx": "bug_catcher",
+   "lines": [
+    "人们把这里称作\n金珠大桥！\n战胜我们五个训练家就可以\n获得一份神秘大礼！\n你能得到它吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BUG_CATCHER_CALE",
+    "party": [
+     {
+      "species": 10,
+      "level": 10
+     },
+     {
+      "species": 13,
+      "level": 10
+     },
+     {
+      "species": 11,
+      "level": 10
+     },
+     {
+      "species": 14,
+      "level": 10
+     }
+    ],
+    "name": "CALE",
+    "class": "Bug Catcher"
+   },
+   "post": [
+    "我尽力了。我不后悔！"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    281,
+    21
+   ],
+   "name": "Camper 的 SHANE",
+   "gfx": "camper",
+   "lines": [
+    "我看见了你草地上的壮举！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CAMPER_SHANE",
+    "party": [
+     {
+      "species": 19,
+      "level": 14
+     },
+     {
+      "species": 23,
+      "level": 14
+     }
+    ],
+    "name": "SHANE",
+    "class": "Camper"
+   },
+   "post": [
+    "我藏着是因为\n我害怕桥上的人们。"
+   ],
+   "sight": 5
+  },
+  {
+   "at": [
+    311,
+    4
+   ],
+   "name": "Hiker 的 FRANKLIN",
+   "gfx": "hiker",
+   "lines": [
+    "我刚刚从月见山上下来，\n但是我依然精力充沛。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_HIKER_FRANKLIN",
+    "party": [
+     {
+      "species": 66,
+      "level": 15
+     },
+     {
+      "species": 74,
+      "level": 15
+     }
+    ],
+    "name": "FRANKLIN",
+    "class": "Hiker"
+   },
+   "post": [
+    "见鬼！那个洞穴中的\n一个超音蝠把我赶回来了。"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    318,
+    2
+   ],
+   "name": "Youngster 的 JOEY",
+   "gfx": "youngster",
+   "lines": [
+    "本地的训练家都来这儿练习。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_YOUNGSTER_JOEY",
+    "party": [
+     {
+      "species": 19,
+      "level": 15
+     },
+     {
+      "species": 21,
+      "level": 15
+     }
+    ],
+    "name": "JOEY",
+    "class": "Youngster"
+   },
+   "post": [
+    "任何宝可梦都有弱点。\n哪怕是所谓的最强的。\n所以最好培养\n不同种类的宝可梦。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    317,
+    7
+   ],
+   "name": "Hiker 的 WAYNE",
+   "gfx": "hiker",
+   "lines": [
+    "你打算去看正辉？\n首先，我们战斗吧！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_HIKER_WAYNE",
+    "party": [
+     {
+      "species": 95,
+      "level": 17
+     }
+    ],
+    "name": "WAYNE",
+    "class": "Hiker"
+   },
+   "post": [
+    "下面的小路是去\n华蓝市的捷径。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    322,
+    4
+   ],
+   "name": "Youngster 的 DAN",
+   "gfx": "youngster",
+   "lines": [
+    "爸爸带着我在枯叶市的\n圣特安努号参加了一次大型的聚会。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_YOUNGSTER_DAN",
+    "party": [
+     {
+      "species": 79,
+      "level": 17
+     }
+    ],
+    "name": "DAN",
+    "class": "Youngster"
+   },
+   "post": [
+    "在圣特安努号，我看见了\n从世界各地来的训练家。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    322,
+    8
+   ],
+   "name": "Picnicker 的 KELSEY",
+   "gfx": "lass",
+   "lines": [
+    "嗨！\n我男朋友很帅！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_KELSEY",
+    "party": [
+     {
+      "species": 32,
+      "level": 15
+     },
+     {
+      "species": 29,
+      "level": 15
+     }
+    ],
+    "name": "KELSEY",
+    "class": "Picnicker"
+   },
+   "post": [
+    "我希望我的男朋友\n和你一样厉害。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    327,
+    9
+   ],
+   "name": "Hiker 的 NOB",
+   "gfx": "hiker",
+   "lines": [
+    "我正打算去海角看\n怪兽狂的收藏。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_HIKER_NOB",
+    "party": [
+     {
+      "species": 74,
+      "level": 13
+     },
+     {
+      "species": 74,
+      "level": 13
+     },
+     {
+      "species": 66,
+      "level": 13
+     },
+     {
+      "species": 74,
+      "level": 13
+     }
+    ],
+    "name": "NOB",
+    "class": "Hiker"
+   },
+   "post": [
+    "怪兽狂确实名副其实。\n他的收藏包括了很多\n珍贵品种的宝可梦。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    328,
+    4
+   ],
+   "name": "Camper 的 FLINT",
+   "gfx": "camper",
+   "lines": [
+    "我很帅。\n我已经有女朋友了！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CAMPER_FLINT",
+    "party": [
+     {
+      "species": 19,
+      "level": 14
+     },
+     {
+      "species": 23,
+      "level": 14
+     }
+    ],
+    "name": "FLINT",
+    "class": "Camper"
+   },
+   "post": [
+    "呃，好吧。\n我女朋友会为我喝彩的。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    336,
+    4
+   ],
+   "name": "Youngster 的 CHAD",
+   "gfx": "youngster",
+   "lines": [
+    "我有一种感觉……\n我感到我必须和你战斗！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_YOUNGSTER_CHAD",
+    "party": [
+     {
+      "species": 23,
+      "level": 14
+     },
+     {
+      "species": 27,
+      "level": 14
+     }
+    ],
+    "name": "CHAD",
+    "class": "Youngster"
+   },
+   "post": [
+    "如果你的宝可梦混乱了，\n就把它交换下场换上另一只。\n这是一种有名的战术。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    342,
+    5
+   ],
+   "name": "Lass 的 HALEY",
+   "gfx": "lass",
+   "lines": [
+    "我的朋友拥有很多可爱的宝可梦。\n我很羡慕！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_LASS_HALEY",
+    "party": [
+     {
+      "species": 43,
+      "level": 13
+     },
+     {
+      "species": 16,
+      "level": 13
+     },
+     {
+      "species": 43,
+      "level": 13
+     }
+    ],
+    "name": "HALEY",
+    "class": "Lass"
+   },
+   "post": [
+    "你是从月见山来的？\n能给我一只皮皮吗？"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    136,
+    81
+   ],
+   "name": "Lass 的 ROBIN",
+   "gfx": "lass",
+   "lines": [
+    "呀！\n你刚才碰到了我的身体？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_LASS_ROBIN",
+    "party": [
+     {
+      "species": 39,
+      "level": 14
+     }
+    ],
+    "name": "ROBIN",
+    "class": "Lass"
+   },
+   "post": [
+    "4号道路在月见山脚下。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    128,
+    76
+   ],
+   "name": "Bug Catcher 的 JAMES",
+   "gfx": "bug_catcher",
+   "lines": [
+    "我要用刚收服的宝可梦\n和你对战。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BUG_CATCHER_JAMES",
+    "party": [
+     {
+      "species": 10,
+      "level": 11
+     },
+     {
+      "species": 11,
+      "level": 11
+     }
+    ],
+    "name": "JAMES",
+    "class": "Bug Catcher"
+   },
+   "post": [
+    "训练过的宝可梦会比野生的更强。"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    126,
+    73
+   ],
+   "name": "Lass 的 SALLY",
+   "gfx": "lass",
+   "lines": [
+    "似乎你总在让着我……\n这真是太有趣了！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_LASS_SALLY",
+    "party": [
+     {
+      "species": 19,
+      "level": 10
+     },
+     {
+      "species": 29,
+      "level": 10
+     }
+    ],
+    "name": "SALLY",
+    "class": "Lass"
+   },
+   "post": [
+    "你可以躲开训练家不让他们看到你，\n以此来避开战斗。"
+   ],
+   "sight": 5
+  },
+  {
+   "at": [
+    121,
+    74
+   ],
+   "name": "Bug Catcher 的 GREG",
+   "gfx": "bug_catcher",
+   "lines": [
+    "你是一个训练家吗？\n让我们马上对战吧！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BUG_CATCHER_GREG",
+    "party": [
+     {
+      "species": 13,
+      "level": 9
+     },
+     {
+      "species": 14,
+      "level": 9
+     },
+     {
+      "species": 10,
+      "level": 9
+     },
+     {
+      "species": 11,
+      "level": 9
+     }
+    ],
+    "name": "GREG",
+    "class": "Bug Catcher"
+   },
+   "post": [
+    "如果电脑里的一个宝可梦寄存箱满了，\n就切换到另一个盒子去。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    125,
+    80
+   ],
+   "name": "Youngster 的 CALVIN",
+   "gfx": "youngster",
+   "lines": [
+    "嘿！你没有短裤！\n为什么？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_YOUNGSTER_CALVIN",
+    "party": [
+     {
+      "species": 21,
+      "level": 14
+     }
+    ],
+    "name": "CALVIN",
+    "class": "Youngster"
+   },
+   "post": [
+    "我总是穿短裤，在冬天也一样。\n这是我做人的原则。"
+   ],
+   "sight": 5
+  },
+  {
+   "at": [
+    115,
+    79
+   ],
+   "name": "Lass 的 JANICE",
+   "gfx": "lass",
+   "lines": [
+    "不好意思！\n你在盯着我看，我没说错吧？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_LASS_JANICE",
+    "party": [
+     {
+      "species": 16,
+      "level": 9
+     },
+     {
+      "species": 16,
+      "level": 9
+     }
+    ],
+    "name": "JANICE",
+    "class": "Lass"
+   },
+   "post": [
+    "如果你不想战斗的话，\n就不该盯着我看哦！"
+   ],
+   "sight": 5
+  },
+  {
+   "at": [
+    108,
+    76
+   ],
+   "name": "Bug Catcher 的 COLTON",
+   "gfx": "bug_catcher",
+   "lines": [
+    "嘿！\n我在常青森林见过你！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BUG_CATCHER_COLTON",
+    "party": [
+     {
+      "species": 10,
+      "level": 10
+     },
+     {
+      "species": 13,
+      "level": 10
+     },
+     {
+      "species": 10,
+      "level": 10
+     }
+    ],
+    "name": "COLTON",
+    "class": "Bug Catcher"
+   },
+   "post": [
+    "除了你在森林里看到的那些宝可梦以外，\n还有很多其它的宝可梦。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    113,
+    74
+   ],
+   "name": "Youngster 的 BEN",
+   "gfx": "youngster",
+   "lines": [
+    "嗨！\n我喜欢短裤！\n短裤穿着很舒服让人心情很愉快，\n而且穿起来很方便！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_YOUNGSTER_BEN",
+    "party": [
+     {
+      "species": 19,
+      "level": 11
+     },
+     {
+      "species": 23,
+      "level": 11
+     }
+    ],
+    "name": "BEN",
+    "class": "Youngster"
+   },
+   "post": [
+    "你用过宝可梦中心的电脑\n来存放宝可梦吗？\n每个盒子最多可以存放30个宝可梦。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    231,
+    53
+   ],
+   "name": "Lass 的 CRISSY",
+   "gfx": "lass",
+   "lines": [
+    "我来月见山寻找蘑菇宝可梦。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_LASS_CRISSY",
+    "party": [
+     {
+      "species": 46,
+      "level": 31
+     },
+     {
+      "species": 46,
+      "level": 31
+     },
+     {
+      "species": 47,
+      "level": 31
+     }
+    ],
+    "name": "CRISSY",
+    "class": "Lass"
+   },
+   "post": [
+    "这里应该已经没有蘑菇了。\n可能已经都被我采光了。"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    279,
+    176
+   ],
+   "name": "Bug Catcher 的 KEIGO",
+   "gfx": "bug_catcher",
+   "lines": [
+    "这外面没有什么虫子。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BUG_CATCHER_KEIGO",
+    "party": [
+     {
+      "species": 13,
+      "level": 16
+     },
+     {
+      "species": 10,
+      "level": 16
+     },
+     {
+      "species": 13,
+      "level": 16
+     }
+    ],
+    "name": "KEIGO",
+    "class": "Bug Catcher"
+   },
+   "post": [
+    "我喜欢虫子，\n所以我要回到常青森林。"
+   ],
+   "sight": 5
+  },
+  {
+   "at": [
+    288,
+    181
+   ],
+   "name": "Camper 的 RICKY",
+   "gfx": "camper",
+   "lines": [
+    "是谁？\n竟敢偷听我们讲话！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CAMPER_RICKY",
+    "party": [
+     {
+      "species": 7,
+      "level": 20
+     }
+    ],
+    "name": "RICKY",
+    "class": "Camper"
+   },
+   "post": [
+    "悄悄话……\n悄悄话……"
+   ],
+   "sight": 0
+  },
+  {
+   "at": [
+    289,
+    181
+   ],
+   "name": "Picnicker 的 NANCY",
+   "gfx": "lass",
+   "lines": [
+    "抱歉！\n我们在讲悄悄话！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_NANCY",
+    "party": [
+     {
+      "species": 19,
+      "level": 16
+     },
+     {
+      "species": 25,
+      "level": 16
+     }
+    ],
+    "name": "NANCY",
+    "class": "Picnicker"
+   },
+   "post": [
+    "悄悄话……\n悄悄话……"
+   ],
+   "sight": 0
+  },
+  {
+   "at": [
+    296,
+    185
+   ],
+   "name": "Bug Catcher 的 ELIJAH",
+   "gfx": "bug_catcher",
+   "lines": [
+    "我在这附近没见过你。\n你厉害吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BUG_CATCHER_ELIJAH",
+    "party": [
+     {
+      "species": 12,
+      "level": 20
+     }
+    ],
+    "name": "ELIJAH",
+    "class": "Bug Catcher"
+   },
+   "post": [
+    "是我的宝可梦很弱？\n还是我很差劲？你觉得是哪个？"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    289,
+    192
+   ],
+   "name": "Picnicker 的 ISABELLE",
+   "gfx": "lass",
+   "lines": [
+    "我？\n好的，那就来吧！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_ISABELLE",
+    "party": [
+     {
+      "species": 16,
+      "level": 16
+     },
+     {
+      "species": 16,
+      "level": 16
+     },
+     {
+      "species": 16,
+      "level": 16
+     }
+    ],
+    "name": "ISABELLE",
+    "class": "Picnicker"
+   },
+   "post": [
+    "我想变得更强。\n你的秘诀是什么？"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    289,
+    193
+   ],
+   "name": "Camper 的 JEFF",
+   "gfx": "camper",
+   "lines": [
+    "呃？\n你想跟我谈谈？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CAMPER_JEFF",
+    "party": [
+     {
+      "species": 21,
+      "level": 16
+     },
+     {
+      "species": 20,
+      "level": 16
+     }
+    ],
+    "name": "JEFF",
+    "class": "Camper"
+   },
+   "post": [
+    "我要带更多的宝可梦，\n这样我才会有安全感。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    374,
+    144
+   ],
+   "name": "Lass 的 JULIA",
+   "gfx": "lass",
+   "lines": [
+    "小小的，圆圆的，毛绒绒的\n是哪种宝可梦？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_LASS_JULIA",
+    "party": [
+     {
+      "species": 35,
+      "level": 22
+     },
+     {
+      "species": 35,
+      "level": 22
+     }
+    ],
+    "name": "JULIA",
+    "class": "Lass"
+   },
+   "post": [
+    "我在宝可梦特刊上读到，\n皮皮是靠月之石进化的。\n这是真的吗？"
+   ],
+   "sight": 6
+  },
+  {
+   "at": [
+    367,
+    145
+   ],
+   "name": "Gamer 的 RICH",
+   "gfx": "man",
+   "lines": [
+    "我是一个混乱又顽劣的家伙！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_GAMER_RICH",
+    "party": [
+     {
+      "species": 58,
+      "level": 24
+     },
+     {
+      "species": 37,
+      "level": 24
+     }
+    ],
+    "name": "RICH",
+    "class": "Gamer"
+   },
+   "post": [
+    "一边赌博一边喂宝可梦吃东西！\n生活真是太美好了！"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    363,
+    136
+   ],
+   "name": "Super Nerd 的 GLENN",
+   "gfx": "scientist",
+   "lines": [
+    "你应该更灵通一些。\n想赢的话你得制定战术！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SUPER_NERD_GLENN",
+    "party": [
+     {
+      "species": 88,
+      "level": 22
+     },
+     {
+      "species": 89,
+      "level": 22
+     },
+     {
+      "species": 88,
+      "level": 22
+     }
+    ],
+    "name": "GLENN",
+    "class": "Super Nerd"
+   },
+   "post": [
+    "首先跟着臭泥走……接着……\n……接下来……然后……"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    341,
+    133
+   ],
+   "name": "Lass 的 PAIGE",
+   "gfx": "lass",
+   "lines": [
+    "我喜欢尼多家族，所以我在收集它们！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_LASS_PAIGE",
+    "party": [
+     {
+      "species": 29,
+      "level": 23
+     },
+     {
+      "species": 30,
+      "level": 23
+     }
+    ],
+    "name": "PAIGE",
+    "class": "Lass"
+   },
+   "post": [
+    "宝可梦一进化，就完全不可爱了！\n所以还是不要进化的好。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    341,
+    134
+   ],
+   "name": "Super Nerd 的 LESLIE",
+   "gfx": "scientist",
+   "lines": [
+    "学习很有趣，宝可梦也是如此。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SUPER_NERD_LESLIE",
+    "party": [
+     {
+      "species": 109,
+      "level": 26
+     }
+    ],
+    "name": "LESLIE",
+    "class": "Super Nerd"
+   },
+   "post": [
+    "我曾准备以一个新的面貌做出\n一些改变，但是……\n我们被卡在金黄的门口了。"
+   ],
+   "sight": 6
+  },
+  {
+   "at": [
+    341,
+    135
+   ],
+   "name": "Lass 的 ANDREA",
+   "gfx": "lass",
+   "lines": [
+    "喵喵太可爱了，\n喵，喵，喵！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_LASS_ANDREA",
+    "party": [
+     {
+      "species": 52,
+      "level": 24
+     },
+     {
+      "species": 52,
+      "level": 24
+     },
+     {
+      "species": 52,
+      "level": 24
+     }
+    ],
+    "name": "ANDREA",
+    "class": "Lass"
+   },
+   "post": [
+    "我认为波波和小拉达也很可爱！"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    341,
+    136
+   ],
+   "name": "Lass 的 MEGAN",
+   "gfx": "lass",
+   "lines": [
+    "我们像这样傻站在这儿\n一定显得很可笑。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_LASS_MEGAN",
+    "party": [
+     {
+      "species": 16,
+      "level": 19
+     },
+     {
+      "species": 19,
+      "level": 19
+     },
+     {
+      "species": 32,
+      "level": 19
+     },
+     {
+      "species": 52,
+      "level": 19
+     },
+     {
+      "species": 25,
+      "level": 19
+     }
+    ],
+    "name": "MEGAN",
+    "class": "Lass"
+   },
+   "post": [
+    "金黄的门卫\n不让我们通过。\n虽然我知道这是他的职责，\n不过这也太小气了。"
+   ],
+   "sight": 6
+  },
+  {
+   "at": [
+    333,
+    133
+   ],
+   "name": "Gamer 的 STAN",
+   "gfx": "man",
+   "lines": [
+    "很好！\n我们来玩个游戏吧！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_GAMER_STAN",
+    "party": [
+     {
+      "species": 60,
+      "level": 22
+     },
+     {
+      "species": 60,
+      "level": 22
+     },
+     {
+      "species": 61,
+      "level": 22
+     }
+    ],
+    "name": "STAN",
+    "class": "Gamer"
+   },
+   "post": [
+    "今天也没有事情可做。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    321,
+    136
+   ],
+   "name": "Super Nerd 的 AIDAN",
+   "gfx": "scientist",
+   "lines": [
+    "你看起来对宝可梦很擅长，\n但是你的化学成绩怎么样？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SUPER_NERD_AIDAN",
+    "party": [
+     {
+      "species": 100,
+      "level": 20
+     },
+     {
+      "species": 109,
+      "level": 20
+     },
+     {
+      "species": 100,
+      "level": 20
+     },
+     {
+      "species": 81,
+      "level": 20
+     }
+    ],
+    "name": "AIDAN",
+    "class": "Super Nerd"
+   },
+   "post": [
+    "我的学习成绩比这个要好！"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    326,
+    146
+   ],
+   "name": "Biker 的 RICARDO",
+   "gfx": "hiker",
+   "lines": [
+    "老兄，我的自行车出毛病了。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_RICARDO",
+    "party": [
+     {
+      "species": 109,
+      "level": 22
+     },
+     {
+      "species": 109,
+      "level": 22
+     },
+     {
+      "species": 88,
+      "level": 23
+     }
+    ],
+    "name": "RICARDO",
+    "class": "Biker"
+   },
+   "post": [
+    "草卷入我自行车的辐条里面了。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    336,
+    147
+   ],
+   "name": "Biker 的 JAREN",
+   "gfx": "hiker",
+   "lines": [
+    "给我让道，\n否则我把你压扁！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BIKER_JAREN",
+    "party": [
+     {
+      "species": 88,
+      "level": 24
+     },
+     {
+      "species": 88,
+      "level": 24
+     }
+    ],
+    "name": "JAREN",
+    "class": "Biker"
+   },
+   "post": [
+    "不要认为你有多么特殊，\n没什么了不起的。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    326,
+    60
+   ],
+   "name": "Picnicker 的 ALICIA",
+   "gfx": "lass",
+   "lines": [
+    "你带着宝可梦！\n你是我的了！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_ALICIA",
+    "party": [
+     {
+      "species": 43,
+      "level": 18
+     },
+     {
+      "species": 69,
+      "level": 18
+     },
+     {
+      "species": 43,
+      "level": 18
+     },
+     {
+      "species": 69,
+      "level": 18
+     }
+    ],
+    "name": "ALICIA",
+    "class": "Picnicker"
+   },
+   "post": [
+    "这个隧道里面一片漆黑。\n想要穿过山洞的话，\n你需要闪光。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    332,
+    67
+   ],
+   "name": "Hiker 的 JEREMY",
+   "gfx": "hiker",
+   "lines": [
+    "啊！\n好样的！我很无聊，呃！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_HIKER_JEREMY",
+    "party": [
+     {
+      "species": 66,
+      "level": 20
+     },
+     {
+      "species": 95,
+      "level": 20
+     }
+    ],
+    "name": "JEREMY",
+    "class": "Hiker"
+   },
+   "post": [
+    "你确定你有胆量和我对抗，嗯？"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    373,
+    66
+   ],
+   "name": "Hiker 的 ALAN",
+   "gfx": "hiker",
+   "lines": [
+    "哈哈！\n把它带过来！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_HIKER_ALAN",
+    "party": [
+     {
+      "species": 74,
+      "level": 21
+     },
+     {
+      "species": 95,
+      "level": 21
+     }
+    ],
+    "name": "ALAN",
+    "class": "Hiker"
+   },
+   "post": [
+    "哈哈哈哈哈！\n健壮的家伙总是会大笑的！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    338,
+    57
+   ],
+   "name": "Camper 的 CHRIS",
+   "gfx": "camper",
+   "lines": [
+    "和那些好看的宝可梦\n一起散步的人是谁？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CAMPER_CHRIS",
+    "party": [
+     {
+      "species": 58,
+      "level": 21
+     },
+     {
+      "species": 4,
+      "level": 21
+     }
+    ],
+    "name": "CHRIS",
+    "class": "Camper"
+   },
+   "post": [
+    "继续走下去！"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    338,
+    51
+   ],
+   "name": "Bug Catcher 的 BRENT",
+   "gfx": "bug_catcher",
+   "lines": [
+    "我每天都起得很早去\n训练我的宝可梦！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BUG_CATCHER_BRENT",
+    "party": [
+     {
+      "species": 15,
+      "level": 19
+     },
+     {
+      "species": 15,
+      "level": 19
+     }
+    ],
+    "name": "BRENT",
+    "class": "Bug Catcher"
+   },
+   "post": [
+    "我必须找到更多虫子\n来使我变得更强大……"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    361,
+    57
+   ],
+   "name": "Bug Catcher 的 CONNER",
+   "gfx": "bug_catcher",
+   "lines": [
+    "去吧，我的超级虫属性宝可梦"
+   ],
+   "battle": {
+    "trainer": "TRAINER_BUG_CATCHER_CONNER",
+    "party": [
+     {
+      "species": 10,
+      "level": 20
+     },
+     {
+      "species": 13,
+      "level": 20
+     },
+     {
+      "species": 48,
+      "level": 20
+     }
+    ],
+    "name": "CONNER",
+    "class": "Bug Catcher"
+   },
+   "post": [
+    "如果你不喜欢虫属性的宝可梦，\n那你就是看不起我"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    365,
+    52
+   ],
+   "name": "Hiker 的 BRICE",
+   "gfx": "hiker",
+   "lines": [
+    "哈哈！\n你有一点鲁莽！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_HIKER_BRICE",
+    "party": [
+     {
+      "species": 74,
+      "level": 20
+     },
+     {
+      "species": 66,
+      "level": 20
+     },
+     {
+      "species": 74,
+      "level": 20
+     }
+    ],
+    "name": "BRICE",
+    "class": "Hiker"
+   },
+   "post": [
+    "哈哈！\n小孩子应该坚强点！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    372,
+    59
+   ],
+   "name": "Picnicker 的 CAITLIN",
+   "gfx": "lass",
+   "lines": [
+    "你竟敢这样对我！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_CAITLIN",
+    "party": [
+     {
+      "species": 52,
+      "level": 23
+     }
+    ],
+    "name": "CAITLIN",
+    "class": "Picnicker"
+   },
+   "post": [
+    "你真的很有天赋。\n祝你好运！"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    348,
+    56
+   ],
+   "name": "Camper 的 DREW",
+   "gfx": "camper",
+   "lines": [
+    "我正打算穿过岩山隧道去紫苑……"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CAMPER_DREW",
+    "party": [
+     {
+      "species": 19,
+      "level": 19
+     },
+     {
+      "species": 27,
+      "level": 19
+     },
+     {
+      "species": 23,
+      "level": 19
+     },
+     {
+      "species": 27,
+      "level": 19
+     }
+    ],
+    "name": "DREW",
+    "class": "Camper"
+   },
+   "post": [
+    "你也是去岩山隧道吗？"
+   ],
+   "sight": 5
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    66,
+    267
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pallettown_playershouse_1f",
+    "at": [
+     5,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    66,
+    267
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pallettown_playershouse_1f",
+    "at": [
+     4,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    66,
+    267
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pallettown_playershouse_1f",
+    "at": [
+     3,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    75,
+    267
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pallettown_rivalshouse",
+    "at": [
+     4,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    75,
+    267
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pallettown_rivalshouse",
+    "at": [
+     5,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    75,
+    267
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pallettown_rivalshouse",
+    "at": [
+     3,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    76,
+    273
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pallettown_professoroakslab",
+    "at": [
+     6,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    76,
+    273
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pallettown_professoroakslab",
+    "at": [
+     7,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    76,
+    273
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pallettown_professoroakslab",
+    "at": [
+     5,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    74,
+    206
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_pokemoncenter_1f",
+    "at": [
+     6,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    74,
+    206
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    74,
+    206
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_pokemoncenter_1f",
+    "at": [
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    84,
+    199
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_mart",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    84,
+    199
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_mart",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    84,
+    199
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_mart",
+    "at": [
+     5,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    84,
+    190
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_gym",
+    "at": [
+     16,
+     22
+    ]
+   }
+  },
+  {
+   "at": [
+    84,
+    190
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_gym",
+    "at": [
+     17,
+     22
+    ]
+   }
+  },
+  {
+   "at": [
+    84,
+    190
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_gym",
+    "at": [
+     18,
+     22
+    ]
+   }
+  },
+  {
+   "at": [
+    73,
+    198
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_school",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    73,
+    198
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_school",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    73,
+    198
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_school",
+    "at": [
+     5,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    73,
+    191
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_house",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    73,
+    191
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_house",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    73,
+    191
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_house",
+    "at": [
+     5,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    65,
+    85
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_pokemoncenter_1f",
+    "at": [
+     6,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    65,
+    85
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    65,
+    85
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_pokemoncenter_1f",
+    "at": [
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    76,
+    78
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_mart",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    76,
+    78
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_mart",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    76,
+    78
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_mart",
+    "at": [
+     5,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    63,
+    76
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_gym",
+    "at": [
+     5,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    63,
+    76
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_gym",
+    "at": [
+     6,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    63,
+    76
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_gym",
+    "at": [
+     7,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    65,
+    66
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_museum1f",
+    "at": [
+     13,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    65,
+    66
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_museum1f",
+    "at": [
+     14,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    65,
+    66
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_museum1f",
+    "at": [
+     15,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    73,
+    64
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_museum1f",
+    "at": [
+     21,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    73,
+    64
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_museum1f",
+    "at": [
+     22,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    81,
+    71
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_house1",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    81,
+    71
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_house1",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    81,
+    71
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_house1",
+    "at": [
+     5,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    286,
+    59
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_pokemoncenter_1f",
+    "at": [
+     6,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    286,
+    59
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    286,
+    59
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_pokemoncenter_1f",
+    "at": [
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    293,
+    68
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_mart",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    293,
+    68
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_mart",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    293,
+    68
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_mart",
+    "at": [
+     5,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    295,
+    61
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_gym",
+    "at": [
+     7,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    295,
+    61
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_gym",
+    "at": [
+     8,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    295,
+    61
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_gym",
+    "at": [
+     9,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    277,
+    68
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_bikeshop",
+    "at": [
+     4,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    277,
+    68
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_bikeshop",
+    "at": [
+     5,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    277,
+    68
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_bikeshop",
+    "at": [
+     6,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    274,
+    51
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_house1",
+    "at": [
+     2,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    274,
+    51
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_house1",
+    "at": [
+     3,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    274,
+    51
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_house1",
+    "at": [
+     4,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    274,
+    48
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_house1",
+    "at": [
+     3,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    294,
+    51
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_house2",
+    "at": [
+     2,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    294,
+    51
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_house2",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    294,
+    51
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_house2",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    295,
+    48
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_house2",
+    "at": [
+     4,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    279,
+    206
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilioncity_pokemoncenter_1f",
+    "at": [
+     6,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    279,
+    206
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilioncity_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    279,
+    206
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilioncity_pokemoncenter_1f",
+    "at": [
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    293,
+    217
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilioncity_mart",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    293,
+    217
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilioncity_mart",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    293,
+    217
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilioncity_mart",
+    "at": [
+     5,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    278,
+    225
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilioncity_gym",
+    "at": [
+     4,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    278,
+    225
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilioncity_gym",
+    "at": [
+     5,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    278,
+    225
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilioncity_gym",
+    "at": [
+     6,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    228,
+    131
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadoncity_pokemoncenter_1f",
+    "at": [
+     6,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    228,
+    131
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadoncity_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    228,
+    131
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadoncity_pokemoncenter_1f",
+    "at": [
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    191,
+    150
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadoncity_gym",
+    "at": [
+     5,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    191,
+    150
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadoncity_gym",
+    "at": [
+     6,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    191,
+    150
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadoncity_gym",
+    "at": [
+     7,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    191,
+    134
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadoncity_departmentstore_1f",
+    "at": [
+     1,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    191,
+    134
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadoncity_departmentstore_1f",
+    "at": [
+     2,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    191,
+    134
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadoncity_departmentstore_1f",
+    "at": [
+     3,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    195,
+    134
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadoncity_departmentstore_1f",
+    "at": [
+     9,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    195,
+    134
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadoncity_departmentstore_1f",
+    "at": [
+     10,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    195,
+    134
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadoncity_departmentstore_1f",
+    "at": [
+     11,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    288,
+    158
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_pokemoncenter_1f",
+    "at": [
+     6,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    288,
+    158
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    288,
+    158
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_pokemoncenter_1f",
+    "at": [
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    304,
+    141
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_mart",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    304,
+    141
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_mart",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    304,
+    141
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_mart",
+    "at": [
+     5,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    310,
+    132
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     13,
+     23
+    ]
+   }
+  },
+  {
+   "at": [
+    310,
+    132
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     14,
+     23
+    ]
+   }
+  },
+  {
+   "at": [
+    310,
+    132
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     15,
+     23
+    ]
+   }
+  },
+  {
+   "at": [
+    390,
+    135
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavendertown_pokemoncenter_1f",
+    "at": [
+     6,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    390,
+    135
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavendertown_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    390,
+    135
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavendertown_pokemoncenter_1f",
+    "at": [
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    404,
+    145
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavendertown_mart",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    404,
+    145
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavendertown_mart",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    404,
+    145
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavendertown_mart",
+    "at": [
+     5,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    217,
+    331
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsiacity_pokemoncenter_1f",
+    "at": [
+     6,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    217,
+    331
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsiacity_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    217,
+    331
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsiacity_pokemoncenter_1f",
+    "at": [
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    203,
+    315
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsiacity_mart",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    203,
+    315
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsiacity_mart",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    203,
+    315
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsiacity_mart",
+    "at": [
+     5,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    201,
+    332
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsiacity_gym",
+    "at": [
+     6,
+     21
+    ]
+   }
+  },
+  {
+   "at": [
+    201,
+    332
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsiacity_gym",
+    "at": [
+     7,
+     21
+    ]
+   }
+  },
+  {
+   "at": [
+    201,
+    332
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsiacity_gym",
+    "at": [
+     8,
+     21
+    ]
+   }
+  },
+  {
+   "at": [
+    74,
+    391
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabarisland_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    74,
+    391
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabarisland_pokemoncenter_1f",
+    "at": [
+     6,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    74,
+    391
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabarisland_pokemoncenter_1f",
+    "at": [
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    79,
+    391
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabarisland_mart",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    79,
+    391
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabarisland_mart",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    79,
+    391
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabarisland_mart",
+    "at": [
+     5,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    80,
+    384
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabarisland_gym",
+    "at": [
+     24,
+     23
+    ]
+   }
+  },
+  {
+   "at": [
+    80,
+    384
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabarisland_gym",
+    "at": [
+     25,
+     23
+    ]
+   }
+  },
+  {
+   "at": [
+    80,
+    384
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabarisland_gym",
+    "at": [
+     26,
+     23
+    ]
+   }
+  },
+  {
+   "at": [
+    188,
+    55
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_b1f",
+    "at": [
+     45,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    175,
+    55
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_1f",
+    "at": [
+     18,
+     37
+    ]
+   }
+  },
+  {
+   "at": [
+    65,
+    151
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_viridianforest_southentrance",
+    "at": [
+     6,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    65,
+    113
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_viridianforest_northentrance",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    392,
+    69
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "rocktunnel_1f",
+    "at": [
+     17,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    392,
+    107
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "rocktunnel_1f",
+    "at": [
+     18,
+     37
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    58
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_1f",
+    "at": [
+     11,
+     20
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    58
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_2f",
+    "at": [
+     49,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    144,
+    388
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_1f",
+    "at": [
+     6,
+     21
+    ]
+   }
+  },
+  {
+   "at": [
+    156,
+    394
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_1f",
+    "at": [
+     32,
+     21
+    ]
+   }
+  },
+  {
+   "at": [
+    391,
+    90
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "powerplant",
+    "at": [
+     4,
+     39
+    ]
+   }
+  },
+  {
+   "at": [
+    386,
+    87
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "powerplant",
+    "at": [
+     1,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    402,
+    136
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemontower_1f",
+    "at": [
+     10,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    265,
+    52
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_1f",
+    "at": [
+     33,
+     21
+    ]
+   }
+  },
+  {
+   "at": [
+    216,
+    305
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_entrance",
+    "at": [
+     5,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    304,
+    132
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_dojo",
+    "at": [
+     5,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    311,
+    141
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_fan_club",
+    "at": [
+     5,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    286,
+    134
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_copycats_house_1f",
+    "at": [
+     3,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    210,
+    131
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_condominiums_1f",
+    "at": [
+     11,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    210,
+    124
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_condominiums_1f",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    214,
+    141
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_game_corner",
+    "at": [
+     9,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    219,
+    140
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_game_corner_prize_room",
+    "at": [
+     3,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    229,
+    149
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_hotel",
+    "at": [
+     3,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    221,
+    149
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_house1",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    217,
+    149
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_restaurant",
+    "at": [
+     5,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    279,
+    57
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cerulean_city_house3",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    287,
+    68
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cerulean_city_house4",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    281,
+    51
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cerulean_city_house5",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    68,
+    389
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabar_island_pokemon_lab_entrance",
+    "at": [
+     3,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    77,
+    111
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "digletts_cave_north_entrance",
+    "at": [
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    318,
+    217
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "digletts_cave_south_entrance",
+    "at": [
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    206,
+    331
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsia_city_house1",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    230,
+    331
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsia_city_house2",
+    "at": [
+     2,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    231,
+    328
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsia_city_house2",
+    "at": [
+     3,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    211,
+    331
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsia_city_house3",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    220,
+    316
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsia_city_safari_zone_office",
+    "at": [
+     5,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    225,
+    331
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsia_city_wardens_house",
+    "at": [
+     5,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    16
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "indigo_plateau_pokemon_center_1f",
+    "at": [
+     11,
+     16
+    ]
+   }
+  },
+  {
+   "at": [
+    389,
+    146
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavender_town_house1",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    394,
+    146
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavender_town_house2",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    394,
+    141
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavender_town_volunteer_pokemon_house",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    68,
+    383
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_1f",
+    "at": [
+     7,
+     33
+    ]
+   }
+  },
+  {
+   "at": [
+    396,
+    236
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route12_fishing_house",
+    "at": [
+     2,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    398,
+    165
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route12_north_entrance_1f",
+    "at": [
+     5,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    399,
+    165
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route12_north_entrance_1f",
+    "at": [
+     6,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    398,
+    171
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route12_north_entrance_1f",
+    "at": [
+     5,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    249,
+    321
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route15_west_entrance_1f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    256,
+    321
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route15_west_entrance_1f",
+    "at": [
+     11,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    142,
+    135
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route16_house",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    152,
+    136
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route16_north_entrance_1f",
+    "at": [
+     1,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    159,
+    136
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route16_north_entrance_1f",
+    "at": [
+     11,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    152,
+    143
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route16_north_entrance_1f",
+    "at": [
+     1,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    159,
+    143
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route16_north_entrance_1f",
+    "at": [
+     11,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    173,
+    319
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route18_east_entrance_1f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    180,
+    319
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route18_east_entrance_1f",
+    "at": [
+     11,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    183
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route22_north_entrance",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    195
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route22_north_entrance",
+    "at": [
+     6,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    351,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route25_sea_cottage",
+    "at": [
+     6,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    287,
+    105
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route5_pokemon_day_care",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    298,
+    125
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route5_south_entrance",
+    "at": [
+     3,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    288,
+    112
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route5_south_entrance",
+    "at": [
+     4,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    289,
+    112
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route5_south_entrance",
+    "at": [
+     5,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    298,
+    166
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route6_north_entrance",
+    "at": [
+     4,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    288,
+    165
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route6_north_entrance",
+    "at": [
+     4,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    255,
+    140
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route7_east_entrance",
+    "at": [
+     1,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    272,
+    147
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route7_east_entrance",
+    "at": [
+     11,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    322,
+    147
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route8_west_entrance",
+    "at": [
+     1,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    319,
+    140
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route8_west_entrance",
+    "at": [
+     11,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    291,
+    141
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffron_city_house",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    307,
+    158
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffron_city_mr_psychics_house",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    286,
+    234
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_exterior",
+    "at": [
+     31,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    287,
+    234
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_exterior",
+    "at": [
+     32,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    288,
+    234
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_exterior",
+    "at": [
+     33,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    325,
+    134
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "underground_path_east_entrance",
+    "at": [
+     5,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    295,
+    111
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "underground_path_north_entrance",
+    "at": [
+     5,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    295,
+    173
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "underground_path_south_entrance",
+    "at": [
+     5,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    247,
+    144
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "underground_path_west_entrance",
+    "at": [
+     5,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    273,
+    206
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilion_city_house1",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    283,
+    217
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilion_city_house2",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    292,
+    224
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilion_city_house3",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    276,
+    217
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilion_city_pokemon_fan_club",
+    "at": [
+     4,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    57,
+    90
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewter_city_house2",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    397,
+    70
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route10_pokemon_center_1f",
+    "at": [
+     6,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    78,
+    146
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_east_building",
+    "at": [
+     6,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    78,
+    141
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_east_building",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    77,
+    122
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_house",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    168,
+    55
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route4_pokemon_center_1f",
+    "at": [
+     6,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    287,
+    235
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_harbor",
+    "at": [
+     8,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    297,
+    150
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_1f",
+    "at": [
+     7,
+     21
+    ]
+   }
+  },
+  {
+   "at": [
+    370,
+    220
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route11_east_entrance_1f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    377,
+    220
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route11_east_entrance_1f",
+    "at": [
+     11,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    209,
+    125
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_condominiums_1f",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    211,
+    125
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_condominiums_1f",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    295,
+    49
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_house2",
+    "at": [
+     4,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    278,
+    68
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_bikeshop",
+    "at": [
+     5,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    231,
+    329
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsia_city_house2",
+    "at": [
+     3,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    195
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route22_north_entrance",
+    "at": [
+     7,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    184
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route22_north_entrance",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    66,
+    113
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_viridianforest_northentrance",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    79,
+    141
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_east_building",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    79,
+    146
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_east_building",
+    "at": [
+     7,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    66,
+    151
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_viridianforest_southentrance",
+    "at": [
+     7,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    289,
+    165
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route6_north_entrance",
+    "at": [
+     4,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    299,
+    166
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route6_north_entrance",
+    "at": [
+     4,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    299,
+    125
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route5_south_entrance",
+    "at": [
+     4,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    286,
+    235
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_port",
+    "at": [
+     7,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    288,
+    235
+   ],
+   "to": {
+    "region": "frontier",
+    "map": "harbor",
+    "at": [
+     13,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "zones": [
+  {
+   "rect": [
+    60,
+    220,
+    24,
+    40
+   ],
+   "rate": 0.21,
+   "name": "ROUTE1",
+   "encounters": [
+    {
+     "species": 16,
+     "min": 3,
+     "max": 3,
+     "weight": 20
+    },
+    {
+     "species": 19,
+     "min": 3,
+     "max": 3,
+     "weight": 20
+    },
+    {
+     "species": 16,
+     "min": 3,
+     "max": 3,
+     "weight": 10
+    },
+    {
+     "species": 19,
+     "min": 3,
+     "max": 3,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 2,
+     "max": 2,
+     "weight": 10
+    },
+    {
+     "species": 19,
+     "min": 2,
+     "max": 2,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 3,
+     "max": 3,
+     "weight": 5
+    },
+    {
+     "species": 19,
+     "min": 3,
+     "max": 3,
+     "weight": 5
+    },
+    {
+     "species": 16,
+     "min": 4,
+     "max": 4,
+     "weight": 4
+    },
+    {
+     "species": 19,
+     "min": 4,
+     "max": 4,
+     "weight": 4
+    },
+    {
+     "species": 16,
+     "min": 5,
+     "max": 5,
+     "weight": 1
+    },
+    {
+     "species": 19,
+     "min": 4,
+     "max": 4,
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "rect": [
+    60,
+    280,
+    24,
+    50
+   ],
+   "rate": 0.14,
+   "name": "ROUTE21_NORTH",
+   "encounters": [
+    {
+     "species": 114,
+     "min": 22,
+     "max": 22,
+     "weight": 20
+    },
+    {
+     "species": 114,
+     "min": 23,
+     "max": 23,
+     "weight": 20
+    },
+    {
+     "species": 114,
+     "min": 24,
+     "max": 24,
+     "weight": 10
+    },
+    {
+     "species": 114,
+     "min": 21,
+     "max": 21,
+     "weight": 10
+    },
+    {
+     "species": 114,
+     "min": 25,
+     "max": 25,
+     "weight": 10
+    },
+    {
+     "species": 114,
+     "min": 20,
+     "max": 20,
+     "weight": 10
+    },
+    {
+     "species": 114,
+     "min": 19,
+     "max": 19,
+     "weight": 5
+    },
+    {
+     "species": 114,
+     "min": 26,
+     "max": 26,
+     "weight": 5
+    },
+    {
+     "species": 114,
+     "min": 18,
+     "max": 18,
+     "weight": 4
+    },
+    {
+     "species": 114,
+     "min": 27,
+     "max": 27,
+     "weight": 4
+    },
+    {
+     "species": 114,
+     "min": 17,
+     "max": 17,
+     "weight": 1
+    },
+    {
+     "species": 114,
+     "min": 28,
+     "max": 28,
+     "weight": 1
+    }
+   ],
+   "water": [
+    {
+     "species": 72,
+     "min": 5,
+     "max": 10,
+     "weight": 60
+    },
+    {
+     "species": 72,
+     "min": 10,
+     "max": 20,
+     "weight": 30
+    },
+    {
+     "species": 72,
+     "min": 20,
+     "max": 30,
+     "weight": 5
+    },
+    {
+     "species": 72,
+     "min": 30,
+     "max": 35,
+     "weight": 4
+    },
+    {
+     "species": 72,
+     "min": 35,
+     "max": 40,
+     "weight": 1
+    }
+   ],
+   "water_rate": 0.02
+  },
+  {
+   "rect": [
+    60,
+    330,
+    24,
+    50
+   ],
+   "rate": 0.14,
+   "name": "ROUTE21_SOUTH",
+   "encounters": [
+    {
+     "species": 114,
+     "min": 22,
+     "max": 22,
+     "weight": 20
+    },
+    {
+     "species": 114,
+     "min": 23,
+     "max": 23,
+     "weight": 20
+    },
+    {
+     "species": 114,
+     "min": 24,
+     "max": 24,
+     "weight": 10
+    },
+    {
+     "species": 114,
+     "min": 21,
+     "max": 21,
+     "weight": 10
+    },
+    {
+     "species": 114,
+     "min": 25,
+     "max": 25,
+     "weight": 10
+    },
+    {
+     "species": 114,
+     "min": 20,
+     "max": 20,
+     "weight": 10
+    },
+    {
+     "species": 114,
+     "min": 19,
+     "max": 19,
+     "weight": 5
+    },
+    {
+     "species": 114,
+     "min": 26,
+     "max": 26,
+     "weight": 5
+    },
+    {
+     "species": 114,
+     "min": 18,
+     "max": 18,
+     "weight": 4
+    },
+    {
+     "species": 114,
+     "min": 27,
+     "max": 27,
+     "weight": 4
+    },
+    {
+     "species": 114,
+     "min": 17,
+     "max": 17,
+     "weight": 1
+    },
+    {
+     "species": 114,
+     "min": 28,
+     "max": 28,
+     "weight": 1
+    }
+   ],
+   "water": [
+    {
+     "species": 72,
+     "min": 5,
+     "max": 10,
+     "weight": 60
+    },
+    {
+     "species": 72,
+     "min": 10,
+     "max": 20,
+     "weight": 30
+    },
+    {
+     "species": 72,
+     "min": 20,
+     "max": 30,
+     "weight": 5
+    },
+    {
+     "species": 72,
+     "min": 30,
+     "max": 35,
+     "weight": 4
+    },
+    {
+     "species": 72,
+     "min": 35,
+     "max": 40,
+     "weight": 1
+    }
+   ],
+   "water_rate": 0.02
+  },
+  {
+   "rect": [
+    60,
+    100,
+    24,
+    80
+   ],
+   "rate": 0.21,
+   "name": "ROUTE2",
+   "encounters": [
+    {
+     "species": 19,
+     "min": 3,
+     "max": 3,
+     "weight": 20
+    },
+    {
+     "species": 16,
+     "min": 3,
+     "max": 3,
+     "weight": 20
+    },
+    {
+     "species": 19,
+     "min": 4,
+     "max": 4,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 4,
+     "max": 4,
+     "weight": 10
+    },
+    {
+     "species": 19,
+     "min": 2,
+     "max": 2,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 2,
+     "max": 2,
+     "weight": 10
+    },
+    {
+     "species": 19,
+     "min": 5,
+     "max": 5,
+     "weight": 5
+    },
+    {
+     "species": 16,
+     "min": 5,
+     "max": 5,
+     "weight": 5
+    },
+    {
+     "species": 10,
+     "min": 4,
+     "max": 4,
+     "weight": 4
+    },
+    {
+     "species": 13,
+     "min": 4,
+     "max": 4,
+     "weight": 4
+    },
+    {
+     "species": 10,
+     "min": 5,
+     "max": 5,
+     "weight": 1
+    },
+    {
+     "species": 13,
+     "min": 5,
+     "max": 5,
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "rect": [
+    0,
+    190,
+    48,
+    24
+   ],
+   "rate": 0.21,
+   "name": "ROUTE22",
+   "encounters": [
+    {
+     "species": 19,
+     "min": 3,
+     "max": 3,
+     "weight": 20
+    },
+    {
+     "species": 56,
+     "min": 3,
+     "max": 3,
+     "weight": 20
+    },
+    {
+     "species": 19,
+     "min": 4,
+     "max": 4,
+     "weight": 10
+    },
+    {
+     "species": 56,
+     "min": 4,
+     "max": 4,
+     "weight": 10
+    },
+    {
+     "species": 19,
+     "min": 2,
+     "max": 2,
+     "weight": 10
+    },
+    {
+     "species": 56,
+     "min": 2,
+     "max": 2,
+     "weight": 10
+    },
+    {
+     "species": 21,
+     "min": 3,
+     "max": 3,
+     "weight": 5
+    },
+    {
+     "species": 21,
+     "min": 5,
+     "max": 5,
+     "weight": 5
+    },
+    {
+     "species": 19,
+     "min": 5,
+     "max": 5,
+     "weight": 4
+    },
+    {
+     "species": 56,
+     "min": 5,
+     "max": 5,
+     "weight": 4
+    },
+    {
+     "species": 19,
+     "min": 5,
+     "max": 5,
+     "weight": 1
+    },
+    {
+     "species": 56,
+     "min": 5,
+     "max": 5,
+     "weight": 1
+    }
+   ],
+   "water": [
+    {
+     "species": 54,
+     "min": 20,
+     "max": 25,
+     "weight": 60
+    },
+    {
+     "species": 54,
+     "min": 20,
+     "max": 25,
+     "weight": 30
+    },
+    {
+     "species": 54,
+     "min": 25,
+     "max": 30,
+     "weight": 5
+    },
+    {
+     "species": 54,
+     "min": 30,
+     "max": 35,
+     "weight": 4
+    },
+    {
+     "species": 54,
+     "min": 35,
+     "max": 40,
+     "weight": 1
+    }
+   ],
+   "water_rate": 0.02
+  },
+  {
+   "rect": [
+    0,
+    30,
+    24,
+    160
+   ],
+   "rate": 0.21,
+   "name": "ROUTE23",
+   "encounters": [
+    {
+     "species": 56,
+     "min": 32,
+     "max": 32,
+     "weight": 20
+    },
+    {
+     "species": 22,
+     "min": 40,
+     "max": 40,
+     "weight": 20
+    },
+    {
+     "species": 56,
+     "min": 34,
+     "max": 34,
+     "weight": 10
+    },
+    {
+     "species": 21,
+     "min": 34,
+     "max": 34,
+     "weight": 10
+    },
+    {
+     "species": 23,
+     "min": 32,
+     "max": 32,
+     "weight": 10
+    },
+    {
+     "species": 23,
+     "min": 34,
+     "max": 34,
+     "weight": 10
+    },
+    {
+     "species": 57,
+     "min": 42,
+     "max": 42,
+     "weight": 5
+    },
+    {
+     "species": 24,
+     "min": 44,
+     "max": 44,
+     "weight": 5
+    },
+    {
+     "species": 21,
+     "min": 32,
+     "max": 32,
+     "weight": 4
+    },
+    {
+     "species": 22,
+     "min": 42,
+     "max": 42,
+     "weight": 4
+    },
+    {
+     "species": 21,
+     "min": 32,
+     "max": 32,
+     "weight": 1
+    },
+    {
+     "species": 22,
+     "min": 44,
+     "max": 44,
+     "weight": 1
+    }
+   ],
+   "water": [
+    {
+     "species": 54,
+     "min": 20,
+     "max": 25,
+     "weight": 60
+    },
+    {
+     "species": 54,
+     "min": 20,
+     "max": 25,
+     "weight": 30
+    },
+    {
+     "species": 54,
+     "min": 25,
+     "max": 30,
+     "weight": 5
+    },
+    {
+     "species": 54,
+     "min": 30,
+     "max": 35,
+     "weight": 4
+    },
+    {
+     "species": 54,
+     "min": 35,
+     "max": 40,
+     "weight": 1
+    }
+   ],
+   "water_rate": 0.02
+  },
+  {
+   "rect": [
+    96,
+    70,
+    84,
+    20
+   ],
+   "rate": 0.21,
+   "name": "ROUTE3",
+   "encounters": [
+    {
+     "species": 21,
+     "min": 6,
+     "max": 6,
+     "weight": 20
+    },
+    {
+     "species": 16,
+     "min": 6,
+     "max": 6,
+     "weight": 20
+    },
+    {
+     "species": 21,
+     "min": 7,
+     "max": 7,
+     "weight": 10
+    },
+    {
+     "species": 56,
+     "min": 7,
+     "max": 7,
+     "weight": 10
+    },
+    {
+     "species": 32,
+     "min": 6,
+     "max": 6,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 7,
+     "max": 7,
+     "weight": 10
+    },
+    {
+     "species": 21,
+     "min": 8,
+     "max": 8,
+     "weight": 5
+    },
+    {
+     "species": 39,
+     "min": 3,
+     "max": 3,
+     "weight": 5
+    },
+    {
+     "species": 32,
+     "min": 7,
+     "max": 7,
+     "weight": 4
+    },
+    {
+     "species": 39,
+     "min": 5,
+     "max": 5,
+     "weight": 4
+    },
+    {
+     "species": 29,
+     "min": 6,
+     "max": 6,
+     "weight": 1
+    },
+    {
+     "species": 39,
+     "min": 7,
+     "max": 7,
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "rect": [
+    156,
+    50,
+    108,
+    20
+   ],
+   "rate": 0.21,
+   "name": "ROUTE4",
+   "encounters": [
+    {
+     "species": 21,
+     "min": 10,
+     "max": 10,
+     "weight": 20
+    },
+    {
+     "species": 19,
+     "min": 10,
+     "max": 10,
+     "weight": 20
+    },
+    {
+     "species": 23,
+     "min": 6,
+     "max": 6,
+     "weight": 10
+    },
+    {
+     "species": 23,
+     "min": 10,
+     "max": 10,
+     "weight": 10
+    },
+    {
+     "species": 21,
+     "min": 8,
+     "max": 8,
+     "weight": 10
+    },
+    {
+     "species": 19,
+     "min": 8,
+     "max": 8,
+     "weight": 10
+    },
+    {
+     "species": 21,
+     "min": 12,
+     "max": 12,
+     "weight": 5
+    },
+    {
+     "species": 19,
+     "min": 12,
+     "max": 12,
+     "weight": 5
+    },
+    {
+     "species": 56,
+     "min": 10,
+     "max": 10,
+     "weight": 4
+    },
+    {
+     "species": 23,
+     "min": 8,
+     "max": 8,
+     "weight": 4
+    },
+    {
+     "species": 56,
+     "min": 12,
+     "max": 12,
+     "weight": 1
+    },
+    {
+     "species": 23,
+     "min": 12,
+     "max": 12,
+     "weight": 1
+    }
+   ],
+   "water": [
+    {
+     "species": 72,
+     "min": 5,
+     "max": 10,
+     "weight": 60
+    },
+    {
+     "species": 72,
+     "min": 10,
+     "max": 20,
+     "weight": 30
+    },
+    {
+     "species": 72,
+     "min": 20,
+     "max": 30,
+     "weight": 5
+    },
+    {
+     "species": 72,
+     "min": 30,
+     "max": 35,
+     "weight": 4
+    },
+    {
+     "species": 72,
+     "min": 35,
+     "max": 40,
+     "weight": 1
+    }
+   ],
+   "water_rate": 0.02
+  },
+  {
+   "rect": [
+    132,
+    310,
+    60,
+    20
+   ],
+   "rate": 0.21,
+   "name": "ROUTE18",
+   "encounters": [
+    {
+     "species": 21,
+     "min": 20,
+     "max": 20,
+     "weight": 20
+    },
+    {
+     "species": 84,
+     "min": 24,
+     "max": 24,
+     "weight": 20
+    },
+    {
+     "species": 21,
+     "min": 22,
+     "max": 22,
+     "weight": 10
+    },
+    {
+     "species": 84,
+     "min": 26,
+     "max": 26,
+     "weight": 10
+    },
+    {
+     "species": 20,
+     "min": 25,
+     "max": 25,
+     "weight": 10
+    },
+    {
+     "species": 22,
+     "min": 25,
+     "max": 25,
+     "weight": 10
+    },
+    {
+     "species": 84,
+     "min": 28,
+     "max": 28,
+     "weight": 5
+    },
+    {
+     "species": 20,
+     "min": 29,
+     "max": 29,
+     "weight": 5
+    },
+    {
+     "species": 19,
+     "min": 22,
+     "max": 22,
+     "weight": 4
+    },
+    {
+     "species": 22,
+     "min": 27,
+     "max": 27,
+     "weight": 4
+    },
+    {
+     "species": 19,
+     "min": 22,
+     "max": 22,
+     "weight": 1
+    },
+    {
+     "species": 22,
+     "min": 29,
+     "max": 29,
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "rect": [
+    240,
+    310,
+    72,
+    20
+   ],
+   "rate": 0.21,
+   "name": "ROUTE15",
+   "encounters": [
+    {
+     "species": 43,
+     "min": 24,
+     "max": 24,
+     "weight": 20
+    },
+    {
+     "species": 48,
+     "min": 24,
+     "max": 24,
+     "weight": 20
+    },
+    {
+     "species": 43,
+     "min": 22,
+     "max": 22,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 27,
+     "max": 27,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 25,
+     "max": 25,
+     "weight": 10
+    },
+    {
+     "species": 48,
+     "min": 26,
+     "max": 26,
+     "weight": 10
+    },
+    {
+     "species": 43,
+     "min": 26,
+     "max": 26,
+     "weight": 5
+    },
+    {
+     "species": 132,
+     "min": 25,
+     "max": 25,
+     "weight": 5
+    },
+    {
+     "species": 17,
+     "min": 29,
+     "max": 29,
+     "weight": 4
+    },
+    {
+     "species": 44,
+     "min": 28,
+     "max": 28,
+     "weight": 4
+    },
+    {
+     "species": 17,
+     "min": 29,
+     "max": 29,
+     "weight": 1
+    },
+    {
+     "species": 44,
+     "min": 30,
+     "max": 30,
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "rect": [
+    276,
+    0,
+    24,
+    40
+   ],
+   "rate": 0.21,
+   "name": "ROUTE24",
+   "encounters": [
+    {
+     "species": 13,
+     "min": 7,
+     "max": 7,
+     "weight": 20
+    },
+    {
+     "species": 10,
+     "min": 7,
+     "max": 7,
+     "weight": 20
+    },
+    {
+     "species": 16,
+     "min": 11,
+     "max": 11,
+     "weight": 10
+    },
+    {
+     "species": 43,
+     "min": 12,
+     "max": 12,
+     "weight": 10
+    },
+    {
+     "species": 43,
+     "min": 13,
+     "max": 13,
+     "weight": 10
+    },
+    {
+     "species": 63,
+     "min": 10,
+     "max": 10,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 13,
+     "max": 13,
+     "weight": 5
+    },
+    {
+     "species": 43,
+     "min": 14,
+     "max": 14,
+     "weight": 5
+    },
+    {
+     "species": 14,
+     "min": 8,
+     "max": 8,
+     "weight": 4
+    },
+    {
+     "species": 63,
+     "min": 8,
+     "max": 8,
+     "weight": 4
+    },
+    {
+     "species": 11,
+     "min": 8,
+     "max": 8,
+     "weight": 1
+    },
+    {
+     "species": 63,
+     "min": 12,
+     "max": 12,
+     "weight": 1
+    }
+   ],
+   "water": [
+    {
+     "species": 72,
+     "min": 5,
+     "max": 10,
+     "weight": 60
+    },
+    {
+     "species": 72,
+     "min": 10,
+     "max": 20,
+     "weight": 30
+    },
+    {
+     "species": 72,
+     "min": 20,
+     "max": 30,
+     "weight": 5
+    },
+    {
+     "species": 72,
+     "min": 30,
+     "max": 35,
+     "weight": 4
+    },
+    {
+     "species": 72,
+     "min": 35,
+     "max": 40,
+     "weight": 1
+    }
+   ],
+   "water_rate": 0.02
+  },
+  {
+   "rect": [
+    264,
+    80,
+    48,
+    40
+   ],
+   "rate": 0.21,
+   "name": "ROUTE5",
+   "encounters": [
+    {
+     "species": 52,
+     "min": 10,
+     "max": 10,
+     "weight": 20
+    },
+    {
+     "species": 16,
+     "min": 13,
+     "max": 13,
+     "weight": 20
+    },
+    {
+     "species": 43,
+     "min": 13,
+     "max": 13,
+     "weight": 10
+    },
+    {
+     "species": 52,
+     "min": 12,
+     "max": 12,
+     "weight": 10
+    },
+    {
+     "species": 43,
+     "min": 15,
+     "max": 15,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 15,
+     "max": 15,
+     "weight": 10
+    },
+    {
+     "species": 43,
+     "min": 16,
+     "max": 16,
+     "weight": 5
+    },
+    {
+     "species": 16,
+     "min": 16,
+     "max": 16,
+     "weight": 5
+    },
+    {
+     "species": 16,
+     "min": 15,
+     "max": 15,
+     "weight": 4
+    },
+    {
+     "species": 52,
+     "min": 14,
+     "max": 14,
+     "weight": 4
+    },
+    {
+     "species": 16,
+     "min": 15,
+     "max": 15,
+     "weight": 1
+    },
+    {
+     "species": 52,
+     "min": 16,
+     "max": 16,
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "rect": [
+    312,
+    50,
+    72,
+    20
+   ],
+   "rate": 0.21,
+   "name": "ROUTE9",
+   "encounters": [
+    {
+     "species": 21,
+     "min": 16,
+     "max": 16,
+     "weight": 20
+    },
+    {
+     "species": 19,
+     "min": 16,
+     "max": 16,
+     "weight": 20
+    },
+    {
+     "species": 23,
+     "min": 11,
+     "max": 11,
+     "weight": 10
+    },
+    {
+     "species": 23,
+     "min": 15,
+     "max": 15,
+     "weight": 10
+    },
+    {
+     "species": 21,
+     "min": 13,
+     "max": 13,
+     "weight": 10
+    },
+    {
+     "species": 19,
+     "min": 14,
+     "max": 14,
+     "weight": 10
+    },
+    {
+     "species": 21,
+     "min": 17,
+     "max": 17,
+     "weight": 5
+    },
+    {
+     "species": 19,
+     "min": 17,
+     "max": 17,
+     "weight": 5
+    },
+    {
+     "species": 19,
+     "min": 14,
+     "max": 14,
+     "weight": 4
+    },
+    {
+     "species": 23,
+     "min": 13,
+     "max": 13,
+     "weight": 4
+    },
+    {
+     "species": 19,
+     "min": 14,
+     "max": 14,
+     "weight": 1
+    },
+    {
+     "species": 23,
+     "min": 17,
+     "max": 17,
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "rect": [
+    132,
+    150,
+    24,
+    160
+   ],
+   "rate": 0.21,
+   "name": "ROUTE17",
+   "encounters": [
+    {
+     "species": 21,
+     "min": 20,
+     "max": 20,
+     "weight": 20
+    },
+    {
+     "species": 84,
+     "min": 24,
+     "max": 24,
+     "weight": 20
+    },
+    {
+     "species": 21,
+     "min": 22,
+     "max": 22,
+     "weight": 10
+    },
+    {
+     "species": 84,
+     "min": 26,
+     "max": 26,
+     "weight": 10
+    },
+    {
+     "species": 20,
+     "min": 25,
+     "max": 25,
+     "weight": 10
+    },
+    {
+     "species": 20,
+     "min": 27,
+     "max": 27,
+     "weight": 10
+    },
+    {
+     "species": 84,
+     "min": 28,
+     "max": 28,
+     "weight": 5
+    },
+    {
+     "species": 20,
+     "min": 29,
+     "max": 29,
+     "weight": 5
+    },
+    {
+     "species": 19,
+     "min": 22,
+     "max": 22,
+     "weight": 4
+    },
+    {
+     "species": 22,
+     "min": 25,
+     "max": 25,
+     "weight": 4
+    },
+    {
+     "species": 19,
+     "min": 22,
+     "max": 22,
+     "weight": 1
+    },
+    {
+     "species": 22,
+     "min": 27,
+     "max": 27,
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "rect": [
+    312,
+    270,
+    24,
+    60
+   ],
+   "rate": 0.21,
+   "name": "ROUTE14",
+   "encounters": [
+    {
+     "species": 43,
+     "min": 24,
+     "max": 24,
+     "weight": 20
+    },
+    {
+     "species": 48,
+     "min": 24,
+     "max": 24,
+     "weight": 20
+    },
+    {
+     "species": 43,
+     "min": 22,
+     "max": 22,
+     "weight": 10
+    },
+    {
+     "species": 132,
+     "min": 23,
+     "max": 23,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 27,
+     "max": 27,
+     "weight": 10
+    },
+    {
+     "species": 48,
+     "min": 26,
+     "max": 26,
+     "weight": 10
+    },
+    {
+     "species": 43,
+     "min": 26,
+     "max": 26,
+     "weight": 5
+    },
+    {
+     "species": 44,
+     "min": 30,
+     "max": 30,
+     "weight": 5
+    },
+    {
+     "species": 132,
+     "min": 23,
+     "max": 23,
+     "weight": 4
+    },
+    {
+     "species": 17,
+     "min": 29,
+     "max": 29,
+     "weight": 4
+    },
+    {
+     "species": 132,
+     "min": 23,
+     "max": 23,
+     "weight": 1
+    },
+    {
+     "species": 17,
+     "min": 29,
+     "max": 29,
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "rect": [
+    300,
+    0,
+    72,
+    20
+   ],
+   "rate": 0.21,
+   "name": "ROUTE25",
+   "encounters": [
+    {
+     "species": 13,
+     "min": 8,
+     "max": 8,
+     "weight": 20
+    },
+    {
+     "species": 10,
+     "min": 8,
+     "max": 8,
+     "weight": 20
+    },
+    {
+     "species": 16,
+     "min": 13,
+     "max": 13,
+     "weight": 10
+    },
+    {
+     "species": 43,
+     "min": 14,
+     "max": 14,
+     "weight": 10
+    },
+    {
+     "species": 43,
+     "min": 13,
+     "max": 13,
+     "weight": 10
+    },
+    {
+     "species": 63,
+     "min": 11,
+     "max": 11,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 11,
+     "max": 11,
+     "weight": 5
+    },
+    {
+     "species": 43,
+     "min": 12,
+     "max": 12,
+     "weight": 5
+    },
+    {
+     "species": 14,
+     "min": 9,
+     "max": 9,
+     "weight": 4
+    },
+    {
+     "species": 63,
+     "min": 9,
+     "max": 9,
+     "weight": 4
+    },
+    {
+     "species": 11,
+     "min": 9,
+     "max": 9,
+     "weight": 1
+    },
+    {
+     "species": 63,
+     "min": 13,
+     "max": 13,
+     "weight": 1
+    }
+   ],
+   "water": [
+    {
+     "species": 54,
+     "min": 20,
+     "max": 25,
+     "weight": 60
+    },
+    {
+     "species": 54,
+     "min": 20,
+     "max": 25,
+     "weight": 30
+    },
+    {
+     "species": 54,
+     "min": 25,
+     "max": 30,
+     "weight": 5
+    },
+    {
+     "species": 54,
+     "min": 30,
+     "max": 35,
+     "weight": 4
+    },
+    {
+     "species": 54,
+     "min": 35,
+     "max": 40,
+     "weight": 1
+    }
+   ],
+   "water_rate": 0.02
+  },
+  {
+   "rect": [
+    384,
+    50,
+    24,
+    80
+   ],
+   "rate": 0.21,
+   "name": "ROUTE10",
+   "encounters": [
+    {
+     "species": 21,
+     "min": 16,
+     "max": 16,
+     "weight": 20
+    },
+    {
+     "species": 100,
+     "min": 16,
+     "max": 16,
+     "weight": 20
+    },
+    {
+     "species": 23,
+     "min": 11,
+     "max": 11,
+     "weight": 10
+    },
+    {
+     "species": 23,
+     "min": 15,
+     "max": 15,
+     "weight": 10
+    },
+    {
+     "species": 21,
+     "min": 13,
+     "max": 13,
+     "weight": 10
+    },
+    {
+     "species": 100,
+     "min": 14,
+     "max": 14,
+     "weight": 10
+    },
+    {
+     "species": 21,
+     "min": 17,
+     "max": 17,
+     "weight": 5
+    },
+    {
+     "species": 100,
+     "min": 17,
+     "max": 17,
+     "weight": 5
+    },
+    {
+     "species": 100,
+     "min": 14,
+     "max": 14,
+     "weight": 4
+    },
+    {
+     "species": 23,
+     "min": 13,
+     "max": 13,
+     "weight": 4
+    },
+    {
+     "species": 100,
+     "min": 14,
+     "max": 14,
+     "weight": 1
+    },
+    {
+     "species": 23,
+     "min": 17,
+     "max": 17,
+     "weight": 1
+    }
+   ],
+   "water": [
+    {
+     "species": 72,
+     "min": 5,
+     "max": 10,
+     "weight": 60
+    },
+    {
+     "species": 72,
+     "min": 10,
+     "max": 20,
+     "weight": 30
+    },
+    {
+     "species": 72,
+     "min": 20,
+     "max": 30,
+     "weight": 5
+    },
+    {
+     "species": 72,
+     "min": 30,
+     "max": 35,
+     "weight": 4
+    },
+    {
+     "species": 72,
+     "min": 35,
+     "max": 40,
+     "weight": 1
+    }
+   ],
+   "water_rate": 0.02
+  },
+  {
+   "rect": [
+    132,
+    130,
+    48,
+    20
+   ],
+   "rate": 0.21,
+   "name": "ROUTE16",
+   "encounters": [
+    {
+     "species": 21,
+     "min": 20,
+     "max": 20,
+     "weight": 20
+    },
+    {
+     "species": 84,
+     "min": 18,
+     "max": 18,
+     "weight": 20
+    },
+    {
+     "species": 19,
+     "min": 18,
+     "max": 18,
+     "weight": 10
+    },
+    {
+     "species": 19,
+     "min": 20,
+     "max": 20,
+     "weight": 10
+    },
+    {
+     "species": 21,
+     "min": 22,
+     "max": 22,
+     "weight": 10
+    },
+    {
+     "species": 84,
+     "min": 20,
+     "max": 20,
+     "weight": 10
+    },
+    {
+     "species": 19,
+     "min": 22,
+     "max": 22,
+     "weight": 5
+    },
+    {
+     "species": 84,
+     "min": 22,
+     "max": 22,
+     "weight": 5
+    },
+    {
+     "species": 19,
+     "min": 18,
+     "max": 18,
+     "weight": 4
+    },
+    {
+     "species": 20,
+     "min": 23,
+     "max": 23,
+     "weight": 4
+    },
+    {
+     "species": 19,
+     "min": 18,
+     "max": 18,
+     "weight": 1
+    },
+    {
+     "species": 20,
+     "min": 25,
+     "max": 25,
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "rect": [
+    336,
+    270,
+    72,
+    20
+   ],
+   "rate": 0.21,
+   "name": "ROUTE13",
+   "encounters": [
+    {
+     "species": 43,
+     "min": 24,
+     "max": 24,
+     "weight": 20
+    },
+    {
+     "species": 48,
+     "min": 24,
+     "max": 24,
+     "weight": 20
+    },
+    {
+     "species": 43,
+     "min": 22,
+     "max": 22,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 27,
+     "max": 27,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 25,
+     "max": 25,
+     "weight": 10
+    },
+    {
+     "species": 48,
+     "min": 26,
+     "max": 26,
+     "weight": 10
+    },
+    {
+     "species": 43,
+     "min": 26,
+     "max": 26,
+     "weight": 5
+    },
+    {
+     "species": 132,
+     "min": 25,
+     "max": 25,
+     "weight": 5
+    },
+    {
+     "species": 17,
+     "min": 29,
+     "max": 29,
+     "weight": 4
+    },
+    {
+     "species": 44,
+     "min": 28,
+     "max": 28,
+     "weight": 4
+    },
+    {
+     "species": 17,
+     "min": 29,
+     "max": 29,
+     "weight": 1
+    },
+    {
+     "species": 44,
+     "min": 30,
+     "max": 30,
+     "weight": 1
+    }
+   ],
+   "water": [
+    {
+     "species": 72,
+     "min": 5,
+     "max": 10,
+     "weight": 60
+    },
+    {
+     "species": 72,
+     "min": 10,
+     "max": 20,
+     "weight": 30
+    },
+    {
+     "species": 72,
+     "min": 20,
+     "max": 30,
+     "weight": 5
+    },
+    {
+     "species": 72,
+     "min": 30,
+     "max": 35,
+     "weight": 4
+    },
+    {
+     "species": 72,
+     "min": 35,
+     "max": 40,
+     "weight": 1
+    }
+   ],
+   "water_rate": 0.02
+  },
+  {
+   "rect": [
+    276,
+    160,
+    24,
+    40
+   ],
+   "rate": 0.21,
+   "name": "ROUTE6",
+   "encounters": [
+    {
+     "species": 52,
+     "min": 10,
+     "max": 10,
+     "weight": 20
+    },
+    {
+     "species": 16,
+     "min": 13,
+     "max": 13,
+     "weight": 20
+    },
+    {
+     "species": 43,
+     "min": 13,
+     "max": 13,
+     "weight": 10
+    },
+    {
+     "species": 52,
+     "min": 12,
+     "max": 12,
+     "weight": 10
+    },
+    {
+     "species": 43,
+     "min": 15,
+     "max": 15,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 15,
+     "max": 15,
+     "weight": 10
+    },
+    {
+     "species": 43,
+     "min": 16,
+     "max": 16,
+     "weight": 5
+    },
+    {
+     "species": 16,
+     "min": 16,
+     "max": 16,
+     "weight": 5
+    },
+    {
+     "species": 16,
+     "min": 15,
+     "max": 15,
+     "weight": 4
+    },
+    {
+     "species": 52,
+     "min": 14,
+     "max": 14,
+     "weight": 4
+    },
+    {
+     "species": 16,
+     "min": 15,
+     "max": 15,
+     "weight": 1
+    },
+    {
+     "species": 52,
+     "min": 16,
+     "max": 16,
+     "weight": 1
+    }
+   ],
+   "water": [
+    {
+     "species": 54,
+     "min": 20,
+     "max": 25,
+     "weight": 60
+    },
+    {
+     "species": 54,
+     "min": 20,
+     "max": 25,
+     "weight": 30
+    },
+    {
+     "species": 54,
+     "min": 25,
+     "max": 30,
+     "weight": 5
+    },
+    {
+     "species": 54,
+     "min": 30,
+     "max": 35,
+     "weight": 4
+    },
+    {
+     "species": 54,
+     "min": 35,
+     "max": 40,
+     "weight": 1
+    }
+   ],
+   "water_rate": 0.02
+  },
+  {
+   "rect": [
+    240,
+    130,
+    24,
+    20
+   ],
+   "rate": 0.21,
+   "name": "ROUTE7",
+   "encounters": [
+    {
+     "species": 16,
+     "min": 19,
+     "max": 19,
+     "weight": 20
+    },
+    {
+     "species": 52,
+     "min": 17,
+     "max": 17,
+     "weight": 20
+    },
+    {
+     "species": 43,
+     "min": 19,
+     "max": 19,
+     "weight": 10
+    },
+    {
+     "species": 52,
+     "min": 18,
+     "max": 18,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 22,
+     "max": 22,
+     "weight": 10
+    },
+    {
+     "species": 43,
+     "min": 22,
+     "max": 22,
+     "weight": 10
+    },
+    {
+     "species": 58,
+     "min": 18,
+     "max": 18,
+     "weight": 5
+    },
+    {
+     "species": 58,
+     "min": 20,
+     "max": 20,
+     "weight": 5
+    },
+    {
+     "species": 52,
+     "min": 17,
+     "max": 17,
+     "weight": 4
+    },
+    {
+     "species": 52,
+     "min": 19,
+     "max": 19,
+     "weight": 4
+    },
+    {
+     "species": 52,
+     "min": 17,
+     "max": 17,
+     "weight": 1
+    },
+    {
+     "species": 52,
+     "min": 20,
+     "max": 20,
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "rect": [
+    312,
+    130,
+    72,
+    20
+   ],
+   "rate": 0.21,
+   "name": "ROUTE8",
+   "encounters": [
+    {
+     "species": 16,
+     "min": 18,
+     "max": 18,
+     "weight": 20
+    },
+    {
+     "species": 52,
+     "min": 18,
+     "max": 18,
+     "weight": 20
+    },
+    {
+     "species": 58,
+     "min": 16,
+     "max": 16,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 20,
+     "max": 20,
+     "weight": 10
+    },
+    {
+     "species": 52,
+     "min": 20,
+     "max": 20,
+     "weight": 10
+    },
+    {
+     "species": 23,
+     "min": 17,
+     "max": 17,
+     "weight": 10
+    },
+    {
+     "species": 58,
+     "min": 17,
+     "max": 17,
+     "weight": 5
+    },
+    {
+     "species": 23,
+     "min": 19,
+     "max": 19,
+     "weight": 5
+    },
+    {
+     "species": 23,
+     "min": 17,
+     "max": 17,
+     "weight": 4
+    },
+    {
+     "species": 58,
+     "min": 15,
+     "max": 15,
+     "weight": 4
+    },
+    {
+     "species": 23,
+     "min": 17,
+     "max": 17,
+     "weight": 1
+    },
+    {
+     "species": 58,
+     "min": 18,
+     "max": 18,
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "rect": [
+    384,
+    150,
+    24,
+    120
+   ],
+   "rate": 0.21,
+   "name": "ROUTE12",
+   "encounters": [
+    {
+     "species": 43,
+     "min": 24,
+     "max": 24,
+     "weight": 20
+    },
+    {
+     "species": 48,
+     "min": 24,
+     "max": 24,
+     "weight": 20
+    },
+    {
+     "species": 43,
+     "min": 22,
+     "max": 22,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 23,
+     "max": 23,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 25,
+     "max": 25,
+     "weight": 10
+    },
+    {
+     "species": 48,
+     "min": 26,
+     "max": 26,
+     "weight": 10
+    },
+    {
+     "species": 43,
+     "min": 26,
+     "max": 26,
+     "weight": 5
+    },
+    {
+     "species": 16,
+     "min": 27,
+     "max": 27,
+     "weight": 5
+    },
+    {
+     "species": 16,
+     "min": 23,
+     "max": 23,
+     "weight": 4
+    },
+    {
+     "species": 44,
+     "min": 28,
+     "max": 28,
+     "weight": 4
+    },
+    {
+     "species": 16,
+     "min": 23,
+     "max": 23,
+     "weight": 1
+    },
+    {
+     "species": 44,
+     "min": 30,
+     "max": 30,
+     "weight": 1
+    }
+   ],
+   "water": [
+    {
+     "species": 72,
+     "min": 5,
+     "max": 10,
+     "weight": 60
+    },
+    {
+     "species": 72,
+     "min": 10,
+     "max": 20,
+     "weight": 30
+    },
+    {
+     "species": 72,
+     "min": 20,
+     "max": 30,
+     "weight": 5
+    },
+    {
+     "species": 72,
+     "min": 30,
+     "max": 35,
+     "weight": 4
+    },
+    {
+     "species": 72,
+     "min": 35,
+     "max": 40,
+     "weight": 1
+    }
+   ],
+   "water_rate": 0.02
+  },
+  {
+   "rect": [
+    312,
+    210,
+    72,
+    20
+   ],
+   "rate": 0.21,
+   "name": "ROUTE11",
+   "encounters": [
+    {
+     "species": 23,
+     "min": 14,
+     "max": 14,
+     "weight": 20
+    },
+    {
+     "species": 21,
+     "min": 15,
+     "max": 15,
+     "weight": 20
+    },
+    {
+     "species": 23,
+     "min": 12,
+     "max": 12,
+     "weight": 10
+    },
+    {
+     "species": 21,
+     "min": 13,
+     "max": 13,
+     "weight": 10
+    },
+    {
+     "species": 96,
+     "min": 11,
+     "max": 11,
+     "weight": 10
+    },
+    {
+     "species": 96,
+     "min": 13,
+     "max": 13,
+     "weight": 10
+    },
+    {
+     "species": 23,
+     "min": 15,
+     "max": 15,
+     "weight": 5
+    },
+    {
+     "species": 21,
+     "min": 17,
+     "max": 17,
+     "weight": 5
+    },
+    {
+     "species": 23,
+     "min": 12,
+     "max": 12,
+     "weight": 4
+    },
+    {
+     "species": 96,
+     "min": 15,
+     "max": 15,
+     "weight": 4
+    },
+    {
+     "species": 23,
+     "min": 12,
+     "max": 12,
+     "weight": 1
+    },
+    {
+     "species": 96,
+     "min": 15,
+     "max": 15,
+     "weight": 1
+    }
+   ],
+   "water": [
+    {
+     "species": 72,
+     "min": 5,
+     "max": 10,
+     "weight": 60
+    },
+    {
+     "species": 72,
+     "min": 10,
+     "max": 20,
+     "weight": 30
+    },
+    {
+     "species": 72,
+     "min": 20,
+     "max": 30,
+     "weight": 5
+    },
+    {
+     "species": 72,
+     "min": 30,
+     "max": 35,
+     "weight": 4
+    },
+    {
+     "species": 72,
+     "min": 35,
+     "max": 40,
+     "weight": 1
+    }
+   ],
+   "water_rate": 0.02
+  }
+ ],
+ "areas": [
+  {
+   "x0": 60,
+   "x1": 84,
+   "y0": 260,
+   "y1": 280,
+   "name": "真新镇"
+  },
+  {
+   "x0": 60,
+   "x1": 84,
+   "y0": 220,
+   "y1": 260,
+   "name": "1 号道路"
+  },
+  {
+   "x0": 60,
+   "x1": 84,
+   "y0": 280,
+   "y1": 330,
+   "name": "ROUTE21_NORTH"
+  },
+  {
+   "x0": 48,
+   "x1": 96,
+   "y0": 180,
+   "y1": 220,
+   "name": "常磐市"
+  },
+  {
+   "x0": 60,
+   "x1": 84,
+   "y0": 330,
+   "y1": 380,
+   "name": "ROUTE21_SOUTH"
+  },
+  {
+   "x0": 60,
+   "x1": 84,
+   "y0": 100,
+   "y1": 180,
+   "name": "2 号道路"
+  },
+  {
+   "x0": 0,
+   "x1": 48,
+   "y0": 190,
+   "y1": 214,
+   "name": "ROUTE22"
+  },
+  {
+   "x0": 60,
+   "x1": 84,
+   "y0": 380,
+   "y1": 400,
+   "name": "CINNABAR_ISLAND"
+  },
+  {
+   "x0": 48,
+   "x1": 96,
+   "y0": 60,
+   "y1": 100,
+   "name": "尼比市"
+  },
+  {
+   "x0": 0,
+   "x1": 24,
+   "y0": 30,
+   "y1": 190,
+   "name": "ROUTE23"
+  },
+  {
+   "x0": 84,
+   "x1": 204,
+   "y0": 380,
+   "y1": 400,
+   "name": "ROUTE20"
+  },
+  {
+   "x0": 96,
+   "x1": 180,
+   "y0": 70,
+   "y1": 90,
+   "name": "3 号道路"
+  },
+  {
+   "x0": 0,
+   "x1": 24,
+   "y0": 10,
+   "y1": 30,
+   "name": "INDIGO_PLATEAU_EXTERIOR"
+  },
+  {
+   "x0": 204,
+   "x1": 228,
+   "y0": 340,
+   "y1": 400,
+   "name": "ROUTE19"
+  },
+  {
+   "x0": 156,
+   "x1": 264,
+   "y0": 50,
+   "y1": 70,
+   "name": "4 号道路"
+  },
+  {
+   "x0": 192,
+   "x1": 240,
+   "y0": 300,
+   "y1": 340,
+   "name": "FUCHSIA_CITY"
+  },
+  {
+   "x0": 264,
+   "x1": 312,
+   "y0": 40,
+   "y1": 80,
+   "name": "华蓝市"
+  },
+  {
+   "x0": 132,
+   "x1": 192,
+   "y0": 310,
+   "y1": 330,
+   "name": "ROUTE18"
+  },
+  {
+   "x0": 240,
+   "x1": 312,
+   "y0": 310,
+   "y1": 330,
+   "name": "ROUTE15"
+  },
+  {
+   "x0": 276,
+   "x1": 300,
+   "y0": 0,
+   "y1": 40,
+   "name": "24 号道路"
+  },
+  {
+   "x0": 264,
+   "x1": 312,
+   "y0": 80,
+   "y1": 120,
+   "name": "ROUTE5"
+  },
+  {
+   "x0": 312,
+   "x1": 384,
+   "y0": 50,
+   "y1": 70,
+   "name": "ROUTE9"
+  },
+  {
+   "x0": 132,
+   "x1": 156,
+   "y0": 150,
+   "y1": 310,
+   "name": "ROUTE17"
+  },
+  {
+   "x0": 312,
+   "x1": 336,
+   "y0": 270,
+   "y1": 330,
+   "name": "ROUTE14"
+  },
+  {
+   "x0": 300,
+   "x1": 372,
+   "y0": 0,
+   "y1": 20,
+   "name": "25 号道路"
+  },
+  {
+   "x0": 264,
+   "x1": 312,
+   "y0": 120,
+   "y1": 160,
+   "name": "SAFFRON_CITY_CONNECTION"
+  },
+  {
+   "x0": 384,
+   "x1": 408,
+   "y0": 50,
+   "y1": 130,
+   "name": "ROUTE10"
+  },
+  {
+   "x0": 132,
+   "x1": 180,
+   "y0": 130,
+   "y1": 150,
+   "name": "ROUTE16"
+  },
+  {
+   "x0": 336,
+   "x1": 408,
+   "y0": 270,
+   "y1": 290,
+   "name": "ROUTE13"
+  },
+  {
+   "x0": 276,
+   "x1": 300,
+   "y0": 160,
+   "y1": 200,
+   "name": "ROUTE6"
+  },
+  {
+   "x0": 240,
+   "x1": 264,
+   "y0": 130,
+   "y1": 150,
+   "name": "ROUTE7"
+  },
+  {
+   "x0": 312,
+   "x1": 384,
+   "y0": 130,
+   "y1": 150,
+   "name": "ROUTE8"
+  },
+  {
+   "x0": 384,
+   "x1": 408,
+   "y0": 130,
+   "y1": 150,
+   "name": "LAVENDER_TOWN"
+  },
+  {
+   "x0": 180,
+   "x1": 240,
+   "y0": 120,
+   "y1": 160,
+   "name": "CELADON_CITY"
+  },
+  {
+   "x0": 384,
+   "x1": 408,
+   "y0": 150,
+   "y1": 270,
+   "name": "ROUTE12"
+  },
+  {
+   "x0": 264,
+   "x1": 312,
+   "y0": 200,
+   "y1": 240,
+   "name": "VERMILION_CITY"
+  },
+  {
+   "x0": 312,
+   "x1": 384,
+   "y0": 210,
+   "y1": 230,
+   "name": "ROUTE11"
+  },
+  {
+   "x0": 264,
+   "x1": 330,
+   "y0": 120,
+   "y1": 175,
+   "name": "SAFFRON_CITY"
+  }
+ ],
+ "objects": [
+  {
+   "at": [
+    185,
+    123
+   ],
+   "kind": "item",
+   "item": "ITEM_ETHER",
+   "name": "PP 单项小补剂",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    225,
+    143
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我在红莲得到了瓦斯弹。\n它很棒，不过每次它一生气就\n会喷出毒气。呵呵呵呵！这个道馆很来劲啊！\n里面全都是女生啊！玉虹市长久不变的靓景一直是……"
+  },
+  {
+   "at": [
+    218,
+    143
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我在红莲得到了瓦斯弹。\n它很棒，不过每次它一生气就\n会喷出毒气。呵呵呵呵！这个道馆很来劲啊！\n里面全都是女生啊！玉虹市长久不变的靓景一直是……"
+  },
+  {
+   "at": [
+    213,
+    143
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我在红莲得到了瓦斯弹。\n它很棒，不过每次它一生气就\n会喷出毒气。呵呵呵呵！这个道馆很来劲啊！\n里面全都是女生啊！玉虹市长久不变的靓景一直是……"
+  },
+  {
+   "at": [
+    202,
+    138
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我在红莲得到了瓦斯弹。\n它很棒，不过每次它一生气就\n会喷出毒气。呵呵呵呵！这个道馆很来劲啊！\n里面全都是女生啊！玉虹市长久不变的靓景一直是……"
+  },
+  {
+   "at": [
+    206,
+    131
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我在红莲得到了瓦斯弹。\n它很棒，不过每次它一生气就\n会喷出毒气。呵呵呵呵！这个道馆很来劲啊！\n里面全都是女生啊！玉虹市长久不变的靓景一直是……"
+  },
+  {
+   "at": [
+    213,
+    136
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我在红莲得到了瓦斯弹。\n它很棒，不过每次它一生气就\n会喷出毒气。呵呵呵呵！这个道馆很来劲啊！\n里面全都是女生啊！玉虹市长久不变的靓景一直是……"
+  },
+  {
+   "at": [
+    198,
+    134
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我在红莲得到了瓦斯弹。\n它很棒，不过每次它一生气就\n会喷出毒气。呵呵呵呵！这个道馆很来劲啊！\n里面全都是女生啊！玉虹市长久不变的靓景一直是……"
+  },
+  {
+   "at": [
+    196,
+    151
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我在红莲得到了瓦斯弹。\n它很棒，不过每次它一生气就\n会喷出毒气。呵呵呵呵！这个道馆很来劲啊！\n里面全都是女生啊！玉虹市长久不变的靓景一直是……"
+  },
+  {
+   "at": [
+    235,
+    140
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PP_UP",
+   "name": "PP 提升剂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_PP_UP",
+   "count": 1
+  },
+  {
+   "at": [
+    284,
+    65
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "{RIVAL} 哟！是{PLAYER}啊！\n你还在这里\n独自徘徊么？\n我可是做得很好！我收服了一群\n既强壮又聪明的宝可梦！\n来吧，让我看看你……"
+  },
+  {
+   "at": [
+    291,
+    61
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "{RIVAL} 哟！是{PLAYER}啊！\n你还在这里\n独自徘徊么？\n我可是做得很好！我收服了一群\n既强壮又聪明的宝可梦！\n来吧，让我看看你……"
+  },
+  {
+   "at": [
+    275,
+    68
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "{RIVAL} 哟！是{PLAYER}啊！\n你还在这里\n独自徘徊么？\n我可是做得很好！我收服了一群\n既强壮又聪明的宝可梦！\n来吧，让我看看你……"
+  },
+  {
+   "at": [
+    283,
+    72
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "{RIVAL} 哟！是{PLAYER}啊！\n你还在这里\n独自徘徊么？\n我可是做得很好！我收服了一群\n既强壮又聪明的宝可梦！\n来吧，让我看看你……"
+  },
+  {
+   "at": [
+    282,
+    47
+   ],
+   "kind": "hidden",
+   "item": "ITEM_RARE_CANDY",
+   "name": "神奇糖果",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_CERULEAN_CITY_RARE_CANDY",
+   "count": 1
+  },
+  {
+   "at": [
+    72,
+    383
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "门被锁上了……红莲道馆的夏伯很古怪。\n自从实验室建立以来\n他就一直住在岛上。科学家们在烧焦的建筑里\n做实验。\n就是在那边被称做是\n宝可梦屋的……"
+  },
+  {
+   "at": [
+    69,
+    389
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "门被锁上了……红莲道馆的夏伯很古怪。\n自从实验室建立以来\n他就一直住在岛上。科学家们在烧焦的建筑里\n做实验。\n就是在那边被称做是\n宝可梦屋的……"
+  },
+  {
+   "at": [
+    82,
+    385
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "门被锁上了……红莲道馆的夏伯很古怪。\n自从实验室建立以来\n他就一直住在岛上。科学家们在烧焦的建筑里\n做实验。\n就是在那边被称做是\n宝可梦屋的……"
+  },
+  {
+   "at": [
+    70,
+    389
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "门被锁上了……红莲道馆的夏伯很古怪。\n自从实验室建立以来\n他就一直住在岛上。科学家们在烧焦的建筑里\n做实验。\n就是在那边被称做是\n宝可梦屋的……"
+  },
+  {
+   "at": [
+    223,
+    318
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "浅红市\n浅红，是浅红亮丽的石竹花！"
+  },
+  {
+   "at": [
+    218,
+    318
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "宝可梦的乐园\n野生原野区"
+  },
+  {
+   "at": [
+    197,
+    332
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "浅红市宝可梦道馆\n馆主：阿桔剧毒的忍者之王"
+  },
+  {
+   "at": [
+    223,
+    331
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "野生原野区\n园长的家"
+  },
+  {
+   "at": [
+    227,
+    310
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "名字 霹雳电球\n外观很像一个精灵球。"
+  },
+  {
+   "at": [
+    230,
+    316
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "名字 呆呆兽\n很友好，但是行动缓慢。"
+  },
+  {
+   "at": [
+    233,
+    310
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "名字 吉利蛋\n抓到的话说明你运气很好。"
+  },
+  {
+   "at": [
+    209,
+    310
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "名字 袋兽\n母亲般的宝可梦，用肚子上的\n口袋来养育自己的小孩。"
+  },
+  {
+   "at": [
+    203,
+    310
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "名字 化石盔\n从化石中再生的极其稀有的宝可梦。"
+  },
+  {
+   "at": [
+    209,
+    318
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "名字 拉普拉斯\n又被称为海上的王者。"
+  },
+  {
+   "at": [
+    214,
+    307
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "原野区游戏\n收服宝可梦吧！"
+  },
+  {
+   "at": [
+    225,
+    326
+   ],
+   "kind": "hidden",
+   "item": "ITEM_MAX_REVIVE",
+   "name": "活力块",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_FUCHSIA_CITY_MAX_REVIVE",
+   "count": 1
+  },
+  {
+   "at": [
+    396,
+    134
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你相信世界上有幽灵吗？真的？\n真有相信的啊……Hahaha, I guess not.\nThat white hand on your sh……"
+  },
+  {
+   "at": [
+    399,
+    141
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你相信世界上有幽灵吗？真的？\n真有相信的啊……Hahaha, I guess not.\nThat white hand on your sh……"
+  },
+  {
+   "at": [
+    405,
+    137
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你相信世界上有幽灵吗？真的？\n真有相信的啊……Hahaha, I guess not.\nThat white hand on your sh……"
+  },
+  {
+   "at": [
+    391,
+    141
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你相信世界上有幽灵吗？真的？\n真有相信的啊……Hahaha, I guess not.\nThat white hand on your sh……"
+  },
+  {
+   "at": [
+    76,
+    276
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "大木：嘿，等等！\n别急着出去！大木：太危险了！\n有野生的宝可梦生活在草丛里！\n你需要拥有自己的宝可梦\n来保护你自己。\n我知道了！\n这边走，跟……"
+  },
+  {
+   "at": [
+    64,
+    267
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "大木：嘿，等等！\n别急着出去！大木：太危险了！\n有野生的宝可梦生活在草丛里！\n你需要拥有自己的宝可梦\n来保护你自己。\n我知道了！\n这边走，跟……"
+  },
+  {
+   "at": [
+    73,
+    267
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "大木：嘿，等等！\n别急着出去！大木：太危险了！\n有野生的宝可梦生活在草丛里！\n你需要拥有自己的宝可梦\n来保护你自己。\n我知道了！\n这边走，跟……"
+  },
+  {
+   "at": [
+    69,
+    271
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "大木：嘿，等等！\n别急着出去！大木：太危险了！\n有野生的宝可梦生活在草丛里！\n你需要拥有自己的宝可梦\n来保护你自己。\n我知道了！\n这边走，跟……"
+  },
+  {
+   "at": [
+    65,
+    274
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "大木：嘿，等等！\n别急着出去！大木：太危险了！\n有野生的宝可梦生活在草丛里！\n你需要拥有自己的宝可梦\n来保护你自己。\n我知道了！\n这边走，跟……"
+  },
+  {
+   "at": [
+    67,
+    67
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "哈欠！\n在这种阳光下我肯定会打起瞌睡。\n然后我做了一个一只\n催眠貘正在吞食我做的梦的怪梦。\n在那之后……\n我学会了如何食梦……\n噢，真是太恐……"
+  },
+  {
+   "at": [
+    87,
+    79
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "哈欠！\n在这种阳光下我肯定会打起瞌睡。\n然后我做了一个一只\n催眠貘正在吞食我做的梦的怪梦。\n在那之后……\n我学会了如何食梦……\n噢，真是太恐……"
+  },
+  {
+   "at": [
+    59,
+    76
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "哈欠！\n在这种阳光下我肯定会打起瞌睡。\n然后我做了一个一只\n催眠貘正在吞食我做的梦的怪梦。\n在那之后……\n我学会了如何食梦……\n噢，真是太恐……"
+  },
+  {
+   "at": [
+    68,
+    90
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "哈欠！\n在这种阳光下我肯定会打起瞌睡。\n然后我做了一个一只\n催眠貘正在吞食我做的梦的怪梦。\n在那之后……\n我学会了如何食梦……\n噢，真是太恐……"
+  },
+  {
+   "at": [
+    79,
+    85
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "哈欠！\n在这种阳光下我肯定会打起瞌睡。\n然后我做了一个一只\n催眠貘正在吞食我做的梦的怪梦。\n在那之后……\n我学会了如何食梦……\n噢，真是太恐……"
+  },
+  {
+   "at": [
+    54,
+    63
+   ],
+   "kind": "hidden",
+   "item": "ITEM_POKE_BALL",
+   "name": "精灵球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_PEWTER_CITY_POKE_BALL",
+   "count": 1
+  },
+  {
+   "at": [
+    399,
+    109
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "哇，你历经磨难终于到了我这里？\n也许你也是一个怪兽狂对吗？想要看看我的收藏吗？啊哼。\n我不会生气的！我还有很多稀有的宝可梦\n放在家里呢哈哈-……"
+  },
+  {
+   "at": [
+    390,
+    92
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "哇，你历经磨难终于到了我这里？\n也许你也是一个怪兽狂对吗？想要看看我的收藏吗？啊哼。\n我不会生气的！我还有很多稀有的宝可梦\n放在家里呢哈哈-……"
+  },
+  {
+   "at": [
+    391,
+    71
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "哇，你历经磨难终于到了我这里？\n也许你也是一个怪兽狂对吗？想要看看我的收藏吗？啊哼。\n我不会生气的！我还有很多稀有的宝可梦\n放在家里呢哈哈-……"
+  },
+  {
+   "at": [
+    394,
+    69
+   ],
+   "kind": "hidden",
+   "item": "ITEM_SUPER_POTION",
+   "name": "好伤药",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE10_SUPER_POTION",
+   "count": 1
+  },
+  {
+   "at": [
+    396,
+    90
+   ],
+   "kind": "hidden",
+   "item": "ITEM_MAX_ETHER",
+   "name": "PP 单项全补剂",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE10_MAX_ETHER",
+   "count": 1
+  },
+  {
+   "at": [
+    390,
+    76
+   ],
+   "kind": "hidden",
+   "item": "ITEM_CHERI_BERRY",
+   "name": "樱子果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE10_CHERI_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    401,
+    79
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PERSIM_BERRY",
+   "name": "柿仔果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE10_PERSIM_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    404,
+    107
+   ],
+   "kind": "hidden",
+   "item": "ITEM_NANAB_BERRY",
+   "name": "蕉香果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE10_NANAB_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    354,
+    222
+   ],
+   "kind": "item",
+   "item": "ITEM_X_DEFEND",
+   "name": "ITEM_X_DEFEND",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    375,
+    223
+   ],
+   "kind": "item",
+   "item": "ITEM_GREAT_BALL",
+   "name": "超级球",
+   "category": "ball",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    325,
+    213
+   ],
+   "kind": "item",
+   "item": "ITEM_AWAKENING",
+   "name": "解眠药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    315,
+    217
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "要么胜，要么败，否则就是平手！喂！\n别挡了我的路！宝可梦就是生命！\n生命在于竞技！竞技！\n这一点还满足不了我！我还有的是机会！在宝可梦的世界……"
+  },
+  {
+   "at": [
+    370,
+    215
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ESCAPE_ROPE",
+   "name": "离洞绳",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE11_ESCAPE_ROPE",
+   "count": 1
+  },
+  {
+   "at": [
+    402,
+    186
+   ],
+   "kind": "item",
+   "item": "ITEM_TM48",
+   "name": "ITEM_TM48",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    393,
+    251
+   ],
+   "kind": "item",
+   "item": "ITEM_IRON",
+   "name": "防御增强剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    401,
+    163
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这只宝可梦伸展着四肢\n舒舒服服地着。卡比兽醒来了！\n它发动着狂暴的攻击扑了过来！卡比兽平静了下来。\n它打了个大哈欠…回山上去了。要使用宝可梦……"
+  },
+  {
+   "at": [
+    399,
+    219
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这只宝可梦伸展着四肢\n舒舒服服地着。卡比兽醒来了！\n它发动着狂暴的攻击扑了过来！卡比兽平静了下来。\n它打了个大哈欠…回山上去了。要使用宝可梦……"
+  },
+  {
+   "at": [
+    402,
+    207
+   ],
+   "kind": "hidden",
+   "item": "ITEM_HYPER_POTION",
+   "name": "厉害伤药",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE12_HYPER_POTION",
+   "count": 1
+  },
+  {
+   "at": [
+    398,
+    220
+   ],
+   "kind": "hidden",
+   "item": "ITEM_LEFTOVERS",
+   "name": "吃剩的东西",
+   "category": "held",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE12_LEFTOVERS",
+   "count": 1
+  },
+  {
+   "at": [
+    393,
+    266
+   ],
+   "kind": "hidden",
+   "item": "ITEM_RARE_CANDY",
+   "name": "神奇糖果",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE12_RARE_CANDY",
+   "count": 1
+  },
+  {
+   "at": [
+    377,
+    282
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我的飞行属性宝可梦\n想要和你比试！我的波波比比鸟组合\n居然输了？虽然输了\n但我的宝可梦看起来很高兴。我想说我肯定比一个孩子要厉害。喔！\n我输……"
+  },
+  {
+   "at": [
+    373,
+    276
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我的飞行属性宝可梦\n想要和你比试！我的波波比比鸟组合\n居然输了？虽然输了\n但我的宝可梦看起来很高兴。我想说我肯定比一个孩子要厉害。喔！\n我输……"
+  },
+  {
+   "at": [
+    357,
+    284
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我的飞行属性宝可梦\n想要和你比试！我的波波比比鸟组合\n居然输了？虽然输了\n但我的宝可梦看起来很高兴。我想说我肯定比一个孩子要厉害。喔！\n我输……"
+  },
+  {
+   "at": [
+    359,
+    284
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PP_UP",
+   "name": "PP 提升剂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE13_PP_UP",
+   "count": 1
+  },
+  {
+   "at": [
+    329,
+    282
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "要想让你的宝可梦学到更强劲\n的技能就要善用技能机。不是很好。你已经得到秘传机了吗？宝可梦不会\n轻易忘记从上面学得的技能。我的鸟类宝可梦已经……"
+  },
+  {
+   "at": [
+    321,
+    290
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ZINC",
+   "name": "特防增强剂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE14_ZINC",
+   "count": 1
+  },
+  {
+   "at": [
+    331,
+    323
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PINAP_BERRY",
+   "name": "凰梨果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE14_PINAP_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    260,
+    316
+   ],
+   "kind": "item",
+   "item": "ITEM_TM18",
+   "name": "ITEM_TM18",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    281,
+    321
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我刚刚通过交换得到了新的宝可梦。\n可以和你比试一下吗？还差得很远！在交换中取得的宝可梦是无法\n改变其昵称的。\n只有最初得到它的训练家\n能改变……"
+  },
+  {
+   "at": [
+    138,
+    147
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你想要干什么？你竟敢嘲笑我！我们喜欢在这里游荡。\n你呢？漂亮的自行车！\n交出来！我晕了！刚才我啥也没说，谁想要你的自行车！出来打一架吧，胆小……"
+  },
+  {
+   "at": [
+    165,
+    141
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你想要干什么？你竟敢嘲笑我！我们喜欢在这里游荡。\n你呢？漂亮的自行车！\n交出来！我晕了！刚才我啥也没说，谁想要你的自行车！出来打一架吧，胆小……"
+  },
+  {
+   "at": [
+    163,
+    143
+   ],
+   "kind": "hidden",
+   "item": "ITEM_LEFTOVERS",
+   "name": "吃剩的东西",
+   "category": "held",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE16_LEFTOVERS",
+   "count": 1
+  },
+  {
+   "at": [
+    144,
+    247
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "跟小孩战斗可不是什么赚钱\n的捷径。烧坏了！在单车路你会捡到\n一些好的东西。\n如果把它们拿去卖，\n能赚到不少钱。我的身体超棒的，\n对决吧！老兄……"
+  },
+  {
+   "at": [
+    144,
+    233
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "跟小孩战斗可不是什么赚钱\n的捷径。烧坏了！在单车路你会捡到\n一些好的东西。\n如果把它们拿去卖，\n能赚到不少钱。我的身体超棒的，\n对决吧！老兄……"
+  },
+  {
+   "at": [
+    144,
+    218
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "跟小孩战斗可不是什么赚钱\n的捷径。烧坏了！在单车路你会捡到\n一些好的东西。\n如果把它们拿去卖，\n能赚到不少钱。我的身体超棒的，\n对决吧！老兄……"
+  },
+  {
+   "at": [
+    144,
+    203
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "跟小孩战斗可不是什么赚钱\n的捷径。烧坏了！在单车路你会捡到\n一些好的东西。\n如果把它们拿去卖，\n能赚到不少钱。我的身体超棒的，\n对决吧！老兄……"
+  },
+  {
+   "at": [
+    144,
+    275
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "跟小孩战斗可不是什么赚钱\n的捷径。烧坏了！在单车路你会捡到\n一些好的东西。\n如果把它们拿去卖，\n能赚到不少钱。我的身体超棒的，\n对决吧！老兄……"
+  },
+  {
+   "at": [
+    143,
+    307
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "跟小孩战斗可不是什么赚钱\n的捷径。烧坏了！在单车路你会捡到\n一些好的东西。\n如果把它们拿去卖，\n能赚到不少钱。我的身体超棒的，\n对决吧！老兄……"
+  },
+  {
+   "at": [
+    150,
+    233
+   ],
+   "kind": "hidden",
+   "item": "ITEM_RARE_CANDY",
+   "name": "神奇糖果",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE17_RARE_CANDY",
+   "count": 1
+  },
+  {
+   "at": [
+    142,
+    203
+   ],
+   "kind": "hidden",
+   "item": "ITEM_FULL_RESTORE",
+   "name": "全复药",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE17_FULL_RESTORE",
+   "count": 1
+  },
+  {
+   "at": [
+    136,
+    218
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PP_UP",
+   "name": "PP 提升剂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE17_PP_UP",
+   "count": 1
+  },
+  {
+   "at": [
+    136,
+    275
+   ],
+   "kind": "hidden",
+   "item": "ITEM_MAX_REVIVE",
+   "name": "活力块",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE17_MAX_REVIVE",
+   "count": 1
+  },
+  {
+   "at": [
+    146,
+    307
+   ],
+   "kind": "hidden",
+   "item": "ITEM_MAX_ELIXIR",
+   "name": "PP 多项全补剂",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE17_MAX_ELIXIR",
+   "count": 1
+  },
+  {
+   "at": [
+    169,
+    317
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我总是踏遍每一个草丛\n来寻找新的宝可梦。呃！我希望有一辆自行车！咕咕！\n你喜欢我学的鸟叫声吗？我不得不打扰你！我在周末喜欢收集海洋的宝可梦，……"
+  },
+  {
+   "at": [
+    184,
+    317
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我总是踏遍每一个草丛\n来寻找新的宝可梦。呃！我希望有一辆自行车！咕咕！\n你喜欢我学的鸟叫声吗？我不得不打扰你！我在周末喜欢收集海洋的宝可梦，……"
+  },
+  {
+   "at": [
+    217,
+    352
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "在出去游泳前\n我必须先热身。热身好了！谢谢你，孩子！\n我准备好去游泳了。等等！慢慢来！\n你的心脏会受不了的！噢！\n真冷！注意玛瑙水母。\n被蛰……"
+  },
+  {
+   "at": [
+    69,
+    251
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "嗨！\n我是一家宝可梦商店的职员。\n宝可梦商店是可以很方便\n的买到各种商品的连锁店。\n有空请去常青市的宝可梦商店看看。\n我知道，我会送你个样品……"
+  },
+  {
+   "at": [
+    152,
+    394
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这儿的水很浅。\n有很多人在这儿游泳。扑通！我希望能骑着我的宝可梦。\n你应该还不算太累。双子岛是一个安静的度假场所。\n我就是正在这儿休假。停下……"
+  },
+  {
+   "at": [
+    148,
+    388
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这儿的水很浅。\n有很多人在这儿游泳。扑通！我希望能骑着我的宝可梦。\n你应该还不算太累。双子岛是一个安静的度假场所。\n我就是正在这儿休假。停下……"
+  },
+  {
+   "at": [
+    107,
+    386
+   ],
+   "kind": "hidden",
+   "item": "ITEM_STARDUST",
+   "name": "星砂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE20_STARDUST",
+   "count": 1
+  },
+  {
+   "at": [
+    77,
+    322
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PEARL",
+   "name": "珍珠",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE21_NORTH_PEARL",
+   "count": 1
+  },
+  {
+   "at": [
+    7,
+    202
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "{RIVAL}：喂！{PLAYER}！\n你想要到宝可梦联盟里去？\n得了吧！\n你得到的徽章\n还不够吧？\n这样的话，\n守卫是不会让你通过的。\n顺……"
+  },
+  {
+   "at": [
+    19,
+    72
+   ],
+   "kind": "hidden",
+   "item": "ITEM_FULL_RESTORE",
+   "name": "全复药",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE23_FULL_RESTORE",
+   "count": 1
+  },
+  {
+   "at": [
+    20,
+    102
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE23_ULTRA_BALL",
+   "count": 1
+  },
+  {
+   "at": [
+    11,
+    131
+   ],
+   "kind": "hidden",
+   "item": "ITEM_MAX_ETHER",
+   "name": "PP 单项全补剂",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE23_MAX_ETHER",
+   "count": 1
+  },
+  {
+   "at": [
+    3,
+    48
+   ],
+   "kind": "hidden",
+   "item": "ITEM_LUM_BERRY",
+   "name": "木子果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE23_LUM_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    2,
+    59
+   ],
+   "kind": "hidden",
+   "item": "ITEM_SITRUS_BERRY",
+   "name": "文柚果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE23_SITRUS_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    10,
+    97
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ASPEAR_BERRY",
+   "name": "利木果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE23_ASPEAR_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    3,
+    158
+   ],
+   "kind": "hidden",
+   "item": "ITEM_LEPPA_BERRY",
+   "name": "苹野果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE23_LEPPA_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    9,
+    38
+   ],
+   "kind": "hidden",
+   "item": "ITEM_MAX_ELIXIR",
+   "name": "PP 多项全补剂",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE23_MAX_ELIXIR",
+   "count": 1
+  },
+  {
+   "at": [
+    3,
+    61
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "冠军之路入口处 -\n宝可梦联盟"
+  },
+  {
+   "at": [
+    287,
+    4
+   ],
+   "kind": "item",
+   "item": "ITEM_TM45",
+   "name": "ITEM_TM45",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    295,
+    4
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PECHA_BERRY",
+   "name": "桃桃果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE24_PECHA_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    326,
+    2
+   ],
+   "kind": "item",
+   "item": "ITEM_TM43",
+   "name": "ITEM_TM43",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    348,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "本地的训练家都来这儿练习。你很厉害啊。任何宝可梦都有弱点。\n哪怕是所谓的最强的。\n所以最好培养\n不同种类的宝可梦。爸爸带着我在枯叶市的\n圣特……"
+  },
+  {
+   "at": [
+    314,
+    2
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ELIXIR",
+   "name": "PP 多项小补剂",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE25_ELIXIR",
+   "count": 1
+  },
+  {
+   "at": [
+    358,
+    6
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ETHER",
+   "name": "PP 单项小补剂",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE25_ETHER",
+   "count": 1
+  },
+  {
+   "at": [
+    333,
+    8
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ORAN_BERRY",
+   "name": "橙橙果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE25_ORAN_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    340,
+    3
+   ],
+   "kind": "hidden",
+   "item": "ITEM_BLUK_BERRY",
+   "name": "墨莓果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE25_BLUK_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    77,
+    154
+   ],
+   "kind": "item",
+   "item": "ITEM_ETHER",
+   "name": "PP 单项小补剂",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    77,
+    164
+   ],
+   "kind": "item",
+   "item": "ITEM_PARALYZE_HEAL",
+   "name": "麻痹药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    74,
+    112
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "2号道路\n常青市-深灰市地鼠洞穴"
+  },
+  {
+   "at": [
+    67,
+    173
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "2号道路\n常青市-深灰市地鼠洞穴"
+  },
+  {
+   "at": [
+    168,
+    81
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "呼……我最好小睡一下……\n呃……\n那条从华蓝过来的隧道\n省了你们很多事！嘿！\n我在常青森林见过你！你又打败了我！除了你在森林里看到的那些宝可……"
+  },
+  {
+   "at": [
+    122,
+    79
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ORAN_BERRY",
+   "name": "橙橙果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE3_ORAN_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    223,
+    55
+   ],
+   "kind": "item",
+   "item": "ITEM_TM05",
+   "name": "ITEM_TM05",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    174,
+    57
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "哎哟！我被一只岩石宝可梦绊倒了，\n是小拳石啊！我来月见山寻找蘑菇宝可梦。这次我一定要抓到它们！这里应该已经没有蘑菇了。\n可能已经都被我采光了……"
+  },
+  {
+   "at": [
+    190,
+    57
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "哎哟！我被一只岩石宝可梦绊倒了，\n是小拳石啊！我来月见山寻找蘑菇宝可梦。这次我一定要抓到它们！这里应该已经没有蘑菇了。\n可能已经都被我采光了……"
+  },
+  {
+   "at": [
+    199,
+    52
+   ],
+   "kind": "hidden",
+   "item": "ITEM_GREAT_BALL",
+   "name": "超级球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE4_GREAT_BALL",
+   "count": 1
+  },
+  {
+   "at": [
+    161,
+    54
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PERSIM_BERRY",
+   "name": "柿仔果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE4_PERSIM_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    223,
+    67
+   ],
+   "kind": "hidden",
+   "item": "ITEM_RAZZ_BERRY",
+   "name": "蔓莓果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE4_RAZZ_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    296,
+    112
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "地下通道\n华蓝市-枯叶市"
+  },
+  {
+   "at": [
+    297,
+    175
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "是谁？\n竟敢偷听我们讲话！我老是赢不了！悄悄话……\n悄悄话……抱歉！\n我们在讲悄悄话！唉！\n我讨厌失败。悄悄话……\n悄悄话……这外面没有什么……"
+  },
+  {
+   "at": [
+    281,
+    165
+   ],
+   "kind": "hidden",
+   "item": "ITEM_SITRUS_BERRY",
+   "name": "文柚果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE6_SITRUS_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    295,
+    165
+   ],
+   "kind": "hidden",
+   "item": "ITEM_RARE_CANDY",
+   "name": "神奇糖果",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE6_RARE_CANDY",
+   "count": 1
+  },
+  {
+   "at": [
+    245,
+    144
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "地下通道\n玉虹市-紫苑镇"
+  },
+  {
+   "at": [
+    256,
+    145
+   ],
+   "kind": "hidden",
+   "item": "ITEM_WEPEAR_BERRY",
+   "name": "西梨果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE7_WEPEAR_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    328,
+    135
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你看起来对宝可梦很擅长，\n但是你的化学成绩怎么样？啊！\n都倒下了！我的学习成绩比这个要好！很好！\n我们来玩个游戏吧！可恶！\n来吧！今天也没有……"
+  },
+  {
+   "at": [
+    354,
+    140
+   ],
+   "kind": "hidden",
+   "item": "ITEM_RAWST_BERRY",
+   "name": "莓莓果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE8_RAWST_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    350,
+    141
+   ],
+   "kind": "hidden",
+   "item": "ITEM_LUM_BERRY",
+   "name": "木子果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE8_LUM_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    354,
+    145
+   ],
+   "kind": "hidden",
+   "item": "ITEM_LEPPA_BERRY",
+   "name": "苹野果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE8_LEPPA_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    324,
+    67
+   ],
+   "kind": "item",
+   "item": "ITEM_TM40",
+   "name": "ITEM_TM40",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    377,
+    67
+   ],
+   "kind": "item",
+   "item": "ITEM_BURN_HEAL",
+   "name": "灼伤药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    341,
+    57
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你带着宝可梦！\n你是我的了！你欺骗了我……这个隧道里面一片漆黑。\n想要穿过山洞的话，\n你需要闪光。和那些好看的宝可梦\n一起散步的人是谁？就像……"
+  },
+  {
+   "at": [
+    327,
+    57
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ETHER",
+   "name": "PP 单项小补剂",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE9_ETHER",
+   "count": 1
+  },
+  {
+   "at": [
+    375,
+    52
+   ],
+   "kind": "hidden",
+   "item": "ITEM_RARE_CANDY",
+   "name": "神奇糖果",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE9_RARE_CANDY",
+   "count": 1
+  },
+  {
+   "at": [
+    360,
+    52
+   ],
+   "kind": "hidden",
+   "item": "ITEM_CHESTO_BERRY",
+   "name": "零余子果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_ROUTE9_CHESTO_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    293,
+    134
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你想干什么？\n滚开！老大说他会把这座城镇\n命名为火箭队！不要惹我生气！\n否则我会狠狠地报复你的！金黄永远属于火箭队！只有犯罪才会让我觉得\n是……"
+  },
+  {
+   "at": [
+    306,
+    134
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你想干什么？\n滚开！老大说他会把这座城镇\n命名为火箭队！不要惹我生气！\n否则我会狠狠地报复你的！金黄永远属于火箭队！只有犯罪才会让我觉得\n是……"
+  },
+  {
+   "at": [
+    277,
+    145
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你想干什么？\n滚开！老大说他会把这座城镇\n命名为火箭队！不要惹我生气！\n否则我会狠狠地报复你的！金黄永远属于火箭队！只有犯罪才会让我觉得\n是……"
+  },
+  {
+   "at": [
+    282,
+    150
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你想干什么？\n滚开！老大说他会把这座城镇\n命名为火箭队！不要惹我生气！\n否则我会狠狠地报复你的！金黄永远属于火箭队！只有犯罪才会让我觉得\n是……"
+  },
+  {
+   "at": [
+    293,
+    151
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你想干什么？\n滚开！老大说他会把这座城镇\n命名为火箭队！不要惹我生气！\n否则我会狠狠地报复你的！金黄永远属于火箭队！只有犯罪才会让我觉得\n是……"
+  },
+  {
+   "at": [
+    318,
+    145
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你想干什么？\n滚开！老大说他会把这座城镇\n命名为火箭队！不要惹我生气！\n否则我会狠狠地报复你的！金黄永远属于火箭队！只有犯罪才会让我觉得\n是……"
+  },
+  {
+   "at": [
+    314,
+    134
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你想干什么？\n滚开！老大说他会把这座城镇\n命名为火箭队！不要惹我生气！\n否则我会狠狠地报复你的！金黄永远属于火箭队！只有犯罪才会让我觉得\n是……"
+  },
+  {
+   "at": [
+    304,
+    158
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你想干什么？\n滚开！老大说他会把这座城镇\n命名为火箭队！不要惹我生气！\n否则我会狠狠地报复你的！金黄永远属于火箭队！只有犯罪才会让我觉得\n是……"
+  },
+  {
+   "at": [
+    313,
+    142
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你想干什么？\n滚开！老大说他会把这座城镇\n命名为火箭队！不要惹我生气！\n否则我会狠狠地报复你的！金黄永远属于火箭队！只有犯罪才会让我觉得\n是……"
+  },
+  {
+   "at": [
+    297,
+    206
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我们十分注重对环境的保护。\n我们曾经听说臭泥\n会在有毒的污泥里繁殖。你看到圣特安努号\n停泊在港口了吗？这样啊，圣特安努号离港了？\n她明年会回……"
+  },
+  {
+   "at": [
+    274,
+    217
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我们十分注重对环境的保护。\n我们曾经听说臭泥\n会在有毒的污泥里繁殖。你看到圣特安努号\n停泊在港口了吗？这样啊，圣特安努号离港了？\n她明年会回……"
+  },
+  {
+   "at": [
+    274,
+    224
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我们十分注重对环境的保护。\n我们曾经听说臭泥\n会在有毒的污泥里繁殖。你看到圣特安努号\n停泊在港口了吗？这样啊，圣特安努号离港了？\n她明年会回……"
+  },
+  {
+   "at": [
+    298,
+    218
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我们十分注重对环境的保护。\n我们曾经听说臭泥\n会在有毒的污泥里繁殖。你看到圣特安努号\n停泊在港口了吗？这样啊，圣特安努号离港了？\n她明年会回……"
+  },
+  {
+   "at": [
+    309,
+    217
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "我们十分注重对环境的保护。\n我们曾经听说臭泥\n会在有毒的污泥里繁殖。你看到圣特安努号\n停泊在港口了吗？这样啊，圣特安努号离港了？\n她明年会回……"
+  },
+  {
+   "at": [
+    278,
+    211
+   ],
+   "kind": "hidden",
+   "item": "ITEM_MAX_ETHER",
+   "name": "PP 单项全补剂",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_VERMILION_CITY_MAX_ETHER",
+   "count": 1
+  },
+  {
+   "at": [
+    65,
+    185
+   ],
+   "kind": "item",
+   "item": "ITEM_POTION",
+   "name": "伤药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    71,
+    181
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你腰上挂着的这些精灵球！\n你有宝可梦，是吧？\n太棒了！无论何时何地，\n你都能携带并使用宝可梦。这个宝可梦道馆总是关闭着。\n我很想到底知道谁是……"
+  },
+  {
+   "at": [
+    80,
+    190
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你腰上挂着的这些精灵球！\n你有宝可梦，是吧？\n太棒了！无论何时何地，\n你都能携带并使用宝可梦。这个宝可梦道馆总是关闭着。\n我很想到底知道谁是……"
+  },
+  {
+   "at": [
+    68,
+    211
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你腰上挂着的这些精灵球！\n你有宝可梦，是吧？\n太棒了！无论何时何地，\n你都能携带并使用宝可梦。这个宝可梦道馆总是关闭着。\n我很想到底知道谁是……"
+  },
+  {
+   "at": [
+    68,
+    196
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你腰上挂着的这些精灵球！\n你有宝可梦，是吧？\n太棒了！无论何时何地，\n你都能携带并使用宝可梦。这个宝可梦道馆总是关闭着。\n我很想到底知道谁是……"
+  },
+  {
+   "at": [
+    84,
+    190
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你腰上挂着的这些精灵球！\n你有宝可梦，是吧？\n太棒了！无论何时何地，\n你都能携带并使用宝可梦。这个宝可梦道馆总是关闭着。\n我很想到底知道谁是……"
+  },
+  {
+   "at": [
+    196,
+    140
+   ],
+   "kind": "soil",
+   "sprite": "soil"
+  },
+  {
+   "at": [
+    197,
+    140
+   ],
+   "kind": "soil",
+   "sprite": "soil"
+  },
+  {
+   "at": [
+    198,
+    140
+   ],
+   "kind": "soil",
+   "sprite": "soil"
+  },
+  {
+   "at": [
+    199,
+    140
+   ],
+   "kind": "soil",
+   "sprite": "soil"
+  },
+  {
+   "at": [
+    78,
+    65
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    330,
+    3
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    76,
+    162
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    75,
+    169
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    71,
+    113
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    78,
+    126
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    66,
+    185
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    222,
+    310
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    213,
+    313
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    224,
+    316
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    216,
+    322
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    314,
+    58
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    173,
+    141
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    232,
+    142
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    283,
+    224
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    394,
+    70
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    394,
+    72
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    394,
+    74
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    394,
+    76
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    395,
+    250
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    396,
+    261
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    59,
+    204
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    380,
+    275
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    290,
+    72
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    313,
+    317
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    319,
+    296
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    324,
+    305
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    345,
+    145
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    359,
+    142
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    220,
+    155
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    285,
+    234
+   ],
+   "kind": "sign",
+   "lines": [
+    "枯叶海港",
+    "← 城都 浅葱市",
+    "→ 对战开拓区"
+   ]
+  }
+ ],
+ "weather": "",
+ "weather_name": "晴",
+ "cycling": true
+}

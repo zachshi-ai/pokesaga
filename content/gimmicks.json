@@ -1,0 +1,272 @@
+{
+ "z_by_type": {
+  "normal": 848,
+  "fighting": 849,
+  "flying": 850,
+  "poison": 851,
+  "ground": 852,
+  "rock": 853,
+  "bug": 854,
+  "ghost": 855,
+  "steel": 856,
+  "fire": 857,
+  "water": 858,
+  "grass": 859,
+  "electric": 860,
+  "psychic": 861,
+  "ice": 862,
+  "dragon": 863,
+  "dark": 864,
+  "fairy": 865
+ },
+ "z_exclusive": {
+  "PIKACHU": 866,
+  "EEVEE": 870,
+  "SNORLAX": 871,
+  "MEW": 872,
+  "DECIDUEYE": 873,
+  "INCINEROAR": 874,
+  "PRIMARINA": 875,
+  "LYCANROC_MIDDAY": 876,
+  "TAPU_KOKO": 879,
+  "SOLGALEO": 880,
+  "LUNALA": 881,
+  "NECROZMA": 882,
+  "MARSHADOW": 883,
+  "NECROZMA_ULTRA": 882,
+  "MIMIKYU_DISGUISED": 877,
+  "KOMMO_O": 878,
+  "RAICHU_ALOLA": 869,
+  "PIKACHU_PARTNER": 867
+ },
+ "max_by_type": {
+  "normal": 884,
+  "fighting": 886,
+  "flying": 887,
+  "poison": 888,
+  "ground": 889,
+  "rock": 890,
+  "bug": 891,
+  "ghost": 892,
+  "steel": 893,
+  "fire": 894,
+  "water": 895,
+  "grass": 896,
+  "electric": 897,
+  "psychic": 898,
+  "ice": 899,
+  "dragon": 900,
+  "dark": 901,
+  "fairy": 902
+ },
+ "gmax_by_species": {
+  "VENUSAUR_GMAX": {
+   "grass": 903
+  },
+  "BLASTOISE_GMAX": {
+   "water": 905
+  },
+  "CHARIZARD_GMAX": {
+   "fire": 904
+  },
+  "BUTTERFREE_GMAX": {
+   "bug": 906
+  },
+  "PIKACHU_GMAX": {
+   "electric": 907
+  },
+  "MEOWTH_GMAX": {
+   "normal": 908
+  },
+  "MACHAMP_GMAX": {
+   "fighting": 909
+  },
+  "GENGAR_GMAX": {
+   "ghost": 910
+  },
+  "KINGLER_GMAX": {
+   "water": 911
+  },
+  "LAPRAS_GMAX": {
+   "ice": 912
+  },
+  "EEVEE_GMAX": {
+   "normal": 913
+  },
+  "SNORLAX_GMAX": {
+   "normal": 914
+  },
+  "GARBODOR_GMAX": {
+   "poison": 915
+  },
+  "MELMETAL_GMAX": {
+   "steel": 916
+  },
+  "RILLABOOM_GMAX": {
+   "grass": 917
+  },
+  "CINDERACE_GMAX": {
+   "fire": 918
+  },
+  "INTELEON_GMAX": {
+   "water": 919
+  },
+  "CORVIKNIGHT_GMAX": {
+   "flying": 920
+  },
+  "ORBEETLE_GMAX": {
+   "psychic": 921
+  },
+  "DREDNAW_GMAX": {
+   "water": 922
+  },
+  "COALOSSAL_GMAX": {
+   "rock": 923
+  },
+  "FLAPPLE_GMAX": {
+   "grass": 924
+  },
+  "APPLETUN_GMAX": {
+   "grass": 925
+  },
+  "SANDACONDA_GMAX": {
+   "ground": 926
+  },
+  "TOXTRICITY_AMPED_GMAX": {
+   "electric": 927
+  },
+  "TOXTRICITY_LOW_KEY_GMAX": {
+   "electric": 927
+  },
+  "CENTISKORCH_GMAX": {
+   "fire": 928
+  },
+  "HATTERENE_GMAX": {
+   "fairy": 929
+  },
+  "GRIMMSNARL_GMAX": {
+   "dark": 930
+  },
+  "ALCREMIE_GMAX": {
+   "fairy": 931
+  },
+  "COPPERAJAH_GMAX": {
+   "steel": 932
+  },
+  "DURALUDON_GMAX": {
+   "dragon": 933
+  },
+  "URSHIFU_SINGLE_STRIKE_GMAX": {
+   "dark": 934
+  },
+  "URSHIFU_RAPID_STRIKE_GMAX": {
+   "water": 935
+  }
+ },
+ "z_power": [
+  [
+   140,
+   200
+  ],
+  [
+   130,
+   195
+  ],
+  [
+   120,
+   190
+  ],
+  [
+   110,
+   185
+  ],
+  [
+   100,
+   180
+  ],
+  [
+   90,
+   175
+  ],
+  [
+   80,
+   160
+  ],
+  [
+   70,
+   140
+  ],
+  [
+   60,
+   120
+  ],
+  [
+   0,
+   100
+  ]
+ ],
+ "max_power": {
+  "tier_up": [
+   [
+    140,
+    7
+   ],
+   [
+    130,
+    7
+   ],
+   [
+    120,
+    6
+   ],
+   [
+    110,
+    5
+   ],
+   [
+    100,
+    4
+   ],
+   [
+    90,
+    3
+   ],
+   [
+    80,
+    3
+   ],
+   [
+    70,
+    2
+   ],
+   [
+    60,
+    1
+   ],
+   [
+    0,
+    1
+   ]
+  ],
+  "normal": [
+   90,
+   100,
+   110,
+   120,
+   130,
+   140,
+   130,
+   140
+  ],
+  "weak": [
+   70,
+   75,
+   80,
+   85,
+   90,
+   95,
+   100,
+   100
+  ]
+ }
+}

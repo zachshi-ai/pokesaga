@@ -1,0 +1,102 @@
+{
+ "name": "关都·常磐市·友好商店",
+ "emerald": "mart_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    3
+   ],
+   "gfx": "clerk",
+   "name": "店员",
+   "lines": [
+    "南边的路正在修。",
+    "不过夜里还是别乱逛。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "gfx": "youngster",
+   "name": "短裤小子",
+   "lines": [
+    "你见过会变形的宝可梦吗？",
+    "不过夜里还是别乱逛。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    5
+   ],
+   "gfx": "lass",
+   "name": "大姐",
+   "lines": [
+    "这条街我闭着眼都能走。",
+    "别只顾着打。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     84,
+     199
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     84,
+     199
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     84,
+     199
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

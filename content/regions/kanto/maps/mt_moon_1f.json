@@ -1,0 +1,202 @@
+{
+ "name": "关都·月见山 1F",
+ "emerald": "mt_moon_1f",
+ "size": [
+  48,
+  40
+ ],
+ "spawn": [
+  18,
+  37
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    5,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_b1f",
+    "at": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_b1f",
+    "at": [
+     25,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    31,
+    16
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_b1f",
+    "at": [
+     43,
+     21
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    37
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     175,
+     55
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 41,
+   "min": 7,
+   "max": 10,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 8,
+   "max": 10,
+   "weight": 20
+  },
+  {
+   "species": 41,
+   "min": 8,
+   "max": 9,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 9,
+   "max": 11,
+   "weight": 10
+  },
+  {
+   "species": 46,
+   "min": 8,
+   "max": 10,
+   "weight": 10
+  },
+  {
+   "species": 35,
+   "min": 8,
+   "max": 11,
+   "weight": 10
+  },
+  {
+   "species": 27,
+   "min": 9,
+   "max": 11,
+   "weight": 5
+  },
+  {
+   "species": 74,
+   "min": 10,
+   "max": 12,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.14,
+ "objects": [
+  {
+   "at": [
+    2,
+    22
+   ],
+   "kind": "item",
+   "item": "ITEM_PARALYZE_HEAL",
+   "name": "麻痹药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    11,
+    35
+   ],
+   "kind": "item",
+   "item": "ITEM_TM09",
+   "name": "ITEM_TM09",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    26,
+    32
+   ],
+   "kind": "item",
+   "item": "ITEM_POTION",
+   "name": "伤药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    42,
+    35
+   ],
+   "kind": "item",
+   "item": "ITEM_RARE_CANDY",
+   "name": "神奇糖果",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    44,
+    21
+   ],
+   "kind": "item",
+   "item": "ITEM_ESCAPE_ROPE",
+   "name": "离洞绳",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    3,
+    2
+   ],
+   "kind": "item",
+   "item": "ITEM_MOON_STONE",
+   "name": "月之石",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    19,
+    26
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "注意！\n超音蝠就像一只吸血鬼！"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

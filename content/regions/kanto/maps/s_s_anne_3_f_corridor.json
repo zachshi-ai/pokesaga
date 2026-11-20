@@ -1,0 +1,75 @@
+{
+ "name": "关都·圣安奴号·3f corridor",
+ "emerald": "ssanne_3f_corridor",
+ "size": [
+  22,
+  7
+ ],
+ "spawn": [
+  1,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    10,
+    4
+   ],
+   "name": "居民",
+   "gfx": "sailor",
+   "lines": [
+    "最近路上不太平。",
+    "这年头谁都不容易。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_deck",
+    "at": [
+     16,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_2_f_corridor",
+    "at": [
+     3,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_deck",
+    "at": [
+     16,
+     8
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

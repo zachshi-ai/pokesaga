@@ -1,0 +1,217 @@
+{
+ "name": "无线电塔·4F",
+ "emerald": "johto_radio_tower_4f",
+ "size": [
+  9,
+  4
+ ],
+ "spawn": [
+  4,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    2
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    3
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    3
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "name": "火箭队队员 Grunt 10",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 22,
+      "species": 41
+     },
+     {
+      "level": 24,
+      "species": 42
+     },
+     {
+      "level": 22,
+      "species": 88
+     }
+    ]
+   },
+   "trainer": "GruntM#10"
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "火箭队队员 Grunt 4",
+   "gfx": "team_rocket_f",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 21,
+      "species": 23
+     },
+     {
+      "level": 23,
+      "species": 43
+     },
+     {
+      "level": 21,
+      "species": 23
+     },
+     {
+      "level": 24,
+      "species": 44
+     }
+    ]
+   },
+   "trainer": "GruntF#4"
+  },
+  {
+   "at": [
+    2,
+    1
+   ],
+   "name": "研究员 Rich",
+   "gfx": "scientist",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 30,
+      "species": 137,
+      "moves": [
+       160,
+       176,
+       105,
+       161
+      ]
+     }
+    ]
+   },
+   "trainer": "ScientistRich"
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_radio_tower_5f",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_radio_tower_3f",
+    "at": [
+     3,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_radio_tower_5f",
+    "at": [
+     6,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_radio_tower_3f",
+    "at": [
+     6,
+     1
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    3,
+    0
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "无线电塔·4F\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

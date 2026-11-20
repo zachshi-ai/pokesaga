@@ -1,0 +1,48 @@
+{
+ "name": "六号岛·民居",
+ "emerald": "house3_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  4,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "old_man",
+   "lines": [
+    "海面今天很平。",
+    "有事就喊。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     16,
+     17
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

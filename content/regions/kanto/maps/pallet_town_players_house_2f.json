@@ -1,0 +1,54 @@
+{
+ "name": "关都·真新镇·players house 2f",
+ "emerald": "pallet_town_players_house_2f_frlg",
+ "size": [
+  12,
+  9
+ ],
+ "spawn": [
+  10,
+  2
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    10,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pallettown_playershouse_1f",
+    "at": [
+     10,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    6,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你在玩红白机。\n……好的！\n开始吧！"
+  },
+  {
+   "at": [
+    11,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一份贴士……\n如果你有问题的话就看帮助！\n按L或R键！"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

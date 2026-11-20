@@ -1,0 +1,123 @@
+{
+ "name": "关都·玉虹市·游戏城兑奖处",
+ "emerald": "celadon_city_game_corner_prize_room",
+ "size": [
+  9,
+  10
+ ],
+ "spawn": [
+  3,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "这条街我住了几十年。",
+    "别客气。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    7
+   ],
+   "name": "居民",
+   "gfx": "old_man",
+   "lines": [
+    "最近路上不太平。",
+    "别客气。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你知道道馆在哪边吗。",
+    "别客气。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我刚从医院回来。",
+    "别客气。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "风一吹就想起小时候。",
+    "别客气。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     219,
+     140
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     219,
+     140
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     219,
+     140
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,346 @@
+{
+ "name": "一号岛",
+ "emerald": "one_island",
+ "size": [
+  24,
+  20
+ ],
+ "spawn": [
+  8,
+  11
+ ],
+ "npcs": [
+  {
+   "at": [
+    12,
+    16
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "船一天只来两趟。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    16,
+    12
+   ],
+   "name": "岛民",
+   "gfx": "old_man",
+   "lines": [
+    "你从关都来的吧。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    9
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没什么人，安静。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    14,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_pokemon_center_1f",
+    "at": [
+     9,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_house1",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_house2",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    18
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_harbor",
+    "at": [
+     8,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     0,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     0,
+     20
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_treasure_beach",
+    "at": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_treasure_beach",
+    "at": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_treasure_beach",
+    "at": [
+     4,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_treasure_beach",
+    "at": [
+     7,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_treasure_beach",
+    "at": [
+     8,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    20,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_treasure_beach",
+    "at": [
+     20,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    21,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_treasure_beach",
+    "at": [
+     21,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    22,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_treasure_beach",
+    "at": [
+     22,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     0,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     0,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     0,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    14
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     0,
+     21
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    4
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     0,
+     12
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    14,
+    13
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一之岛\n朋友们聚集的小岛"
+  },
+  {
+   "at": [
+    15,
+    6
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "扩展宝可梦的世界！\n宝可梦网络中心"
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

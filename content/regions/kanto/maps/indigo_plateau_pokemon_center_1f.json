@@ -1,0 +1,159 @@
+{
+ "name": "关都·石英高原·宝可梦中心",
+ "emerald": "indigo_plateau_pokemon_center_1f",
+ "size": [
+  25,
+  18
+ ],
+ "spawn": [
+  11,
+  16
+ ],
+ "npcs": [
+  {
+   "at": [
+    0,
+    7
+   ],
+   "name": "居民",
+   "gfx": "clerk",
+   "lines": [
+    "别弄乱我的书架。",
+    "下次再来。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    10
+   ],
+   "name": "居民",
+   "gfx": "nurse",
+   "lines": [
+    "客人不多，坐吧。",
+    "下次再来。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    14
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "这条街我住了几十年。",
+    "记得带伞。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    3
+   ],
+   "name": "居民",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "最近路上不太平。",
+    "记得带伞。"
+   ]
+  },
+  {
+   "at": [
+    23,
+    13
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你知道道馆在哪边吗。",
+    "记得带伞。"
+   ]
+  },
+  {
+   "at": [
+    22,
+    9
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我刚从医院回来。",
+    "记得带伞。"
+   ]
+  },
+  {
+   "at": [
+    16,
+    15
+   ],
+   "name": "居民",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "风一吹就想起小时候。",
+    "记得带伞。"
+   ]
+  },
+  {
+   "at": [
+    23,
+    9
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "屋里比外面暖和。",
+    "记得带伞。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    11,
+    16
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     11,
+     16
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    1
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_league_loreleis_room",
+    "at": [
+     6,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "indigo_plateau_pokemon_center_2f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

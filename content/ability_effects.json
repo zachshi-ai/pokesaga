@@ -1,0 +1,1612 @@
+{
+ "结实": {
+  "survive_full": true,
+  "desc": "满体力时被一击打倒会留下 1 点体力"
+ },
+ "粗糙皮肤": {
+  "contact_recoil": 0.125,
+  "desc": "被接触类招式打中时，对方损失其最大体力的 1/8"
+ },
+ "多重鳞片": {
+  "desc": "HP全满时减轻受到的伤害",
+  "full_hp_halve": true
+ },
+ "技术高手": {
+  "weak_power": 60,
+  "mult": 1.5,
+  "desc": "威力 60 以下的招式威力 1.5 倍"
+ },
+ "天恩": {
+  "chance_mult": 2,
+  "desc": "招式的追加效果出现概率翻倍"
+ },
+ "适应力": {
+  "stab": 2.0,
+  "desc": "本系加成从 1.5 倍提高到 2 倍"
+ },
+ "狙击手": {
+  "crit_mult": 2.25,
+  "desc": "会心一击的伤害从 1.5 倍提高到 2.25 倍"
+ },
+ "坚硬脑袋": {
+  "no_recoil": true,
+  "desc": "反作用力招式不会伤到自己"
+ },
+ "沙之力": {
+  "weather_type_boost": {
+   "sandstorm": {
+    "types": [
+     "rock",
+     "ground",
+     "steel"
+    ],
+    "mult": 1.3
+   }
+  },
+  "desc": "沙暴中岩石、地面、钢属性招式威力 1.3 倍"
+ },
+ "电气制造者": {
+  "terrain_on_send": "electric",
+  "desc": "上场时展开电气场地"
+ },
+ "青草制造者": {
+  "terrain_on_send": "grassy",
+  "desc": "上场时展开青草场地"
+ },
+ "薄雾制造者": {
+  "terrain_on_send": "misty",
+  "desc": "上场时展开薄雾场地"
+ },
+ "精神制造者": {
+  "terrain_on_send": "psychic",
+  "desc": "上场时展开精神场地"
+ },
+ "太阳之力": {
+  "weather_stat": {
+   "sun": {
+    "stat": "spa",
+    "mult": 1.5
+   }
+  },
+  "weather_recoil": {
+   "sun": 0.125
+  },
+  "desc": "晴天时特攻 1.5 倍，但每回合损失 1/8 体力"
+ },
+ "雨盘": {
+  "weather_heal": {
+   "rain": 0.0625
+  },
+  "desc": "下雨时每回合回复 1/16 体力"
+ },
+ "钢能力者": {
+  "desc": "钢属性的招式威力会提高",
+  "type_boost": {
+   "steel": 1.5
+  }
+ },
+ "毅力": {
+  "status_boost": {
+   "stat": "atk",
+   "mult": 1.5,
+   "status": [
+    "brn",
+    "par",
+    "psn",
+    "tox",
+    "slp"
+   ]
+  },
+  "desc": "陷入异常状态时攻击 1.5 倍"
+ },
+ "大力士": {
+  "stat_mult": {
+   "atk": 2.0
+  },
+  "desc": "攻击种族值翻倍计算"
+ },
+ "瑜伽之力": {
+  "stat_mult": {
+   "atk": 2.0
+  },
+  "desc": "攻击种族值翻倍计算"
+ },
+ "钢之意志": {
+  "type_boost": {
+   "steel": 1.5
+  },
+  "desc": "钢属性招式威力 1.5 倍"
+ },
+ "储水": {
+  "absorb": {
+   "type": "water",
+   "heal": 0.25
+  },
+  "desc": "受到水属性招式时不受伤害，回复 1/4 体力"
+ },
+ "引火": {
+  "absorb": {
+   "type": "fire",
+   "boost": {
+    "stat": "spa",
+    "delta": 1
+   }
+  },
+  "desc": "受到火属性招式时不受伤害，特攻上升"
+ },
+ "避雷针": {
+  "absorb": {
+   "type": "electric",
+   "boost": {
+    "stat": "spa",
+    "delta": 1
+   }
+  },
+  "desc": "受到电属性招式时不受伤害，特攻上升"
+ },
+ "食草": {
+  "absorb": {
+   "type": "grass",
+   "boost": {
+    "stat": "atk",
+    "delta": 1
+   }
+  },
+  "desc": "受到草属性招式时不受伤害，攻击上升"
+ },
+ "干燥皮肤": {
+  "absorb": {
+   "type": "water",
+   "heal": 0.25
+  },
+  "desc": "受到水属性招式时不受伤害，回复 1/4 体力"
+ },
+ "硬爪": {
+  "contact_power": 1.3,
+  "desc": "接触类招式威力 1.3 倍"
+ },
+ "过滤": {
+  "super_effective_reduce": 0.75,
+  "desc": "受到效果拔群的招式时伤害减少 1/4"
+ },
+ "硬壳盔甲": {
+  "no_crit_taken": true,
+  "desc": "不会被会心一击"
+ },
+ "超幸运": {
+  "crit_stage": 1,
+  "desc": "会心一击概率提高一级"
+ },
+ "纯朴": {
+  "ignore_stages": true,
+  "desc": "无视对手的能力变化"
+ },
+ "碎裂铠甲": {
+  "contact_speed_up": true,
+  "desc": "被接触类招式打中时速度上升"
+ },
+ "自然回复": {
+  "desc": "被换下后治愈异常状态",
+  "cure_on_switch": true
+ },
+ "再生力": {
+  "switch_heal": 0.3333,
+  "desc": "换下场时回复 1/3 体力"
+ },
+ "加速": {
+  "desc": "每一回合速度会变快",
+  "turn_boost": {
+   "stat": "spe",
+   "delta": 1
+  }
+ },
+ "唱反调": {
+  "desc": "能力的升降变化发生逆转",
+  "invert_stages": true
+ },
+ "单纯": {
+  "desc": "能力变化会变为平时的2倍",
+  "double_stages": true
+ },
+ "恒净之躯": {
+  "desc": "不会因为对手而被降低能力",
+  "protect_stat": "all"
+ },
+ "白色烟雾": {
+  "desc": "不会被对手降低能力",
+  "protect_stat": "all"
+ },
+ "锐利目光": {
+  "desc": "命中率不会被降低",
+  "protect_stat": [
+   "acc"
+  ]
+ },
+ "怪力钳": {
+  "desc": "不会被对手降低攻击",
+  "protect_stat": [
+   "atk"
+  ]
+ },
+ "健壮胸肌": {
+  "desc": "不会受到防御降低的效果",
+  "protect_stat": [
+   "def"
+  ]
+ },
+ "不服输": {
+  "desc": "被降低能力时大幅提高攻击",
+  "drop_boost": {
+   "stat": "atk",
+   "delta": 2
+  }
+ },
+ "好胜": {
+  "desc": "被降低能力时大幅提高特攻",
+  "drop_boost": {
+   "stat": "spa",
+   "delta": 2
+  }
+ },
+ "自信过度": {
+  "desc": "打倒对手时攻击会提高",
+  "ko_boost": {
+   "stat": "atk",
+   "delta": 1
+  }
+ },
+ "异兽提升": {
+  "desc": "打倒对手时，提升最高能力",
+  "ko_boost": {
+   "best": true
+  }
+ },
+ "魂心": {
+  "desc": "有宝可梦昏厥时，特攻会提高",
+  "ko_boost": {
+   "stat": "spa",
+   "delta": 1
+  }
+ },
+ "复眼": {
+  "desc": "招式的命中率会提高",
+  "accuracy_mult": 1.3
+ },
+ "无防守": {
+  "desc": "双方的招式都必定会击中",
+  "no_miss": true
+ },
+ "心眼": {
+  "desc": "兼具胆量以及锐利目光特性",
+  "no_miss": true
+ },
+ "活力": {
+  "desc": "攻击变高，但命中率会降低",
+  "stat_mult": {
+   "atk": 1.5
+  },
+  "accuracy_mult": 0.8
+ },
+ "恶作剧之心": {
+  "desc": "可以率先使出变化招式",
+  "priority_boost": {
+   "category": "status",
+   "delta": 1
+  }
+ },
+ "疾风之翼": {
+  "desc": "满HP时能先使出飞行招式",
+  "full_hp_priority": {
+   "type": "flying",
+   "delta": 1
+  }
+ },
+ "有色眼镜": {
+  "desc": "提升效果不好的招式威力",
+  "tinted_lens": 2.0
+ },
+ "坚硬岩石": {
+  "desc": "效果拔群的伤害减少 1/4",
+  "super_effective_reduce": 0.75
+ },
+ "棱镜装甲": {
+  "desc": "减轻所受效果绝佳的伤害",
+  "super_effective_reduce": 0.75
+ },
+ "强行": {
+  "desc": "消除追加效果以强化招式",
+  "sheer_force": true
+ },
+ "铁拳": {
+  "desc": "使用拳类招式的威力会提高",
+  "flag_power": {
+   "flag": "punch",
+   "mult": 1.2
+  }
+ },
+ "强壮之颚": {
+  "desc": "啃咬类招式的威力会提高",
+  "flag_power": {
+   "flag": "bite",
+   "mult": 1.5
+  }
+ },
+ "锋锐": {
+  "desc": "提高切割对手的招式的威力",
+  "flag_power": {
+   "flag": "slicing",
+   "mult": 1.5
+  }
+ },
+ "龙颚": {
+  "desc": "龙属性的招式威力会提高",
+  "type_boost": {
+   "dragon": 1.5
+  }
+ },
+ "电晶体": {
+  "desc": "电属性的招式威力会提高",
+  "type_boost": {
+   "electric": 1.5
+  }
+ },
+ "结冻头": {
+  "desc": "冰属性招式威力 1.5 倍",
+  "type_boost": {
+   "ice": 1.5
+  }
+ },
+ "搬岩": {
+  "desc": "岩石属性的招式威力会提高",
+  "type_boost": {
+   "rock": 1.5
+  }
+ },
+ "水泡": {
+  "desc": "降低火招式伤害且不会灼伤",
+  "type_boost": {
+   "water": 2.0
+  },
+  "damage_taken": {
+   "fire": 0.5
+  },
+  "status_immune": [
+   "brn"
+  ]
+ },
+ "茂盛": {
+  "desc": "HP低时强化草属性招式",
+  "pinch_boost": {
+   "hp": 0.34,
+   "types": [
+    "grass"
+   ],
+   "mult": 1.5
+  }
+ },
+ "猛火": {
+  "desc": "HP低时强化火属性招式",
+  "pinch_boost": {
+   "hp": 0.34,
+   "types": [
+    "fire"
+   ],
+   "mult": 1.5
+  }
+ },
+ "激流": {
+  "desc": "HP低时强化水属性招式",
+  "pinch_boost": {
+   "hp": 0.34,
+   "types": [
+    "water"
+   ],
+   "mult": 1.5
+  }
+ },
+ "虫之预感": {
+  "desc": "HP低时强化虫属性招式",
+  "pinch_boost": {
+   "hp": 0.34,
+   "types": [
+    "bug"
+   ],
+   "mult": 1.5
+  }
+ },
+ "厚脂肪": {
+  "desc": "使火冰属性的招式伤害减半",
+  "damage_taken": {
+   "fire": 0.5,
+   "ice": 0.5
+  }
+ },
+ "耐热": {
+  "desc": "受火属性招式的伤害减半",
+  "damage_taken": {
+   "fire": 0.5
+  }
+ },
+ "焦香之躯": {
+  "desc": "免疫火招式并大幅提升防御",
+  "damage_taken": {
+   "fire": 0.5
+  }
+ },
+ "毛皮大衣": {
+  "desc": "受物理招式的伤害会减半",
+  "halve_physical": true
+ },
+ "冰鳞粉": {
+  "desc": "特殊招式伤害减半",
+  "halve_special": true
+ },
+ "毛茸茸": {
+  "desc": "减轻接触伤害，但害怕火伤害",
+  "halve_physical": true,
+  "damage_taken": {
+   "fire": 2.0
+  }
+ },
+ "幻影防守": {
+  "desc": "HP全满时减少受到的伤害",
+  "full_hp_halve": true
+ },
+ "神奇守护": {
+  "desc": "只有效果绝佳招式才能击中",
+  "wonder_guard": true
+ },
+ "魔法防守": {
+  "desc": "不会受到攻击以外的伤害",
+  "no_indirect": true
+ },
+ "鳞粉": {
+  "desc": "不会受到招式追加效果影响",
+  "no_secondary": true
+ },
+ "我行我素": {
+  "desc": "不会被混乱或威吓",
+  "status_immune": [
+   "cfu"
+  ]
+ },
+ "迟钝": {
+  "desc": "不会着迷，也不会被挑衅",
+  "status_immune": [
+   "inf"
+  ]
+ },
+ "熔岩铠甲": {
+  "desc": "不会冰冻",
+  "status_immune": [
+   "frz"
+  ]
+ },
+ "水幕": {
+  "desc": "不会变为灼伤状态",
+  "status_immune": [
+   "brn"
+  ]
+ },
+ "免疫": {
+  "desc": "不会变为中毒状态",
+  "status_immune": [
+   "psn",
+   "tox"
+  ]
+ },
+ "不眠": {
+  "desc": "不会陷入睡眠状态",
+  "status_immune": [
+   "slp"
+  ]
+ },
+ "干劲": {
+  "desc": "不会睡眠",
+  "status_immune": [
+   "slp"
+  ]
+ },
+ "甜幕": {
+  "desc": "己方宝可梦不会睡眠",
+  "status_immune": [
+   "slp"
+  ]
+ },
+ "芳香幕": {
+  "desc": "防守向己方发出的心灵攻击",
+  "status_immune": [
+   "inf"
+  ]
+ },
+ "鲜艳之躯": {
+  "desc": "使对手无法使出先制招式",
+  "status_immune": [
+   "inf"
+  ]
+ },
+ "精神力": {
+  "desc": "不会畏缩或被威吓影响",
+  "flinch_immune": true
+ },
+ "蜕皮": {
+  "desc": "有时会治愈异常状态",
+  "cure_chance": 0.3
+ },
+ "湿润之躯": {
+  "desc": "下雨天气时治愈异常状态",
+  "weather_cure": "rain"
+ },
+ "早起": {
+  "desc": "睡眠时会提早醒来",
+  "sleep_half": true
+ },
+ "毒疗": {
+  "desc": "中毒时反而会回复HP",
+  "poison_heal": true
+ },
+ "魔法镜": {
+  "desc": "把对手的变化招式弹回去",
+  "reflect_status": true
+ },
+ "轻装": {
+  "desc": "失去道具时速度会提高",
+  "unburden": true
+ },
+ "飞毛腿": {
+  "desc": "变为异常状态时速度会提高",
+  "stat_mult": {
+   "spe": 1.5
+  },
+  "status_only": true
+ },
+ "神奇鳞片": {
+  "desc": "异常状态时防御会提高",
+  "stat_mult": {
+   "def": 1.5
+  },
+  "status_only": true
+ },
+ "迷人之躯": {
+  "desc": "有时会让接触到的对手着迷",
+  "contact_inflict": {
+   "status": "inf",
+   "chance": 30
+  }
+ },
+ "诅咒之躯": {
+  "desc": "受击时有时会使招式定身法",
+  "contact_inflict": {
+   "disable": true,
+   "chance": 30
+  }
+ },
+ "铁刺": {
+  "desc": "被接触招式打中时，对方损失最大体力的 1/8",
+  "contact_recoil": 0.125
+ },
+ "黏滑": {
+  "desc": "降低接触自己的对手的速度",
+  "contact_speed_drop": 1
+ },
+ "黏着": {
+  "desc": "道具不会被对手夺走",
+  "prevent_steal": true
+ },
+ "笨拙": {
+  "desc": "无法使用持有的道具",
+  "ignore_own_item": true
+ },
+ "压迫感": {
+  "desc": "减少对手使用招式的PP",
+  "pp_pressure": true
+ },
+ "下载": {
+  "desc": "根据情况提升攻击或特攻",
+  "on_send_boost": true
+ },
+ "不挠之剑": {
+  "desc": "出场时攻击 +1",
+  "on_send_stage": {
+   "stat": "atk",
+   "delta": 1
+  }
+ },
+ "不屈之盾": {
+  "desc": "出场时防御 +1",
+  "on_send_stage": {
+   "stat": "def",
+   "delta": 1
+  }
+ },
+ "踩影": {
+  "desc": "使对手无法逃走或替换",
+  "trap_foe": true
+ },
+ "沙穴": {
+  "desc": "在战斗中让对手无法逃走",
+  "trap_foe": true
+ },
+ "吸盘": {
+  "desc": "让替换宝可梦的招式无效",
+  "no_forced_switch": true
+ },
+ "正义之心": {
+  "desc": "受恶属性攻击时提高攻击",
+  "on_hit_type_boost": {
+   "type": "dark",
+   "stat": "atk",
+   "delta": 1
+  }
+ },
+ "胆怯": {
+  "desc": "受恶鬼虫攻击威吓提高速度",
+  "on_hit_type_boost": {
+   "type": "dark",
+   "stat": "spe",
+   "delta": 1
+  }
+ },
+ "遇水凝固": {
+  "desc": "受水招式攻击大幅提高防御",
+  "on_hit_type_boost": {
+   "type": "water",
+   "stat": "def",
+   "delta": 2
+  }
+ },
+ "持久力": {
+  "desc": "受到攻击时，防御会提高",
+  "on_hit_stage": {
+   "stat": "def",
+   "delta": 1
+  }
+ },
+ "怒火冲天": {
+  "desc": "受击HP变一半时提高特攻",
+  "on_hp_drop_boost": {
+   "stat": "spa",
+   "delta": 1
+  }
+ },
+ "梦魇": {
+  "desc": "给予睡眠状态的对手伤害",
+  "nightmare": true
+ },
+ "紧张感": {
+  "desc": "让对手紧张得无法食用树果",
+  "block_foe_berry": true
+ },
+ "收获": {
+  "desc": "可多次生成被使用掉的树果",
+  "harvest": true
+ },
+ "除障": {
+  "desc": "出场时，消除双方墙壁类效果",
+  "clear_hazards_on_send": true
+ },
+ "叶子防守": {
+  "desc": "晴天时不会变为异常状态",
+  "weather_status_immune": {
+   "weather": "sun"
+  }
+ },
+ "冲浪之尾": {
+  "desc": "电气场地时速度会变为2倍",
+  "terrain_stat": {
+   "terrain": "electric",
+   "stat": "spe",
+   "mult": 2.0
+  }
+ },
+ "草之毛皮": {
+  "desc": "青草场地时，防御会提高",
+  "terrain_stat": {
+   "terrain": "grass",
+   "stat": "def",
+   "mult": 1.5
+  }
+ },
+ "古代活性": {
+  "desc": "晴天时最高能力提升 1.3 倍",
+  "sun_boost": true
+ },
+ "夸克充能": {
+  "desc": "电气场地时最高能力提升 1.3 倍",
+  "terrain_boost": true
+ },
+ "拨沙": {
+  "desc": "沙暴天气时，速度会提高",
+  "weather_speed": {
+   "weather": "sandstorm",
+   "mult": 2.0
+  }
+ },
+ "拨雪": {
+  "desc": "下雪时速度翻倍",
+  "weather_speed": {
+   "weather": "snow",
+   "mult": 2.0
+  }
+ },
+ "悠游自如": {
+  "desc": "下雨天气时，速度会提高",
+  "weather_speed": {
+   "weather": "rain",
+   "mult": 2.0
+  }
+ },
+ "叶绿素": {
+  "desc": "晴天时，速度会提高",
+  "weather_speed": {
+   "weather": "sun",
+   "mult": 2.0
+  }
+ },
+ "沙隐": {
+  "desc": "沙暴时，闪避率会提高",
+  "weather_evasion": {
+   "weather": "sandstorm",
+   "mult": 1.25
+  }
+ },
+ "雪隐": {
+  "desc": "下雪时闪避率提升",
+  "weather_evasion": {
+   "weather": "snow",
+   "mult": 1.25
+  }
+ },
+ "气闸": {
+  "weather_nullify": true,
+  "desc": "在场时天气的影响消失"
+ },
+ "无关天气": {
+  "desc": "在场时天气的影响消失",
+  "weather_nullify": true
+ },
+ "终结之地": {
+  "desc": "出场时让天气变成大晴天",
+  "weather_on_send": "sun"
+ },
+ "始源之海": {
+  "desc": "出场时让天气变成下雨",
+  "weather_on_send": "rain"
+ },
+ "德尔塔气流": {
+  "desc": "出场时刮起强烈的气流",
+  "weather_on_send": "strong_winds"
+ },
+ "归零化境": {
+  "desc": "出场时让天气恢复原状",
+  "clear_weather_on_send": true
+ },
+ "绯红脉动": {
+  "desc": "出场开晴天，特攻 1.33 倍",
+  "weather_on_send": "sun",
+  "stat_mult": {
+   "spa": 1.33
+  }
+ },
+ "强子引擎": {
+  "desc": "出场开电气场地，特攻 1.33 倍",
+  "terrain_on_send": "electric",
+  "stat_mult": {
+   "spa": 1.33
+  }
+ },
+ "拟态": {
+  "desc": "属性跟着场地变化",
+  "mimicry": true
+ },
+ "舍身": {
+  "desc": "反作用力招式威力 1.2 倍",
+  "reckless": true
+ },
+ "亲子爱": {
+  "desc": "招式会追加一次弱化攻击",
+  "double_hit": true
+ },
+ "一猩一意": {
+  "desc": "攻击 1.5 倍，但只能重复同一招式",
+  "gorilla": true
+ },
+ "分析": {
+  "desc": "后出手时招式威力 1.3 倍",
+  "analyze": true
+ },
+ "胜利之星": {
+  "desc": "命中与攻击特攻小幅提升",
+  "accuracy_mult": 1.1,
+  "stat_mult": {
+   "atk": 1.1,
+   "spa": 1.1
+  }
+ },
+ "蹲守": {
+  "desc": "对手刚上场的回合伤害翻倍",
+  "stakeout": true
+ },
+ "不仁不义": {
+  "desc": "对中异常状态的对手必定会心",
+  "crit_on_status": true
+ },
+ "超级发射器": {
+  "desc": "波动类招式威力 1.5 倍",
+  "flag_power": {
+   "flag": "pulse",
+   "mult": 1.5
+  }
+ },
+ "庞克摇滚": {
+  "desc": "音波类招式威力 1.3 倍",
+  "flag_power": {
+   "flag": "sound",
+   "mult": 1.3
+  }
+ },
+ "热交换": {
+  "desc": "被火属性招式打中时攻击 +1",
+  "on_hit_type_boost": {
+   "type": "fire",
+   "stat": "atk",
+   "delta": 1
+  }
+ },
+ "火焰之躯": {
+  "desc": "被接触招式打中时，有 30% 概率让对方灼伤",
+  "contact_inflict": {
+   "status": "brn",
+   "chance": 30
+  }
+ },
+ "静电": {
+  "desc": "被接触招式打中时，有 30% 概率让对方麻痹",
+  "contact_inflict": {
+   "status": "par",
+   "chance": 30
+  }
+ },
+ "毒刺": {
+  "desc": "被接触招式打中时，有 30% 概率让对方中毒",
+  "contact_inflict": {
+   "status": "psn",
+   "chance": 30
+  }
+ },
+ "孢子": {
+  "desc": "被接触招式打中时，有 30% 概率让对方中毒",
+  "contact_inflict": {
+   "status": "psn",
+   "chance": 30
+  }
+ },
+ "毒手": {
+  "desc": "接触招式有 30% 概率让对方中毒",
+  "contact_inflict": {
+   "status": "psn",
+   "chance": 30
+  }
+ },
+ "恶臭": {
+  "desc": "接触招式有 10% 概率让对方畏缩",
+  "contact_inflict": {
+   "flinch": true,
+   "chance": 10
+  }
+ },
+ "污泥浆": {
+  "desc": "被接触招式打中时，对方损失最大体力的 1/8",
+  "contact_recoil": 0.125
+ },
+ "引爆": {
+  "desc": "被击倒时对对手造成其最大体力 1/4 的伤害",
+  "on_faint_damage": 0.25
+ },
+ "飞出的内在物": {
+  "desc": "被击倒时对对手造成伤害",
+  "on_faint_damage": 0.25
+ },
+ "连续攻击": {
+  "desc": "连击招式总是打出最多次数",
+  "always_max_hits": true
+ },
+ "重金属": {
+  "desc": "自身体重翻倍",
+  "weight_mult": 2.0
+ },
+ "轻金属": {
+  "desc": "自身体重减半",
+  "weight_mult": 0.5
+ },
+ "中毒激升": {
+  "desc": "中毒时攻击 1.5 倍",
+  "status_boost": {
+   "stat": "atk",
+   "mult": 1.5,
+   "status": [
+    "psn",
+    "tox"
+   ]
+  }
+ },
+ "受热激升": {
+  "desc": "灼伤时特攻 1.5 倍",
+  "status_boost": {
+   "stat": "spa",
+   "mult": 1.5,
+   "status": [
+    "brn"
+   ]
+  }
+ },
+ "洁净之盐": {
+  "desc": "不会中异常状态，幽灵属性伤害减半",
+  "status_immune": [
+   "psn",
+   "tox",
+   "par",
+   "brn",
+   "slp",
+   "frz"
+  ],
+  "damage_taken": {
+   "ghost": 0.5
+  }
+ },
+ "黄金之躯": {
+  "desc": "完全不受变化招式影响",
+  "immune_status_moves": true
+ },
+ "太晶甲壳": {
+  "desc": "满体力时受到的伤害减半",
+  "full_hp_halve": true
+ },
+ "多属性": {
+  "desc": "携带石板时改变属性"
+ },
+ "防弹": {
+  "desc": "防住球与炸弹类招式",
+  "block_flag": "bullet"
+ },
+ "隔音": {
+  "desc": "防住音波类招式",
+  "block_flag": "sound"
+ },
+ "穿透": {
+  "desc": "无视替身与屏障",
+  "bypass_sub": true
+ },
+ "远隔": {
+  "desc": "使用招式时不会接触到对手",
+  "no_contact": true
+ },
+ "无形拳": {
+  "desc": "接触类招式不会被守住挡下",
+  "no_protect": true
+ },
+ "湿润之声": {
+  "desc": "音波招式变成水属性",
+  "skin_type": "water"
+ },
+ "一般皮肤": {
+  "desc": "所有招式变成一般属性",
+  "skin_type": "normal"
+ },
+ "妖精皮肤": {
+  "desc": "所有招式变成妖精属性并略微增强",
+  "skin_type": "fairy"
+ },
+ "飞行皮肤": {
+  "desc": "所有招式变成飞行属性并略微增强",
+  "skin_type": "flying"
+ },
+ "冰冻皮肤": {
+  "desc": "所有招式变成冰属性并略微增强",
+  "skin_type": "ice"
+ },
+ "电气皮肤": {
+  "desc": "所有招式变成电属性并略微增强",
+  "skin_type": "electric"
+ },
+ "龙皮肤": {
+  "desc": "所有招式变成龙属性并略微增强",
+  "skin_type": "dragon"
+ },
+ "同步": {
+  "desc": "把对手造成的异常状态反弹回去",
+  "status_reflect": true
+ },
+ "复制": {
+  "desc": "出场时复制对手的特性",
+  "trace": true
+ },
+ "变色": {
+  "desc": "被打中后属性变成招式的属性",
+  "color_change": true
+ },
+ "木乃伊": {
+  "desc": "接触后把对手的特性变成木乃伊",
+  "ability_change_on_contact": "木乃伊"
+ },
+ "甩不掉的气味": {
+  "desc": "接触后把对手的特性变成甩不掉的气味",
+  "ability_change_on_contact": "甩不掉的气味"
+ },
+ "游魂": {
+  "desc": "接触后与对手交换特性",
+  "ability_swap_on_contact": true
+ },
+ "顺手牵羊": {
+  "desc": "被接触招式打中时偷走对手的携带物",
+  "steal_on_contact": true
+ },
+ "魔术师": {
+  "desc": "命中时偷走对手的携带物",
+  "steal_on_hit": true
+ },
+ "懒惰": {
+  "desc": "每两回合才能行动一次",
+  "loaf": true
+ },
+ "慢启动": {
+  "desc": "上场五回合内攻击与速度减半",
+  "slow_start": true
+ },
+ "软弱": {
+  "desc": "体力不足一半时攻击与特攻减半",
+  "defeatist": true
+ },
+ "心情不定": {
+  "desc": "每回合随机提升一项、降低另一项能力",
+  "moody": true
+ },
+ "捡拾": {
+  "desc": "每回合有概率捡到道具",
+  "pickup": true
+ },
+ "采蜜": {
+  "desc": "战斗后偶尔能采到蜜",
+  "honey": true
+ },
+ "察觉": {
+  "desc": "出场时看穿对手的携带物",
+  "frisk": true
+ },
+ "危险预知": {
+  "desc": "出场时感知对手最强的招式",
+  "forewarn": true
+ },
+ "预知梦": {
+  "desc": "出场时感知对手最强的招式",
+  "forewarn": true
+ },
+ "发光": {
+  "desc": "更容易遇到野生宝可梦"
+ },
+ "逃跑": {
+  "desc": "一定能从野生宝可梦那里逃走"
+ },
+ "湿气": {
+  "desc": "在场时谁都不能自爆",
+  "block_selfdestruct": true
+ },
+ "斗争心": {
+  "desc": "面对同性对手时攻击提升"
+ },
+ "不屈之心": {
+  "desc": "畏缩时速度 +1",
+  "on_flinch_boost": {
+   "stat": "spe",
+   "delta": 1
+  }
+ },
+ "愤怒穴位": {
+  "desc": "被会心一击时攻击拉满",
+  "on_crit_boost": {
+   "stat": "atk",
+   "delta": 6
+  }
+ },
+ "贪吃鬼": {
+  "desc": "体力降到一半就会吃树果",
+  "berry_early": true
+ },
+ "颊囊": {
+  "desc": "吃树果时额外回复 1/3 体力",
+  "berry_bonus": 0.3333
+ },
+ "熟成": {
+  "desc": "树果的效果翻倍",
+  "berry_double": true
+ },
+ "反刍": {
+  "desc": "树果可以吃两次",
+  "berry_twice": true
+ },
+ "花之礼": {
+  "desc": "晴天时同伴的攻击与特防提升"
+ },
+ "心灵感应": {
+  "desc": "不会受到同伴的攻击"
+ },
+ "奇迹皮肤": {
+  "desc": "变化招式更难命中",
+  "status_move_resist": 0.5
+ },
+ "幻觉": {
+  "desc": "出场时以别的样子出现"
+ },
+ "变身者": {
+  "desc": "出场时变成对手的样子",
+  "trace": true
+ },
+ "达摩模式": {
+  "desc": "体力不足一半时改变形态"
+ },
+ "变幻自如": {
+  "desc": "出招前变成该招式的属性",
+  "type_change_on_move": true
+ },
+ "自由者": {
+  "desc": "出招前变成该招式的属性",
+  "type_change_on_move": true
+ },
+ "战斗切换": {
+  "desc": "攻击时变成攻击形态，受击时变成防御形态"
+ },
+ "鱼群": {
+  "desc": "体力充足时成群，变弱时分散"
+ },
+ "画皮": {
+  "desc": "用外皮挡下一次伤害",
+  "disguise": true
+ },
+ "牵绊变身": {
+  "desc": "击倒对手后提升能力"
+ },
+ "群聚变形": {
+  "desc": "体力不足一半时改变形态"
+ },
+ "绝对睡眠": {
+  "desc": "一直处于睡眠状态但能正常行动",
+  "comatose": true
+ },
+ "女王的威严": {
+  "desc": "对手无法使用先制招式",
+  "priority_block": true
+ },
+ "舞者": {
+  "desc": "有人跳舞时跟着跳"
+ },
+ "蓄电池": {
+  "desc": "为同伴的特殊招式提供力量"
+ },
+ "接球手": {
+  "desc": "继承倒下同伴的特性"
+ },
+ "化学之力": {
+  "desc": "继承倒下同伴的特性",
+  "trace": true
+ },
+ "金属防护": {
+  "desc": "能力不会被降低",
+  "no_stat_drop": true
+ },
+ "脑核之力": {
+  "desc": "效果拔群的招式威力 1.3 倍",
+  "super_effective_boost": 1.3
+ },
+ "镜甲": {
+  "desc": "把能力下降反弹给对手",
+  "stat_mirror": true
+ },
+ "棉絮": {
+  "desc": "被接触招式打中时，对手速度下降",
+  "contact_speed_drop": 1
+ },
+ "螺旋尾鳍": {
+  "desc": "招式不会被吸引",
+  "ignore_redirection": true
+ },
+ "一口导弹": {
+  "desc": "被鱼叉招式打中时反击"
+ },
+ "坚毅": {
+  "desc": "招式不会被吸引",
+  "ignore_redirection": true
+ },
+ "吐沙": {
+  "desc": "受到攻击时刮起沙暴",
+  "weather_on_hit": "sandstorm"
+ },
+ "能量点": {
+  "desc": "被会心一击后攻击提升",
+  "on_crit_boost": {
+   "stat": "atk",
+   "delta": 1
+  }
+ },
+ "灭亡之躯": {
+  "desc": "被接触招式打中时，双方三回合后倒下",
+  "perish_on_contact": true
+ },
+ "化学变化气体": {
+  "desc": "在场时所有特性失效",
+  "no_ability_field": true
+ },
+ "速击": {
+  "desc": "有 30% 概率抢先出手",
+  "quick_draw": 0.3
+ },
+ "怪药": {
+  "desc": "出场时为同伴回复体力",
+  "on_send_heal_ally": 0.25
+ },
+ "苍白嘶鸣": {
+  "desc": "击倒对手后攻击 +1",
+  "ko_boost": {
+   "stat": "atk",
+   "delta": 1
+  }
+ },
+ "漆黑嘶鸣": {
+  "desc": "击倒对手后特攻 +1",
+  "ko_boost": {
+   "stat": "spa",
+   "delta": 1
+  }
+ },
+ "掉出种子": {
+  "desc": "被攻击时在对手场地撒下种子",
+  "hazard_on_hit": "grassy_seed"
+ },
+ "愤怒甲壳": {
+  "desc": "体力降到一半时双防下降、速度拉满",
+  "anger_shell": true
+ },
+ "乘风": {
+  "desc": "风类招式无效并提升攻击",
+  "wind_immune": true
+ },
+ "看门犬": {
+  "desc": "不会被赶下场，出场时攻击 +1",
+  "guard_dog": true
+ },
+ "风力发电": {
+  "desc": "被风类招式打中时进入充电状态",
+  "wind_charge": true
+ },
+ "电力转换": {
+  "desc": "受到攻击时进入充电状态",
+  "wind_charge": true
+ },
+ "大将": {
+  "desc": "每有一名同伴倒下，攻击与特攻提升 10%",
+  "supreme_overlord": true
+ },
+ "毒满地": {
+  "desc": "被攻击时在对手场地撒下毒菱",
+  "hazard_on_hit": "toxic_spikes"
+ },
+ "尾甲": {
+  "desc": "能力不会被降低",
+  "no_stat_drop": true
+ },
+ "食土": {
+  "desc": "受到地面属性招式时回复体力",
+  "absorb": {
+   "type": "ground",
+   "heal": 0.25
+  }
+ },
+ "菌丝之力": {
+  "desc": "无视对手的特性",
+  "ignore_ability_foe": true
+ },
+ "款待": {
+  "desc": "出场时为同伴回复体力",
+  "on_send_heal_ally": 0.25
+ },
+ "毒锁链": {
+  "desc": "必定让对手陷入中毒",
+  "poison_always": true
+ },
+ "甘露之蜜": {
+  "desc": "出场时降低对手的闪避",
+  "on_send_drop_foe": {
+   "stat": "eva",
+   "delta": 1
+  }
+ },
+ "太晶变形": {
+  "desc": "太晶化后属性随场地变化",
+  "terrain_on_send": ""
+ },
+ "毒傀儡": {
+  "desc": "让中毒的对手陷入混乱"
+ },
+ "贯穿钻": {
+  "desc": "接触类招式不会被守住挡下",
+  "contact_power": 1.0
+ },
+ "电气浮游": {
+  "desc": "使用招式时不会接触到对手",
+  "no_contact": true
+ },
+ "超级日光": {
+  "desc": "晴天时特攻提升"
+ },
+ "炎之鬃": {
+  "desc": "受到火属性招式时攻击提升"
+ },
+ "辣椒喷发": {
+  "desc": "被火属性招式打中时防御下降",
+  "on_hit_type_boost": {
+   "type": "fire",
+   "stat": "def",
+   "delta": -1
+  }
+ },
+ "气场防守": {
+  "desc": "对手无法使用先制招式",
+  "priority_block": true
+ },
+ "气场破坏": {
+  "desc": "削弱气场类特性",
+  "aura_break": true
+ },
+ "蒸汽机": {
+  "on_hit_type_boost": {
+   "type": "water",
+   "stat": "spe",
+   "delta": 6
+  },
+  "desc": "被水或火属性招式打中时速度大幅提升"
+ },
+ "跃跃欲逃": {
+  "desc": "体力降到一半以下时退回队伍",
+  "switch_low_hp": true
+ },
+ "危险回避": {
+  "desc": "体力降到一半以下时退回队伍",
+  "switch_low_hp": true
+ },
+ "先行治疗": {
+  "desc": "回复类招式优先度 +3",
+  "triage_priority": true
+ },
+ "降雨": {
+  "desc": "出场时让天气变成下雨",
+  "weather_on_send": "rain"
+ },
+ "扬沙": {
+  "desc": "出场时让天气变成沙暴",
+  "weather_on_send": "sandstorm"
+ },
+ "日照": {
+  "desc": "出场时让天气变成大晴天",
+  "weather_on_send": "sun"
+ },
+ "降雪": {
+  "desc": "出场时让天气下雪",
+  "weather_on_send": "snow"
+ },
+ "威吓": {
+  "desc": "出场时降低对手的攻击",
+  "on_send_drop_foe": {
+   "stat": "atk",
+   "delta": 1
+  }
+ },
+ "飘浮": {
+  "desc": "地面属性招式打不到",
+  "levitate": true
+ },
+ "柔软": {
+  "desc": "不会麻痹",
+  "status_immune": [
+   "par"
+  ]
+ },
+ "防尘": {
+  "desc": "不受沙暴等天气伤害，也不吃粉末类招式",
+  "weather_immune": true,
+  "powder_immune": true
+ },
+ "冰冻之躯": {
+  "desc": "下雪时每回合回复体力",
+  "weather_heal": {
+   "snow": 0.0625
+  },
+  "weather_immune": true
+ },
+ "蓄电": {
+  "desc": "受到电属性招式时不受伤害，特攻上升",
+  "absorb": {
+   "type": "electric",
+   "boost": {
+    "stat": "spa",
+    "delta": 1
+   }
+  }
+ },
+ "电气引擎": {
+  "desc": "受到电属性招式时不受伤害，速度上升",
+  "absorb": {
+   "type": "electric",
+   "boost": {
+    "stat": "spe",
+    "delta": 1
+   }
+  }
+ },
+ "引水": {
+  "desc": "受到水属性招式时不受伤害，特攻上升",
+  "absorb": {
+   "type": "water",
+   "boost": {
+    "stat": "spa",
+    "delta": 1
+   }
+  }
+ },
+ "磁力": {
+  "desc": "钢属性对手无法替换下场",
+  "trap_foe": true
+ },
+ "胆量": {
+  "desc": "一般与格斗招式能打中幽灵属性",
+  "scrappy": true
+ },
+ "腐蚀": {
+  "desc": "可以把钢与毒属性对手毒到",
+  "corrode": true
+ },
+ "卷发": {
+  "desc": "被接触招式打中时，对手速度下降",
+  "contact_speed_drop": 1
+ },
+ "捡球": {
+  "desc": "每回合有概率捡到道具",
+  "pickup": true
+ },
+ "粉彩护幕": {
+  "desc": "不会中异常状态",
+  "status_immune": [
+   "psn",
+   "tox",
+   "par",
+   "brn",
+   "slp",
+   "frz"
+  ]
+ },
+ "花幕": {
+  "desc": "能力不会被降低",
+  "protect_stat": "all"
+ },
+ "跟风": {
+  "desc": "对手提升能力时自己也跟着提升",
+  "boost_on_foe_boost": true
+ },
+ "慢出": {
+  "desc": "出手顺序总是最后",
+  "slow_priority": true
+ },
+ "蹒跚": {
+  "desc": "混乱时闪避率上升",
+  "evasion_when_confused": true
+ },
+ "阴晴不定": {
+  "desc": "每回合随机提升一项能力",
+  "weather_stat_any": true
+ },
+ "暗黑气场": {
+  "desc": "恶属性招式威力提升",
+  "type_boost": {
+   "dark": 1.33
+  }
+ },
+ "妖精气场": {
+  "desc": "妖精属性招式威力提升",
+  "type_boost": {
+   "fairy": 1.33
+  }
+ },
+ "界限盾壳": {
+  "desc": "满体力时受到的伤害减半",
+  "full_hp_halve": true
+ },
+ "战斗盔甲": {
+  "desc": "不会被会心一击",
+  "no_crit_taken": true
+ },
+ "涡轮火焰": {
+  "desc": "无视对手的特性",
+  "ignore_ability_foe": true
+ },
+ "兆级电压": {
+  "desc": "无视对手的特性",
+  "ignore_ability_foe": true
+ },
+ "破格": {
+  "desc": "无视对手的特性",
+  "ignore_ability_foe": true
+ },
+ "灾祸之鼎": {
+  "desc": "削弱场上所有宝可梦的特攻",
+  "ruin_stat": {
+   "stat": "spa",
+   "mult": 0.75
+  }
+ },
+ "灾祸之剑": {
+  "desc": "削弱场上所有宝可梦的防御",
+  "ruin_stat": {
+   "stat": "def",
+   "mult": 0.75
+  }
+ },
+ "灾祸之简": {
+  "desc": "削弱场上所有宝可梦的特防",
+  "ruin_stat": {
+   "stat": "spd",
+   "mult": 0.75
+  }
+ },
+ "灾祸之玉": {
+  "desc": "削弱场上所有宝可梦的攻击",
+  "ruin_stat": {
+   "stat": "atk",
+   "mult": 0.75
+  }
+ },
+ "共生": {
+  "desc": "同伴用完道具时可以把自己的递过去（双打）"
+ },
+ "治愈之心": {
+  "desc": "每回合有概率治好同伴的异常状态",
+  "cure_chance": 0.3
+ },
+ "友情防守": {
+  "desc": "为同伴减轻伤害（双打）"
+ },
+ "正电": {
+  "desc": "与负电特性同伴同场时特攻提升",
+  "stat_mult": {
+   "spa": 1.5
+  }
+ },
+ "负电": {
+  "desc": "与正电特性同伴同场时特攻提升",
+  "stat_mult": {
+   "spa": 1.5
+  }
+ },
+ "ＡＲ系统": {
+  "desc": "携带石板时改变属性"
+ },
+ "饱了又饿": {
+  "desc": "每回合在两种形态之间切换"
+ },
+ "合一（冰）": {
+  "desc": "两只合体后的形态"
+ },
+ "合一（幽）": {
+  "desc": "两只合体后的形态"
+ },
+ "全能变身": {
+  "desc": "换下场再上场后变成全能形态，攻击与特攻提升",
+  "form_on_switch_out": true
+ },
+ "发号施令": {
+  "desc": "为同伴下达指令（双打）"
+ },
+ "同台共演": {
+  "desc": "与同伴一起使招式变强（双打）"
+ },
+ "面影辉映": {
+  "desc": "根据同伴改变形态"
+ }
+}

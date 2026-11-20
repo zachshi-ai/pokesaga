@@ -1,0 +1,1916 @@
+[
+ {
+  "id": 1,
+  "key": "STENCH",
+  "name": "恶臭",
+  "desc": "释放臭味，有时会使对手畏缩"
+ },
+ {
+  "id": 2,
+  "key": "DRIZZLE",
+  "name": "降雨",
+  "desc": "出场时，会将天气变为下雨"
+ },
+ {
+  "id": 3,
+  "key": "SPEED_BOOST",
+  "name": "加速",
+  "desc": "每一回合速度会变快"
+ },
+ {
+  "id": 4,
+  "key": "BATTLE_ARMOR",
+  "name": "战斗盔甲",
+  "desc": "不会被攻击击中要害"
+ },
+ {
+  "id": 5,
+  "key": "STURDY",
+  "name": "结实",
+  "desc": "HP全满时不会被一击打倒"
+ },
+ {
+  "id": 6,
+  "key": "DAMP",
+  "name": "湿气",
+  "desc": "双方无法使用爆炸类的招式"
+ },
+ {
+  "id": 7,
+  "key": "LIMBER",
+  "name": "柔软",
+  "desc": "不会变为麻痹状态"
+ },
+ {
+  "id": 8,
+  "key": "SAND_VEIL",
+  "name": "沙隐",
+  "desc": "沙暴时，闪避率会提高"
+ },
+ {
+  "id": 9,
+  "key": "STATIC",
+  "name": "静电",
+  "desc": "有时会让接触的对手麻痹"
+ },
+ {
+  "id": 10,
+  "key": "VOLT_ABSORB",
+  "name": "蓄电",
+  "desc": "受到电属性攻击时会回复"
+ },
+ {
+  "id": 11,
+  "key": "WATER_ABSORB",
+  "name": "储水",
+  "desc": "受到水属性攻击时会回复"
+ },
+ {
+  "id": 12,
+  "key": "OBLIVIOUS",
+  "name": "迟钝",
+  "desc": ""
+ },
+ {
+  "id": 13,
+  "key": "CLOUD_NINE",
+  "name": "无关天气",
+  "desc": "任何天气的影响都会消失"
+ },
+ {
+  "id": 14,
+  "key": "COMPOUND_EYES",
+  "name": "复眼",
+  "desc": "招式的命中率会提高"
+ },
+ {
+  "id": 15,
+  "key": "INSOMNIA",
+  "name": "不眠",
+  "desc": "不会陷入睡眠状态"
+ },
+ {
+  "id": 16,
+  "key": "COLOR_CHANGE",
+  "name": "变色",
+  "desc": "属性会变为对手招式的属性"
+ },
+ {
+  "id": 17,
+  "key": "IMMUNITY",
+  "name": "免疫",
+  "desc": "不会变为中毒状态"
+ },
+ {
+  "id": 18,
+  "key": "FLASH_FIRE",
+  "name": "引火",
+  "desc": "受火属性攻击会强化火招式"
+ },
+ {
+  "id": 19,
+  "key": "SHIELD_DUST",
+  "name": "鳞粉",
+  "desc": "不会受到招式追加效果影响"
+ },
+ {
+  "id": 20,
+  "key": "OWN_TEMPO",
+  "name": "我行我素",
+  "desc": "不会被混乱或威吓"
+ },
+ {
+  "id": 21,
+  "key": "SUCTION_CUPS",
+  "name": "吸盘",
+  "desc": "让替换宝可梦的招式无效"
+ },
+ {
+  "id": 22,
+  "key": "INTIMIDATE",
+  "name": "威吓",
+  "desc": "出场时降低对手的攻击"
+ },
+ {
+  "id": 23,
+  "key": "SHADOW_TAG",
+  "name": "踩影",
+  "desc": "使对手无法逃走或替换"
+ },
+ {
+  "id": 24,
+  "key": "ROUGH_SKIN",
+  "name": "粗糙皮肤",
+  "desc": "受到攻击时弄伤接触的对手"
+ },
+ {
+  "id": 25,
+  "key": "WONDER_GUARD",
+  "name": "神奇守护",
+  "desc": "只有效果绝佳招式才能击中"
+ },
+ {
+  "id": 26,
+  "key": "LEVITATE",
+  "name": "飘浮",
+  "desc": "不会受地面属性招式攻击"
+ },
+ {
+  "id": 27,
+  "key": "EFFECT_SPORE",
+  "name": "孢子",
+  "desc": "有时会使接触的对手异常"
+ },
+ {
+  "id": 28,
+  "key": "SYNCHRONIZE",
+  "name": "同步",
+  "desc": "将自己异常状态传染给对手"
+ },
+ {
+  "id": 29,
+  "key": "CLEAR_BODY",
+  "name": "恒净之躯",
+  "desc": "不会因为对手而被降低能力"
+ },
+ {
+  "id": 30,
+  "key": "NATURAL_CURE",
+  "name": "自然回复",
+  "desc": "被换下后治愈异常状态"
+ },
+ {
+  "id": 31,
+  "key": "LIGHTNING_ROD",
+  "name": "避雷针",
+  "desc": ""
+ },
+ {
+  "id": 32,
+  "key": "SERENE_GRACE",
+  "name": "天恩",
+  "desc": "招式的追加效果容易出现"
+ },
+ {
+  "id": 33,
+  "key": "SWIFT_SWIM",
+  "name": "悠游自如",
+  "desc": "下雨天气时，速度会提高"
+ },
+ {
+  "id": 34,
+  "key": "CHLOROPHYLL",
+  "name": "叶绿素",
+  "desc": "晴天时，速度会提高"
+ },
+ {
+  "id": 35,
+  "key": "ILLUMINATE",
+  "name": "发光",
+  "desc": ""
+ },
+ {
+  "id": 36,
+  "key": "TRACE",
+  "name": "复制",
+  "desc": "出场时，复制对手的特性"
+ },
+ {
+  "id": 37,
+  "key": "HUGE_POWER",
+  "name": "大力士",
+  "desc": "物理攻击的威力会变为2倍"
+ },
+ {
+  "id": 38,
+  "key": "POISON_POINT",
+  "name": "毒刺",
+  "desc": "有时会让接触到的对手中毒"
+ },
+ {
+  "id": 39,
+  "key": "INNER_FOCUS",
+  "name": "精神力",
+  "desc": "不会畏缩或被威吓影响"
+ },
+ {
+  "id": 40,
+  "key": "MAGMA_ARMOR",
+  "name": "熔岩铠甲",
+  "desc": ""
+ },
+ {
+  "id": 41,
+  "key": "WATER_VEIL",
+  "name": "水幕",
+  "desc": "不会变为灼伤状态"
+ },
+ {
+  "id": 42,
+  "key": "MAGNET_PULL",
+  "name": "磁力",
+  "desc": "使钢属性宝可梦无法逃走"
+ },
+ {
+  "id": 43,
+  "key": "SOUNDPROOF",
+  "name": "隔音",
+  "desc": "不受到声音招式的影响"
+ },
+ {
+  "id": 44,
+  "key": "RAIN_DISH",
+  "name": "雨盘",
+  "desc": "下雨天气时，缓缓回复HP"
+ },
+ {
+  "id": 45,
+  "key": "SAND_STREAM",
+  "name": "扬沙",
+  "desc": "出场时，会把天气变为沙暴"
+ },
+ {
+  "id": 46,
+  "key": "PRESSURE",
+  "name": "压迫感",
+  "desc": "减少对手使用招式的PP"
+ },
+ {
+  "id": 47,
+  "key": "THICK_FAT",
+  "name": "厚脂肪",
+  "desc": "使火冰属性的招式伤害减半"
+ },
+ {
+  "id": 48,
+  "key": "EARLY_BIRD",
+  "name": "早起",
+  "desc": "睡眠时会提早醒来"
+ },
+ {
+  "id": 49,
+  "key": "FLAME_BODY",
+  "name": "火焰之躯",
+  "desc": "有时会让接触的对手灼伤"
+ },
+ {
+  "id": 50,
+  "key": "RUN_AWAY",
+  "name": "逃跑",
+  "desc": "野生宝可梦面前一定能逃走"
+ },
+ {
+  "id": 51,
+  "key": "KEEN_EYE",
+  "name": "锐利目光",
+  "desc": "命中率不会被降低"
+ },
+ {
+  "id": 52,
+  "key": "HYPER_CUTTER",
+  "name": "怪力钳",
+  "desc": "不会被对手降低攻击"
+ },
+ {
+  "id": 53,
+  "key": "PICKUP",
+  "name": "捡拾",
+  "desc": "有时会捡来对手用过的道具"
+ },
+ {
+  "id": 54,
+  "key": "TRUANT",
+  "name": "懒惰",
+  "desc": "每隔一回合就会休息"
+ },
+ {
+  "id": 55,
+  "key": "HUSTLE",
+  "name": "活力",
+  "desc": "攻击变高，但命中率会降低"
+ },
+ {
+  "id": 56,
+  "key": "CUTE_CHARM",
+  "name": "迷人之躯",
+  "desc": "有时会让接触到的对手着迷"
+ },
+ {
+  "id": 57,
+  "key": "PLUS",
+  "name": "正电",
+  "desc": ""
+ },
+ {
+  "id": 58,
+  "key": "MINUS",
+  "name": "负电",
+  "desc": ""
+ },
+ {
+  "id": 59,
+  "key": "FORECAST",
+  "name": "阴晴不定",
+  "desc": "受天气影响改变形态"
+ },
+ {
+  "id": 60,
+  "key": "STICKY_HOLD",
+  "name": "黏着",
+  "desc": "道具不会被对手夺走"
+ },
+ {
+  "id": 61,
+  "key": "SHED_SKIN",
+  "name": "蜕皮",
+  "desc": "有时会治愈异常状态"
+ },
+ {
+  "id": 62,
+  "key": "GUTS",
+  "name": "毅力",
+  "desc": "异常状态时攻击会提高"
+ },
+ {
+  "id": 63,
+  "key": "MARVEL_SCALE",
+  "name": "神奇鳞片",
+  "desc": "异常状态时防御会提高"
+ },
+ {
+  "id": 64,
+  "key": "LIQUID_OOZE",
+  "name": "污泥浆",
+  "desc": "吸收污泥的对手会减少HP"
+ },
+ {
+  "id": 65,
+  "key": "OVERGROW",
+  "name": "茂盛",
+  "desc": "HP低时强化草属性招式"
+ },
+ {
+  "id": 66,
+  "key": "BLAZE",
+  "name": "猛火",
+  "desc": "HP低时强化火属性招式"
+ },
+ {
+  "id": 67,
+  "key": "TORRENT",
+  "name": "激流",
+  "desc": "HP低时强化水属性招式"
+ },
+ {
+  "id": 68,
+  "key": "SWARM",
+  "name": "虫之预感",
+  "desc": "HP低时强化虫属性招式"
+ },
+ {
+  "id": 69,
+  "key": "ROCK_HEAD",
+  "name": "坚硬脑袋",
+  "desc": "不会受反作用力减少HP"
+ },
+ {
+  "id": 70,
+  "key": "DROUGHT",
+  "name": "日照",
+  "desc": "出场时，会将天气变为晴朗"
+ },
+ {
+  "id": 71,
+  "key": "ARENA_TRAP",
+  "name": "沙穴",
+  "desc": "在战斗中让对手无法逃走"
+ },
+ {
+  "id": 72,
+  "key": "VITAL_SPIRIT",
+  "name": "干劲",
+  "desc": "不会变为睡眠状态"
+ },
+ {
+  "id": 73,
+  "key": "WHITE_SMOKE",
+  "name": "白色烟雾",
+  "desc": "不会被对手降低能力"
+ },
+ {
+  "id": 74,
+  "key": "PURE_POWER",
+  "name": "瑜伽之力",
+  "desc": "物理攻击的威力会变为2倍"
+ },
+ {
+  "id": 75,
+  "key": "SHELL_ARMOR",
+  "name": "硬壳盔甲",
+  "desc": "对手的攻击不会击中要害"
+ },
+ {
+  "id": 76,
+  "key": "AIR_LOCK",
+  "name": "气闸",
+  "desc": "所有天气的影响都会消失"
+ },
+ {
+  "id": 77,
+  "key": "TANGLED_FEET",
+  "name": "蹒跚",
+  "desc": "在混乱状态时闪避率会提高"
+ },
+ {
+  "id": 78,
+  "key": "MOTOR_DRIVE",
+  "name": "电气引擎",
+  "desc": "免疫电属性攻击并提高速度"
+ },
+ {
+  "id": 79,
+  "key": "RIVALRY",
+  "name": "斗争心",
+  "desc": "对同性别对手变强反之变弱"
+ },
+ {
+  "id": 80,
+  "key": "STEADFAST",
+  "name": "不屈之心",
+  "desc": "每次畏缩时速度会提高"
+ },
+ {
+  "id": 81,
+  "key": "SNOW_CLOAK",
+  "name": "雪隐",
+  "desc": ""
+ },
+ {
+  "id": 82,
+  "key": "GLUTTONY",
+  "name": "贪吃鬼",
+  "desc": "会在一半HP时提前吃树果"
+ },
+ {
+  "id": 83,
+  "key": "ANGER_POINT",
+  "name": "愤怒穴位",
+  "desc": "要害被击中时攻击变为最大"
+ },
+ {
+  "id": 84,
+  "key": "UNBURDEN",
+  "name": "轻装",
+  "desc": "失去道具时速度会提高"
+ },
+ {
+  "id": 85,
+  "key": "HEATPROOF",
+  "name": "耐热",
+  "desc": "受火属性招式的伤害减半"
+ },
+ {
+  "id": 86,
+  "key": "SIMPLE",
+  "name": "单纯",
+  "desc": "能力变化会变为平时的2倍"
+ },
+ {
+  "id": 87,
+  "key": "DRY_SKIN",
+  "name": "干燥皮肤",
+  "desc": "雨天回复HP，晴天减少"
+ },
+ {
+  "id": 88,
+  "key": "DOWNLOAD",
+  "name": "下载",
+  "desc": "根据情况提升攻击或特攻"
+ },
+ {
+  "id": 89,
+  "key": "IRON_FIST",
+  "name": "铁拳",
+  "desc": "使用拳类招式的威力会提高"
+ },
+ {
+  "id": 90,
+  "key": "POISON_HEAL",
+  "name": "毒疗",
+  "desc": "中毒时反而会回复HP"
+ },
+ {
+  "id": 91,
+  "key": "ADAPTABILITY",
+  "name": "适应力",
+  "desc": "强化自身同属性的招式"
+ },
+ {
+  "id": 92,
+  "key": "SKILL_LINK",
+  "name": "连续攻击",
+  "desc": "连续招式总能使出最高次数"
+ },
+ {
+  "id": 93,
+  "key": "HYDRATION",
+  "name": "湿润之躯",
+  "desc": "下雨天气时治愈异常状态"
+ },
+ {
+  "id": 94,
+  "key": "SOLAR_POWER",
+  "name": "太阳之力",
+  "desc": "晴天时减少HP提高特攻"
+ },
+ {
+  "id": 95,
+  "key": "QUICK_FEET",
+  "name": "飞毛腿",
+  "desc": "变为异常状态时速度会提高"
+ },
+ {
+  "id": 96,
+  "key": "NORMALIZE",
+  "name": "一般皮肤",
+  "desc": "招式变为一般属性并强化"
+ },
+ {
+  "id": 97,
+  "key": "SNIPER",
+  "name": "狙击手",
+  "desc": "击中要害时，威力提升"
+ },
+ {
+  "id": 98,
+  "key": "MAGIC_GUARD",
+  "name": "魔法防守",
+  "desc": "不会受到攻击以外的伤害"
+ },
+ {
+  "id": 99,
+  "key": "NO_GUARD",
+  "name": "无防守",
+  "desc": "双方的招式都必定会击中"
+ },
+ {
+  "id": 100,
+  "key": "STALL",
+  "name": "慢出",
+  "desc": "使出招式的顺序必定为最后"
+ },
+ {
+  "id": 101,
+  "key": "TECHNICIAN",
+  "name": "技术高手",
+  "desc": "强化低威力的招式"
+ },
+ {
+  "id": 102,
+  "key": "LEAF_GUARD",
+  "name": "叶子防守",
+  "desc": "晴天时不会变为异常状态"
+ },
+ {
+  "id": 103,
+  "key": "KLUTZ",
+  "name": "笨拙",
+  "desc": "无法使用持有的道具"
+ },
+ {
+  "id": 104,
+  "key": "MOLD_BREAKER",
+  "name": "破格",
+  "desc": "使用招式不受对手特性影响"
+ },
+ {
+  "id": 105,
+  "key": "SUPER_LUCK",
+  "name": "超幸运",
+  "desc": "攻击容易击中对手的要害"
+ },
+ {
+  "id": 106,
+  "key": "AFTERMATH",
+  "name": "引爆",
+  "desc": "昏厥时伤害接触的对手"
+ },
+ {
+  "id": 107,
+  "key": "ANTICIPATION",
+  "name": "危险预知",
+  "desc": "可以察觉到对手的危险招式"
+ },
+ {
+  "id": 108,
+  "key": "FOREWARN",
+  "name": "预知梦",
+  "desc": "出场时，读取1个对手的招式"
+ },
+ {
+  "id": 109,
+  "key": "UNAWARE",
+  "name": "纯朴",
+  "desc": "可无视对手能力变化攻击"
+ },
+ {
+  "id": 110,
+  "key": "TINTED_LENS",
+  "name": "有色眼镜",
+  "desc": "提升效果不好的招式威力"
+ },
+ {
+  "id": 111,
+  "key": "FILTER",
+  "name": "过滤",
+  "desc": "减轻效果绝佳的攻击伤害"
+ },
+ {
+  "id": 112,
+  "key": "SLOW_START",
+  "name": "慢启动",
+  "desc": "在5回合内攻击和速度减半"
+ },
+ {
+  "id": 113,
+  "key": "SCRAPPY",
+  "name": "胆量",
+  "desc": "招式可击中幽灵并无视威吓"
+ },
+ {
+  "id": 114,
+  "key": "STORM_DRAIN",
+  "name": "引水",
+  "desc": ""
+ },
+ {
+  "id": 115,
+  "key": "ICE_BODY",
+  "name": "冰冻之躯",
+  "desc": ""
+ },
+ {
+  "id": 116,
+  "key": "SOLID_ROCK",
+  "name": "坚硬岩石",
+  "desc": "减轻效果绝佳的攻击伤害"
+ },
+ {
+  "id": 117,
+  "key": "SNOW_WARNING",
+  "name": "降雪",
+  "desc": "出场时会将天气变为下雪"
+ },
+ {
+  "id": 118,
+  "key": "HONEY_GATHER",
+  "name": "采蜜",
+  "desc": "战斗结束时有时捡来甜甜蜜"
+ },
+ {
+  "id": 119,
+  "key": "FRISK",
+  "name": "察觉",
+  "desc": "出场时，可察觉对手持有物"
+ },
+ {
+  "id": 120,
+  "key": "RECKLESS",
+  "name": "舍身",
+  "desc": "强化有反作用力伤害的招式"
+ },
+ {
+  "id": 121,
+  "key": "MULTITYPE",
+  "name": "多属性",
+  "desc": "属性会根据持有的石板改变"
+ },
+ {
+  "id": 122,
+  "key": "FLOWER_GIFT",
+  "name": "花之礼",
+  "desc": "晴天时提升我方攻击和特防"
+ },
+ {
+  "id": 123,
+  "key": "BAD_DREAMS",
+  "name": "梦魇",
+  "desc": "给予睡眠状态的对手伤害"
+ },
+ {
+  "id": 124,
+  "key": "PICKPOCKET",
+  "name": "顺手牵羊",
+  "desc": "盗取接触到的对手的道具"
+ },
+ {
+  "id": 125,
+  "key": "SHEER_FORCE",
+  "name": "强行",
+  "desc": "消除追加效果以强化招式"
+ },
+ {
+  "id": 126,
+  "key": "CONTRARY",
+  "name": "唱反调",
+  "desc": "能力的升降变化发生逆转"
+ },
+ {
+  "id": 127,
+  "key": "UNNERVE",
+  "name": "紧张感",
+  "desc": "让对手紧张得无法食用树果"
+ },
+ {
+  "id": 128,
+  "key": "DEFIANT",
+  "name": "不服输",
+  "desc": "被降低能力时大幅提高攻击"
+ },
+ {
+  "id": 129,
+  "key": "DEFEATIST",
+  "name": "软弱",
+  "desc": "HP减半时攻击特攻会减半"
+ },
+ {
+  "id": 130,
+  "key": "CURSED_BODY",
+  "name": "诅咒之躯",
+  "desc": "受击时有时会使招式定身法"
+ },
+ {
+  "id": 131,
+  "key": "HEALER",
+  "name": "治愈之心",
+  "desc": "有时会治愈异常状态的同伴"
+ },
+ {
+  "id": 132,
+  "key": "FRIEND_GUARD",
+  "name": "友情防守",
+  "desc": "可以减少我方的伤害"
+ },
+ {
+  "id": 133,
+  "key": "WEAK_ARMOR",
+  "name": "碎裂铠甲",
+  "desc": "受物理攻击降防御提高速度"
+ },
+ {
+  "id": 134,
+  "key": "HEAVY_METAL",
+  "name": "重金属",
+  "desc": "自身的重量会变为2倍"
+ },
+ {
+  "id": 135,
+  "key": "LIGHT_METAL",
+  "name": "轻金属",
+  "desc": "自身的重量会减半"
+ },
+ {
+  "id": 136,
+  "key": "MULTISCALE",
+  "name": "多重鳞片",
+  "desc": "HP全满时减轻受到的伤害"
+ },
+ {
+  "id": 137,
+  "key": "TOXIC_BOOST",
+  "name": "中毒激升",
+  "desc": "中毒时提高物理招式的威力"
+ },
+ {
+  "id": 138,
+  "key": "FLARE_BOOST",
+  "name": "受热激升",
+  "desc": "灼伤时提高特殊招式的威力"
+ },
+ {
+  "id": 139,
+  "key": "HARVEST",
+  "name": "收获",
+  "desc": "可多次生成被使用掉的树果"
+ },
+ {
+  "id": 140,
+  "key": "TELEPATHY",
+  "name": "心灵感应",
+  "desc": "闪避己方的招式伤害"
+ },
+ {
+  "id": 141,
+  "key": "MOODY",
+  "name": "心情不定",
+  "desc": "每回合某能力提高，某项降低"
+ },
+ {
+  "id": 142,
+  "key": "OVERCOAT",
+  "name": "防尘",
+  "desc": ""
+ },
+ {
+  "id": 143,
+  "key": "POISON_TOUCH",
+  "name": "毒手",
+  "desc": "接触时可能会使对手中毒"
+ },
+ {
+  "id": 144,
+  "key": "REGENERATOR",
+  "name": "再生力",
+  "desc": "换下后HP会少量回复"
+ },
+ {
+  "id": 145,
+  "key": "BIG_PECKS",
+  "name": "健壮胸肌",
+  "desc": "不会受到防御降低的效果"
+ },
+ {
+  "id": 146,
+  "key": "SAND_RUSH",
+  "name": "拨沙",
+  "desc": "沙暴天气时，速度会提高"
+ },
+ {
+  "id": 147,
+  "key": "WONDER_SKIN",
+  "name": "奇迹皮肤",
+  "desc": "不易受到变化招式攻击"
+ },
+ {
+  "id": 148,
+  "key": "ANALYTIC",
+  "name": "分析",
+  "desc": "在最后使出招式时威力提高"
+ },
+ {
+  "id": 149,
+  "key": "ILLUSION",
+  "name": "幻觉",
+  "desc": "幻化成同行宝可梦迷惑对手"
+ },
+ {
+  "id": 150,
+  "key": "IMPOSTER",
+  "name": "变身者",
+  "desc": "变身为当前面对的宝可梦"
+ },
+ {
+  "id": 151,
+  "key": "INFILTRATOR",
+  "name": "穿透",
+  "desc": "能穿透壁障或替身进行攻击"
+ },
+ {
+  "id": 152,
+  "key": "MUMMY",
+  "name": "木乃伊",
+  "desc": "被接触后将对手变为木乃伊"
+ },
+ {
+  "id": 153,
+  "key": "MOXIE",
+  "name": "自信过度",
+  "desc": "打倒对手时攻击会提高"
+ },
+ {
+  "id": 154,
+  "key": "JUSTIFIED",
+  "name": "正义之心",
+  "desc": "受恶属性攻击时提高攻击"
+ },
+ {
+  "id": 155,
+  "key": "RATTLED",
+  "name": "胆怯",
+  "desc": "受恶鬼虫攻击威吓提高速度"
+ },
+ {
+  "id": 156,
+  "key": "MAGIC_BOUNCE",
+  "name": "魔法镜",
+  "desc": "反弹对手使出的变化招式"
+ },
+ {
+  "id": 157,
+  "key": "SAP_SIPPER",
+  "name": "食草",
+  "desc": "免疫草属性攻击并提高攻击"
+ },
+ {
+  "id": 158,
+  "key": "PRANKSTER",
+  "name": "恶作剧之心",
+  "desc": "可以率先使出变化招式"
+ },
+ {
+  "id": 159,
+  "key": "SAND_FORCE",
+  "name": "沙之力",
+  "desc": "沙暴时，强化岩地钢属性招式"
+ },
+ {
+  "id": 160,
+  "key": "IRON_BARBS",
+  "name": "铁刺",
+  "desc": "用铁刺给予接触的对手伤害"
+ },
+ {
+  "id": 161,
+  "key": "ZEN_MODE",
+  "name": "达摩模式",
+  "desc": "HP一半以下时改变样子"
+ },
+ {
+  "id": 162,
+  "key": "VICTORY_STAR",
+  "name": "胜利之星",
+  "desc": "自己和同伴的命中率会提高"
+ },
+ {
+  "id": 163,
+  "key": "TURBOBLAZE",
+  "name": "涡轮火焰",
+  "desc": "使用招式不受对手特性影响"
+ },
+ {
+  "id": 164,
+  "key": "TERAVOLT",
+  "name": "兆级电压",
+  "desc": "使用招式不受对手特性影响"
+ },
+ {
+  "id": 165,
+  "key": "AROMA_VEIL",
+  "name": "芳香幕",
+  "desc": "防守向己方发出的心灵攻击"
+ },
+ {
+  "id": 166,
+  "key": "FLOWER_VEIL",
+  "name": "花幕",
+  "desc": "守护己方草宝可梦能力状态"
+ },
+ {
+  "id": 167,
+  "key": "CHEEK_POUCH",
+  "name": "颊囊",
+  "desc": "食用任意树果HP都会回复"
+ },
+ {
+  "id": 168,
+  "key": "PROTEAN",
+  "name": "变幻自如",
+  "desc": "一次性变为使出招式的属性"
+ },
+ {
+  "id": 169,
+  "key": "FUR_COAT",
+  "name": "毛皮大衣",
+  "desc": "受物理招式的伤害会减半"
+ },
+ {
+  "id": 170,
+  "key": "MAGICIAN",
+  "name": "魔术师",
+  "desc": "夺走被自己击中对手的道具"
+ },
+ {
+  "id": 171,
+  "key": "BULLETPROOF",
+  "name": "防弹",
+  "desc": "防守球和弹类招式"
+ },
+ {
+  "id": 172,
+  "key": "COMPETITIVE",
+  "name": "好胜",
+  "desc": "被降低能力时大幅提高特攻"
+ },
+ {
+  "id": 173,
+  "key": "STRONG_JAW",
+  "name": "强壮之颚",
+  "desc": "啃咬类招式的威力会提高"
+ },
+ {
+  "id": 174,
+  "key": "REFRIGERATE",
+  "name": "冰冻皮肤",
+  "desc": "一般招式变为冰属性并强化"
+ },
+ {
+  "id": 175,
+  "key": "SWEET_VEIL",
+  "name": "甜幕",
+  "desc": "己方宝可梦不会睡眠"
+ },
+ {
+  "id": 176,
+  "key": "STANCE_CHANGE",
+  "name": "战斗切换",
+  "desc": "根据招式切换刀剑盾牌形态"
+ },
+ {
+  "id": 177,
+  "key": "GALE_WINGS",
+  "name": "疾风之翼",
+  "desc": "满HP时能先使出飞行招式"
+ },
+ {
+  "id": 178,
+  "key": "MEGA_LAUNCHER",
+  "name": "超级发射器",
+  "desc": "强化波动和波导类招式"
+ },
+ {
+  "id": 179,
+  "key": "GRASS_PELT",
+  "name": "草之毛皮",
+  "desc": "青草场地时，防御会提高"
+ },
+ {
+  "id": 180,
+  "key": "SYMBIOSIS",
+  "name": "共生",
+  "desc": "会把道具传递给同伴"
+ },
+ {
+  "id": 181,
+  "key": "TOUGH_CLAWS",
+  "name": "硬爪",
+  "desc": "接触类招式威力会提高"
+ },
+ {
+  "id": 182,
+  "key": "PIXILATE",
+  "name": "妖精皮肤",
+  "desc": "一般招式变妖精属性并强化"
+ },
+ {
+  "id": 183,
+  "key": "GOOEY",
+  "name": "黏滑",
+  "desc": "降低接触自己的对手的速度"
+ },
+ {
+  "id": 184,
+  "key": "AERILATE",
+  "name": "飞行皮肤",
+  "desc": "一般招式变飞行属性并强化"
+ },
+ {
+  "id": 185,
+  "key": "PARENTAL_BOND",
+  "name": "亲子爱",
+  "desc": "亲子俩可以合计攻击2次"
+ },
+ {
+  "id": 186,
+  "key": "DARK_AURA",
+  "name": "暗黑气场",
+  "desc": "全体的恶属性招式变强"
+ },
+ {
+  "id": 187,
+  "key": "FAIRY_AURA",
+  "name": "妖精气场",
+  "desc": "全体的妖精属性招式变强"
+ },
+ {
+  "id": 188,
+  "key": "AURA_BREAK",
+  "name": "气场破坏",
+  "desc": "让气场的效果发生逆转"
+ },
+ {
+  "id": 189,
+  "key": "PRIMORDIAL_SEA",
+  "name": "始源之海",
+  "desc": "变为不受火属性攻击的天气"
+ },
+ {
+  "id": 190,
+  "key": "DESOLATE_LAND",
+  "name": "终结之地",
+  "desc": "变为不受水属性攻击的天气"
+ },
+ {
+  "id": 191,
+  "key": "DELTA_STREAM",
+  "name": "德尔塔气流",
+  "desc": "变为飞行弱点消失的天气"
+ },
+ {
+  "id": 192,
+  "key": "STAMINA",
+  "name": "持久力",
+  "desc": "受到攻击时，防御会提高"
+ },
+ {
+  "id": 193,
+  "key": "WIMP_OUT",
+  "name": "跃跃欲逃",
+  "desc": "HP变为一半时会慌张逃走"
+ },
+ {
+  "id": 194,
+  "key": "EMERGENCY_EXIT",
+  "name": "危险回避",
+  "desc": "HP变为一半时会回避危险"
+ },
+ {
+  "id": 195,
+  "key": "WATER_COMPACTION",
+  "name": "遇水凝固",
+  "desc": "受水招式攻击大幅提高防御"
+ },
+ {
+  "id": 196,
+  "key": "MERCILESS",
+  "name": "不仁不义",
+  "desc": "攻击中毒对手必定击中要害"
+ },
+ {
+  "id": 197,
+  "key": "SHIELDS_DOWN",
+  "name": "界限盾壳",
+  "desc": "HP变为一半时更有攻击性"
+ },
+ {
+  "id": 198,
+  "key": "STAKEOUT",
+  "name": "蹲守",
+  "desc": "对替换出场的对手加倍伤害"
+ },
+ {
+  "id": 199,
+  "key": "WATER_BUBBLE",
+  "name": "水泡",
+  "desc": "降低火招式伤害且不会灼伤"
+ },
+ {
+  "id": 200,
+  "key": "STEELWORKER",
+  "name": "钢能力者",
+  "desc": "钢属性的招式威力会提高"
+ },
+ {
+  "id": 201,
+  "key": "BERSERK",
+  "name": "怒火冲天",
+  "desc": "受击HP变一半时提高特攻"
+ },
+ {
+  "id": 202,
+  "key": "SLUSH_RUSH",
+  "name": "拨雪",
+  "desc": ""
+ },
+ {
+  "id": 203,
+  "key": "LONG_REACH",
+  "name": "远隔",
+  "desc": "可以不接触对手使出招式"
+ },
+ {
+  "id": 204,
+  "key": "LIQUID_VOICE",
+  "name": "湿润之声",
+  "desc": "所有声音招式都变为水属性"
+ },
+ {
+  "id": 205,
+  "key": "TRIAGE",
+  "name": "先行治疗",
+  "desc": "可以率先使出回复招式"
+ },
+ {
+  "id": 206,
+  "key": "GALVANIZE",
+  "name": "电气皮肤",
+  "desc": "一般招式变为电属性并强化"
+ },
+ {
+  "id": 207,
+  "key": "SURGE_SURFER",
+  "name": "冲浪之尾",
+  "desc": "电气场地时速度会变为2倍"
+ },
+ {
+  "id": 208,
+  "key": "SCHOOLING",
+  "name": "鱼群",
+  "desc": "HP多则聚众变强少则分散"
+ },
+ {
+  "id": 209,
+  "key": "DISGUISE",
+  "name": "画皮",
+  "desc": "通过画皮防住1次攻击"
+ },
+ {
+  "id": 210,
+  "key": "BATTLE_BOND",
+  "name": "牵绊变身",
+  "desc": "打倒对手时提高能力"
+ },
+ {
+  "id": 211,
+  "key": "POWER_CONSTRUCT",
+  "name": "群聚变形",
+  "desc": "HP一半时变成完全体形态"
+ },
+ {
+  "id": 212,
+  "key": "CORROSION",
+  "name": "腐蚀",
+  "desc": "可使钢毒属性的宝可梦中毒"
+ },
+ {
+  "id": 213,
+  "key": "COMATOSE",
+  "name": "绝对睡眠",
+  "desc": "在半梦半醒的状态下攻击"
+ },
+ {
+  "id": 214,
+  "key": "QUEENLY_MAJESTY",
+  "name": "女王的威严",
+  "desc": "使对手无法使出先制招式"
+ },
+ {
+  "id": 215,
+  "key": "INNARDS_OUT",
+  "name": "飞出的内在物",
+  "desc": "被击倒时造成剩余HP伤害"
+ },
+ {
+  "id": 216,
+  "key": "DANCER",
+  "name": "舞者",
+  "desc": "跟随着其他舞蹈使出舞蹈"
+ },
+ {
+  "id": 217,
+  "key": "BATTERY",
+  "name": "蓄电池",
+  "desc": "提高我方的特殊招式的威力"
+ },
+ {
+  "id": 218,
+  "key": "FLUFFY",
+  "name": "毛茸茸",
+  "desc": "减轻接触伤害，但害怕火伤害"
+ },
+ {
+  "id": 219,
+  "key": "DAZZLING",
+  "name": "鲜艳之躯",
+  "desc": "使对手无法使出先制招式"
+ },
+ {
+  "id": 220,
+  "key": "SOUL_HEART",
+  "name": "魂心",
+  "desc": "有宝可梦昏厥时，特攻会提高"
+ },
+ {
+  "id": 221,
+  "key": "TANGLING_HAIR",
+  "name": "卷发",
+  "desc": "降低接触自己的对手的速度"
+ },
+ {
+  "id": 222,
+  "key": "RECEIVER",
+  "name": "接球手",
+  "desc": "继承被打倒的同伴的特性"
+ },
+ {
+  "id": 223,
+  "key": "POWER_OF_ALCHEMY",
+  "name": "化学之力",
+  "desc": "继承被打倒的同伴的特性"
+ },
+ {
+  "id": 224,
+  "key": "BEAST_BOOST",
+  "name": "异兽提升",
+  "desc": "打倒对手时，提升最高能力"
+ },
+ {
+  "id": 225,
+  "key": "RKS_SYSTEM",
+  "name": "ＡＲ系统",
+  "desc": "根据存储碟改变自己属性"
+ },
+ {
+  "id": 226,
+  "key": "ELECTRIC_SURGE",
+  "name": "电气制造者",
+  "desc": "出场时，会布下电气场地"
+ },
+ {
+  "id": 227,
+  "key": "PSYCHIC_SURGE",
+  "name": "精神制造者",
+  "desc": "出场时，会布下精神场地"
+ },
+ {
+  "id": 228,
+  "key": "MISTY_SURGE",
+  "name": "薄雾制造者",
+  "desc": "出场时，会布下薄雾场地"
+ },
+ {
+  "id": 229,
+  "key": "GRASSY_SURGE",
+  "name": "青草制造者",
+  "desc": "出场时，会布下青草场地"
+ },
+ {
+  "id": 230,
+  "key": "FULL_METAL_BODY",
+  "name": "金属防护",
+  "desc": "不因对手招式特性降低能力"
+ },
+ {
+  "id": 231,
+  "key": "SHADOW_SHIELD",
+  "name": "幻影防守",
+  "desc": "HP全满时减少受到的伤害"
+ },
+ {
+  "id": 232,
+  "key": "PRISM_ARMOR",
+  "name": "棱镜装甲",
+  "desc": "减轻所受效果绝佳的伤害"
+ },
+ {
+  "id": 233,
+  "key": "NEUROFORCE",
+  "name": "脑核之力",
+  "desc": "增强效果绝佳招式的伤害"
+ },
+ {
+  "id": 234,
+  "key": "INTREPID_SWORD",
+  "name": "不挠之剑",
+  "desc": ""
+ },
+ {
+  "id": 235,
+  "key": "DAUNTLESS_SHIELD",
+  "name": "不屈之盾",
+  "desc": ""
+ },
+ {
+  "id": 236,
+  "key": "LIBERO",
+  "name": "自由者",
+  "desc": "一次性变为使出招式的属性"
+ },
+ {
+  "id": 237,
+  "key": "BALL_FETCH",
+  "name": "捡球",
+  "desc": "拾取捕捉失败的精灵球"
+ },
+ {
+  "id": 238,
+  "key": "COTTON_DOWN",
+  "name": "棉絮",
+  "desc": "受攻击降低其他宝可梦速度"
+ },
+ {
+  "id": 239,
+  "key": "PROPELLER_TAIL",
+  "name": "螺旋尾鳍",
+  "desc": "招式不被对手特性招式吸引"
+ },
+ {
+  "id": 240,
+  "key": "MIRROR_ARMOR",
+  "name": "镜甲",
+  "desc": "反弹自己受到的能力降低"
+ },
+ {
+  "id": 241,
+  "key": "GULP_MISSILE",
+  "name": "一口导弹",
+  "desc": "冲浪潜水时会吐出猎物攻击"
+ },
+ {
+  "id": 242,
+  "key": "STALWART",
+  "name": "坚毅",
+  "desc": "招式不被对手特性招式吸引"
+ },
+ {
+  "id": 243,
+  "key": "STEAM_ENGINE",
+  "name": "蒸汽机",
+  "desc": "受水火攻击时速度巨幅提高"
+ },
+ {
+  "id": 244,
+  "key": "PUNK_ROCK",
+  "name": "庞克摇滚",
+  "desc": "强化声音招式并减轻其影响"
+ },
+ {
+  "id": 245,
+  "key": "SAND_SPIT",
+  "name": "吐沙",
+  "desc": "受到攻击时，会刮起沙暴"
+ },
+ {
+  "id": 246,
+  "key": "ICE_SCALES",
+  "name": "冰鳞粉",
+  "desc": "受到的特殊攻击伤害会减半"
+ },
+ {
+  "id": 247,
+  "key": "RIPEN",
+  "name": "熟成",
+  "desc": "使树果成熟，效果变为2倍"
+ },
+ {
+  "id": 248,
+  "key": "ICE_FACE",
+  "name": "结冻头",
+  "desc": ""
+ },
+ {
+  "id": 249,
+  "key": "POWER_SPOT",
+  "name": "能量点",
+  "desc": "相邻宝可梦招式威力会提升"
+ },
+ {
+  "id": 250,
+  "key": "MIMICRY",
+  "name": "拟态",
+  "desc": "属性会根据场地而变化"
+ },
+ {
+  "id": 251,
+  "key": "SCREEN_CLEANER",
+  "name": "除障",
+  "desc": "出场时，消除双方墙壁类效果"
+ },
+ {
+  "id": 252,
+  "key": "STEELY_SPIRIT",
+  "name": "钢之意志",
+  "desc": "我方钢属性攻击威力会提高"
+ },
+ {
+  "id": 253,
+  "key": "PERISH_BODY",
+  "name": "灭亡之躯",
+  "desc": "受接触攻击双方3回合昏厥"
+ },
+ {
+  "id": 254,
+  "key": "WANDERING_SPIRIT",
+  "name": "游魂",
+  "desc": "与接触攻击的宝可梦换特性"
+ },
+ {
+  "id": 255,
+  "key": "GORILLA_TACTICS",
+  "name": "一猩一意",
+  "desc": "攻击提高但只能用最初招式"
+ },
+ {
+  "id": 256,
+  "key": "NEUTRALIZING_GAS",
+  "name": "化学变化气体",
+  "desc": "在场时全场特性消失或无效"
+ },
+ {
+  "id": 257,
+  "key": "PASTEL_VEIL",
+  "name": "粉彩护幕",
+  "desc": "守护己方不会中毒"
+ },
+ {
+  "id": 258,
+  "key": "HUNGER_SWITCH",
+  "name": "饱了又饿",
+  "desc": "每回合结束时交替改变样子"
+ },
+ {
+  "id": 259,
+  "key": "QUICK_DRAW",
+  "name": "速击",
+  "desc": "有时能比对手先一步行动"
+ },
+ {
+  "id": 260,
+  "key": "UNSEEN_FIST",
+  "name": "无形拳",
+  "desc": "接触招式可以无视守护效果"
+ },
+ {
+  "id": 261,
+  "key": "CURIOUS_MEDICINE",
+  "name": "怪药",
+  "desc": "出场时将我方能力变化复原"
+ },
+ {
+  "id": 262,
+  "key": "TRANSISTOR",
+  "name": "电晶体",
+  "desc": "电属性的招式威力会提高"
+ },
+ {
+  "id": 263,
+  "key": "DRAGONS_MAW",
+  "name": "龙颚",
+  "desc": "龙属性的招式威力会提高"
+ },
+ {
+  "id": 264,
+  "key": "CHILLING_NEIGH",
+  "name": "苍白嘶鸣",
+  "desc": "打倒对手时会提高攻击"
+ },
+ {
+  "id": 265,
+  "key": "GRIM_NEIGH",
+  "name": "漆黑嘶鸣",
+  "desc": "打倒对手时会提高特攻"
+ },
+ {
+  "id": 266,
+  "key": "AS_ONE_ICE_RIDER",
+  "name": "合一（冰）",
+  "desc": "兼备紧张感和苍白嘶鸣特性"
+ },
+ {
+  "id": 267,
+  "key": "AS_ONE_SHADOW_RIDER",
+  "name": "合一（幽）",
+  "desc": "兼备紧张感和漆黑嘶鸣特性"
+ },
+ {
+  "id": 268,
+  "key": "LINGERING_AROMA",
+  "name": "甩不掉的气味",
+  "desc": "被接触会沾上甩不掉的气味"
+ },
+ {
+  "id": 269,
+  "key": "SEED_SOWER",
+  "name": "掉出种子",
+  "desc": "受到攻击时会生成青草场地"
+ },
+ {
+  "id": 270,
+  "key": "THERMAL_EXCHANGE",
+  "name": "热交换",
+  "desc": "受火攻击提高攻击，不会灼伤"
+ },
+ {
+  "id": 271,
+  "key": "ANGER_SHELL",
+  "name": "愤怒甲壳",
+  "desc": "受击HP变一半时变得愤怒"
+ },
+ {
+  "id": 272,
+  "key": "PURIFYING_SALT",
+  "name": "洁净之盐",
+  "desc": "免疫异常，减轻幽灵伤害"
+ },
+ {
+  "id": 273,
+  "key": "WELL_BAKED_BODY",
+  "name": "焦香之躯",
+  "desc": "免疫火招式并大幅提升防御"
+ },
+ {
+  "id": 274,
+  "key": "WIND_RIDER",
+  "name": "乘风",
+  "desc": "免疫风招式，顺风时提高攻击"
+ },
+ {
+  "id": 275,
+  "key": "GUARD_DOG",
+  "name": "看门犬",
+  "desc": "使对方无法替换并免疫威吓"
+ },
+ {
+  "id": 276,
+  "key": "ROCKY_PAYLOAD",
+  "name": "搬岩",
+  "desc": "岩石属性的招式威力会提高"
+ },
+ {
+  "id": 277,
+  "key": "WIND_POWER",
+  "name": "风力发电",
+  "desc": "受风招式时会变为充电状态"
+ },
+ {
+  "id": 278,
+  "key": "ZERO_TO_HERO",
+  "name": "全能变身",
+  "desc": "换下后会变为全能形态"
+ },
+ {
+  "id": 279,
+  "key": "COMMANDER",
+  "name": "发号施令",
+  "desc": "进入吃吼霸口中发出指令"
+ },
+ {
+  "id": 280,
+  "key": "ELECTROMORPHOSIS",
+  "name": "电力转换",
+  "desc": "受到伤害时，会变为充电状态"
+ },
+ {
+  "id": 281,
+  "key": "PROTOSYNTHESIS",
+  "name": "古代活性",
+  "desc": "晴天时提升最高能力"
+ },
+ {
+  "id": 282,
+  "key": "QUARK_DRIVE",
+  "name": "夸克充能",
+  "desc": "电气场地上提升最高能力"
+ },
+ {
+  "id": 283,
+  "key": "GOOD_AS_GOLD",
+  "name": "黄金之躯",
+  "desc": "不会受到变化招式的影响"
+ },
+ {
+  "id": 284,
+  "key": "VESSEL_OF_RUIN",
+  "name": "灾祸之鼎",
+  "desc": "降低其他的宝可梦的特攻"
+ },
+ {
+  "id": 285,
+  "key": "SWORD_OF_RUIN",
+  "name": "灾祸之剑",
+  "desc": "降低其他的宝可梦的防御"
+ },
+ {
+  "id": 286,
+  "key": "TABLETS_OF_RUIN",
+  "name": "灾祸之简",
+  "desc": "降低其他的宝可梦的攻击"
+ },
+ {
+  "id": 287,
+  "key": "BEADS_OF_RUIN",
+  "name": "灾祸之玉",
+  "desc": "降低其他的宝可梦的特防"
+ },
+ {
+  "id": 288,
+  "key": "ORICHALCUM_PULSE",
+  "name": "绯红脉动",
+  "desc": "造成晴天，在晴天下提升攻击"
+ },
+ {
+  "id": 289,
+  "key": "HADRON_ENGINE",
+  "name": "强子引擎",
+  "desc": "生成电场，在电场上提升特攻"
+ },
+ {
+  "id": 290,
+  "key": "OPPORTUNIST",
+  "name": "跟风",
+  "desc": "跟随对手趁机同样提高能力"
+ },
+ {
+  "id": 291,
+  "key": "CUD_CHEW",
+  "name": "反刍",
+  "desc": "吃树果后会反刍再吃1次"
+ },
+ {
+  "id": 292,
+  "key": "SHARPNESS",
+  "name": "锋锐",
+  "desc": "提高切割对手的招式的威力"
+ },
+ {
+  "id": 293,
+  "key": "SUPREME_OVERLORD",
+  "name": "大将",
+  "desc": "按被打倒数提升攻击特攻"
+ },
+ {
+  "id": 294,
+  "key": "COSTAR",
+  "name": "同台共演",
+  "desc": "出场时，复制同伴的能力变化"
+ },
+ {
+  "id": 295,
+  "key": "TOXIC_DEBRIS",
+  "name": "毒满地",
+  "desc": "受物理伤害时，会散布毒菱"
+ },
+ {
+  "id": 296,
+  "key": "ARMOR_TAIL",
+  "name": "尾甲",
+  "desc": "使对手无法使出先制招式"
+ },
+ {
+  "id": 297,
+  "key": "EARTH_EATER",
+  "name": "食土",
+  "desc": "受到地面属性攻击时会回复"
+ },
+ {
+  "id": 298,
+  "key": "MYCELIUM_MIGHT",
+  "name": "菌丝之力",
+  "desc": "变化招式变慢，但无视特性"
+ },
+ {
+  "id": 299,
+  "key": "HOSPITALITY",
+  "name": "款待",
+  "desc": "出场时回复同伴少量HP"
+ },
+ {
+  "id": 300,
+  "key": "MINDS_EYE",
+  "name": "心眼",
+  "desc": "兼具胆量以及锐利目光特性"
+ },
+ {
+  "id": 301,
+  "key": "EMBODY_ASPECT_TEAL_MASK",
+  "name": "面影辉映",
+  "desc": "将回忆铭记，提高自己的速度"
+ },
+ {
+  "id": 302,
+  "key": "EMBODY_ASPECT_HEARTHFLAME_MASK",
+  "name": "面影辉映",
+  "desc": "将回忆铭记，提高自己的攻击"
+ },
+ {
+  "id": 303,
+  "key": "EMBODY_ASPECT_WELLSPRING_MASK",
+  "name": "面影辉映",
+  "desc": "将回忆铭记，提高自己的特防"
+ },
+ {
+  "id": 304,
+  "key": "EMBODY_ASPECT_CORNERSTONE_MASK",
+  "name": "面影辉映",
+  "desc": "将回忆铭记，提高自己的防御"
+ },
+ {
+  "id": 305,
+  "key": "TOXIC_CHAIN",
+  "name": "毒锁链",
+  "desc": "有时能让击中对手陷入剧毒"
+ },
+ {
+  "id": 306,
+  "key": "SUPERSWEET_SYRUP",
+  "name": "甘露之蜜",
+  "desc": "首次出场时降低对手闪避率"
+ },
+ {
+  "id": 307,
+  "key": "TERA_SHIFT",
+  "name": "太晶变形",
+  "desc": "出场时，会变为太晶形态"
+ },
+ {
+  "id": 308,
+  "key": "TERA_SHELL",
+  "name": "太晶甲壳",
+  "desc": "HP全满时抵抗所有属性"
+ },
+ {
+  "id": 309,
+  "key": "TERAFORM_ZERO",
+  "name": "归零化境",
+  "desc": "会将天气场地影响全部归零"
+ },
+ {
+  "id": 310,
+  "key": "POISON_PUPPETEER",
+  "name": "毒傀儡",
+  "desc": "因其招式而中毒时会混乱"
+ },
+ {
+  "id": 311,
+  "key": "PIERCING_DRILL",
+  "name": "贯穿钻",
+  "desc": "Contact evades protection."
+ },
+ {
+  "id": 312,
+  "key": "DRAGONIZE",
+  "name": "龙皮肤",
+  "desc": "Normal moves turn Dragon."
+ },
+ {
+  "id": 313,
+  "key": "EELEVATE",
+  "name": "电气浮游",
+  "desc": "Levitate and Beast Boost."
+ },
+ {
+  "id": 314,
+  "key": "314",
+  "name": "无",
+  "desc": "No special ability."
+ },
+ {
+  "id": 315,
+  "key": "MEGA_SOL",
+  "name": "超级日光",
+  "desc": "Acts like under sun."
+ },
+ {
+  "id": 316,
+  "key": "FIRE_MANE",
+  "name": "炎之鬃",
+  "desc": "Ups Fire-type moves."
+ },
+ {
+  "id": 317,
+  "key": "317",
+  "name": "无",
+  "desc": "No special ability."
+ },
+ {
+  "id": 318,
+  "key": "SPICY_SPRAY",
+  "name": "辣椒喷发",
+  "desc": "Burns the foe when damaged."
+ },
+ {
+  "id": 319,
+  "key": "AURA_GUARD",
+  "name": "气场防守",
+  "desc": "Unimplemented."
+ }
+]

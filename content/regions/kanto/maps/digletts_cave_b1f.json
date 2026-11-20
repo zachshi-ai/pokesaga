@@ -1,0 +1,48 @@
+{
+ "name": "关都·地鼠洞·b1f",
+ "emerald": "digletts_cave_b1f",
+ "size": [
+  85,
+  80
+ ],
+ "spawn": [
+  3,
+  3
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    3,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "digletts_cave_north_entrance",
+    "at": [
+     6,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    82,
+    71
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "digletts_cave_south_entrance",
+    "at": [
+     6,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

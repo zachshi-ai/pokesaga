@@ -1,0 +1,178 @@
+{
+ "name": "房间",
+ "emerald": "johto_wise_trios_room",
+ "size": [
+  4,
+  4
+ ],
+ "spawn": [
+  2,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    1
+   ],
+   "name": "和尚 Koji",
+   "gfx": "old_man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 32,
+      "species": 164
+     },
+     {
+      "level": 32,
+      "species": 134
+     }
+    ]
+   },
+   "trainer": "SageKoji"
+  },
+  {
+   "at": [
+    3,
+    3
+   ],
+   "name": "和尚",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    1
+   ],
+   "name": "和尚 Gaku",
+   "gfx": "old_man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 32,
+      "species": 164
+     },
+     {
+      "level": 32,
+      "species": 136
+     }
+    ]
+   },
+   "trainer": "SageGaku"
+  },
+  {
+   "at": [
+    1,
+    0
+   ],
+   "name": "和尚",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "name": "和尚 Masa",
+   "gfx": "old_man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 32,
+      "species": 164
+     },
+     {
+      "level": 32,
+      "species": 135
+     }
+    ]
+   },
+   "trainer": "SageMasa"
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "name": "和尚",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ecruteak_city",
+    "at": [
+     10,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ecruteak_city",
+    "at": [
+     10,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ecruteak_tin_tower_entrance",
+    "at": [
+     3,
+     1
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

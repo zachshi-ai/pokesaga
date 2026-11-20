@@ -1,0 +1,219 @@
+{
+ "name": "七号岛·训练家塔",
+ "emerald": "seven_island_trainer_tower",
+ "size": [
+  120,
+  40
+ ],
+ "spawn": [
+  58,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    56,
+    26
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你从关都来的吧。",
+    "有事就喊。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    56,
+    29
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "岛上没什么人，安静。",
+    "有事就喊。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    56,
+    26
+   ],
+   "name": "Psychic 的 DARIO",
+   "gfx": "man",
+   "lines": [
+    "我感觉到了你在靠近。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PSYCHIC_DARIO",
+    "party": [
+     {
+      "species": 203,
+      "level": 52
+     }
+    ],
+    "name": "DARIO",
+    "class": "Psychic"
+   },
+   "post": [
+    "我感觉到在你的未来，\n你将会遇到许多人。\n你们会被一股奇异的力量\n互相联系在一起。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    56,
+    29
+   ],
+   "name": "Psychic 的 RODETTE",
+   "gfx": "man",
+   "lines": [
+    "在这座岛上某个地方，\n有特别的宝可梦正在沉睡。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PSYCHIC_RODETTE",
+    "party": [
+     {
+      "species": 177,
+      "level": 48
+     },
+     {
+      "species": 96,
+      "level": 48
+     },
+     {
+      "species": 97,
+      "level": 50
+     }
+    ],
+    "name": "RODETTE",
+    "class": "Psychic"
+   },
+   "post": [
+    "在这座岛上某个地方，\n有特别的宝可梦正在沉睡。p难道它们在等你？"
+   ],
+   "sight": 1
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    58,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "trainer_tower_lobby",
+    "at": [
+     9,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    39
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island",
+    "at": [
+     7,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    39
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island",
+    "at": [
+     8,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    39
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island",
+    "at": [
+     9,
+     0
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    49,
+    27
+   ],
+   "kind": "hidden",
+   "item": "ITEM_BIG_PEARL",
+   "name": "大珍珠",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SEVEN_ISLAND_TRAINER_TOWER_BIG_PEARL",
+   "count": 1
+  },
+  {
+   "at": [
+    47,
+    30
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PEARL",
+   "name": "珍珠",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SEVEN_ISLAND_TRAINER_TOWER_PEARL",
+   "count": 1
+  },
+  {
+   "at": [
+    59,
+    32
+   ],
+   "kind": "hidden",
+   "item": "ITEM_NANAB_BERRY",
+   "name": "蕉香果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_SEVEN_ISLAND_TRAINER_TOWER_NANAB_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    56,
+    8
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "训练家之塔入口\n上去挑战，训练家！"
+  },
+  {
+   "at": [
+    50,
+    30
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "前方是训练家之塔"
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

@@ -1,0 +1,390 @@
+{
+ "name": "27 号道路",
+ "emerald": "johto_route_27",
+ "size": [
+  40,
+  9
+ ],
+ "spawn": [
+  19,
+  3
+ ],
+ "npcs": [
+  {
+   "at": [
+    24,
+    3
+   ],
+   "name": "训练家 Blake",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 33,
+      "species": 82,
+      "moves": [
+       85,
+       48,
+       129,
+       103
+      ]
+     },
+     {
+      "level": 31,
+      "species": 195,
+      "moves": [
+       55,
+       21,
+       133,
+       89
+      ]
+     },
+     {
+      "level": 31,
+      "species": 102,
+      "moves": [
+       73,
+       93,
+       79,
+       76
+      ]
+     }
+    ]
+   },
+   "trainer": "CooltrainerMBlake"
+  },
+  {
+   "at": [
+    28,
+    3
+   ],
+   "name": "训练家 Brian",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 35,
+      "species": 28,
+      "moves": [
+       28,
+       40,
+       163,
+       129
+      ]
+     }
+    ]
+   },
+   "trainer": "CooltrainerMBrian"
+  },
+  {
+   "at": [
+    37,
+    3
+   ],
+   "name": "训练家 Reena",
+   "gfx": "teala",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 31,
+      "species": 121
+     },
+     {
+      "level": 33,
+      "species": 31
+     },
+     {
+      "level": 31,
+      "species": 121
+     }
+    ]
+   },
+   "trainer": "CooltrainerFReena"
+  },
+  {
+   "at": [
+    35,
+    2
+   ],
+   "name": "超能力者 Gilbert",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 30,
+      "species": 121
+     },
+     {
+      "level": 30,
+      "species": 102
+     },
+     {
+      "level": 34,
+      "species": 203
+     }
+    ]
+   },
+   "trainer": "PsychicGilbert"
+  },
+  {
+   "at": [
+    29,
+    6
+   ],
+   "name": "养鸟人 Jose",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 36,
+      "species": 83
+     }
+    ]
+   },
+   "trainer": "BirdKeeperJose"
+  },
+  {
+   "at": [
+    30,
+    6
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    26,
+    6
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    5
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    16,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_27_sandstorm_house",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_tohjo_falls",
+    "at": [
+     6,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_tohjo_falls",
+    "at": [
+     7,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_new_bark_town",
+    "at": [
+     8,
+     3
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_new_bark_town",
+    "at": [
+     8,
+     4
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    39,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_26",
+    "at": [
+     1,
+     47
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    39,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_26",
+    "at": [
+     1,
+     48
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    39,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_26",
+    "at": [
+     1,
+     50
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    39,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_26",
+    "at": [
+     0,
+     50
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    39,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_26",
+    "at": [
+     0,
+     50
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    39,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_26",
+    "at": [
+     0,
+     50
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    12,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "27 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

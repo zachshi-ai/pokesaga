@@ -1,0 +1,390 @@
+{
+ "name": "六号岛·孤岛",
+ "emerald": "six_island_outcast_island",
+ "size": [
+  24,
+  80
+ ],
+ "spawn": [
+  7,
+  21
+ ],
+ "npcs": [
+  {
+   "at": [
+    9,
+    24
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "火种这条路不太好走。",
+    "有事就喊。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    15
+   ],
+   "name": "岛民",
+   "gfx": "sailor",
+   "lines": [
+    "我们这儿靠打鱼过活。",
+    "有事就喊。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    34
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你要去山上是吧。",
+    "有事就喊。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    61
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "太阳落山就起雾。",
+    "有事就喊。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    44
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "有事问船夫。",
+    "有事就喊。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    44
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这座岛上的风是咸的。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    15
+   ],
+   "name": "Fisherman 的 TYLOR",
+   "gfx": "sailor",
+   "lines": [
+    "我一点也没有好运气。\n一场战斗没准能改变现状。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_FISHERMAN_TYLOR",
+    "party": [
+     {
+      "species": 211,
+      "level": 49
+     },
+     {
+      "species": 211,
+      "level": 49
+     }
+    ],
+    "name": "TYLOR",
+    "class": "Fisherman"
+   },
+   "post": [
+    "没收服珍贵的宝可梦前，\n我不甘心就这样回去。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    13,
+    34
+   ],
+   "name": "Swimmer M 的 MYMO",
+   "gfx": "man",
+   "lines": [
+    "呼……呼……\n我一口气从六之岛港口\n游到了这儿。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_MYMO",
+    "party": [
+     {
+      "species": 99,
+      "level": 49
+     },
+     {
+      "species": 8,
+      "level": 49
+     }
+    ],
+    "name": "MYMO",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "我只是游了一部分的路程……\n我被打败了……"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    14,
+    61
+   ],
+   "name": "Swimmer F 的 NICOLE",
+   "gfx": "man",
+   "lines": [
+    "在游泳时把宝可梦放出去\n不是那么简单的，你知道吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_FEMALE_NICOLE",
+    "party": [
+     {
+      "species": 183,
+      "level": 50
+     }
+    ],
+    "name": "NICOLE",
+    "class": "Swimmer F"
+   },
+   "post": [
+    "你是为了前往上面的岛屿\n而路过这儿吗？\n我在那儿没有见到\n任何有趣的东西。"
+   ],
+   "sight": 1
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    21
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_altering_cave",
+    "at": [
+     18,
+     22
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     2,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     3,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     4,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     5,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     6,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     9,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     10,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     11,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     17,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    20,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     20,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    21,
+    79
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     21,
+     0
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    11,
+    16
+   ],
+   "kind": "item",
+   "item": "ITEM_PP_UP",
+   "name": "PP 提升剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    16,
+    23
+   ],
+   "kind": "hidden",
+   "item": "ITEM_STAR_PIECE",
+   "name": "星之碎片",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SIX_ISLAND_OUTCAST_ISLAND_STAR_PIECE",
+   "count": 1
+  },
+  {
+   "at": [
+    6,
+    24
+   ],
+   "kind": "hidden",
+   "item": "ITEM_NET_BALL",
+   "name": "捕网球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_SIX_ISLAND_OUTCAST_ISLAND_NET_BALL",
+   "count": 1
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

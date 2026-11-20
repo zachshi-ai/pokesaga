@@ -1,0 +1,345 @@
+{
+ "name": "桔梗市",
+ "emerald": "johto_violet_city",
+ "size": [
+  20,
+  18
+ ],
+ "spawn": [
+  10,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    8
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    14
+   ],
+   "name": "少女",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    7
+   ],
+   "name": "理科男",
+   "gfx": "scientist",
+   "lines": [
+    "研究数据是不会骗人的。",
+    "宝可梦的行为比人想的复杂得多。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    10
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    9
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    14
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    0
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    17,
+    2
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_violet_mart",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_violet_gym",
+    "at": [
+     2,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    15,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_earls_pokemon_academy",
+    "at": [
+     1,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_violet_nickname_speech_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    15,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_violet_pokecenter_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_violet_kyles_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_sprout_tower_1f",
+    "at": [
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_31_violet_gate",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_31_violet_gate",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_32",
+    "at": [
+     7,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_36",
+    "at": [
+     28,
+     4
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    12,
+    10
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "桔梗市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    7,
+    8
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "桔梗市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    12,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "桔梗市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    13,
+    8
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "桔梗市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    18,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "桔梗市\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 60,
+   "min": 20,
+   "max": 20,
+   "weight": 60
+  },
+  {
+   "species": 60,
+   "min": 15,
+   "max": 15,
+   "weight": 30
+  },
+  {
+   "species": 61,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.02
+}

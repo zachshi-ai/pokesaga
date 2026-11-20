@@ -1,0 +1,48 @@
+{
+ "name": "七之岛·肚脐岩 底层 FRLG",
+ "emerald": "navel_rock_base_frlg",
+ "size": [
+  21,
+  23
+ ],
+ "spawn": [
+  13,
+  20
+ ],
+ "npcs": [
+  {
+   "at": [
+    10,
+    15
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你要去山上是吧。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    13,
+    20
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "navel_rock_base_path_b11f",
+    "at": [
+     4,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

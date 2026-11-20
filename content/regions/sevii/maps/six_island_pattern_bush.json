@@ -1,0 +1,334 @@
+{
+ "name": "六号岛·花纹草丛",
+ "emerald": "six_island_pattern_bush",
+ "size": [
+  60,
+  32
+ ],
+ "spawn": [
+  55,
+  26
+ ],
+ "npcs": [
+  {
+   "at": [
+    48,
+    15
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "船一天只来两趟。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "你从关都来的吧。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    51,
+    6
+   ],
+   "name": "岛民",
+   "gfx": "bug_catcher",
+   "lines": [
+    "岛上没什么人，安静。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    13
+   ],
+   "name": "岛民",
+   "gfx": "bug_catcher",
+   "lines": [
+    "往北走有条小路。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    37,
+    23
+   ],
+   "name": "岛民",
+   "gfx": "bug_catcher",
+   "lines": [
+    "听说洞里藏着东西。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    32,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这里的果子比别处甜。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    52,
+    20
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我在这住了大半辈子。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    21
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "夏天的游客最多。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    39,
+    6
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "别在礁石上乱跑。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    9
+   ],
+   "name": "岛民",
+   "gfx": "camper",
+   "lines": [
+    "遗迹那边不让人进。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    19,
+    24
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "海面今天很平。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    30,
+    19
+   ],
+   "name": "岛民",
+   "gfx": "hiker",
+   "lines": [
+    "码头那位脾气怪。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    54,
+    26
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     63,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    55,
+    26
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     63,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    56,
+    26
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     64,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    26
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     45,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    26
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     45,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    26
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     46,
+     10
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 167,
+   "min": 9,
+   "max": 9,
+   "weight": 20
+  },
+  {
+   "species": 14,
+   "min": 9,
+   "max": 9,
+   "weight": 20
+  },
+  {
+   "species": 167,
+   "min": 14,
+   "max": 14,
+   "weight": 10
+  },
+  {
+   "species": 10,
+   "min": 6,
+   "max": 6,
+   "weight": 10
+  },
+  {
+   "species": 13,
+   "min": 6,
+   "max": 6,
+   "weight": 10
+  },
+  {
+   "species": 214,
+   "min": 15,
+   "max": 15,
+   "weight": 10
+  },
+  {
+   "species": 11,
+   "min": 9,
+   "max": 9,
+   "weight": 5
+  },
+  {
+   "species": 214,
+   "min": 20,
+   "max": 20,
+   "weight": 5
+  },
+  {
+   "species": 165,
+   "min": 9,
+   "max": 9,
+   "weight": 4
+  },
+  {
+   "species": 214,
+   "min": 25,
+   "max": 25,
+   "weight": 4
+  },
+  {
+   "species": 165,
+   "min": 14,
+   "max": 14,
+   "weight": 1
+  },
+  {
+   "species": 214,
+   "min": 30,
+   "max": 30,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

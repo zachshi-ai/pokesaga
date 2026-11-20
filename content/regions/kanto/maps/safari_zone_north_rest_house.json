@@ -1,0 +1,111 @@
+{
+ "name": "关都·狩猎区·north rest house",
+ "emerald": "safari_zone_rest_house_frlg",
+ "size": [
+  13,
+  11
+ ],
+ "spawn": [
+  3,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我把钥匙忘在楼上了。",
+    "这个我不太清楚。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    5
+   ],
+   "name": "居民",
+   "gfx": "scientist",
+   "lines": [
+    "别弄乱我的书架。",
+    "这个我不太清楚。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "居民",
+   "gfx": "sailor",
+   "lines": [
+    "客人不多，坐吧。",
+    "这个我不太清楚。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "这条街我住了几十年。",
+    "问别人吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     43,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     43,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     43,
+     8
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

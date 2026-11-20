@@ -1,0 +1,87 @@
+{
+ "name": "二号岛·joyful game corner",
+ "emerald": "two_island_joyful_game_corner",
+ "size": [
+  12,
+  10
+ ],
+ "spawn": [
+  5,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "太阳落山就起雾。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "有事问船夫。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "这座岛上的风是咸的。",
+    "路上小心。",
+    "船一天只来两趟。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "船一天只来两趟。",
+    "路上小心。",
+    "船一天只来两趟。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island",
+    "at": [
+     39,
+     9
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

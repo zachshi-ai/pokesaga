@@ -1,0 +1,102 @@
+{
+ "name": "关都·华蓝市·友好商店",
+ "emerald": "mart_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    3
+   ],
+   "gfx": "clerk",
+   "name": "店员",
+   "lines": [
+    "我在等一个朋友。",
+    "我这只跟了我三年。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    2
+   ],
+   "gfx": "lass",
+   "name": "大姐",
+   "lines": [
+    "天气一热，宝可梦就懒。",
+    "我这只跟了我三年。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    7
+   ],
+   "gfx": "youngster",
+   "name": "短裤小子",
+   "lines": [
+    "南边的路正在修。",
+    "我这只跟了我三年。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     293,
+     68
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     293,
+     68
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     293,
+     68
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

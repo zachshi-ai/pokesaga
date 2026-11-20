@@ -1,0 +1,678 @@
+{
+ "name": "湛蓝市",
+ "emerald": "johto_cianwood_city",
+ "size": [
+  15,
+  27
+ ],
+ "spawn": [
+  6,
+  14
+ ],
+ "npcs": [
+  {
+   "at": [
+    10,
+    18
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    16
+   ],
+   "name": "宝可梦迷",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    21
+   ],
+   "name": "少女",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    7
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    12
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    14
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    13
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    9
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    23
+   ],
+   "name": "宝可梦迷",
+   "gfx": "old_woman",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    10
+   ],
+   "name": "理科男",
+   "gfx": "scientist",
+   "lines": [
+    "研究数据是不会骗人的。",
+    "宝可梦的行为比人想的复杂得多。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    8,
+    20
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_manias_house",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    21
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cianwood_gym",
+    "at": [
+     2,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    21
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cianwood_pokecenter_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    23
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cianwood_pharmacy",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cianwood_photo_studio",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    18
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cianwood_lugia_speech_house",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_poke_seers_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     3,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     3,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     3,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     3,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     2,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     2,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     3,
+     8
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    11
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     3,
+     8
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     4,
+     9
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     4,
+     9
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     4,
+     17
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     4,
+     17
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    16
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     4,
+     17
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     4,
+     17
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    18
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     4,
+     17
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    19
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     4,
+     17
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    20
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     4,
+     17
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    21
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     4,
+     19
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    22
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_41",
+    "at": [
+     4,
+     19
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    10,
+    17
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "湛蓝市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    3,
+    22
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "湛蓝市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    9,
+    23
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "湛蓝市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    4,
+    16
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "湛蓝市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    4,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "湛蓝市\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 72,
+   "min": 20,
+   "max": 20,
+   "weight": 60
+  },
+  {
+   "species": 72,
+   "min": 15,
+   "max": 15,
+   "weight": 30
+  },
+  {
+   "species": 73,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.06
+}

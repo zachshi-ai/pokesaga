@@ -1,0 +1,90 @@
+{
+ "name": "关都·金黄·模仿少女之家 2F",
+ "emerald": "saffron_city_copycats_house_2f",
+ "size": [
+  12,
+  9
+ ],
+ "spawn": [
+  10,
+  3
+ ],
+ "npcs": [
+  {
+   "at": [
+    9,
+    6
+   ],
+   "name": "模仿少女",
+   "gfx": "lass",
+   "lines": [
+    "你会模仿宝可梦的叫声吗？",
+    "『皮卡皮——』……像不像？"
+   ]
+  },
+  {
+   "at": [
+    4,
+    6
+   ],
+   "name": "皮卡丘",
+   "gfx": "youngster",
+   "lines": [
+    "皮卡皮卡！"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    10,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_copycats_house_1f",
+    "at": [
+     10,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    1,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "……\n我的秘密！\n我的特长：模仿！\n我的爱好：收集玩偶！我最喜欢的宝可梦：皮皮！"
+  },
+  {
+   "at": [
+    3,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "游戏里马力欧\n正在用头顶蘑菇！"
+  },
+  {
+   "at": [
+    2,
+    1
+   ],
+   "kind": "hidden",
+   "item": "ITEM_NUGGET",
+   "name": "金珠",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SAFFRON_CITY_COPYCATS_HOUSE_2F_NUGGET",
+   "count": 1
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

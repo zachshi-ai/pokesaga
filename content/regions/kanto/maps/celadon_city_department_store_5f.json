@@ -1,0 +1,122 @@
+{
+ "name": "关都·玉虹市·百货 5F",
+ "emerald": "celadon_city_department_store_5f",
+ "size": [
+  13,
+  15
+ ],
+ "spawn": [
+  6,
+  1
+ ],
+ "npcs": [
+  {
+   "at": [
+    11,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我刚从医院回来。",
+    "慢走。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    8
+   ],
+   "name": "居民",
+   "gfx": "sailor",
+   "lines": [
+    "风一吹就想起小时候。",
+    "慢走。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    7
+   ],
+   "name": "居民",
+   "gfx": "clerk",
+   "lines": [
+    "屋里比外面暖和。",
+    "慢走。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "name": "居民",
+   "gfx": "clerk",
+   "lines": [
+    "这楼里的电梯总在修。",
+    "慢走。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    9,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_department_store_4f",
+    "at": [
+     9,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_department_store_roof",
+    "at": [
+     15,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    1
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_department_store_elevator",
+    "at": [
+     4,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    8,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一楼：服务台"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

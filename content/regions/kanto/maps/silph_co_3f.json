@@ -1,0 +1,234 @@
+{
+ "name": "关都·silph·co·3f",
+ "emerald": "silph_co_3f",
+ "size": [
+  36,
+  22
+ ],
+ "spawn": [
+  28,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    25,
+    9
+   ],
+   "name": "火箭队手下",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "这里被我们接管了。",
+    "想上去？先过我这关。",
+    "别碰那些机器。"
+   ]
+  },
+  {
+   "at": [
+    31,
+    13
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "楼梯绕得人头晕。",
+    "电梯要先拿到卡。",
+    "这楼高得看不到顶。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    12
+   ],
+   "name": "研究员",
+   "gfx": "scientist",
+   "lines": [
+    "样本别乱碰。",
+    "这层的实验还没做完。",
+    "楼下的大厅很气派。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    28,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_2f",
+    "at": [
+     28,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_5f",
+    "at": [
+     15,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_7f",
+    "at": [
+     5,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    30,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_4f",
+    "at": [
+     30,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_9f",
+    "at": [
+     9,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    20
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_5f",
+    "at": [
+     2,
+     20
+    ]
+   }
+  },
+  {
+   "at": [
+    29,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_3f",
+    "at": [
+     32,
+     20
+    ]
+   }
+  },
+  {
+   "at": [
+    32,
+    20
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_3f",
+    "at": [
+     29,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    33,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_2f",
+    "at": [
+     2,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    22,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_elevator",
+    "at": [
+     2,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    8,
+    10
+   ],
+   "kind": "item",
+   "item": "ITEM_HYPER_POTION",
+   "name": "厉害伤药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    34,
+    18
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PROTEIN",
+   "name": "攻击增强剂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_3F_PROTEIN",
+   "count": 1
+  },
+  {
+   "at": [
+    29,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "西尔佛公司总部\n2层"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

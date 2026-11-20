@@ -1,0 +1,949 @@
+{
+ "name": "六号岛·水路",
+ "emerald": "six_island_water_path",
+ "size": [
+  24,
+  100
+ ],
+ "spawn": [
+  5,
+  13
+ ],
+ "npcs": [
+  {
+   "at": [
+    12,
+    13
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "我在这住了大半辈子。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    52
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "夏天的游客最多。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    35
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "别在礁石上乱跑。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    45
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "遗迹那边不让人进。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    21
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "海面今天很平。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    21
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "码头那位脾气怪。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    76
+   ],
+   "name": "岛民",
+   "gfx": "hiker",
+   "lines": [
+    "我养了三只宝可梦。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    13
+   ],
+   "name": "Aroma Lady 的 ROSE",
+   "gfx": "man",
+   "lines": [
+    "我被一阵令人愉快的微风\n一路带到了这儿。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_AROMA_LADY_ROSE",
+    "party": [
+     {
+      "species": 191,
+      "level": 49
+     },
+     {
+      "species": 192,
+      "level": 49
+     }
+    ],
+    "name": "ROSE",
+    "class": "Aroma Lady"
+   },
+   "post": [
+    "我想去那边的森林，\n但是……\n那儿有许多虫属性宝可梦。\n我有点儿害怕。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    11,
+    52
+   ],
+   "name": "Juggler 的 EDWARD",
+   "gfx": "man",
+   "lines": [
+    "我正在秘密地练习，\n所以没有人能看见我。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_JUGGLER_EDWARD",
+    "party": [
+     {
+      "species": 100,
+      "level": 46
+     },
+     {
+      "species": 100,
+      "level": 46
+     },
+     {
+      "species": 101,
+      "level": 47
+     },
+     {
+      "species": 122,
+      "level": 48
+     }
+    ],
+    "name": "EDWARD",
+    "class": "Juggler"
+   },
+   "post": [
+    "最为一个演员，\n我不想让人知道我付出的努力。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    13,
+    35
+   ],
+   "name": "Swimmer M 的 SAMIR",
+   "gfx": "man",
+   "lines": [
+    "什么，你的意思是你讨厌\n看到像我这样的游泳的人？\n啊，不要这样！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_SAMIR",
+    "party": [
+     {
+      "species": 130,
+      "level": 50
+     }
+    ],
+    "name": "SAMIR",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "我无法消除一个游泳的人\n的耻辱……"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    15,
+    45
+   ],
+   "name": "Swimmer F 的 DENISE",
+   "gfx": "man",
+   "lines": [
+    "我男朋友总是很忙，\n所以我自己出来游泳了。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_FEMALE_DENISE",
+    "party": [
+     {
+      "species": 170,
+      "level": 49
+     },
+     {
+      "species": 171,
+      "level": 49
+     }
+    ],
+    "name": "DENISE",
+    "class": "Swimmer F"
+   },
+   "post": [
+    "当我不能和我男朋友在一起时，\n我就和他给我的宝可梦一起度过一个人的时光。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    11,
+    76
+   ],
+   "name": "Hiker 的 EARL",
+   "gfx": "hiker",
+   "lines": [
+    "告诉我，这周围哪里有山？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_HIKER_EARL",
+    "party": [
+     {
+      "species": 95,
+      "level": 49
+     },
+     {
+      "species": 67,
+      "level": 49
+     }
+    ],
+    "name": "EARL",
+    "class": "Hiker"
+   },
+   "post": [
+    "这周围没有山吗？"
+   ],
+   "sight": 4
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path_house1",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path_house2",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     23,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    18
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     23,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     23,
+     16
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    22
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     23,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    1
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    14
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    18
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     23,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    14
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     23,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    14
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_ruin_valley",
+    "at": [
+     47,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     23,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    15
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     23,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    17
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     23,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    20
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     23,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    21
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     23,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    23
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     23,
+     20
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    2
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    4
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    15
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    17
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_green_path",
+    "at": [
+     71,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     23,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     23,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_ruin_valley",
+    "at": [
+     47,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    15
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_ruin_valley",
+    "at": [
+     47,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    17
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_ruin_valley",
+    "at": [
+     47,
+     12
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 21,
+   "min": 44,
+   "max": 44,
+   "weight": 20
+  },
+  {
+   "species": 161,
+   "min": 10,
+   "max": 10,
+   "weight": 20
+  },
+  {
+   "species": 43,
+   "min": 44,
+   "max": 44,
+   "weight": 10
+  },
+  {
+   "species": 22,
+   "min": 48,
+   "max": 48,
+   "weight": 10
+  },
+  {
+   "species": 161,
+   "min": 15,
+   "max": 15,
+   "weight": 10
+  },
+  {
+   "species": 52,
+   "min": 41,
+   "max": 41,
+   "weight": 10
+  },
+  {
+   "species": 44,
+   "min": 48,
+   "max": 48,
+   "weight": 5
+  },
+  {
+   "species": 54,
+   "min": 41,
+   "max": 41,
+   "weight": 5
+  },
+  {
+   "species": 22,
+   "min": 50,
+   "max": 50,
+   "weight": 4
+  },
+  {
+   "species": 53,
+   "min": 47,
+   "max": 47,
+   "weight": 4
+  },
+  {
+   "species": 22,
+   "min": 50,
+   "max": 50,
+   "weight": 1
+  },
+  {
+   "species": 53,
+   "min": 50,
+   "max": 50,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "objects": [
+  {
+   "at": [
+    17,
+    19
+   ],
+   "kind": "item",
+   "item": "ITEM_ELIXIR",
+   "name": "PP 多项小补剂",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    17,
+    87
+   ],
+   "kind": "item",
+   "item": "ITEM_DRAGON_SCALE",
+   "name": "ITEM_DRAGON_SCALE",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    8,
+    14
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "通缉！\n最后的警报！"
+  },
+  {
+   "at": [
+    15,
+    76
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ASPEAR_BERRY",
+   "name": "利木果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_SIX_ISLAND_WATER_PATH_ASPEAR_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    3,
+    8
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ORAN_BERRY",
+   "name": "橙橙果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_SIX_ISLAND_WATER_PATH_ORAN_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    13,
+    63
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PINAP_BERRY",
+   "name": "凰梨果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_SIX_ISLAND_WATER_PATH_PINAP_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    12,
+    54
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "水之步道\n通往遗迹山谷"
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

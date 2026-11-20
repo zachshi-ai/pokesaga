@@ -1,0 +1,596 @@
+{
+ "name": "32 号道路",
+ "emerald": "johto_route_32",
+ "size": [
+  10,
+  45
+ ],
+ "spawn": [
+  5,
+  22
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    26
+   ],
+   "name": "钓鱼人 Justin",
+   "gfx": "sailor",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 5,
+      "species": 129
+     },
+     {
+      "level": 5,
+      "species": 129
+     },
+     {
+      "level": 15,
+      "species": 129
+     },
+     {
+      "level": 5,
+      "species": 129
+     }
+    ]
+   },
+   "trainer": "FisherJustin"
+  },
+  {
+   "at": [
+    5,
+    30
+   ],
+   "name": "钓鱼人 Ralph",
+   "gfx": "sailor",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 10,
+      "species": 118
+     }
+    ]
+   },
+   "trainer": "FisherRalph"
+  },
+  {
+   "at": [
+    1,
+    23
+   ],
+   "name": "钓鱼人 Henry",
+   "gfx": "sailor",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 8,
+      "species": 60
+     },
+     {
+      "level": 8,
+      "species": 60
+     }
+    ]
+   },
+   "trainer": "FisherHenry"
+  },
+  {
+   "at": [
+    6,
+    11
+   ],
+   "name": "短裤小子 Albert",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 6,
+      "species": 19
+     },
+     {
+      "level": 8,
+      "species": 41
+     }
+    ]
+   },
+   "trainer": "YoungsterAlbert"
+  },
+  {
+   "at": [
+    2,
+    31
+   ],
+   "name": "短裤小子 Gordon",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 10,
+      "species": 194
+     }
+    ]
+   },
+   "trainer": "YoungsterGordon"
+  },
+  {
+   "at": [
+    1,
+    22
+   ],
+   "name": "露营少年 Roland",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 9,
+      "species": 32
+     }
+    ]
+   },
+   "trainer": "CamperRoland"
+  },
+  {
+   "at": [
+    5,
+    15
+   ],
+   "name": "野餐少女 Liz",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 9,
+      "species": 29
+     }
+    ]
+   },
+   "trainer": "PicnickerLiz"
+  },
+  {
+   "at": [
+    9,
+    4
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "要不要来一场？",
+    "我可是练了很久的。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    41
+   ],
+   "name": "养鸟人 Peter",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 6,
+      "species": 16
+     },
+     {
+      "level": 6,
+      "species": 16
+     },
+     {
+      "level": 8,
+      "species": 21
+     }
+    ]
+   },
+   "trainer": "BirdKeeperPeter"
+  },
+  {
+   "at": [
+    3,
+    35
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    26
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    6
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    33
+   ],
+   "name": "少女",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    15
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    27
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_32_pokecenter_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    21
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_32_ruins_of_alph_gate",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    21
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_32_ruins_of_alph_gate",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    27
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_union_cave_1f",
+    "at": [
+     8,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_violet_city",
+    "at": [
+     7,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    44
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_33",
+    "at": [
+     0,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    1,
+    44
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_33",
+    "at": [
+     1,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    2,
+    44
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_33",
+    "at": [
+     2,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    3,
+    44
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_33",
+    "at": [
+     3,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    44
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_33",
+    "at": [
+     4,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    44
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_33",
+    "at": [
+     5,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    44
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_33",
+    "at": [
+     6,
+     1
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [
+  {
+   "species": 19,
+   "min": 5,
+   "max": 5,
+   "weight": 90
+  },
+  {
+   "species": 23,
+   "min": 4,
+   "max": 4,
+   "weight": 60
+  },
+  {
+   "species": 69,
+   "min": 7,
+   "max": 7,
+   "weight": 60
+  },
+  {
+   "species": 194,
+   "min": 4,
+   "max": 4,
+   "weight": 30
+  },
+  {
+   "species": 187,
+   "min": 6,
+   "max": 6,
+   "weight": 20
+  },
+  {
+   "species": 16,
+   "min": 7,
+   "max": 7,
+   "weight": 10
+  },
+  {
+   "species": 187,
+   "min": 7,
+   "max": 7,
+   "weight": 10
+  },
+  {
+   "species": 41,
+   "min": 6,
+   "max": 6,
+   "weight": 10
+  },
+  {
+   "species": 163,
+   "min": 7,
+   "max": 7,
+   "weight": 5
+  },
+  {
+   "species": 92,
+   "min": 7,
+   "max": 7,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.1,
+ "objects": [
+  {
+   "at": [
+    6,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "32 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "32 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    5,
+    42
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "32 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    5,
+    20
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "32 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true,
+ "water_encounters": [
+  {
+   "species": 72,
+   "min": 15,
+   "max": 15,
+   "weight": 60
+  },
+  {
+   "species": 195,
+   "min": 20,
+   "max": 20,
+   "weight": 30
+  },
+  {
+   "species": 73,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.06
+}

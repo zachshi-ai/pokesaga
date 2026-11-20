@@ -1,0 +1,1 @@
+{"id":"littleroot_town_1","from":"littleroot_town","size":[5,4],"metatiles":[[528,529,529,529,530],[536,537,537,537,538],[544,576,561,562,547],[552,584,569,570,555]],"collision":[[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1]],"door":[1,3],"primary":"gTileset_General","secondary":"gTileset_Petalburg"}

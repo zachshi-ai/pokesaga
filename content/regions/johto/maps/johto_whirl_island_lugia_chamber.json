@@ -1,0 +1,112 @@
+{
+ "name": "涡卷岛· Lugia 之间",
+ "emerald": "johto_whirl_island_lugia_chamber",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  7,
+  5
+ ],
+ "npcs": [
+  {
+   "at": [
+    1,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_whirl_island_b2_f",
+    "at": [
+     2,
+     5
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 98,
+   "min": 25,
+   "max": 25,
+   "weight": 110
+  },
+  {
+   "species": 41,
+   "min": 26,
+   "max": 26,
+   "weight": 90
+  },
+  {
+   "species": 86,
+   "min": 25,
+   "max": 25,
+   "weight": 40
+  },
+  {
+   "species": 98,
+   "min": 27,
+   "max": 27,
+   "weight": 30
+  },
+  {
+   "species": 42,
+   "min": 28,
+   "max": 28,
+   "weight": 15
+  },
+  {
+   "species": 86,
+   "min": 27,
+   "max": 27,
+   "weight": 10
+  },
+  {
+   "species": 42,
+   "min": 27,
+   "max": 27,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.06,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 116,
+   "min": 20,
+   "max": 20,
+   "weight": 60
+  },
+  {
+   "species": 73,
+   "min": 20,
+   "max": 20,
+   "weight": 30
+  },
+  {
+   "species": 117,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.04
+}

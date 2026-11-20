@@ -1,0 +1,246 @@
+{
+ "name": "无线电塔·2F",
+ "emerald": "johto_radio_tower_2f",
+ "size": [
+  9,
+  4
+ ],
+ "spawn": [
+  4,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    3
+   ],
+   "name": "火箭队队员 Grunt 2",
+   "gfx": "scientist",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 26,
+      "species": 24
+     }
+    ]
+   },
+   "trainer": "GruntF#2"
+  },
+  {
+   "at": [
+    8,
+    1
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    0,
+    2
+   ],
+   "name": "火箭队队员 Grunt 4",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 23,
+      "species": 88
+     },
+     {
+      "level": 23,
+      "species": 88
+     },
+     {
+      "level": 25,
+      "species": 89
+     }
+    ]
+   },
+   "trainer": "GruntM#4"
+  },
+  {
+   "at": [
+    4,
+    2
+   ],
+   "name": "火箭队队员 Grunt 5",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 21,
+      "species": 19
+     },
+     {
+      "level": 21,
+      "species": 19
+     },
+     {
+      "level": 23,
+      "species": 19
+     },
+     {
+      "level": 23,
+      "species": 19
+     },
+     {
+      "level": 23,
+      "species": 19
+     }
+    ]
+   },
+   "trainer": "GruntM#5"
+  },
+  {
+   "at": [
+    2,
+    0
+   ],
+   "name": "火箭队队员 Grunt 6",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 26,
+      "species": 41
+     },
+     {
+      "level": 26,
+      "species": 41
+     }
+    ]
+   },
+   "trainer": "GruntM#6"
+  },
+  {
+   "at": [
+    3,
+    1
+   ],
+   "name": "火箭队队员",
+   "gfx": "team_rocket_f",
+   "lines": [
+    "看什么看。",
+    "识相的赶紧走开。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    0
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    3
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_radio_tower_3f",
+    "at": [
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_radio_tower_1f",
+    "at": [
+     7,
+     1
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    4,
+    0
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "无线电塔·2F\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "无线电塔·2F\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

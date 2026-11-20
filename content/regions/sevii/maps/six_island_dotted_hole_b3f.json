@@ -1,0 +1,90 @@
+{
+ "name": "六号岛·点穴 B3F",
+ "emerald": "six_island_dotted_hole_b3f",
+ "size": [
+  13,
+  11
+ ],
+ "spawn": [
+  11,
+  5
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    6,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_dotted_hole_b2f",
+    "at": [
+     1,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    1
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_dotted_hole_1f",
+    "at": [
+     6,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_dotted_hole_b4f",
+    "at": [
+     6,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_dotted_hole_1f",
+    "at": [
+     6,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_dotted_hole_1f",
+    "at": [
+     6,
+     7
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

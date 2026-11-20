@@ -1,0 +1,89 @@
+{
+ "name": "关都·7 号道路·east entrance",
+ "emerald": "saffron_city_east_west_entrance",
+ "size": [
+  13,
+  9
+ ],
+ "spawn": [
+  1,
+  5
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "今天天气不错。",
+    "这个我不太清楚。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     255,
+     140
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     255,
+     140
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     272,
+     147
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     272,
+     147
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

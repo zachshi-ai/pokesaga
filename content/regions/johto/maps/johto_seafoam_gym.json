@@ -1,0 +1,1 @@
+{"name":"道馆","emerald":"johto_seafoam_gym","size":[5,4],"spawn":[2,2],"npcs":[{"at":[2,1],"name":"居民","gfx":"man","lines":["你好。","路上小心。"]},{"at":[3,2],"name":"居民","gfx":"man","lines":["你好。","路上小心。"]}],"warps":[{"at":[2,2],"to":{"region":"johto","map":"johto_route_20","at":[19,4]}}],"encounters":[],"encounter_rate":0.0,"objects":[],"weather":"","weather_name":"","cycling":false}

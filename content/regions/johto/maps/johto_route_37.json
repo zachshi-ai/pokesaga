@@ -1,0 +1,290 @@
+{
+ "name": "37 号道路",
+ "emerald": "johto_route_37",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  4,
+  3
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    6
+   ],
+   "name": "怪树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    5
+   ],
+   "name": "怪树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    3
+   ],
+   "name": "超能力者 Greg",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 17,
+      "species": 96,
+      "moves": [
+       95,
+       50,
+       138
+      ]
+     }
+    ]
+   },
+   "trainer": "PsychicGreg"
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    4
+   ],
+   "name": "捕虫少年",
+   "gfx": "bug_catcher",
+   "lines": [
+    "虫子是最棒的！",
+    "草丛里能碰到不少好东西。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    2
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    3
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ecruteak_city",
+    "at": [
+     8,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    2,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_36",
+    "at": [
+     12,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    3,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_36",
+    "at": [
+     13,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_36",
+    "at": [
+     14,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_36",
+    "at": [
+     15,
+     1
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [
+  {
+   "species": 58,
+   "min": 14,
+   "max": 14,
+   "weight": 60
+  },
+  {
+   "species": 16,
+   "min": 15,
+   "max": 15,
+   "weight": 45
+  },
+  {
+   "species": 165,
+   "min": 13,
+   "max": 13,
+   "weight": 30
+  },
+  {
+   "species": 16,
+   "min": 13,
+   "max": 13,
+   "weight": 30
+  },
+  {
+   "species": 167,
+   "min": 13,
+   "max": 13,
+   "weight": 30
+  },
+  {
+   "species": 234,
+   "min": 14,
+   "max": 14,
+   "weight": 30
+  },
+  {
+   "species": 58,
+   "min": 16,
+   "max": 16,
+   "weight": 20
+  },
+  {
+   "species": 163,
+   "min": 15,
+   "max": 15,
+   "weight": 20
+  },
+  {
+   "species": 17,
+   "min": 15,
+   "max": 15,
+   "weight": 10
+  },
+  {
+   "species": 234,
+   "min": 16,
+   "max": 16,
+   "weight": 10
+  },
+  {
+   "species": 166,
+   "min": 15,
+   "max": 15,
+   "weight": 5
+  },
+  {
+   "species": 164,
+   "min": 15,
+   "max": 15,
+   "weight": 5
+  },
+  {
+   "species": 168,
+   "min": 15,
+   "max": 15,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.1,
+ "objects": [
+  {
+   "at": [
+    2,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "37 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

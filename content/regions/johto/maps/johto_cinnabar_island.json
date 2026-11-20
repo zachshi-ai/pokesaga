@@ -1,0 +1,226 @@
+{
+ "name": "CinnabarIsland",
+ "emerald": "johto_cinnabar_island",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  4,
+  3
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    3
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cinnabar_pokecenter_1f",
+    "at": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     2,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    1,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     2,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    2,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     2,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    3,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     2,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     2,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     2,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     2,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     2,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_21",
+    "at": [
+     2,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_20",
+    "at": [
+     7,
+     4
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    4,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "CinnabarIsland\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    3,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "CinnabarIsland\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "CinnabarIsland\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

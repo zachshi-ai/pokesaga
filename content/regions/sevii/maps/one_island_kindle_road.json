@@ -1,0 +1,967 @@
+{
+ "name": "一号岛·火种之路",
+ "emerald": "one_island_kindle_road",
+ "size": [
+  24,
+  140
+ ],
+ "spawn": [
+  11,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    11,
+    32
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "别在礁石上乱跑。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    17,
+    132
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "遗迹那边不让人进。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    39
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "海面今天很平。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    19,
+    79
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "码头那位脾气怪。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    25
+   ],
+   "name": "岛民",
+   "gfx": "sailor",
+   "lines": [
+    "我养了三只宝可梦。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    53
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没有大医院。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    18,
+    105
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "火种这条路不太好走。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    16,
+    64
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我们这儿靠打鱼过活。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    64
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你要去山上是吧。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    89
+   ],
+   "name": "岛民",
+   "gfx": "camper",
+   "lines": [
+    "太阳落山就起雾。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    108
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "有事问船夫。",
+    "带够水了吗。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    68
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这座岛上的风是咸的。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    68
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "船一天只来两趟。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    104
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你从关都来的吧。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    95
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没什么人，安静。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    96
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "往北走有条小路。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    95
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "听说洞里藏着东西。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    105
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这里的果子比别处甜。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    75
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我在这住了大半辈子。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    84
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "夏天的游客最多。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    74
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "别在礁石上乱跑。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    73
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "遗迹那边不让人进。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    18,
+    111
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "海面今天很平。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    86
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "码头那位脾气怪。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    110
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我养了三只宝可梦。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    18,
+    112
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没有大医院。",
+    "鞋子要防滑。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    32
+   ],
+   "name": "Swimmer F 的 MARIA",
+   "gfx": "man",
+   "lines": [
+    "天气真好！\n最适合战斗了！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_FEMALE_MARIA",
+    "party": [
+     {
+      "species": 117,
+      "level": 37
+     },
+     {
+      "species": 117,
+      "level": 37
+     }
+    ],
+    "name": "MARIA",
+    "class": "Swimmer F"
+   },
+   "post": [
+    "请不要把水花溅到我脸上！\n会把我的妆弄花了。"
+   ],
+   "sight": 4
+  },
+  {
+   "at": [
+    17,
+    132
+   ],
+   "name": "Swimmer F 的 ABIGAIL",
+   "gfx": "man",
+   "lines": [
+    "我快被晒伤了……"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_FEMALE_ABIGAIL",
+    "party": [
+     {
+      "species": 54,
+      "level": 35
+     },
+     {
+      "species": 54,
+      "level": 36
+     },
+     {
+      "species": 55,
+      "level": 37
+     }
+    ],
+    "name": "ABIGAIL",
+    "class": "Swimmer F"
+   },
+   "post": [
+    "我喜欢你的帽子。\n也许我也应该戴一顶……"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    7,
+    39
+   ],
+   "name": "Swimmer M 的 FINN",
+   "gfx": "man",
+   "lines": [
+    "从这里望过去，灯火山的塔\n冲上了云霄。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_FINN",
+    "party": [
+     {
+      "species": 121,
+      "level": 38
+     }
+    ],
+    "name": "FINN",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "巨大的天空笼罩着四周。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    19,
+    79
+   ],
+   "name": "Swimmer M 的 GARRETT",
+   "gfx": "man",
+   "lines": [
+    "我是为了休息才来游泳，\n没想到你会来挑战我？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_MALE_GARRETT",
+    "party": [
+     {
+      "species": 90,
+      "level": 35
+     },
+     {
+      "species": 91,
+      "level": 35
+     },
+     {
+      "species": 8,
+      "level": 38
+     }
+    ],
+    "name": "GARRETT",
+    "class": "Swimmer M"
+   },
+   "post": [
+    "你也该自己下水游游，\n而不是一直在冲浪。"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    15,
+    25
+   ],
+   "name": "Fisherman 的 TOMMY",
+   "gfx": "sailor",
+   "lines": [
+    "等等！等一下！\n我这一杆肯定有货！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_FISHERMAN_TOMMY",
+    "party": [
+     {
+      "species": 118,
+      "level": 33
+     },
+     {
+      "species": 118,
+      "level": 33
+     },
+     {
+      "species": 119,
+      "level": 35
+     },
+     {
+      "species": 119,
+      "level": 35
+     },
+     {
+      "species": 119,
+      "level": 35
+     }
+    ],
+    "name": "TOMMY",
+    "class": "Fisherman"
+   },
+   "post": [
+    "我不仅输了，\n还把那只大的放走了！"
+   ],
+   "sight": 0
+  },
+  {
+   "at": [
+    11,
+    89
+   ],
+   "name": "Camper 的 BRYCE",
+   "gfx": "camper",
+   "lines": [
+    "知道么？当你在野外时，\n每种东西尝起来都很美味。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_CAMPER_BRYCE",
+    "party": [
+     {
+      "species": 33,
+      "level": 36
+     },
+     {
+      "species": 20,
+      "level": 36
+     },
+     {
+      "species": 28,
+      "level": 36
+     }
+    ],
+    "name": "BRYCE",
+    "class": "Camper"
+   },
+   "post": [
+    "火山地区的水很好喝。"
+   ],
+   "sight": 3
+  },
+  {
+   "at": [
+    9,
+    108
+   ],
+   "name": "Picnicker 的 CLAIRE",
+   "gfx": "lass",
+   "lines": [
+    "我们的午餐吃得很饱，\n你想和我们战斗帮助我们消化吗？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PICNICKER_CLAIRE",
+    "party": [
+     {
+      "species": 52,
+      "level": 35
+     },
+     {
+      "species": 52,
+      "level": 35
+     },
+     {
+      "species": 25,
+      "level": 35
+     },
+     {
+      "species": 35,
+      "level": 35
+     }
+    ],
+    "name": "CLAIRE",
+    "class": "Picnicker"
+   },
+   "post": [
+    "我该怎么办？\n我又饿了。"
+   ],
+   "sight": 1
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    11,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_exterior",
+    "at": [
+     28,
+     48
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_exterior",
+    "at": [
+     29,
+     48
+    ]
+   }
+  },
+  {
+   "at": [
+    15,
+    58
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road_ember_spa",
+    "at": [
+     13,
+     36
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     23,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    20
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     23,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     23,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     23,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    18
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     23,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    21
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     23,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    14
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     23,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 21,
+   "min": 32,
+   "max": 32,
+   "weight": 20
+  },
+  {
+   "species": 77,
+   "min": 34,
+   "max": 34,
+   "weight": 20
+  },
+  {
+   "species": 22,
+   "min": 36,
+   "max": 36,
+   "weight": 10
+  },
+  {
+   "species": 77,
+   "min": 31,
+   "max": 31,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 31,
+   "max": 31,
+   "weight": 10
+  },
+  {
+   "species": 52,
+   "min": 31,
+   "max": 31,
+   "weight": 10
+  },
+  {
+   "species": 21,
+   "min": 30,
+   "max": 30,
+   "weight": 5
+  },
+  {
+   "species": 54,
+   "min": 34,
+   "max": 34,
+   "weight": 5
+  },
+  {
+   "species": 78,
+   "min": 37,
+   "max": 37,
+   "weight": 4
+  },
+  {
+   "species": 53,
+   "min": 37,
+   "max": 37,
+   "weight": 4
+  },
+  {
+   "species": 78,
+   "min": 40,
+   "max": 40,
+   "weight": 1
+  },
+  {
+   "species": 53,
+   "min": 40,
+   "max": 40,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "objects": [
+  {
+   "at": [
+    15,
+    70
+   ],
+   "kind": "item",
+   "item": "ITEM_ETHER",
+   "name": "PP 单项小补剂",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    17,
+    103
+   ],
+   "kind": "item",
+   "item": "ITEM_MAX_REPEL",
+   "name": "黄金喷雾",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    18,
+    114
+   ],
+   "kind": "item",
+   "item": "ITEM_CARBOS",
+   "name": "速度增强剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    13,
+    59
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "点燃你火热的心！\n灯火温泉"
+  },
+  {
+   "at": [
+    8,
+    115
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这是热气之路。\n直走去灯火山。"
+  },
+  {
+   "at": [
+    8,
+    104
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    11,
+    95
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    12,
+    96
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    10,
+    95
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    9,
+    105
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    15,
+    75
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    9,
+    84
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    15,
+    74
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    15,
+    73
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    18,
+    111
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    10,
+    86
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    9,
+    110
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    18,
+    112
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

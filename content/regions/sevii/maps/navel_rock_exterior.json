@@ -1,0 +1,48 @@
+{
+ "name": "七之岛·肚脐岩 外缘 FRLG",
+ "emerald": "navel_rock_exterior_frlg",
+ "size": [
+  20,
+  23
+ ],
+ "spawn": [
+  9,
+  16
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    9,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "navel_rock_1f",
+    "at": [
+     8,
+     23
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    16
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "navel_rock_harbor",
+    "at": [
+     8,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

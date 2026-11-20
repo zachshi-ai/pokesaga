@@ -1,0 +1,206 @@
+{
+ "name": "关都·月见山 B1F",
+ "emerald": "mt_moon_b1f",
+ "size": [
+  49,
+  40
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    3,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_1f",
+    "at": [
+     5,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    25,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_1f",
+    "at": [
+     19,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    43,
+    21
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_1f",
+    "at": [
+     31,
+     16
+    ]
+   }
+  },
+  {
+   "at": [
+    22,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_b2f",
+    "at": [
+     25,
+     21
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_b2f",
+    "at": [
+     31,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    26,
+    36
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_b2f",
+    "at": [
+     17,
+     31
+    ]
+   }
+  },
+  {
+   "at": [
+    39,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_b2f",
+    "at": [
+     5,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    45,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     188,
+     55
+    ]
+   }
+  }
+ ],
+ "spawn": [
+  45,
+  4
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    46,
+    2
+   ],
+   "kind": "hidden",
+   "item": "ITEM_TINY_MUSHROOM",
+   "name": "小蘑菇",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_TINY_MUSHROOM",
+   "count": 1
+  },
+  {
+   "at": [
+    26,
+    2
+   ],
+   "kind": "hidden",
+   "item": "ITEM_TINY_MUSHROOM",
+   "name": "小蘑菇",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_TINY_MUSHROOM_2",
+   "count": 1
+  },
+  {
+   "at": [
+    39,
+    34
+   ],
+   "kind": "hidden",
+   "item": "ITEM_TINY_MUSHROOM",
+   "name": "小蘑菇",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_TINY_MUSHROOM_3",
+   "count": 1
+  },
+  {
+   "at": [
+    24,
+    35
+   ],
+   "kind": "hidden",
+   "item": "ITEM_BIG_MUSHROOM",
+   "name": "大蘑菇",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_BIG_MUSHROOM",
+   "count": 1
+  },
+  {
+   "at": [
+    6,
+    12
+   ],
+   "kind": "hidden",
+   "item": "ITEM_BIG_MUSHROOM",
+   "name": "大蘑菇",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_BIG_MUSHROOM_2",
+   "count": 1
+  },
+  {
+   "at": [
+    25,
+    34
+   ],
+   "kind": "hidden",
+   "item": "ITEM_BIG_MUSHROOM",
+   "name": "大蘑菇",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_BIG_MUSHROOM_3",
+   "count": 1
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

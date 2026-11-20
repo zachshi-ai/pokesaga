@@ -1,0 +1,363 @@
+{
+ "name": "38 号道路",
+ "emerald": "johto_route_38",
+ "size": [
+  20,
+  9
+ ],
+ "spawn": [
+  10,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    0
+   ],
+   "name": "学生 Chad",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 19,
+      "species": 122
+     }
+    ]
+   },
+   "trainer": "SchoolboyChad"
+  },
+  {
+   "at": [
+    7,
+    1
+   ],
+   "name": "少女 Dana",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 18,
+      "species": 180,
+      "moves": [
+       33,
+       45,
+       84,
+       86
+      ]
+     },
+     {
+      "level": 18,
+      "species": 54,
+      "moves": [
+       10,
+       39,
+       50,
+       93
+      ]
+     }
+    ]
+   },
+   "trainer": "LassDana"
+  },
+  {
+   "at": [
+    6,
+    7
+   ],
+   "name": "养鸟人 Toby",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 15,
+      "species": 84
+     },
+     {
+      "level": 16,
+      "species": 84
+     },
+     {
+      "level": 17,
+      "species": 84
+     }
+    ]
+   },
+   "trainer": "BirdKeeperToby"
+  },
+  {
+   "at": [
+    9,
+    4
+   ],
+   "name": "大姐姐 Valerie",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 17,
+      "species": 187,
+      "moves": [
+       235,
+       39,
+       33,
+       77
+      ]
+     },
+     {
+      "level": 17,
+      "species": 188,
+      "moves": [
+       235,
+       39,
+       33,
+       78
+      ]
+     }
+    ]
+   },
+   "trainer": "BeautyValerie"
+  },
+  {
+   "at": [
+    12,
+    2
+   ],
+   "name": "水手 Harry",
+   "gfx": "sailor",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 19,
+      "species": 194
+     }
+    ]
+   },
+   "trainer": "SailorHarry"
+  },
+  {
+   "at": [
+    6,
+    5
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    4
+   ],
+   "name": "大姐姐 Olivia",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 19,
+      "species": 222
+     }
+    ]
+   },
+   "trainer": "BeautyOlivia"
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    17,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_38_ecruteak_gate",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_38_ecruteak_gate",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_39",
+    "at": [
+     8,
+     3
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_39",
+    "at": [
+     8,
+     4
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_39",
+    "at": [
+     8,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_39",
+    "at": [
+     8,
+     6
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [
+  {
+   "species": 20,
+   "min": 16,
+   "max": 16,
+   "weight": 90
+  },
+  {
+   "species": 19,
+   "min": 16,
+   "max": 16,
+   "weight": 60
+  },
+  {
+   "species": 81,
+   "min": 16,
+   "max": 16,
+   "weight": 60
+  },
+  {
+   "species": 52,
+   "min": 16,
+   "max": 16,
+   "weight": 40
+  },
+  {
+   "species": 17,
+   "min": 16,
+   "max": 16,
+   "weight": 20
+  },
+  {
+   "species": 128,
+   "min": 13,
+   "max": 13,
+   "weight": 10
+  },
+  {
+   "species": 241,
+   "min": 13,
+   "max": 13,
+   "weight": 10
+  },
+  {
+   "species": 164,
+   "min": 16,
+   "max": 16,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.1,
+ "objects": [
+  {
+   "at": [
+    16,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "38 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    2,
+    6
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "38 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

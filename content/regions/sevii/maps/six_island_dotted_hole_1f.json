@@ -1,0 +1,76 @@
+{
+ "name": "六号岛·点穴 1F",
+ "emerald": "six_island_dotted_hole_1f",
+ "size": [
+  16,
+  11
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    6,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_ruin_valley",
+    "at": [
+     24,
+     24
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_dotted_hole_b1f",
+    "at": [
+     6,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_dotted_hole_sapphire_room",
+    "at": [
+     11,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_dotted_hole_b1f",
+    "at": [
+     11,
+     5
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

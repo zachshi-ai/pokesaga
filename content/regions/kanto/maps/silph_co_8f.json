@@ -1,0 +1,218 @@
+{
+ "name": "关都·silph·co·8f",
+ "emerald": "silph_co_8f",
+ "size": [
+  31,
+  19
+ ],
+ "spawn": [
+  16,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    28,
+    5
+   ],
+   "name": "火箭队手下",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "这里被我们接管了。",
+    "想上去？先过我这关。",
+    "走廊上安静得吓人。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    17
+   ],
+   "name": "火箭队手下",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "这里被我们接管了。",
+    "想上去？先过我这关。",
+    "门牌是十年前的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    4
+   ],
+   "name": "研究员",
+   "gfx": "scientist",
+   "lines": [
+    "样本别乱碰。",
+    "这层的实验还没做完。",
+    "有人在追查这里。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    5
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "这层是研究部。",
+    "楼梯绕得人头晕。",
+    "走廊上安静得吓人。"
+   ]
+  },
+  {
+   "at": [
+    29,
+    9
+   ],
+   "name": "研究员",
+   "gfx": "scientist",
+   "lines": [
+    "样本别乱碰。",
+    "这层的实验还没做完。",
+    "这楼高得看不到顶。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    16,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_9f",
+    "at": [
+     16,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_8f",
+    "at": [
+     2,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_2f",
+    "at": [
+     33,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    28,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_7f",
+    "at": [
+     27,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    12
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_8f",
+    "at": [
+     11,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    17
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_2f",
+    "at": [
+     15,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    22,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_elevator",
+    "at": [
+     2,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    24,
+    8
+   ],
+   "kind": "item",
+   "item": "ITEM_IRON",
+   "name": "防御增强剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    29,
+    10
+   ],
+   "kind": "hidden",
+   "item": "ITEM_NUGGET",
+   "name": "金珠",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_8F_NUGGET",
+   "count": 1
+  },
+  {
+   "at": [
+    27,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "西尔佛公司总部\n8层"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

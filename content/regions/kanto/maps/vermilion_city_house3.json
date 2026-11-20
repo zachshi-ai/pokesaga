@@ -1,0 +1,122 @@
+{
+ "name": "关都·枯叶市·民居 3",
+ "emerald": "house1_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "今天天气不错。",
+    "能帮就帮一把。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "小心别踩到我的花。",
+    "能帮就帮一把。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你看起来像个训练家。",
+    "能帮就帮一把。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我在这儿等人。",
+    "能帮就帮一把。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     292,
+     224
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     292,
+     224
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     292,
+     224
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    6,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "陈列着古代宝可梦\n货物。"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

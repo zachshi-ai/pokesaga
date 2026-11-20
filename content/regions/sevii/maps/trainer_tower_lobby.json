@@ -1,0 +1,139 @@
+{
+ "name": "七之岛·训练家塔 大厅",
+ "emerald": "trainer_tower_lobby",
+ "size": [
+  19,
+  17
+ ],
+ "spawn": [
+  9,
+  15
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    9
+   ],
+   "name": "岛民",
+   "gfx": "nurse",
+   "lines": [
+    "船一天只来两趟。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    9
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你从关都来的吧。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    7
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没什么人，安静。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    13
+   ],
+   "name": "岛民",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "往北走有条小路。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    12
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "听说洞里藏着东西。",
+    "我不太清楚。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    9,
+    2
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "trainer_tower_1f",
+    "at": [
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    15
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_trainer_tower",
+    "at": [
+     58,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "trainer_tower_elevator",
+    "at": [
+     2,
+     5
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    8,
+    10
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "带有绿色装饰的\n画框。"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

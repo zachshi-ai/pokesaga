@@ -1,0 +1,296 @@
+{
+ "name": "七之岛·mt ember ruby path b3f",
+ "emerald": "mt_ember_ruby_path_b3f",
+ "size": [
+  31,
+  23
+ ],
+ "spawn": [
+  5,
+  19
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这座岛上的风是咸的。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    3
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "船一天只来两趟。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    6
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你从关都来的吧。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    6
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没什么人，安静。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "往北走有条小路。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "听说洞里藏着东西。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    4
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_b2f",
+    "at": [
+     13,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_b1_f_stairs",
+    "at": [
+     4,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_b4f",
+    "at": [
+     4,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 218,
+   "min": 26,
+   "max": 26,
+   "weight": 20
+  },
+  {
+   "species": 218,
+   "min": 28,
+   "max": 28,
+   "weight": 20
+  },
+  {
+   "species": 218,
+   "min": 30,
+   "max": 30,
+   "weight": 10
+  },
+  {
+   "species": 218,
+   "min": 32,
+   "max": 32,
+   "weight": 10
+  },
+  {
+   "species": 218,
+   "min": 24,
+   "max": 24,
+   "weight": 10
+  },
+  {
+   "species": 218,
+   "min": 22,
+   "max": 22,
+   "weight": 10
+  },
+  {
+   "species": 218,
+   "min": 20,
+   "max": 20,
+   "weight": 5
+  },
+  {
+   "species": 218,
+   "min": 34,
+   "max": 34,
+   "weight": 5
+  },
+  {
+   "species": 218,
+   "min": 36,
+   "max": 36,
+   "weight": 4
+  },
+  {
+   "species": 218,
+   "min": 18,
+   "max": 18,
+   "weight": 4
+  },
+  {
+   "species": 218,
+   "min": 36,
+   "max": 36,
+   "weight": 1
+  },
+  {
+   "species": 218,
+   "min": 18,
+   "max": 18,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true,
+ "objects": [
+  {
+   "at": [
+    10,
+    4
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    26,
+    12
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    28,
+    8
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    7,
+    2
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    4,
+    3
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    6,
+    6
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    7,
+    6
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    4,
+    5
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    5,
+    2
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    15,
+    13
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  }
+ ]
+}

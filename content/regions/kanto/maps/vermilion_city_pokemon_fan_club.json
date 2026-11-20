@@ -1,0 +1,155 @@
+{
+ "name": "关都·枯叶市·宝可梦爱好者俱乐部",
+ "emerald": "vermilion_city_pokemon_fan_club",
+ "size": [
+  12,
+  12
+ ],
+ "spawn": [
+  4,
+  10
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "别弄乱我的书架。",
+    "能帮就帮一把。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "客人不多，坐吧。",
+    "能帮就帮一把。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "这条街我住了几十年。",
+    "路还长。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "最近路上不太平。",
+    "路还长。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    5
+   ],
+   "name": "居民",
+   "gfx": "lass",
+   "lines": [
+    "你知道道馆在哪边吗。",
+    "路还长。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我刚从医院回来。",
+    "路还长。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     276,
+     217
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     276,
+     217
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     276,
+     217
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    2,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一幅画着奇妙景色的\n风景画。"
+  },
+  {
+   "at": [
+    9,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "这幅画已经有些年代了，\n到处都开始剥落。"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

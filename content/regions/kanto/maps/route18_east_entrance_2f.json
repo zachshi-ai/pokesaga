@@ -1,0 +1,67 @@
+{
+ "name": "关都·18 号道路·东口 2F",
+ "emerald": "entrance_2f",
+ "size": [
+  13,
+  11
+ ],
+ "spawn": [
+  10,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    3
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "客人不多，坐吧。",
+    "你自己看吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    10,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route18_east_entrance_1f",
+    "at": [
+     9,
+     10
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    4,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "研究用的电脑，\n还是不要随便乱碰的好。"
+  },
+  {
+   "at": [
+    8,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一本晦涩难懂的书。"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

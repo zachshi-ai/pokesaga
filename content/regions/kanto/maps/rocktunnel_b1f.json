@@ -1,0 +1,583 @@
+{
+ "name": "关都·岩山隧道 B1F",
+ "emerald": "rock_tunnel_b1f",
+ "size": [
+  48,
+  40
+ ],
+ "spawn": [
+  38,
+  28
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    6
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "别往深处乱走。",
+    "小心脚下的碎石。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    11
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "我把备用绳放这儿了。",
+    "小心脚下的碎石。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    15
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这石头有股硫磺味。",
+    "小心脚下的碎石。"
+   ]
+  },
+  {
+   "at": [
+    36,
+    11
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "一个人进来太危险。",
+    "小心脚下的碎石。"
+   ]
+  },
+  {
+   "at": [
+    41,
+    5
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "洞口的风是往外吹的。",
+    "小心脚下的碎石。"
+   ]
+  },
+  {
+   "at": [
+    23,
+    23
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "我在这儿歇一会儿。",
+    "小心脚下的碎石。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    33
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "墙上有旧的刻痕。",
+    "小心脚下的碎石。"
+   ]
+  },
+  {
+   "at": [
+    29,
+    35
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这层的路是个圈。",
+    "小心脚下的碎石。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    29
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "洞里比外面冷。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    20
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "回音很大，小声点。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    22
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "前面塌了一段。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    23
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "火把快烧完了。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    23
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这层我来过三回。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    39,
+    26
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "脚下滑，慢点走。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    42,
+    26
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "你听见水滴声了吗。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    43,
+    28
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "别往深处乱走。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    45,
+    30
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "我把备用绳放这儿了。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    45,
+    33
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这石头有股硫磺味。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    25,
+    1
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "一个人进来太危险。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    27,
+    4
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "洞口的风是往外吹的。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    23,
+    2
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "我在这儿歇一会儿。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    26,
+    2
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "墙上有旧的刻痕。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    24,
+    7
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这层的路是个圈。",
+    "贴着墙走能省力。"
+   ]
+  },
+  {
+   "at": [
+    27,
+    6
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "洞里比外面冷。",
+    "常有小拳石滚下来。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    38,
+    28
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "rocktunnel_1f",
+    "at": [
+     45,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    33,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "rocktunnel_1f",
+    "at": [
+     4,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    27,
+    12
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "rocktunnel_1f",
+    "at": [
+     20,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "rocktunnel_1f",
+    "at": [
+     45,
+     21
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 41,
+   "min": 16,
+   "max": 16,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 17,
+   "max": 17,
+   "weight": 20
+  },
+  {
+   "species": 56,
+   "min": 17,
+   "max": 17,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 16,
+   "max": 16,
+   "weight": 10
+  },
+  {
+   "species": 41,
+   "min": 15,
+   "max": 15,
+   "weight": 10
+  },
+  {
+   "species": 66,
+   "min": 17,
+   "max": 17,
+   "weight": 10
+  },
+  {
+   "species": 56,
+   "min": 16,
+   "max": 16,
+   "weight": 5
+  },
+  {
+   "species": 95,
+   "min": 13,
+   "max": 13,
+   "weight": 5
+  },
+  {
+   "species": 74,
+   "min": 15,
+   "max": 15,
+   "weight": 4
+  },
+  {
+   "species": 95,
+   "min": 15,
+   "max": 15,
+   "weight": 4
+  },
+  {
+   "species": 74,
+   "min": 15,
+   "max": 15,
+   "weight": 1
+  },
+  {
+   "species": 95,
+   "min": 17,
+   "max": 17,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "objects": [
+  {
+   "at": [
+    2,
+    37
+   ],
+   "kind": "item",
+   "item": "ITEM_REVIVE",
+   "name": "活力碎片",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    9,
+    2
+   ],
+   "kind": "item",
+   "item": "ITEM_MAX_ETHER",
+   "name": "PP 单项全补剂",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    1,
+    20
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    1,
+    22
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    4,
+    23
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    2,
+    23
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    39,
+    26
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    42,
+    26
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    43,
+    28
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    45,
+    30
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    45,
+    33
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    25,
+    1
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    27,
+    4
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    23,
+    2
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    26,
+    2
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    24,
+    7
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    27,
+    6
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true,
+ "dark": true
+}

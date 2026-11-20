@@ -1,0 +1,146 @@
+{
+ "name": "关都·月见山 B2F",
+ "emerald": "mt_moon_b2f",
+ "size": [
+  48,
+  40
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    25,
+    21
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_b1f",
+    "at": [
+     22,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    31,
+    11
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_b1f",
+    "at": [
+     17,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    31
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_b1f",
+    "at": [
+     26,
+     36
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_b1f",
+    "at": [
+     39,
+     4
+    ]
+   }
+  }
+ ],
+ "spawn": [
+  25,
+  21
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    30,
+    26
+   ],
+   "kind": "item",
+   "item": "ITEM_STAR_PIECE",
+   "name": "星之碎片",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    35,
+    5
+   ],
+   "kind": "item",
+   "item": "ITEM_TM46",
+   "name": "ITEM_TM46",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    24,
+    6
+   ],
+   "kind": "item",
+   "item": "ITEM_REVIVE",
+   "name": "活力碎片",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    3,
+    11
+   ],
+   "kind": "item",
+   "item": "ITEM_ANTIDOTE",
+   "name": "解毒药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    20,
+    16
+   ],
+   "kind": "hidden",
+   "item": "ITEM_MOON_STONE",
+   "name": "月之石",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B2F_MOON_STONE",
+   "count": 1
+  },
+  {
+   "at": [
+    39,
+    11
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ETHER",
+   "name": "PP 单项小补剂",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B2F_ETHER",
+   "count": 1
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

@@ -1,0 +1,208 @@
+{
+ "name": "七之岛·mt ember ruby path b1f",
+ "emerald": "mt_ember_ruby_path_b1f",
+ "size": [
+  11,
+  23
+ ],
+ "spawn": [
+  9,
+  21
+ ],
+ "npcs": [
+  {
+   "at": [
+    1,
+    8
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "别在礁石上乱跑。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    11
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "遗迹那边不让人进。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    12
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "海面今天很平。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    14
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "码头那位脾气怪。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    9,
+    21
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_1f",
+    "at": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    1
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_b2f",
+    "at": [
+     1,
+     7
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 74,
+   "min": 38,
+   "max": 38,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 36,
+   "max": 36,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 34,
+   "max": 34,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 40,
+   "max": 40,
+   "weight": 10
+  },
+  {
+   "species": 218,
+   "min": 24,
+   "max": 24,
+   "weight": 10
+  },
+  {
+   "species": 218,
+   "min": 26,
+   "max": 26,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 42,
+   "max": 42,
+   "weight": 5
+  },
+  {
+   "species": 218,
+   "min": 28,
+   "max": 28,
+   "weight": 5
+  },
+  {
+   "species": 74,
+   "min": 42,
+   "max": 42,
+   "weight": 4
+  },
+  {
+   "species": 218,
+   "min": 30,
+   "max": 30,
+   "weight": 4
+  },
+  {
+   "species": 74,
+   "min": 42,
+   "max": 42,
+   "weight": 1
+  },
+  {
+   "species": 218,
+   "min": 30,
+   "max": 30,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true,
+ "objects": [
+  {
+   "at": [
+    1,
+    8
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    1,
+    11
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    3,
+    12
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    5,
+    14
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  }
+ ]
+}

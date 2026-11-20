@@ -1,0 +1,313 @@
+{
+ "name": "七之岛·焰之山 山顶 PATH 2F",
+ "emerald": "mt_ember_summit_path_2f",
+ "size": [
+  48,
+  46
+ ],
+ "spawn": [
+  8,
+  39
+ ],
+ "npcs": [
+  {
+   "at": [
+    40,
+    7
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "夏天的游客最多。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    33,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "别在礁石上乱跑。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    19
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "遗迹那边不让人进。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    23
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "海面今天很平。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    21
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "码头那位脾气怪。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    38
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我养了三只宝可梦。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    35
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没有大医院。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    34
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "火种这条路不太好走。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    26
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我们这儿靠打鱼过活。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    8,
+    39
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_summit_path_1f",
+    "at": [
+     11,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    39,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_summit_path_3f",
+    "at": [
+     2,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 74,
+   "min": 34,
+   "max": 34,
+   "weight": 20
+  },
+  {
+   "species": 66,
+   "min": 36,
+   "max": 36,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 30,
+   "max": 30,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 32,
+   "max": 32,
+   "weight": 10
+  },
+  {
+   "species": 66,
+   "min": 32,
+   "max": 32,
+   "weight": 10
+  },
+  {
+   "species": 66,
+   "min": 34,
+   "max": 34,
+   "weight": 10
+  },
+  {
+   "species": 67,
+   "min": 38,
+   "max": 38,
+   "weight": 5
+  },
+  {
+   "species": 67,
+   "min": 38,
+   "max": 38,
+   "weight": 5
+  },
+  {
+   "species": 67,
+   "min": 40,
+   "max": 40,
+   "weight": 4
+  },
+  {
+   "species": 67,
+   "min": 40,
+   "max": 40,
+   "weight": 4
+  },
+  {
+   "species": 67,
+   "min": 40,
+   "max": 40,
+   "weight": 1
+  },
+  {
+   "species": 67,
+   "min": 40,
+   "max": 40,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true,
+ "objects": [
+  {
+   "at": [
+    40,
+    7
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    33,
+    5
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    15,
+    19
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    13,
+    23
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    13,
+    21
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    7,
+    38
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    9,
+    35
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    7,
+    34
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    15,
+    26
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  }
+ ]
+}

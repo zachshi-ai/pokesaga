@@ -1,0 +1,142 @@
+{
+ "name": "关都·尼比市·道馆",
+ "emerald": "pewter_city_gym",
+ "size": [
+  13,
+  16
+ ],
+ "spawn": [
+  5,
+  14
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    5
+   ],
+   "gfx": "man",
+   "name": "馆主 小刚",
+   "badge": "灰色徽章",
+   "battle": {
+    "team": [
+     {
+      "species": 74,
+      "level": 12,
+      "moves": [
+       33,
+       106
+      ]
+     },
+     {
+      "species": 95,
+      "level": 14,
+      "moves": [
+       33,
+       88
+      ]
+     }
+    ]
+   },
+   "lines": [
+    "馆主 小刚：能走到这里，说明你有点本事。",
+    "灰色徽章 就交给你了。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    8
+   ],
+   "gfx": "camper",
+   "name": "露营少年",
+   "lines": [
+    "商店今天补货了。",
+    "帽子差点被吹跑。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    12
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "别小看短裤小子。",
+    "帽子差点被吹跑。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     63,
+     76
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     63,
+     76
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     63,
+     76
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    4,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "深灰宝可梦道馆\n馆主：小刚\n优胜训练家：\n{RIVAL}"
+  },
+  {
+   "at": [
+    8,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "深灰宝可梦道馆\n馆主：小刚\n优胜训练家：\n{RIVAL}"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

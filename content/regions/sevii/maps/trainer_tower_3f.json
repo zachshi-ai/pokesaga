@@ -1,0 +1,128 @@
+{
+ "name": "七之岛·训练家塔 3F",
+ "emerald": "trainer_tower_3f",
+ "size": [
+  18,
+  17
+ ],
+ "spawn": [
+  15,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    9,
+    7
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "海面今天很平。",
+    "路标不太准。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    10
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "码头那位脾气怪。",
+    "路标不太准。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    13
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我养了三只宝可梦。",
+    "路标不太准。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    16
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没有大医院。",
+    "路标不太准。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    10
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "火种这条路不太好走。",
+    "路标不太准。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    15,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "trainer_tower_4f",
+    "at": [
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "trainer_tower_2f",
+    "at": [
+     15,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "trainer_tower_elevator",
+    "at": [
+     2,
+     5
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

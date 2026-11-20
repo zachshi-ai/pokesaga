@@ -1,0 +1,573 @@
+{
+ "name": "三号岛·绊桥",
+ "emerald": "three_island_bond_bridge",
+ "size": [
+  96,
+  20
+ ],
+ "spawn": [
+  12,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    27,
+    10
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "别在礁石上乱跑。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    68,
+    10
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "遗迹那边不让人进。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    33,
+    13
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "海面今天很平。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    50,
+    11
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "码头那位脾气怪。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    36,
+    4
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我养了三只宝可梦。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    77,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "岛上没有大医院。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    78,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "火种这条路不太好走。",
+    "这季节雨多。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    27,
+    10
+   ],
+   "name": "Aroma Lady 的 NIKKI",
+   "gfx": "man",
+   "lines": [
+    "大海的咸湿气息……\n冲击着我的心灵。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_AROMA_LADY_NIKKI",
+    "party": [
+     {
+      "species": 69,
+      "level": 37
+     },
+     {
+      "species": 70,
+      "level": 37
+     }
+    ],
+    "name": "NIKKI",
+    "class": "Aroma Lady"
+   },
+   "post": [
+    "也许那难闻的气味是\n你的宝可梦身体的气味……"
+   ],
+   "sight": 5
+  },
+  {
+   "at": [
+    68,
+    10
+   ],
+   "name": "Aroma Lady 的 VIOLET",
+   "gfx": "man",
+   "lines": [
+    "你这么急是要去哪儿？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_AROMA_LADY_VIOLET",
+    "party": [
+     {
+      "species": 1,
+      "level": 36
+     },
+     {
+      "species": 2,
+      "level": 36
+     },
+     {
+      "species": 2,
+      "level": 36
+     }
+    ],
+    "name": "VIOLET",
+    "class": "Aroma Lady"
+   },
+   "post": [
+    "如果你沿着这条路一直走，\n你最终将到达树果森林。"
+   ],
+   "sight": 2
+  },
+  {
+   "at": [
+    33,
+    13
+   ],
+   "name": "Tuber 的 AMIRA",
+   "gfx": "man",
+   "lines": [
+    "我妈妈让我\n只能带着游泳圈游泳。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_TUBER_AMIRA",
+    "party": [
+     {
+      "species": 60,
+      "level": 34
+     },
+     {
+      "species": 61,
+      "level": 35
+     },
+     {
+      "species": 60,
+      "level": 34
+     }
+    ],
+    "name": "AMIRA",
+    "class": "Tuber"
+   },
+   "post": [
+    "今年我一定要学会\n如何游泳！"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    50,
+    11
+   ],
+   "name": "Tuber 的 ALEXIS",
+   "gfx": "man",
+   "lines": [
+    "耶，呀！\n宝可梦！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_TUBER_ALEXIS",
+    "party": [
+     {
+      "species": 120,
+      "level": 34
+     },
+     {
+      "species": 120,
+      "level": 34
+     },
+     {
+      "species": 98,
+      "level": 34
+     },
+     {
+      "species": 98,
+      "level": 34
+     }
+    ],
+    "name": "ALEXIS",
+    "class": "Tuber"
+   },
+   "post": [
+    "我刚刚赢了吗？\n还是输了？"
+   ],
+   "sight": 1
+  },
+  {
+   "at": [
+    36,
+    4
+   ],
+   "name": "Swimmer F 的 TISHA",
+   "gfx": "man",
+   "lines": [
+    "噢，不，不要来这儿！\n拜托了，离我远一点！"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_FEMALE_TISHA",
+    "party": [
+     {
+      "species": 99,
+      "level": 38
+     }
+    ],
+    "name": "TISHA",
+    "class": "Swimmer F"
+   },
+   "post": [
+    "有一只宝可梦咬坏了我的泳衣。\n我现在不能从水中出来了！"
+   ],
+   "sight": 1
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    12,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_berry_forest",
+    "at": [
+     43,
+     41
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island_berry_forest",
+    "at": [
+     43,
+     41
+    ]
+   }
+  },
+  {
+   "at": [
+    95,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     0,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    95,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     0,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    95,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     0,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    95,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     0,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    95,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     0,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    95,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     0,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    95,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     0,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    95,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     0,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    95,
+    14
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "three_island",
+    "at": [
+     0,
+     14
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 16,
+   "min": 32,
+   "max": 32,
+   "weight": 20
+  },
+  {
+   "species": 43,
+   "min": 31,
+   "max": 31,
+   "weight": 20
+  },
+  {
+   "species": 16,
+   "min": 29,
+   "max": 29,
+   "weight": 10
+  },
+  {
+   "species": 44,
+   "min": 36,
+   "max": 36,
+   "weight": 10
+  },
+  {
+   "species": 17,
+   "min": 34,
+   "max": 34,
+   "weight": 10
+  },
+  {
+   "species": 52,
+   "min": 31,
+   "max": 31,
+   "weight": 10
+  },
+  {
+   "species": 48,
+   "min": 34,
+   "max": 34,
+   "weight": 5
+  },
+  {
+   "species": 54,
+   "min": 31,
+   "max": 31,
+   "weight": 5
+  },
+  {
+   "species": 17,
+   "min": 37,
+   "max": 37,
+   "weight": 4
+  },
+  {
+   "species": 53,
+   "min": 37,
+   "max": 37,
+   "weight": 4
+  },
+  {
+   "species": 17,
+   "min": 40,
+   "max": 40,
+   "weight": 1
+  },
+  {
+   "species": 53,
+   "min": 40,
+   "max": 40,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "objects": [
+  {
+   "at": [
+    14,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "前方是树果森林"
+  },
+  {
+   "at": [
+    61,
+    5
+   ],
+   "kind": "hidden",
+   "item": "ITEM_MAX_REPEL",
+   "name": "黄金喷雾",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BOND_BRIDGE_MAX_REPEL",
+   "count": 1
+  },
+  {
+   "at": [
+    44,
+    12
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PEARL",
+   "name": "珍珠",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BOND_BRIDGE_PEARL",
+   "count": 1
+  },
+  {
+   "at": [
+    33,
+    7
+   ],
+   "kind": "hidden",
+   "item": "ITEM_STARDUST",
+   "name": "星砂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BOND_BRIDGE_STARDUST",
+   "count": 1
+  },
+  {
+   "at": [
+    91,
+    9
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "索桥\n当你经过时请保持安静。\n前方是树果森林"
+  },
+  {
+   "at": [
+    72,
+    8
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    86,
+    13
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

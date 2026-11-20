@@ -1,0 +1,152 @@
+{
+ "name": "岩山隧道·1F",
+ "emerald": "johto_rock_tunnel_1f",
+ "size": [
+  15,
+  18
+ ],
+ "spawn": [
+  7,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    9
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_9",
+    "at": [
+     24,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_10_south",
+    "at": [
+     3,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_rock_tunnel_b1_f",
+    "at": [
+     11,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_rock_tunnel_b1_f",
+    "at": [
+     9,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_rock_tunnel_b1_f",
+    "at": [
+     12,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_rock_tunnel_b1_f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    11,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "岩山隧道·1F\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    10,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "岩山隧道·1F\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "dark": true
+}

@@ -1,0 +1,481 @@
+{
+ "name": "七之岛·焰之山 山麓",
+ "emerald": "mt_ember_exterior",
+ "size": [
+  57,
+  54
+ ],
+ "spawn": [
+  42,
+  39
+ ],
+ "npcs": [
+  {
+   "at": [
+    29,
+    45
+   ],
+   "name": "岛民",
+   "gfx": "hiker",
+   "lines": [
+    "码头那位脾气怪。",
+    "别急着赶路。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    41,
+    40
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我养了三只宝可梦。",
+    "别急着赶路。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    42,
+    40
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没有大医院。",
+    "别急着赶路。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    22,
+    35
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "火种这条路不太好走。",
+    "别急着赶路。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    28
+   ],
+   "name": "岛民",
+   "gfx": "camper",
+   "lines": [
+    "我们这儿靠打鱼过活。",
+    "别急着赶路。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    42
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你要去山上是吧。",
+    "别急着赶路。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    29,
+    41
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "太阳落山就起雾。",
+    "别急着赶路。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    30,
+    42
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "有事问船夫。",
+    "别急着赶路。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    34,
+    14
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这座岛上的风是咸的。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    36,
+    15
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "船一天只来两趟。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    18,
+    39
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你从关都来的吧。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    19,
+    40
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没什么人，安静。",
+    "天黑前回码头。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    28,
+    48
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     11,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    29,
+    48
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_kindle_road",
+    "at": [
+     12,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    24
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_summit_path_1f",
+    "at": [
+     2,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    39,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_summit_path_3f",
+    "at": [
+     11,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    29,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_summit",
+    "at": [
+     9,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    42,
+    39
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_1f",
+    "at": [
+     22,
+     17
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 77,
+   "min": 30,
+   "max": 30,
+   "weight": 20
+  },
+  {
+   "species": 22,
+   "min": 38,
+   "max": 38,
+   "weight": 20
+  },
+  {
+   "species": 77,
+   "min": 33,
+   "max": 33,
+   "weight": 10
+  },
+  {
+   "species": 21,
+   "min": 32,
+   "max": 32,
+   "weight": 10
+  },
+  {
+   "species": 66,
+   "min": 35,
+   "max": 35,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 33,
+   "max": 33,
+   "weight": 10
+  },
+  {
+   "species": 77,
+   "min": 36,
+   "max": 36,
+   "weight": 5
+  },
+  {
+   "species": 22,
+   "min": 40,
+   "max": 40,
+   "weight": 5
+  },
+  {
+   "species": 21,
+   "min": 30,
+   "max": 30,
+   "weight": 4
+  },
+  {
+   "species": 78,
+   "min": 39,
+   "max": 39,
+   "weight": 4
+  },
+  {
+   "species": 21,
+   "min": 30,
+   "max": 30,
+   "weight": 1
+  },
+  {
+   "species": 78,
+   "min": 42,
+   "max": 42,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "objects": [
+  {
+   "at": [
+    13,
+    6
+   ],
+   "kind": "item",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    38,
+    10
+   ],
+   "kind": "item",
+   "item": "ITEM_FIRE_STONE",
+   "name": "火之石",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    48,
+    20
+   ],
+   "kind": "item",
+   "item": "ITEM_DIRE_HIT",
+   "name": "ITEM_DIRE_HIT",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    18,
+    17
+   ],
+   "kind": "hidden",
+   "item": "ITEM_FIRE_STONE",
+   "name": "火之石",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_MT_EMBER_EXTERIOR_FIRE_STONE",
+   "count": 1
+  },
+  {
+   "at": [
+    8,
+    30
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_MT_EMBER_EXTERIOR_ULTRA_BALL",
+   "count": 1
+  },
+  {
+   "at": [
+    29,
+    41
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    30,
+    42
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    22,
+    45
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    17,
+    46
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    36,
+    14
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    34,
+    14
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    36,
+    15
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    35,
+    14
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    35,
+    17
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    18,
+    39
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    19,
+    40
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

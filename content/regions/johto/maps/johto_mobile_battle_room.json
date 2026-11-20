@@ -1,0 +1,1 @@
+{"name":"房间","emerald":"johto_mobile_battle_room","size":[5,4],"spawn":[2,2],"npcs":[],"warps":[],"encounters":[],"encounter_rate":0.0,"objects":[{"at":[3,0],"kind":"sign","sprite":"sign","text":"房间\\n（城都地区的告示牌）"}],"weather":"","weather_name":"","cycling":false}

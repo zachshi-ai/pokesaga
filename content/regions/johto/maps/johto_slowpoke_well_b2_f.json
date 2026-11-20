@@ -1,0 +1,119 @@
+{
+ "name": "呆呆兽之井·B2F",
+ "emerald": "johto_slowpoke_well_b2_f",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  4,
+  3
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    2
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_slowpoke_well_b1_f",
+    "at": [
+     3,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 41,
+   "min": 21,
+   "max": 21,
+   "weight": 90
+  },
+  {
+   "species": 41,
+   "min": 23,
+   "max": 23,
+   "weight": 90
+  },
+  {
+   "species": 41,
+   "min": 19,
+   "max": 19,
+   "weight": 60
+  },
+  {
+   "species": 79,
+   "min": 21,
+   "max": 21,
+   "weight": 30
+  },
+  {
+   "species": 42,
+   "min": 23,
+   "max": 23,
+   "weight": 15
+  },
+  {
+   "species": 79,
+   "min": 23,
+   "max": 23,
+   "weight": 15
+  }
+ ],
+ "encounter_rate": 0.02,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 79,
+   "min": 15,
+   "max": 15,
+   "weight": 60
+  },
+  {
+   "species": 79,
+   "min": 20,
+   "max": 20,
+   "weight": 30
+  },
+  {
+   "species": 80,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.02
+}

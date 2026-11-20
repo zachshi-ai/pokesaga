@@ -1,0 +1,410 @@
+{
+ "name": "36 号道路",
+ "emerald": "johto_route_36",
+ "size": [
+  30,
+  9
+ ],
+ "spawn": [
+  15,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    10,
+    6
+   ],
+   "name": "超能力者 Mark",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 13,
+      "species": 63,
+      "moves": [
+       100,
+       148
+      ]
+     },
+     {
+      "level": 13,
+      "species": 63,
+      "moves": [
+       100,
+       148
+      ]
+     },
+     {
+      "level": 15,
+      "species": 64,
+      "moves": [
+       100,
+       134,
+       93
+      ]
+     }
+    ]
+   },
+   "trainer": "PsychicMark"
+  },
+  {
+   "at": [
+    15,
+    7
+   ],
+   "name": "学生 Alan",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 16,
+      "species": 114
+     }
+    ]
+   },
+   "trainer": "SchoolboyAlan"
+  },
+  {
+   "at": [
+    17,
+    4
+   ],
+   "name": "怪树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    25,
+    4
+   ],
+   "name": "少女",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    22,
+    4
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    2
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    23,
+    3
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    16,
+    6
+   ],
+   "name": "少女",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    3
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    13,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_36_national_park_gate",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_36_national_park_gate",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_36_ruins_of_alph_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_36_ruins_of_alph_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    29,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_violet_city",
+    "at": [
+     1,
+     4
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_35",
+    "at": [
+     8,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    12,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_37",
+    "at": [
+     2,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    13,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_37",
+    "at": [
+     3,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    14,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_37",
+    "at": [
+     4,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    15,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_37",
+    "at": [
+     4,
+     6
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [
+  {
+   "species": 16,
+   "min": 4,
+   "max": 4,
+   "weight": 90
+  },
+  {
+   "species": 69,
+   "min": 5,
+   "max": 5,
+   "weight": 60
+  },
+  {
+   "species": 165,
+   "min": 4,
+   "max": 4,
+   "weight": 30
+  },
+  {
+   "species": 167,
+   "min": 4,
+   "max": 4,
+   "weight": 30
+  },
+  {
+   "species": 163,
+   "min": 4,
+   "max": 4,
+   "weight": 30
+  },
+  {
+   "species": 58,
+   "min": 5,
+   "max": 5,
+   "weight": 20
+  },
+  {
+   "species": 163,
+   "min": 5,
+   "max": 5,
+   "weight": 15
+  },
+  {
+   "species": 16,
+   "min": 5,
+   "max": 5,
+   "weight": 10
+  },
+  {
+   "species": 16,
+   "min": 6,
+   "max": 6,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 5,
+   "max": 5,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.1,
+ "objects": [
+  {
+   "at": [
+    14,
+    0
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "36 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    22,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "36 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    27,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "36 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

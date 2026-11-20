@@ -1,0 +1,189 @@
+{
+ "name": "空木研究所",
+ "emerald": "johto_elms_lab",
+ "size": [
+  5,
+  6
+ ],
+ "spawn": [
+  2,
+  3
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    1
+   ],
+   "name": "空木博士",
+   "gfx": "scientist",
+   "lines": [
+    "这三个孩子是我刚照看大的。",
+    "挑一个带走吧，路上小心。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    4
+   ],
+   "name": "研究员",
+   "gfx": "scientist",
+   "lines": [
+    "研究数据是不会骗人的。",
+    "宝可梦的行为比人想的复杂得多。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    1
+   ],
+   "name": "精灵球",
+   "gfx": "man",
+   "lines": [
+    "桌上放着三个精灵球。"
+   ],
+   "gives_mon": {
+    "species": 152,
+    "level": 5,
+    "flag": "johto_starter"
+   }
+  },
+  {
+   "at": [
+    2,
+    0
+   ],
+   "name": "精灵球",
+   "gfx": "man",
+   "lines": [
+    "桌上放着三个精灵球。"
+   ],
+   "gives_mon": {
+    "species": 155,
+    "level": 5,
+    "flag": "johto_starter"
+   }
+  },
+  {
+   "at": [
+    4,
+    1
+   ],
+   "name": "精灵球",
+   "gfx": "man",
+   "lines": [
+    "桌上放着三个精灵球。"
+   ],
+   "gives_mon": {
+    "species": 158,
+    "level": 5,
+    "flag": "johto_starter"
+   }
+  },
+  {
+   "at": [
+    3,
+    0
+   ],
+   "name": "巡警",
+   "gfx": "clerk",
+   "lines": [
+    "欢迎光临，随便看看。",
+    "货都在货架上，别客气。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_new_bark_town",
+    "at": [
+     3,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_new_bark_town",
+    "at": [
+     3,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    4,
+    0
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "空木研究所\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    0,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "空木研究所\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    1,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "空木研究所\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    3,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "空木研究所\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    4,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "空木研究所\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "空木研究所\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,171 @@
+{
+ "name": "关都·圣安奴号·2f corridor",
+ "emerald": "ssanne_2f_corridor",
+ "size": [
+  34,
+  16
+ ],
+ "spawn": [
+  2,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    30,
+    1
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我的宝可梦在睡午觉。",
+    "我记性不太好。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    7
+   ],
+   "name": "居民",
+   "gfx": "sailor",
+   "lines": [
+    "东西涨价涨得厉害。",
+    "我记性不太好。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_1_f_corridor",
+    "at": [
+     3,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    12
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_3_f_corridor",
+    "at": [
+     18,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    30,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_captains_office",
+    "at": [
+     3,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_2_f_room1",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_2_f_room2",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_2_f_room3",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_2_f_room4",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    22,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_2_f_room5",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    26,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_2_f_room6",
+    "at": [
+     4,
+     7
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

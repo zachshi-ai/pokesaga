@@ -1,0 +1,88 @@
+{
+ "name": "二号岛·宝可梦中心",
+ "emerald": "pokemon_center_1f_frlg",
+ "size": [
+  15,
+  10
+ ],
+ "spawn": [
+  7,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "nurse",
+   "lines": [
+    "你从关都来的吧。",
+    "路上小心。",
+    "船一天只来两趟。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没什么人，安静。",
+    "路上小心。",
+    "船一天只来两趟。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "岛民",
+   "gfx": "bug_catcher",
+   "lines": [
+    "往北走有条小路。",
+    "路上小心。",
+    "船一天只来两趟。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island",
+    "at": [
+     21,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "two_island_pokemon_center_2f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,241 @@
+{
+ "name": "5 号道路",
+ "emerald": "johto_route_5",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    8,
+    8
+   ],
+   "name": "宝可梦迷",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    8,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_5_underground_path_entrance",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_5_saffron_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_5_saffron_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_5_cleanse_tag_house",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_saffron_city",
+    "at": [
+     0,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_saffron_city",
+    "at": [
+     1,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     5,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    1,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     6,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    3,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     8,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     9,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     10,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     11,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     12,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     13,
+     16
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

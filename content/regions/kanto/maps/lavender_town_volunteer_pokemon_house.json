@@ -1,0 +1,164 @@
+{
+ "name": "关都·紫苑镇·义工之家",
+ "emerald": "lavender_town_volunteer_pokemon_house",
+ "size": [
+  12,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    3
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我在这儿等人。",
+    "记得带伞。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "这附近有只野猫。",
+    "记得带伞。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "听说是有人把门锁了。",
+    "记得带伞。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    5
+   ],
+   "name": "居民",
+   "gfx": "youngster",
+   "lines": [
+    "柜台后面那位脾气不好。",
+    "记得带伞。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我把钥匙忘在楼上了。",
+    "记得带伞。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    2
+   ],
+   "name": "居民",
+   "gfx": "lass",
+   "lines": [
+    "别弄乱我的书架。",
+    "记得带伞。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     394,
+     141
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     394,
+     141
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     394,
+     141
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    5,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "宝可梦爱好者杂志\n每月大抽奖！\n回函单在……\n没了！已经被剪掉了。\n一定是有人已经申请过了。"
+  },
+  {
+   "at": [
+    3,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "宝可梦杂志在书架上摆了一排。\n深入宝可梦……\n宝可梦爱好者……"
+  },
+  {
+   "at": [
+    4,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "宝可梦杂志在书架上摆了一排。\n深入宝可梦……\n宝可梦爱好者……"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,102 @@
+{
+ "name": "关都·尼比市·民宅",
+ "emerald": "house2_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    1,
+    2
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "我刚从北边过来，风挺大。",
+    "我这只跟了我三年。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    3
+   ],
+   "gfx": "youngster",
+   "name": "小男孩",
+   "lines": [
+    "你队伍里有几只？",
+    "我这只跟了我三年。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    3
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "听说馆主今天心情不错。",
+    "我这只跟了我三年。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     81,
+     71
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     81,
+     71
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     81,
+     71
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

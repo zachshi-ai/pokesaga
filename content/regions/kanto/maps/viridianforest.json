@@ -1,0 +1,365 @@
+{
+ "name": "关都·常磐森林",
+ "emerald": "viridian_forest",
+ "size": [
+  54,
+  69
+ ],
+ "spawn": [
+  27,
+  62
+ ],
+ "npcs": [
+  {
+   "at": [
+    29,
+    58
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "script": "ViridianForest_EventScript_Youngster",
+   "lines": [
+    "我在找出口。",
+    "找了四十分钟了。"
+   ]
+  },
+  {
+   "at": [
+    45,
+    58
+   ],
+   "name": "小男孩",
+   "gfx": "youngster",
+   "script": "ViridianForest_EventScript_Boy",
+   "lines": [
+    "这里有绿毛虫，全身绿色那种。",
+    "超级稀有！"
+   ]
+  },
+  {
+   "at": [
+    47,
+    45
+   ],
+   "name": "捕虫少年",
+   "gfx": "bug_catcher",
+   "script": "ViridianForest_EventScript_Rick",
+   "lines": [
+    "我这只是今天抓的。",
+    "你看它的角，多漂亮。"
+   ]
+  },
+  {
+   "at": [
+    47,
+    29
+   ],
+   "name": "捕虫少年",
+   "gfx": "bug_catcher",
+   "script": "ViridianForest_EventScript_Doug",
+   "lines": [
+    "我在这儿布了十个陷阱。",
+    "一个都没中。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    22
+   ],
+   "name": "捕虫少年",
+   "gfx": "bug_catcher",
+   "script": "ViridianForest_EventScript_Sammy",
+   "lines": [
+    "森林深处有只特别大的独角虫。",
+    "我不敢过去。"
+   ]
+  },
+  {
+   "at": [
+    43,
+    6
+   ],
+   "name": "捕虫少年",
+   "gfx": "bug_catcher",
+   "script": "ViridianForest_EventScript_Anthony",
+   "lines": [
+    "你也是来抓虫的？",
+    "那就先打赢我。"
+   ]
+  },
+  {
+   "at": [
+    16,
+    5
+   ],
+   "name": "捕虫少年",
+   "gfx": "bug_catcher",
+   "script": "ViridianForest_EventScript_Charlie",
+   "lines": [
+    "北边就是出口。",
+    "不过我得先把这片地扫一遍。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    29,
+    62
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_viridianforest_southentrance",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_viridianforest_northentrance",
+    "at": [
+     7,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    28,
+    62
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_viridianforest_southentrance",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    30,
+    62
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_viridianforest_southentrance",
+    "at": [
+     7,
+     1
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 10,
+   "min": 4,
+   "max": 4,
+   "weight": 20
+  },
+  {
+   "species": 13,
+   "min": 4,
+   "max": 4,
+   "weight": 20
+  },
+  {
+   "species": 10,
+   "min": 5,
+   "max": 5,
+   "weight": 10
+  },
+  {
+   "species": 13,
+   "min": 5,
+   "max": 5,
+   "weight": 10
+  },
+  {
+   "species": 10,
+   "min": 3,
+   "max": 3,
+   "weight": 10
+  },
+  {
+   "species": 13,
+   "min": 3,
+   "max": 3,
+   "weight": 10
+  },
+  {
+   "species": 14,
+   "min": 5,
+   "max": 5,
+   "weight": 5
+  },
+  {
+   "species": 11,
+   "min": 5,
+   "max": 5,
+   "weight": 5
+  },
+  {
+   "species": 11,
+   "min": 4,
+   "max": 4,
+   "weight": 4
+  },
+  {
+   "species": 25,
+   "min": 3,
+   "max": 3,
+   "weight": 4
+  },
+  {
+   "species": 11,
+   "min": 6,
+   "max": 6,
+   "weight": 1
+  },
+  {
+   "species": 25,
+   "min": 5,
+   "max": 5,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.14,
+ "objects": [
+  {
+   "at": [
+    5,
+    41
+   ],
+   "kind": "item",
+   "item": "ITEM_POKE_BALL",
+   "name": "精灵球",
+   "category": "ball",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    40,
+    21
+   ],
+   "kind": "item",
+   "item": "ITEM_ANTIDOTE",
+   "name": "解毒药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    21,
+    34
+   ],
+   "kind": "item",
+   "item": "ITEM_POTION",
+   "name": "伤药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    49,
+    60
+   ],
+   "kind": "item",
+   "item": "ITEM_POTION",
+   "name": "伤药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    39,
+    59
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "训练家贴士\n如果你的宝可梦很虚弱，\n而且你不想进行无谓的战斗的话，那么就避开草地吧！"
+  },
+  {
+   "at": [
+    43,
+    26
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "训练家贴士\n通过电脑联系大木博士，\n让他给你的宝可梦图鉴做个评价！"
+  },
+  {
+   "at": [
+    9,
+    29
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "训练家贴士\n你不可以收服\n别人的宝可梦。\n只有对野生的宝可梦\n才能用精灵球收服！"
+  },
+  {
+   "at": [
+    6,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "走出常青森林后\n深灰市就在前面"
+  },
+  {
+   "at": [
+    28,
+    44
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "如果中毒了，就用解毒药！\n你可以在宝可梦商店里买到！"
+  },
+  {
+   "at": [
+    31,
+    60
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "训练家贴士\n在收服宝可梦之前\n先削弱它们的体力！\n它们精力充沛时可能会逃跑！"
+  },
+  {
+   "at": [
+    3,
+    22
+   ],
+   "kind": "hidden",
+   "item": "ITEM_POTION",
+   "name": "伤药",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_VIRIDIAN_FOREST_POTION",
+   "count": 1
+  },
+  {
+   "at": [
+    28,
+    57
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ANTIDOTE",
+   "name": "解毒药",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_VIRIDIAN_FOREST_ANTIDOTE",
+   "count": 1
+  }
+ ],
+ "weather": "shade",
+ "weather_name": "阴",
+ "cycling": true
+}

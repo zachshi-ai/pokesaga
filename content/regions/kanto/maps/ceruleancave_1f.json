@@ -1,0 +1,373 @@
+{
+ "name": "关都·华蓝洞窟 1F",
+ "emerald": "cerulean_cave_1f",
+ "size": [
+  40,
+  23
+ ],
+ "spawn": [
+  33,
+  21
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    21
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "墙上有旧的刻痕。",
+    "出去记得晒太阳。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    21
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这层的路是个圈。",
+    "出去记得晒太阳。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    20
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "洞里比外面冷。",
+    "水源在第三层。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    20
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "回音很大，小声点。",
+    "水源在第三层。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    21
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "前面塌了一段。",
+    "水源在第三层。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    18
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "火把快烧完了。",
+    "水源在第三层。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    33,
+    21
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     265,
+     52
+    ]
+   }
+  },
+  {
+   "at": [
+    34,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_2f",
+    "at": [
+     33,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_b1f",
+    "at": [
+     5,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_2f",
+    "at": [
+     13,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    15
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_2f",
+    "at": [
+     7,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    30,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_2f",
+    "at": [
+     26,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    24,
+    11
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_2f",
+    "at": [
+     23,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_2f",
+    "at": [
+     5,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 82,
+   "min": 49,
+   "max": 49,
+   "weight": 20
+  },
+  {
+   "species": 47,
+   "min": 49,
+   "max": 49,
+   "weight": 20
+  },
+  {
+   "species": 42,
+   "min": 46,
+   "max": 46,
+   "weight": 10
+  },
+  {
+   "species": 67,
+   "min": 46,
+   "max": 46,
+   "weight": 10
+  },
+  {
+   "species": 57,
+   "min": 52,
+   "max": 52,
+   "weight": 10
+  },
+  {
+   "species": 132,
+   "min": 52,
+   "max": 52,
+   "weight": 10
+  },
+  {
+   "species": 101,
+   "min": 58,
+   "max": 58,
+   "weight": 5
+  },
+  {
+   "species": 47,
+   "min": 58,
+   "max": 58,
+   "weight": 5
+  },
+  {
+   "species": 42,
+   "min": 55,
+   "max": 55,
+   "weight": 4
+  },
+  {
+   "species": 202,
+   "min": 55,
+   "max": 55,
+   "weight": 4
+  },
+  {
+   "species": 57,
+   "min": 61,
+   "max": 61,
+   "weight": 1
+  },
+  {
+   "species": 132,
+   "min": 61,
+   "max": 61,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "objects": [
+  {
+   "at": [
+    7,
+    3
+   ],
+   "kind": "item",
+   "item": "ITEM_NUGGET",
+   "name": "金珠",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    11,
+    16
+   ],
+   "kind": "item",
+   "item": "ITEM_FULL_RESTORE",
+   "name": "全复药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    25,
+    5
+   ],
+   "kind": "item",
+   "item": "ITEM_MAX_ELIXIR",
+   "name": "PP 多项全补剂",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    12,
+    2
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_CERULEAN_CAVE_1F_ULTRA_BALL",
+   "count": 1
+  },
+  {
+   "at": [
+    7,
+    21
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    13,
+    21
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    5,
+    20
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    14,
+    20
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    11,
+    21
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  },
+  {
+   "at": [
+    9,
+    18
+   ],
+   "kind": "rock",
+   "sprite": "rock"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

@@ -1,0 +1,882 @@
+{
+ "name": "五号岛·花田",
+ "emerald": "five_island_meadow",
+ "size": [
+  24,
+  40
+ ],
+ "spawn": [
+  12,
+  21
+ ],
+ "npcs": [
+  {
+   "at": [
+    18,
+    18
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我养了三只宝可梦。",
+    "路上小心。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    17,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没有大医院。",
+    "路上小心。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    27
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "火种这条路不太好走。",
+    "路上小心。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    12,
+    21
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_rocket_warehouse",
+    "at": [
+     24,
+     25
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    2
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    3
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    14
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    17
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    20
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    21
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    27
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     25
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    28
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     26
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    29
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     27
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    30
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     28
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    31
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     29
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    32
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     30
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    35
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     33
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    39
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     37
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     23,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    1
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     23,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    2
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     23,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     23,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     23,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    17
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     23,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    18
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     23,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     23,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    1
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    16
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    26
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     25
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    38
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     37
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    4
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    15
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    18
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     16
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    22
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     20
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    33
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     31
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    34
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     32
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    36
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     34
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    37
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     35
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    3
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     23,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     23,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    14
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     23,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    16
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     23,
+     16
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    25
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_memorial_pillar",
+    "at": [
+     0,
+     24
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 16,
+   "min": 44,
+   "max": 44,
+   "weight": 20
+  },
+  {
+   "species": 161,
+   "min": 10,
+   "max": 10,
+   "weight": 20
+  },
+  {
+   "species": 17,
+   "min": 48,
+   "max": 48,
+   "weight": 10
+  },
+  {
+   "species": 187,
+   "min": 10,
+   "max": 10,
+   "weight": 10
+  },
+  {
+   "species": 161,
+   "min": 15,
+   "max": 15,
+   "weight": 10
+  },
+  {
+   "species": 52,
+   "min": 41,
+   "max": 41,
+   "weight": 10
+  },
+  {
+   "species": 187,
+   "min": 15,
+   "max": 15,
+   "weight": 5
+  },
+  {
+   "species": 54,
+   "min": 41,
+   "max": 41,
+   "weight": 5
+  },
+  {
+   "species": 17,
+   "min": 50,
+   "max": 50,
+   "weight": 4
+  },
+  {
+   "species": 53,
+   "min": 47,
+   "max": 47,
+   "weight": 4
+  },
+  {
+   "species": 17,
+   "min": 50,
+   "max": 50,
+   "weight": 1
+  },
+  {
+   "species": 53,
+   "min": 50,
+   "max": 50,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "objects": [
+  {
+   "at": [
+    12,
+    11
+   ],
+   "kind": "item",
+   "item": "ITEM_MAX_POTION",
+   "name": "全满药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    3,
+    22
+   ],
+   "kind": "item",
+   "item": "ITEM_PP_UP",
+   "name": "PP 提升剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    12,
+    21
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "你输入了一段密码。\n“多多少少 少少多多”\n…………………………\n开门还需要\n另一段密码……"
+  },
+  {
+   "at": [
+    8,
+    9
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  },
+  {
+   "at": [
+    19,
+    12
+   ],
+   "kind": "cut",
+   "sprite": "cut"
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

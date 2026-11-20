@@ -1,0 +1,227 @@
+{
+ "name": "20 号道路",
+ "emerald": "johto_route_20",
+ "size": [
+  30,
+  9
+ ],
+ "spawn": [
+  15,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    20,
+    1
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    20,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    4
+   ],
+   "name": "游泳者 Cameron",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 34,
+      "species": 183
+     }
+    ]
+   },
+   "trainer": "SwimmerMCameron"
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    19,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_seafoam_gym",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cinnabar_island",
+    "at": [
+     7,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    29,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    29,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    29,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    29,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    29,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    29,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    29,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    29,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    18,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "20 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

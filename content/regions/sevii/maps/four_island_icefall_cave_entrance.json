@@ -1,0 +1,135 @@
+{
+ "name": "四号岛·冰落洞窟 入口",
+ "emerald": "four_island_icefall_cave_entrance",
+ "size": [
+  30,
+  36
+ ],
+ "spawn": [
+  17,
+  30
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    17,
+    30
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island",
+    "at": [
+     38,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    21
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island_icefall_cave_1f",
+    "at": [
+     3,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island_icefall_cave_1f",
+    "at": [
+     2,
+     8
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 86,
+   "min": 43,
+   "max": 43,
+   "weight": 20
+  },
+  {
+   "species": 42,
+   "min": 45,
+   "max": 45,
+   "weight": 20
+  },
+  {
+   "species": 86,
+   "min": 45,
+   "max": 45,
+   "weight": 10
+  },
+  {
+   "species": 86,
+   "min": 47,
+   "max": 47,
+   "weight": 10
+  },
+  {
+   "species": 41,
+   "min": 40,
+   "max": 40,
+   "weight": 10
+  },
+  {
+   "species": 87,
+   "min": 49,
+   "max": 49,
+   "weight": 10
+  },
+  {
+   "species": 87,
+   "min": 51,
+   "max": 51,
+   "weight": 5
+  },
+  {
+   "species": 54,
+   "min": 41,
+   "max": 41,
+   "weight": 5
+  },
+  {
+   "species": 42,
+   "min": 48,
+   "max": 48,
+   "weight": 4
+  },
+  {
+   "species": 87,
+   "min": 53,
+   "max": 53,
+   "weight": 4
+  },
+  {
+   "species": 42,
+   "min": 48,
+   "max": 48,
+   "weight": 1
+  },
+  {
+   "species": 87,
+   "min": 53,
+   "max": 53,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

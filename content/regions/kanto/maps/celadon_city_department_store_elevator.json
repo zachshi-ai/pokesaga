@@ -1,0 +1,104 @@
+{
+ "name": "关都·玉虹·百货电梯",
+ "emerald": "celadon_city_department_store_elevator",
+ "size": [
+  5,
+  7
+ ],
+ "spawn": [
+  0,
+  3
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    0,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadoncity_departmentstore_1f",
+    "at": [
+     4,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_department_store_2f",
+    "at": [
+     3,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_department_store_3f",
+    "at": [
+     3,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_department_store_4f",
+    "at": [
+     3,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_department_store_5f",
+    "at": [
+     3,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_department_store_roof",
+    "at": [
+     1,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

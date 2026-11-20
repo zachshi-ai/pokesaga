@@ -1,0 +1,444 @@
+{
+ "name": "浅葱市",
+ "emerald": "johto_olivine_city",
+ "size": [
+  20,
+  18
+ ],
+ "spawn": [
+  10,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    10,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    10
+   ],
+   "name": "水手",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_pokecenter_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_gym",
+    "at": [
+     2,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_tims_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_house_beta",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_punishment_speech_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_good_rod_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_cafe",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_mart",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_lighthouse_1f",
+    "at": [
+     6,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_port_passage",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_olivine_port_passage",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_39",
+    "at": [
+     4,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    10,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_39",
+    "at": [
+     5,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    11,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_39",
+    "at": [
+     6,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_40",
+    "at": [
+     8,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    11
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_40",
+    "at": [
+     8,
+     2
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_40",
+    "at": [
+     8,
+     3
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_40",
+    "at": [
+     7,
+     3
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_40",
+    "at": [
+     8,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_40",
+    "at": [
+     7,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    16
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_40",
+    "at": [
+     7,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_40",
+    "at": [
+     5,
+     5
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    8,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "浅葱市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    10,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "浅葱市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    3,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "浅葱市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    15,
+    14
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "浅葱市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    1,
+    11
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "浅葱市\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 72,
+   "min": 20,
+   "max": 20,
+   "weight": 60
+  },
+  {
+   "species": 72,
+   "min": 15,
+   "max": 15,
+   "weight": 30
+  },
+  {
+   "species": 73,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.06
+}

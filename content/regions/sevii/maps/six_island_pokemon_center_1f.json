@@ -1,0 +1,101 @@
+{
+ "name": "六号岛·宝可梦中心",
+ "emerald": "pokemon_center_1f_frlg",
+ "size": [
+  15,
+  10
+ ],
+ "spawn": [
+  7,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "nurse",
+   "lines": [
+    "我养了三只宝可梦。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没有大医院。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    3
+   ],
+   "name": "岛民",
+   "gfx": "hiker",
+   "lines": [
+    "火种这条路不太好走。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    5
+   ],
+   "name": "岛民",
+   "gfx": "old_man",
+   "lines": [
+    "我们这儿靠打鱼过活。",
+    "记得看看日出。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island",
+    "at": [
+     11,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_pokemon_center_2f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

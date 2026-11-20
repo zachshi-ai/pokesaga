@@ -1,0 +1,341 @@
+{
+ "name": "关都·狩猎区·西",
+ "emerald": "safari_zone_west",
+ "size": [
+  48,
+  36
+ ],
+ "spawn": [
+  30,
+  5
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    30,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     10,
+     34
+    ]
+   }
+  },
+  {
+   "at": [
+    31,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     11,
+     34
+    ]
+   }
+  },
+  {
+   "at": [
+    32,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     12,
+     34
+    ]
+   }
+  },
+  {
+   "at": [
+    37,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     20,
+     34
+    ]
+   }
+  },
+  {
+   "at": [
+    38,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     21,
+     34
+    ]
+   }
+  },
+  {
+   "at": [
+    39,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     22,
+     34
+    ]
+   }
+  },
+  {
+   "at": [
+    40,
+    26
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_center",
+    "at": [
+     8,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    40,
+    27
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_center",
+    "at": [
+     8,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    40,
+    28
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_center",
+    "at": [
+     8,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safari_zone_west_rest_house",
+    "at": [
+     3,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safari_zone_secret_house",
+    "at": [
+     3,
+     9
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 84,
+   "min": 26,
+   "max": 26,
+   "weight": 20
+  },
+  {
+   "species": 32,
+   "min": 22,
+   "max": 22,
+   "weight": 20
+  },
+  {
+   "species": 102,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  },
+  {
+   "species": 102,
+   "min": 27,
+   "max": 27,
+   "weight": 10
+  },
+  {
+   "species": 48,
+   "min": 23,
+   "max": 23,
+   "weight": 10
+  },
+  {
+   "species": 33,
+   "min": 30,
+   "max": 30,
+   "weight": 10
+  },
+  {
+   "species": 29,
+   "min": 30,
+   "max": 30,
+   "weight": 5
+  },
+  {
+   "species": 49,
+   "min": 32,
+   "max": 32,
+   "weight": 5
+  },
+  {
+   "species": 48,
+   "min": 23,
+   "max": 23,
+   "weight": 4
+  },
+  {
+   "species": 128,
+   "min": 25,
+   "max": 25,
+   "weight": 4
+  },
+  {
+   "species": 48,
+   "min": 23,
+   "max": 23,
+   "weight": 1
+  },
+  {
+   "species": 115,
+   "min": 28,
+   "max": 28,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "objects": [
+  {
+   "at": [
+    28,
+    14
+   ],
+   "kind": "item",
+   "item": "ITEM_GOLD_TEETH",
+   "name": "ITEM_GOLD_TEETH",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    17,
+    13
+   ],
+   "kind": "item",
+   "item": "ITEM_TM32",
+   "name": "ITEM_TM32",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    16,
+    27
+   ],
+   "kind": "item",
+   "item": "ITEM_MAX_POTION",
+   "name": "全满药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    27,
+    24
+   ],
+   "kind": "item",
+   "item": "ITEM_MAX_REVIVE",
+   "name": "活力块",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    27,
+    9
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "寻物启示\n寻找原野区园长\n丢失了的金假牙。它就掉在这里的某个地方。\n是有奖悬赏！\n联系人：园长"
+  },
+  {
+   "at": [
+    36,
+    10
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "训练家贴士\n区域性的探险活动！\n搜索神秘小屋！"
+  },
+  {
+   "at": [
+    35,
+    26
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "栖息地3\n往东：中部栖息地"
+  },
+  {
+   "at": [
+    22,
+    19
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "休息屋"
+  },
+  {
+   "at": [
+    13,
+    11
+   ],
+   "kind": "hidden",
+   "item": "ITEM_REVIVE",
+   "name": "活力碎片",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_SAFARI_ZONE_WEST_REVIVE",
+   "count": 1
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

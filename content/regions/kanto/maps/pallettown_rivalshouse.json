@@ -1,0 +1,118 @@
+{
+ "name": "关都·真新镇·小茂的家",
+ "emerald": "pallet_town_rivals_house",
+ "size": [
+  13,
+  10
+ ],
+ "spawn": [
+  4,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    10,
+    6
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "宝可梦的体力靠平时的照顾。",
+    "不过夜里还是别乱逛。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    4
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "我刚从北边过来，风挺大。",
+    "不过夜里还是别乱逛。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     75,
+     267
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     75,
+     267
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     75,
+     267
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    12,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "书架子上摆满了\n关于宝可梦的读物。"
+  },
+  {
+   "at": [
+    11,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "书架子上摆满了\n关于宝可梦的读物。"
+  },
+  {
+   "at": [
+    9,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "“可爱又甜蜜的皮皮”"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

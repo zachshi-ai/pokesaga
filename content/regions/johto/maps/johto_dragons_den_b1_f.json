@@ -1,0 +1,319 @@
+{
+ "name": "龙穴",
+ "emerald": "johto_dragons_den_b1_f",
+ "size": [
+  20,
+  18
+ ],
+ "spawn": [
+  8,
+  11
+ ],
+ "npcs": [
+  {
+   "at": [
+    17,
+    8
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    15
+   ],
+   "name": "馆主 小椿",
+   "gfx": "teala",
+   "lines": [
+    "想挑战道馆，先过我这关。",
+    "让我看看你的实力。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 37,
+      "species": 148,
+      "moves": [
+       86,
+       57,
+       21,
+       225
+      ]
+     },
+     {
+      "level": 37,
+      "species": 148,
+      "moves": [
+       86,
+       85,
+       21,
+       225
+      ]
+     },
+     {
+      "level": 37,
+      "species": 148,
+      "moves": [
+       86,
+       58,
+       21,
+       225
+      ]
+     },
+     {
+      "level": 40,
+      "species": 230,
+      "moves": [
+       108,
+       57,
+       63,
+       225
+      ]
+     }
+    ]
+   },
+   "badge": "升龙徽章",
+   "trainer": "Clair"
+  },
+  {
+   "at": [
+    10,
+    11
+   ],
+   "name": "劲敌",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    4
+   ],
+   "name": "训练家 Darin",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 37,
+      "species": 148,
+      "moves": [
+       35,
+       57,
+       82,
+       21
+      ]
+     }
+    ]
+   },
+   "trainer": "CooltrainerMDarin"
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "训练家 Cara",
+   "gfx": "teala",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 33,
+      "species": 116,
+      "moves": [
+       108,
+       43,
+       250,
+       239
+      ]
+     },
+     {
+      "level": 33,
+      "species": 116,
+      "moves": [
+       108,
+       43,
+       250,
+       239
+      ]
+     },
+     {
+      "level": 35,
+      "species": 117,
+      "moves": [
+       129,
+       43,
+       127,
+       239
+      ]
+     }
+    ]
+   },
+   "trainer": "CooltrainerFCara"
+  },
+  {
+   "at": [
+    2,
+    8
+   ],
+   "name": "双胞胎",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    9
+   ],
+   "name": "双胞胎",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    2
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    10
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    10,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_dragons_den_1f",
+    "at": [
+     2,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_dragon_shrine",
+    "at": [
+     2,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    9,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "龙穴\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    16,
+    14
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "龙穴\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    8,
+    11
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "龙穴\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    15,
+    6
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "龙穴\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 129,
+   "min": 15,
+   "max": 15,
+   "weight": 60
+  },
+  {
+   "species": 129,
+   "min": 10,
+   "max": 10,
+   "weight": 30
+  },
+  {
+   "species": 147,
+   "min": 10,
+   "max": 10,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.04
+}

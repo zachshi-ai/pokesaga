@@ -1,0 +1,211 @@
+{
+ "name": "关都·宝可梦屋·3f",
+ "emerald": "pokemon_mansion_3f",
+ "size": [
+  38,
+  35
+ ],
+ "spawn": [
+  8,
+  3
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    13
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "别弄乱我的书架。",
+    "我什么都没说。"
+   ]
+  },
+  {
+   "at": [
+    22,
+    13
+   ],
+   "name": "居民",
+   "gfx": "scientist",
+   "lines": [
+    "客人不多，坐吧。",
+    "我什么都没说。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    8,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_2f",
+    "at": [
+     9,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    34,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_2f",
+    "at": [
+     34,
+     22
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    11
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_2f",
+    "at": [
+     9,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_1f",
+    "at": [
+     19,
+     22
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_1f",
+    "at": [
+     20,
+     22
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_2f",
+    "at": [
+     27,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    20,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_1f",
+    "at": [
+     20,
+     22
+    ]
+   }
+  },
+  {
+   "at": [
+    24,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_2f",
+    "at": [
+     27,
+     17
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    9,
+    19
+   ],
+   "kind": "item",
+   "item": "ITEM_MAX_POTION",
+   "name": "全满药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    32,
+    6
+   ],
+   "kind": "item",
+   "item": "ITEM_IRON",
+   "name": "防御增强剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    8,
+    16
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "格斗道场"
+  },
+  {
+   "at": [
+    12,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "因果报应"
+  },
+  {
+   "at": [
+    36,
+    13
+   ],
+   "kind": "hidden",
+   "item": "ITEM_RARE_CANDY",
+   "name": "神奇糖果",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_POKEMON_MANSION_3F_RARE_CANDY",
+   "count": 1
+  }
+ ],
+ "weather": "shade",
+ "weather_name": "阴",
+ "cycling": false
+}

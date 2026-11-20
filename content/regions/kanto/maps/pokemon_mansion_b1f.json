@@ -1,0 +1,144 @@
+{
+ "name": "关都·宝可梦屋·b1f",
+ "emerald": "pokemon_mansion_b1f",
+ "size": [
+  38,
+  35
+ ],
+ "spawn": [
+  34,
+  29
+ ],
+ "npcs": [
+  {
+   "at": [
+    20,
+    25
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "这条街我住了几十年。",
+    "你自己看吧。"
+   ]
+  },
+  {
+   "at": [
+    34,
+    13
+   ],
+   "name": "居民",
+   "gfx": "scientist",
+   "lines": [
+    "最近路上不太平。",
+    "你自己看吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    34,
+    29
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_1f",
+    "at": [
+     25,
+     27
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    6,
+    21
+   ],
+   "kind": "item",
+   "item": "ITEM_TM22",
+   "name": "ITEM_TM22",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    23,
+    4
+   ],
+   "kind": "item",
+   "item": "ITEM_TM14",
+   "name": "ITEM_TM14",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    2,
+    29
+   ],
+   "kind": "item",
+   "item": "ITEM_FULL_RESTORE",
+   "name": "全复药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "kind": "item",
+   "item": "ITEM_SECRET_KEY",
+   "name": "ITEM_SECRET_KEY",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    21,
+    27
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "浅红市宝可梦道馆\n馆主：阿桔剧毒的忍者之王"
+  },
+  {
+   "at": [
+    24,
+    29
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "哇啊……\n我现在在哪里？哇啊！你可以发现到处都是散落的东西。\n一定是居民们丢下的。这里是建造实验室的理想地方。\n看看这儿。那是用来干什么的？……"
+  },
+  {
+   "at": [
+    27,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "名字 化石盔\n从化石中再生的极其稀有的宝可梦。"
+  },
+  {
+   "at": [
+    35,
+    5
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ELIXIR",
+   "name": "PP 多项小补剂",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_POKEMON_MANSION_B1F_ELIXIR",
+   "count": 1
+  }
+ ],
+ "weather": "shade",
+ "weather_name": "阴",
+ "cycling": false
+}

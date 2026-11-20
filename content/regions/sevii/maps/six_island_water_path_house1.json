@@ -1,0 +1,59 @@
+{
+ "name": "六号岛·水路 HOUSE1",
+ "emerald": "house4_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    4
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没有大医院。",
+    "我一个人住惯了。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     5,
+     13
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    9,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一台自动售货机。\n想买些什么饮料？"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

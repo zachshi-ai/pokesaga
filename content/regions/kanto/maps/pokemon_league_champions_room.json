@@ -1,0 +1,73 @@
+{
+ "name": "关都·宝可梦联盟·champions room",
+ "emerald": "pokemon_league_champions_room",
+ "size": [
+  13,
+  20
+ ],
+ "spawn": [
+  6,
+  19
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    8
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "今天天气不错。",
+    "我什么都没说。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    15
+   ],
+   "name": "居民",
+   "gfx": "oak",
+   "lines": [
+    "小心别踩到我的花。",
+    "我什么都没说。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    19
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_league_lances_room",
+    "at": [
+     6,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_league_hall_of_fame",
+    "at": [
+     5,
+     12
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

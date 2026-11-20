@@ -1,0 +1,267 @@
+{
+ "name": "关都·silph·co·7f",
+ "emerald": "silph_co_7f",
+ "size": [
+  31,
+  19
+ ],
+ "spawn": [
+  19,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    6
+   ],
+   "name": "小茂",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "又是你。",
+    "这次我不会让你抢先。",
+    "这层是研究部。"
+   ]
+  },
+  {
+   "at": [
+    0,
+    7
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "这楼高得看不到顶。",
+    "楼梯绕得人头晕。",
+    "楼梯绕得人头晕。"
+   ]
+  },
+  {
+   "at": [
+    24,
+    5
+   ],
+   "name": "火箭队手下",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "这里被我们接管了。",
+    "想上去？先过我这关。",
+    "电梯要先拿到卡。"
+   ]
+  },
+  {
+   "at": [
+    24,
+    15
+   ],
+   "name": "火箭队手下",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "这里被我们接管了。",
+    "想上去？先过我这关。",
+    "别碰那些机器。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    4
+   ],
+   "name": "火箭队手下",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "这里被我们接管了。",
+    "想上去？先过我这关。",
+    "楼梯绕得人头晕。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    10
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "楼下的大厅很气派。",
+    "楼梯绕得人头晕。",
+    "我这就下班了。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    14
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "听说顶楼有人守着。",
+    "楼梯绕得人头晕。",
+    "别碰那些机器。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    14
+   ],
+   "name": "路人",
+   "gfx": "man",
+   "lines": [
+    "空气里有股机油味。",
+    "楼梯绕得人头晕。",
+    "门牌是十年前的。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    13
+   ],
+   "name": "研究员",
+   "gfx": "scientist",
+   "lines": [
+    "样本别乱碰。",
+    "这层的实验还没做完。",
+    "我这就下班了。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    19,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_6f",
+    "at": [
+     14,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_11f",
+    "at": [
+     2,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    25,
+    17
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_5f",
+    "at": [
+     33,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    27,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_8f",
+    "at": [
+     28,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_3f",
+    "at": [
+     13,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_elevator",
+    "at": [
+     1,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    0,
+    12
+   ],
+   "kind": "item",
+   "item": "ITEM_CALCIUM",
+   "name": "特攻增强剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    30,
+    11
+   ],
+   "kind": "item",
+   "item": "ITEM_TM08",
+   "name": "ITEM_TM08",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    22,
+    11
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ZINC",
+   "name": "特防增强剂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_7F_ZINC",
+   "count": 1
+  },
+  {
+   "at": [
+    20,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "传说生活在很久以前的\n宝可梦的画，\n是画家凭借想象\n画出来的。"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

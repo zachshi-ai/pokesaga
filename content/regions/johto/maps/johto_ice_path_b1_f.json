@@ -1,0 +1,264 @@
+{
+ "name": "冰雪小径·B1F",
+ "emerald": "johto_ice_path_b1_f",
+ "size": [
+  10,
+  18
+ ],
+ "spawn": [
+  4,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    3
+   ],
+   "name": "岩石",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    4
+   ],
+   "name": "岩石",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "岩石",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    3
+   ],
+   "name": "岩石",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    17
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ice_path_1f",
+    "at": [
+     18,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ice_path_b2_f_mahogany_side",
+    "at": [
+     8,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ice_path_b2_f_mahogany_side",
+    "at": [
+     5,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ice_path_b2_f_mahogany_side",
+    "at": [
+     2,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ice_path_b2_f_mahogany_side",
+    "at": [
+     2,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ice_path_b2_f_mahogany_side",
+    "at": [
+     6,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ice_path_1f",
+    "at": [
+     18,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ice_path_b2_f_blackthorn_side",
+    "at": [
+     1,
+     8
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 41,
+   "min": 23,
+   "max": 23,
+   "weight": 90
+  },
+  {
+   "species": 42,
+   "min": 23,
+   "max": 23,
+   "weight": 72
+  },
+  {
+   "species": 220,
+   "min": 22,
+   "max": 22,
+   "weight": 60
+  },
+  {
+   "species": 225,
+   "min": 22,
+   "max": 22,
+   "weight": 30
+  },
+  {
+   "species": 220,
+   "min": 24,
+   "max": 24,
+   "weight": 20
+  },
+  {
+   "species": 42,
+   "min": 25,
+   "max": 25,
+   "weight": 15
+  },
+  {
+   "species": 225,
+   "min": 24,
+   "max": 24,
+   "weight": 10
+  },
+  {
+   "species": 124,
+   "min": 22,
+   "max": 22,
+   "weight": 2
+  },
+  {
+   "species": 215,
+   "min": 22,
+   "max": 22,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.02,
+ "objects": [
+  {
+   "at": [
+    8,
+    15
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "冰雪小径·B1F\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

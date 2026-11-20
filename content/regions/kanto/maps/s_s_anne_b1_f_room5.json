@@ -1,0 +1,72 @@
+{
+ "name": "关都·圣安奴号·b1f room5",
+ "emerald": "ssanne_room2",
+ "size": [
+  6,
+  9
+ ],
+ "spawn": [
+  4,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我的宝可梦在睡午觉。",
+    "这年头谁都不容易。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "东西涨价涨得厉害。",
+    "这年头谁都不容易。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_b1_f_corridor",
+    "at": [
+     18,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    3,
+    2
+   ],
+   "kind": "item",
+   "item": "ITEM_SUPER_POTION",
+   "name": "好伤药",
+   "category": "heal",
+   "sprite": "ball"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

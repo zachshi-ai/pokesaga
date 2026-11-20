@@ -1,0 +1,82 @@
+{
+ "name": "七之岛·焰之山 山顶",
+ "emerald": "mt_ember_summit",
+ "size": [
+  19,
+  22
+ ],
+ "spawn": [
+  9,
+  15
+ ],
+ "npcs": [
+  {
+   "at": [
+    9,
+    6
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我在这住了大半辈子。",
+    "我这儿没什么好招待的。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    9,
+    15
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_exterior",
+    "at": [
+     29,
+     7
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true,
+ "objects": [
+  {
+   "at": [
+    10,
+    12
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    9,
+    12
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    8,
+    11
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    8,
+    10
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  }
+ ]
+}

@@ -1,0 +1,134 @@
+{
+ "name": "关都·地下通道·north south tunnel",
+ "emerald": "underground_path_north_south_tunnel",
+ "size": [
+  8,
+  63
+ ],
+ "spawn": [
+  4,
+  3
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    4,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "underground_path_north_entrance",
+    "at": [
+     7,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    60
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "underground_path_south_entrance",
+    "at": [
+     7,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    5,
+    30
+   ],
+   "kind": "hidden",
+   "item": "ITEM_POTION",
+   "name": "伤药",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_POTION",
+   "count": 1
+  },
+  {
+   "at": [
+    5,
+    6
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ANTIDOTE",
+   "name": "解毒药",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_ANTIDOTE",
+   "count": 1
+  },
+  {
+   "at": [
+    2,
+    57
+   ],
+   "kind": "hidden",
+   "item": "ITEM_BURN_HEAL",
+   "name": "灼伤药",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_BURN_HEAL",
+   "count": 1
+  },
+  {
+   "at": [
+    1,
+    24
+   ],
+   "kind": "hidden",
+   "item": "ITEM_AWAKENING",
+   "name": "解眠药",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_AWAKENING",
+   "count": 1
+  },
+  {
+   "at": [
+    6,
+    53
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ICE_HEAL",
+   "name": "解冻药",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_ICE_HEAL",
+   "count": 1
+  },
+  {
+   "at": [
+    3,
+    15
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PARALYZE_HEAL",
+   "name": "麻痹药",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_PARALYZE_HEAL",
+   "count": 1
+  },
+  {
+   "at": [
+    3,
+    39
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ETHER",
+   "name": "PP 单项小补剂",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_ETHER",
+   "count": 1
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

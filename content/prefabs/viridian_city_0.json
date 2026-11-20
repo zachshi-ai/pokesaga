@@ -1,0 +1,1 @@
+{"id":"viridian_city_0","from":"viridian_city","size":[6,3],"metatiles":[[321,322,322,322,322,323],[329,330,330,330,330,331],[336,337,338,339,340,342]],"collision":[[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1]],"door":[2,2],"primary":"gTileset_General_Frlg","secondary":"gTileset_ViridianCity"}

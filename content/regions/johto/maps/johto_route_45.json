@@ -1,0 +1,674 @@
+{
+ "name": "45 号道路",
+ "emerald": "johto_route_45",
+ "size": [
+  10,
+  45
+ ],
+ "spawn": [
+  5,
+  22
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    8
+   ],
+   "name": "登山男 Erik",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 24,
+      "species": 66
+     },
+     {
+      "level": 27,
+      "species": 75
+     },
+     {
+      "level": 27,
+      "species": 66
+     }
+    ]
+   },
+   "trainer": "HikerErik"
+  },
+  {
+   "at": [
+    7,
+    32
+   ],
+   "name": "登山男 Michael",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 25,
+      "species": 74
+     },
+     {
+      "level": 25,
+      "species": 75
+     },
+     {
+      "level": 25,
+      "species": 76
+     }
+    ]
+   },
+   "trainer": "HikerMichael"
+  },
+  {
+   "at": [
+    2,
+    14
+   ],
+   "name": "登山男 Parry",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 35,
+      "species": 95
+     },
+     {
+      "level": 33,
+      "species": 220
+     }
+    ]
+   },
+   "trainer": "HikerParry"
+  },
+  {
+   "at": [
+    4,
+    32
+   ],
+   "name": "登山男 Timothy",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 27,
+      "species": 50,
+      "moves": [
+       222,
+       91,
+       28,
+       163
+      ]
+     },
+     {
+      "level": 27,
+      "species": 51,
+      "moves": [
+       222,
+       91,
+       28,
+       163
+      ]
+     }
+    ]
+   },
+   "trainer": "HikerTimothy"
+  },
+  {
+   "at": [
+    5,
+    25
+   ],
+   "name": "空手道王 Kenji",
+   "gfx": "blackbelt",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 27,
+      "species": 95
+     },
+     {
+      "level": 30,
+      "species": 106
+     },
+     {
+      "level": 27,
+      "species": 95
+     },
+     {
+      "level": 32,
+      "species": 67
+     }
+    ]
+   },
+   "trainer": "BlackbeltKenji"
+  },
+  {
+   "at": [
+    8,
+    9
+   ],
+   "name": "训练家 Ryan",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 25,
+      "species": 18,
+      "moves": [
+       28,
+       98,
+       18,
+       17
+      ]
+     },
+     {
+      "level": 27,
+      "species": 125,
+      "moves": [
+       9,
+       113,
+       129,
+       103
+      ]
+     }
+    ]
+   },
+   "trainer": "CooltrainerMRyan"
+  },
+  {
+   "at": [
+    2,
+    18
+   ],
+   "name": "训练家 Kelly",
+   "gfx": "teala",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 27,
+      "species": 183
+     },
+     {
+      "level": 24,
+      "species": 8
+     },
+     {
+      "level": 24,
+      "species": 8
+     }
+    ]
+   },
+   "trainer": "CooltrainerFKelly"
+  },
+  {
+   "at": [
+    8,
+    41
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    25
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    33
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    10
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    16
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    35
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_dark_cave_blackthorn_entrance",
+    "at": [
+     11,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_blackthorn_city",
+    "at": [
+     1,
+     15
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_blackthorn_city",
+    "at": [
+     4,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_blackthorn_city",
+    "at": [
+     5,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_blackthorn_city",
+    "at": [
+     6,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_blackthorn_city",
+    "at": [
+     7,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_blackthorn_city",
+    "at": [
+     8,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_blackthorn_city",
+    "at": [
+     8,
+     15
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    36
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_46",
+    "at": [
+     8,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    37
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_46",
+    "at": [
+     8,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    38
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_46",
+    "at": [
+     7,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    39
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_46",
+    "at": [
+     8,
+     3
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    40
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_46",
+    "at": [
+     8,
+     4
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    41
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_46",
+    "at": [
+     8,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    42
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_46",
+    "at": [
+     8,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    43
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_46",
+    "at": [
+     8,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    44
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_46",
+    "at": [
+     8,
+     8
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [
+  {
+   "species": 74,
+   "min": 23,
+   "max": 23,
+   "weight": 90
+  },
+  {
+   "species": 75,
+   "min": 23,
+   "max": 23,
+   "weight": 90
+  },
+  {
+   "species": 207,
+   "min": 24,
+   "max": 24,
+   "weight": 60
+  },
+  {
+   "species": 232,
+   "min": 25,
+   "max": 25,
+   "weight": 20
+  },
+  {
+   "species": 227,
+   "min": 27,
+   "max": 27,
+   "weight": 10
+  },
+  {
+   "species": 75,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  },
+  {
+   "species": 75,
+   "min": 27,
+   "max": 27,
+   "weight": 10
+  },
+  {
+   "species": 231,
+   "min": 20,
+   "max": 20,
+   "weight": 5
+  },
+  {
+   "species": 232,
+   "min": 30,
+   "max": 30,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.1,
+ "objects": [
+  {
+   "at": [
+    5,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "45 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    5,
+    39
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "45 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true,
+ "water_encounters": [
+  {
+   "species": 129,
+   "min": 20,
+   "max": 20,
+   "weight": 60
+  },
+  {
+   "species": 129,
+   "min": 15,
+   "max": 15,
+   "weight": 30
+  },
+  {
+   "species": 129,
+   "min": 5,
+   "max": 5,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.02
+}

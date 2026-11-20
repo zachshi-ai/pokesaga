@@ -1,0 +1,316 @@
+{
+ "name": "31 号道路",
+ "emerald": "johto_route_31",
+ "size": [
+  20,
+  9
+ ],
+ "spawn": [
+  10,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    8,
+    3
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    2
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    6
+   ],
+   "name": "捕虫少年 Wade",
+   "gfx": "bug_catcher",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 2,
+      "species": 10
+     },
+     {
+      "level": 2,
+      "species": 10
+     },
+     {
+      "level": 3,
+      "species": 13
+     },
+     {
+      "level": 2,
+      "species": 10
+     }
+    ]
+   },
+   "trainer": "BugCatcherWade"
+  },
+  {
+   "at": [
+    16,
+    4
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "要不要来一场？",
+    "我可是练了很久的。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    2
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    2
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    7
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_31_violet_gate",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_31_violet_gate",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_dark_cave_violet_entrance",
+    "at": [
+     1,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_30",
+    "at": [
+     2,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    13,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_30",
+    "at": [
+     3,
+     1
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [
+  {
+   "species": 10,
+   "min": 4,
+   "max": 4,
+   "weight": 60
+  },
+  {
+   "species": 69,
+   "min": 5,
+   "max": 5,
+   "weight": 60
+  },
+  {
+   "species": 165,
+   "min": 4,
+   "max": 4,
+   "weight": 30
+  },
+  {
+   "species": 16,
+   "min": 4,
+   "max": 4,
+   "weight": 30
+  },
+  {
+   "species": 167,
+   "min": 4,
+   "max": 4,
+   "weight": 30
+  },
+  {
+   "species": 60,
+   "min": 4,
+   "max": 4,
+   "weight": 30
+  },
+  {
+   "species": 16,
+   "min": 5,
+   "max": 5,
+   "weight": 20
+  },
+  {
+   "species": 13,
+   "min": 4,
+   "max": 4,
+   "weight": 10
+  },
+  {
+   "species": 187,
+   "min": 5,
+   "max": 5,
+   "weight": 10
+  },
+  {
+   "species": 163,
+   "min": 5,
+   "max": 5,
+   "weight": 10
+  },
+  {
+   "species": 41,
+   "min": 4,
+   "max": 4,
+   "weight": 5
+  },
+  {
+   "species": 92,
+   "min": 5,
+   "max": 5,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.1,
+ "objects": [
+  {
+   "at": [
+    3,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "31 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    15,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "31 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true,
+ "water_encounters": [
+  {
+   "species": 60,
+   "min": 20,
+   "max": 20,
+   "weight": 60
+  },
+  {
+   "species": 60,
+   "min": 15,
+   "max": 15,
+   "weight": 30
+  },
+  {
+   "species": 61,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.02
+}

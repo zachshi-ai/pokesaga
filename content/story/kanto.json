@@ -1,0 +1,629 @@
+{
+ "region": "kanto",
+ "events": [
+  {
+   "id": "pallet_intro",
+   "once": true,
+   "trigger": {
+    "type": "map_enter",
+    "map": "kanto_main"
+   },
+   "require": {
+    "flags_none": [
+     "intro_seen"
+    ]
+   },
+   "steps": [
+    {
+     "say": [
+      "……这里是真新镇。",
+      "空气里有青草和海水混在一起的味道。",
+      "听说大木博士在找帮手——研究所就在镇子北边。"
+     ],
+     "who": "旁白"
+    },
+    {
+     "flag": "intro_seen"
+    }
+   ]
+  },
+  {
+   "id": "oak_starter",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "npc": "大木博士"
+   },
+   "require": {
+    "flags_none": [
+     "got_starter"
+    ]
+   },
+   "steps": [
+    {
+     "say": [
+      "哦？你就是那个孩子啊。",
+      "我这把年纪，已经跑不动野外了。",
+      "外面的草丛里全是野生宝可梦，空着手出去可不行。",
+      "这只就交给你了——好好待它。"
+     ],
+     "who": "大木博士"
+    },
+    {
+     "give_mon": {
+      "species": 25,
+      "level": 5
+     }
+    },
+    {
+     "give_item": {
+      "name": "精灵球",
+      "category": "ball",
+      "count": 5
+     }
+    },
+    {
+     "say": [
+      "对了，还有这个。它叫宝可梦图鉴，见过的、抓到的都会记下来。",
+      "去把这个世界看一遍吧。"
+     ],
+     "who": "大木博士"
+    },
+    {
+     "flag": "got_starter"
+    },
+    {
+     "flag": "got_dex"
+    }
+   ]
+  },
+  {
+   "id": "oak_tips",
+   "once": false,
+   "trigger": {
+    "type": "talk",
+    "npc": "大木博士"
+   },
+   "require": {
+    "flags_all": [
+     "got_starter"
+    ]
+   },
+   "steps": [
+    {
+     "say": [
+      "草丛里随时会跳出野生宝可梦，队伍不齐就先回宝可梦中心。",
+      "往北走是 1 号道路，尽头是常磐市。"
+     ],
+     "who": "大木博士"
+    }
+   ]
+  },
+  {
+   "id": "brock_badge",
+   "once": true,
+   "trigger": {
+    "type": "badge",
+    "badge": "灰色徽章"
+   },
+   "steps": [
+    {
+     "say": [
+      "小刚：看得出来，你对宝可梦是有耐心的。",
+      "这块灰色徽章，是你的了。",
+      "有了它，训练家们会认可你。"
+     ],
+     "who": "小刚"
+    },
+    {
+     "flag": "beat_brock"
+    }
+   ]
+  },
+  {
+   "id": "giovanni_badge",
+   "once": true,
+   "trigger": {
+    "type": "badge",
+    "badge": "绿色徽章"
+   },
+   "steps": [
+    {
+     "say": [
+      "坂木：……输了。",
+      "常磐道馆的绿色徽章归你了。",
+      "不过，这世界的胜负不只有一场。"
+     ],
+     "who": "坂木"
+    },
+    {
+     "flag": "beat_giovanni"
+    }
+   ]
+  },
+  {
+   "id": "mom_first",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "npc": "妈妈",
+    "map": "pallettown_playershouse_1f"
+   },
+   "steps": [
+    {
+     "who": "妈妈",
+     "say": [
+      "哎呀，你终于要出门了？",
+      "你爸爸当年也是这个年纪离开真新镇的，一走就是好几年。",
+      "别学他。记得常回来。"
+     ]
+    },
+    {
+     "money": 500
+    },
+    {
+     "who": "妈妈",
+     "say": [
+      "这点钱你拿着，路上买点伤药。",
+      "外面不比家里，宝可梦倒下了是没人替你扶的。"
+     ]
+    },
+    {
+     "flag": "met_mom"
+    }
+   ]
+  },
+  {
+   "id": "rival_first",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "npc": "小茂",
+    "map": "pallettown_professoroakslab"
+   },
+   "require": {
+    "flags_all": [
+     "got_starter"
+    ],
+    "flags_none": [
+     "beat_rival"
+    ]
+   },
+   "steps": [
+    {
+     "who": "小茂",
+     "say": [
+      "哟，你也从爷爷那儿拿到宝可梦了？",
+      "正好，我也刚到手一只。",
+      "别磨蹭，来一场。让我看看爷爷挑中的是什么货色。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "小茂",
+      "team": [
+       {
+        "species": 133,
+        "level": 5
+       }
+      ],
+      "prize": 280,
+      "win_flag": "beat_rival",
+      "win_say": [
+       "啧……算你运气好。",
+       "不过下次就没这么便宜了。",
+       "我要去尼比市打道馆，先拿到徽章的人赢。"
+      ],
+      "lose_say": [
+       "就这点本事？",
+       "连我都打不过，尼比市的道馆你别去了。"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "route1_blurb",
+   "once": true,
+   "trigger": {
+    "type": "step",
+    "map": "kanto_main",
+    "area": [
+     0,
+     160,
+     48,
+     200
+    ]
+   },
+   "steps": [
+    {
+     "who": "旁白",
+     "say": [
+      "一号道路。\n草长得比膝盖还高，风一吹就整片倒下去。",
+      "草丛里会跳出野生宝可梦。\n没有精灵球的话，只能打。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "viridian_blurb",
+   "once": true,
+   "trigger": {
+    "type": "step",
+    "map": "kanto_main",
+    "area": [
+     0,
+     120,
+     48,
+     160
+    ]
+   },
+   "steps": [
+    {
+     "who": "旁白",
+     "say": [
+      "常磐市。\n这里是关都最靠西的城市，去往联盟的路就从这儿往北。",
+      "道馆的门开着，但馆主很少在。\n门口的人说，他在等一个够格的人。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "route2_blurb",
+   "once": true,
+   "trigger": {
+    "type": "step",
+    "map": "kanto_main",
+    "area": [
+     0,
+     40,
+     48,
+     120
+    ]
+   },
+   "require": {
+    "flags_all": [
+     "beat_brock"
+    ]
+   },
+   "steps": [
+    {
+     "who": "旁白",
+     "say": [
+      "二号道路。\n往北是一片林子，往南回去就是常磐市。",
+      "林子里的虫系宝可梦怕火、怕飞。\n带一只波波会轻松很多。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pewter_blurb",
+   "once": true,
+   "trigger": {
+    "type": "step",
+    "map": "kanto_main",
+    "area": [
+     0,
+     0,
+     48,
+     40
+    ]
+   },
+   "steps": [
+    {
+     "who": "旁白",
+     "say": [
+      "尼比市。\n灰色的城市，连空气里都有石头的味道。",
+      "道馆就在城中央。\n馆主小刚用的是岩石系——硬得让人怀疑人生。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "forest_blurb",
+   "once": true,
+   "trigger": {
+    "type": "map_enter",
+    "map": "viridianforest"
+   },
+   "steps": [
+    {
+     "who": "旁白",
+     "say": [
+      "常磐森林。\n树冠太密，光只漏下来几道。",
+      "这里的捕虫少年一个比一个执着。\n他们说，抓满一整盒独角虫才算入门。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "school_lesson",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "npc": "大姐",
+    "map": "viridiancity_school"
+   },
+   "steps": [
+    {
+     "who": "老师",
+     "say": [
+      "上课了，同学们坐好。",
+      "今天讲属性克制——这是新手最容易吃亏的地方。",
+      "水打火、火打草、草打水，这三条记住，打道馆就够用一半。",
+      "另外，一般属性打不到幽灵、格斗打不到幽灵，遇到就换个属性。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "精灵球",
+      "category": "ball",
+      "count": 3
+     }
+    },
+    {
+     "who": "老师",
+     "say": [
+      "这几颗球给你，出去多练练。",
+      "记住：属性不对，等级再高也白费。"
+     ]
+    },
+    {
+     "flag": "learned_types"
+    }
+   ]
+  },
+  {
+   "id": "forest_kid",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "npc": "小男孩",
+    "map": "viridianforest"
+   },
+   "steps": [
+    {
+     "who": "小男孩",
+     "say": [
+      "呜……我迷路了。",
+      "这森林里的路都长得一样，走了半天又回到原地。",
+      "妈妈说遇到训练家要跟着一起走……你能带我出去吗？"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "伤药",
+      "category": "heal",
+      "count": 2
+     }
+    },
+    {
+     "who": "小男孩",
+     "say": [
+      "这些伤药给你，我妈妈说出门要带这个。",
+      "前面夜里很黑，你小心点。"
+     ]
+    },
+    {
+     "flag": "helped_kid"
+    }
+   ]
+  },
+  {
+   "id": "forest_bug_boy",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "npc": "捕虫少年",
+    "map": "viridianforest"
+   },
+   "steps": [
+    {
+     "who": "捕虫少年",
+     "say": [
+      "你看我这只铁甲蛹，硬得跟石头一样！",
+      "不过它现在只会变硬，打人一点都不痛。",
+      "虫系就是这样，前期能挡，后期才厉害。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "精灵球",
+      "category": "ball",
+      "count": 2
+     }
+    },
+    {
+     "who": "捕虫少年",
+     "say": [
+      "送你两颗球，森林里的绿毛虫很常见，抓一只练练手。"
+     ]
+    },
+    {
+     "flag": "bug_talk"
+    }
+   ]
+  },
+  {
+   "id": "museum_guide",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "npc": "老爷爷",
+    "map": "pewtercity_museum1f"
+   },
+   "steps": [
+    {
+     "who": "老爷爷",
+     "say": [
+      "这具化石是三十年前从月见山挖出来的。",
+      "那时候还没人相信宝可梦是从那种东西变来的。",
+      "月见山现在还能挖到化石，据说夜里能遇到很少见的东西。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "好伤药",
+      "category": "heal",
+      "count": 1
+     }
+    },
+    {
+     "who": "老爷爷",
+     "say": [
+      "拿着吧，我这把年纪用不上了。",
+      "出去别硬拼，命比徽章重要。"
+     ]
+    },
+    {
+     "flag": "museum_visited"
+    }
+   ]
+  },
+  {
+   "id": "house_rumor",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "npc": "小女孩",
+    "map": "viridiancity_house"
+   },
+   "steps": [
+    {
+     "who": "小女孩",
+     "say": [
+      "你听说了吗？常磐道馆的馆主，好像很凶。",
+      "我哥哥上次进去，出来的时候一句话都不说。",
+      "不过也有人说，他其实是好人，只是不喜欢废话。"
+     ]
+    },
+    {
+     "flag": "heard_giovanni"
+    }
+   ]
+  },
+  {
+   "id": "pewter_center_tip",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "npc": "大姐",
+    "map": "pewtercity_pokemoncenter_1f"
+   },
+   "steps": [
+    {
+     "who": "大姐",
+     "say": [
+      "你是要去打道馆吧？",
+      "小刚用的都是岩石系，草系和水系打他最省事。",
+      "队伍里没有的话，先在附近抓两只，别硬碰。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "伤药",
+      "category": "heal",
+      "count": 1
+     }
+    },
+    {
+     "who": "大姐",
+     "say": [
+      "这个你先拿着。祝你好运。"
+     ]
+    },
+    {
+     "flag": "pewter_tip"
+    }
+   ]
+  },
+  {
+   "id": "route2_trainer_duel",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "npc": "训练家",
+    "map": "route2_viridianforest_northentrance"
+   },
+   "require": {
+    "has_party": true
+   },
+   "steps": [
+    {
+     "who": "训练家",
+     "say": [
+      "站住，想过这条路得先跟我打一场。",
+      "我从常绿市一路走过来，还没输过。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "训练家",
+      "team": [
+       {
+        "species": 19,
+        "level": 6
+       },
+       {
+        "species": 16,
+        "level": 7
+       }
+      ],
+      "prize": 320,
+      "win_flag": "beat_route2_trainer",
+      "win_say": [
+       "行啊，你有两下子。",
+       "森林在前面，虫系很多，带点解毒的东西。"
+      ],
+      "lose_say": [
+       "再练练吧。"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "viridian_gym_warning",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "npc": "路人",
+    "map": "viridiancity_gym"
+   },
+   "steps": [
+    {
+     "who": "路人",
+     "say": [
+      "你也来挑战坂木？",
+      "他手下那只钻角犀兽硬得离谱，普通招打上去跟挠痒一样。",
+      "水系和草系才有办法。没有的话，先别进去。"
+     ]
+    },
+    {
+     "flag": "heard_giovanni_strong"
+    }
+   ]
+  },
+  {
+   "id": "two_badges_next",
+   "once": true,
+   "trigger": {
+    "type": "badge",
+    "badge": "绿色徽章"
+   },
+   "steps": [
+    {
+     "who": "旁白",
+     "say": [
+      "两枚徽章到手了。",
+      "下一个道馆在华蓝市，往北走穿过 4 号道路就是。",
+      "那条路现在还在修，暂时过不去。"
+     ]
+    },
+    {
+     "flag": "two_badges_done"
+    }
+   ]
+  }
+ ]
+}

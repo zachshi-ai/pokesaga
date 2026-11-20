@@ -1,0 +1,48 @@
+{
+ "name": "七之岛·navel rock b1f frlg",
+ "emerald": "navel_rock_b1f_frlg",
+ "size": [
+  17,
+  7
+ ],
+ "spawn": [
+  4,
+  2
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    4,
+    2
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "navel_rock_1f",
+    "at": [
+     8,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "navel_rock_fork",
+    "at": [
+     13,
+     95
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

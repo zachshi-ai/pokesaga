@@ -1,0 +1,239 @@
+{
+ "name": "黑暗洞窟",
+ "emerald": "johto_dark_cave_violet_entrance",
+ "size": [
+  20,
+  18
+ ],
+ "spawn": [
+  10,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    4
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    7
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    3
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    7
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    18,
+    15
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    18,
+    10
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    17,
+    4
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    14
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_31",
+    "at": [
+     17,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_dark_cave_blackthorn_entrance",
+    "at": [
+     1,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    16
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_46",
+    "at": [
+     7,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 41,
+   "min": 2,
+   "max": 2,
+   "weight": 100
+  },
+  {
+   "species": 74,
+   "min": 3,
+   "max": 3,
+   "weight": 90
+  },
+  {
+   "species": 74,
+   "min": 2,
+   "max": 2,
+   "weight": 60
+  },
+  {
+   "species": 74,
+   "min": 4,
+   "max": 4,
+   "weight": 30
+  },
+  {
+   "species": 41,
+   "min": 4,
+   "max": 4,
+   "weight": 12
+  },
+  {
+   "species": 216,
+   "min": 2,
+   "max": 2,
+   "weight": 5
+  },
+  {
+   "species": 206,
+   "min": 4,
+   "max": 4,
+   "weight": 3
+  }
+ ],
+ "encounter_rate": 0.04,
+ "objects": [
+  {
+   "at": [
+    12,
+    0
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "黑暗洞窟\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 129,
+   "min": 15,
+   "max": 15,
+   "weight": 60
+  },
+  {
+   "species": 129,
+   "min": 10,
+   "max": 10,
+   "weight": 30
+  },
+  {
+   "species": 129,
+   "min": 5,
+   "max": 5,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.02,
+ "dark": true
+}

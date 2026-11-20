@@ -1,0 +1,101 @@
+{
+ "name": "关都·真新镇·自己的家",
+ "emerald": "pallet_town_players_house_1f_frlg",
+ "size": [
+  13,
+  10
+ ],
+ "spawn": [
+  5,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    8,
+    4
+   ],
+   "gfx": "mom",
+   "name": "妈妈",
+   "lines": [
+    "这条街我闭着眼都能走。",
+    "不过夜里还是别乱逛。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     66,
+     267
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     66,
+     267
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     66,
+     267
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pallet_town_players_house_2f",
+    "at": [
+     10,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    6,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一支琥珀笛子！"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

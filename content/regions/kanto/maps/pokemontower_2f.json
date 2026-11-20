@@ -1,0 +1,73 @@
+{
+ "name": "关都·宝可梦塔 2F",
+ "emerald": "pokemon_tower_2f",
+ "size": [
+  24,
+  20
+ ],
+ "spawn": [
+  4,
+  10
+ ],
+ "npcs": [
+  {
+   "at": [
+    16,
+    5
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "别往深处乱走。",
+    "我把灯留给你。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    7
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "我把备用绳放这儿了。",
+    "我把灯留给你。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemontower_3f",
+    "at": [
+     4,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemontower_1f",
+    "at": [
+     18,
+     9
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

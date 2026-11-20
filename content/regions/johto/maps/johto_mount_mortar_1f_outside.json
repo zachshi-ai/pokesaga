@@ -1,0 +1,248 @@
+{
+ "name": "MountMortar1FOutside",
+ "emerald": "johto_mount_mortar_1f_outside",
+ "size": [
+  20,
+  18
+ ],
+ "spawn": [
+  12,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    7
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    9
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    12,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_42",
+    "at": [
+     5,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_42",
+    "at": [
+     14,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_42",
+    "at": [
+     13,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mount_mortar_2f_inside",
+    "at": [
+     8,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mount_mortar_1f_inside",
+    "at": [
+     5,
+     24
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mount_mortar_1f_inside",
+    "at": [
+     14,
+     24
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mount_mortar_b1_f",
+    "at": [
+     9,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mount_mortar_1f_inside",
+    "at": [
+     2,
+     20
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mount_mortar_1f_inside",
+    "at": [
+     15,
+     20
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 19,
+   "min": 14,
+   "max": 14,
+   "weight": 90
+  },
+  {
+   "species": 41,
+   "min": 13,
+   "max": 13,
+   "weight": 90
+  },
+  {
+   "species": 66,
+   "min": 14,
+   "max": 14,
+   "weight": 40
+  },
+  {
+   "species": 42,
+   "min": 13,
+   "max": 13,
+   "weight": 30
+  },
+  {
+   "species": 183,
+   "min": 14,
+   "max": 14,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 14,
+   "max": 14,
+   "weight": 15
+  },
+  {
+   "species": 20,
+   "min": 16,
+   "max": 16,
+   "weight": 15
+  }
+ ],
+ "encounter_rate": 0.06,
+ "objects": [
+  {
+   "at": [
+    13,
+    11
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "MountMortar1FOutside\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 118,
+   "min": 15,
+   "max": 15,
+   "weight": 60
+  },
+  {
+   "species": 183,
+   "min": 20,
+   "max": 20,
+   "weight": 30
+  },
+  {
+   "species": 119,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.04
+}

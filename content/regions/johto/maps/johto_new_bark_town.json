@@ -1,0 +1,209 @@
+{
+ "name": "若叶镇",
+ "emerald": "johto_new_bark_town",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    4
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    4
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    1
+   ],
+   "name": "劲敌",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_elms_lab",
+    "at": [
+     2,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_players_house_1f",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_players_neighbors_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_elms_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_29",
+    "at": [
+     28,
+     4
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_27",
+    "at": [
+     8,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_27",
+    "at": [
+     8,
+     0
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    4,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "若叶镇\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    5,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "若叶镇\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    4,
+    6
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "若叶镇\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 72,
+   "min": 20,
+   "max": 20,
+   "weight": 60
+  },
+  {
+   "species": 72,
+   "min": 15,
+   "max": 15,
+   "weight": 30
+  },
+  {
+   "species": 73,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.06
+}

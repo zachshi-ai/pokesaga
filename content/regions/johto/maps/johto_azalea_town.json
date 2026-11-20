@@ -1,0 +1,316 @@
+{
+ "name": "桧皮镇",
+ "emerald": "johto_azalea_town",
+ "size": [
+  20,
+  9
+ ],
+ "spawn": [
+  10,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    15,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    4
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    6
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    4
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    7
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_azalea_pokecenter_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_charcoal_kiln",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_azalea_mart",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_kurts_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_azalea_gym",
+    "at": [
+     2,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    15,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_slowpoke_well_b1_f",
+    "at": [
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ilex_forest_azalea_gate",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_ilex_forest_azalea_gate",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_33",
+    "at": [
+     1,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_33",
+    "at": [
+     1,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_33",
+    "at": [
+     1,
+     7
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    5,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "桧皮镇\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    14,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "桧皮镇\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    9,
+    6
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "桧皮镇\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

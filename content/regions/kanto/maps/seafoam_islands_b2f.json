@@ -1,0 +1,203 @@
+{
+ "name": "关都·双子岛·b2f",
+ "emerald": "seafoam_islands_b2f",
+ "size": [
+  38,
+  24
+ ],
+ "spawn": [
+  7,
+  17
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    7,
+    17
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b3f",
+    "at": [
+     8,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    32,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b3f",
+    "at": [
+     31,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    31,
+    17
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b3f",
+    "at": [
+     31,
+     16
+    ]
+   }
+  },
+  {
+   "at": [
+    24,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b3f",
+    "at": [
+     23,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    27,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b3f",
+    "at": [
+     24,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_b1f",
+    "at": [
+     7,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_b1f",
+    "at": [
+     17,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    25,
+    19
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_b1f",
+    "at": [
+     25,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    32,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_b1f",
+    "at": [
+     32,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    22,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_b1f",
+    "at": [
+     23,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    29,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_b1f",
+    "at": [
+     28,
+     8
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    18,
+    15
+   ],
+   "kind": "item",
+   "item": "ITEM_BIG_PEARL",
+   "name": "大珍珠",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    22,
+    8
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    30,
+    8
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

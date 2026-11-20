@@ -1,0 +1,71 @@
+{
+ "name": "关都·红莲岛·pokemon lab lounge",
+ "emerald": "cinnabar_island_pokemon_lab_lounge",
+ "size": [
+  15,
+  11
+ ],
+ "spawn": [
+  7,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    3
+   ],
+   "name": "居民",
+   "gfx": "scientist",
+   "lines": [
+    "柜台后面那位脾气不好。",
+    "再坐一会儿吧。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    6
+   ],
+   "name": "居民",
+   "gfx": "old_man",
+   "lines": [
+    "我把钥匙忘在楼上了。",
+    "再坐一会儿吧。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    5
+   ],
+   "name": "居民",
+   "gfx": "lass",
+   "lines": [
+    "别弄乱我的书架。",
+    "再坐一会儿吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabar_island_pokemon_lab_entrance",
+    "at": [
+     13,
+     5
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

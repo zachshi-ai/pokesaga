@@ -1,0 +1,98 @@
+{
+ "name": "关都·25 号道路·海边小屋",
+ "emerald": "route25_sea_cottage",
+ "size": [
+  15,
+  11
+ ],
+ "spawn": [
+  6,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "最近路上不太平。",
+    "这个我不太清楚。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你知道道馆在哪边吗。",
+    "这个我不太清楚。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     351,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     351,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     351,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    4,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一辆闪亮的新自行车！"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

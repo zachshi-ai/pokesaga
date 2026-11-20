@@ -1,0 +1,48 @@
+{
+ "name": "七之岛·mt ember ruby path b4f",
+ "emerald": "mt_ember_ruby_path_b4f",
+ "size": [
+  18,
+  16
+ ],
+ "spawn": [
+  4,
+  2
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    14,
+    14
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_b5f",
+    "at": [
+     11,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    2
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_ruby_path_b3f",
+    "at": [
+     5,
+     19
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

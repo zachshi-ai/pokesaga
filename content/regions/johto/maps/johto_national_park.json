@@ -1,0 +1,415 @@
+{
+ "name": "自然公园",
+ "emerald": "johto_national_park",
+ "size": [
+  20,
+  27
+ ],
+ "spawn": [
+  10,
+  13
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    12
+   ],
+   "name": "少女",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    2
+   ],
+   "name": "宝可梦迷",
+   "gfx": "old_woman",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    20
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    20
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    19
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    20
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    19
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    11
+   ],
+   "name": "学生 Jack",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 12,
+      "species": 43
+     },
+     {
+      "level": 15,
+      "species": 100
+     }
+    ]
+   },
+   "trainer": "SchoolboyJack"
+  },
+  {
+   "at": [
+    9,
+    14
+   ],
+   "name": "宝可梦迷 Beverly",
+   "gfx": "old_woman",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 14,
+      "species": 209
+     }
+    ]
+   },
+   "trainer": "PokefanFBeverly"
+  },
+  {
+   "at": [
+    8,
+    4
+   ],
+   "name": "宝可梦迷 William",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 14,
+      "species": 26
+     }
+    ]
+   },
+   "trainer": "PokefanMWilliam"
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "name": "少女 Krise",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 12,
+      "species": 43
+     },
+     {
+      "level": 15,
+      "species": 104
+     }
+    ]
+   },
+   "trainer": "LassKrise"
+  },
+  {
+   "at": [
+    17,
+    6
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    3
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    0,
+    21
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    16,
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_36_national_park_gate",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_36_national_park_gate",
+    "at": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    23
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_35_national_park_gate",
+    "at": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    23
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_35_national_park_gate",
+    "at": [
+     1,
+     1
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 32,
+   "min": 12,
+   "max": 12,
+   "weight": 60
+  },
+  {
+   "species": 29,
+   "min": 12,
+   "max": 12,
+   "weight": 60
+  },
+  {
+   "species": 54,
+   "min": 12,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 163,
+   "min": 13,
+   "max": 13,
+   "weight": 30
+  },
+  {
+   "species": 165,
+   "min": 14,
+   "max": 14,
+   "weight": 20
+  },
+  {
+   "species": 16,
+   "min": 13,
+   "max": 13,
+   "weight": 20
+  },
+  {
+   "species": 191,
+   "min": 14,
+   "max": 14,
+   "weight": 20
+  },
+  {
+   "species": 167,
+   "min": 14,
+   "max": 14,
+   "weight": 20
+  },
+  {
+   "species": 10,
+   "min": 10,
+   "max": 10,
+   "weight": 10
+  },
+  {
+   "species": 13,
+   "min": 10,
+   "max": 10,
+   "weight": 10
+  },
+  {
+   "species": 163,
+   "min": 15,
+   "max": 15,
+   "weight": 10
+  },
+  {
+   "species": 48,
+   "min": 10,
+   "max": 10,
+   "weight": 5
+  },
+  {
+   "species": 48,
+   "min": 12,
+   "max": 12,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.1,
+ "objects": [
+  {
+   "at": [
+    7,
+    22
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "自然公园\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    13,
+    15
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "自然公园\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    4,
+    22
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "自然公园\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "自然公园\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

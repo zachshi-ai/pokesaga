@@ -1,0 +1,810 @@
+[
+ {
+  "name": "精灵球",
+  "category": "ball",
+  "price": 200,
+  "count": 1
+ },
+ {
+  "name": "超级球",
+  "category": "ball",
+  "price": 600,
+  "count": 1
+ },
+ {
+  "name": "高级球",
+  "category": "ball",
+  "price": 1200,
+  "count": 1
+ },
+ {
+  "name": "伤药",
+  "category": "heal",
+  "price": 300,
+  "count": 1
+ },
+ {
+  "name": "好伤药",
+  "category": "heal",
+  "price": 700,
+  "count": 1
+ },
+ {
+  "name": "全复药",
+  "category": "heal",
+  "price": 2500,
+  "count": 1
+ },
+ {
+  "name": "火之石",
+  "category": "evo",
+  "price": 3000,
+  "count": 1
+ },
+ {
+  "name": "水之石",
+  "category": "evo",
+  "price": 3000,
+  "count": 1
+ },
+ {
+  "name": "雷之石",
+  "category": "evo",
+  "price": 3000,
+  "count": 1
+ },
+ {
+  "name": "叶之石",
+  "category": "evo",
+  "price": 3000,
+  "count": 1
+ },
+ {
+  "name": "冰之石",
+  "category": "evo",
+  "price": 3000,
+  "count": 1
+ },
+ {
+  "name": "太晶碎块·一般",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "normal"
+ },
+ {
+  "name": "太晶碎块·火",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "fire"
+ },
+ {
+  "name": "太晶碎块·水",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "water"
+ },
+ {
+  "name": "太晶碎块·电",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "electric"
+ },
+ {
+  "name": "太晶碎块·草",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "grass"
+ },
+ {
+  "name": "太晶碎块·冰",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "ice"
+ },
+ {
+  "name": "太晶碎块·格斗",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "fighting"
+ },
+ {
+  "name": "太晶碎块·毒",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "poison"
+ },
+ {
+  "name": "太晶碎块·地面",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "ground"
+ },
+ {
+  "name": "太晶碎块·飞行",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "flying"
+ },
+ {
+  "name": "太晶碎块·超能力",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "psychic"
+ },
+ {
+  "name": "太晶碎块·虫",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "bug"
+ },
+ {
+  "name": "太晶碎块·岩石",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "rock"
+ },
+ {
+  "name": "太晶碎块·幽灵",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "ghost"
+ },
+ {
+  "name": "太晶碎块·龙",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "dragon"
+ },
+ {
+  "name": "太晶碎块·恶",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "dark"
+ },
+ {
+  "name": "太晶碎块·钢",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "steel"
+ },
+ {
+  "name": "太晶碎块·妖精",
+  "category": "tera",
+  "price": 800,
+  "count": 1,
+  "tera": "fairy"
+ },
+ {
+  "name": "吃剩的东西",
+  "category": "held",
+  "price": 4000,
+  "count": 1,
+  "held": "LEFTOVERS"
+ },
+ {
+  "name": "讲究头带",
+  "category": "held",
+  "price": 5000,
+  "count": 1,
+  "held": "CHOICE_BAND"
+ },
+ {
+  "name": "讲究眼镜",
+  "category": "held",
+  "price": 5000,
+  "count": 1,
+  "held": "CHOICE_SPECS"
+ },
+ {
+  "name": "讲究围巾",
+  "category": "held",
+  "price": 5000,
+  "count": 1,
+  "held": "CHOICE_SCARF"
+ },
+ {
+  "name": "生命宝珠",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "LIFE_ORB"
+ },
+ {
+  "name": "气势披带",
+  "category": "held",
+  "price": 4000,
+  "count": 1,
+  "held": "FOCUS_SASH"
+ },
+ {
+  "name": "突击背心",
+  "category": "held",
+  "price": 5000,
+  "count": 1,
+  "held": "ASSAULT_VEST"
+ },
+ {
+  "name": "炽热岩石",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "HEAT_ROCK"
+ },
+ {
+  "name": "潮湿岩石",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "DAMP_ROCK"
+ },
+ {
+  "name": "沙沙岩石",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "SMOOTH_ROCK"
+ },
+ {
+  "name": "冰冷岩石",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "ICY_ROCK"
+ },
+ {
+  "name": "橙橙果",
+  "category": "berry",
+  "price": 150,
+  "count": 1,
+  "berry": "oran"
+ },
+ {
+  "name": "文柚果",
+  "category": "berry",
+  "price": 450,
+  "count": 1,
+  "berry": "sitrus"
+ },
+ {
+  "name": "苹野果",
+  "category": "berry",
+  "price": 350,
+  "count": 1,
+  "berry": "leppa"
+ },
+ {
+  "name": "木子果",
+  "category": "berry",
+  "price": 700,
+  "count": 1,
+  "berry": "lum"
+ },
+ {
+  "name": "樱子果",
+  "category": "berry",
+  "price": 200,
+  "count": 1,
+  "berry": "cheri"
+ },
+ {
+  "name": "零余果",
+  "category": "berry",
+  "price": 200,
+  "count": 1,
+  "berry": "chesto"
+ },
+ {
+  "name": "桃桃果",
+  "category": "berry",
+  "price": 200,
+  "count": 1,
+  "berry": "pecha"
+ },
+ {
+  "name": "莓莓果",
+  "category": "berry",
+  "price": 200,
+  "count": 1,
+  "berry": "rawst"
+ },
+ {
+  "name": "利木果",
+  "category": "berry",
+  "price": 200,
+  "count": 1,
+  "berry": "aspear"
+ },
+ {
+  "name": "柿仔果",
+  "category": "berry",
+  "price": 200,
+  "count": 1,
+  "berry": "persim"
+ },
+ {
+  "name": "枝荔果",
+  "category": "berry",
+  "price": 900,
+  "count": 1,
+  "berry": "liechi"
+ },
+ {
+  "name": "沙鳞果",
+  "category": "berry",
+  "price": 900,
+  "count": 1,
+  "berry": "salac"
+ },
+ {
+  "name": "龙火果",
+  "category": "berry",
+  "price": 900,
+  "count": 1,
+  "berry": "petaya"
+ },
+ {
+  "name": "龙睛果",
+  "category": "berry",
+  "price": 900,
+  "count": 1,
+  "berry": "ganlon"
+ },
+ {
+  "name": "杏仔果",
+  "category": "berry",
+  "price": 900,
+  "count": 1,
+  "berry": "apicot"
+ },
+ {
+  "name": "巧可果",
+  "category": "berry",
+  "price": 800,
+  "count": 1,
+  "berry": "occa"
+ },
+ {
+  "name": "番荔果",
+  "category": "berry",
+  "price": 800,
+  "count": 1,
+  "berry": "yache"
+ },
+ {
+  "name": "罗子果",
+  "category": "berry",
+  "price": 800,
+  "count": 1,
+  "berry": "rindo"
+ },
+ {
+  "name": "棱瓜果",
+  "category": "berry",
+  "price": 800,
+  "count": 1,
+  "berry": "coba"
+ },
+ {
+  "name": "莓榴果",
+  "category": "berry",
+  "price": 800,
+  "count": 1,
+  "berry": "haban"
+ },
+ {
+  "name": "存储碟（一般）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_NORMAL"
+ },
+ {
+  "name": "存储碟（格斗）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_FIGHTING"
+ },
+ {
+  "name": "存储碟（飞行）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_FLYING"
+ },
+ {
+  "name": "存储碟（毒）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_POISON"
+ },
+ {
+  "name": "存储碟（地面）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_GROUND"
+ },
+ {
+  "name": "存储碟（岩石）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_ROCK"
+ },
+ {
+  "name": "存储碟（虫）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_BUG"
+ },
+ {
+  "name": "存储碟（幽灵）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_GHOST"
+ },
+ {
+  "name": "存储碟（钢）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_STEEL"
+ },
+ {
+  "name": "存储碟（火）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_FIRE"
+ },
+ {
+  "name": "存储碟（水）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_WATER"
+ },
+ {
+  "name": "存储碟（草）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_GRASS"
+ },
+ {
+  "name": "存储碟（电）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_ELECTRIC"
+ },
+ {
+  "name": "存储碟（超能力）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_PSYCHIC"
+ },
+ {
+  "name": "存储碟（冰）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_ICE"
+ },
+ {
+  "name": "存储碟（龙）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_DRAGON"
+ },
+ {
+  "name": "存储碟（恶）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_DARK"
+ },
+ {
+  "name": "存储碟（妖精）",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MEMORY_FAIRY"
+ },
+ {
+  "name": "碧草面具",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "OGERPON_TEAL_MASK"
+ },
+ {
+  "name": "水井面具",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "OGERPON_WELLSPRING_MASK"
+ },
+ {
+  "name": "炉火面具",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "OGERPON_HEARTHFLAME_MASK"
+ },
+ {
+  "name": "础石面具",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "OGERPON_CORNERSTONE_MASK"
+ },
+ {
+  "name": "微波炉",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "ROTOM_HEAT"
+ },
+ {
+  "name": "洗衣机",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "ROTOM_WASH"
+ },
+ {
+  "name": "冰箱",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "ROTOM_FROST"
+ },
+ {
+  "name": "电风扇",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "ROTOM_FAN"
+ },
+ {
+  "name": "割草机",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "ROTOM_MOW"
+ },
+ {
+  "name": "朱红宝珠",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "RED_ORB"
+ },
+ {
+  "name": "靛蓝宝珠",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "BLUE_ORB"
+ },
+ {
+  "name": "究极爆裂结晶",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "ULTRANECROZIUM_Z"
+ },
+ {
+  "name": "火球石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "FLAME_PLATE"
+ },
+ {
+  "name": "水滴石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "SPLASH_PLATE"
+ },
+ {
+  "name": "雷电石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "ZAP_PLATE"
+ },
+ {
+  "name": "碧绿石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "MEADOW_PLATE"
+ },
+ {
+  "name": "冰柱石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "ICICLE_PLATE"
+ },
+ {
+  "name": "拳头石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "FIST_PLATE"
+ },
+ {
+  "name": "剧毒石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "TOXIC_PLATE"
+ },
+ {
+  "name": "大地石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "EARTH_PLATE"
+ },
+ {
+  "name": "蓝天石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "SKY_PLATE"
+ },
+ {
+  "name": "神奇石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "MIND_PLATE"
+ },
+ {
+  "name": "玉虫石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "INSECT_PLATE"
+ },
+ {
+  "name": "岩石石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "STONE_PLATE"
+ },
+ {
+  "name": "妖怪石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "SPOOKY_PLATE"
+ },
+ {
+  "name": "龙之石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "DRACO_PLATE"
+ },
+ {
+  "name": "恶颜石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "DREAD_PLATE"
+ },
+ {
+  "name": "钢铁石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "IRON_PLATE"
+ },
+ {
+  "name": "妖精石板",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "PIXIE_PLATE"
+ },
+ {
+  "name": "水滴卡带",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "DOUSE_DRIVE"
+ },
+ {
+  "name": "闪电卡带",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "SHOCK_DRIVE"
+ },
+ {
+  "name": "火焰卡带",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "BURN_DRIVE"
+ },
+ {
+  "name": "冰冻卡带",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "CHILL_DRIVE"
+ },
+ {
+  "name": "葛拉西蒂亚花",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "GRACIDEA"
+ },
+ {
+  "name": "腐朽之剑",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "RUSTED_SWORD"
+ },
+ {
+  "name": "腐朽之盾",
+  "category": "held",
+  "price": 6000,
+  "count": 1,
+  "held": "RUSTED_SHIELD"
+ },
+ {
+  "name": "白金宝珠",
+  "category": "held",
+  "price": 5000,
+  "count": 1,
+  "held": "GRISEOUS_ORB"
+ },
+ {
+  "name": "惩戒之壶",
+  "category": "held",
+  "price": 5000,
+  "count": 1,
+  "held": "PRISON_BOTTLE"
+ },
+ {
+  "name": "现形镜",
+  "category": "held",
+  "price": 5000,
+  "count": 1,
+  "held": "REVEAL_GLASS"
+ }
+]

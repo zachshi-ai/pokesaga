@@ -1,0 +1,74 @@
+{
+ "name": "七号岛·七宝峡谷 民居",
+ "emerald": "house3_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  4,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    4
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "我们这儿靠打鱼过活。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    2
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你要去山上是吧。",
+    "别乱捡地上的东西。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon",
+    "at": [
+     14,
+     61
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    7,
+    4
+   ],
+   "kind": "item",
+   "item": "ITEM_LUCKY_PUNCH",
+   "name": "ITEM_LUCKY_PUNCH",
+   "category": "other",
+   "sprite": "ball"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,781 @@
+{
+ "name": "五号岛·水之迷宫",
+ "emerald": "five_island_water_labyrinth",
+ "size": [
+  72,
+  20
+ ],
+ "spawn": [
+  1,
+  0
+ ],
+ "npcs": [
+  {
+   "at": [
+    14,
+    11
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "听说洞里藏着东西。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    7
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "这里的果子比别处甜。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    7
+   ],
+   "name": "Pkmn Breeder 的 ALIZE",
+   "gfx": "man",
+   "lines": [
+    "这真是一个培育宝可梦的\n绝佳环境。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PKMN_BREEDER_ALIZE",
+    "party": [
+     {
+      "species": 25,
+      "level": 48
+     },
+     {
+      "species": 35,
+      "level": 48
+     },
+     {
+      "species": 183,
+      "level": 48
+     }
+    ],
+    "name": "ALIZE",
+    "class": "Pkmn Breeder"
+   },
+   "post": [
+    "我想你有天赋成为\n一个很棒的饲育家。"
+   ],
+   "sight": 1
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     0,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     1,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     7,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     8,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     9,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     10,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     11,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    15,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     12,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     13,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     16,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    20,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     17,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    23,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     20,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    24,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     21,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    25,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     22,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    30,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     27,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    31,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     28,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    32,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     29,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    37,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     34,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    38,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     35,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    39,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     36,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    40,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     37,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    41,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     38,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    44,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     41,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    45,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     42,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    46,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     43,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    47,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     44,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    48,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     45,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    49,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     46,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    50,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     47,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    57,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     54,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    58,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     55,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    59,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     56,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    60,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     57,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    69,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     66,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    70,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     67,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     68,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     2,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     3,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     6,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     7,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     8,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     9,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    13,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     10,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     13,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     14,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     15,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     16,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    20,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     17,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    25,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     22,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    26,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island",
+    "at": [
+     23,
+     0
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

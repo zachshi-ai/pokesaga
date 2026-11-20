@@ -1,0 +1,1 @@
+{"name":"铃铛塔·Roof","emerald":"johto_tin_tower_roof","size":[10,9],"spawn":[4,3],"npcs":[{"at":[4,2],"name":"居民","gfx":"man","lines":["你好。","路上小心。"]}],"warps":[{"at":[4,6],"to":{"region":"johto","map":"johto_tin_tower_9f","at":[3,6]}}],"encounters":[],"encounter_rate":0.0,"objects":[],"weather":"","weather_name":"","cycling":true}

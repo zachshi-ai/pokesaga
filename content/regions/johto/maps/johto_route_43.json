@@ -1,0 +1,497 @@
+{
+ "name": "43 号道路",
+ "emerald": "johto_route_43",
+ "size": [
+  10,
+  27
+ ],
+ "spawn": [
+  5,
+  13
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "宝可梦狂 Ben",
+   "gfx": "scientist",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 19,
+      "species": 80
+     }
+    ]
+   },
+   "trainer": "PokemaniacBen"
+  },
+  {
+   "at": [
+    6,
+    10
+   ],
+   "name": "宝可梦狂 Brent",
+   "gfx": "scientist",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 19,
+      "species": 108
+     }
+    ]
+   },
+   "trainer": "PokemaniacBrent"
+  },
+  {
+   "at": [
+    7,
+    3
+   ],
+   "name": "宝可梦狂 Ron",
+   "gfx": "scientist",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 19,
+      "species": 34
+     }
+    ]
+   },
+   "trainer": "PokemaniacRon"
+  },
+  {
+   "at": [
+    2,
+    8
+   ],
+   "name": "钓鱼人 Marvin",
+   "gfx": "sailor",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 10,
+      "species": 129
+     },
+     {
+      "level": 10,
+      "species": 130
+     },
+     {
+      "level": 15,
+      "species": 129
+     },
+     {
+      "level": 15,
+      "species": 130
+     }
+    ]
+   },
+   "trainer": "FisherMarvin"
+  },
+  {
+   "at": [
+    4,
+    12
+   ],
+   "name": "野餐少女 Tiffany",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 31,
+      "species": 35,
+      "moves": [
+       227,
+       47,
+       3,
+       107
+      ]
+     }
+    ]
+   },
+   "trainer": "PicnickerTiffany"
+  },
+  {
+   "at": [
+    6,
+    20
+   ],
+   "name": "露营少年 Spencer",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 17,
+      "species": 27
+     },
+     {
+      "level": 17,
+      "species": 28
+     },
+     {
+      "level": 19,
+      "species": 41
+     }
+    ]
+   },
+   "trainer": "CamperSpencer"
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    16
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    25
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_43_mahogany_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    25
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_43_mahogany_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_43_gate",
+    "at": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_43_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_43_gate",
+    "at": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    26
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mahogany_town",
+    "at": [
+     0,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    1,
+    26
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mahogany_town",
+    "at": [
+     1,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    2,
+    26
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mahogany_town",
+    "at": [
+     2,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    26
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mahogany_town",
+    "at": [
+     8,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    26
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mahogany_town",
+    "at": [
+     8,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_lake_of_rage",
+    "at": [
+     9,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_lake_of_rage",
+    "at": [
+     10,
+     16
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [
+  {
+   "species": 161,
+   "min": 15,
+   "max": 15,
+   "weight": 60
+  },
+  {
+   "species": 17,
+   "min": 16,
+   "max": 16,
+   "weight": 60
+  },
+  {
+   "species": 83,
+   "min": 16,
+   "max": 16,
+   "weight": 40
+  },
+  {
+   "species": 48,
+   "min": 15,
+   "max": 15,
+   "weight": 30
+  },
+  {
+   "species": 164,
+   "min": 16,
+   "max": 16,
+   "weight": 30
+  },
+  {
+   "species": 162,
+   "min": 15,
+   "max": 15,
+   "weight": 20
+  },
+  {
+   "species": 20,
+   "min": 16,
+   "max": 16,
+   "weight": 20
+  },
+  {
+   "species": 20,
+   "min": 17,
+   "max": 17,
+   "weight": 15
+  },
+  {
+   "species": 162,
+   "min": 17,
+   "max": 17,
+   "weight": 10
+  },
+  {
+   "species": 48,
+   "min": 17,
+   "max": 17,
+   "weight": 10
+  },
+  {
+   "species": 49,
+   "min": 17,
+   "max": 17,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.1,
+ "objects": [
+  {
+   "at": [
+    6,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "43 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    5,
+    24
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "43 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    8,
+    19
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "43 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true,
+ "water_encounters": [
+  {
+   "species": 129,
+   "min": 20,
+   "max": 20,
+   "weight": 60
+  },
+  {
+   "species": 129,
+   "min": 15,
+   "max": 15,
+   "weight": 30
+  },
+  {
+   "species": 129,
+   "min": 10,
+   "max": 10,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.02
+}

@@ -1,0 +1,206 @@
+{
+ "region": "johto",
+ "events": [
+  {
+   "id": "johto_arrive",
+   "once": true,
+   "trigger": {"type": "map_enter", "map": "johto_new_bark_town"},
+   "require": {"flags_none": ["johto_arrived"]},
+   "steps": [
+    {"say": ["这里的风比关都凉一些，带着松针的味道。", "小镇只有几条街，尽头是一栋亮着灯的研究所。", "听说那位博士正在找人帮忙。"], "who": "旁白"},
+    {"flag": "johto_arrived"}
+   ]
+  },
+  {
+   "id": "johto_elm_meet",
+   "once": true,
+   "trigger": {"type": "talk", "npc": "空木博士", "map": "johto_elms_lab"},
+   "require": {"flags_none": ["johto_elm_told"]},
+   "steps": [
+    {"say": ["你来得正好。", "我这边有三只刚照看大的孩子，桌上三个精灵球里就是它们。", "挑一只带走吧——野外不比城里，空着手可不行。"], "who": "空木博士"},
+    {"flag": "johto_elm_told"}
+   ]
+  },
+  {
+   "id": "johto_elm_dex",
+   "once": true,
+   "trigger": {"type": "map_enter", "map": "johto_elms_lab"},
+   "require": {"flags_all": ["johto_elm_told"], "flags_none": ["johto_dex"], "has_party": true},
+   "steps": [
+    {"say": ["挑好了？让我看看。", "嗯，眼神挺精神。", "把这个带上——它会记录你见过的每一只宝可梦。", "路上用得上的东西也一起给你。"], "who": "空木博士"},
+    {"give_item": {"name": "精灵球", "category": "ball", "count": 10}},
+    {"give_item": {"name": "伤药", "category": "heal", "count": 3}},
+    {"flag": "johto_dex"},
+    {"flag": "got_dex"}
+   ]
+  },
+  {
+   "id": "johto_rival_30",
+   "once": true,
+   "trigger": {"type": "map_enter", "map": "johto_route_30"},
+   "require": {"flags_all": ["johto_dex"], "flags_none": ["johto_rival1"]},
+   "steps": [
+    {"say": ["嘿，你也从博士那儿拿到了？", "那正好——让我看看你的那只值不值得。", "别说我欺负人，我可只带了一只。"], "who": "劲敌"},
+    {"battle": {"team": [{"species": 158, "level": 6}]}},
+    {"say": ["……行吧，这次算你厉害。", "下次见面可没这么简单。"], "who": "劲敌"},
+    {"flag": "johto_rival1"}
+   ]
+  },
+  {
+   "id": "johto_sprout_tower",
+   "once": true,
+   "trigger": {"type": "map_enter", "map": "johto_sprout_tower_3f"},
+   "require": {"flags_none": ["johto_sprout_done"]},
+   "steps": [
+    {"say": ["塔顶的老和尚正在打坐。", "「宝可梦不是工具。你手里那只，也是会累会怕的。」", "「带着这份心，再往西去吧。」"], "who": "旁白"},
+    {"flag": "johto_sprout_done"}
+   ]
+  },
+  {
+   "id": "johto_badge_falkner",
+   "once": true,
+   "trigger": {"type": "badge", "badge": "飞翼徽章"},
+   "require": {},
+   "steps": [
+    {"say": ["阿速把徽章递过来，指尖还带着羽毛的触感。", "「飞行的速度不是莽撞，是判断。」"], "who": "旁白"},
+    {"flag": "johto_badge_1"}
+   ]
+  },
+  {
+   "id": "johto_badge_bugsy",
+   "once": true,
+   "trigger": {"type": "badge", "badge": "昆虫徽章"},
+   "require": {},
+   "steps": [
+    {"say": ["阿笔收起了捕虫网。", "「虫子看着小，耐性可比谁都强。」"], "who": "旁白"},
+    {"flag": "johto_badge_2"}
+   ]
+  },
+  {
+   "id": "johto_badge_whitney",
+   "once": true,
+   "trigger": {"type": "badge", "badge": "标准徽章"},
+   "require": {},
+   "steps": [
+    {"say": ["小茜揉了揉眼睛，还是笑了。", "「哭归哭，徽章还是要给的。」"], "who": "旁白"},
+    {"flag": "johto_badge_3"}
+   ]
+  },
+  {
+   "id": "johto_badge_morty",
+   "once": true,
+   "trigger": {"type": "badge", "badge": "魅影徽章"},
+   "require": {},
+   "steps": [
+    {"say": ["松叶把灯吹熄了一瞬。", "「有些东西看不见，但并不等于不存在。」"], "who": "旁白"},
+    {"flag": "johto_badge_4"}
+   ]
+  },
+  {
+   "id": "johto_badge_chuck",
+   "once": true,
+   "trigger": {"type": "badge", "badge": "打击徽章"},
+   "require": {},
+   "steps": [
+    {"say": ["阿四甩了甩手腕。", "「拳头再硬，也得靠腿站稳。」"], "who": "旁白"},
+    {"flag": "johto_badge_5"}
+   ]
+  },
+  {
+   "id": "johto_badge_jasmine",
+   "once": true,
+   "trigger": {"type": "badge", "badge": "矿物徽章"},
+   "require": {},
+   "steps": [
+    {"say": ["阿蜜轻声说了句对不起，然后递来徽章。", "「钢是硬的，但也可以很温柔。」"], "who": "旁白"},
+    {"flag": "johto_badge_6"}
+   ]
+  },
+  {
+   "id": "johto_badge_pryce",
+   "once": true,
+   "trigger": {"type": "badge", "badge": "冰川徽章"},
+   "require": {},
+   "steps": [
+    {"say": ["柳伯呼吸很慢。", "「冰面看着结实，其实每一步都得算好。」"], "who": "旁白"},
+    {"flag": "johto_badge_7"}
+   ]
+  },
+  {
+   "id": "johto_badge_clair",
+   "once": true,
+   "trigger": {"type": "badge", "badge": "升龙徽章"},
+   "require": {},
+   "steps": [
+    {"say": ["小椿没说话，只是把徽章拍在桌上。", "「龙认实力，不认嘴。」"], "who": "旁白"},
+    {"flag": "johto_badge_8"}
+   ]
+  },
+  {
+   "id": "johto_slowpoke_well",
+   "once": true,
+   "trigger": {"type": "map_enter", "map": "johto_slowpoke_well_b1_f"},
+   "require": {"flags_none": ["johto_well_done"]},
+   "steps": [
+    {"say": ["井底的水声里混着铁器的响。", "有人把呆呆兽的尾巴当成了生意。", "「谁在那儿？多管闲事的家伙。」"], "who": "旁白"},
+    {"battle": {"team": [{"species": 109, "level": 14}, {"species": 109, "level": 14}]}},
+    {"say": ["火箭队的人被赶跑了。", "呆呆兽慢吞吞地挪回水边，看了你一眼。"], "who": "旁白"},
+    {"flag": "johto_well_done"}
+   ]
+  },
+  {
+   "id": "johto_burned_tower",
+   "once": true,
+   "trigger": {"type": "map_enter", "map": "johto_burned_tower_1f"},
+   "require": {"flags_none": ["johto_burned_done"]},
+   "steps": [
+    {"say": ["烧焦的横梁横在头顶，灰烬一直落。", "三道光从塔顶掠过，快得只剩残影。", "它们在这个地区游荡，谁也不知道下一次会在哪儿遇见。"], "who": "旁白"},
+    {"flag": "johto_burned_done"}
+   ]
+  },
+  {
+   "id": "johto_lake_rage",
+   "once": true,
+   "trigger": {"type": "talk", "npc": "龙使者 阿渡", "map": "johto_lake_of_rage"},
+   "require": {"flags_none": ["johto_lake_done"]},
+   "steps": [
+    {"say": ["「你也是为那东西来的？」", "「湖里的暴鲤龙不对劲，红得反常，脾气也反常。」", "「先把它的火气压下去，别让它冲上村子。」"], "who": "龙使者 阿渡"},
+    {"battle": {"team": [{"species": 130, "level": 30}]}},
+    {"say": ["暴鲤龙沉回湖底，水面终于平了。", "「后面还有事，我在广播塔等你。」"], "who": "龙使者 阿渡"},
+    {"flag": "johto_lake_done"}
+   ]
+  },
+  {
+   "id": "johto_radio_tower",
+   "once": true,
+   "trigger": {"type": "map_enter", "map": "johto_radio_tower_1f"},
+   "require": {"flags_none": ["johto_radio_done"]},
+   "steps": [
+    {"say": ["广播断了，走廊里全是回音。", "火箭队的人在楼梯口拦住去路。", "「这栋楼今天归我们管。」"], "who": "旁白"},
+    {"battle": {"team": [{"species": 109, "level": 22}, {"species": 110, "level": 24}]}},
+    {"say": ["楼梯口的守卫倒下了。", "上面的广播还在响，但不该是这个声音。"], "who": "旁白"},
+    {"flag": "johto_radio_done"}
+   ]
+  },
+  {
+   "id": "johto_dragons_den",
+   "once": true,
+   "trigger": {"type": "map_enter", "map": "johto_dragons_den_1f"},
+   "require": {"flags_none": ["johto_den_done"]},
+   "steps": [
+    {"say": ["洞窟深处有水，水面上有光在晃。", "龙在这里被养大，也被这里挑过。", "「能站到这儿，说明前面那八道关你没虚过。」"], "who": "旁白"},
+    {"flag": "johto_den_done"}
+   ]
+  },
+  {
+   "id": "johto_victory_road",
+   "once": true,
+   "trigger": {"type": "map_enter", "map": "johto_victory_road"},
+   "require": {"flags_none": ["johto_victory_done"]},
+   "steps": [
+    {"say": ["八枚徽章在背包里碰出轻响。", "前面就是联盟，过的这一路都算数。", "先把队伍养好——里面没人会让你。"], "who": "旁白"},
+    {"flag": "johto_victory_done"}
+   ]
+  }
+ ]
+}

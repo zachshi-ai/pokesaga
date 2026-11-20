@@ -1,0 +1,322 @@
+{
+ "name": "互联洞窟",
+ "emerald": "johto_union_cave_1f",
+ "size": [
+  10,
+  18
+ ],
+ "spawn": [
+  5,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    1,
+    3
+   ],
+   "name": "登山男 Daniel",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 11,
+      "species": 95
+     }
+    ]
+   },
+   "trainer": "HikerDaniel"
+  },
+  {
+   "at": [
+    2,
+    10
+   ],
+   "name": "宝可梦狂 Larry",
+   "gfx": "scientist",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 10,
+      "species": 79
+     }
+    ]
+   },
+   "trainer": "PokemaniacLarry"
+  },
+  {
+   "at": [
+    5,
+    4
+   ],
+   "name": "登山男 Russell",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 4,
+      "species": 74
+     },
+     {
+      "level": 6,
+      "species": 74
+     },
+     {
+      "level": 8,
+      "species": 74
+     }
+    ]
+   },
+   "trainer": "HikerRussell"
+  },
+  {
+   "at": [
+    7,
+    13
+   ],
+   "name": "喷火者 Ray",
+   "gfx": "sailor",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 9,
+      "species": 37
+     }
+    ]
+   },
+   "trainer": "FirebreatherRay"
+  },
+  {
+   "at": [
+    7,
+    9
+   ],
+   "name": "喷火者 Bill",
+   "gfx": "sailor",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 6,
+      "species": 109
+     },
+     {
+      "level": 6,
+      "species": 109
+     }
+    ]
+   },
+   "trainer": "FirebreatherBill"
+  },
+  {
+   "at": [
+    8,
+    10
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    1
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    8
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    16
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_union_cave_b1_f",
+    "at": [
+     3,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    16
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_union_cave_b1_f",
+    "at": [
+     1,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_33",
+    "at": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_32",
+    "at": [
+     6,
+     26
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 74,
+   "min": 6,
+   "max": 6,
+   "weight": 90
+  },
+  {
+   "species": 27,
+   "min": 6,
+   "max": 6,
+   "weight": 60
+  },
+  {
+   "species": 41,
+   "min": 5,
+   "max": 5,
+   "weight": 40
+  },
+  {
+   "species": 19,
+   "min": 4,
+   "max": 4,
+   "weight": 30
+  },
+  {
+   "species": 19,
+   "min": 6,
+   "max": 6,
+   "weight": 30
+  },
+  {
+   "species": 194,
+   "min": 5,
+   "max": 5,
+   "weight": 20
+  },
+  {
+   "species": 41,
+   "min": 7,
+   "max": 7,
+   "weight": 15
+  },
+  {
+   "species": 95,
+   "min": 6,
+   "max": 6,
+   "weight": 15
+  }
+ ],
+ "encounter_rate": 0.06,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 194,
+   "min": 15,
+   "max": 15,
+   "weight": 60
+  },
+  {
+   "species": 195,
+   "min": 20,
+   "max": 20,
+   "weight": 30
+  },
+  {
+   "species": 195,
+   "min": 15,
+   "max": 15,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.02
+}

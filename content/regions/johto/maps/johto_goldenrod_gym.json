@@ -1,0 +1,236 @@
+{
+ "name": "道馆",
+ "emerald": "johto_goldenrod_gym",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    4,
+    1
+   ],
+   "name": "馆主 小茜",
+   "gfx": "teala",
+   "lines": [
+    "想挑战道馆，先过我这关。",
+    "让我看看你的实力。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 18,
+      "species": 35,
+      "moves": [
+       3,
+       102,
+       227,
+       118
+      ]
+     },
+     {
+      "level": 20,
+      "species": 241,
+      "moves": [
+       205,
+       213,
+       23,
+       208
+      ]
+     }
+    ]
+   },
+   "badge": "标准徽章",
+   "trainer": "Whitney"
+  },
+  {
+   "at": [
+    4,
+    6
+   ],
+   "name": "少女 Carrie",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 18,
+      "species": 209,
+      "moves": [
+       184,
+       204,
+       44,
+       122
+      ]
+     }
+    ]
+   },
+   "trainer": "LassCarrie"
+  },
+  {
+   "at": [
+    4,
+    3
+   ],
+   "name": "少女 Bridget",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 15,
+      "species": 39
+     },
+     {
+      "level": 15,
+      "species": 39
+     },
+     {
+      "level": 15,
+      "species": 39
+     }
+    ]
+   },
+   "trainer": "LassBridget"
+  },
+  {
+   "at": [
+    0,
+    1
+   ],
+   "name": "大姐姐 Victoria",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 9,
+      "species": 161
+     },
+     {
+      "level": 13,
+      "species": 161
+     },
+     {
+      "level": 17,
+      "species": 161
+     }
+    ]
+   },
+   "trainer": "BeautyVictoria"
+  },
+  {
+   "at": [
+    9,
+    2
+   ],
+   "name": "大姐姐 Samantha",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 16,
+      "species": 52,
+      "moves": [
+       10,
+       45,
+       44,
+       6
+      ]
+     },
+     {
+      "level": 16,
+      "species": 52,
+      "moves": [
+       10,
+       45,
+       44,
+       163
+      ]
+     }
+    ]
+   },
+   "trainer": "BeautySamantha"
+  },
+  {
+   "at": [
+    2,
+    7
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_city",
+    "at": [
+     12,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_city",
+    "at": [
+     12,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    0,
+    6
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "道馆\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

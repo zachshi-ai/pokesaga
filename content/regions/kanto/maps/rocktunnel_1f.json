@@ -1,0 +1,307 @@
+{
+ "name": "关都·岩山隧道 1F",
+ "emerald": "rock_tunnel_1f",
+ "size": [
+  48,
+  40
+ ],
+ "spawn": [
+  17,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    26,
+    28
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "洞里比外面冷。",
+    "小心脚下的碎石。"
+   ]
+  },
+  {
+   "at": [
+    39,
+    27
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "回音很大，小声点。",
+    "小心脚下的碎石。"
+   ]
+  },
+  {
+   "at": [
+    45,
+    24
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "前面塌了一段。",
+    "小心脚下的碎石。"
+   ]
+  },
+  {
+   "at": [
+    20,
+    17
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "火把快烧完了。",
+    "小心脚下的碎石。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    20
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这层我来过三回。",
+    "小心脚下的碎石。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    5
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "脚下滑，慢点走。",
+    "小心脚下的碎石。"
+   ]
+  },
+  {
+   "at": [
+    27,
+    10
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "你听见水滴声了吗。",
+    "小心脚下的碎石。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    17,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     392,
+     69
+    ]
+   }
+  },
+  {
+   "at": [
+    45,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "rocktunnel_b1f",
+    "at": [
+     38,
+     28
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "rocktunnel_b1f",
+    "at": [
+     33,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    20,
+    13
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "rocktunnel_b1f",
+    "at": [
+     27,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    45,
+    21
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "rocktunnel_b1f",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    37
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     392,
+     107
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 41,
+   "min": 15,
+   "max": 15,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 16,
+   "max": 16,
+   "weight": 20
+  },
+  {
+   "species": 56,
+   "min": 16,
+   "max": 16,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 17,
+   "max": 17,
+   "weight": 10
+  },
+  {
+   "species": 41,
+   "min": 16,
+   "max": 16,
+   "weight": 10
+  },
+  {
+   "species": 66,
+   "min": 16,
+   "max": 16,
+   "weight": 10
+  },
+  {
+   "species": 56,
+   "min": 17,
+   "max": 17,
+   "weight": 5
+  },
+  {
+   "species": 66,
+   "min": 17,
+   "max": 17,
+   "weight": 5
+  },
+  {
+   "species": 74,
+   "min": 15,
+   "max": 15,
+   "weight": 4
+  },
+  {
+   "species": 95,
+   "min": 13,
+   "max": 13,
+   "weight": 4
+  },
+  {
+   "species": 74,
+   "min": 15,
+   "max": 15,
+   "weight": 1
+  },
+  {
+   "species": 95,
+   "min": 15,
+   "max": 15,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "objects": [
+  {
+   "at": [
+    37,
+    5
+   ],
+   "kind": "item",
+   "item": "ITEM_REPEL",
+   "name": "除虫喷雾",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    33,
+    22
+   ],
+   "kind": "item",
+   "item": "ITEM_PEARL",
+   "name": "珍珠",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    22,
+    22
+   ],
+   "kind": "item",
+   "item": "ITEM_ESCAPE_ROPE",
+   "name": "离洞绳",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    14,
+    33
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "岩山隧道\n华蓝市 - 紫苑镇"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true,
+ "dark": true
+}

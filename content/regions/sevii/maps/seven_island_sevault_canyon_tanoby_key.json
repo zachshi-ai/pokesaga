@@ -1,0 +1,92 @@
+{
+ "name": "七号岛·七宝峡谷 石室",
+ "emerald": "seven_island_sevault_canyon_tanoby_key",
+ "size": [
+  15,
+  16
+ ],
+ "spawn": [
+  7,
+  13
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    7,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "seven_island_sevault_canyon",
+    "at": [
+     7,
+     17
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true,
+ "objects": [
+  {
+   "at": [
+    7,
+    6
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    8,
+    6
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    8,
+    9
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    6,
+    10
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    8,
+    10
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    6,
+    9
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    6,
+    6
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  }
+ ]
+}

@@ -1,0 +1,274 @@
+{
+ "name": "呆呆兽之井·B1F",
+ "emerald": "johto_slowpoke_well_b1_f",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    3
+   ],
+   "name": "火箭队队员 Grunt 29",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 9,
+      "species": 19
+     },
+     {
+      "level": 9,
+      "species": 19
+     }
+    ]
+   },
+   "trainer": "GruntM#29"
+  },
+  {
+   "at": [
+    2,
+    1
+   ],
+   "name": "火箭队队员 Grunt 1",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 14,
+      "species": 109
+     }
+    ]
+   },
+   "trainer": "GruntM#1"
+  },
+  {
+   "at": [
+    2,
+    3
+   ],
+   "name": "火箭队队员 Grunt 2",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 7,
+      "species": 19
+     },
+     {
+      "level": 9,
+      "species": 41
+     },
+     {
+      "level": 9,
+      "species": 41
+     }
+    ]
+   },
+   "trainer": "GruntM#2"
+  },
+  {
+   "at": [
+    5,
+    2
+   ],
+   "name": "火箭队队员 Grunt 1",
+   "gfx": "team_rocket_f",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 9,
+      "species": 41
+     },
+     {
+      "level": 11,
+      "species": 23
+     }
+    ]
+   },
+   "trainer": "GruntF#1"
+  },
+  {
+   "at": [
+    3,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    1
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    6
+   ],
+   "name": "阿西",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    1
+   ],
+   "name": "岩石",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    1
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    8,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_azalea_town",
+    "at": [
+     15,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_slowpoke_well_b2_f",
+    "at": [
+     4,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 41,
+   "min": 5,
+   "max": 5,
+   "weight": 90
+  },
+  {
+   "species": 41,
+   "min": 6,
+   "max": 6,
+   "weight": 90
+  },
+  {
+   "species": 41,
+   "min": 7,
+   "max": 7,
+   "weight": 60
+  },
+  {
+   "species": 79,
+   "min": 6,
+   "max": 6,
+   "weight": 30
+  },
+  {
+   "species": 41,
+   "min": 8,
+   "max": 8,
+   "weight": 15
+  },
+  {
+   "species": 79,
+   "min": 8,
+   "max": 8,
+   "weight": 15
+  }
+ ],
+ "encounter_rate": 0.02,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 79,
+   "min": 15,
+   "max": 15,
+   "weight": 60
+  },
+  {
+   "species": 79,
+   "min": 20,
+   "max": 20,
+   "weight": 30
+  },
+  {
+   "species": 79,
+   "min": 10,
+   "max": 10,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.02
+}

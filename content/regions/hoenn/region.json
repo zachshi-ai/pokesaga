@@ -1,0 +1,55 @@
+{
+ "id": "hoenn",
+ "name": "丰缘",
+ "tileset": "hoenn_general",
+ "music": "route",
+ "maps": [
+  "littleroot_town",
+  "route101"
+ ],
+ "encounters": [
+  {
+   "species": 10,
+   "min": 2,
+   "max": 5,
+   "weight": 30
+  },
+  {
+   "species": 13,
+   "min": 2,
+   "max": 5,
+   "weight": 20
+  },
+  {
+   "species": 16,
+   "min": 2,
+   "max": 5,
+   "weight": 20
+  },
+  {
+   "species": 43,
+   "min": 3,
+   "max": 6,
+   "weight": 10
+  },
+  {
+   "species": 46,
+   "min": 3,
+   "max": 6,
+   "weight": 8
+  },
+  {
+   "species": 54,
+   "min": 3,
+   "max": 6,
+   "weight": 7
+  },
+  {
+   "species": 60,
+   "min": 3,
+   "max": 6,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.12
+}

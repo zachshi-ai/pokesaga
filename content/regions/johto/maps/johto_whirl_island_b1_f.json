@@ -1,0 +1,297 @@
+{
+ "name": "涡卷岛",
+ "emerald": "johto_whirl_island_b1_f",
+ "size": [
+  20,
+  18
+ ],
+ "spawn": [
+  10,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    6
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    9
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    16,
+    11
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    4
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    13
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    13
+   ],
+   "name": "岩石",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_whirl_island_nw",
+    "at": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_whirl_island_ne",
+    "at": [
+     8,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_whirl_island_ne",
+    "at": [
+     6,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_whirl_island_sw",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_whirl_island_sw",
+    "at": [
+     8,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    15,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_whirl_island_se",
+    "at": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_whirl_island_b2_f",
+    "at": [
+     2,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_whirl_island_b2_f",
+    "at": [
+     2,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_whirl_island_cave",
+    "at": [
+     3,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 98,
+   "min": 23,
+   "max": 23,
+   "weight": 110
+  },
+  {
+   "species": 41,
+   "min": 24,
+   "max": 24,
+   "weight": 90
+  },
+  {
+   "species": 86,
+   "min": 23,
+   "max": 23,
+   "weight": 40
+  },
+  {
+   "species": 98,
+   "min": 25,
+   "max": 25,
+   "weight": 30
+  },
+  {
+   "species": 42,
+   "min": 26,
+   "max": 26,
+   "weight": 15
+  },
+  {
+   "species": 86,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  },
+  {
+   "species": 42,
+   "min": 25,
+   "max": 25,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.06,
+ "objects": [
+  {
+   "at": [
+    14,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "涡卷岛\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    17,
+    8
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "涡卷岛\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    1,
+    11
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "涡卷岛\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

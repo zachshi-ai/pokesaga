@@ -1,0 +1,83 @@
+{
+ "name": "关都·枯叶市·宝可梦中心 2F",
+ "emerald": "pokemon_center_2f_frlg",
+ "size": [
+  15,
+  10
+ ],
+ "spawn": [
+  1,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "这附近有只野猫。",
+    "能帮就帮一把。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "听说是有人把门锁了。",
+    "能帮就帮一把。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "柜台后面那位脾气不好。",
+    "能帮就帮一把。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我把钥匙忘在楼上了。",
+    "能帮就帮一把。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilioncity_pokemoncenter_1f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

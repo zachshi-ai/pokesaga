@@ -1,0 +1,261 @@
+{
+ "name": "关都·常磐市·道馆",
+ "emerald": "viridian_city_gym",
+ "size": [
+  20,
+  24
+ ],
+ "spawn": [
+  16,
+  22
+ ],
+ "npcs": [
+  {
+   "at": [
+    10,
+    2
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "宝可梦的体力靠平时的照顾。",
+    "别只顾着打。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    10
+   ],
+   "gfx": "cooltrainer_m",
+   "name": "训练家",
+   "lines": [
+    "我刚从北边过来，风挺大。",
+    "别只顾着打。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    14
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "你队伍里有几只？",
+    "别只顾着打。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    10
+   ],
+   "gfx": "man",
+   "name": "大叔",
+   "lines": [
+    "听说馆主今天心情不错。",
+    "别只顾着打。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    21
+   ],
+   "gfx": "man",
+   "name": "大叔",
+   "lines": [
+    "这附近的水很干净。",
+    "别只顾着打。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    11
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "我小时候在这里迷过路。",
+    "别只顾着打。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    8
+   ],
+   "gfx": "cooltrainer_m",
+   "name": "训练家",
+   "lines": [
+    "训练家最重要的是判断。",
+    "别只顾着打。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "gfx": "cooltrainer_m",
+   "name": "馆主 坂木",
+   "badge": "绿色徽章",
+   "battle": {
+    "team": [
+     {
+      "species": 111,
+      "level": 45,
+      "moves": [
+       30,
+       23
+      ]
+     },
+     {
+      "species": 51,
+      "level": 42,
+      "moves": [
+       91,
+       189
+      ]
+     },
+     {
+      "species": 31,
+      "level": 44,
+      "moves": [
+       34,
+       24
+      ]
+     },
+     {
+      "species": 112,
+      "level": 50,
+      "moves": [
+       89,
+       30
+      ]
+     }
+    ]
+   },
+   "lines": [
+    "馆主 坂木：能走到这里，说明你有点本事。",
+    "绿色徽章 就交给你了。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    7
+   ],
+   "gfx": "cooltrainer_m",
+   "name": "训练家",
+   "lines": [
+    "你在收集徽章吗？",
+    "别只顾着打。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    16,
+    20
+   ],
+   "gfx": "man",
+   "name": "路人",
+   "lines": [
+    "商店今天补货了。",
+    "别只顾着打。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    16,
+    22
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     84,
+     190
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    22
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     84,
+     190
+    ]
+   }
+  },
+  {
+   "at": [
+    18,
+    22
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     84,
+     190
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    15,
+    20
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "常青宝可梦道馆\n馆主：？\n优胜训练家：\n{RIVAL}"
+  },
+  {
+   "at": [
+    19,
+    20
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "常青宝可梦道馆\n馆主：？\n优胜训练家：\n{RIVAL}"
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "kind": "hidden",
+   "item": "ITEM_MACHO_BRACE",
+   "name": "强制锻炼器",
+   "category": "held",
+   "flag": "FLAG_HIDDEN_ITEM_VIRIDIAN_CITY_GYM_MACHO_BRACE",
+   "count": 1
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

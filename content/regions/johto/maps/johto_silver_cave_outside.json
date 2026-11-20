@@ -1,0 +1,231 @@
+{
+ "name": "白银山",
+ "emerald": "johto_silver_cave_outside",
+ "size": [
+  20,
+  18
+ ],
+ "spawn": [
+  9,
+  8
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    11,
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_silver_cave_pokecenter_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_silver_cave_room_1",
+    "at": [
+     4,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_28",
+    "at": [
+     1,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_28",
+    "at": [
+     1,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_28",
+    "at": [
+     1,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    16
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_28",
+    "at": [
+     1,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_28",
+    "at": [
+     1,
+     8
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [
+  {
+   "species": 114,
+   "min": 41,
+   "max": 41,
+   "weight": 90
+  },
+  {
+   "species": 77,
+   "min": 42,
+   "max": 42,
+   "weight": 60
+  },
+  {
+   "species": 24,
+   "min": 42,
+   "max": 42,
+   "weight": 40
+  },
+  {
+   "species": 61,
+   "min": 42,
+   "max": 42,
+   "weight": 30
+  },
+  {
+   "species": 78,
+   "min": 44,
+   "max": 44,
+   "weight": 20
+  },
+  {
+   "species": 42,
+   "min": 42,
+   "max": 42,
+   "weight": 20
+  },
+  {
+   "species": 84,
+   "min": 41,
+   "max": 41,
+   "weight": 10
+  },
+  {
+   "species": 85,
+   "min": 43,
+   "max": 43,
+   "weight": 10
+  },
+  {
+   "species": 61,
+   "min": 44,
+   "max": 44,
+   "weight": 10
+  },
+  {
+   "species": 42,
+   "min": 40,
+   "max": 40,
+   "weight": 5
+  },
+  {
+   "species": 42,
+   "min": 44,
+   "max": 44,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.1,
+ "objects": [
+  {
+   "at": [
+    8,
+    6
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "白银山\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    4,
+    12
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "白银山\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 61,
+   "min": 35,
+   "max": 35,
+   "weight": 60
+  },
+  {
+   "species": 61,
+   "min": 40,
+   "max": 40,
+   "weight": 30
+  },
+  {
+   "species": 60,
+   "min": 35,
+   "max": 35,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.02
+}

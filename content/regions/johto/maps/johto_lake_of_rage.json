@@ -1,0 +1,330 @@
+{
+ "name": "愤怒之湖",
+ "emerald": "johto_lake_of_rage",
+ "size": [
+  20,
+  18
+ ],
+ "spawn": [
+  6,
+  5
+ ],
+ "npcs": [
+  {
+   "at": [
+    10,
+    14
+   ],
+   "name": "龙使者 阿渡",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "要不要来一场？",
+    "我可是练了很久的。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    13
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    18,
+    6
+   ],
+   "name": "理科男",
+   "gfx": "scientist",
+   "lines": [
+    "研究数据是不会骗人的。",
+    "宝可梦的行为比人想的复杂得多。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    14
+   ],
+   "name": "训练家",
+   "gfx": "teala",
+   "lines": [
+    "你今天也很有精神呢。",
+    "慢慢来，不用急。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    11
+   ],
+   "name": "钓鱼人 Andre",
+   "gfx": "sailor",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 27,
+      "species": 130
+     }
+    ]
+   },
+   "trainer": "FisherAndre"
+  },
+  {
+   "at": [
+    12,
+    13
+   ],
+   "name": "钓鱼人 Raymond",
+   "gfx": "sailor",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 22,
+      "species": 129
+     },
+     {
+      "level": 22,
+      "species": 129
+     },
+     {
+      "level": 22,
+      "species": 129
+     },
+     {
+      "level": 22,
+      "species": 129
+     }
+    ]
+   },
+   "trainer": "FisherRaymond"
+  },
+  {
+   "at": [
+    2,
+    7
+   ],
+   "name": "训练家 Aaron",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 24,
+      "species": 2
+     },
+     {
+      "level": 24,
+      "species": 5
+     },
+     {
+      "level": 24,
+      "species": 8
+     }
+    ]
+   },
+   "trainer": "CooltrainerMAaron"
+  },
+  {
+   "at": [
+    18,
+    3
+   ],
+   "name": "训练家 Lois",
+   "gfx": "teala",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 25,
+      "species": 188,
+      "moves": [
+       235,
+       77,
+       72,
+       73
+      ]
+     },
+     {
+      "level": 25,
+      "species": 38,
+      "moves": [
+       52,
+       98,
+       109,
+       219
+      ]
+     }
+    ]
+   },
+   "trainer": "CooltrainerFLois"
+  },
+  {
+   "at": [
+    11,
+    13
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    5
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    17,
+    1
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_lake_of_rage_hidden_power_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_lake_of_rage_magikarp_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_43",
+    "at": [
+     4,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    10,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_43",
+    "at": [
+     5,
+     1
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    5,
+    14
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "愤怒之湖\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    17,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "愤怒之湖\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 129,
+   "min": 15,
+   "max": 15,
+   "weight": 60
+  },
+  {
+   "species": 129,
+   "min": 10,
+   "max": 10,
+   "weight": 30
+  },
+  {
+   "species": 130,
+   "min": 15,
+   "max": 15,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.06
+}

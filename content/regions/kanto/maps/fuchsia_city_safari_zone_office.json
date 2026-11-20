@@ -1,0 +1,111 @@
+{
+ "name": "关都·浅红市·狩猎区办公室",
+ "emerald": "fuchsia_city_safari_zone_office",
+ "size": [
+  20,
+  11
+ ],
+ "spawn": [
+  5,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你看起来像个训练家。",
+    "下次再来。"
+   ]
+  },
+  {
+   "at": [
+    12,
+    3
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我在这儿等人。",
+    "下次再来。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "这附近有只野猫。",
+    "下次再来。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    8
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "听说是有人把门锁了。",
+    "下次再来。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     220,
+     316
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     220,
+     316
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     220,
+     316
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,101 @@
+{
+ "name": "关都·常磐森林·南入口",
+ "emerald": "route2_entrance",
+ "size": [
+  15,
+  12
+ ],
+ "spawn": [
+  7,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    10,
+    6
+   ],
+   "name": "女士",
+   "gfx": "lass",
+   "script": "Route2_ViridianForest_SouthEntrance_EventScript_Woman1",
+   "lines": [
+    "我在这儿等雨停。",
+    "已经等了两个小时。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "name": "大姐",
+   "gfx": "lass",
+   "script": "Route2_ViridianForest_SouthEntrance_EventScript_Woman2",
+   "lines": [
+    "这条路通往尼比市。",
+    "走快点，天黑前能到。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     65,
+     151
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    1
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridianforest",
+    "at": [
+     29,
+     62
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     65,
+     151
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     65,
+     151
+    ]
+   }
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

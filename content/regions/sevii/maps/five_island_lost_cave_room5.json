@@ -1,0 +1,149 @@
+{
+ "name": "五号岛·失落洞窟 ROOM5",
+ "emerald": "five_island_lost_cave_room5",
+ "size": [
+  11,
+  11
+ ],
+ "spawn": [
+  5,
+  1
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    5,
+    1
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_lost_cave_room1",
+    "at": [
+     5,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_lost_cave_room6",
+    "at": [
+     2,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_lost_cave_room1",
+    "at": [
+     5,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_lost_cave_room1",
+    "at": [
+     8,
+     5
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 92,
+   "min": 40,
+   "max": 40,
+   "weight": 20
+  },
+  {
+   "species": 41,
+   "min": 37,
+   "max": 37,
+   "weight": 20
+  },
+  {
+   "species": 93,
+   "min": 44,
+   "max": 44,
+   "weight": 10
+  },
+  {
+   "species": 93,
+   "min": 46,
+   "max": 46,
+   "weight": 10
+  },
+  {
+   "species": 42,
+   "min": 41,
+   "max": 41,
+   "weight": 10
+  },
+  {
+   "species": 42,
+   "min": 43,
+   "max": 43,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 38,
+   "max": 38,
+   "weight": 5
+  },
+  {
+   "species": 93,
+   "min": 48,
+   "max": 48,
+   "weight": 5
+  },
+  {
+   "species": 93,
+   "min": 50,
+   "max": 50,
+   "weight": 4
+  },
+  {
+   "species": 198,
+   "min": 22,
+   "max": 22,
+   "weight": 4
+  },
+  {
+   "species": 93,
+   "min": 52,
+   "max": 52,
+   "weight": 1
+  },
+  {
+   "species": 198,
+   "min": 22,
+   "max": 22,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.05,
+ "weather": "fog_horizontal",
+ "weather_name": "雾",
+ "cycling": true
+}

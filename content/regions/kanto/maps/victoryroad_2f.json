@@ -1,0 +1,362 @@
+{
+ "name": "关都·冠军之路 2F",
+ "emerald": "victory_road_2f",
+ "size": [
+  51,
+  22
+ ],
+ "spawn": [
+  49,
+  13
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    4
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "火把快烧完了。",
+    "常有小拳石滚下来。"
+   ]
+  },
+  {
+   "at": [
+    20,
+    11
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "这层我来过三回。",
+    "常有小拳石滚下来。"
+   ]
+  },
+  {
+   "at": [
+    31,
+    16
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "脚下滑，慢点走。",
+    "常有小拳石滚下来。"
+   ]
+  },
+  {
+   "at": [
+    26,
+    6
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "你听见水滴声了吗。",
+    "常有小拳石滚下来。"
+   ]
+  },
+  {
+   "at": [
+    36,
+    5
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "别往深处乱走。",
+    "常有小拳石滚下来。"
+   ]
+  },
+  {
+   "at": [
+    40,
+    9
+   ],
+   "name": "训练家",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "我把备用绳放这儿了。",
+    "常有小拳石滚下来。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_1f",
+    "at": [
+     3,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_3f",
+    "at": [
+     5,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    34,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_3f",
+    "at": [
+     34,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    38,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_3f",
+    "at": [
+     37,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    36,
+    17
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_3f",
+    "at": [
+     39,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    49,
+    13
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     18,
+     58
+    ]
+   }
+  },
+  {
+   "at": [
+    48,
+    12
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     18,
+     58
+    ]
+   }
+  },
+  {
+   "at": [
+    47,
+    13
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     18,
+     58
+    ]
+   }
+  },
+  {
+   "at": [
+    34,
+    19
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_3f",
+    "at": [
+     34,
+     18
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 66,
+   "min": 34,
+   "max": 34,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 34,
+   "max": 34,
+   "weight": 20
+  },
+  {
+   "species": 57,
+   "min": 42,
+   "max": 42,
+   "weight": 10
+  },
+  {
+   "species": 95,
+   "min": 45,
+   "max": 45,
+   "weight": 10
+  },
+  {
+   "species": 95,
+   "min": 48,
+   "max": 48,
+   "weight": 10
+  },
+  {
+   "species": 41,
+   "min": 34,
+   "max": 34,
+   "weight": 10
+  },
+  {
+   "species": 24,
+   "min": 46,
+   "max": 46,
+   "weight": 5
+  },
+  {
+   "species": 42,
+   "min": 46,
+   "max": 46,
+   "weight": 5
+  },
+  {
+   "species": 105,
+   "min": 46,
+   "max": 46,
+   "weight": 4
+  },
+  {
+   "species": 67,
+   "min": 46,
+   "max": 46,
+   "weight": 4
+  },
+  {
+   "species": 67,
+   "min": 48,
+   "max": 48,
+   "weight": 1
+  },
+  {
+   "species": 105,
+   "min": 48,
+   "max": 48,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "objects": [
+  {
+   "at": [
+    17,
+    6
+   ],
+   "kind": "item",
+   "item": "ITEM_GUARD_SPEC",
+   "name": "ITEM_GUARD_SPEC",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    40,
+    7
+   ],
+   "kind": "item",
+   "item": "ITEM_TM07",
+   "name": "ITEM_TM07",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    25,
+    13
+   ],
+   "kind": "item",
+   "item": "ITEM_FULL_HEAL",
+   "name": "万灵药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    14,
+    13
+   ],
+   "kind": "item",
+   "item": "ITEM_TM37",
+   "name": "ITEM_TM37",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    8,
+    7
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    6,
+    17
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  },
+  {
+   "at": [
+    33,
+    19
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

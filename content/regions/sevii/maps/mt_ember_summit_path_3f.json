@@ -1,0 +1,121 @@
+{
+ "name": "七之岛·焰之山 山顶 PATH 3F",
+ "emerald": "mt_ember_summit_path_3f",
+ "size": [
+  15,
+  11
+ ],
+ "spawn": [
+  11,
+  8
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    2,
+    4
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_summit_path_2f",
+    "at": [
+     39,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "mt_ember_exterior",
+    "at": [
+     39,
+     19
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 74,
+   "min": 33,
+   "max": 33,
+   "weight": 20
+  },
+  {
+   "species": 66,
+   "min": 35,
+   "max": 35,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 29,
+   "max": 29,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 31,
+   "max": 31,
+   "weight": 10
+  },
+  {
+   "species": 66,
+   "min": 31,
+   "max": 31,
+   "weight": 10
+  },
+  {
+   "species": 66,
+   "min": 33,
+   "max": 33,
+   "weight": 10
+  },
+  {
+   "species": 74,
+   "min": 35,
+   "max": 35,
+   "weight": 5
+  },
+  {
+   "species": 66,
+   "min": 37,
+   "max": 37,
+   "weight": 5
+  },
+  {
+   "species": 74,
+   "min": 37,
+   "max": 37,
+   "weight": 4
+  },
+  {
+   "species": 66,
+   "min": 39,
+   "max": 39,
+   "weight": 4
+  },
+  {
+   "species": 74,
+   "min": 37,
+   "max": 37,
+   "weight": 1
+  },
+  {
+   "species": 66,
+   "min": 39,
+   "max": 39,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

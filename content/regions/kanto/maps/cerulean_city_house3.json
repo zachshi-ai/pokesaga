@@ -1,0 +1,87 @@
+{
+ "name": "关都·华蓝市·民居 3",
+ "emerald": "house1_frlg",
+ "size": [
+  11,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    2
+   ],
+   "name": "居民",
+   "gfx": "old_man",
+   "lines": [
+    "最近路上不太平。",
+    "再坐一会儿吧。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    5
+   ],
+   "name": "居民",
+   "gfx": "old_woman",
+   "lines": [
+    "你知道道馆在哪边吗。",
+    "再坐一会儿吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     279,
+     57
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     279,
+     57
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     279,
+     57
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

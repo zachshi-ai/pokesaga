@@ -1,0 +1,264 @@
+{
+ "name": "关都·狩猎区·东",
+ "emerald": "safari_zone_east",
+ "size": [
+  54,
+  35
+ ],
+ "spawn": [
+  8,
+  9
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    8,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     48,
+     31
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     48,
+     32
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    11
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_north",
+    "at": [
+     48,
+     33
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    26
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_center",
+    "at": [
+     43,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    27
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_center",
+    "at": [
+     43,
+     16
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    28
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_center",
+    "at": [
+     43,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    40,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safari_zone_east_rest_house",
+    "at": [
+     3,
+     9
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 32,
+   "min": 24,
+   "max": 24,
+   "weight": 20
+  },
+  {
+   "species": 84,
+   "min": 26,
+   "max": 26,
+   "weight": 20
+  },
+  {
+   "species": 102,
+   "min": 23,
+   "max": 23,
+   "weight": 10
+  },
+  {
+   "species": 102,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  },
+  {
+   "species": 46,
+   "min": 22,
+   "max": 22,
+   "weight": 10
+  },
+  {
+   "species": 33,
+   "min": 33,
+   "max": 33,
+   "weight": 10
+  },
+  {
+   "species": 29,
+   "min": 24,
+   "max": 24,
+   "weight": 5
+  },
+  {
+   "species": 47,
+   "min": 25,
+   "max": 25,
+   "weight": 5
+  },
+  {
+   "species": 46,
+   "min": 22,
+   "max": 22,
+   "weight": 4
+  },
+  {
+   "species": 115,
+   "min": 25,
+   "max": 25,
+   "weight": 4
+  },
+  {
+   "species": 46,
+   "min": 22,
+   "max": 22,
+   "weight": 1
+  },
+  {
+   "species": 123,
+   "min": 28,
+   "max": 28,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "objects": [
+  {
+   "at": [
+    13,
+    12
+   ],
+   "kind": "item",
+   "item": "ITEM_MAX_POTION",
+   "name": "全满药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    37,
+    15
+   ],
+   "kind": "item",
+   "item": "ITEM_FULL_RESTORE",
+   "name": "全复药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    31,
+    18
+   ],
+   "kind": "item",
+   "item": "ITEM_TM11",
+   "name": "ITEM_TM11",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    36,
+    17
+   ],
+   "kind": "item",
+   "item": "ITEM_LEAF_STONE",
+   "name": "叶之石",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    18,
+    27
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "栖息地1\n往西：中部栖息地"
+  },
+  {
+   "at": [
+    43,
+    15
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "休息屋"
+  },
+  {
+   "at": [
+    17,
+    8
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "训练家贴士\n在你走路的时候\n剩余的时间会越来越少。"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

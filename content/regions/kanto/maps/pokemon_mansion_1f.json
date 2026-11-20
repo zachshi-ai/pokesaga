@@ -1,0 +1,213 @@
+{
+ "name": "关都·宝可梦屋·1f",
+ "emerald": "pokemon_mansion_1f",
+ "size": [
+  38,
+  35
+ ],
+ "spawn": [
+  7,
+  33
+ ],
+ "npcs": [
+  {
+   "at": [
+    22,
+    24
+   ],
+   "name": "居民",
+   "gfx": "scientist",
+   "lines": [
+    "听说是有人把门锁了。",
+    "我什么都没说。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    8
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "柜台后面那位脾气不好。",
+    "我什么都没说。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    33
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     68,
+     383
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    33
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     68,
+     383
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    33
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     68,
+     383
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    13
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_2f",
+    "at": [
+     6,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    25,
+    27
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_b1f",
+    "at": [
+     34,
+     29
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    22
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_3f",
+    "at": [
+     18,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    20,
+    22
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_3f",
+    "at": [
+     19,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    13
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_2f",
+    "at": [
+     6,
+     14
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    29,
+    32
+   ],
+   "kind": "item",
+   "item": "ITEM_CARBOS",
+   "name": "速度增强剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    22,
+    6
+   ],
+   "kind": "item",
+   "item": "ITEM_ESCAPE_ROPE",
+   "name": "离洞绳",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    27,
+    15
+   ],
+   "kind": "item",
+   "item": "ITEM_PROTEIN",
+   "name": "攻击增强剂",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    5,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一辆闪亮的新自行车！"
+  },
+  {
+   "at": [
+    2,
+    21
+   ],
+   "kind": "hidden",
+   "item": "ITEM_MOON_STONE",
+   "name": "月之石",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_POKEMON_MANSION_1F_MOON_STONE",
+   "count": 1
+  }
+ ],
+ "weather": "shade",
+ "weather_name": "阴",
+ "cycling": false
+}

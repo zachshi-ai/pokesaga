@@ -1,0 +1,72 @@
+{
+ "id": "kanto",
+ "name": "关都",
+ "tileset": "kanto_general",
+ "music": "route_kanto",
+ "maps": [
+  "kanto_main",
+  "pallettown_playershouse_1f",
+  "pallettown_professoroakslab",
+  "pallettown_rivalshouse",
+  "pewtercity_gym",
+  "pewtercity_mart",
+  "pewtercity_museum_1f",
+  "pewtercity_pokemoncenter_1f",
+  "route2_viridianforest_northentrance",
+  "route2_viridianforest_southentrance",
+  "viridiancity_gym",
+  "viridiancity_house",
+  "viridiancity_mart",
+  "viridiancity_pokemoncenter_1f",
+  "viridiancity_school",
+  "viridianforest",
+  "rocket_hideout_elevator",
+  "silph_co_elevator"
+ ],
+ "encounters": [
+  {
+   "species": 16,
+   "min": 2,
+   "max": 6,
+   "weight": 30
+  },
+  {
+   "species": 19,
+   "min": 3,
+   "max": 7,
+   "weight": 25
+  },
+  {
+   "species": 21,
+   "min": 3,
+   "max": 7,
+   "weight": 15
+  },
+  {
+   "species": 10,
+   "min": 2,
+   "max": 5,
+   "weight": 12
+  },
+  {
+   "species": 46,
+   "min": 4,
+   "max": 8,
+   "weight": 8
+  },
+  {
+   "species": 43,
+   "min": 4,
+   "max": 8,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.12,
+ "start": {
+  "map": "kanto_main",
+  "at": [
+   24,
+   217
+  ]
+ }
+}

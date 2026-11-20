@@ -1,0 +1,117 @@
+{
+ "name": "关都·圣安奴号·exterior",
+ "emerald": "ssanne_exterior",
+ "size": [
+  70,
+  32
+ ],
+ "spawn": [
+  31,
+  5
+ ],
+ "npcs": [
+  {
+   "at": [
+    30,
+    16
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "柜台后面那位脾气不好。",
+    "这年头谁都不容易。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    31,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     286,
+     234
+    ]
+   }
+  },
+  {
+   "at": [
+    32,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     287,
+     234
+    ]
+   }
+  },
+  {
+   "at": [
+    32,
+    14
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_1_f_corridor",
+    "at": [
+     19,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    33,
+    15
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_1_f_corridor",
+    "at": [
+     20,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    33,
+    5
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     288,
+     234
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    58,
+    28
+   ],
+   "kind": "hidden",
+   "item": "ITEM_LAVA_COOKIE",
+   "name": "熔岩饼干",
+   "category": "heal",
+   "flag": "FLAG_HIDDEN_ITEM_SSANNE_EXTERIOR_LAVA_COOKIE",
+   "count": 1
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,118 @@
+{
+ "name": "关都·常磐市·训练家学校",
+ "emerald": "viridian_city_school",
+ "size": [
+  10,
+  9
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    2
+   ],
+   "gfx": "lass",
+   "name": "大姐",
+   "lines": [
+    "别小看短裤小子。",
+    "别只顾着打。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    5
+   ],
+   "gfx": "lass",
+   "name": "少女",
+   "lines": [
+    "我在等一个朋友。",
+    "别只顾着打。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     73,
+     198
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     73,
+     198
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     73,
+     198
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    4,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "是本关于技能学习机的小册子。\n…… ……\n一共有50种技能机器。\n还有7种能反复使用的秘传机器。\n西尔佛公司。"
+  },
+  {
+   "at": [
+    5,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "宝可梦讲座\n用无线适配器游戏"
+  },
+  {
+   "at": [
+    4,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "宝可梦讲座\n用无线适配器游戏"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

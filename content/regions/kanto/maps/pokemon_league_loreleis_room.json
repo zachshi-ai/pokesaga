@@ -1,0 +1,61 @@
+{
+ "name": "关都·宝可梦联盟·loreleis room",
+ "emerald": "pokemon_league_loreleis_room",
+ "size": [
+  13,
+  13
+ ],
+ "spawn": [
+  6,
+  12
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "这附近有只野猫。",
+    "我什么都没说。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    12
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "indigo_plateau_pokemon_center_1f",
+    "at": [
+     4,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_league_brunos_room",
+    "at": [
+     6,
+     12
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

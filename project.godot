@@ -1,0 +1,36 @@
+; 宝可梦多地区底座 —— 工程配置
+; 逻辑分辨率沿用 240x160 的 2 倍（480x320），保证像素风与移植内容一致
+config_version=5
+
+[application]
+
+config/name="PokeSaga"
+config/description="多地区宝可梦 RPG 底座"
+run/main_scene="res://scenes/boot.tscn"
+config/features=PackedStringArray("4.7")
+
+[autoload]
+
+Data="*res://core/data_hub.gd"
+
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=320
+window/size/window_width_override=960
+window/size/window_height_override=640
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+window/handheld/orientation="sensor_landscape"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+renderer/rendering_method.mobile="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+
+[physics]
+
+common/physics_ticks_per_second=60

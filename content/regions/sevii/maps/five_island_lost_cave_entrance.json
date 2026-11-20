@@ -1,0 +1,48 @@
+{
+ "name": "五号岛·失落洞窟 入口",
+ "emerald": "five_island_lost_cave_entrance",
+ "size": [
+  11,
+  11
+ ],
+ "spawn": [
+  5,
+  5
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_resort_gorgeous",
+    "at": [
+     64,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_lost_cave_room1",
+    "at": [
+     8,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

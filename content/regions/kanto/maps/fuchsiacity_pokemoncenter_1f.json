@@ -1,0 +1,125 @@
+{
+ "name": "关都·浅红市·宝可梦中心",
+ "emerald": "pokemon_center_1f_frlg",
+ "size": [
+  15,
+  10
+ ],
+ "spawn": [
+  6,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    7,
+    2
+   ],
+   "gfx": "nurse",
+   "name": "护士",
+   "heal": true
+  },
+  {
+   "at": [
+    12,
+    5
+   ],
+   "gfx": "man",
+   "name": "大叔",
+   "lines": [
+    "我在等一个朋友。",
+    "不是谁先出手。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    3
+   ],
+   "gfx": "teala",
+   "name": "训练家",
+   "lines": [
+    "天气一热，宝可梦就懒。",
+    "不是谁先出手。",
+    "背包里常备解毒药。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "gfx": "youngster",
+   "name": "短裤小子",
+   "lines": [
+    "南边的路正在修。",
+    "不是谁先出手。",
+    "背包里常备解毒药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    6,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     217,
+     331
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     217,
+     331
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     217,
+     331
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsia_city_pokemon_center_2f",
+    "at": [
+     1,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

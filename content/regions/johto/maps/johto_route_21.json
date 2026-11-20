@@ -1,0 +1,323 @@
+{
+ "name": "21 号道路",
+ "emerald": "johto_route_21",
+ "size": [
+  10,
+  18
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    11
+   ],
+   "name": "钓鱼人 Arnold",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 34,
+      "species": 73
+     }
+    ]
+   },
+   "trainer": "FisherArnold"
+  },
+  {
+   "at": [
+    8,
+    11
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    0,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pallet_town",
+    "at": [
+     0,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    2,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pallet_town",
+    "at": [
+     1,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    3,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pallet_town",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pallet_town",
+    "at": [
+     4,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pallet_town",
+    "at": [
+     5,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pallet_town",
+    "at": [
+     5,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pallet_town",
+    "at": [
+     7,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pallet_town",
+    "at": [
+     8,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cinnabar_island",
+    "at": [
+     2,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    1,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cinnabar_island",
+    "at": [
+     2,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    2,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cinnabar_island",
+    "at": [
+     2,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    3,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cinnabar_island",
+    "at": [
+     3,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cinnabar_island",
+    "at": [
+     4,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cinnabar_island",
+    "at": [
+     5,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cinnabar_island",
+    "at": [
+     6,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cinnabar_island",
+    "at": [
+     6,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cinnabar_island",
+    "at": [
+     7,
+     0
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

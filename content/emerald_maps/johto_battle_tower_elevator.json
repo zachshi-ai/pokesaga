@@ -1,0 +1,1 @@
+{"id":"johto_battle_tower_elevator","size":[2,2],"png":"johto_battle_tower_elevator.png","collision":[[0,0],[0,0]],"water":[[0,0],[0,0]],"ledge":[[0,0],[0,0]],"grass":[[0,0],[0,0]],"door":[[0,0],[1,1]],"source":"pokecrystal","map":"BattleTowerElevator","tileset":"battle_tower_inside"}

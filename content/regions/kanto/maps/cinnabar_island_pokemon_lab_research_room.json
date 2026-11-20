@@ -1,0 +1,79 @@
+{
+ "name": "关都·红莲岛·pokemon lab research room",
+ "emerald": "cinnabar_island_pokemon_lab_research_room",
+ "size": [
+  15,
+  11
+ ],
+ "spawn": [
+  7,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "客人不多，坐吧。",
+    "再坐一会儿吧。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    3
+   ],
+   "name": "居民",
+   "gfx": "scientist",
+   "lines": [
+    "这条街我住了几十年。",
+    "下次再来。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabar_island_pokemon_lab_entrance",
+    "at": [
+     19,
+     5
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    6,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一支琥珀笛子！"
+  },
+  {
+   "at": [
+    3,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "一封电子邮件\n…… …… ……\n世界上有三只传说中的\n鸟宝可梦。\n他们是急冻鸟，闪电鸟，和\n火焰鸟。\n它们的栖息地还是个未解之谜。\n我们计划先从\n华蓝附近的山洞开始寻找。\n来自：宝可梦研究组……"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

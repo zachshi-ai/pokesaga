@@ -1,0 +1,170 @@
+{
+ "name": "喇叭芽之塔·2F",
+ "emerald": "johto_sprout_tower_2f",
+ "size": [
+  10,
+  8
+ ],
+ "spawn": [
+  5,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    6,
+    1
+   ],
+   "name": "和尚 Nico",
+   "gfx": "old_man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 3,
+      "species": 69
+     },
+     {
+      "level": 3,
+      "species": 69
+     },
+     {
+      "level": 3,
+      "species": 69
+     }
+    ]
+   },
+   "trainer": "SageNico"
+  },
+  {
+   "at": [
+    1,
+    0
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_sprout_tower_1f",
+    "at": [
+     3,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_sprout_tower_1f",
+    "at": [
+     1,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_sprout_tower_1f",
+    "at": [
+     8,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_sprout_tower_3f",
+    "at": [
+     5,
+     6
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 19,
+   "min": 3,
+   "max": 3,
+   "weight": 90
+  },
+  {
+   "species": 19,
+   "min": 4,
+   "max": 4,
+   "weight": 60
+  },
+  {
+   "species": 19,
+   "min": 5,
+   "max": 5,
+   "weight": 55
+  },
+  {
+   "species": 92,
+   "min": 3,
+   "max": 3,
+   "weight": 30
+  },
+  {
+   "species": 92,
+   "min": 4,
+   "max": 4,
+   "weight": 30
+  },
+  {
+   "species": 92,
+   "min": 5,
+   "max": 5,
+   "weight": 20
+  },
+  {
+   "species": 19,
+   "min": 6,
+   "max": 6,
+   "weight": 10
+  },
+  {
+   "species": 92,
+   "min": 6,
+   "max": 6,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.02,
+ "objects": [],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

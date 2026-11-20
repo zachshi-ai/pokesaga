@@ -1,0 +1,562 @@
+{
+ "name": "六号岛·绿道",
+ "emerald": "six_island_green_path",
+ "size": [
+  72,
+  20
+ ],
+ "spawn": [
+  63,
+  10
+ ],
+ "npcs": [
+  {
+   "at": [
+    11,
+    8
+   ],
+   "name": "岛民",
+   "gfx": "lass",
+   "lines": [
+    "夏天的游客最多。",
+    "有事就喊。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    8
+   ],
+   "name": "Psychic 的 JACLYN",
+   "gfx": "man",
+   "lines": [
+    "……呃？\n我正在想像着我的房子，\n就瞬间移动到这儿来了？"
+   ],
+   "battle": {
+    "trainer": "TRAINER_PSYCHIC_JACLYN",
+    "party": [
+     {
+      "species": 177,
+      "level": 48
+     },
+     {
+      "species": 80,
+      "level": 48
+     },
+     {
+      "species": 64,
+      "level": 49
+     }
+    ],
+    "name": "JACLYN",
+    "class": "Psychic"
+   },
+   "post": [
+    "我太三心二意了！\n我必须集中精力来瞬间移动\n到我的房子！"
+   ],
+   "sight": 2
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    63,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_pattern_bush",
+    "at": [
+     55,
+     26
+    ]
+   }
+  },
+  {
+   "at": [
+    64,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_pattern_bush",
+    "at": [
+     55,
+     26
+    ]
+   }
+  },
+  {
+   "at": [
+    45,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_pattern_bush",
+    "at": [
+     4,
+     26
+    ]
+   }
+  },
+  {
+   "at": [
+    46,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_pattern_bush",
+    "at": [
+     4,
+     26
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_outcast_island",
+    "at": [
+     2,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_outcast_island",
+    "at": [
+     3,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_outcast_island",
+    "at": [
+     4,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_outcast_island",
+    "at": [
+     5,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_outcast_island",
+    "at": [
+     6,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_outcast_island",
+    "at": [
+     9,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_outcast_island",
+    "at": [
+     10,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    11,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_outcast_island",
+    "at": [
+     11,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_outcast_island",
+    "at": [
+     17,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    20,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_outcast_island",
+    "at": [
+     20,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    21,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_outcast_island",
+    "at": [
+     21,
+     79
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    1
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    6
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    7
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    8
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    9
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     9
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    10
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     10
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    11
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     11
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    13
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    14
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     14
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    18
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    19
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    2
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    4
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    15
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     15
+    ]
+   }
+  },
+  {
+   "at": [
+    71,
+    17
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "six_island_water_path",
+    "at": [
+     0,
+     17
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    40,
+    10
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "绿之步道\n畅想绿色，保持自然的纯净！"
+  },
+  {
+   "at": [
+    69,
+    10
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "绿之步道\n前方标志之林"
+  },
+  {
+   "at": [
+    12,
+    9
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_SIX_ISLAND_GREEN_PATH_ULTRA_BALL",
+   "count": 1
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

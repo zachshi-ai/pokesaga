@@ -1,0 +1,3184 @@
+{
+ "TRAINER_BIRD_KEEPER_MILO": {
+  "name": "MILO",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 16,
+    "level": 47
+   },
+   {
+    "species": 17,
+    "level": 49
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_CHAZ": {
+  "name": "CHAZ",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 21,
+    "level": 47
+   },
+   {
+    "species": 22,
+    "level": 49
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_HAROLD": {
+  "name": "HAROLD",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 163,
+    "level": 47
+   },
+   {
+    "species": 164,
+    "level": 49
+   }
+  ]
+ },
+ "TRAINER_PAINTER_DAISY": {
+  "name": "DAISY",
+  "class": "Painter Frlg",
+  "party": [
+   {
+    "species": 235,
+    "level": 50
+   }
+  ]
+ },
+ "TRAINER_PAINTER_CELINA": {
+  "name": "CELINA",
+  "class": "Painter Frlg",
+  "party": [
+   {
+    "species": 235,
+    "level": 50
+   }
+  ]
+ },
+ "TRAINER_PAINTER_RAYNA": {
+  "name": "RAYNA",
+  "class": "Painter Frlg",
+  "party": [
+   {
+    "species": 235,
+    "level": 50
+   }
+  ]
+ },
+ "TRAINER_YOUNGSTER_DESTIN": {
+  "name": "DESTIN",
+  "class": "Youngster Frlg",
+  "party": [
+   {
+    "species": 20,
+    "level": 48
+   },
+   {
+    "species": 17,
+    "level": 48
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_TOBY": {
+  "name": "TOBY",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 61,
+    "level": 48
+   },
+   {
+    "species": 72,
+    "level": 48
+   },
+   {
+    "species": 73,
+    "level": 48
+   }
+  ]
+ },
+ "TRAINER_PKMN_BREEDER_ALIZE": {
+  "name": "ALIZE",
+  "class": "Pkmn Breeder Frlg",
+  "party": [
+   {
+    "species": 25,
+    "level": 48
+   },
+   {
+    "species": 35,
+    "level": 48
+   },
+   {
+    "species": 183,
+    "level": 48
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_FEMALE_MARIA": {
+  "name": "MARIA",
+  "class": "Swimmer F Frlg",
+  "party": [
+   {
+    "species": 117,
+    "level": 37
+   },
+   {
+    "species": 117,
+    "level": 37
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_FEMALE_ABIGAIL": {
+  "name": "ABIGAIL",
+  "class": "Swimmer F Frlg",
+  "party": [
+   {
+    "species": 54,
+    "level": 35
+   },
+   {
+    "species": 54,
+    "level": 36
+   },
+   {
+    "species": 55,
+    "level": 37
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_FINN": {
+  "name": "FINN",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 121,
+    "level": 38
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_GARRETT": {
+  "name": "GARRETT",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 90,
+    "level": 35
+   },
+   {
+    "species": 91,
+    "level": 35
+   },
+   {
+    "species": 8,
+    "level": 38
+   }
+  ]
+ },
+ "TRAINER_FISHERMAN_TOMMY": {
+  "name": "TOMMY",
+  "class": "Fisherman Frlg",
+  "party": [
+   {
+    "species": 118,
+    "level": 33
+   },
+   {
+    "species": 118,
+    "level": 33
+   },
+   {
+    "species": 119,
+    "level": 35
+   },
+   {
+    "species": 119,
+    "level": 35
+   },
+   {
+    "species": 119,
+    "level": 35
+   }
+  ]
+ },
+ "TRAINER_CAMPER_BRYCE": {
+  "name": "BRYCE",
+  "class": "Camper Frlg",
+  "party": [
+   {
+    "species": 33,
+    "level": 36
+   },
+   {
+    "species": 20,
+    "level": 36
+   },
+   {
+    "species": 28,
+    "level": 36
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_CLAIRE": {
+  "name": "CLAIRE",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 52,
+    "level": 35
+   },
+   {
+    "species": 52,
+    "level": 35
+   },
+   {
+    "species": 25,
+    "level": 35
+   },
+   {
+    "species": 35,
+    "level": 35
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_FEMALE_AMARA": {
+  "name": "AMARA",
+  "class": "Swimmer F Frlg",
+  "party": [
+   {
+    "species": 86,
+    "level": 36
+   },
+   {
+    "species": 86,
+    "level": 36
+   },
+   {
+    "species": 87,
+    "level": 36
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_CAROL": {
+  "name": "CAROL",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 16,
+    "level": 21
+   },
+   {
+    "species": 17,
+    "level": 21
+   }
+  ]
+ },
+ "TRAINER_HIKER_CLARK": {
+  "name": "CLARK",
+  "class": "Hiker Frlg",
+  "party": [
+   {
+    "species": 74,
+    "level": 21
+   },
+   {
+    "species": 95,
+    "level": 21
+   }
+  ]
+ },
+ "TRAINER_POKEMANIAC_HERMAN": {
+  "name": "HERMAN",
+  "class": "Pokemaniac Frlg",
+  "party": [
+   {
+    "species": 104,
+    "level": 20
+   },
+   {
+    "species": 79,
+    "level": 20
+   }
+  ]
+ },
+ "TRAINER_HIKER_TRENT": {
+  "name": "TRENT",
+  "class": "Hiker Frlg",
+  "party": [
+   {
+    "species": 95,
+    "level": 19
+   },
+   {
+    "species": 75,
+    "level": 19
+   }
+  ]
+ },
+ "TRAINER_POKEMANIAC_MARK": {
+  "name": "MARK",
+  "class": "Pokemaniac Frlg",
+  "party": [
+   {
+    "species": 111,
+    "level": 29
+   },
+   {
+    "species": 108,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_HEIDI": {
+  "name": "HEIDI",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 25,
+    "level": 20
+   },
+   {
+    "species": 35,
+    "level": 20
+   }
+  ]
+ },
+ "TRAINER_YOUNGSTER_EDDIE": {
+  "name": "EDDIE",
+  "class": "Youngster Frlg",
+  "party": [
+   {
+    "species": 23,
+    "level": 21
+   }
+  ]
+ },
+ "TRAINER_GAMER_HUGO": {
+  "name": "HUGO",
+  "class": "Gamer Frlg",
+  "party": [
+   {
+    "species": 60,
+    "level": 18
+   },
+   {
+    "species": 116,
+    "level": 18
+   }
+  ]
+ },
+ "TRAINER_YOUNGSTER_DILLON": {
+  "name": "DILLON",
+  "class": "Youngster Frlg",
+  "party": [
+   {
+    "species": 27,
+    "level": 19
+   },
+   {
+    "species": 41,
+    "level": 19
+   }
+  ]
+ },
+ "TRAINER_YOUNGSTER_DAVE": {
+  "name": "DAVE",
+  "class": "Youngster Frlg",
+  "party": [
+   {
+    "species": 32,
+    "level": 18
+   },
+   {
+    "species": 33,
+    "level": 18
+   }
+  ]
+ },
+ "TRAINER_GAMER_JASPER": {
+  "name": "JASPER",
+  "class": "Gamer Frlg",
+  "party": [
+   {
+    "species": 69,
+    "level": 18
+   },
+   {
+    "species": 43,
+    "level": 18
+   }
+  ]
+ },
+ "TRAINER_GAMER_DARIAN": {
+  "name": "DARIAN",
+  "class": "Gamer Frlg",
+  "party": [
+   {
+    "species": 58,
+    "level": 18
+   },
+   {
+    "species": 37,
+    "level": 18
+   }
+  ]
+ },
+ "TRAINER_ENGINEER_BRAXTON": {
+  "name": "BRAXTON",
+  "class": "Engineer Frlg",
+  "party": [
+   {
+    "species": 81,
+    "level": 21
+   }
+  ]
+ },
+ "TRAINER_YOUNGSTER_YASU": {
+  "name": "YASU",
+  "class": "Youngster Frlg",
+  "party": [
+   {
+    "species": 19,
+    "level": 17
+   },
+   {
+    "species": 19,
+    "level": 17
+   },
+   {
+    "species": 20,
+    "level": 17
+   }
+  ]
+ },
+ "TRAINER_GAMER_DIRK": {
+  "name": "DIRK",
+  "class": "Gamer Frlg",
+  "party": [
+   {
+    "species": 100,
+    "level": 18
+   },
+   {
+    "species": 81,
+    "level": 18
+   }
+  ]
+ },
+ "TRAINER_ENGINEER_BERNIE": {
+  "name": "BERNIE",
+  "class": "Engineer Frlg",
+  "party": [
+   {
+    "species": 81,
+    "level": 18
+   },
+   {
+    "species": 81,
+    "level": 18
+   },
+   {
+    "species": 82,
+    "level": 18
+   }
+  ]
+ },
+ "TRAINER_FISHERMAN_NED": {
+  "name": "NED",
+  "class": "Fisherman Frlg",
+  "party": [
+   {
+    "species": 118,
+    "level": 22
+   },
+   {
+    "species": 60,
+    "level": 22
+   },
+   {
+    "species": 118,
+    "level": 22
+   }
+  ]
+ },
+ "TRAINER_FISHERMAN_CHIP": {
+  "name": "CHIP",
+  "class": "Fisherman Frlg",
+  "party": [
+   {
+    "species": 72,
+    "level": 24
+   },
+   {
+    "species": 118,
+    "level": 24
+   }
+  ]
+ },
+ "TRAINER_FISHERMAN_HANK": {
+  "name": "HANK",
+  "class": "Fisherman Frlg",
+  "party": [
+   {
+    "species": 118,
+    "level": 27
+   }
+  ]
+ },
+ "TRAINER_FISHERMAN_ELLIOT": {
+  "name": "ELLIOT",
+  "class": "Fisherman Frlg",
+  "party": [
+   {
+    "species": 60,
+    "level": 21
+   },
+   {
+    "species": 90,
+    "level": 21
+   },
+   {
+    "species": 118,
+    "level": 21
+   },
+   {
+    "species": 116,
+    "level": 21
+   }
+  ]
+ },
+ "TRAINER_ROCKER_LUCA": {
+  "name": "LUCA",
+  "class": "Rocker Frlg",
+  "party": [
+   {
+    "species": 100,
+    "level": 29
+   },
+   {
+    "species": 101,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_CAMPER_JUSTIN": {
+  "name": "JUSTIN",
+  "class": "Camper Frlg",
+  "party": [
+   {
+    "species": 32,
+    "level": 29
+   },
+   {
+    "species": 33,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_FISHERMAN_ANDREW": {
+  "name": "ANDREW",
+  "class": "Fisherman Frlg",
+  "party": [
+   {
+    "species": 129,
+    "level": 24
+   },
+   {
+    "species": 129,
+    "level": 24
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_ALMA": {
+  "name": "ALMA",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 118,
+    "level": 28
+   },
+   {
+    "species": 60,
+    "level": 28
+   },
+   {
+    "species": 116,
+    "level": 28
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_SEBASTIAN": {
+  "name": "SEBASTIAN",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 16,
+    "level": 29
+   },
+   {
+    "species": 17,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_SUSIE": {
+  "name": "SUSIE",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 16,
+    "level": 24
+   },
+   {
+    "species": 52,
+    "level": 24
+   },
+   {
+    "species": 19,
+    "level": 24
+   },
+   {
+    "species": 25,
+    "level": 24
+   },
+   {
+    "species": 52,
+    "level": 24
+   }
+  ]
+ },
+ "TRAINER_BEAUTY_SHEILA": {
+  "name": "SHEILA",
+  "class": "Beauty Frlg",
+  "party": [
+   {
+    "species": 35,
+    "level": 29
+   },
+   {
+    "species": 52,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_BEAUTY_LOLA": {
+  "name": "LOLA",
+  "class": "Beauty Frlg",
+  "party": [
+   {
+    "species": 19,
+    "level": 27
+   },
+   {
+    "species": 25,
+    "level": 27
+   },
+   {
+    "species": 19,
+    "level": 27
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_VALERIE": {
+  "name": "VALERIE",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 60,
+    "level": 30
+   },
+   {
+    "species": 60,
+    "level": 30
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_GWEN": {
+  "name": "GWEN",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 16,
+    "level": 27
+   },
+   {
+    "species": 52,
+    "level": 27
+   },
+   {
+    "species": 16,
+    "level": 27
+   },
+   {
+    "species": 17,
+    "level": 27
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_ROBERT": {
+  "name": "ROBERT",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 16,
+    "level": 26
+   },
+   {
+    "species": 17,
+    "level": 26
+   },
+   {
+    "species": 21,
+    "level": 26
+   },
+   {
+    "species": 22,
+    "level": 26
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_PERRY": {
+  "name": "PERRY",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 21,
+    "level": 25
+   },
+   {
+    "species": 16,
+    "level": 25
+   },
+   {
+    "species": 16,
+    "level": 25
+   },
+   {
+    "species": 21,
+    "level": 25
+   },
+   {
+    "species": 21,
+    "level": 25
+   }
+  ]
+ },
+ "TRAINER_BIKER_JARED": {
+  "name": "JARED",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 109,
+    "level": 28
+   },
+   {
+    "species": 109,
+    "level": 28
+   },
+   {
+    "species": 109,
+    "level": 28
+   }
+  ]
+ },
+ "TRAINER_BIKER_GERALD": {
+  "name": "GERALD",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 109,
+    "level": 29
+   },
+   {
+    "species": 89,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_DONALD": {
+  "name": "DONALD",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 83,
+    "level": 33
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_BECK": {
+  "name": "BECK",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 17,
+    "level": 29
+   },
+   {
+    "species": 22,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_MARLON": {
+  "name": "MARLON",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 21,
+    "level": 28
+   },
+   {
+    "species": 84,
+    "level": 28
+   },
+   {
+    "species": 22,
+    "level": 28
+   }
+  ]
+ },
+ "TRAINER_BIKER_ISAAC": {
+  "name": "ISAAC",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 88,
+    "level": 28
+   },
+   {
+    "species": 88,
+    "level": 28
+   },
+   {
+    "species": 109,
+    "level": 28
+   }
+  ]
+ },
+ "TRAINER_BIKER_MALIK": {
+  "name": "MALIK",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 109,
+    "level": 29
+   },
+   {
+    "species": 88,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_MITCH": {
+  "name": "MITCH",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 16,
+    "level": 26
+   },
+   {
+    "species": 21,
+    "level": 26
+   },
+   {
+    "species": 16,
+    "level": 26
+   },
+   {
+    "species": 22,
+    "level": 26
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_CARTER": {
+  "name": "CARTER",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 16,
+    "level": 28
+   },
+   {
+    "species": 84,
+    "level": 28
+   },
+   {
+    "species": 17,
+    "level": 28
+   }
+  ]
+ },
+ "TRAINER_BIKER_LUKAS": {
+  "name": "LUKAS",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 109,
+    "level": 26
+   },
+   {
+    "species": 109,
+    "level": 26
+   },
+   {
+    "species": 88,
+    "level": 26
+   },
+   {
+    "species": 109,
+    "level": 26
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_BENNY": {
+  "name": "BENNY",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 21,
+    "level": 29
+   },
+   {
+    "species": 22,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_YAZMIN": {
+  "name": "YAZMIN",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 69,
+    "level": 29
+   },
+   {
+    "species": 43,
+    "level": 29
+   },
+   {
+    "species": 114,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_EDWIN": {
+  "name": "EDWIN",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 17,
+    "level": 26
+   },
+   {
+    "species": 83,
+    "level": 26
+   },
+   {
+    "species": 84,
+    "level": 26
+   },
+   {
+    "species": 16,
+    "level": 26
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_CHESTER": {
+  "name": "CHESTER",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 85,
+    "level": 28
+   },
+   {
+    "species": 84,
+    "level": 28
+   },
+   {
+    "species": 84,
+    "level": 28
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_KINDRA": {
+  "name": "KINDRA",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 44,
+    "level": 28
+   },
+   {
+    "species": 43,
+    "level": 28
+   },
+   {
+    "species": 43,
+    "level": 28
+   }
+  ]
+ },
+ "TRAINER_BEAUTY_OLIVIA": {
+  "name": "OLIVIA",
+  "class": "Beauty Frlg",
+  "party": [
+   {
+    "species": 1,
+    "level": 29
+   },
+   {
+    "species": 2,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_BIKER_ALEX": {
+  "name": "ALEX",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 109,
+    "level": 28
+   },
+   {
+    "species": 88,
+    "level": 28
+   },
+   {
+    "species": 110,
+    "level": 28
+   }
+  ]
+ },
+ "TRAINER_BIKER_ERNEST": {
+  "name": "ERNEST",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 109,
+    "level": 25
+   },
+   {
+    "species": 109,
+    "level": 25
+   },
+   {
+    "species": 110,
+    "level": 25
+   },
+   {
+    "species": 109,
+    "level": 25
+   },
+   {
+    "species": 88,
+    "level": 25
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_BECKY": {
+  "name": "BECKY",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 25,
+    "level": 29
+   },
+   {
+    "species": 26,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_BEAUTY_GRACE": {
+  "name": "GRACE",
+  "class": "Beauty Frlg",
+  "party": [
+   {
+    "species": 17,
+    "level": 29
+   },
+   {
+    "species": 40,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_CELIA": {
+  "name": "CELIA",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 35,
+    "level": 33
+   }
+  ]
+ },
+ "TRAINER_BIKER_LAO": {
+  "name": "LAO",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 88,
+    "level": 29
+   },
+   {
+    "species": 109,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_CUE_BALL_KOJI": {
+  "name": "KOJI",
+  "class": "Cue Ball Frlg",
+  "party": [
+   {
+    "species": 66,
+    "level": 28
+   },
+   {
+    "species": 56,
+    "level": 28
+   },
+   {
+    "species": 66,
+    "level": 28
+   }
+  ]
+ },
+ "TRAINER_CUE_BALL_LUKE": {
+  "name": "LUKE",
+  "class": "Cue Ball Frlg",
+  "party": [
+   {
+    "species": 56,
+    "level": 29
+   },
+   {
+    "species": 66,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_BIKER_RUBEN": {
+  "name": "RUBEN",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 110,
+    "level": 28
+   },
+   {
+    "species": 109,
+    "level": 28
+   },
+   {
+    "species": 110,
+    "level": 28
+   }
+  ]
+ },
+ "TRAINER_BIKER_HIDEO": {
+  "name": "HIDEO",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 110,
+    "level": 33
+   }
+  ]
+ },
+ "TRAINER_CUE_BALL_CAMRON": {
+  "name": "CAMRON",
+  "class": "Cue Ball Frlg",
+  "party": [
+   {
+    "species": 56,
+    "level": 29
+   },
+   {
+    "species": 66,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_BIKER_VIRGIL": {
+  "name": "VIRGIL",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 110,
+    "level": 28
+   },
+   {
+    "species": 109,
+    "level": 28
+   },
+   {
+    "species": 110,
+    "level": 28
+   }
+  ]
+ },
+ "TRAINER_CUE_BALL_ISAIAH": {
+  "name": "ISAIAH",
+  "class": "Cue Ball Frlg",
+  "party": [
+   {
+    "species": 66,
+    "level": 29
+   },
+   {
+    "species": 68,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_CUE_BALL_RAUL": {
+  "name": "RAUL",
+  "class": "Cue Ball Frlg",
+  "party": [
+   {
+    "species": 56,
+    "level": 29
+   },
+   {
+    "species": 57,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_BIKER_NIKOLAS": {
+  "name": "NIKOLAS",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 100,
+    "level": 29
+   },
+   {
+    "species": 100,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_BIKER_BILLY": {
+  "name": "BILLY",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 89,
+    "level": 33
+   }
+  ]
+ },
+ "TRAINER_CUE_BALL_JAMAL": {
+  "name": "JAMAL",
+  "class": "Cue Ball Frlg",
+  "party": [
+   {
+    "species": 56,
+    "level": 26
+   },
+   {
+    "species": 56,
+    "level": 26
+   },
+   {
+    "species": 68,
+    "level": 26
+   },
+   {
+    "species": 66,
+    "level": 26
+   }
+  ]
+ },
+ "TRAINER_CUE_BALL_ZEEK": {
+  "name": "ZEEK",
+  "class": "Cue Ball Frlg",
+  "party": [
+   {
+    "species": 67,
+    "level": 33
+   }
+  ]
+ },
+ "TRAINER_CUE_BALL_COREY": {
+  "name": "COREY",
+  "class": "Cue Ball Frlg",
+  "party": [
+   {
+    "species": 57,
+    "level": 29
+   },
+   {
+    "species": 67,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_BIKER_WILLIAM": {
+  "name": "WILLIAM",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 109,
+    "level": 25
+   },
+   {
+    "species": 110,
+    "level": 25
+   },
+   {
+    "species": 109,
+    "level": 25
+   },
+   {
+    "species": 109,
+    "level": 25
+   },
+   {
+    "species": 110,
+    "level": 25
+   }
+  ]
+ },
+ "TRAINER_BIKER_JAXON": {
+  "name": "JAXON",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 110,
+    "level": 29
+   },
+   {
+    "species": 89,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_JACOB": {
+  "name": "JACOB",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 21,
+    "level": 26
+   },
+   {
+    "species": 21,
+    "level": 26
+   },
+   {
+    "species": 22,
+    "level": 26
+   },
+   {
+    "species": 21,
+    "level": 26
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_RAMIRO": {
+  "name": "RAMIRO",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 85,
+    "level": 34
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_WILTON": {
+  "name": "WILTON",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 21,
+    "level": 29
+   },
+   {
+    "species": 22,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_REECE": {
+  "name": "REECE",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 118,
+    "level": 29
+   },
+   {
+    "species": 116,
+    "level": 29
+   },
+   {
+    "species": 120,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_RICHARD": {
+  "name": "RICHARD",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 72,
+    "level": 30
+   },
+   {
+    "species": 90,
+    "level": 30
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_TONY": {
+  "name": "TONY",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 116,
+    "level": 30
+   },
+   {
+    "species": 116,
+    "level": 30
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_MATTHEW": {
+  "name": "MATTHEW",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 60,
+    "level": 30
+   },
+   {
+    "species": 61,
+    "level": 30
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_DOUGLAS": {
+  "name": "DOUGLAS",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 116,
+    "level": 27
+   },
+   {
+    "species": 72,
+    "level": 27
+   },
+   {
+    "species": 72,
+    "level": 27
+   },
+   {
+    "species": 118,
+    "level": 27
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_DAVID": {
+  "name": "DAVID",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 118,
+    "level": 29
+   },
+   {
+    "species": 90,
+    "level": 29
+   },
+   {
+    "species": 119,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_AXLE": {
+  "name": "AXLE",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 72,
+    "level": 27
+   },
+   {
+    "species": 72,
+    "level": 27
+   },
+   {
+    "species": 120,
+    "level": 27
+   },
+   {
+    "species": 116,
+    "level": 27
+   },
+   {
+    "species": 73,
+    "level": 27
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_FEMALE_ALICE": {
+  "name": "ALICE",
+  "class": "Swimmer F Frlg",
+  "party": [
+   {
+    "species": 118,
+    "level": 30
+   },
+   {
+    "species": 119,
+    "level": 30
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_FEMALE_CONNIE": {
+  "name": "CONNIE",
+  "class": "Swimmer F Frlg",
+  "party": [
+   {
+    "species": 120,
+    "level": 29
+   },
+   {
+    "species": 120,
+    "level": 29
+   },
+   {
+    "species": 120,
+    "level": 29
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_FEMALE_ANYA": {
+  "name": "ANYA",
+  "class": "Swimmer F Frlg",
+  "party": [
+   {
+    "species": 60,
+    "level": 27
+   },
+   {
+    "species": 118,
+    "level": 27
+   },
+   {
+    "species": 119,
+    "level": 27
+   },
+   {
+    "species": 118,
+    "level": 27
+   },
+   {
+    "species": 60,
+    "level": 27
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_FEMALE_MELISSA": {
+  "name": "MELISSA",
+  "class": "Swimmer F Frlg",
+  "party": [
+   {
+    "species": 60,
+    "level": 31
+   },
+   {
+    "species": 119,
+    "level": 31
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_MISSY": {
+  "name": "MISSY",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 118,
+    "level": 31
+   },
+   {
+    "species": 119,
+    "level": 31
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_FEMALE_NORA": {
+  "name": "NORA",
+  "class": "Swimmer F Frlg",
+  "party": [
+   {
+    "species": 90,
+    "level": 30
+   },
+   {
+    "species": 90,
+    "level": 30
+   },
+   {
+    "species": 91,
+    "level": 30
+   }
+  ]
+ },
+ "TRAINER_BIRD_KEEPER_ROGER": {
+  "name": "ROGER",
+  "class": "Bird Keeper Frlg",
+  "party": [
+   {
+    "species": 22,
+    "level": 30
+   },
+   {
+    "species": 22,
+    "level": 30
+   },
+   {
+    "species": 17,
+    "level": 30
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_DEAN": {
+  "name": "DEAN",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 120,
+    "level": 35
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_IRENE": {
+  "name": "IRENE",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 72,
+    "level": 30
+   },
+   {
+    "species": 116,
+    "level": 30
+   },
+   {
+    "species": 86,
+    "level": 30
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_BARRY": {
+  "name": "BARRY",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 90,
+    "level": 31
+   },
+   {
+    "species": 91,
+    "level": 31
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_DARRIN": {
+  "name": "DARRIN",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 116,
+    "level": 28
+   },
+   {
+    "species": 116,
+    "level": 28
+   },
+   {
+    "species": 117,
+    "level": 28
+   },
+   {
+    "species": 116,
+    "level": 28
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_FEMALE_SHIRLEY": {
+  "name": "SHIRLEY",
+  "class": "Swimmer F Frlg",
+  "party": [
+   {
+    "species": 117,
+    "level": 30
+   },
+   {
+    "species": 116,
+    "level": 30
+   },
+   {
+    "species": 117,
+    "level": 30
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_FEMALE_TIFFANY": {
+  "name": "TIFFANY",
+  "class": "Swimmer F Frlg",
+  "party": [
+   {
+    "species": 119,
+    "level": 35
+   }
+  ]
+ },
+ "TRAINER_FISHERMAN_RONALD": {
+  "name": "RONALD",
+  "class": "Fisherman Frlg",
+  "party": [
+   {
+    "species": 119,
+    "level": 28
+   },
+   {
+    "species": 118,
+    "level": 28
+   },
+   {
+    "species": 119,
+    "level": 28
+   },
+   {
+    "species": 119,
+    "level": 28
+   }
+  ]
+ },
+ "TRAINER_FISHERMAN_WADE": {
+  "name": "WADE",
+  "class": "Fisherman Frlg",
+  "party": [
+   {
+    "species": 129,
+    "level": 27
+   },
+   {
+    "species": 129,
+    "level": 27
+   },
+   {
+    "species": 129,
+    "level": 27
+   },
+   {
+    "species": 129,
+    "level": 27
+   },
+   {
+    "species": 129,
+    "level": 27
+   },
+   {
+    "species": 129,
+    "level": 27
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_SPENCER": {
+  "name": "SPENCER",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 117,
+    "level": 33
+   },
+   {
+    "species": 73,
+    "level": 33
+   }
+  ]
+ },
+ "TRAINER_FISHERMAN_CLAUDE": {
+  "name": "CLAUDE",
+  "class": "Fisherman Frlg",
+  "party": [
+   {
+    "species": 90,
+    "level": 31
+   },
+   {
+    "species": 91,
+    "level": 31
+   }
+  ]
+ },
+ "TRAINER_FISHERMAN_NOLAN": {
+  "name": "NOLAN",
+  "class": "Fisherman Frlg",
+  "party": [
+   {
+    "species": 119,
+    "level": 33
+   },
+   {
+    "species": 118,
+    "level": 33
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_JACK": {
+  "name": "JACK",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 121,
+    "level": 37
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_JEROME": {
+  "name": "JEROME",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 120,
+    "level": 33
+   },
+   {
+    "species": 8,
+    "level": 33
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_ROLAND": {
+  "name": "ROLAND",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 61,
+    "level": 32
+   },
+   {
+    "species": 72,
+    "level": 32
+   },
+   {
+    "species": 117,
+    "level": 32
+   }
+  ]
+ },
+ "TRAINER_CAMPER_ETHAN": {
+  "name": "ETHAN",
+  "class": "Camper Frlg",
+  "party": [
+   {
+    "species": 56,
+    "level": 18
+   }
+  ]
+ },
+ "TRAINER_LASS_RELI": {
+  "name": "RELI",
+  "class": "Lass Frlg",
+  "party": [
+   {
+    "species": 32,
+    "level": 16
+   },
+   {
+    "species": 29,
+    "level": 16
+   }
+  ]
+ },
+ "TRAINER_YOUNGSTER_TIMMY": {
+  "name": "TIMMY",
+  "class": "Youngster Frlg",
+  "party": [
+   {
+    "species": 27,
+    "level": 14
+   },
+   {
+    "species": 23,
+    "level": 14
+   }
+  ]
+ },
+ "TRAINER_LASS_ALI": {
+  "name": "ALI",
+  "class": "Lass Frlg",
+  "party": [
+   {
+    "species": 16,
+    "level": 12
+   },
+   {
+    "species": 43,
+    "level": 12
+   },
+   {
+    "species": 69,
+    "level": 12
+   }
+  ]
+ },
+ "TRAINER_BUG_CATCHER_CALE": {
+  "name": "CALE",
+  "class": "Bug Catcher Frlg",
+  "party": [
+   {
+    "species": 10,
+    "level": 10
+   },
+   {
+    "species": 13,
+    "level": 10
+   },
+   {
+    "species": 11,
+    "level": 10
+   },
+   {
+    "species": 14,
+    "level": 10
+   }
+  ]
+ },
+ "TRAINER_CAMPER_SHANE": {
+  "name": "SHANE",
+  "class": "Camper Frlg",
+  "party": [
+   {
+    "species": 19,
+    "level": 14
+   },
+   {
+    "species": 23,
+    "level": 14
+   }
+  ]
+ },
+ "TRAINER_HIKER_FRANKLIN": {
+  "name": "FRANKLIN",
+  "class": "Hiker Frlg",
+  "party": [
+   {
+    "species": 66,
+    "level": 15
+   },
+   {
+    "species": 74,
+    "level": 15
+   }
+  ]
+ },
+ "TRAINER_YOUNGSTER_JOEY": {
+  "name": "JOEY",
+  "class": "Youngster Frlg",
+  "party": [
+   {
+    "species": 19,
+    "level": 15
+   },
+   {
+    "species": 21,
+    "level": 15
+   }
+  ]
+ },
+ "TRAINER_HIKER_WAYNE": {
+  "name": "WAYNE",
+  "class": "Hiker Frlg",
+  "party": [
+   {
+    "species": 95,
+    "level": 17
+   }
+  ]
+ },
+ "TRAINER_YOUNGSTER_DAN": {
+  "name": "DAN",
+  "class": "Youngster Frlg",
+  "party": [
+   {
+    "species": 79,
+    "level": 17
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_KELSEY": {
+  "name": "KELSEY",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 32,
+    "level": 15
+   },
+   {
+    "species": 29,
+    "level": 15
+   }
+  ]
+ },
+ "TRAINER_HIKER_NOB": {
+  "name": "NOB",
+  "class": "Hiker Frlg",
+  "party": [
+   {
+    "species": 74,
+    "level": 13
+   },
+   {
+    "species": 74,
+    "level": 13
+   },
+   {
+    "species": 66,
+    "level": 13
+   },
+   {
+    "species": 74,
+    "level": 13
+   }
+  ]
+ },
+ "TRAINER_CAMPER_FLINT": {
+  "name": "FLINT",
+  "class": "Camper Frlg",
+  "party": [
+   {
+    "species": 19,
+    "level": 14
+   },
+   {
+    "species": 23,
+    "level": 14
+   }
+  ]
+ },
+ "TRAINER_YOUNGSTER_CHAD": {
+  "name": "CHAD",
+  "class": "Youngster Frlg",
+  "party": [
+   {
+    "species": 23,
+    "level": 14
+   },
+   {
+    "species": 27,
+    "level": 14
+   }
+  ]
+ },
+ "TRAINER_LASS_HALEY": {
+  "name": "HALEY",
+  "class": "Lass Frlg",
+  "party": [
+   {
+    "species": 43,
+    "level": 13
+   },
+   {
+    "species": 16,
+    "level": 13
+   },
+   {
+    "species": 43,
+    "level": 13
+   }
+  ]
+ },
+ "TRAINER_LASS_ROBIN": {
+  "name": "ROBIN",
+  "class": "Lass Frlg",
+  "party": [
+   {
+    "species": 39,
+    "level": 14
+   }
+  ]
+ },
+ "TRAINER_BUG_CATCHER_JAMES": {
+  "name": "JAMES",
+  "class": "Bug Catcher Frlg",
+  "party": [
+   {
+    "species": 10,
+    "level": 11
+   },
+   {
+    "species": 11,
+    "level": 11
+   }
+  ]
+ },
+ "TRAINER_LASS_SALLY": {
+  "name": "SALLY",
+  "class": "Lass Frlg",
+  "party": [
+   {
+    "species": 19,
+    "level": 10
+   },
+   {
+    "species": 29,
+    "level": 10
+   }
+  ]
+ },
+ "TRAINER_BUG_CATCHER_GREG": {
+  "name": "GREG",
+  "class": "Bug Catcher Frlg",
+  "party": [
+   {
+    "species": 13,
+    "level": 9
+   },
+   {
+    "species": 14,
+    "level": 9
+   },
+   {
+    "species": 10,
+    "level": 9
+   },
+   {
+    "species": 11,
+    "level": 9
+   }
+  ]
+ },
+ "TRAINER_YOUNGSTER_CALVIN": {
+  "name": "CALVIN",
+  "class": "Youngster Frlg",
+  "party": [
+   {
+    "species": 21,
+    "level": 14
+   }
+  ]
+ },
+ "TRAINER_LASS_JANICE": {
+  "name": "JANICE",
+  "class": "Lass Frlg",
+  "party": [
+   {
+    "species": 16,
+    "level": 9
+   },
+   {
+    "species": 16,
+    "level": 9
+   }
+  ]
+ },
+ "TRAINER_BUG_CATCHER_COLTON": {
+  "name": "COLTON",
+  "class": "Bug Catcher Frlg",
+  "party": [
+   {
+    "species": 10,
+    "level": 10
+   },
+   {
+    "species": 13,
+    "level": 10
+   },
+   {
+    "species": 10,
+    "level": 10
+   }
+  ]
+ },
+ "TRAINER_YOUNGSTER_BEN": {
+  "name": "BEN",
+  "class": "Youngster Frlg",
+  "party": [
+   {
+    "species": 19,
+    "level": 11
+   },
+   {
+    "species": 23,
+    "level": 11
+   }
+  ]
+ },
+ "TRAINER_LASS_CRISSY": {
+  "name": "CRISSY",
+  "class": "Lass Frlg",
+  "party": [
+   {
+    "species": 46,
+    "level": 31
+   },
+   {
+    "species": 46,
+    "level": 31
+   },
+   {
+    "species": 47,
+    "level": 31
+   }
+  ]
+ },
+ "TRAINER_BUG_CATCHER_KEIGO": {
+  "name": "KEIGO",
+  "class": "Bug Catcher Frlg",
+  "party": [
+   {
+    "species": 13,
+    "level": 16
+   },
+   {
+    "species": 10,
+    "level": 16
+   },
+   {
+    "species": 13,
+    "level": 16
+   }
+  ]
+ },
+ "TRAINER_CAMPER_RICKY": {
+  "name": "RICKY",
+  "class": "Camper Frlg",
+  "party": [
+   {
+    "species": 7,
+    "level": 20
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_NANCY": {
+  "name": "NANCY",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 19,
+    "level": 16
+   },
+   {
+    "species": 25,
+    "level": 16
+   }
+  ]
+ },
+ "TRAINER_BUG_CATCHER_ELIJAH": {
+  "name": "ELIJAH",
+  "class": "Bug Catcher Frlg",
+  "party": [
+   {
+    "species": 12,
+    "level": 20
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_ISABELLE": {
+  "name": "ISABELLE",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 16,
+    "level": 16
+   },
+   {
+    "species": 16,
+    "level": 16
+   },
+   {
+    "species": 16,
+    "level": 16
+   }
+  ]
+ },
+ "TRAINER_CAMPER_JEFF": {
+  "name": "JEFF",
+  "class": "Camper Frlg",
+  "party": [
+   {
+    "species": 21,
+    "level": 16
+   },
+   {
+    "species": 20,
+    "level": 16
+   }
+  ]
+ },
+ "TRAINER_LASS_JULIA": {
+  "name": "JULIA",
+  "class": "Lass Frlg",
+  "party": [
+   {
+    "species": 35,
+    "level": 22
+   },
+   {
+    "species": 35,
+    "level": 22
+   }
+  ]
+ },
+ "TRAINER_GAMER_RICH": {
+  "name": "RICH",
+  "class": "Gamer Frlg",
+  "party": [
+   {
+    "species": 58,
+    "level": 24
+   },
+   {
+    "species": 37,
+    "level": 24
+   }
+  ]
+ },
+ "TRAINER_SUPER_NERD_GLENN": {
+  "name": "GLENN",
+  "class": "Super Nerd Frlg",
+  "party": [
+   {
+    "species": 88,
+    "level": 22
+   },
+   {
+    "species": 89,
+    "level": 22
+   },
+   {
+    "species": 88,
+    "level": 22
+   }
+  ]
+ },
+ "TRAINER_LASS_PAIGE": {
+  "name": "PAIGE",
+  "class": "Lass Frlg",
+  "party": [
+   {
+    "species": 29,
+    "level": 23
+   },
+   {
+    "species": 30,
+    "level": 23
+   }
+  ]
+ },
+ "TRAINER_SUPER_NERD_LESLIE": {
+  "name": "LESLIE",
+  "class": "Super Nerd Frlg",
+  "party": [
+   {
+    "species": 109,
+    "level": 26
+   }
+  ]
+ },
+ "TRAINER_LASS_ANDREA": {
+  "name": "ANDREA",
+  "class": "Lass Frlg",
+  "party": [
+   {
+    "species": 52,
+    "level": 24
+   },
+   {
+    "species": 52,
+    "level": 24
+   },
+   {
+    "species": 52,
+    "level": 24
+   }
+  ]
+ },
+ "TRAINER_LASS_MEGAN": {
+  "name": "MEGAN",
+  "class": "Lass Frlg",
+  "party": [
+   {
+    "species": 16,
+    "level": 19
+   },
+   {
+    "species": 19,
+    "level": 19
+   },
+   {
+    "species": 32,
+    "level": 19
+   },
+   {
+    "species": 52,
+    "level": 19
+   },
+   {
+    "species": 25,
+    "level": 19
+   }
+  ]
+ },
+ "TRAINER_GAMER_STAN": {
+  "name": "STAN",
+  "class": "Gamer Frlg",
+  "party": [
+   {
+    "species": 60,
+    "level": 22
+   },
+   {
+    "species": 60,
+    "level": 22
+   },
+   {
+    "species": 61,
+    "level": 22
+   }
+  ]
+ },
+ "TRAINER_SUPER_NERD_AIDAN": {
+  "name": "AIDAN",
+  "class": "Super Nerd Frlg",
+  "party": [
+   {
+    "species": 100,
+    "level": 20
+   },
+   {
+    "species": 109,
+    "level": 20
+   },
+   {
+    "species": 100,
+    "level": 20
+   },
+   {
+    "species": 81,
+    "level": 20
+   }
+  ]
+ },
+ "TRAINER_BIKER_RICARDO": {
+  "name": "RICARDO",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 109,
+    "level": 22
+   },
+   {
+    "species": 109,
+    "level": 22
+   },
+   {
+    "species": 88,
+    "level": 23
+   }
+  ]
+ },
+ "TRAINER_BIKER_JAREN": {
+  "name": "JAREN",
+  "class": "Biker Frlg",
+  "party": [
+   {
+    "species": 88,
+    "level": 24
+   },
+   {
+    "species": 88,
+    "level": 24
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_ALICIA": {
+  "name": "ALICIA",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 43,
+    "level": 18
+   },
+   {
+    "species": 69,
+    "level": 18
+   },
+   {
+    "species": 43,
+    "level": 18
+   },
+   {
+    "species": 69,
+    "level": 18
+   }
+  ]
+ },
+ "TRAINER_HIKER_JEREMY": {
+  "name": "JEREMY",
+  "class": "Hiker Frlg",
+  "party": [
+   {
+    "species": 66,
+    "level": 20
+   },
+   {
+    "species": 95,
+    "level": 20
+   }
+  ]
+ },
+ "TRAINER_HIKER_ALAN": {
+  "name": "ALAN",
+  "class": "Hiker Frlg",
+  "party": [
+   {
+    "species": 74,
+    "level": 21
+   },
+   {
+    "species": 95,
+    "level": 21
+   }
+  ]
+ },
+ "TRAINER_CAMPER_CHRIS": {
+  "name": "CHRIS",
+  "class": "Camper Frlg",
+  "party": [
+   {
+    "species": 58,
+    "level": 21
+   },
+   {
+    "species": 4,
+    "level": 21
+   }
+  ]
+ },
+ "TRAINER_BUG_CATCHER_BRENT": {
+  "name": "BRENT",
+  "class": "Bug Catcher Frlg",
+  "party": [
+   {
+    "species": 15,
+    "level": 19
+   },
+   {
+    "species": 15,
+    "level": 19
+   }
+  ]
+ },
+ "TRAINER_BUG_CATCHER_CONNER": {
+  "name": "CONNER",
+  "class": "Bug Catcher Frlg",
+  "party": [
+   {
+    "species": 10,
+    "level": 20
+   },
+   {
+    "species": 13,
+    "level": 20
+   },
+   {
+    "species": 48,
+    "level": 20
+   }
+  ]
+ },
+ "TRAINER_HIKER_BRICE": {
+  "name": "BRICE",
+  "class": "Hiker Frlg",
+  "party": [
+   {
+    "species": 74,
+    "level": 20
+   },
+   {
+    "species": 66,
+    "level": 20
+   },
+   {
+    "species": 74,
+    "level": 20
+   }
+  ]
+ },
+ "TRAINER_PICNICKER_CAITLIN": {
+  "name": "CAITLIN",
+  "class": "Picnicker Frlg",
+  "party": [
+   {
+    "species": 52,
+    "level": 23
+   }
+  ]
+ },
+ "TRAINER_CAMPER_DREW": {
+  "name": "DREW",
+  "class": "Camper Frlg",
+  "party": [
+   {
+    "species": 19,
+    "level": 19
+   },
+   {
+    "species": 27,
+    "level": 19
+   },
+   {
+    "species": 23,
+    "level": 19
+   },
+   {
+    "species": 27,
+    "level": 19
+   }
+  ]
+ },
+ "TRAINER_AROMA_LADY_MIAH": {
+  "name": "MIAH",
+  "class": "Aroma Lady Frlg",
+  "party": [
+   {
+    "species": 182,
+    "level": 50
+   },
+   {
+    "species": 182,
+    "level": 50
+   }
+  ]
+ },
+ "TRAINER_PKMN_RANGER_NICOLAS": {
+  "name": "NICOLAS",
+  "class": "Pkmn Ranger Frlg",
+  "party": [
+   {
+    "species": 70,
+    "level": 51
+   },
+   {
+    "species": 71,
+    "level": 51
+   }
+  ]
+ },
+ "TRAINER_PKMN_RANGER_MADELINE": {
+  "name": "MADELINE",
+  "class": "Pkmn Ranger Frlg",
+  "party": [
+   {
+    "species": 44,
+    "level": 51
+   },
+   {
+    "species": 45,
+    "level": 51
+   }
+  ]
+ },
+ "TRAINER_JUGGLER_MASON": {
+  "name": "MASON",
+  "class": "Juggler Frlg",
+  "party": [
+   {
+    "species": 100,
+    "level": 47
+   },
+   {
+    "species": 204,
+    "level": 47
+   },
+   {
+    "species": 100,
+    "level": 47
+   },
+   {
+    "species": 204,
+    "level": 47
+   }
+  ]
+ },
+ "TRAINER_TAMER_EVAN": {
+  "name": "EVAN",
+  "class": "Tamer Frlg",
+  "party": [
+   {
+    "species": 28,
+    "level": 48
+   },
+   {
+    "species": 108,
+    "level": 48
+   },
+   {
+    "species": 217,
+    "level": 49
+   }
+  ]
+ },
+ "TRAINER_PKMN_RANGER_JACKSON": {
+  "name": "JACKSON",
+  "class": "Pkmn Ranger Frlg",
+  "party": [
+   {
+    "species": 114,
+    "level": 49
+   },
+   {
+    "species": 102,
+    "level": 49
+   },
+   {
+    "species": 103,
+    "level": 49
+   }
+  ]
+ },
+ "TRAINER_PKMN_RANGER_KATELYN": {
+  "name": "KATELYN",
+  "class": "Pkmn Ranger Frlg",
+  "party": [
+   {
+    "species": 113,
+    "level": 52
+   }
+  ]
+ },
+ "TRAINER_COOLTRAINER_LEROY": {
+  "name": "LEROY",
+  "class": "Cooltrainer Frlg",
+  "party": [
+   {
+    "species": 112,
+    "level": 47
+   },
+   {
+    "species": 80,
+    "level": 48
+   },
+   {
+    "species": 115,
+    "level": 47
+   },
+   {
+    "species": 67,
+    "level": 48
+   },
+   {
+    "species": 217,
+    "level": 50
+   }
+  ]
+ },
+ "TRAINER_COOLTRAINER_MICHELLE": {
+  "name": "MICHELLE",
+  "class": "Cooltrainer Frlg",
+  "party": [
+   {
+    "species": 53,
+    "level": 47
+   },
+   {
+    "species": 87,
+    "level": 47
+   },
+   {
+    "species": 38,
+    "level": 48
+   },
+   {
+    "species": 78,
+    "level": 48
+   },
+   {
+    "species": 203,
+    "level": 50
+   }
+  ]
+ },
+ "TRAINER_RUIN_MANIAC_BRANDON": {
+  "name": "BRANDON",
+  "class": "Ruin Maniac Frlg",
+  "party": [
+   {
+    "species": 95,
+    "level": 50
+   }
+  ]
+ },
+ "TRAINER_RUIN_MANIAC_BENJAMIN": {
+  "name": "BENJAMIN",
+  "class": "Ruin Maniac Frlg",
+  "party": [
+   {
+    "species": 74,
+    "level": 48
+   },
+   {
+    "species": 75,
+    "level": 48
+   },
+   {
+    "species": 75,
+    "level": 48
+   }
+  ]
+ },
+ "TRAINER_PAINTER_EDNA": {
+  "name": "EDNA",
+  "class": "Painter Frlg",
+  "party": [
+   {
+    "species": 235,
+    "level": 50
+   }
+  ]
+ },
+ "TRAINER_GENTLEMAN_CLIFFORD": {
+  "name": "CLIFFORD",
+  "class": "Gentleman Frlg",
+  "party": [
+   {
+    "species": 105,
+    "level": 49
+   },
+   {
+    "species": 55,
+    "level": 49
+   }
+  ]
+ },
+ "TRAINER_PSYCHIC_DARIO": {
+  "name": "DARIO",
+  "class": "Psychic Frlg",
+  "party": [
+   {
+    "species": 203,
+    "level": 52
+   }
+  ]
+ },
+ "TRAINER_PSYCHIC_RODETTE": {
+  "name": "RODETTE",
+  "class": "Psychic Frlg",
+  "party": [
+   {
+    "species": 177,
+    "level": 48
+   },
+   {
+    "species": 96,
+    "level": 48
+   },
+   {
+    "species": 97,
+    "level": 50
+   }
+  ]
+ },
+ "TRAINER_PSYCHIC_JACLYN": {
+  "name": "JACLYN",
+  "class": "Psychic Frlg",
+  "party": [
+   {
+    "species": 177,
+    "level": 48
+   },
+   {
+    "species": 80,
+    "level": 48
+   },
+   {
+    "species": 64,
+    "level": 49
+   }
+  ]
+ },
+ "TRAINER_FISHERMAN_TYLOR": {
+  "name": "TYLOR",
+  "class": "Fisherman Frlg",
+  "party": [
+   {
+    "species": 211,
+    "level": 49
+   },
+   {
+    "species": 211,
+    "level": 49
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_MYMO": {
+  "name": "MYMO",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 99,
+    "level": 49
+   },
+   {
+    "species": 8,
+    "level": 49
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_FEMALE_NICOLE": {
+  "name": "NICOLE",
+  "class": "Swimmer F Frlg",
+  "party": [
+   {
+    "species": 183,
+    "level": 50
+   }
+  ]
+ },
+ "TRAINER_RUIN_MANIAC_STANLY": {
+  "name": "STANLY",
+  "class": "Ruin Maniac Frlg",
+  "party": [
+   {
+    "species": 75,
+    "level": 48
+   },
+   {
+    "species": 95,
+    "level": 48
+   },
+   {
+    "species": 75,
+    "level": 48
+   }
+  ]
+ },
+ "TRAINER_RUIN_MANIAC_FOSTER": {
+  "name": "FOSTER",
+  "class": "Ruin Maniac Frlg",
+  "party": [
+   {
+    "species": 76,
+    "level": 50
+   }
+  ]
+ },
+ "TRAINER_RUIN_MANIAC_LARRY": {
+  "name": "LARRY",
+  "class": "Ruin Maniac Frlg",
+  "party": [
+   {
+    "species": 67,
+    "level": 49
+   },
+   {
+    "species": 67,
+    "level": 49
+   }
+  ]
+ },
+ "TRAINER_HIKER_DARYL": {
+  "name": "DARYL",
+  "class": "Hiker Frlg",
+  "party": [
+   {
+    "species": 185,
+    "level": 50
+   }
+  ]
+ },
+ "TRAINER_POKEMANIAC_HECTOR": {
+  "name": "HECTOR",
+  "class": "Pokemaniac Frlg",
+  "party": [
+   {
+    "species": 111,
+    "level": 49
+   },
+   {
+    "species": 115,
+    "level": 49
+   }
+  ]
+ },
+ "TRAINER_AROMA_LADY_ROSE": {
+  "name": "ROSE",
+  "class": "Aroma Lady Frlg",
+  "party": [
+   {
+    "species": 191,
+    "level": 49
+   },
+   {
+    "species": 192,
+    "level": 49
+   }
+  ]
+ },
+ "TRAINER_JUGGLER_EDWARD": {
+  "name": "EDWARD",
+  "class": "Juggler Frlg",
+  "party": [
+   {
+    "species": 100,
+    "level": 46
+   },
+   {
+    "species": 100,
+    "level": 46
+   },
+   {
+    "species": 101,
+    "level": 47
+   },
+   {
+    "species": 122,
+    "level": 48
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_MALE_SAMIR": {
+  "name": "SAMIR",
+  "class": "Swimmer M Frlg",
+  "party": [
+   {
+    "species": 130,
+    "level": 50
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_FEMALE_DENISE": {
+  "name": "DENISE",
+  "class": "Swimmer F Frlg",
+  "party": [
+   {
+    "species": 170,
+    "level": 49
+   },
+   {
+    "species": 171,
+    "level": 49
+   }
+  ]
+ },
+ "TRAINER_HIKER_EARL": {
+  "name": "EARL",
+  "class": "Hiker Frlg",
+  "party": [
+   {
+    "species": 95,
+    "level": 49
+   },
+   {
+    "species": 67,
+    "level": 49
+   }
+  ]
+ },
+ "TRAINER_AROMA_LADY_NIKKI": {
+  "name": "NIKKI",
+  "class": "Aroma Lady Frlg",
+  "party": [
+   {
+    "species": 69,
+    "level": 37
+   },
+   {
+    "species": 70,
+    "level": 37
+   }
+  ]
+ },
+ "TRAINER_AROMA_LADY_VIOLET": {
+  "name": "VIOLET",
+  "class": "Aroma Lady Frlg",
+  "party": [
+   {
+    "species": 1,
+    "level": 36
+   },
+   {
+    "species": 2,
+    "level": 36
+   },
+   {
+    "species": 2,
+    "level": 36
+   }
+  ]
+ },
+ "TRAINER_TUBER_AMIRA": {
+  "name": "AMIRA",
+  "class": "Tuber Frlg",
+  "party": [
+   {
+    "species": 60,
+    "level": 34
+   },
+   {
+    "species": 61,
+    "level": 35
+   },
+   {
+    "species": 60,
+    "level": 34
+   }
+  ]
+ },
+ "TRAINER_TUBER_ALEXIS": {
+  "name": "ALEXIS",
+  "class": "Tuber Frlg",
+  "party": [
+   {
+    "species": 120,
+    "level": 34
+   },
+   {
+    "species": 120,
+    "level": 34
+   },
+   {
+    "species": 98,
+    "level": 34
+   },
+   {
+    "species": 98,
+    "level": 34
+   }
+  ]
+ },
+ "TRAINER_SWIMMER_FEMALE_TISHA": {
+  "name": "TISHA",
+  "class": "Swimmer F Frlg",
+  "party": [
+   {
+    "species": 99,
+    "level": 38
+   }
+  ]
+ }
+}

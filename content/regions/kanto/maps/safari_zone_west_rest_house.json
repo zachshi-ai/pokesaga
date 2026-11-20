@@ -1,0 +1,99 @@
+{
+ "name": "关都·狩猎区·west rest house",
+ "emerald": "safari_zone_rest_house_frlg",
+ "size": [
+  13,
+  11
+ ],
+ "spawn": [
+  3,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    4
+   ],
+   "name": "居民",
+   "gfx": "scientist",
+   "lines": [
+    "你知道道馆在哪边吗。",
+    "问别人吧。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我刚从医院回来。",
+    "问别人吧。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    3
+   ],
+   "name": "居民",
+   "gfx": "cooltrainer_m",
+   "lines": [
+    "风一吹就想起小时候。",
+    "问别人吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_west",
+    "at": [
+     19,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_west",
+    "at": [
+     19,
+     18
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_west",
+    "at": [
+     19,
+     18
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

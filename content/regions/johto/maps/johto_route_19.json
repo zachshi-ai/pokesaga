@@ -1,0 +1,351 @@
+{
+ "name": "19 号道路",
+ "emerald": "johto_route_19",
+ "size": [
+  10,
+  18
+ ],
+ "spawn": [
+  2,
+  6
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    14
+   ],
+   "name": "游泳者 Harold",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 32,
+      "species": 223
+     },
+     {
+      "level": 30,
+      "species": 117
+     }
+    ]
+   },
+   "trainer": "SwimmerMHarold"
+  },
+  {
+   "at": [
+    3,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    2
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    2
+   ],
+   "name": "钓鱼人",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_19_fuchsia_gate",
+    "at": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    0,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_20",
+    "at": [
+     20,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    11
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_20",
+    "at": [
+     20,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_20",
+    "at": [
+     20,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_20",
+    "at": [
+     20,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_20",
+    "at": [
+     20,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_20",
+    "at": [
+     20,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    16
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_20",
+    "at": [
+     20,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_20",
+    "at": [
+     20,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fuchsia_city",
+    "at": [
+     0,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    1,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fuchsia_city",
+    "at": [
+     1,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fuchsia_city",
+    "at": [
+     5,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fuchsia_city",
+    "at": [
+     6,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fuchsia_city",
+    "at": [
+     7,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fuchsia_city",
+    "at": [
+     8,
+     16
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    5,
+    6
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "19 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "19 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

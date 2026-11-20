@@ -1,0 +1,207 @@
+{
+ "name": "关都·silph·co·2f",
+ "emerald": "silph_co_2f",
+ "size": [
+  36,
+  22
+ ],
+ "spawn": [
+  28,
+  2
+ ],
+ "npcs": [
+  {
+   "at": [
+    29,
+    12
+   ],
+   "name": "火箭队手下",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "这里被我们接管了。",
+    "想上去？先过我这关。",
+    "门牌是十年前的。"
+   ]
+  },
+  {
+   "at": [
+    28,
+    18
+   ],
+   "name": "研究员",
+   "gfx": "scientist",
+   "lines": [
+    "样本别乱碰。",
+    "这层的实验还没做完。",
+    "有人在追查这里。"
+   ]
+  },
+  {
+   "at": [
+    20,
+    14
+   ],
+   "name": "火箭队手下",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "这里被我们接管了。",
+    "想上去？先过我这关。",
+    "这层是研究部。"
+   ]
+  },
+  {
+   "at": [
+    5,
+    19
+   ],
+   "name": "研究员",
+   "gfx": "scientist",
+   "lines": [
+    "样本别乱碰。",
+    "这层的实验还没做完。",
+    "这楼高得看不到顶。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    4
+   ],
+   "name": "女职员",
+   "gfx": "lass",
+   "lines": [
+    "今天加班到很晚。",
+    "走廊尽头是会议室。",
+    "电梯要先拿到卡。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    28,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_3f",
+    "at": [
+     28,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_3f",
+    "at": [
+     33,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    15,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_8f",
+    "at": [
+     2,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    30,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_1f",
+    "at": [
+     31,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    19
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_6f",
+    "at": [
+     29,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    33,
+    19
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_8f",
+    "at": [
+     10,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    22,
+    3
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_elevator",
+    "at": [
+     1,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    11,
+    21
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_2F_ULTRA_BALL",
+   "count": 1
+  },
+  {
+   "at": [
+    29,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "西尔佛公司总部\n2层"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

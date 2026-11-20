@@ -1,0 +1,1 @@
+{"id":"oldale_town_1","from":"oldale_town","size":[4,3],"metatiles":[[628,629,629,630],[636,639,637,638],[644,647,655,646]],"collision":[[1,1,1,1],[1,1,1,1],[1,1,1,1]],"door":[1,2],"primary":"gTileset_General","secondary":"gTileset_Petalburg"}

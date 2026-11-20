@@ -1,0 +1,104 @@
+{
+ "name": "丰缘·101 号道路",
+ "emerald": "route101",
+ "size": [
+  20,
+  20
+ ],
+ "spawn": [
+  10,
+  17
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    11,
+    18
+   ],
+   "to": {
+    "region": "hoenn",
+    "map": "littleroot_town",
+    "at": [
+     11,
+     1
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 265,
+   "min": 2,
+   "max": 2,
+   "weight": 20
+  },
+  {
+   "species": 261,
+   "min": 2,
+   "max": 2,
+   "weight": 20
+  },
+  {
+   "species": 265,
+   "min": 2,
+   "max": 2,
+   "weight": 10
+  },
+  {
+   "species": 265,
+   "min": 3,
+   "max": 3,
+   "weight": 10
+  },
+  {
+   "species": 261,
+   "min": 3,
+   "max": 3,
+   "weight": 10
+  },
+  {
+   "species": 261,
+   "min": 3,
+   "max": 3,
+   "weight": 10
+  },
+  {
+   "species": 265,
+   "min": 3,
+   "max": 3,
+   "weight": 5
+  },
+  {
+   "species": 261,
+   "min": 3,
+   "max": 3,
+   "weight": 5
+  },
+  {
+   "species": 263,
+   "min": 2,
+   "max": 2,
+   "weight": 4
+  },
+  {
+   "species": 263,
+   "min": 2,
+   "max": 2,
+   "weight": 4
+  },
+  {
+   "species": 263,
+   "min": 3,
+   "max": 3,
+   "weight": 1
+  },
+  {
+   "species": 263,
+   "min": 3,
+   "max": 3,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.2
+}

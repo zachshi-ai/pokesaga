@@ -1,0 +1,144 @@
+{
+ "name": "关都·浅红市·园长之家",
+ "emerald": "fuchsia_city_wardens_house",
+ "size": [
+  13,
+  11
+ ],
+ "spawn": [
+  5,
+  10
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    5
+   ],
+   "name": "居民",
+   "gfx": "old_man",
+   "lines": [
+    "柜台后面那位脾气不好。",
+    "下次再来。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    1
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我把钥匙忘在楼上了。",
+    "下次再来。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     225,
+     331
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     225,
+     331
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    10
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     225,
+     331
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    11,
+    5
+   ],
+   "kind": "item",
+   "item": "ITEM_RARE_CANDY",
+   "name": "神奇糖果",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    7,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "陈列着古代宝可梦\n货物。"
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "宝可梦的照片和化石\n被陈列着。"
+  },
+  {
+   "at": [
+    5,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "宝可梦的照片和化石\n被陈列着。"
+  },
+  {
+   "at": [
+    6,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "陈列着古代宝可梦\n货物。"
+  },
+  {
+   "at": [
+    11,
+    6
+   ],
+   "kind": "boulder",
+   "sprite": "boulder"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

@@ -1,0 +1,352 @@
+{
+ "name": "4 号道路",
+ "emerald": "johto_route_4",
+ "size": [
+  20,
+  9
+ ],
+ "spawn": [
+  10,
+  4
+ ],
+ "npcs": [
+  {
+   "at": [
+    8,
+    4
+   ],
+   "name": "养鸟人 Hank",
+   "gfx": "youngster",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 12,
+      "species": 16
+     },
+     {
+      "level": 34,
+      "species": 18
+     }
+    ]
+   },
+   "trainer": "BirdKeeperHank"
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "野餐少女 Hope",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 34,
+      "species": 180
+     }
+    ]
+   },
+   "trainer": "PicnickerHope"
+  },
+  {
+   "at": [
+    10,
+    3
+   ],
+   "name": "野餐少女 Sharon",
+   "gfx": "lass",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 31,
+      "species": 162
+     },
+     {
+      "level": 33,
+      "species": 78
+     }
+    ]
+   },
+   "trainer": "PicnickerSharon"
+  },
+  {
+   "at": [
+    13,
+    1
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_mount_moon",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    5
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     1,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     1,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     0,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     0,
+     2
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     0,
+     4
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     0,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     3,
+     5
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_cerulean_city",
+    "at": [
+     0,
+     10
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_3",
+    "at": [
+     28,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    1
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_3",
+    "at": [
+     28,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_3",
+    "at": [
+     28,
+     2
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_3",
+    "at": [
+     28,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_3",
+    "at": [
+     28,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_3",
+    "at": [
+     28,
+     8
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    1,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "4 号道路\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    5,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "4 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

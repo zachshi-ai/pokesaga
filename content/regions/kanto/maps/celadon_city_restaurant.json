@@ -1,0 +1,123 @@
+{
+ "name": "关都·玉虹市·餐厅",
+ "emerald": "celadon_city_restaurant",
+ "size": [
+  15,
+  11
+ ],
+ "spawn": [
+  5,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    12,
+    7
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "柜台后面那位脾气不好。",
+    "别客气。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    4
+   ],
+   "name": "居民",
+   "gfx": "lass",
+   "lines": [
+    "我把钥匙忘在楼上了。",
+    "别客气。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "别弄乱我的书架。",
+    "别客气。"
+   ]
+  },
+  {
+   "at": [
+    1,
+    2
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "客人不多，坐吧。",
+    "别客气。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    7
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "这条街我住了几十年。",
+    "再坐一会儿吧。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    5,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     217,
+     149
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     217,
+     149
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     217,
+     149
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

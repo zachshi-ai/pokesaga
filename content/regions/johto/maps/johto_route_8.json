@@ -1,0 +1,256 @@
+{
+ "name": "8 号道路",
+ "emerald": "johto_route_8",
+ "size": [
+  20,
+  9
+ ],
+ "spawn": [
+  9,
+  3
+ ],
+ "npcs": [
+  {
+   "at": [
+    5,
+    3
+   ],
+   "name": "暴走族 Dwayne",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 27,
+      "species": 109
+     },
+     {
+      "level": 28,
+      "species": 109
+     },
+     {
+      "level": 29,
+      "species": 109
+     },
+     {
+      "level": 30,
+      "species": 109
+     }
+    ]
+   },
+   "trainer": "BikerDwayne"
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "暴走族 Harris",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 34,
+      "species": 136
+     }
+    ]
+   },
+   "trainer": "BikerHarris"
+  },
+  {
+   "at": [
+    4,
+    5
+   ],
+   "name": "暴走族 Zeke",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 32,
+      "species": 109
+     },
+     {
+      "level": 32,
+      "species": 109
+     }
+    ]
+   },
+   "trainer": "BikerZeke"
+  },
+  {
+   "at": [
+    11,
+    1
+   ],
+   "name": "理科男 Sam",
+   "gfx": "scientist",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 34,
+      "species": 88
+     },
+     {
+      "level": 34,
+      "species": 89
+     }
+    ]
+   },
+   "trainer": "SuperNerdSam"
+  },
+  {
+   "at": [
+    15,
+    6
+   ],
+   "name": "理科男 Tom",
+   "gfx": "scientist",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 32,
+      "species": 81
+     },
+     {
+      "level": 32,
+      "species": 81
+     },
+     {
+      "level": 32,
+      "species": 81
+     }
+    ]
+   },
+   "trainer": "SuperNerdTom"
+  },
+  {
+   "at": [
+    16,
+    2
+   ],
+   "name": "果树",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_8_saffron_gate",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_8_saffron_gate",
+    "at": [
+     4,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_lavender_town",
+    "at": [
+     1,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_lavender_town",
+    "at": [
+     1,
+     4
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    19,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_lavender_town",
+    "at": [
+     1,
+     8
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    6,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "8 号道路\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

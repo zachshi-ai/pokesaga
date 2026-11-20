@@ -1,0 +1,159 @@
+{
+ "name": "四号岛·冰落洞窟 B1F",
+ "emerald": "four_island_icefall_cave_b1f",
+ "size": [
+  24,
+  20
+ ],
+ "spawn": [
+  12,
+  12
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    12,
+    12
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island_icefall_cave_1f",
+    "at": [
+     12,
+     12
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    3
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island_icefall_cave_1f",
+    "at": [
+     12,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    15,
+    16
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "four_island_icefall_cave_1f",
+    "at": [
+     15,
+     16
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 220,
+   "min": 25,
+   "max": 25,
+   "weight": 20
+  },
+  {
+   "species": 42,
+   "min": 45,
+   "max": 45,
+   "weight": 20
+  },
+  {
+   "species": 86,
+   "min": 45,
+   "max": 45,
+   "weight": 10
+  },
+  {
+   "species": 220,
+   "min": 27,
+   "max": 27,
+   "weight": 10
+  },
+  {
+   "species": 41,
+   "min": 40,
+   "max": 40,
+   "weight": 10
+  },
+  {
+   "species": 220,
+   "min": 29,
+   "max": 29,
+   "weight": 10
+  },
+  {
+   "species": 225,
+   "min": 30,
+   "max": 30,
+   "weight": 5
+  },
+  {
+   "species": 220,
+   "min": 31,
+   "max": 31,
+   "weight": 5
+  },
+  {
+   "species": 42,
+   "min": 48,
+   "max": 48,
+   "weight": 4
+  },
+  {
+   "species": 220,
+   "min": 23,
+   "max": 23,
+   "weight": 4
+  },
+  {
+   "species": 42,
+   "min": 48,
+   "max": 48,
+   "weight": 1
+  },
+  {
+   "species": 220,
+   "min": 23,
+   "max": 23,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
+ "objects": [
+  {
+   "at": [
+    10,
+    14
+   ],
+   "kind": "item",
+   "item": "ITEM_FULL_RESTORE",
+   "name": "全复药",
+   "category": "heal",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    21,
+    7
+   ],
+   "kind": "item",
+   "item": "ITEM_NEVER_MELT_ICE",
+   "name": "ITEM_NEVER_MELT_ICE",
+   "category": "other",
+   "sprite": "ball"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": true
+}

@@ -1,0 +1,96 @@
+{
+ "name": "VermilionPort",
+ "emerald": "johto_vermilion_port",
+ "size": [
+  10,
+  18
+ ],
+ "spawn": [
+  3,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    7
+   ],
+   "name": "水手",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "name": "水手",
+   "gfx": "sailor",
+   "lines": [
+    "海风今天不错。",
+    "船期？看天，也看运气。"
+   ]
+  },
+  {
+   "at": [
+    4,
+    3
+   ],
+   "name": "理科男",
+   "gfx": "scientist",
+   "lines": [
+    "研究数据是不会骗人的。",
+    "宝可梦的行为比人想的复杂得多。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_vermilion_port_passage",
+    "at": [
+     6,
+     0
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fast_ship_1f",
+    "at": [
+     13,
+     3
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    7,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "VermilionPort\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": true
+}

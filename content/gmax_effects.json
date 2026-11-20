@@ -1,0 +1,141 @@
+{
+ "903": {
+  "kind": "residual",
+  "turns": 4,
+  "frac": 6
+ },
+ "904": {
+  "kind": "residual",
+  "turns": 4,
+  "frac": 6
+ },
+ "905": {
+  "kind": "residual",
+  "turns": 4,
+  "frac": 6
+ },
+ "906": {
+  "kind": "status_any",
+  "opts": [
+   "psn",
+   "par",
+   "slp"
+  ]
+ },
+ "907": {
+  "kind": "status",
+  "status": "par"
+ },
+ "908": {
+  "kind": "status",
+  "status": "cfu"
+ },
+ "909": {
+  "kind": "crit_up"
+ },
+ "910": {
+  "kind": "noop",
+  "why": "本作对手不会替换，无法替换这条已自动成立"
+ },
+ "911": {
+  "kind": "stat",
+  "stat": "spe",
+  "delta": -2
+ },
+ "912": {
+  "kind": "shield",
+  "turns": 5
+ },
+ "913": {
+  "kind": "status",
+  "status": "inf"
+ },
+ "914": {
+  "kind": "berry_restore"
+ },
+ "915": {
+  "kind": "status",
+  "status": "psn"
+ },
+ "916": {
+  "kind": "no_repeat",
+  "turns": 2
+ },
+ "917": {
+  "kind": "ignore_ability"
+ },
+ "918": {
+  "kind": "ignore_ability"
+ },
+ "919": {
+  "kind": "ignore_ability"
+ },
+ "920": {
+  "kind": "clear_screens"
+ },
+ "921": {
+  "kind": "gravity"
+ },
+ "922": {
+  "kind": "hazard",
+  "hazard": "stealth_rock"
+ },
+ "923": {
+  "kind": "residual",
+  "turns": 4,
+  "frac": 6
+ },
+ "924": {
+  "kind": "stat",
+  "stat": "eva",
+  "delta": -1
+ },
+ "925": {
+  "kind": "heal_status"
+ },
+ "926": {
+  "kind": "weather",
+  "weather": "sandstorm"
+ },
+ "927": {
+  "kind": "status_any",
+  "opts": [
+   "psn",
+   "par"
+  ]
+ },
+ "928": {
+  "kind": "residual",
+  "turns": 5,
+  "frac": 6
+ },
+ "929": {
+  "kind": "status",
+  "status": "cfu"
+ },
+ "930": {
+  "kind": "status",
+  "status": "slp"
+ },
+ "931": {
+  "kind": "heal",
+  "frac": 2
+ },
+ "932": {
+  "kind": "hazard",
+  "hazard": "steel_rocks"
+ },
+ "933": {
+  "kind": "pp_drain",
+  "amount": 2
+ },
+ "934": {
+  "kind": "status",
+  "status": "psn"
+ },
+ "935": {
+  "kind": "residual",
+  "turns": 4,
+  "frac": 6
+ }
+}

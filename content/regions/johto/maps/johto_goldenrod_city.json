@@ -1,0 +1,641 @@
+{
+ "name": "满金市",
+ "emerald": "johto_goldenrod_city",
+ "size": [
+  20,
+  18
+ ],
+ "spawn": [
+  10,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    9
+   ],
+   "name": "宝可梦迷",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    8
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    8
+   ],
+   "name": "训练家",
+   "gfx": "teala",
+   "lines": [
+    "你今天也很有精神呢。",
+    "慢慢来，不用急。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    13
+   ],
+   "name": "训练家",
+   "gfx": "teala",
+   "lines": [
+    "你今天也很有精神呢。",
+    "慢慢来，不用急。"
+   ]
+  },
+  {
+   "at": [
+    9,
+    8
+   ],
+   "name": "短裤小子",
+   "gfx": "youngster",
+   "lines": [
+    "我以后也要当很强的训练家！",
+    "你的宝可梦看起来很精神。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    5
+   ],
+   "name": "少女",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    11
+   ],
+   "name": "火箭队队员",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "别挡路。",
+    "这里没你的事。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    9
+   ],
+   "name": "火箭队队员",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "别挡路。",
+    "这里没你的事。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    3
+   ],
+   "name": "火箭队队员",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "别挡路。",
+    "这里没你的事。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    5
+   ],
+   "name": "火箭队队员",
+   "gfx": "team_rocket_m",
+   "lines": [
+    "别挡路。",
+    "这里没你的事。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    11
+   ],
+   "name": "宝可梦迷",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    12,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_gym",
+    "at": [
+     1,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_bike_shop",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_happiness_rater",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    2,
+    12
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_bills_familys_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_magnet_train_station",
+    "at": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_flower_shop",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    16,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_pp_speech_house",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_name_rater",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    12,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_dept_store_1f",
+    "at": [
+     3,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    10
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_game_corner",
+    "at": [
+     1,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_radio_tower_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_35_goldenrod_gate",
+    "at": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_underground_switch_room_entrances",
+    "at": [
+     10,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    14
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_underground_switch_room_entrances",
+    "at": [
+     8,
+     13
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    13
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_goldenrod_pokecenter_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_35",
+    "at": [
+     2,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    11,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_35",
+    "at": [
+     6,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    12,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_35",
+    "at": [
+     7,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    13,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_35",
+    "at": [
+     8,
+     16
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_34",
+    "at": [
+     5,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    1,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_34",
+    "at": [
+     6,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    3,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_34",
+    "at": [
+     8,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_34",
+    "at": [
+     2,
+     0
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    7,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_34",
+    "at": [
+     2,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_34",
+    "at": [
+     4,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    10,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_34",
+    "at": [
+     5,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    11,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_34",
+    "at": [
+     6,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    12,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_34",
+    "at": [
+     7,
+     1
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    13,
+    17
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_34",
+    "at": [
+     8,
+     1
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    5,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "满金市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    13,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "满金市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    11,
+    9
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "满金市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    14,
+    15
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "满金市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    6,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "满金市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    6,
+    15
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "满金市\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    15,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "满金市\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

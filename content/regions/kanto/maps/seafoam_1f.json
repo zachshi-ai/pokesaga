@@ -1,0 +1,188 @@
+{
+ "name": "关都·双子岛 1F",
+ "emerald": "seafoam_islands_1f",
+ "size": [
+  38,
+  24
+ ],
+ "spawn": [
+  6,
+  21
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    10,
+    6
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_b1f",
+    "at": [
+     10,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    31,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_b1f",
+    "at": [
+     31,
+     4
+    ]
+   }
+  },
+  {
+   "at": [
+    28,
+    19
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_b1f",
+    "at": [
+     28,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    21
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     144,
+     388
+    ]
+   }
+  },
+  {
+   "at": [
+    32,
+    21
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     156,
+     394
+    ]
+   }
+  },
+  {
+   "at": [
+    21,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_b1f",
+    "at": [
+     21,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    30,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_b1f",
+    "at": [
+     29,
+     8
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 54,
+   "min": 27,
+   "max": 27,
+   "weight": 20
+  },
+  {
+   "species": 54,
+   "min": 29,
+   "max": 29,
+   "weight": 20
+  },
+  {
+   "species": 54,
+   "min": 31,
+   "max": 31,
+   "weight": 10
+  },
+  {
+   "species": 41,
+   "min": 22,
+   "max": 22,
+   "weight": 10
+  },
+  {
+   "species": 41,
+   "min": 22,
+   "max": 22,
+   "weight": 10
+  },
+  {
+   "species": 41,
+   "min": 24,
+   "max": 24,
+   "weight": 10
+  },
+  {
+   "species": 42,
+   "min": 26,
+   "max": 26,
+   "weight": 5
+  },
+  {
+   "species": 42,
+   "min": 28,
+   "max": 28,
+   "weight": 5
+  },
+  {
+   "species": 54,
+   "min": 33,
+   "max": 33,
+   "weight": 4
+  },
+  {
+   "species": 41,
+   "min": 26,
+   "max": 26,
+   "weight": 4
+  },
+  {
+   "species": 54,
+   "min": 26,
+   "max": 26,
+   "weight": 1
+  },
+  {
+   "species": 42,
+   "min": 30,
+   "max": 30,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07
+}

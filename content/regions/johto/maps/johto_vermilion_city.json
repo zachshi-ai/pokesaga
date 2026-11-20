@@ -1,0 +1,435 @@
+{
+ "name": "VermilionCity",
+ "emerald": "johto_vermilion_city",
+ "size": [
+  20,
+  18
+ ],
+ "spawn": [
+  10,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    9,
+    4
+   ],
+   "name": "老师",
+   "gfx": "lass",
+   "lines": [
+    "这条路我闭着眼都能走。",
+    "听说北边的塔里住着传说中的宝可梦。",
+    "天快黑了，早点回去吧。"
+   ]
+  },
+  {
+   "at": [
+    11,
+    3
+   ],
+   "name": "老爷爷",
+   "gfx": "old_man",
+   "lines": [
+    "我年轻的时候，也到处跑。",
+    "现在腿脚不行了，就在这里看风景。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    3
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你好。",
+    "路上小心。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    8
+   ],
+   "name": "理科男",
+   "gfx": "scientist",
+   "lines": [
+    "研究数据是不会骗人的。",
+    "宝可梦的行为比人想的复杂得多。"
+   ]
+  },
+  {
+   "at": [
+    15,
+    6
+   ],
+   "name": "宝可梦迷",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_vermilion_fishing_speech_house",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    2
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_vermilion_pokecenter_1f",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    3,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pokemon_fan_club",
+    "at": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "at": [
+    6,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_vermilion_magnet_train_speech_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_vermilion_mart",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    8
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_vermilion_digletts_cave_speech_house",
+    "at": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    9
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_vermilion_gym",
+    "at": [
+     2,
+     5
+    ]
+   }
+  },
+  {
+   "at": [
+    9,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_vermilion_port_passage",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    15
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_vermilion_port_passage",
+    "at": [
+     7,
+     1
+    ]
+   }
+  },
+  {
+   "at": [
+    17,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_digletts_cave",
+    "at": [
+     1,
+     17
+    ]
+   }
+  },
+  {
+   "at": [
+    19,
+    4
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_11",
+    "at": [
+     1,
+     4
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    0,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_6",
+    "at": [
+     5,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    1,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_6",
+    "at": [
+     6,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    2,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_6",
+    "at": [
+     7,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    3,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_6",
+    "at": [
+     8,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_6",
+    "at": [
+     9,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    5,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_6",
+    "at": [
+     0,
+     8
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    6,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_6",
+    "at": [
+     2,
+     6
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_6",
+    "at": [
+     3,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_6",
+    "at": [
+     4,
+     7
+    ]
+   },
+   "edge": true
+  },
+  {
+   "at": [
+    10,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_route_6",
+    "at": [
+     5,
+     7
+    ]
+   },
+   "edge": true
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    12,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "VermilionCity\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    2,
+    9
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "VermilionCity\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    2,
+    6
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "VermilionCity\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    16,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "VermilionCity\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    13,
+    7
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "VermilionCity\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

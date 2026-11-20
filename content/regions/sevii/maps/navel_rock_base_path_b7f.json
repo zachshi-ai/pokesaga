@@ -1,0 +1,48 @@
+{
+ "name": "七之岛·肚脐岩 底层 PATH B7F",
+ "emerald": "navel_rock_base_path_b7f",
+ "size": [
+  7,
+  7
+ ],
+ "spawn": [
+  2,
+  2
+ ],
+ "npcs": [],
+ "warps": [
+  {
+   "at": [
+    2,
+    2
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "navel_rock_base_path_b6f",
+    "at": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "navel_rock_base_path_b8f",
+    "at": [
+     4,
+     4
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

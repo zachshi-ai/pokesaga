@@ -1,0 +1,364 @@
+{
+ "name": "一号岛·宝之海滩",
+ "emerald": "one_island_treasure_beach",
+ "size": [
+  24,
+  40
+ ],
+ "spawn": [
+  1,
+  1
+ ],
+ "npcs": [
+  {
+   "at": [
+    8,
+    11
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "海面今天很平。",
+    "海风会把人吹傻。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    13,
+    20
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "码头那位脾气怪。",
+    "海风会把人吹傻。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    11
+   ],
+   "name": "Swimmer F 的 AMARA",
+   "gfx": "man",
+   "lines": [
+    "被波浪冲刷的背部……\n这感觉很美妙。"
+   ],
+   "battle": {
+    "trainer": "TRAINER_SWIMMER_FEMALE_AMARA",
+    "party": [
+     {
+      "species": 86,
+      "level": 36
+     },
+     {
+      "species": 86,
+      "level": 36
+     },
+     {
+      "species": 87,
+      "level": 36
+     }
+    ],
+    "name": "AMARA",
+    "class": "Swimmer F"
+   },
+   "post": [
+    "这个地方的海水很温暖。"
+   ],
+   "sight": 1
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    0,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     0,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     1,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     4,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     7,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    8,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     8,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    20,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     20,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    21,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     21,
+     19
+    ]
+   }
+  },
+  {
+   "at": [
+    22,
+    0
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island",
+    "at": [
+     22,
+     19
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 21,
+   "min": 32,
+   "max": 32,
+   "weight": 20
+  },
+  {
+   "species": 114,
+   "min": 33,
+   "max": 33,
+   "weight": 20
+  },
+  {
+   "species": 21,
+   "min": 31,
+   "max": 31,
+   "weight": 10
+  },
+  {
+   "species": 114,
+   "min": 35,
+   "max": 35,
+   "weight": 10
+  },
+  {
+   "species": 22,
+   "min": 36,
+   "max": 36,
+   "weight": 10
+  },
+  {
+   "species": 52,
+   "min": 31,
+   "max": 31,
+   "weight": 10
+  },
+  {
+   "species": 22,
+   "min": 38,
+   "max": 38,
+   "weight": 5
+  },
+  {
+   "species": 54,
+   "min": 31,
+   "max": 31,
+   "weight": 5
+  },
+  {
+   "species": 22,
+   "min": 40,
+   "max": 40,
+   "weight": 4
+  },
+  {
+   "species": 53,
+   "min": 37,
+   "max": 37,
+   "weight": 4
+  },
+  {
+   "species": 22,
+   "min": 40,
+   "max": 40,
+   "weight": 1
+  },
+  {
+   "species": 53,
+   "min": 40,
+   "max": 40,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
+ "objects": [
+  {
+   "at": [
+    8,
+    20
+   ],
+   "kind": "hidden",
+   "item": "ITEM_STARDUST",
+   "name": "星砂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_STARDUST",
+   "count": 1
+  },
+  {
+   "at": [
+    13,
+    27
+   ],
+   "kind": "hidden",
+   "item": "ITEM_STARDUST",
+   "name": "星砂",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_STARDUST_2",
+   "count": 1
+  },
+  {
+   "at": [
+    11,
+    31
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PEARL",
+   "name": "珍珠",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_PEARL",
+   "count": 1
+  },
+  {
+   "at": [
+    9,
+    34
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PEARL",
+   "name": "珍珠",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_PEARL_2",
+   "count": 1
+  },
+  {
+   "at": [
+    15,
+    22
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_ULTRA_BALL",
+   "count": 1
+  },
+  {
+   "at": [
+    16,
+    33
+   ],
+   "kind": "hidden",
+   "item": "ITEM_ULTRA_BALL",
+   "name": "高级球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_ULTRA_BALL_2",
+   "count": 1
+  },
+  {
+   "at": [
+    15,
+    29
+   ],
+   "kind": "hidden",
+   "item": "ITEM_STAR_PIECE",
+   "name": "星之碎片",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_STAR_PIECE",
+   "count": 1
+  },
+  {
+   "at": [
+    8,
+    27
+   ],
+   "kind": "hidden",
+   "item": "ITEM_BIG_PEARL",
+   "name": "大珍珠",
+   "category": "other",
+   "flag": "FLAG_HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_BIG_PEARL",
+   "count": 1
+  }
+ ],
+ "weather": "sunny",
+ "weather_name": "晴",
+ "cycling": true
+}

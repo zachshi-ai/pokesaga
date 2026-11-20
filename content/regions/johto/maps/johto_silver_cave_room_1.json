@@ -1,0 +1,188 @@
+{
+ "name": "白银山",
+ "emerald": "johto_silver_cave_room_1",
+ "size": [
+  10,
+  18
+ ],
+ "spawn": [
+  5,
+  9
+ ],
+ "npcs": [
+  {
+   "at": [
+    2,
+    4
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    7,
+    14
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    2,
+    15
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  },
+  {
+   "at": [
+    3,
+    9
+   ],
+   "name": "道具球",
+   "gfx": "man",
+   "lines": [
+    "哟，眼生得很啊。",
+    "城都这地方，慢慢逛才有味道。",
+    "出远门记得带足伤药。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    4,
+    16
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_silver_cave_outside",
+    "at": [
+     9,
+     6
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    0
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_silver_cave_room_2",
+    "at": [
+     8,
+     16
+    ]
+   }
+  }
+ ],
+ "encounters": [
+  {
+   "species": 75,
+   "min": 43,
+   "max": 43,
+   "weight": 90
+  },
+  {
+   "species": 217,
+   "min": 44,
+   "max": 44,
+   "weight": 60
+  },
+  {
+   "species": 95,
+   "min": 42,
+   "max": 42,
+   "weight": 60
+  },
+  {
+   "species": 42,
+   "min": 44,
+   "max": 44,
+   "weight": 30
+  },
+  {
+   "species": 126,
+   "min": 45,
+   "max": 45,
+   "weight": 20
+  },
+  {
+   "species": 42,
+   "min": 45,
+   "max": 45,
+   "weight": 10
+  },
+  {
+   "species": 42,
+   "min": 42,
+   "max": 42,
+   "weight": 10
+  },
+  {
+   "species": 246,
+   "min": 20,
+   "max": 20,
+   "weight": 8
+  },
+  {
+   "species": 55,
+   "min": 45,
+   "max": 45,
+   "weight": 5
+  },
+  {
+   "species": 42,
+   "min": 46,
+   "max": 46,
+   "weight": 5
+  },
+  {
+   "species": 246,
+   "min": 15,
+   "max": 15,
+   "weight": 2
+  }
+ ],
+ "encounter_rate": 0.06,
+ "objects": [
+  {
+   "at": [
+    8,
+    11
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "白银山\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    8,
+    6
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "白银山\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

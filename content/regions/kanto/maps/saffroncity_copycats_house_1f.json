@@ -1,0 +1,101 @@
+{
+ "name": "关都·金黄·模仿少女之家 1F",
+ "emerald": "saffron_city_copycats_house_1f",
+ "size": [
+  13,
+  10
+ ],
+ "spawn": [
+  4,
+  8
+ ],
+ "npcs": [
+  {
+   "at": [
+    3,
+    3
+   ],
+   "name": "老奶奶",
+   "gfx": "old_man",
+   "lines": [
+    "这孩子的模仿本事，是跟宝可梦学的。",
+    "她一个人住，别吓着她。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    4
+   ],
+   "name": "大叔",
+   "gfx": "man",
+   "lines": [
+    "楼上那只皮皮玩偶，她宝贝得很。",
+    "我？我是来看热闹的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    3,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     286,
+     134
+    ]
+   }
+  },
+  {
+   "at": [
+    4,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     286,
+     134
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     286,
+     134
+    ]
+   }
+  },
+  {
+   "at": [
+    10,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_copycats_house_2f",
+    "at": [
+     10,
+     2
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

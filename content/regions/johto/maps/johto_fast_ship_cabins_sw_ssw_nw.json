@@ -1,0 +1,193 @@
+{
+ "name": "快速船·Cabins_SW_SSW_NW",
+ "emerald": "johto_fast_ship_cabins_sw_ssw_nw",
+ "size": [
+  4,
+  16
+ ],
+ "spawn": [
+  1,
+  7
+ ],
+ "npcs": [
+  {
+   "at": [
+    0,
+    7
+   ],
+   "name": "喷火者 Lyle",
+   "gfx": "sailor",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 28,
+      "species": 109
+     },
+     {
+      "level": 31,
+      "species": 136
+     },
+     {
+      "level": 28,
+      "species": 109
+     }
+    ]
+   },
+   "trainer": "FirebreatherLyle"
+  },
+  {
+   "at": [
+    3,
+    7
+   ],
+   "name": "捕虫少年 Ken",
+   "gfx": "bug_catcher",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 30,
+      "species": 168
+     },
+     {
+      "level": 32,
+      "species": 127
+     }
+    ]
+   },
+   "trainer": "BugCatcherKen"
+  },
+  {
+   "at": [
+    0,
+    13
+   ],
+   "name": "大姐姐 Cassie",
+   "gfx": "man",
+   "lines": [
+    "来一场吧！",
+    "正好手痒。",
+    "我的宝可梦可不弱。"
+   ],
+   "battle": {
+    "team": [
+     {
+      "level": 28,
+      "species": 45
+     },
+     {
+      "level": 34,
+      "species": 12
+     }
+    ]
+   },
+   "trainer": "BeautyCassie"
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    1,
+    6
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fast_ship_1f",
+    "at": [
+     7,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fast_ship_1f",
+    "at": [
+     9,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fast_ship_1f",
+    "at": [
+     9,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fast_ship_1f",
+    "at": [
+     11,
+     8
+    ]
+   }
+  },
+  {
+   "at": [
+    1,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_fast_ship_1f",
+    "at": [
+     11,
+     8
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    3,
+    1
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "快速船·Cabins_SW_SSW_NW\\n（城都地区的告示牌）"
+  },
+  {
+   "at": [
+    3,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "快速船·Cabins_SW_SSW_NW\\n（城都地区的告示牌）"
+  }
+ ],
+ "weather": "",
+ "weather_name": "",
+ "cycling": false
+}

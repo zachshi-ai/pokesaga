@@ -1,0 +1,168 @@
+{
+ "name": "关都·圣安奴号·kitchen",
+ "emerald": "ssanne_kitchen",
+ "size": [
+  16,
+  14
+ ],
+ "spawn": [
+  7,
+  1
+ ],
+ "npcs": [
+  {
+   "at": [
+    1,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我把钥匙忘在楼上了。",
+    "这年头谁都不容易。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    6
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "别弄乱我的书架。",
+    "这年头谁都不容易。"
+   ]
+  },
+  {
+   "at": [
+    10,
+    4
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "客人不多，坐吧。",
+    "这年头谁都不容易。"
+   ]
+  },
+  {
+   "at": [
+    8,
+    9
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "这条街我住了几十年。",
+    "能帮就帮一把。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    5
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "最近路上不太平。",
+    "能帮就帮一把。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    7
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "你知道道馆在哪边吗。",
+    "能帮就帮一把。"
+   ]
+  },
+  {
+   "at": [
+    14,
+    9
+   ],
+   "name": "居民",
+   "gfx": "man",
+   "lines": [
+    "我刚从医院回来。",
+    "能帮就帮一把。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    7,
+    1
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_1_f_corridor",
+    "at": [
+     2,
+     18
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    1,
+    10
+   ],
+   "kind": "item",
+   "item": "ITEM_GREAT_BALL",
+   "name": "超级球",
+   "category": "ball",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    14,
+    8
+   ],
+   "kind": "hidden",
+   "item": "ITEM_CHESTO_BERRY",
+   "name": "零余子果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_SSANNE_KITCHEN_CHESTO_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    14,
+    4
+   ],
+   "kind": "hidden",
+   "item": "ITEM_PECHA_BERRY",
+   "name": "桃桃果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_SSANNE_KITCHEN_PECHA_BERRY",
+   "count": 1
+  },
+  {
+   "at": [
+    14,
+    6
+   ],
+   "kind": "hidden",
+   "item": "ITEM_CHERI_BERRY",
+   "name": "樱子果",
+   "category": "berry",
+   "flag": "FLAG_HIDDEN_ITEM_SSANNE_KITCHEN_CHERI_BERRY",
+   "count": 1
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}

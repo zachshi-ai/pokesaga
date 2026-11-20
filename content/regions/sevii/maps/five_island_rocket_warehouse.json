@@ -1,0 +1,390 @@
+{
+ "name": "五号岛·火箭队仓库",
+ "emerald": "five_island_rocket_warehouse",
+ "size": [
+  29,
+  27
+ ],
+ "spawn": [
+  24,
+  25
+ ],
+ "npcs": [
+  {
+   "at": [
+    15,
+    11
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "有事问船夫。",
+    "慢点走吧。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    17,
+    15
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "这座岛上的风是咸的。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    27,
+    16
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "船一天只来两趟。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    25,
+    11
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "你从关都来的吧。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    6,
+    6
+   ],
+   "name": "岛民",
+   "gfx": "man",
+   "lines": [
+    "岛上没什么人，安静。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  },
+  {
+   "at": [
+    27,
+    4
+   ],
+   "name": "岛民",
+   "gfx": "scientist",
+   "lines": [
+    "往北走有条小路。",
+    "欢迎来岛上。",
+    "这座岛上的风是咸的。"
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "at": [
+    24,
+    25
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "five_island_meadow",
+    "at": [
+     12,
+     21
+    ]
+   }
+  }
+ ],
+ "encounters": [],
+ "encounter_rate": 0.0,
+ "objects": [
+  {
+   "at": [
+    8,
+    25
+   ],
+   "kind": "item",
+   "item": "ITEM_BIG_PEARL",
+   "name": "大珍珠",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    18,
+    3
+   ],
+   "kind": "item",
+   "item": "ITEM_TM36",
+   "name": "ITEM_TM36",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    1,
+    16
+   ],
+   "kind": "item",
+   "item": "ITEM_PEARL",
+   "name": "珍珠",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    4,
+    5
+   ],
+   "kind": "item",
+   "item": "ITEM_UP_GRADE",
+   "name": "ITEM_UP_GRADE",
+   "category": "other",
+   "sprite": "ball"
+  },
+  {
+   "at": [
+    11,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    26,
+    11
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "电脑屏幕上有\n图表和文字的报告。\n“电波对宝可梦进化的影响”\n…… …… ……\n这太难懂了……"
+  },
+  {
+   "at": [
+    27,
+    2
+   ],
+   "kind": "hidden",
+   "item": "ITEM_NEST_BALL",
+   "name": "巢穴球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_NEST_BALL",
+   "count": 1
+  },
+  {
+   "at": [
+    7,
+    16
+   ],
+   "kind": "hidden",
+   "item": "ITEM_NET_BALL",
+   "name": "捕网球",
+   "category": "ball",
+   "flag": "FLAG_HIDDEN_ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_NET_BALL",
+   "count": 1
+  },
+  {
+   "at": [
+    12,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    10,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    9,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    8,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    7,
+    2
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    11,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    10,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    11,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    10,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    8,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    7,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    8,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    7,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    5,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    4,
+    3
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    5,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    4,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    3,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    2,
+    4
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    2,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  },
+  {
+   "at": [
+    3,
+    5
+   ],
+   "kind": "sign",
+   "sprite": "sign",
+   "text": "有很多宝可梦被锁在围栏里……"
+  }
+ ],
+ "weather": "none",
+ "weather_name": "",
+ "cycling": false
+}
