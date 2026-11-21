@@ -2,6 +2,10 @@
 
 用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.50.0-study`，versionCode 为 83，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
 
+[下载 4.50 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.50.0-study/PokeSaga-4.50.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.50.0-study)
+
+![安卓模拟器实拍。左图是在未白镇按 START 打开的右侧菜单，右图是从队伍第十二位换上快龙后的战斗指令。](.github/preview/v4.50-start-and-battle.png)
+
 ## 从真新镇开始
 
 启动游戏先到《绿宝石》的烈空坐标题页。选择「新的冒险」从真新镇家中二楼的床边出发。走到右上方墙图前面朝上按 A，可翻看世界全景地图。在丰缘索引点「丰缘地图」，可以缩放《绿宝石》宝可导航的地区地图。下楼出门，进大木研究所选择初始伙伴，再向北进入 1 号道路。草丛里可以遇敌、投球、练级，常磐市的宝可梦中心可以治疗队伍。经 2 号道路和常磐森林抵达尼比市，打赢小刚即可获得首枚徽章。城都另有八徽章门禁、四天王、冠军与名人堂登记。
