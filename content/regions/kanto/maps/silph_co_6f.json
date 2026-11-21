@@ -232,8 +232,8 @@
    ],
    "kind": "item",
    "item": "ITEM_X_SPECIAL",
-   "name": "ITEM_X_SPECIAL",
-   "category": "other",
+   "name": "特攻强化",
+   "category": "battle",
    "sprite": "ball"
   },
   {

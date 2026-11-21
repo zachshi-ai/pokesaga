@@ -1,0 +1,120 @@
+{
+  "mansion": [
+    "u20 r3 d3 r7 u4 r1 u1 r1 u6 l4 u1 l2 u2 r1 d3 r4 Au d1 r3 d2 r2 d5 r1 d7 l1 d4 r7 u2 l3 u7 l3 u2 l7 d6 r1 d3 Ar l4 u1 l4 u8 r12 d2 r6 u17 l5 Al d1 r2 d4 l19 u1 l7 u2",
+    "d3 r26 u5 l2 Al d1 r2 d7 r1 d5 r2 d4 l4 u2 l14 d9 r8 Ar u5 l1 u4 r5 d9 r10 u4 r5 d10 r2"
+  ],
+  "viridian_gym": {
+    "stage": "常磐道馆馆主",
+    "inputs": "u7 l1 u9 l4 d1 l2 u4 l3 d3 l4 u3 l1",
+    "finish": [
+      "viridiancity_gym",
+      2,
+      3
+    ]
+  },
+  "victory_road": [
+    {
+      "stage": "第一层地板开关",
+      "inputs": "u1 l5 u2 r1 Pd1 d1 l1 d1 Pr1 r1 Pr1 r1 Pr1 r1 Pr1 r1 Pr1 d1 r2 Pu1 u1 Pu1 u1 l1 u1 Pr1 r1 Pr1 r1 Pr1 r1 Pr1 r1 Pr1 r1 Pr1 r1 Pr1 d1 r2 Pu1 u1 Pu1 l2 u2 r1 Pr1 u1 r2 Pd1",
+      "finish": [
+        "victoryroad_1f",
+        20,
+        14
+      ]
+    },
+    {
+      "stage": "第一层向上楼梯",
+      "inputs": "d1 l1 d2 l7 d2 l5 u5 r7 u6 l4 d2 l5 u7 l1 u1 l1",
+      "finish": [
+        "victoryroad_2f",
+        1,
+        9
+      ]
+    },
+    {
+      "stage": "第二层西侧开关",
+      "inputs": "d1 r1 d4 r1 d2 r3 Pd1 d1 r1 d1 Pl1 l1 Pl1 u1 l2 Pd1 d1 r1 d1 Pl1 l1 Pl1",
+      "finish": [
+        "victoryroad_2f",
+        4,
+        19
+      ]
+    },
+    {
+      "stage": "第三层北侧入口",
+      "inputs": "u6 r5 u2 r7 d1 r4 d5 r3 d2 r17 u5 l6 u5",
+      "finish": [
+        "victoryroad_3f",
+        34,
+        9
+      ]
+    },
+    {
+      "stage": "第三层地板开关",
+      "inputs": "u3 l2 Pu1 u1 Pu1 u1 r1 u1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 u1 l2 Pd1 d1 r1 d1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 u1 l1 Pd1 d1 Pd1 d1 Pd1 d1 l1 d1 Pr1",
+      "finish": [
+        "victoryroad_3f",
+        5,
+        7
+      ]
+    },
+    {
+      "stage": "推石落洞",
+      "inputs": "u3 r5 u1 r19 d5 l4 u2 l9 d6 l6 u1 l6 d6 r1 d2 r16 u1 r11 Pr1",
+      "finish": [
+        "victoryroad_3f",
+        32,
+        18
+      ]
+    },
+    {
+      "stage": "从洞口跳回第二层",
+      "inputs": "r2",
+      "finish": [
+        "victoryroad_2f",
+        34,
+        19
+      ]
+    },
+    {
+      "stage": "第二层东侧开关",
+      "inputs": "Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1 l1 Pl1",
+      "finish": [
+        "victoryroad_2f",
+        16,
+        19
+      ]
+    },
+    {
+      "stage": "第三层东南楼梯",
+      "inputs": "r7 u2 r13",
+      "finish": [
+        "victoryroad_3f",
+        39,
+        17
+      ]
+    },
+    {
+      "stage": "返回第二层出口走廊",
+      "inputs": "u3 l3 u4 r1",
+      "finish": [
+        "victoryroad_2f",
+        38,
+        9
+      ]
+    },
+    {
+      "stage": "出胜利之路",
+      "inputs": "d2 r9 d1 r1 d1",
+      "finish": [
+        "kanto_main",
+        18,
+        59
+      ]
+    }
+  ],
+  "icefall_cave": [
+    "u2 r5 u6 l2 u3 r1 u3 r1 d1 u1 r5 d1 r1 d3 r1 d2 r1 u1 d1 u3 r3 d7 l2 d3 l5",
+    "d1 l8 d1"
+  ]
+}

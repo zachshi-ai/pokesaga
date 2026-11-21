@@ -81,53 +81,77 @@
   {
    "species": 41,
    "min": 7,
-   "max": 10,
-   "weight": 20
-  },
-  {
-   "species": 74,
-   "min": 8,
-   "max": 10,
+   "max": 7,
    "weight": 20
   },
   {
    "species": 41,
    "min": 8,
+   "max": 8,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 7,
+   "max": 7,
+   "weight": 10
+  },
+  {
+   "species": 41,
+   "min": 9,
    "max": 9,
    "weight": 10
   },
   {
-   "species": 74,
-   "min": 9,
-   "max": 11,
-   "weight": 10
-  },
-  {
-   "species": 46,
-   "min": 8,
+   "species": 41,
+   "min": 10,
    "max": 10,
    "weight": 10
   },
   {
-   "species": 35,
+   "species": 74,
    "min": 8,
-   "max": 11,
+   "max": 8,
    "weight": 10
   },
   {
-   "species": 27,
+   "species": 74,
    "min": 9,
-   "max": 11,
+   "max": 9,
    "weight": 5
   },
   {
-   "species": 74,
-   "min": 10,
-   "max": 12,
+   "species": 46,
+   "min": 8,
+   "max": 8,
    "weight": 5
+  },
+  {
+   "species": 41,
+   "min": 7,
+   "max": 7,
+   "weight": 4
+  },
+  {
+   "species": 41,
+   "min": 7,
+   "max": 7,
+   "weight": 4
+  },
+  {
+   "species": 41,
+   "min": 7,
+   "max": 7,
+   "weight": 1
+  },
+  {
+   "species": 35,
+   "min": 8,
+   "max": 8,
+   "weight": 1
   }
  ],
- "encounter_rate": 0.14,
+ "encounter_rate": 0.07,
  "objects": [
   {
    "at": [
@@ -147,8 +171,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM09",
-   "name": "ITEM_TM09",
-   "category": "other",
+   "name": "招式学习器 09",
+   "category": "tm",
    "sprite": "ball"
   },
   {
@@ -192,7 +216,7 @@
    "kind": "item",
    "item": "ITEM_MOON_STONE",
    "name": "月之石",
-   "category": "other",
+   "category": "evo",
    "sprite": "ball"
   },
   {

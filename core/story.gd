@@ -25,6 +25,9 @@ func load_region(rid: String) -> bool:
 	var list = (raw as Dictionary).get("events", [])
 	if list is Array:
 		events = list
+	if rid == "kanto":
+		var island_events: Array = JSON.parse_string(FileAccess.get_file_as_string(preload("res://core/sevii_campaign.gd").BILL_CROSSOVER))
+		events = island_events + events
 	return true
 
 ## 找第一条满足条件的未完成事件
@@ -54,6 +57,7 @@ func _trigger_match(tr: Dictionary, kind: String, ctx: Dictionary) -> bool:
 		return false
 	match kind:
 		"map_enter":
+			if tr.has("at") and (int(tr.at[0])!=int(ctx.get("x",-1)) or int(tr.at[1])!=int(ctx.get("y",-1))): return false
 			if tr.has("area_name") and tr.area_name != ctx.get("area_name",""):
 				return false
 			var m := String(tr.get("map", ""))

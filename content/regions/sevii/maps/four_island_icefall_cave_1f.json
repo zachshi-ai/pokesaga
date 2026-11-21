@@ -202,8 +202,8 @@
    ],
    "kind": "item",
    "item": "ITEM_HM07",
-   "name": "ITEM_HM07",
-   "category": "other",
+   "name": "秘传学习器 07",
+   "category": "tm",
    "sprite": "ball"
   }
  ],

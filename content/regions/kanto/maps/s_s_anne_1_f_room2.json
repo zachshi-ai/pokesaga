@@ -75,8 +75,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM31",
-   "name": "ITEM_TM31",
-   "category": "other",
+   "name": "招式学习器 31",
+   "category": "tm",
    "sprite": "ball"
   }
  ],

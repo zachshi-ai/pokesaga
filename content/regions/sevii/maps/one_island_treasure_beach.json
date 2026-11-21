@@ -384,5 +384,73 @@
  ],
  "weather": "sunny",
  "weather_name": "晴",
- "cycling": true
+ "cycling": true,
+ "fishing": [
+  [
+   {
+    "species": 129,
+    "min": 5,
+    "max": 5,
+    "weight": 70
+   },
+   {
+    "species": 129,
+    "min": 5,
+    "max": 5,
+    "weight": 30
+   }
+  ],
+  [
+   {
+    "species": 116,
+    "min": 5,
+    "max": 15,
+    "weight": 60
+   },
+   {
+    "species": 129,
+    "min": 5,
+    "max": 15,
+    "weight": 20
+   },
+   {
+    "species": 116,
+    "min": 5,
+    "max": 15,
+    "weight": 20
+   }
+  ],
+  [
+   {
+    "species": 116,
+    "min": 15,
+    "max": 25,
+    "weight": 40
+   },
+   {
+    "species": 116,
+    "min": 15,
+    "max": 25,
+    "weight": 40
+   },
+   {
+    "species": 130,
+    "min": 15,
+    "max": 25,
+    "weight": 15
+   },
+   {
+    "species": 117,
+    "min": 25,
+    "max": 35,
+    "weight": 4
+   },
+   {
+    "species": 54,
+    "min": 25,
+    "max": 35,
+    "weight": 1
+   }
+  ]
+ ]
 }

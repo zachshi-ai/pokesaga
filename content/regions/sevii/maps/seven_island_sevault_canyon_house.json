@@ -69,9 +69,10 @@
    ],
    "kind": "item",
    "item": "ITEM_LUCKY_PUNCH",
-   "name": "ITEM_LUCKY_PUNCH",
-   "category": "other",
-   "sprite": "ball"
+   "name": "吉利拳",
+   "category": "held",
+   "sprite": "ball",
+   "held": "LUCKY_PUNCH"
   }
  ],
  "weather": "none",

@@ -175,8 +175,8 @@
    ],
    "kind": "item",
    "item": "ITEM_X_ACCURACY",
-   "name": "ITEM_X_ACCURACY",
-   "category": "other",
+   "name": "命中强化",
+   "category": "battle",
    "sprite": "ball"
   }
  ],

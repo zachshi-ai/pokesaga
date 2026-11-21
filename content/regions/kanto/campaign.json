@@ -1,0 +1,631 @@
+{
+ "league": [
+  {
+   "room": "pokemon_league_loreleis_room",
+   "name": "科拿",
+   "flag": "kanto_loreleis_win"
+  },
+  {
+   "room": "pokemon_league_brunos_room",
+   "name": "希巴",
+   "flag": "kanto_brunos_win"
+  },
+  {
+   "room": "pokemon_league_agathas_room",
+   "name": "菊子",
+   "flag": "kanto_agathas_win"
+  },
+  {
+   "room": "pokemon_league_lances_room",
+   "name": "阿渡",
+   "flag": "kanto_lances_win"
+  },
+  {
+   "room": "pokemon_league_champions_room",
+   "name": "小茂",
+   "flag": "kanto_champions_win"
+  }
+ ],
+ "actors": {
+  "kanto/mt_moon_b2f": {
+   "13,11": {
+    "role": "moon_nerd",
+    "name": "理科男 阿宅",
+    "flag": "",
+    "add": true,
+    "gfx": "scientist",
+    "lines": [
+     "我们一人拿一块化石，这样最公平。"
+    ]
+   },
+   "13,7": {
+    "role": "dome_fossil",
+    "name": "甲壳化石",
+    "flag": "",
+    "add": true,
+    "gfx": "fr_fossil",
+    "disappear": "moon_fossil_chosen",
+    "lines": [
+     "岩石里包着古代宝可梦的化石。"
+    ]
+   },
+   "14,7": {
+    "role": "helix_fossil",
+    "name": "贝壳化石",
+    "flag": "",
+    "add": true,
+    "gfx": "fr_fossil",
+    "disappear": "moon_fossil_chosen",
+    "lines": [
+     "岩石里包着古代宝可梦的化石。"
+    ]
+   },
+   "12,20": {
+    "role": "moon_grunt_1",
+    "name": "火箭队手下 甲",
+    "flag": "",
+    "add": true,
+    "gfx": "team_rocket_m",
+    "disappear": "freed_silph",
+    "lines": [
+     "化石的买卖做不成了。"
+    ]
+   },
+   "18,27": {
+    "role": "moon_grunt_2",
+    "name": "火箭队手下 乙",
+    "flag": "",
+    "add": true,
+    "gfx": "team_rocket_m",
+    "disappear": "freed_silph",
+    "lines": [
+     "化石的买卖做不成了。"
+    ]
+   },
+   "35,12": {
+    "role": "moon_grunt_3",
+    "name": "火箭队手下 丙",
+    "flag": "",
+    "add": true,
+    "gfx": "team_rocket_m",
+    "disappear": "freed_silph",
+    "lines": [
+     "化石的买卖做不成了。"
+    ]
+   },
+   "37,21": {
+    "role": "moon_grunt_4",
+    "name": "火箭队手下 丁",
+    "flag": "",
+    "add": true,
+    "gfx": "team_rocket_m",
+    "disappear": "freed_silph",
+    "lines": [
+     "化石的买卖做不成了。"
+    ]
+   }
+  },
+  "kanto/s_s_anne_2_f_corridor": {
+   "30,1": {
+    "role": "anne_rival",
+    "name": "小茂",
+    "flag": "",
+    "gfx": "fr_blue",
+    "appear": [
+     "ss_ticket"
+    ],
+    "disappear": "rival_anne",
+    "lines": [
+     "船长正在楼上。"
+    ]
+   }
+  },
+  "kanto/s_s_anne_captains_office": {
+   "5,4": {
+    "role": "anne_captain",
+    "name": "圣安奴号船长",
+    "flag": "",
+    "gfx": "sailor",
+    "lines": [
+     "多谢照顾。小树挡路的时候，就试试居合斩吧。"
+    ]
+   }
+  },
+  "kanto/celadon_city_game_corner": {
+   "11,2": {
+    "role": "poster_grunt",
+    "name": "看守海报的手下",
+    "flag": "",
+    "gfx": "team_rocket_m",
+    "disappear": "poster_grunt_win"
+   }
+  },
+  "kanto/rocket_hideout_b4f": {
+   "4,2": {
+    "role": "lift_grunt",
+    "name": "看守钥匙的手下",
+    "flag": "",
+    "gfx": "team_rocket_m",
+    "disappear": "hideout_boss_win"
+   },
+   "3,2": {
+    "role": "lift_key_ball",
+    "name": "电梯钥匙",
+    "flag": "",
+    "add": true,
+    "gfx": "fr_item_ball",
+    "appear": [
+     "lift_grunt_win"
+    ],
+    "disappear": "lift_key",
+    "lines": [
+     "手下慌忙间落下的钥匙。"
+    ]
+   },
+   "16,14": {
+    "role": "hideout_guard_1",
+    "name": "首领的警卫",
+    "flag": "",
+    "gfx": "team_rocket_m",
+    "disappear": "hideout_boss_win",
+    "lines": [
+     "警卫让开了通往办公室的路。"
+    ]
+   },
+   "19,14": {
+    "role": "hideout_guard_2",
+    "name": "首领的警卫",
+    "flag": "",
+    "gfx": "team_rocket_m",
+    "disappear": "hideout_boss_win",
+    "lines": [
+     "警卫让开了通往办公室的路。"
+    ]
+   },
+   "19,4": {
+    "role": "hideout_boss",
+    "name": "坂木",
+    "flag": "",
+    "gfx": "giovanni",
+    "disappear": "hideout_boss_win",
+    "lines": [
+     "连两名警卫也对付不了，你来做什么？"
+    ]
+   },
+   "20,5": {
+    "role": "scope_ball",
+    "name": "西尔佛检视镜",
+    "flag": "",
+    "add": true,
+    "gfx": "fr_item_ball",
+    "appear": [
+     "hideout_boss_win"
+    ],
+    "disappear": "silph_scope"
+   }
+  },
+  "kanto/pokemontower_2f": {
+   "16,5": {
+    "role": "tower_rival",
+    "name": "小茂",
+    "flag": "",
+    "gfx": "fr_blue",
+    "disappear": "rival_tower"
+   }
+  },
+  "kanto/celadon_city_condominiums_1f": {
+   "2,9": {
+    "role": "tea_woman",
+    "name": "公寓的婆婆",
+    "flag": "",
+    "gfx": "old_woman",
+    "lines": [
+     "给守门人捎去一杯，让他也歇口气。"
+    ]
+   }
+  },
+  "kanto/route5_south_entrance": {
+   "1,5": {
+    "role": "saffron_guard",
+    "name": "金黄市警卫",
+    "flag": "",
+    "gfx": "fr_policeman",
+    "lines": [
+     "值班不能走开，真想喝杯茶啊。"
+    ]
+   }
+  },
+  "kanto/route6_north_entrance": {
+   "7,5": {
+    "role": "saffron_guard",
+    "name": "金黄市警卫",
+    "flag": "",
+    "gfx": "fr_policeman",
+    "lines": [
+     "值班不能走开，真想喝杯茶啊。"
+    ]
+   }
+  },
+  "kanto/route7_east_entrance": {
+   "6,2": {
+    "role": "saffron_guard",
+    "name": "金黄市警卫",
+    "flag": "",
+    "gfx": "fr_policeman",
+    "lines": [
+     "值班不能走开，真想喝杯茶啊。"
+    ]
+   }
+  },
+  "kanto/route8_west_entrance": {
+   "6,2": {
+    "role": "saffron_guard",
+    "name": "金黄市警卫",
+    "flag": "",
+    "gfx": "fr_policeman",
+    "lines": [
+     "值班不能走开，真想喝杯茶啊。"
+    ]
+   }
+  },
+  "kanto/silph_co_7f": {
+   "2,6": {
+    "role": "silph_rival",
+    "name": "小茂",
+    "flag": "",
+    "gfx": "fr_blue",
+    "disappear": "rival_silph"
+   },
+   "0,7": {
+    "role": "lapras_worker",
+    "name": "西尔佛职员",
+    "flag": "",
+    "gfx": "man",
+    "lines": [
+     "想起乘龙会和你一路旅行，我就放心了。"
+    ]
+   }
+  },
+  "kanto/silph_co_11f": {
+   "9,9": {
+    "role": "silph_president",
+    "name": "西尔佛社长",
+    "flag": "",
+    "gfx": "old_man",
+    "lines": [
+     "所有同事都能回到家人身边了，谢谢你。"
+    ]
+   }
+  },
+  "kanto/safari_zone_secret_house": {
+   "6,5": {
+    "role": "safari_prize",
+    "name": "秘密小屋管理员",
+    "flag": "",
+    "gfx": "man",
+    "lines": [
+     "找到了小屋，你就是这次寻宝的优胜者。"
+    ]
+   }
+  },
+  "kanto/fuchsia_city_wardens_house": {
+   "3,5": {
+    "role": "warden",
+    "name": "园长",
+    "flag": "",
+    "gfx": "old_man",
+    "lines": [
+     "园长指着嘴，含糊地比画了一块落在狩猎区西面的东西。"
+    ]
+   }
+  },
+  "kanto/pokemon_league_loreleis_room": {
+   "6,5": {
+    "role": "league_loreleis",
+    "name": "科拿",
+    "flag": "",
+    "gfx": "fr_lorelei",
+    "lines": [
+     "你打碎了冰层。去下一间吧。"
+    ]
+   }
+  },
+  "kanto/pokemon_league_brunos_room": {
+   "6,5": {
+    "role": "league_brunos",
+    "name": "希巴",
+    "flag": "",
+    "gfx": "fr_bruno",
+    "lines": [
+     "我的伙伴已经尽力了，下一关在等你。"
+    ]
+   }
+  },
+  "kanto/pokemon_league_agathas_room": {
+   "6,5": {
+    "role": "league_agathas",
+    "name": "菊子",
+    "flag": "",
+    "gfx": "fr_agatha",
+    "lines": [
+     "难得有人能跟上它们的步子。向前走吧。"
+    ]
+   }
+  },
+  "kanto/pokemon_league_lances_room": {
+   "6,8": {
+    "role": "league_lances",
+    "name": "阿渡",
+    "flag": "",
+    "gfx": "fr_lance",
+    "lines": [
+     "你战胜了四天王，但还有一个人比你先到。冠军正在前面等你。"
+    ]
+   }
+  },
+  "kanto/pokemon_league_champions_room": {
+   "6,8": {
+    "role": "league_champions",
+    "name": "小茂",
+    "flag": "",
+    "gfx": "fr_blue",
+    "lines": [
+     "明明已经赢过四天王了……原来我还得学会相信自己的伙伴。"
+    ]
+   },
+   "6,15": {
+    "role": "champ_oak",
+    "name": "大木博士",
+    "flag": "",
+    "gfx": "oak",
+    "appear": [
+     "kanto_champions_win"
+    ],
+    "lines": [
+     "你与每一位伙伴一同取得的成绩，值得永远留在名人堂。来吧。"
+    ]
+   }
+  },
+  "kanto/pokemon_league_hall_of_fame": {
+   "6,4": {
+    "role": "kanto_record",
+    "name": "大木博士",
+    "flag": "",
+    "gfx": "oak",
+    "lines": [
+     "你和伙伴们的名字都留在这里。"
+    ]
+   }
+  },
+  "kanto/cinnabarisland_gym": {
+   "25,11": {
+    "role": "quiz_quinn",
+    "name": "窃贼 奎因",
+    "flag": "",
+    "gfx": "man",
+    "lines": [
+     "这扇门已经打开了。夏伯就在最里面。"
+    ]
+   },
+   "17,5": {
+    "role": "quiz_avery",
+    "name": "理科男 艾弗里",
+    "flag": "",
+    "gfx": "scientist",
+    "lines": [
+     "这扇门已经打开了。夏伯就在最里面。"
+    ]
+   },
+   "16,11": {
+    "role": "quiz_ramon",
+    "name": "窃贼 拉蒙",
+    "flag": "",
+    "gfx": "man",
+    "lines": [
+     "这扇门已经打开了。夏伯就在最里面。"
+    ]
+   },
+   "16,18": {
+    "role": "quiz_derek",
+    "name": "理科男 德里克",
+    "flag": "",
+    "gfx": "scientist",
+    "lines": [
+     "这扇门已经打开了。夏伯就在最里面。"
+    ]
+   },
+   "4,19": {
+    "role": "quiz_dusty",
+    "name": "窃贼 达斯蒂",
+    "flag": "",
+    "gfx": "man",
+    "lines": [
+     "这扇门已经打开了。夏伯就在最里面。"
+    ]
+   },
+   "4,11": {
+    "role": "quiz_zac",
+    "name": "理科男 扎克",
+    "flag": "",
+    "gfx": "scientist",
+    "lines": [
+     "这扇门已经打开了。夏伯就在最里面。"
+    ]
+   }
+  },
+  "kanto/kanto_main": {
+   "265,53": {
+    "role": "cerulean_cave_guard",
+    "name": "洞口的训练家",
+    "flag": "",
+    "add": true,
+    "gfx": "cooltrainer_m",
+    "disappear": "sevii_network_online",
+    "lines": [
+     "这座洞穴里住着极强的宝可梦。成为冠军、协助锦辉修好七岛的网络机器后，我会为你让路。"
+    ]
+   },
+   "288,15": {
+    "role": "nugget_recruiter",
+    "name": "桥上的招募员",
+    "flag": "",
+    "add": true,
+    "gfx": "team_rocket_m",
+    "disappear": "ss_ticket",
+    "lines": [
+     "你这样的训练家真不该离开火箭队。"
+    ]
+   }
+  },
+  "kanto/ceruleancave_b1f": {
+   "7,12": {
+    "role": "cave_mewtwo",
+    "name": "超梦",
+    "flag": "",
+    "gfx": "fr_mewtwo",
+    "appear": [
+     "sevii_network_online"
+    ],
+    "disappear": "kanto_mewtwo_cleared"
+   }
+  },
+  "kanto/pewtercity_museum1f": {
+   "21,3": {
+    "role": "museum_amber",
+    "name": "博物馆研究员",
+    "flag": "",
+    "gfx": "scientist",
+    "lines": [
+     "树脂里封着古代宝可梦的遗传物质。把琥珀带给红莲研究所的人吧。"
+    ]
+   }
+  },
+  "kanto/cinnabar_island_pokemon_lab_experiment_room": {
+   "12,3": {
+    "role": "fossil_researcher",
+    "name": "化石研究员",
+    "flag": "",
+    "gfx": "scientist",
+    "lines": [
+     "月见山的化石或尼比的琥珀都可以交给我。等你出去走走，再回来取复原的宝可梦。"
+    ]
+   }
+  },
+  "kanto/s_s_anne_exterior": {
+   "30,16": {
+    "role": "anne_ship",
+    "name": "圣安奴号",
+    "flag": "",
+    "gfx": "fr_ss_anne",
+    "disappear": "anne_departed",
+    "lines": [
+     "白色客轮停在码头，甲板入口就在栈桥的尽头。"
+    ]
+   }
+  },
+  "kanto/vermilion_city_pokemon_fan_club": {
+   "5,4": {
+    "role": "fan_chair",
+    "name": "爱好俱乐部会长",
+    "flag": "",
+    "gfx": "gentleman",
+    "lines": [
+     "我的烈焰马又长高了一点！下次来再说给你听吧。"
+    ]
+   }
+  },
+  "kanto/ceruleancity_bikeshop": {
+   "9,3": {
+    "role": "bike_clerk",
+    "name": "自行车店员",
+    "flag": "",
+    "add": true,
+    "gfx": "clerk",
+    "lines": [
+     "欢迎光临华蓝自行车店。枯叶市宝可梦爱好俱乐部发的兑换券可以换一辆车。"
+    ]
+   }
+  }
+ },
+ "quizzes": [
+  {
+   "question": "绿毛虫会进化成铁甲蛹吗？",
+   "answer": true,
+   "role": "quiz_quinn"
+  },
+  {
+   "question": "关都联盟认证的道馆徽章一共有九枚吗？",
+   "answer": false,
+   "role": "quiz_avery"
+  },
+  {
+   "question": "蚊香蝌蚪能连续进化三次吗？",
+   "answer": false,
+   "role": "quiz_ramon"
+  },
+  {
+   "question": "电属性招式能击中一般状态的地面属性宝可梦吗？",
+   "answer": false,
+   "role": "quiz_derek"
+  },
+  {
+   "question": "种类和等级相同的宝可梦，能力也可能有所不同吗？",
+   "answer": true,
+   "role": "quiz_dusty"
+  },
+  {
+   "question": "关都的招式学习器28，教的是叫作「墓碑」的招式吗？",
+   "answer": false,
+   "role": "quiz_zac"
+  }
+ ],
+ "badge_gates": {
+  "route22_north_entrance": {
+   "7,2": 0
+  },
+  "kanto_main": {
+   "13,179": 1,
+   "7,170": 2,
+   "12,153": 3,
+   "11,141": 4,
+   "9,124": 5,
+   "12,91": 6,
+   "1,65": 7,
+   "1,64": 7,
+   "1,62": 7,
+   "1,63": 7,
+   "1,61": 7,
+   "1,66": 7,
+   "5,65": 7,
+   "4,65": 7,
+   "10,90": 6,
+   "13,91": 6,
+   "11,90": 6,
+   "8,124": 5,
+   "5,122": 5,
+   "7,124": 5,
+   "4,122": 5,
+   "3,122": 5,
+   "2,122": 5,
+   "4,169": 2,
+   "5,169": 2,
+   "6,170": 2,
+   "10,152": 3,
+   "11,152": 3,
+   "13,153": 3,
+   "8,139": 4,
+   "9,139": 4,
+   "10,139": 4,
+   "11,139": 4,
+   "12,139": 4,
+   "12,141": 4,
+   "14,142": 4,
+   "13,142": 4,
+   "15,142": 4,
+   "12,178": 1,
+   "11,178": 1,
+   "14,179": 1,
+   "10,178": 1
+  }
+ }
+}

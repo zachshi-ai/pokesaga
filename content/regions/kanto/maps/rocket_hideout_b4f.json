@@ -123,8 +123,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM49",
-   "name": "ITEM_TM49",
-   "category": "other",
+   "name": "招式学习器 49",
+   "category": "tm",
    "sprite": "ball"
   },
   {

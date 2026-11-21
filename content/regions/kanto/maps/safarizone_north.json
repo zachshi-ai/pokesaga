@@ -156,8 +156,81 @@
    "trigger": "door"
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 111,
+   "min": 26,
+   "max": 26,
+   "weight": 20
+  },
+  {
+   "species": 32,
+   "min": 30,
+   "max": 30,
+   "weight": 20
+  },
+  {
+   "species": 102,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  },
+  {
+   "species": 102,
+   "min": 27,
+   "max": 27,
+   "weight": 10
+  },
+  {
+   "species": 46,
+   "min": 23,
+   "max": 23,
+   "weight": 10
+  },
+  {
+   "species": 33,
+   "min": 30,
+   "max": 30,
+   "weight": 10
+  },
+  {
+   "species": 30,
+   "min": 30,
+   "max": 30,
+   "weight": 5
+  },
+  {
+   "species": 49,
+   "min": 32,
+   "max": 32,
+   "weight": 5
+  },
+  {
+   "species": 46,
+   "min": 23,
+   "max": 23,
+   "weight": 4
+  },
+  {
+   "species": 113,
+   "min": 26,
+   "max": 26,
+   "weight": 4
+  },
+  {
+   "species": 46,
+   "min": 23,
+   "max": 23,
+   "weight": 1
+  },
+  {
+   "species": 128,
+   "min": 28,
+   "max": 28,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.21,
  "objects": [
   {
    "at": [
@@ -177,8 +250,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM47",
-   "name": "ITEM_TM47",
-   "category": "other",
+   "name": "招式学习器 47",
+   "category": "tm",
    "sprite": "ball"
   },
   {
@@ -188,9 +261,10 @@
    ],
    "kind": "item",
    "item": "ITEM_QUICK_CLAW",
-   "name": "ITEM_QUICK_CLAW",
-   "category": "other",
-   "sprite": "ball"
+   "name": "先制之爪",
+   "category": "held",
+   "sprite": "ball",
+   "held": "QUICK_CLAW"
   },
   {
    "at": [
@@ -240,5 +314,73 @@
  ],
  "weather": "none",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "fishing": [
+  [
+   {
+    "species": 129,
+    "min": 5,
+    "max": 5,
+    "weight": 70
+   },
+   {
+    "species": 129,
+    "min": 5,
+    "max": 5,
+    "weight": 30
+   }
+  ],
+  [
+   {
+    "species": 118,
+    "min": 5,
+    "max": 15,
+    "weight": 60
+   },
+   {
+    "species": 129,
+    "min": 5,
+    "max": 15,
+    "weight": 20
+   },
+   {
+    "species": 60,
+    "min": 5,
+    "max": 15,
+    "weight": 20
+   }
+  ],
+  [
+   {
+    "species": 118,
+    "min": 15,
+    "max": 25,
+    "weight": 40
+   },
+   {
+    "species": 119,
+    "min": 20,
+    "max": 30,
+    "weight": 40
+   },
+   {
+    "species": 147,
+    "min": 15,
+    "max": 25,
+    "weight": 15
+   },
+   {
+    "species": 54,
+    "min": 15,
+    "max": 35,
+    "weight": 4
+   },
+   {
+    "species": 148,
+    "min": 25,
+    "max": 35,
+    "weight": 1
+   }
+  ]
+ ]
 }

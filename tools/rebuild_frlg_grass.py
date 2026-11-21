@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild FireRed outdoor encounter tiles from pret/pokefirered layout data."""
+"""Rebuild FireRed grass tiles and land and fishing encounter tables from pret/pokefirered layout data."""
 import argparse
 import json
 import struct
@@ -23,8 +23,8 @@ def grass_grid(source, layout, primary, secondary, sizes):
     for (block,) in struct.iter_unpack("<H", raw):
         tile = block & 0x3FF
         table, index = (primary, tile) if tile < len(primary) else (secondary, tile - len(primary))
-        behavior = table[index] & 0x1FF
-        grass.append(int(behavior in (0x02, 0xD1)))  # MB_TALL_GRASS / cycling-road encounter grass
+        # fieldmap.c extracts METATILE_ATTRIBUTE_ENCOUNTER_TYPE from bits 24–26.
+        grass.append(int(((table[index] >> 24) & 7) == 1))
     return [grass[i:i + width] for i in range(0, len(grass), width)]
 
 
@@ -36,9 +36,44 @@ def build(source, project):
     members = composed["member_maps"]
     field = read(project / "content/regions/kanto/maps/kanto_main.json")
     targets = {"LAYOUT_" + zone["name"] for zone in field["zones"] if zone.get("encounters")}
+    wild_group = read(source / "src/data/wild_encounters.json")["wild_encounter_groups"][0]
+    land_weights = next(f["encounter_rates"] for f in wild_group["fields"] if f["type"] == "land_mons")
+    species = {s["key"]: s["id"] for s in read(project / "content/species.json")}
+    rod_field = next(f for f in wild_group["fields"] if f["type"] == "fishing_mons")
+    fishing = {}
+    encounters = {}
+    for row in wild_group["encounters"]:
+        if row.get("fishing_mons") and row["base_label"].endswith("_FireRed"):
+            key = row["map"].removeprefix("MAP_").replace("_", "").lower()
+            slots = row["fishing_mons"]["mons"]
+            fishing[key] = [[{"species": species[slots[i]["species"].removeprefix("SPECIES_")],
+                              "min": slots[i]["min_level"], "max": slots[i]["max_level"],
+                              "weight": rod_field["encounter_rates"][i]} for i in indices]
+                            for indices in [rod_field["groups"][rod] for rod in ("old_rod", "good_rod", "super_rod")]]
+        if row.get("land_mons") and row["base_label"].endswith("_FireRed"):
+            encounters[row["map"].removeprefix("MAP_").replace("_", "").lower()] = row["land_mons"]
     for region in ("kanto", "sevii"):
         for file in (project / "content/regions" / region / "maps").glob("*.json"):
             entry = read(file)
+            if file.stem == "kanto_main":
+                for area in entry["areas"]:
+                    member = next((key for key, xy in members.items() if xy == [area["x0"],area["y0"]]), "")
+                    table = fishing.get(member.replace("_","").lower())
+                    if table: area["fishing"] = table
+            else:
+                table = fishing.get(file.stem.replace("_", ""))
+                if table: entry["fishing"] = table
+            land = encounters.get(file.stem.replace("_","")) or encounters.get(str(entry.get("emerald","")).replace("_",""))
+            if land:
+                mons = [{"species": species[m["species"].removeprefix("SPECIES_")], "min": m["min_level"],
+                         "max": m["max_level"], "weight": w} for m,w in zip(land["mons"], land_weights)]
+                if entry.get("encounters") != mons or not entry.get("encounter_rate"):
+                    entry["encounters"] = mons
+                    entry["encounter_rate"] = round(land["encounter_rate"] / 100.0, 3)
+            original = file.read_text()
+            if json.loads(original) != entry:
+                style = {"indent":1} if original.startswith("{\n") else {"separators":(",",":")}
+                file.write_text(json.dumps(entry, ensure_ascii=False, **style) + ("\n" if original.endswith("\n") else ""))
             if entry.get("encounters") and entry.get("emerald"):
                 target = base / (entry["emerald"] + ".json")
                 if target.exists():

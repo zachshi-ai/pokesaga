@@ -637,8 +637,8 @@
    ],
    "kind": "item",
    "item": "ITEM_KINGS_ROCK",
-   "name": "ITEM_KINGS_ROCK",
-   "category": "other",
+   "name": "王者之证",
+   "category": "evo",
    "sprite": "ball"
   },
   {

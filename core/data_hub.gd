@@ -3,6 +3,10 @@ extends Node
 ## 加一个地区 = 加一个目录 + 一份 region.json，内核不需要改动。
 
 const REGION_TRANSFER_ITEM := "地区转移器"
+const FIELD_BATTLE_ITEMS := {
+	"X_ACCURACY":"命中强化", "X_ATTACK":"力量强化", "X_DEFEND":"防御强化",
+	"X_SPECIAL":"特攻强化", "X_SPEED":"速度强化", "DIRE_HIT":"要害攻击", "GUARD_SPEC":"能力防守"
+}
 
 var species: Dictionary = {}          # id:int -> 种族数据
 var moves: Dictionary = {}            # id:int -> 招式数据
@@ -17,7 +21,10 @@ var hms: Dictionary = {}              # 秘传学习器 key -> {name, move}
 var tera_shards: Dictionary = {}      # 太晶碎块：属性 -> 道具名
 var berries: Dictionary = {}          # 树果 key -> 中文名
 var held_items: Dictionary = {}       # 携带道具 key -> {name, desc}
+var evo_keys_by_name: Dictionary = {}
 var evo_items: Dictionary = {}        # 进化道具 key -> 中文名
+var held_keys_by_name: Dictionary = {}
+var training_values: Dictionary = {}
 var ability_effects: Dictionary = {}  # 特性名 -> 数值化效果（见 content/ability_effects.json）
 var gmax_effects: Dictionary = {}     # 超极巨专属招式的附加效果
 
@@ -67,6 +74,8 @@ func load_core_tables() -> bool:
 		for it in held:
 			if it is Dictionary:
 				held_items[String((it as Dictionary).get("key", ""))] = it
+				held_keys_by_name[str(it.name)] = str(it.key)
+	training_values = load_json("res://content/training_values.json")
 	var tm_table = load_json("res://content/tm_map.json")
 	if tm_table is Dictionary:
 		tm_map = tm_table
@@ -84,6 +93,9 @@ func load_core_tables() -> bool:
 	var ev = load_json("res://content/evo_items.json")
 	if ev is Dictionary:
 		evo_items = ev
+		evo_keys_by_name.clear()
+		for key in evo_items:
+			evo_keys_by_name[evo_items[key]] = key
 
 	var ge = load_json("res://content/gmax_effects.json")
 	if ge is Dictionary:
@@ -187,11 +199,13 @@ func apply_species_overrides(ov: Dictionary) -> void:
 ## 商店货架：也走数据，加商品不用改界面
 const SHOP_PATH := "res://content/shop.json"
 
-func load_shop() -> Array:
+func load_shop(region_id := "") -> Array:
 	var rows = load_json(SHOP_PATH)
 	if rows == null or not (rows is Array):
 		return []
-	return rows
+	if region_id.is_empty():
+		return rows
+	return rows.filter(func(g): return str(g.get("region", region_id)) == region_id)
 
 func species_of(species_id: int) -> Dictionary:
 	return species.get(species_id, {})
@@ -296,6 +310,63 @@ func item_name(key: String) -> String:
 
 func evo_item_name(key: String) -> String:
 	return String(evo_items.get(key.replace("ITEM_", ""), key.replace("ITEM_", "")))
+
+## The item ID is shared by map pickups, the shop, bag slots and evolution rules.
+func evo_item_key(value: String) -> String:
+	var key := value.trim_prefix("ITEM_")
+	if key == "UP_GRADE":
+		key = "UPGRADE"
+	if evo_items.has(key):
+		return key
+	return str(evo_keys_by_name.get(value, ""))
+
+func bag_evo_key(row: Dictionary) -> String:
+	for field in ["evo", "item", "name"]:
+		var key := evo_item_key(str(row.get(field, "")))
+		if not key.is_empty():
+			return key
+	return ""
+
+func field_item_fields(row: Dictionary) -> Dictionary:
+	var evo_key := bag_evo_key(row)
+	if not evo_key.is_empty():
+		return {"name":evo_item_name(evo_key), "category":"evo", "evo":evo_key}
+	var name := str(row.get("name", ""))
+	var key := str(row.get("item", name)).trim_prefix("ITEM_")
+	var machine := ""
+	if key.length() == 4 and key.right(2).is_valid_int():
+		if key.begins_with("TM"): machine = "招式学习器 " + key.right(2)
+		if key.begins_with("HM"): machine = "秘传学习器 " + key.right(2)
+	if tm_map.has(name): machine = name
+	if tm_map.has(machine): return {"name":machine, "category":"tm"}
+	if FIELD_BATTLE_ITEMS.has(key): return {"name":FIELD_BATTLE_ITEMS[key], "category":"battle"}
+	if name in FIELD_BATTLE_ITEMS.values(): return {"name":name, "category":"battle"}
+	var held := str(row.get("held", key))
+	if not held_items.has(held) and held_keys_by_name.has(name):
+		held = str(held_keys_by_name[name])
+	if held_items.has(held):
+		return {"name":item_name(held), "category":"held", "held":held}
+	return {}
+
+func normalize_bag(bag: Array) -> Array:
+	var result := []
+	var stacks := {}
+	for old in bag:
+		if not old is Dictionary:
+			continue
+		var fields := field_item_fields(old)
+		if fields.is_empty():
+			result.append(old)
+			continue
+		var name := str(fields.name)
+		if not stacks.has(name):
+			var row: Dictionary = old.duplicate()
+			row.merge(fields, true)
+			row["count"] = 0
+			stacks[name] = row
+			result.append(row)
+		stacks[name]["count"] += maxi(0, int(old.get("count", 0)))
+	return result
 
 ## 超极巨专属招式的附加效果；没有就返回空
 func gmax_effect(move_id: int) -> Dictionary:

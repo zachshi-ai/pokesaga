@@ -1,0 +1,315 @@
+[
+  {
+    "id": "oak_national_escort",
+    "trigger": {
+      "type": "map_enter",
+      "map": "kanto_main",
+      "at": [
+        66,
+        268
+      ]
+    },
+    "require": {
+      "flags_all": [
+        "got_dex",
+        "kanto_champion",
+        "sevii_visit_started",
+        "sevii_dex_ready"
+      ],
+      "flags_none": [
+        "national_dex"
+      ]
+    },
+    "steps": [
+      {
+        "scene_cast": "home_oak"
+      },
+      {
+        "who": "大木博士",
+        "say": [
+          "回来了啊！你的图鉴已经登记了六十种以上。跟我来研究所，我有样东西想给你看。"
+        ]
+      },
+      {
+        "warp": {
+          "region": "kanto",
+          "map": "pallettown_professoroakslab",
+          "at": [
+            6,
+            4
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "oak_national_home_hint",
+    "trigger": {
+      "type": "map_enter",
+      "map": "kanto_main",
+      "at": [
+        66,
+        268
+      ]
+    },
+    "require": {
+      "flags_all": [
+        "got_dex",
+        "kanto_champion"
+      ],
+      "flags_none": [
+        "national_dex"
+      ]
+    },
+    "steps": [
+      {
+        "scene_cast": "home_oak"
+      },
+      {
+        "who": "大木博士",
+        "say": [
+          "回来了啊！到一之岛走走，再捕获六十种不同的关都宝可梦。等你准备好，到研究所来找我。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "oak_national_dex",
+    "trigger": {
+      "type": "talk",
+      "map": "pallettown_professoroakslab",
+      "actor": "lab_oak"
+    },
+    "require": {
+      "flags_all": [
+        "got_dex",
+        "kanto_champion",
+        "sevii_dex_ready",
+        "sevii_visit_started"
+      ],
+      "flags_none": [
+        "national_dex"
+      ]
+    },
+    "steps": [
+      {
+        "who": "大木博士",
+        "say": [
+          "最近有人在关都之外见到了图鉴里没有的宝可梦。你捕获的种类已经够多，可以帮我调查了。"
+        ]
+      },
+      {
+        "scene_cast": "lab_reunion"
+      },
+      {
+        "who": "小茂",
+        "say": [
+          "爷爷，你怎么招呼也不打一声？调查图鉴也有我的份吧！"
+        ]
+      },
+      {
+        "who": "大木博士",
+        "say": [
+          "当然。把你们两个的图鉴都拿来。",
+          "好了！切换到全国编号，就能继续记录新的发现了。"
+        ]
+      },
+      {
+        "flag": "national_dex"
+      },
+      {
+        "who": "小茂",
+        "say": [
+          "我要先出发了。这次就比比谁先收集齐吧！"
+        ]
+      }
+    ],
+    "also": [
+      {
+        "type": "step",
+        "map": "pallettown_professoroakslab",
+        "area": [
+          6,
+          4,
+          7,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "id": "oak_national_hint",
+    "trigger": {
+      "type": "talk",
+      "map": "pallettown_professoroakslab",
+      "actor": "lab_oak"
+    },
+    "require": {
+      "flags_all": [
+        "got_dex",
+        "kanto_champion",
+        "sevii_visit_started"
+      ],
+      "flags_none": [
+        "national_dex"
+      ]
+    },
+    "steps": [
+      {
+        "who": "大木博士",
+        "say": [
+          "捕获六十种不同的关都宝可梦，再把图鉴拿来给我。进化得到的伙伴也算。"
+        ]
+      }
+    ],
+    "once": false
+  },
+  {
+    "id": "bill_sevii_invitation",
+    "trigger": {
+      "type": "map_enter",
+      "map": "kanto_main",
+      "at": [
+        80,
+        385
+      ]
+    },
+    "require": {
+      "flags_all": [
+        "sevii_blaine_badge"
+      ],
+      "flags_none": [
+        "sevii_visit_started",
+        "sevii_bill_waits"
+      ]
+    },
+    "steps": [
+      {
+        "who": "正辉",
+        "say": [
+          "哟！夏伯说你已经拿到徽章了。一之岛的朋友邀我去帮忙修理宝可梦网络。"
+        ]
+      },
+      {
+        "choice": {
+          "who": "正辉",
+          "say": [
+            "船已经靠岸了，要现在和我一起去一之岛吗？"
+          ],
+          "accept": "现在出发",
+          "decline": "以后再去",
+          "yes": [
+            {
+              "who": "正辉",
+              "say": [
+                "来啦！船马上就开。我的朋友锦辉在一之岛，正等我们去网络中心。"
+              ]
+            },
+            {
+              "flag": "sevii_visit_started"
+            },
+            {
+              "warp": {
+                "region": "sevii",
+                "map": "one_island_pokemon_center_1f",
+                "at": [
+                  14,
+                  7
+                ]
+              }
+            }
+          ],
+          "no": [
+            {
+              "who": "正辉",
+              "say": [
+                "那好，我在红莲岛的宝可梦中心等你。准备好了再来。"
+              ]
+            },
+            {
+              "flag": "sevii_bill_waits"
+            }
+          ]
+        }
+      }
+    ],
+    "also": [
+      {
+        "type": "talk",
+        "map": "kanto_main",
+        "actor": "sevii_bill_outside"
+      },
+      {
+        "type": "step",
+        "map": "kanto_main",
+        "area": [
+          79,
+          385,
+          82,
+          387
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bill_sevii_board",
+    "trigger": {
+      "type": "talk",
+      "map": "cinnabarisland_pokemoncenter_1f",
+      "actor": "sevii_bill_port"
+    },
+    "require": {
+      "flags_all": [
+        "sevii_blaine_badge"
+      ],
+      "flags_none": [
+        "sevii_visit_started"
+      ]
+    },
+    "once": false,
+    "steps": [
+      {
+        "choice": {
+          "who": "正辉",
+          "say": [
+            "船已经靠岸了，要现在和我一起去一之岛吗？"
+          ],
+          "accept": "现在出发",
+          "decline": "以后再去",
+          "yes": [
+            {
+              "who": "正辉",
+              "say": [
+                "来啦！船马上就开。我的朋友锦辉在一之岛，正等我们去网络中心。"
+              ]
+            },
+            {
+              "flag": "sevii_visit_started"
+            },
+            {
+              "warp": {
+                "region": "sevii",
+                "map": "one_island_pokemon_center_1f",
+                "at": [
+                  14,
+                  7
+                ]
+              }
+            }
+          ],
+          "no": [
+            {
+              "who": "正辉",
+              "say": [
+                "那好，我在红莲岛的宝可梦中心等你。准备好了再来。"
+              ]
+            },
+            {
+              "flag": "sevii_bill_waits"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

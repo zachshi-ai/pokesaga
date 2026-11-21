@@ -115,9 +115,10 @@
    ],
    "kind": "item",
    "item": "ITEM_SEA_INCENSE",
-   "name": "ITEM_SEA_INCENSE",
-   "category": "other",
-   "sprite": "ball"
+   "name": "海潮薰香",
+   "category": "held",
+   "sprite": "ball",
+   "held": "SEA_INCENSE"
   }
  ],
  "weather": "fog_horizontal",

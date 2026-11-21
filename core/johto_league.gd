@@ -28,9 +28,9 @@ func gate_message(room: String, save: Dictionary) -> String:
 			return "请先战胜%s。" % String(opponent.name)
 	return ""
 
-func register_team(save: Dictionary) -> void:
+func register_team(save: Dictionary, region := "johto") -> void:
 	var hall: Dictionary = save.get("hall_of_fame", {})
-	if hall.has("johto"):
+	if hall.has(region):
 		return
 	var team: Array = []
 	for mon in save.get("party", []):
@@ -40,15 +40,15 @@ func register_team(save: Dictionary) -> void:
 				"shiny": bool(mon.get("shiny", false)),
 				"shiny_kind": String(mon.get("shiny_kind", "star" if mon.get("shiny", false) else "none"))})
 	if not team.is_empty():
-		hall["johto"] = team
+		hall[region] = team
 		save["hall_of_fame"] = hall
-		save["flags"]["johto_champion"] = true
+		save["flags"][region+"_champion"] = true
 
-func record_lines(save: Dictionary) -> Array:
-	var team: Array = (save.get("hall_of_fame", {}) as Dictionary).get("johto", [])
+func record_lines(save: Dictionary, region := "johto") -> Array:
+	var team: Array = (save.get("hall_of_fame", {}) as Dictionary).get(region, [])
 	if team.is_empty():
 		return ["这里记录着战胜四天王和冠军的队伍。"]
-	var lines := ["城都联盟 · 首次冠军队伍"]
+	var lines := [("关都" if region=="kanto" else "城都")+"联盟 · 首次冠军队伍"]
 	for mon in team:
 		lines.append("%s　Lv.%d" % [String(mon.name), int(mon.level)])
 	return lines

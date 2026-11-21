@@ -74,8 +74,9 @@ static func make(species_id: int, level: int, move_ids: Array, form_key: String 
 	var ty_list: Array = sp.get("types", [])
 	if not ty_list.is_empty():
 		tera = String(ty_list[0])
-	return {
+	var mon := {
 		"species_id": species_id,
+		"friendship": int(Data.training_values.get(str(species_id), {}).get("friendship", 70)),
 		"form": form_key,
 		"tera_type": tera,
 		"berry": berry,
@@ -96,6 +97,10 @@ static func make(species_id: int, level: int, move_ids: Array, form_key: String 
 		"shiny": false,
 		"shiny_kind": "none",
 	}
+
+	if species_id in [280, 281, 282, 361, 362]:
+		mon["sex"] = "female" if randi() % 2 == 0 else "male"
+	return mon
 
 ## 进化：换物种、按新种族值重算、保留等级与当前血量比例
 static func evolve(m: Dictionary, to_species: int, to_form := "") -> bool:
@@ -137,7 +142,8 @@ static func recalc(m: Dictionary, keep_ratio: bool = false) -> void:
 	var old_hp := int(m.get("hp", 0))
 	# 增强剂加的是基础点，独立存在 plus 里，换形态/升级都跟着走
 	var plus: Dictionary = m.get("plus", {}) if m.get("plus", {}) is Dictionary else {}
-	var max_hp := int((2 * (int(base.get("hp", 1)) + int(plus.get("hp", 0))) + 31) * lv / 100.0) + lv + 10
+	var effort: Dictionary = m.get("effort", {})
+	var max_hp := int((2 * (int(base.get("hp", 1)) + int(plus.get("hp", 0))) + 31 + int(effort.get("hp", 0)) / 4) * lv / 100.0) + lv + 10
 	m["max_hp"] = max_hp
 	if keep_ratio and old_max > 0:
 		m["hp"] = clampi(int(round(float(old_hp) / old_max * max_hp)), 0, max_hp)
@@ -145,11 +151,11 @@ static func recalc(m: Dictionary, keep_ratio: bool = false) -> void:
 		m["hp"] = clampi(old_hp, 0, max_hp)
 	m["hp_text"] = "%d/%d" % [int(m["hp"]), max_hp]
 	m["stats"] = {
-		"atk": int((2 * (int(base.get("atk", 1)) + int(plus.get("atk", 0))) + 31) * lv / 100.0) + 5,
-		"def": int((2 * (int(base.get("def", 1)) + int(plus.get("def", 0))) + 31) * lv / 100.0) + 5,
-		"spa": int((2 * (int(base.get("spa", 1)) + int(plus.get("spa", 0))) + 31) * lv / 100.0) + 5,
-		"spd": int((2 * (int(base.get("spd", 1)) + int(plus.get("spd", 0))) + 31) * lv / 100.0) + 5,
-		"spe": int((2 * (int(base.get("spe", 1)) + int(plus.get("spe", 0))) + 31) * lv / 100.0) + 5,
+		"atk": int((2 * (int(base.get("atk", 1)) + int(plus.get("atk", 0))) + 31 + int(effort.get("atk", 0)) / 4) * lv / 100.0) + 5,
+		"def": int((2 * (int(base.get("def", 1)) + int(plus.get("def", 0))) + 31 + int(effort.get("def", 0)) / 4) * lv / 100.0) + 5,
+		"spa": int((2 * (int(base.get("spa", 1)) + int(plus.get("spa", 0))) + 31 + int(effort.get("spa", 0)) / 4) * lv / 100.0) + 5,
+		"spd": int((2 * (int(base.get("spd", 1)) + int(plus.get("spd", 0))) + 31 + int(effort.get("spd", 0)) / 4) * lv / 100.0) + 5,
+		"spe": int((2 * (int(base.get("spe", 1)) + int(plus.get("spe", 0))) + 31 + int(effort.get("spe", 0)) / 4) * lv / 100.0) + 5,
 	}
 
 ## 把队伍压紧：空槽剔除、补齐到 MAX_SIZE 个 {}，并刷新 hp_text

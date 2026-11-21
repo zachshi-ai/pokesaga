@@ -544,20 +544,40 @@ func _do_transform(form_key: String) -> void:
 
 const BALL_BONUS := {"精灵球": 1.0, "超级球": 1.5, "高级球": 2.0, "大师球": 255.0}
 
-## 投球面板：只列背包里数量>0 的球，别的道具战斗中不给用
+## Share the field bag with battle. Trainer battles only allow battle supplies.
 func _open_balls() -> void:
 	if state != "menu": return
-	if trainer_name != "":
-		_open_commands("bag","训练家对战不能投球。")
+	var choices: Array = bag.filter(func(it):
+		return it is Dictionary and int(it.get("count", 0)) > 0 and (
+			(trainer_name.is_empty() and BALL_BONUS.has(str(it.get("name", "")))) or
+			str(it.get("name", "")) in Data.FIELD_BATTLE_ITEMS.values()))
+	if not trainer_name.is_empty() and choices.is_empty():
+		_open_commands("bag", "训练家对战不能投球。")
 		return
-	var balls: Array = bag.filter(func(it): return it is Dictionary and it.get("category","") == "ball" and int(it.get("count",0)) > 0)
-	var list := _list_sheet("BallPanel","选择精灵球",balls.size())
-	if balls.is_empty():
-		_empty(list,"背包里没有精灵球。")
-	for it in balls:
-		var ball_name := str(it.get("name","精灵球"))
-		_row(list,"%s    ×%d" % [ball_name,it.get("count",0)],_throw.bind(ball_name))
+	var list := _list_sheet("BallPanel", "战斗背包", choices.size())
+	if choices.is_empty():
+		_empty(list, "训练家对战不能投球。" if not trainer_name.is_empty() else "没有可用的战斗道具。")
+	for item in choices:
+		var item_name := str(item.name)
+		var action := _throw.bind(item_name) if BALL_BONUS.has(item_name) else _use_booster.bind(item_name)
+		_row(list, "%s    ×%d" % [item_name, item.count], action)
 
+func _use_booster(item_name: String) -> void:
+	if not bag.any(func(it): return it is Dictionary and it.get("name", "") == item_name and int(it.get("count", 0)) > 0):
+		return
+	var key := str(Data.FIELD_BATTLE_ITEMS.find_key(item_name))
+	if not battle.use_battle_item("a", key):
+		_open_commands("bag", "现在使用没有效果。")
+		return
+	_begin_resolve()
+	pending.clear()
+	pending.append("使用了%s！" % item_name)
+	pending.append_array(battle.log)
+	battle.log.clear()
+	item_used.emit(item_name)
+	_queue_turn("item", "move:0")
+	msg.text = ""
+	wait = _dur(0.1)
 
 func _throw(ball_name: String) -> void:
 	_begin_resolve()

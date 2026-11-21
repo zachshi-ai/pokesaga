@@ -95,6 +95,13 @@ func run() -> void:
 	place("kanto_main",Vector2i(286,231))
 	game._move("left")
 	frames(35)
+	check(game.world.map_data.id == "kanto_main" and not game._dialogs.is_empty(),"no pass bars boarding")
+	game._close_all_dialogs()
+	game._flags().sevii_meteorite_errand=true
+	game._give_item("三岛通行证",1,"key")
+	place("kanto_main",Vector2i(286,231))
+	game._move("left")
+	frames(35)
 	var harbors := ["one_island","two_island","three_island","four_island","five_island",
 		"six_island","seven_island","navel_rock","birth_island"]
 	for i in harbors.size():
@@ -102,11 +109,25 @@ func run() -> void:
 		for direction in ["left","down","down","left"]:
 			game._move(direction)
 			frames(35)
+		if i == 2 or i == 6:
+			check(game.world.map_data.id == harbors[i]+"_harbor" and not game._dialogs.is_empty(),"next route requires upgraded ticket")
+			game._close_all_dialogs()
+			if i == 2:
+				game.bag_items = game.bag_items.filter(func(row):return row.name!="三岛通行证")
+				game._give_item("彩虹通行证",1,"key")
+				game._flags().delivered_ember_ruby=true
+			else:
+				game._flags().sevii_special_tickets=true
+				game._give_item("神秘船票",1,"key")
+				game._give_item("极光船票",1,"key")
+			game._move("left")
+			frames(35)
 	check(at("one_island_harbor",Vector2i(8,3)),"round trip to first island")
 	for direction in ["right","down","down","right"]:
 		game._move(direction)
 		frames(35)
 	check(at("kanto_main",Vector2i(286,231)),"return from Sevii on the original pier")
+	game._flags().ss_ticket=true
 	place("kanto_main",Vector2i(287,234))
 	game._move("down")
 	frames(35)

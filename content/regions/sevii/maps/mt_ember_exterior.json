@@ -360,7 +360,7 @@
    "kind": "item",
    "item": "ITEM_FIRE_STONE",
    "name": "火之石",
-   "category": "other",
+   "category": "evo",
    "sprite": "ball"
   },
   {
@@ -370,8 +370,8 @@
    ],
    "kind": "item",
    "item": "ITEM_DIRE_HIT",
-   "name": "ITEM_DIRE_HIT",
-   "category": "other",
+   "name": "要害攻击",
+   "category": "battle",
    "sprite": "ball"
   },
   {
@@ -382,7 +382,7 @@
    "kind": "hidden",
    "item": "ITEM_FIRE_STONE",
    "name": "火之石",
-   "category": "other",
+   "category": "evo",
    "flag": "FLAG_HIDDEN_ITEM_MT_EMBER_EXTERIOR_FIRE_STONE",
    "count": 1
   },

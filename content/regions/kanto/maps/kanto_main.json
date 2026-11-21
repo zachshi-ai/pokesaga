@@ -9755,7 +9755,75 @@
    "x1": 84,
    "y0": 260,
    "y1": 280,
-   "name": "真新镇"
+   "name": "真新镇",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 10,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 10,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 98,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 90,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 117,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 60,
@@ -9769,21 +9837,225 @@
    "x1": 84,
    "y0": 280,
    "y1": 330,
-   "name": "ROUTE21_NORTH"
+   "name": "ROUTE21_NORTH",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 98,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 117,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 48,
    "x1": 96,
    "y0": 180,
    "y1": 220,
-   "name": "常磐市"
+   "name": "常磐市",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 60,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 118,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 60,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 61,
+      "min": 20,
+      "max": 30,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 54,
+      "min": 15,
+      "max": 25,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 60,
    "x1": 84,
    "y0": 330,
    "y1": 380,
-   "name": "ROUTE21_SOUTH"
+   "name": "ROUTE21_SOUTH",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 98,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 117,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 60,
@@ -9797,14 +10069,150 @@
    "x1": 48,
    "y0": 190,
    "y1": 214,
-   "name": "ROUTE22"
+   "name": "ROUTE22",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 60,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 118,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 60,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 61,
+      "min": 20,
+      "max": 30,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 54,
+      "min": 15,
+      "max": 25,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 60,
    "x1": 84,
    "y0": 380,
    "y1": 400,
-   "name": "CINNABAR_ISLAND"
+   "name": "CINNABAR_ISLAND",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 98,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 90,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 117,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 48,
@@ -9818,14 +10226,150 @@
    "x1": 24,
    "y0": 30,
    "y1": 190,
-   "name": "ROUTE23"
+   "name": "ROUTE23",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 60,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 118,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 60,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 61,
+      "min": 20,
+      "max": 30,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 54,
+      "min": 15,
+      "max": 25,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 84,
    "x1": 204,
    "y0": 380,
    "y1": 400,
-   "name": "ROUTE20"
+   "name": "ROUTE20",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 98,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 117,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 96,
@@ -9846,28 +10390,300 @@
    "x1": 228,
    "y0": 340,
    "y1": 400,
-   "name": "ROUTE19"
+   "name": "ROUTE19",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 98,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 117,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 156,
    "x1": 264,
    "y0": 50,
    "y1": 70,
-   "name": "4 号道路"
+   "name": "4 号道路",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 98,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 116,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 192,
    "x1": 240,
    "y0": 300,
    "y1": 340,
-   "name": "FUCHSIA_CITY"
+   "name": "FUCHSIA_CITY",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 118,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 60,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 118,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 119,
+      "min": 20,
+      "max": 30,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 54,
+      "min": 15,
+      "max": 25,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 264,
    "x1": 312,
    "y0": 40,
    "y1": 80,
-   "name": "华蓝市"
+   "name": "华蓝市",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 98,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 116,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 132,
@@ -9888,7 +10704,75 @@
    "x1": 300,
    "y0": 0,
    "y1": 40,
-   "name": "24 号道路"
+   "name": "24 号道路",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 98,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 116,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 264,
@@ -9923,7 +10807,75 @@
    "x1": 372,
    "y0": 0,
    "y1": 20,
-   "name": "25 号道路"
+   "name": "25 号道路",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 60,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 118,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 60,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 61,
+      "min": 20,
+      "max": 30,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 54,
+      "min": 15,
+      "max": 25,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 264,
@@ -9937,7 +10889,75 @@
    "x1": 408,
    "y0": 50,
    "y1": 130,
-   "name": "ROUTE10"
+   "name": "ROUTE10",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 98,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 116,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 132,
@@ -9951,14 +10971,150 @@
    "x1": 408,
    "y0": 270,
    "y1": 290,
-   "name": "ROUTE13"
+   "name": "ROUTE13",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 98,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 116,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 276,
    "x1": 300,
    "y0": 160,
    "y1": 200,
-   "name": "ROUTE6"
+   "name": "ROUTE6",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 60,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 118,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 60,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 61,
+      "min": 20,
+      "max": 30,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 54,
+      "min": 15,
+      "max": 25,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 240,
@@ -9986,28 +11142,300 @@
    "x1": 240,
    "y0": 120,
    "y1": 160,
-   "name": "CELADON_CITY"
+   "name": "CELADON_CITY",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 129,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 129,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 129,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 129,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 88,
+      "min": 30,
+      "max": 40,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 384,
    "x1": 408,
    "y0": 150,
    "y1": 270,
-   "name": "ROUTE12"
+   "name": "ROUTE12",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 98,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 116,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 264,
    "x1": 312,
    "y0": 200,
    "y1": 240,
-   "name": "VERMILION_CITY"
+   "name": "VERMILION_CITY",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 98,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 90,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 116,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 312,
    "x1": 384,
    "y0": 210,
    "y1": 230,
-   "name": "ROUTE11"
+   "name": "ROUTE11",
+   "fishing": [
+    [
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 70
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 5,
+      "weight": 30
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 5,
+      "max": 15,
+      "weight": 60
+     },
+     {
+      "species": 129,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     },
+     {
+      "species": 98,
+      "min": 5,
+      "max": 15,
+      "weight": 20
+     }
+    ],
+    [
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 116,
+      "min": 15,
+      "max": 25,
+      "weight": 40
+     },
+     {
+      "species": 130,
+      "min": 15,
+      "max": 25,
+      "weight": 15
+     },
+     {
+      "species": 116,
+      "min": 25,
+      "max": 35,
+      "weight": 4
+     },
+     {
+      "species": 54,
+      "min": 25,
+      "max": 35,
+      "weight": 1
+     }
+    ]
+   ]
   },
   {
    "x0": 312,
@@ -10540,8 +11968,8 @@
    ],
    "kind": "item",
    "item": "ITEM_X_DEFEND",
-   "name": "ITEM_X_DEFEND",
-   "category": "other",
+   "name": "防御强化",
+   "category": "battle",
    "sprite": "ball"
   },
   {
@@ -10594,8 +12022,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM48",
-   "name": "ITEM_TM48",
-   "category": "other",
+   "name": "招式学习器 48",
+   "category": "tm",
    "sprite": "ball"
   },
   {
@@ -10649,7 +12077,8 @@
    "name": "吃剩的东西",
    "category": "held",
    "flag": "FLAG_HIDDEN_ITEM_ROUTE12_LEFTOVERS",
-   "count": 1
+   "count": 1,
+   "held": "LEFTOVERS"
   },
   {
    "at": [
@@ -10742,8 +12171,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM18",
-   "name": "ITEM_TM18",
-   "category": "other",
+   "name": "招式学习器 18",
+   "category": "tm",
    "sprite": "ball"
   },
   {
@@ -10783,7 +12212,8 @@
    "name": "吃剩的东西",
    "category": "held",
    "flag": "FLAG_HIDDEN_ITEM_ROUTE16_LEFTOVERS",
-   "count": 1
+   "count": 1,
+   "held": "LEFTOVERS"
   },
   {
    "at": [
@@ -11098,8 +12528,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM45",
-   "name": "ITEM_TM45",
-   "category": "other",
+   "name": "招式学习器 45",
+   "category": "tm",
    "sprite": "ball"
   },
   {
@@ -11121,8 +12551,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM43",
-   "name": "ITEM_TM43",
-   "category": "other",
+   "name": "招式学习器 43",
+   "category": "tm",
    "sprite": "ball"
   },
   {
@@ -11250,8 +12680,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM05",
-   "name": "ITEM_TM05",
-   "category": "other",
+   "name": "招式学习器 05",
+   "category": "tm",
    "sprite": "ball"
   },
   {
@@ -11423,8 +12853,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM40",
-   "name": "ITEM_TM40",
-   "category": "other",
+   "name": "招式学习器 40",
+   "category": "tm",
    "sprite": "ball"
   },
   {

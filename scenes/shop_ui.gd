@@ -15,6 +15,8 @@ const WARN := Color(0.90, 0.45, 0.40)
 const GOLD := Color(0.95, 0.82, 0.45)
 
 var goods: Array = []
+var evolution_catalog: Array = []
+var show_catalog := false
 var money := 0
 var rows: Control
 var scroller: ScrollContainer
@@ -23,15 +25,15 @@ var tip: Label
 
 func setup(p_goods: Array, p_money: int) -> void:
 	goods = p_goods
+	evolution_catalog = Data.load_shop().filter(func(g): return g.get("category") == "evo")
 	money = p_money
 	_build()
 
 func _build() -> void:
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var vp := get_viewport_rect().size
 	if vp.x < 10:
 		vp = Vector2(480, 320)
-	size = vp
 
 	var veil := ColorRect.new()
 	veil.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -44,6 +46,19 @@ func _build() -> void:
 	head.add_theme_font_size_override("font_size", 15)
 	head.add_theme_color_override("font_color", MINT)
 	add_child(head)
+
+	var tab := Button.new()
+	tab.text = "进化材料产地"
+	tab.toggle_mode = true
+	tab.position = Vector2(80, 4)
+	tab.size = Vector2(130, 32)
+	_style(tab, 13)
+	tab.toggled.connect(func(enabled: bool):
+		show_catalog = enabled
+		tab.text = "返回本店货架" if enabled else "进化材料产地"
+		scroller.scroll_vertical = 0
+		_refresh())
+	add_child(tab)
 
 	money_label = Label.new()
 	money_label.position = Vector2(size.x - 150, 12)
@@ -81,9 +96,9 @@ func _build() -> void:
 		queue_free())
 	add_child(close)
 
-const CAT_ORDER := ["ball", "heal", "battle", "berry", "held", "evo", "tera"]
+const CAT_ORDER := ["ball", "heal", "evo", "battle", "berry", "held", "tera"]
 const CAT_NAME := {"ball": "精灵球", "heal": "伤药", "battle": "战斗道具",
-	"berry": "树果", "held": "携带道具", "evo": "进化石", "tera": "太晶"}
+	"berry": "树果", "held": "携带道具", "evo": "进化道具", "tera": "太晶"}
 
 func _refresh() -> void:
 	for c in rows.get_children():
@@ -92,7 +107,7 @@ func _refresh() -> void:
 	money_label.text = "持有 %d 元" % money
 
 	# 按分类排好再画，一屏里能顺着看下来
-	var sorted: Array = goods.duplicate()
+	var sorted: Array = evolution_catalog.duplicate() if show_catalog else goods.duplicate()
 	sorted.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		var ca := CAT_ORDER.find(String(a.get("category", "")))
 		var cb := CAT_ORDER.find(String(b.get("category", "")))
@@ -131,11 +146,16 @@ func _refresh() -> void:
 		var buy := Button.new()
 		buy.position = Vector2(216, y)
 		buy.size = Vector2(96, 28)
-		buy.text = "%d 元" % price
 		_style(buy, 12)
-		buy.disabled = money < price
-		buy.add_theme_color_override("font_color", GOLD if money >= price else WARN)
-		buy.pressed.connect(_buy.bind(g_idx))
+		if g_idx >= 0:
+			buy.text = "%d 元" % price
+			buy.disabled = money < price
+			buy.add_theme_color_override("font_color", GOLD if money >= price else WARN)
+			buy.pressed.connect(_buy.bind(g_idx))
+		else:
+			var region: Dictionary = Data.travel_regions().get(str(g.get("region", "")), {})
+			buy.text = str(region.get("name", "")) + "有售"
+			buy.disabled = true
 		rows.add_child(buy)
 		y += 34
 

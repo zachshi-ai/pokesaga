@@ -72,8 +72,81 @@
    "trigger": "down"
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 66,
+   "min": 32,
+   "max": 32,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 32,
+   "max": 32,
+   "weight": 20
+  },
+  {
+   "species": 95,
+   "min": 40,
+   "max": 40,
+   "weight": 10
+  },
+  {
+   "species": 95,
+   "min": 43,
+   "max": 43,
+   "weight": 10
+  },
+  {
+   "species": 95,
+   "min": 46,
+   "max": 46,
+   "weight": 10
+  },
+  {
+   "species": 41,
+   "min": 32,
+   "max": 32,
+   "weight": 10
+  },
+  {
+   "species": 24,
+   "min": 44,
+   "max": 44,
+   "weight": 5
+  },
+  {
+   "species": 42,
+   "min": 44,
+   "max": 44,
+   "weight": 5
+  },
+  {
+   "species": 105,
+   "min": 44,
+   "max": 44,
+   "weight": 4
+  },
+  {
+   "species": 67,
+   "min": 44,
+   "max": 44,
+   "weight": 4
+  },
+  {
+   "species": 67,
+   "min": 46,
+   "max": 46,
+   "weight": 1
+  },
+  {
+   "species": 105,
+   "min": 46,
+   "max": 46,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
  "objects": [
   {
    "at": [
@@ -93,8 +166,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM02",
-   "name": "ITEM_TM02",
-   "category": "other",
+   "name": "招式学习器 02",
+   "category": "tm",
    "sprite": "ball"
   },
   {

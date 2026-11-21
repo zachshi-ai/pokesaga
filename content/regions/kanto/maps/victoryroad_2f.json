@@ -263,8 +263,8 @@
    ],
    "kind": "item",
    "item": "ITEM_GUARD_SPEC",
-   "name": "ITEM_GUARD_SPEC",
-   "category": "other",
+   "name": "能力防守",
+   "category": "battle",
    "sprite": "ball"
   },
   {
@@ -274,8 +274,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM07",
-   "name": "ITEM_TM07",
-   "category": "other",
+   "name": "招式学习器 07",
+   "category": "tm",
    "sprite": "ball"
   },
   {
@@ -296,8 +296,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM37",
-   "name": "ITEM_TM37",
-   "category": "other",
+   "name": "招式学习器 37",
+   "category": "tm",
    "sprite": "ball"
   },
   {

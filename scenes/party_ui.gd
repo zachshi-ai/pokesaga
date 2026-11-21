@@ -94,7 +94,9 @@ func _open_detail(i: int) -> void:
 	selected = i
 	var m: Dictionary = party[i]
 	detail = UI.sheet(self)
-	UI.header(detail,str(m.get("name","")),"队员 %02d / 12"%[i+1],handle_back)
+	var sex := Growth.evolution_sex(m)
+	var symbol := " ♀" if sex == "female" else (" ♂" if sex == "male" else "")
+	UI.header(detail,str(m.get("name","")) + symbol,"队员 %02d / 12"%[i+1],handle_back)
 	var side := Panel.new()
 	side.add_theme_stylebox_override("panel",UI.box(UI.PALE))
 	UI.place(detail,side,8,54,142,detail.size.y-62)
@@ -151,10 +153,9 @@ func _choose(kind: String) -> void:
 		elif kind=="tera" and cat=="tera":
 			key = str(obj.get("tera",""))
 		elif kind=="evo":
-			for evo in Growth.item_evolutions(party[selected]):
-				if Data.evo_item_name(str(evo.get("item","")))==item_name:
-					key = str(evo.get("to",0))
-					break
+			var evo := Growth.evolution_for_item(party[selected], Data.bag_evo_key(obj))
+			if not evo.is_empty():
+				key = str(evo.to)
 		if key.is_empty(): continue
 		var title := "%s    ×%d" % [item_name,int(obj.count)]
 		rows.add_child(UI.button(title,_confirm.bind(kind,key,item_name) if kind in ["evo","tera"] else _apply.bind(kind,key,item_name)))

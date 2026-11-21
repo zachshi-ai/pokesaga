@@ -277,7 +277,7 @@
    "kind": "hidden",
    "item": "ITEM_LEAF_STONE",
    "name": "叶之石",
-   "category": "other",
+   "category": "evo",
    "flag": "FLAG_HIDDEN_ITEM_SAFARI_ZONE_CENTER_LEAF_STONE",
    "count": 1
   },
@@ -293,5 +293,73 @@
  ],
  "weather": "none",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "fishing": [
+  [
+   {
+    "species": 129,
+    "min": 5,
+    "max": 5,
+    "weight": 70
+   },
+   {
+    "species": 129,
+    "min": 5,
+    "max": 5,
+    "weight": 30
+   }
+  ],
+  [
+   {
+    "species": 118,
+    "min": 5,
+    "max": 15,
+    "weight": 60
+   },
+   {
+    "species": 129,
+    "min": 5,
+    "max": 15,
+    "weight": 20
+   },
+   {
+    "species": 60,
+    "min": 5,
+    "max": 15,
+    "weight": 20
+   }
+  ],
+  [
+   {
+    "species": 118,
+    "min": 15,
+    "max": 25,
+    "weight": 40
+   },
+   {
+    "species": 119,
+    "min": 20,
+    "max": 30,
+    "weight": 40
+   },
+   {
+    "species": 147,
+    "min": 15,
+    "max": 25,
+    "weight": 15
+   },
+   {
+    "species": 54,
+    "min": 15,
+    "max": 35,
+    "weight": 4
+   },
+   {
+    "species": 148,
+    "min": 25,
+    "max": 35,
+    "weight": 1
+   }
+  ]
+ ]
 }

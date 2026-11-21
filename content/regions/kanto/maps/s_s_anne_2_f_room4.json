@@ -67,8 +67,8 @@
    ],
    "kind": "item",
    "item": "ITEM_X_ATTACK",
-   "name": "ITEM_X_ATTACK",
-   "category": "other",
+   "name": "力量强化",
+   "category": "battle",
    "sprite": "ball"
   }
  ],

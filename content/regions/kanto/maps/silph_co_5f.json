@@ -236,8 +236,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM01",
-   "name": "ITEM_TM01",
-   "category": "other",
+   "name": "招式学习器 01",
+   "category": "tm",
    "sprite": "ball"
   },
   {
@@ -247,8 +247,9 @@
    ],
    "kind": "item",
    "item": "ITEM_CARD_KEY",
-   "name": "ITEM_CARD_KEY",
-   "category": "other",
+   "name": "钥匙卡",
+   "flag": "card_key",
+   "category": "key",
    "sprite": "ball"
   },
   {

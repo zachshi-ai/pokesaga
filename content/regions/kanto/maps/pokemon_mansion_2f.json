@@ -89,8 +89,81 @@
    "trigger": "right"
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 109,
+   "min": 28,
+   "max": 28,
+   "weight": 20
+  },
+  {
+   "species": 20,
+   "min": 32,
+   "max": 32,
+   "weight": 20
+  },
+  {
+   "species": 109,
+   "min": 30,
+   "max": 30,
+   "weight": 10
+  },
+  {
+   "species": 20,
+   "min": 36,
+   "max": 36,
+   "weight": 10
+  },
+  {
+   "species": 58,
+   "min": 30,
+   "max": 30,
+   "weight": 10
+  },
+  {
+   "species": 19,
+   "min": 28,
+   "max": 28,
+   "weight": 10
+  },
+  {
+   "species": 88,
+   "min": 28,
+   "max": 28,
+   "weight": 5
+  },
+  {
+   "species": 110,
+   "min": 32,
+   "max": 32,
+   "weight": 5
+  },
+  {
+   "species": 58,
+   "min": 32,
+   "max": 32,
+   "weight": 4
+  },
+  {
+   "species": 19,
+   "min": 26,
+   "max": 26,
+   "weight": 4
+  },
+  {
+   "species": 58,
+   "min": 32,
+   "max": 32,
+   "weight": 1
+  },
+  {
+   "species": 19,
+   "min": 26,
+   "max": 26,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.07,
  "objects": [
   {
    "at": [

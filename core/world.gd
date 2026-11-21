@@ -280,6 +280,8 @@ func _load_emerald_map(name: String) -> void:
 	walking = false
 	npcs = preload("res://core/frlg_actors.gd").roster(map_data, taken)
 	objects = (map_data.get("objects", []) as Array).duplicate(true)
+	if map_data.get("region","")=="kanto":
+		objects=preload("res://core/kanto_campaign.gd").victory_rocks(map_data.id,objects,taken)
 	weather = String(map_data.get("weather", ""))
 	dark = bool(map_data.get("dark", false))
 	_rebuild()
@@ -595,7 +597,7 @@ func is_ice(p: Vector2i) -> bool:
 	var row: Array = emerald_slide[p.y]
 	if p.x < 0 or p.x >= row.size():
 		return false
-	return int(row[p.x]) == 255 or int(row[p.x]) != 0
+	return int(row[p.x]) == 255
 
 
 ## 坑洞填平之后就是普通地面
@@ -626,8 +628,8 @@ func clear_whirl(p: Vector2i) -> void:
 
 ## 站定之后要不要被地形带着再走一步（冰面打滑 / 洋流）
 func auto_step_dir() -> Vector2i:
-	if is_ice(player_pos) and last_dir != Vector2i.ZERO and can_step(last_dir):
-		return last_dir
+	if is_ice(player_pos):
+		return last_dir if last_dir != Vector2i.ZERO and can_step(last_dir) else Vector2i.ZERO
 	var d := _push_dir_of(emerald_slide, player_pos)
 	if d != Vector2i.ZERO and can_step(d):
 		return d
@@ -722,6 +724,10 @@ func step(dir: Vector2i) -> bool:
 		Vector2i(0, -1): facing = "up"
 		Vector2i(-1, 0): facing = "left"
 		Vector2i(1, 0): facing = "right"
+	# Rapid water only permits a downstream step. Waterfall ascends through the field action.
+	if dir != Vector2i.DOWN and (is_waterfall(player_pos + dir) or is_waterfall(player_pos)):
+		_sync_player()
+		return false
 	var passage := _warp_from(player_pos, dir)
 	if passage.is_empty() and not can_step(dir):
 		# 撞墙也要转身：原版顶着墙走，人是会转过脸来的
@@ -874,20 +880,17 @@ func _check_talk() -> void:
 		last_event = "obj:" + String(under.get("kind", ""))
 
 ## 拼过的大地图按位置报具体地名：站在真新镇就不该显示"真新镇～尼比市"
+func area_at(pos: Vector2i) -> Dictionary:
+	for area in map_data.get("areas", []):
+		if pos.y < int(area.get("y0",0)) or pos.y >= int(area.get("y1",0)):
+			continue
+		if area.has("x0") and (pos.x < int(area.x0) or pos.x >= int(area.x1)):
+			continue
+		return area
+	return {}
+
 func area_name() -> String:
-	var areas = map_data.get("areas", [])
-	if not (areas is Array):
-		return String(map_data.get("name", ""))
-	for a in areas:
-		if not (a is Dictionary):
-			continue
-		if player_pos.y < int(a.get("y0", 0)) or player_pos.y >= int(a.get("y1", 0)):
-			continue
-		# 大地图一张图里横跨好几段路，靠 x 区间区分；老的小图没写 x 就当整行
-		if a.has("x0") and (player_pos.x < int(a.get("x0", 0)) or player_pos.x >= int(a.get("x1", 9999))):
-			continue
-		return String(a.get("name", ""))
-	return String(map_data.get("name", ""))
+	return str(area_at(player_pos).get("name",map_data.get("name","")))
 
 ## HUD 用的一行地名
 func display_name() -> String:
@@ -1053,11 +1056,9 @@ var quest_door_tile := Vector2i(-2,-2)
 var quest_door_flag := ""
 
 func _quest_passage_open(flags: Dictionary) -> bool:
-	if flags.get(quest_door_flag,false):
-		return true
 	if quest_door_flag == "ember_ruby_requested":
 		return flags.get("got_ember_ruby",false) or flags.get("delivered_ember_ruby",false) or (flags.get("beat_ember_grunt_1",false) and flags.get("beat_ember_grunt_2",false))
-	return false
+	return flags.get(quest_door_flag,false)
 
 func set_mansion_switch(active: bool) -> void:
 	if mansion_switches.is_empty():
@@ -1087,6 +1088,9 @@ func _rebuild(story_flags: Variant = null) -> void:
 		var state: Array = quest_door.open if quest_door_open else quest_door.closed
 		quest_door_tile = Vector2i(int(state[0]),int(state[1]))
 		overrides.append(state)
+	if map_data.get("region","") in ["kanto","sevii"]:
+		overrides = overrides.duplicate()
+		overrides.append_array(preload("res://core/kanto_campaign.gd").tiles(map_data.id,taken if story_flags==null else story_flags))
 	for row in overrides:
 		emerald_collision[int(row[1])][int(row[0])] = int(row[4])
 	if not plan.is_empty():
@@ -1106,7 +1110,7 @@ func refresh_story_actors(flags: Dictionary) -> void:
 	for row in npcs:
 		if row.get("form_items",false): updated.append(row)
 	npcs = updated
-	if not quest_door_flag.is_empty() and _quest_passage_open(flags) != quest_door_open:
+	if (not quest_door_flag.is_empty() and _quest_passage_open(flags) != quest_door_open) or (map_data.get("region","") in ["kanto","sevii"] and not preload("res://core/kanto_campaign.gd").field_rules(map_data.id).is_empty()):
 		_rebuild(flags)
 	else:
 		_draw_npcs()
@@ -1292,6 +1296,9 @@ func _object_key(o: Dictionary) -> String:
 
 ## 这一格上有没有能按 A 的东西
 func object_at(p: Vector2i) -> Dictionary:
+	if map_data.get("region","")=="kanto":
+		var switch := preload("res://core/kanto_campaign.gd").control(map_data.id,p)
+		if not switch.is_empty(): return switch
 	if p in mansion_switches:
 		return {"kind":"mansion_switch","at":[p.x,p.y]}
 	for o in objects:
@@ -1318,13 +1325,19 @@ func object_ref(p: Vector2i) -> Dictionary:
 
 ## 怪力：把石头往 dir 方向推一格。推不动就返回 false，调用方负责说话
 func push_object(o: Dictionary, dir: Vector2i) -> bool:
-	if o.is_empty():
+	if o.is_empty() or taken.has("placed:"+str(o.get("rock_id",""))):
 		return false
 	var at: Array = o.get("at", [0, 0])
 	var from := Vector2i(int(at[0]), int(at[1]))
 	var to := from + dir
 	if to.x < 0 or to.y < 0 or to.x >= tile_size.x or to.y >= tile_size.y:
 		return false
+	if map_data.get("id","")=="victoryroad_3f" and to==Vector2i(34,18):
+		taken["victory_rock_dropped"]=true
+		o["dropped"]=true
+		objects.erase(o)
+		_draw_objects()
+		return true
 	# 推坑里就填坑：石头卡进洞里，那格从此能走
 	if is_hole(to) and not hole_filled(to):
 		fill_hole(to)

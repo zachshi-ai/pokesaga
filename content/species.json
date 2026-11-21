@@ -24312,7 +24312,13 @@
    51,
    124
   ],
-  "evolves": [],
+  "evolves": [
+   {
+    "to": 461,
+    "how": "item",
+    "item": "RAZOR_CLAW"
+   }
+  ],
   "learnset": [
    [
     1,
@@ -31045,6 +31051,12 @@
     "to": 282,
     "how": "level",
     "at": 30
+   },
+   {
+    "to": 475,
+    "how": "item",
+    "item": "DAWN_STONE",
+    "sex": "male"
    }
   ],
   "learnset": [
@@ -39431,6 +39443,12 @@
     "to": 362,
     "how": "level",
     "at": 42
+   },
+   {
+    "to": 478,
+    "how": "item",
+    "item": "DAWN_STONE",
+    "sex": "female"
    }
   ],
   "learnset": [
@@ -47187,7 +47205,13 @@
    32,
    132
   ],
-  "evolves": [],
+  "evolves": [
+   {
+    "to": 113,
+    "how": "item",
+    "item": "OVAL_STONE"
+   }
+  ],
   "learnset": [
    [
     1,

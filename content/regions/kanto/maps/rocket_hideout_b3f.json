@@ -92,8 +92,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM21",
-   "name": "ITEM_TM21",
-   "category": "other",
+   "name": "招式学习器 21",
+   "category": "tm",
    "sprite": "ball"
   },
   {
@@ -105,7 +105,8 @@
    "item": "ITEM_BLACK_GLASSES",
    "name": "黑色眼镜",
    "category": "held",
-   "sprite": "ball"
+   "sprite": "ball",
+   "held": "BLACK_GLASSES"
   },
   {
    "at": [

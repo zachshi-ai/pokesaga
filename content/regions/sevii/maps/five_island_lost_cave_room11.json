@@ -111,9 +111,10 @@
    ],
    "kind": "item",
    "item": "ITEM_LAX_INCENSE",
-   "name": "ITEM_LAX_INCENSE",
-   "category": "other",
-   "sprite": "ball"
+   "name": "悠闲薰香",
+   "category": "held",
+   "sprite": "ball",
+   "held": "LAX_INCENSE"
   }
  ],
  "weather": "fog_horizontal",

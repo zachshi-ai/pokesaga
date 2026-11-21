@@ -141,6 +141,21 @@ func run():
 	expect(at_role("snorlax_12").x<0 and at_role("snorlax_16").x>=0,"each sleeping Snorlax clears independently")
 	enter("silph_co_11f")
 	talk("silph_giovanni")
+	expect(not is_instance_valid(game.active_battle),"Giovanni waits for the Silph rival challenge")
+	enter("silph_co_5f")
+	w.warp_to(Vector2i(22,21))
+	game._on_action()
+	game._close_all_dialogs()
+	expect(game._flags().get("card_key",false),"collect the actual Silph Card Key")
+	enter("silph_co_7f")
+	talk("silph_rival")
+	expect(is_instance_valid(game.active_battle),"Silph rival challenge")
+	if is_instance_valid(game.active_battle):
+		game.active_battle.finished.emit("a")
+		game._close_all_dialogs()
+		await process_frame
+	enter("silph_co_11f")
+	talk("silph_giovanni")
 	expect(is_instance_valid(game.active_battle),"Silph boss challenge")
 	if is_instance_valid(game.active_battle):
 		game.active_battle.finished.emit("a")
@@ -159,41 +174,9 @@ func run():
 	expect(not is_instance_valid(game.active_battle), "no ruby battle before Celio asks")
 	enter("one_island_pokemon_center_1f","sevii")
 	talk("celio")
-	expect(game._flags().get("ember_ruby_requested", false),"Celio requests ruby")
-	enter("mt_ember_exterior","sevii")
-	for role in ["ember_grunt_2","ember_grunt_1"]:
-		talk(role)
-		expect(is_instance_valid(game.active_battle), "original Ember guard battle " + role)
-		if is_instance_valid(game.active_battle):
-			game.active_battle.finished.emit("a")
-			game._close_all_dialogs()
-			await process_frame
-	expect(at_role("ember_grunt_2").x<0 and at_role("ember_grunt_1").x<0,"both Ember grunts leave after second win")
-	enter("mt_ember_ruby_path_b5f","sevii")
-	talk("ember_ruby")
-	expect(at_role("ember_ruby").x<0 and game._flags().get("got_ember_ruby",false),"collect ruby once")
-	enter("one_island_pokemon_center_1f","sevii")
-	talk("celio")
-	expect(game._flags().get("delivered_ember_ruby",false),"deliver the ruby")
-	enter("six_island_ruin_valley","sevii")
-	expect(at_role("ruin_scientist")==Vector2i(24,25),"scientist blocks door before Icefall")
+	expect(not game._flags().get("ember_ruby_requested",false),"a regional Pokédex cannot start the Ruby quest")
 	enter("four_island_icefall_cave_back","sevii")
-	talk("icefall_lorelei")
-	expect(is_instance_valid(game.active_battle),"rescue Lorelei")
-	if is_instance_valid(game.active_battle):
-		game.active_battle.finished.emit("a")
-		game._close_all_dialogs()
-		await process_frame
-	enter("six_island_ruin_valley","sevii")
-	expect(at_role("ruin_scientist").x<0,"scientist leaves after Icefall rescue")
-	w.warp_to(Vector2i(24,25))
-	w.facing="up"
-	game.save_data.party[0].moves=[15]
-	game._on_action()
-	var pick = game.menu_layer.get_child(-1)
-	for button in pick.find_children("*","Button",true,false):
-		if button.text == "使用居合斩": button.pressed.emit()
-	expect(game._flags().get("ruin_valley_cut_door",false),"Cut opens Dotted Hole")
+	expect(at_role("icefall_lorelei").x<0, "early free exploration does not spawn the rescue")
 	var legacy := {"badges":["灰色徽章","绿色徽章"],"flags":{"got_starter":true,"got_dex":true,"beat_rival":true}}
 	Actors.migrate_progress(legacy)
 	expect(legacy.flags.beat_brock and legacy.flags.beat_giovanni and not Actors.hidden("FLAG_HIDE_OAK_IN_HIS_LAB",legacy.flags),"4.50 progress migration")

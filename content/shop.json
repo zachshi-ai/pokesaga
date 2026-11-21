@@ -38,32 +38,311 @@
  {
   "name": "火之石",
   "category": "evo",
+  "evo": "FIRE_STONE",
   "price": 3000,
   "count": 1
  },
  {
   "name": "水之石",
   "category": "evo",
+  "evo": "WATER_STONE",
   "price": 3000,
   "count": 1
  },
  {
   "name": "雷之石",
   "category": "evo",
+  "evo": "THUNDER_STONE",
   "price": 3000,
   "count": 1
  },
  {
   "name": "叶之石",
   "category": "evo",
+  "evo": "LEAF_STONE",
   "price": 3000,
   "count": 1
  },
  {
   "name": "冰之石",
   "category": "evo",
+  "evo": "ICE_STONE",
   "price": 3000,
   "count": 1
+ },
+ {
+  "name": "月之石",
+  "category": "evo",
+  "evo": "MOON_STONE",
+  "price": 3000,
+  "count": 1
+ },
+ {
+  "name": "日之石",
+  "category": "evo",
+  "evo": "SUN_STONE",
+  "price": 3000,
+  "count": 1
+ },
+ {
+  "name": "光之石",
+  "category": "evo",
+  "evo": "SHINY_STONE",
+  "price": 3000,
+  "count": 1,
+  "region": "sinnoh"
+ },
+ {
+  "name": "暗之石",
+  "category": "evo",
+  "evo": "DUSK_STONE",
+  "price": 3000,
+  "count": 1,
+  "region": "sinnoh"
+ },
+ {
+  "name": "觉醒之石",
+  "category": "evo",
+  "evo": "DAWN_STONE",
+  "price": 3000,
+  "count": 1,
+  "region": "sinnoh"
+ },
+ {
+  "name": "浑圆之石",
+  "category": "evo",
+  "evo": "OVAL_STONE",
+  "price": 2000,
+  "count": 1,
+  "region": "sinnoh"
+ },
+ {
+  "name": "联系绳",
+  "category": "evo",
+  "evo": "LINKING_CORD",
+  "price": 4000,
+  "count": 1,
+  "region": "hisui"
+ },
+ {
+  "name": "伽勒豆蔻手环",
+  "category": "evo",
+  "evo": "GALARICA_CUFF",
+  "price": 4000,
+  "count": 1,
+  "region": "galar"
+ },
+ {
+  "name": "伽勒豆蔻花环",
+  "category": "evo",
+  "evo": "GALARICA_WREATH",
+  "price": 4000,
+  "count": 1,
+  "region": "galar"
+ },
+ {
+  "name": "锋锐爪",
+  "category": "evo",
+  "evo": "RAZOR_CLAW",
+  "price": 3000,
+  "count": 1,
+  "region": "hisui"
+ },
+ {
+  "name": "王者之证",
+  "category": "evo",
+  "evo": "KINGS_ROCK",
+  "price": 3000,
+  "count": 1
+ },
+ {
+  "name": "金属膜",
+  "category": "evo",
+  "evo": "METAL_COAT",
+  "price": 3000,
+  "count": 1
+ },
+ {
+  "name": "龙之鳞片",
+  "category": "evo",
+  "evo": "DRAGON_SCALE",
+  "price": 3000,
+  "count": 1
+ },
+ {
+  "name": "护具",
+  "category": "evo",
+  "evo": "PROTECTOR",
+  "price": 4000,
+  "count": 1,
+  "region": "sinnoh"
+ },
+ {
+  "name": "黑奇石",
+  "category": "evo",
+  "evo": "BLACK_AUGURITE",
+  "price": 4000,
+  "count": 1,
+  "region": "hisui"
+ },
+ {
+  "name": "电力增幅器",
+  "category": "evo",
+  "evo": "ELECTIRIZER",
+  "price": 4000,
+  "count": 1,
+  "region": "sinnoh"
+ },
+ {
+  "name": "熔岩增幅器",
+  "category": "evo",
+  "evo": "MAGMARIZER",
+  "price": 4000,
+  "count": 1,
+  "region": "sinnoh"
+ },
+ {
+  "name": "升级数据",
+  "category": "evo",
+  "evo": "UPGRADE",
+  "price": 4000,
+  "count": 1
+ },
+ {
+  "name": "可疑补丁",
+  "category": "evo",
+  "evo": "DUBIOUS_DISC",
+  "price": 4000,
+  "count": 1,
+  "region": "sinnoh"
+ },
+ {
+  "name": "美丽鳞片",
+  "category": "evo",
+  "evo": "PRISM_SCALE",
+  "price": 3000,
+  "count": 1,
+  "region": "hoenn"
+ },
+ {
+  "name": "灵界之布",
+  "category": "evo",
+  "evo": "REAPER_CLOTH",
+  "price": 4000,
+  "count": 1,
+  "region": "sinnoh"
+ },
+ {
+  "name": "深海之牙",
+  "category": "evo",
+  "evo": "DEEP_SEA_TOOTH",
+  "price": 3000,
+  "count": 1,
+  "region": "hoenn"
+ },
+ {
+  "name": "深海鳞片",
+  "category": "evo",
+  "evo": "DEEP_SEA_SCALE",
+  "price": 3000,
+  "count": 1,
+  "region": "hoenn"
+ },
+ {
+  "name": "香袋",
+  "category": "evo",
+  "evo": "SACHET",
+  "price": 3000,
+  "count": 1,
+  "region": "kalos"
+ },
+ {
+  "name": "泡沫奶油",
+  "category": "evo",
+  "evo": "WHIPPED_DREAM",
+  "price": 3000,
+  "count": 1,
+  "region": "kalos"
+ },
+ {
+  "name": "酸酸苹果",
+  "category": "evo",
+  "evo": "TART_APPLE",
+  "price": 2000,
+  "count": 1,
+  "region": "galar"
+ },
+ {
+  "name": "甜甜苹果",
+  "category": "evo",
+  "evo": "SWEET_APPLE",
+  "price": 2000,
+  "count": 1,
+  "region": "galar"
+ },
+ {
+  "name": "蜜汁苹果",
+  "category": "evo",
+  "evo": "SYRUPY_APPLE",
+  "price": 2500,
+  "count": 1,
+  "region": "kitakami"
+ },
+ {
+  "name": "破裂的茶壶",
+  "category": "evo",
+  "evo": "CRACKED_POT",
+  "price": 3000,
+  "count": 1,
+  "region": "galar"
+ },
+ {
+  "name": "复合金属",
+  "category": "evo",
+  "evo": "METAL_ALLOY",
+  "price": 5000,
+  "count": 1,
+  "region": "paldea"
+ },
+ {
+  "name": "恶之挂轴",
+  "category": "evo",
+  "evo": "SCROLL_OF_DARKNESS",
+  "price": 5000,
+  "count": 1,
+  "region": "galar"
+ },
+ {
+  "name": "水之挂轴",
+  "category": "evo",
+  "evo": "SCROLL_OF_WATERS",
+  "price": 5000,
+  "count": 1,
+  "region": "galar"
+ },
+ {
+  "name": "庆祝之铠",
+  "category": "evo",
+  "evo": "AUSPICIOUS_ARMOR",
+  "price": 4000,
+  "count": 1,
+  "region": "paldea"
+ },
+ {
+  "name": "咒术之铠",
+  "category": "evo",
+  "evo": "MALICIOUS_ARMOR",
+  "price": 4000,
+  "count": 1,
+  "region": "paldea"
+ },
+ {
+  "name": "凡作茶碗",
+  "category": "evo",
+  "evo": "UNREMARKABLE_TEACUP",
+  "price": 3000,
+  "count": 1,
+  "region": "kitakami"
  },
  {
   "name": "太晶碎块·一般",
@@ -806,5 +1085,124 @@
   "price": 5000,
   "count": 1,
   "held": "REVEAL_GLASS"
+ },
+ {
+  "name": "洁净之符",
+  "category": "held",
+  "price": 200,
+  "count": 1,
+  "held": "CLEANSE_TAG"
+ },
+ {
+  "name": "悠闲薰香",
+  "category": "held",
+  "price": 5000,
+  "count": 1,
+  "held": "LAX_INCENSE"
+ },
+ {
+  "name": "吉利拳",
+  "category": "held",
+  "price": 1000,
+  "count": 1,
+  "held": "LUCKY_PUNCH"
+ },
+ {
+  "name": "不融冰",
+  "category": "held",
+  "price": 1000,
+  "count": 1,
+  "held": "NEVER_MELT_ICE"
+ },
+ {
+  "name": "先制之爪",
+  "category": "held",
+  "price": 1000,
+  "count": 1,
+  "held": "QUICK_CLAW"
+ },
+ {
+  "name": "海潮薰香",
+  "category": "held",
+  "price": 5000,
+  "count": 1,
+  "held": "SEA_INCENSE"
+ },
+ {
+  "name": "丝绸围巾",
+  "category": "held",
+  "price": 1000,
+  "count": 1,
+  "held": "SILK_SCARF"
+ },
+ {
+  "name": "命中强化",
+  "category": "battle",
+  "price": 950,
+  "count": 1
+ },
+ {
+  "name": "力量强化",
+  "category": "battle",
+  "price": 500,
+  "count": 1
+ },
+ {
+  "name": "防御强化",
+  "category": "battle",
+  "price": 550,
+  "count": 1
+ },
+ {
+  "name": "特攻强化",
+  "category": "battle",
+  "price": 350,
+  "count": 1
+ },
+ {
+  "name": "速度强化",
+  "category": "battle",
+  "price": 350,
+  "count": 1
+ },
+ {
+  "name": "要害攻击",
+  "category": "battle",
+  "price": 650,
+  "count": 1
+ },
+ {
+  "name": "能力防守",
+  "category": "battle",
+  "price": 700,
+  "count": 1
+ },
+ {
+  "name": "安抚之铃",
+  "category": "held",
+  "price": 2000,
+  "count": 1,
+  "held": "SOOTHE_BELL"
+ },
+ {
+  "name": "强制锻炼器",
+  "category": "held",
+  "price": 3000,
+  "count": 1,
+  "held": "MACHO_BRACE"
+ },
+ {
+  "name": "黑色眼镜",
+  "category": "held",
+  "price": 1000,
+  "count": 1,
+  "held": "BLACK_GLASSES"
+ },
+ {
+  "name": "破坏基因",
+  "category": "held",
+  "price": 4000,
+  "count": 1,
+  "held": "BERSERK_GENE"
  }
 ]

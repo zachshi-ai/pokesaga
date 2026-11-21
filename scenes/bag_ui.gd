@@ -5,7 +5,7 @@ const ATLAS := preload("res://assets/ui/field/bag_icons.png")
 const CATEGORIES := [
 	["ball","精灵球","精灵球"],["heal","回复药","伤药"],["key","重要道具","其他"],
 	["battle","战斗","力量强化"],
-	["berry","树果","橙橙果"],["held","携带物","携带"],["evo","进化石","火之石"],
+	["berry","树果","橙橙果"],["held","携带物","携带"],["evo","进化道具","火之石"],
 	["tera","太晶","太晶"],["tm","学习器","TM"],["other","其他","其他"]
 ]
 signal closed

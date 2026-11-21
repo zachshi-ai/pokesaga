@@ -20,6 +20,8 @@ var over := false
 var winner := ""
 var caught := false          # 是否抓到（抓到即结束，不算打赢也不算打输）
 var caught_species := 0
+var guard_turns := {"a":0, "b":0}
+var acting_side := ""
 var fled := false
 var last_crit := false      # 上一次攻击是否会心（界面要念出来）
 var last_berry := ""        # 上一次攻击里对手吃掉的抗性果
@@ -159,6 +161,8 @@ static func normalize_team(team: Array) -> Array:
 	return team
 
 func start(a_team: Array, b_team: Array) -> void:
+	guard_turns = {"a":0, "b":0}
+	acting_side = ""
 	field.reset()
 	team_a = normalize_team(a_team)
 	team_b = normalize_team(b_team)
@@ -569,6 +573,14 @@ func _on_send_out(side: String) -> void:
 	if me.get("fainted", false):
 		return
 	variant_seen.emit(side, me)
+	if str(me.get("held", "")) == "BERSERK_GENE":
+		me.held = ""
+		me["spent_gene"] = true
+		_apply_stage(me, "atk", 2, log)
+		if str(me.get("status", "")).is_empty():
+			me.status = "cfu"
+			me.status_turns = rng.randi_range(2, 4)
+		log.append("%s 的破坏基因被消耗了！" % me.name)
 	var me_eff: Dictionary = Data.ability_effect(_ab(me))
 	# 出场自动开天气的特性
 	var weather_ab := {"扬沙": "sandstorm", "降雨": "rain", "日照": "sun", "降雪": "snow"}
@@ -786,8 +798,9 @@ func _power_of(attacker: Dictionary, defender: Dictionary, move: Dictionary) -> 
 			var r2 := float(defender["hp"]) / float(maxi(1, int(defender["max_hp"])))
 			p = int(20.0 + 100.0 * (1.0 - r2))
 		"RETURN":
-			# 亲密度招式：没有亲密度系统，按中等偏上处理
-			p = 80
+			p = maxi(1, int(attacker.get("friendship", 200)) * 2 / 5)
+		"FRUSTRATION":
+			p = maxi(1, (255 - int(attacker.get("friendship", 200))) * 2 / 5)
 		"HEAT_CRASH":
 			# 体重差招式：按自身体重倍率缩放
 			p = int(80.0 * float(Data.ability_effect(_ab(attacker)).get("weight_mult", 1.0)))
@@ -1104,6 +1117,9 @@ func damage(attacker: Dictionary, defender: Dictionary, move: Dictionary) -> int
 	# 会心一击：1/16，1.5 倍；会心一击专属招式把它提到 1/2
 	var crit_chance := 0.0625
 	var cs := int(attacker.get("crit_stage", 0)) + int(atk_eff.get("crit_stage", 0))
+	if str(attacker.get("held", "")) == "LUCKY_PUNCH" and int(attacker.get("species_id", 0)) == 113:
+		cs += 2
+	if bool(attacker.get("dire_hit", false)): cs += 2
 	if cs > 0:
 		crit_chance = [0.0625, 0.125, 0.25, 0.33, 0.5][mini(cs, 4)]
 	if int(attacker.get("crit_up", 0)) > 0:
@@ -1213,7 +1229,13 @@ func damage(attacker: Dictionary, defender: Dictionary, move: Dictionary) -> int
 	if String(defender.get("held", "")) == "ASSAULT_VEST" and cat == "special":
 		base *= 0.667
 
-	var dmg := int(base * stab * eff * roll * crit)
+	var held := str(attacker.get("held", ""))
+	var type_bonus := 1.0
+	if (held == "NEVER_MELT_ICE" and mtype == "ice") or (held == "SILK_SCARF" and mtype == "normal") or (held == "BLACK_GLASSES" and mtype == "dark"):
+		type_bonus = 1.1
+	elif held == "SEA_INCENSE" and mtype == "water":
+		type_bonus = 1.05
+	var dmg := int(base * stab * eff * roll * crit * type_bonus)
 	# 天气 / 场地 / 屏障
 	var mod: float = float(field.damage_mod(mtype, cat, _side_of(attacker), _side_of(defender)))
 	dmg = int(dmg * mod)
@@ -1909,6 +1931,27 @@ func _priority(side: String, choice: String) -> int:
 		pr -= 7
 	return pr
 
+const X_STAGES := {"X_ATTACK":"atk", "X_DEFEND":"def", "X_SPECIAL":"spa", "X_SPEED":"spe", "X_ACCURACY":"acc"}
+
+func use_battle_item(side: String, key: String) -> bool:
+	var mon := cur_a() if side == "a" else cur_b()
+	if over or bool(mon.get("fainted", false)): return false
+	if key == "GUARD_SPEC":
+		if int(guard_turns[side]) > 0: return false
+		guard_turns[side] = 5
+		log.append("能力防守将在五回合内保护我方能力。")
+	elif key == "DIRE_HIT":
+		if bool(mon.get("dire_hit", false)): return false
+		mon["dire_hit"] = true
+		log.append("%s 瞄准了对手的要害！" % str(mon.name))
+	elif X_STAGES.has(key):
+		var stat := str(X_STAGES[key])
+		if int(mon.stages.get(stat, 0)) >= 6: return false
+		_apply_stage(mon, stat, 1, log)
+	else:
+		return false
+	return true
+
 func run_turn(a_choice: String, b_choice: String) -> void:
 	if over:
 		return
@@ -1927,7 +1970,12 @@ func run_turn(a_choice: String, b_choice: String) -> void:
 	if prio_b > prio_a:
 		first = "b"
 	elif prio_a == prio_b:
-		if pb > pa:
+		var claw_a := str(cur_a().get("held", "")) == "QUICK_CLAW" and a_choice.begins_with("move:") and rng.randf() < 0.2
+		var claw_b := str(cur_b().get("held", "")) == "QUICK_CLAW" and b_choice.begins_with("move:") and rng.randf() < 0.2
+		if claw_a != claw_b:
+			first = "a" if claw_a else "b"
+			log.append("%s 的先制之爪发动了！" % str((cur_a() if claw_a else cur_b()).name))
+		elif pb > pa:
 			first = "b"
 		elif pa == pb and rng.randi_range(0, 1) == 1:
 			first = "b"
@@ -1943,10 +1991,13 @@ func run_turn(a_choice: String, b_choice: String) -> void:
 		if not over and not cur_a()["fainted"]:
 			_take_action("a", a_choice)
 
+	acting_side = ""
 	_end_of_turn()
 	_end_of_turn_volatile()
 	_end_of_turn_gmax()
 	_end_of_turn_field()
+	for side in guard_turns:
+		guard_turns[side] = maxi(0, int(guard_turns[side]) - 1)
 	_check_end()
 
 ## 追加效果的判定概率：天恩翻倍
@@ -2921,6 +2972,7 @@ func _weather_immune_by_ability(c: Dictionary) -> bool:
 func _speed(c: Dictionary) -> int:
 	var sp := float(c["stats"]["spe"]) * _stage_mult(c["stages"]["spe"])
 	sp *= _weather_speed_mult(c)
+	if String(c.get("held", "")) == "MACHO_BRACE": sp *= 0.5
 	if String(c.get("held", "")) == "CHOICE_SCARF":
 		sp *= 1.5
 	# 顺风：四回合内速度翻倍
@@ -2961,6 +3013,10 @@ func _apply_stage(mon: Dictionary, stat: String, delta: int, logref: Array) -> v
 		return
 	var ae: Dictionary = Data.ability_effect(_ab(mon))
 	if delta < 0:
+		var side := _side_of(mon)
+		if int(guard_turns[side]) > 0 and acting_side != side:
+			logref.append("能力防守保护了%s。" % str(mon.name))
+			return
 		var prot = ae.get("protect_stat", null)
 		if bool(ae.get("no_stat_drop", false)) or bool(ae.get("stat_mirror", false)):
 			prot = "all"
@@ -3055,6 +3111,7 @@ func _blocked_by_status(c: Dictionary) -> bool:
 	return false
 
 func _take_action(side: String, choice: String) -> void:
+	acting_side = side
 	var attacker: Dictionary = cur_a() if side == "a" else cur_b()
 	var defender: Dictionary = cur_b() if side == "a" else cur_a()
 	if attacker["fainted"]:
@@ -3292,6 +3349,7 @@ func _take_action(side: String, choice: String) -> void:
 	if bool(aabe0.get("no_miss", false)) or bool(dabe0.get("no_miss", false)):
 		acc = 0.0
 	else:
+		if str(defender.get("held", "")) == "LAX_INCENSE": acc *= 0.95
 		acc *= float(aabe0.get("accuracy_mult", 1.0))
 		acc *= _acc_mult(int(attacker["stages"].get("acc", 0)))
 		acc /= _evasion_mult(defender)
@@ -3686,6 +3744,10 @@ func _do_switch(side: String, index: int, forced: bool = false) -> void:
 		if bool(oe.get("form_on_switch_out", false)) and int(old.get("species_id", 0)) == 964 \
 				and String(old.get("form", "")) != "PALAFIN_HERO":
 			switch_form(side, "PALAFIN_HERO", "%s 换下场后变成了全能形态！" % old["name"])
+	old["dire_hit"] = false
+	# X items affect the current stint in battle, like other temporary stat stages.
+	for stat in old["stages"]:
+		old["stages"][stat] = 0
 	old["trapped"] = false
 	if side == "a":
 		active_a = index

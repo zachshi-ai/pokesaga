@@ -42,8 +42,81 @@
    "trigger": "step"
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 50,
+   "min": 18,
+   "max": 18,
+   "weight": 20
+  },
+  {
+   "species": 50,
+   "min": 19,
+   "max": 19,
+   "weight": 20
+  },
+  {
+   "species": 50,
+   "min": 17,
+   "max": 17,
+   "weight": 10
+  },
+  {
+   "species": 50,
+   "min": 15,
+   "max": 15,
+   "weight": 10
+  },
+  {
+   "species": 50,
+   "min": 16,
+   "max": 16,
+   "weight": 10
+  },
+  {
+   "species": 50,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  },
+  {
+   "species": 50,
+   "min": 21,
+   "max": 21,
+   "weight": 5
+  },
+  {
+   "species": 50,
+   "min": 22,
+   "max": 22,
+   "weight": 5
+  },
+  {
+   "species": 50,
+   "min": 17,
+   "max": 17,
+   "weight": 4
+  },
+  {
+   "species": 51,
+   "min": 29,
+   "max": 29,
+   "weight": 4
+  },
+  {
+   "species": 50,
+   "min": 17,
+   "max": 17,
+   "weight": 1
+  },
+  {
+   "species": 51,
+   "min": 31,
+   "max": 31,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.05,
  "weather": "none",
  "weather_name": "",
  "cycling": true

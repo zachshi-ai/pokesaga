@@ -5,9 +5,17 @@ static var catalog: Dictionary
 static func data() -> Dictionary:
 	if catalog.is_empty():
 		catalog = JSON.parse_string(FileAccess.get_file_as_string("res://content/frlg_actors.json"))
+		catalog.maps["kanto/kanto_main"].merge(preload("res://core/sevii_campaign.gd").OUTDOOR,true)
+		for mid: String in preload("res://core/kanto_campaign.gd").data().actors:
+			if not catalog.maps.has(mid): catalog.maps[mid]={}
+			for xy: String in preload("res://core/kanto_campaign.gd").data().actors[mid]:
+				var spec: Dictionary = catalog.maps[mid].get(xy,{})
+				spec.merge(preload("res://core/kanto_campaign.gd").data().actors[mid][xy],true)
+				catalog.maps[mid][xy] = spec
 	return catalog
 
 static func migrate_progress(save: Dictionary) -> void:
+	preload("res://core/sevii_campaign.gd").sync(save)
 	var flags: Dictionary = save.get("flags", {})
 	var badges: Array = save.get("badges", [])
 	if "灰色徽章" in badges:
@@ -18,8 +26,11 @@ static func migrate_progress(save: Dictionary) -> void:
 	if needed.all(func(badge): return badge in badges):
 		flags.viridian_gym_open = true
 	save.flags = flags
+	preload("res://core/kanto_campaign.gd").migrate(save)
 
 static func hidden(flag: String, flags: Dictionary) -> bool:
+	var sevii_visibility = preload("res://core/sevii_campaign.gd").hidden(flag,flags)
+	if sevii_visibility != null: return sevii_visibility
 	match flag:
 		"FLAG_HIDE_MT_EMBER_EXTERIOR_ROCKETS":
 			return flags.get("beat_ember_grunt_1",false) and flags.get("beat_ember_grunt_2",false)
@@ -48,10 +59,15 @@ static func hidden(flag: String, flags: Dictionary) -> bool:
 static func actor(row: Dictionary, spec: Dictionary, flags: Dictionary) -> Dictionary:
 	if spec.has("flag") and hidden(spec.flag,flags):
 		return {}
+	for required in spec.get("appear",[]):
+		if not flags.get(required,false): return {}
+	if spec.has("disappear") and flags.get(spec.disappear,false): return {}
 	var out := row.duplicate(true)
-	for key in ["name","gfx","role","field_art","in_water_pose","battle","lines"]:
+	for key in ["name","gfx","role","field_art","in_water_pose","battle","lines","heal"]:
 		if spec.has(key): out[key]=spec[key]
 	match str(spec.get("role","")):
+		"pallet_oak":
+			if flags.get("sevii_home_oak",false): out.at=[66,269]
 		"ember_grunt_1","ember_grunt_2":
 			out.lines = ["我们还在这里挖。走开！"] if not flags.get("beat_"+out.role,false) else ["你赢了我，可我的同伴还在！"]
 		"ruin_scientist":
@@ -59,7 +75,8 @@ static func actor(row: Dictionary, spec: Dictionary, flags: Dictionary) -> Dicti
 		"celio":
 			out.lines = ["我正在修宝可梦网络机器。"]
 			if flags.get("ember_ruby_requested",false): out.lines = ["请帮我寻找适合这台机器的红宝石。"]
-			if flags.get("delivered_ember_ruby",false): out.lines = ["你带回来的红宝石已经装上了。谢谢你！"]
+			if flags.get("delivered_ember_ruby",false): out.lines = ["两个插槽只装好一个。四之岛的科拿也许有蓝宝石的消息。"]
+			if flags.get("sevii_network_online",false): out.lines = ["丰缘的信号很稳定。两地的宝可梦网络已经接通了！"]
 		"parcel_clerk":
 			out.shop=flags.get("got_dex",false)
 		"silph_guard":
@@ -91,6 +108,7 @@ static func roster(map: Dictionary, flags: Dictionary) -> Array:
 	for row in base:
 		var at: Array = row.at
 		var spec: Dictionary = specs.get("%d,%d" % at,{})
+		spec = preload("res://core/sevii_campaign.gd").speaker(map.get("id",""),at,spec,flags)
 		var item := actor(row,spec,flags) if not spec.is_empty() else (row as Dictionary).duplicate(true)
 		if not item.is_empty(): result.append(item)
 	for key: String in specs:

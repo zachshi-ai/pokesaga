@@ -1,8 +1,10 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.52.0-study`，versionCode 为 85，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.53.0-study`，versionCode 为 86，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
 
-[下载 4.52 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.52.0-study/PokeSaga-4.52.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.52.0-study)
+[下载 4.53 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.53.0-study/PokeSaga-4.53.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.53.0-study)
+
+![安卓实拍，交还蓝宝石后，在一之岛网络中心与锦辉交谈。](.github/preview/v4.53-sevii.png)
 
 **地区转移器**随新档发放，旧档选择「继续冒险」后也会出现在背包里。探索时点 **START → 背包 → 重要道具 → 地区转移器**，选地区，再点「出发前往」。可以从屋内、洞窟、水上或异空间直接抵达任一地区的领航员旁。21 个目的地从开局就能选择，道具可重复使用，到达后自动保存。 [查看背包实拍](.github/preview/v4.52-region-transfer.png)
 
@@ -12,13 +14,30 @@
 
 ## 从真新镇开始
 
-启动游戏先到《绿宝石》的烈空坐标题页。选择「新的冒险」从真新镇家中二楼的床边出发。走到右上方墙图前面朝上按 A，可翻看世界全景地图。在丰缘索引点「丰缘地图」，可以缩放《绿宝石》宝可导航的地区地图。下楼出门，走到真新镇北边的草丛，大木会带你去研究所领取初始伙伴。在研究所出口和小茂对战后，前往常磐商店领取包裹，交回大木就能拿到图鉴，常磐市北面的老人也会让路。草丛里可以遇敌、投球、练级，常磐市的宝可梦中心可以治疗队伍。经 2 号道路和常磐森林抵达尼比市，打赢小刚即可获得首枚徽章。城都另有八徽章门禁、四天王、冠军与名人堂登记。
+启动游戏先到《绿宝石》的烈空坐标题页。选择「新的冒险」从真新镇家中二楼的床边出发。走到右上方墙图前面朝上按 A，可翻看世界全景地图。在丰缘索引点「丰缘地图」，可以缩放《绿宝石》宝可导航的地区地图。下楼出门，走到真新镇北边的草丛，大木会带你去研究所领取初始伙伴。在研究所出口和小茂对战后，前往常磐商店领取包裹，交回大木后会同时收到图鉴和 5 个精灵球，常磐市北面的老人也会让路。草丛里可以遇敌、投球、练级，常磐市的宝可梦中心可以治疗队伍。经 2 号道路和常磐森林抵达尼比市，打赢小刚即可获得首枚徽章。本作沿用皮卡丘作为初始伙伴，小茂从伊布开始培养。
 
-本版共 1,230 张地图。九个主地区与十二个附属区域均有地图、步行入口和领航员，墙图登记了 555 个地点。24 条跨区通道包括海堤、栈道、隧道及山口。第一次从真新镇出发，可以直接找家外的领航员，点目标地区，再点「出发前往」。地图室、道路、道馆与室内房间保留各自的碰撞和进出点。新建地区侧重探索与交通；首枚徽章和城都联盟已有可游玩的剧情。
+本版共 1,230 张地图。九个主地区与十二个附属区域均有地图、步行入口和领航员，墙图登记了 555 个地点。24 条跨区通道包括海堤、栈道、隧道及山口。第一次从真新镇出发，可以直接找家外的领航员，点目标地区，再点「出发前往」。地图室、道路、道馆与室内房间保留各自的碰撞和进出点。新建地区侧重探索与交通。关都可以挑战到名人堂和七岛后日谈，城都另有八徽章门禁和联盟挑战。
 
 关都与七岛的 375 张地图采用《火红／叶绿》的 16 像素图块、调色板、地形属性和出入口编号。华蓝道馆的木桥可以步行，面向池水按 A 并确认冲浪后才会下水。城都沿用《水晶》的路网，按能否准确对齐来选择《绿宝石》素材或保留《水晶》原图。其他自建地区主要使用《绿宝石》素材。[地图与素材说明](doc/素材重建.md)
 
-大木、小茂、常磐老人、正辉、富士老人、火箭队和卡比兽会按事件进度出场、移位或让路。七岛可向一之岛的锦辉接下红宝石委托，在灯火山击败两名守卫、进洞取石并交还。在冰冻瀑布洞窟帮助科拿后，六岛门前的研究员才会让开，带会居合斩的队员可以打开点之穴。其他尚未移植的原版支线沿用本作的探索流程。
+## 关都与七岛怎么玩
+
+| 到了哪里 | 下一段剧情 |
+| --- | --- |
+| 华蓝市、枯叶市 | 到海角的小屋帮助正辉，拿船票上圣安奴号。在船上遇到小茂，帮助船长取得居合斩。船开走后，可从岸上继续挑战枯叶道馆。 |
+| 玉虹市、紫苑镇、金黄市 | 从游戏厅海报找火箭队基地，取电梯钥匙和检视镜。在宝可梦塔顶救出富士老人，用宝可梦之笛唤醒卡比兽。金黄的守卫需要茶，西尔佛公司的门要用钥匙卡。 |
+| 浅红市、红莲岛 | 在狩猎地带取金假牙和冲浪，替园长找回假牙学怪力。去宝可梦屋操作雕像开关，找到道馆的秘密钥匙。打赢夏伯后，正辉会在馆外邀请你去七岛。 |
+| 第一次去七岛 | 到一之岛见锦辉，去三之岛赶走暴走族，在果实森林找回迷路的女孩，回二之岛交陨石。这段完成后可以回关都继续收集徽章。 |
+| 常磐市、石英高原 | 打赢坂木，带齐八枚徽章通过关卡，推开胜利之路的岩石，连胜四天王与冠军，登记名人堂。 |
+| 第二次去七岛 | 登记名人堂并实际拥有过 60 种关都宝可梦后，回真新镇找大木升级图鉴。去一之岛帮锦辉找红宝石，持彩虹通行证前往后续岛屿，帮助科拿、调查点之穴和火箭队仓库，取回蓝宝石并修复网络。 |
+
+主线台词按本作改写。大木、小茂、正辉、富士老人、坂木、科拿和火箭队成员随事件登场或离开。可以用地区转移器提前看地图，推动剧情仍需在场景里完成对应事件。
+
+## 特殊道具从哪里拿
+
+关都的秘传学习器需到各自的赠送人或拾取点领取。居合斩找圣安奴号船长，冲浪找狩猎地带最深处的管理员，攀瀑要亲自穿过四之岛的薄冰。枯叶市、浅红市和 12 号道路的钓鱼人分别赠送破旧钓竿、好钓竿和厉害钓竿。在关都或七岛使用时，水域和竿的种类决定鱼群。
+
+商店中打开「进化材料产地」，可以查到 40 种进化材料的购买地区。六之岛水路能捡到龙之鳞片，给海刺龙使用即可进化为刺龙王。在枯叶市宝可梦中心可以领取对战搜寻器，走满 100 步后在附近有已打败训练家的室外地点使用。地图上的学习器可教学，携带道具从队伍界面装备，战斗强化道具从场上的背包使用。[逐件查看获取地点、价格和使用示例](doc/进化道具获取.md)
 
 标题页、背包、丰缘导航图和战斗场地采用原游戏图块与配色。前三世代宝可梦优先采用《绿宝石》正背面及异色，后来登场的宝可梦和形态使用与之相配的像素图。
 
@@ -41,10 +60,10 @@
 ```bash
 godot --headless --path . --import
 godot --path .
-tools/build_android.sh ../交付/PokeSaga-4.52.0-study.apk
+tools/build_android.sh ../交付/PokeSaga-4.53.0-study.apk
 ```
 
-构建 Android 需要匹配的 Godot 导出模板、JDK 17、Android SDK、platform-tools、build-tools 和 Godot 可访问的本机调试签名。已配置的机器可用 `GODOT_BIN`、`JAVA_HOME`、`ANDROID_HOME` 选择工具路径。本机脚本也识别 `~/Library/Application Support/PokeSagaBuild`。学习版使用 `Android Study` 导出预设，目标架构为 ARM64，输出为签名调试 APK。安装可用 `adb install -r ../交付/PokeSaga-4.52.0-study.apk`。
+构建 Android 需要匹配的 Godot 导出模板、JDK 17、Android SDK、platform-tools、build-tools 和 Godot 可访问的本机调试签名。已配置的机器可用 `GODOT_BIN`、`JAVA_HOME`、`ANDROID_HOME` 选择工具路径。本机脚本也识别 `~/Library/Application Support/PokeSagaBuild`。学习版使用 `Android Study` 导出预设，目标架构为 ARM64，输出为签名调试 APK。安装可用 `adb install -r ../交付/PokeSaga-4.53.0-study.apk`。
 
 ## 验证改动
 
@@ -59,6 +78,9 @@ godot --headless --fixed-fps 60 --path . --script tools/test_world_atlas.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_region_transfer.gd
 godot --headless --path . --script tools/test_npc_appearances.gd
 python3 tools/test_first_chapter.py --godot /path/to/godot
+python3 tools/test_kanto_journey.py --godot /path/to/godot
+godot --headless --fixed-fps 60 --path . --script tools/test_kanto_campaign.gd
+godot --headless --fixed-fps 60 --path . --script tools/test_evolution_items.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_collection.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_start_menu.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_battle_commands.gd
@@ -70,7 +92,7 @@ godot --headless --fixed-fps 60 --path . --script tools/test_johto_league.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_hoenn_ferry.gd
 ```
 
-首章测试用独立新档实际走路、遇敌、投球、治疗、打馆，再启动第二个进程读回徽章。联盟测试会检查门禁、战败治疗、五连战及名人堂快照。手机图鉴专项 `tools/test_android_dex.py --help` 列出设备序列号、ADB 与截图目录参数；它在已安装学习版的横屏模拟器上按游戏画面坐标点击。
+关都长流程从独立新档出发，通过游戏操作行走、捕捉、练级、交任务和打馆。通关后重启游戏，核对八枚徽章、名人堂、收藏、背包及七岛网络进度。联盟专项另测中途战败重置和强化版再战。手机图鉴专项 `tools/test_android_dex.py --help` 列出设备序列号、ADB 与截图目录参数；它在已安装学习版的横屏模拟器上按游戏画面坐标点击。
 
 ## 从素材开始学习
 

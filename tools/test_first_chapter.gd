@@ -99,13 +99,39 @@ func choose(node: Node, prefix: String) -> bool:
 	button.pressed.emit()
 	return true
 
-func teach_surf() -> void:
-	game._open_hm()
-	if not choose(game.menu_layer.get_child(-1), "冲浪"): return
-	if not choose(game.menu_layer.get_child(-1), "皮卡丘"): return
-	if not choose(game.menu_layer.get_child(-1), "摇尾巴"): return
-	dialogs()
-	check(57 in game.save_data.party[0].moves, "Surf was not taught")
+func member_slot(species: int) -> int:
+	for i in game.save_data.party.size():
+		if int(game.save_data.party[i].get("species_id", 0)) == species:
+			return i
+	return -1
+
+func take_lead(species: int) -> void:
+	var slot := member_slot(species)
+	if not check(slot >= 0, "missing party member " + str(species)) or slot == 0: return
+	game._open_party()
+	var panel = game.menu_layer.get_child(-1)
+	panel.list.get_child(slot).pressed.emit()
+	if not choose(panel.detail, "设为首发"): return
+	panel.handle_back()
+	await process_frame
+	check(int(game.save_data.party[0].species_id) == species, "lead order did not change")
+
+func attack_slot(ui) -> int:
+	var user: Dictionary = ui.battle.cur_a()
+	var target: Dictionary = ui.battle.cur_b()
+	var best := 0
+	var strength := -1.0
+	for i in user.moves.size():
+		if int(user.pp[i]) <= 0: continue
+		var move: Dictionary = root.get_node("Data").move_of(int(user.moves[i]))
+		var score := float(ui.battle._power_of(user, target, move))
+		if str(move.category) == "status": score = 0.0
+		var stab := 1.5 if move.type in user.types else 1.0
+		score *= stab * ui.battle.effectiveness_on(move.type, target)
+		if score > strength:
+			strength = score
+			best = i
+	return best
 
 func bag_count(name_text: String) -> int:
 	for item in game.bag_items:
@@ -117,7 +143,8 @@ func battle() -> void:
 	if not is_instance_valid(ui): return
 	var wild: bool = ui.trainer_name == ""
 	if wild: encounters += 1
-	var want_capture: bool = wild and mode == "catch" and game.save_data.party.size() > 0 and not game.save_data.get("dex",{}).get("caught",[]).any(func(id): return int(id) != 25)
+	var sought := 16 if mode == "pidgey" else (56 if mode == "mankey" else 0)
+	var want_capture: bool = wild and int(ui.battle.cur_b().species_id) == sought and member_slot(sought) < 0
 	print("FIGHT ", ui.trainer_name if not wild else "wild", " ", ui.battle.cur_b().name, " level=", ui.battle.cur_b().level, " capture=", want_capture)
 	var turns := 0
 	for tick in 2000:
@@ -133,10 +160,7 @@ func battle() -> void:
 			elif wild and mode != "train":
 				ui._on_command_kind("flee")
 			else:
-				var mon: Dictionary = ui.battle.cur_a()
-				var idx: int = mon.moves.find(57)
-				if idx < 0 or int(mon.pp[idx]) <= 0: idx = mon.moves.find(84)
-				if idx < 0 or int(mon.pp[idx]) <= 0: idx = 0
+				var idx := attack_slot(ui)
 				ui._on_command_kind("fight")
 				ui._on_move(idx)
 		ui._process(2.0)
@@ -164,7 +188,7 @@ func path_to(goal: Vector2i) -> Array:
 		for dir in DIRS:
 			var next: Vector2i = here + dir
 			if prev.has(next) or doors.has(next) or world.ledge_bits(next) != 0: continue
-			if world.map_data.id == "kanto_main" and not Rect2i(45, 57, 53, 227).has_point(next): continue
+			if world.map_data.id == "kanto_main" and not Rect2i(30, 57, 68, 227).has_point(next): continue
 			var passage: Dictionary = world._warp_from(here, dir)
 			if not passage.is_empty():
 				if next != goal or passage.get("trigger") != "door": continue
@@ -219,6 +243,7 @@ func nurse_in_viridian() -> void:
 
 func play() -> void:
 	if not check(world.map_data.id == "pallet_town_players_house_2f" and world.player_pos == Vector2i(3,6) and not game._has_party(), "wrong bedroom start"): return
+	if not check(bag_count("精灵球") == 0 and bag_count("超级球") == 0, "fresh bag has capture supplies before Oak"): return
 	if not check(world.object_at(Vector2i(11,1)).get("kind") == "wall_map", "missing bedroom map"): return
 	await walk(Vector2i(11,2))
 	if failed: return
@@ -248,42 +273,60 @@ func play() -> void:
 	await talk("up")
 	if not check(game.save_data.party[0].get("species_id") == 25, "Oak starter"): return
 	await process_frame
-	teach_surf()
-	if failed: return
 	await walk(Vector2i(6,12))
-	mode = "catch"
-	var before := bag_count("精灵球")
+	if not check(bag_count("精灵球") == 0, "Oak gave balls with the starter"): return
+	mode = "travel"
 	await walk(Vector2i(72,255))
-	for lap in 12:
-		if failed or balls_used > 0: break
-		await walk(Vector2i(75,255))
-		await walk(Vector2i(72,255))
-	if not check(balls_used > 0 and bag_count("精灵球") == before - balls_used, "capture and ball count"): return
 	if not check(game._flags().get("story_route1_blurb", false), "route 1 introduction"): return
 	await nurse_in_viridian()
 	if not check(heal_requests == 1, "first nurse interaction"): return
 	await walk(Vector2i(84,199))
 	await walk(Vector2i(4,3))
 	await talk("left")
-	if not check(bag_count("大木的包裹") == 1,"picked up Oak's parcel"): return
+	if not check(bag_count("大木的包裹") == 1 and bag_count("精灵球") == 0 and member_slot(16) < 0, "collected only Oak's parcel before delivery"): return
 	await walk(Vector2i(4,7))
 	await walk(Vector2i(76,273))
 	await walk(Vector2i(6,4))
 	await talk("up")
 	if not check(game._flags().get("got_dex",false) and bag_count("大木的包裹") == 0,"delivered parcel"): return
 	await walk(Vector2i(6,12))
-	# 在常磐市南门外的草地训练，HP 或招式 PP 见底前回中心补给。
-	for lap in 150:
-		if failed or int(game.save_data.party[0].level) >= 9: break
+	if not check(bag_count("精灵球") == 5 and bag_count("超级球") == 0, "Oak's five balls awarded with the Pokédex"): return
+	mode = "pidgey"
+	var before := bag_count("精灵球")
+	await walk(Vector2i(72,255))
+	for lap in 12:
+		if failed or member_slot(16) >= 0: break
+		await walk(Vector2i(75,255))
+		await walk(Vector2i(72,255))
+	if not check(member_slot(16) >= 0 and balls_used > 0 and bag_count("精灵球") == before - balls_used, "capture and ball count"): return
+	# Route 22's eastern grass is accessible before Brock. Catch a Mankey and
+	# train it with ordinary wild victories until it learns Low Kick at Lv8.
+	mode = "travel"
+	await walk(Vector2i(39,201))
+	mode = "mankey"
+	for lap in 80:
+		if failed or member_slot(56) >= 0: break
+		await walk(Vector2i(38,201))
+		await walk(Vector2i(39,201))
+	if not check(member_slot(56) >= 0 and balls_used <= 5, "Mankey capture within Oak's five gift balls"): return
+	await nurse_in_viridian()
+	for lap in 600:
+		var fighter: Dictionary = game.save_data.party[member_slot(56)]
+		if failed or int(fighter.level) >= 14: break
 		mode = "travel"
 		await walk(Vector2i(74,226))
 		mode = "train"
-		await walk(Vector2i(75,226))
+		await walk(Vector2i(78,226))
 		await walk(Vector2i(74,226))
 		var lead: Dictionary = game.save_data.party[0]
-		if int(lead.hp) < int(lead.max_hp) * 0.7 or int(lead.pp[lead.moves.find(57)]) <= 2:
+		var good_pp := 0
+		for n in lead.moves.size():
+			if int(root.get_node("Data").move_of(lead.moves[n]).power) > 0:
+				good_pp += int(lead.pp[n])
+		if int(lead.hp) < int(lead.max_hp) * 0.65 or good_pp < 5:
 			await nurse_in_viridian()
-	if not check(int(game.save_data.party[0].level) >= 9, "training to gym level"): return
+	var fighter: Dictionary = game.save_data.party[member_slot(56)]
+	if not check(int(fighter.level)>=14 and 67 in fighter.moves, "Mankey learned Low Kick through battles"): return
 	mode = "travel"
 	await walk(Vector2i(65,151))
 	if not check(world.map_data.id == "route2_viridianforest_southentrance", "south forest gate"): return
@@ -299,6 +342,7 @@ func play() -> void:
 	await talk("up")
 	if not check(heal_requests == earlier_heals + 1 and game.save_data.party[0].hp == game.save_data.party[0].max_hp, "nurse did not heal"): return
 	await walk(Vector2i(7,8))
+	await take_lead(56)
 	await walk(Vector2i(63,76))
 	if not check(world.map_data.id == "pewtercity_gym", "Pewter gym door"): return
 	await walk(Vector2i(6,6))
@@ -306,6 +350,8 @@ func play() -> void:
 	if not check("灰色徽章" in game.save_data.badges and game._flags().get("beat_brock", false), "Brock win and badge"): return
 	check(not (74 in game.save_data.dex.caught or 95 in game.save_data.dex.caught), "trainer opponents counted as caught")
 	if failed: return
+	await take_lead(25)
+	check(game.save_data.party[1].species_id == 16 and not (57 in game.save_data.party[0].moves), "regular first-chapter team")
 	game._persist()
 	var file := FileAccess.open(directory.path_join("expected.json"), FileAccess.WRITE)
 	file.store_string(JSON.stringify(snapshot()))

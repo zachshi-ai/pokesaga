@@ -56,7 +56,29 @@ static func add_exp(mon: Dictionary, amount: int) -> int:
 	mon["exp"] = exp
 	if gained > 0:
 		mon["level"] = lv
+		for i in gained:
+			level_friendship(mon)
 	return gained
+
+static func level_friendship(mon: Dictionary) -> void:
+	var value := int(mon.get("friendship", 200))
+	var bonus := 5 if value < 100 else (3 if value < 200 else 2)
+	if str(mon.get("held", "")) == "SOOTHE_BELL":
+		bonus = bonus * 3 / 2
+	mon["friendship"] = mini(255, value + bonus)
+
+static func award_effort(mon: Dictionary, defeated_species: int) -> void:
+	var gains: Dictionary = Data.training_values.get(str(defeated_species), {}).get("effort", {})
+	var effort: Dictionary = mon.get("effort", {})
+	var room := 510
+	for n in effort.values(): room -= int(n)
+	for stat in gains:
+		var earned := int(gains[stat]) * (2 if str(mon.get("held", "")) == "MACHO_BRACE" else 1)
+		var old := int(effort.get(stat, 0))
+		var add := maxi(0, mini(earned, mini(room, 252 - old)))
+		effort[stat] = old + add
+		room -= add
+	mon["effort"] = effort
 
 ## 升级时新学会的招式：从 from_lv+1 到 to_lv 这一段的升级招式表
 static func moves_learned(mon: Dictionary, from_lv: int, to_lv: int) -> Array:
@@ -132,6 +154,20 @@ static func _match_evo(e: Variant, lv: int) -> Dictionary:
 		return {}
 	return {"to": to, "form": form}
 
+## Dawn Stone evolutions depend on the individual's sex. Earlier saves did not store it.
+static func evolution_sex(mon: Dictionary) -> String:
+	var sid := int(mon.get("species_id", 0))
+	if sid not in [280, 281, 282, 475, 361, 362, 478]:
+		return ""
+	if sid == 475:
+		mon["sex"] = "male"
+	elif sid == 478:
+		mon["sex"] = "female"
+	elif str(mon.get("sex", "")) not in ["male", "female"]:
+		var legacy_identity := "%s|%s|%s|%s" % [sid, mon.get("level", 1), mon.get("moves", []), mon.get("nature", "")]
+		mon["sex"] = "female" if legacy_identity.hash() % 2 == 0 else "male"
+	return str(mon["sex"])
+
 ## 这只靠道具能进化成什么：返回 [{item, to, form}]，界面拿去提示「需要火之石」
 static func item_evolutions(mon: Dictionary) -> Array:
 	var out: Array = []
@@ -156,6 +192,8 @@ static func item_evolutions(mon: Dictionary) -> Array:
 		var row: Dictionary = e
 		if String(row.get("how", "")) != "item":
 			continue
+		if row.has("sex") and str(row.sex) != evolution_sex(mon):
+			continue
 		var to := int(row.get("to", 0))
 		if to <= 0 or Data.species_of(to).is_empty():
 			continue
@@ -164,6 +202,12 @@ static func item_evolutions(mon: Dictionary) -> Array:
 			continue
 		out.append({"item": String(row.get("item", "")), "to": to, "form": form})
 	return out
+
+static func evolution_for_item(mon: Dictionary, item_key: String) -> Dictionary:
+	for rule in item_evolutions(mon):
+		if str(rule.item) == item_key:
+			return rule
+	return {}
 
 ## 兼容老调用：只关心进化成哪个图鉴号
 static func evolution_target(mon: Dictionary) -> int:

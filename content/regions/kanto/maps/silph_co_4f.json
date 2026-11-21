@@ -232,8 +232,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM41",
-   "name": "ITEM_TM41",
-   "category": "other",
+   "name": "招式学习器 41",
+   "category": "tm",
    "sprite": "ball"
   },
   {

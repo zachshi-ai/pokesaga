@@ -151,9 +151,10 @@
    ],
    "kind": "item",
    "item": "ITEM_NEVER_MELT_ICE",
-   "name": "ITEM_NEVER_MELT_ICE",
-   "category": "other",
-   "sprite": "ball"
+   "name": "不融冰",
+   "category": "held",
+   "sprite": "ball",
+   "held": "NEVER_MELT_ICE"
   }
  ],
  "weather": "none",

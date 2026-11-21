@@ -199,9 +199,10 @@
    ],
    "kind": "item",
    "item": "ITEM_CLEANSE_TAG",
-   "name": "ITEM_CLEANSE_TAG",
-   "category": "other",
-   "sprite": "ball"
+   "name": "洁净之符",
+   "category": "held",
+   "sprite": "ball",
+   "held": "CLEANSE_TAG"
   },
   {
    "at": [

@@ -132,8 +132,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM36",
-   "name": "ITEM_TM36",
-   "category": "other",
+   "name": "招式学习器 36",
+   "category": "tm",
    "sprite": "ball"
   },
   {
@@ -154,8 +154,8 @@
    ],
    "kind": "item",
    "item": "ITEM_UP_GRADE",
-   "name": "ITEM_UP_GRADE",
-   "category": "other",
+   "name": "升级数据",
+   "category": "evo",
    "sprite": "ball"
   },
   {

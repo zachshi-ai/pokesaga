@@ -129,9 +129,10 @@
    ],
    "kind": "item",
    "item": "ITEM_SILK_SCARF",
-   "name": "ITEM_SILK_SCARF",
-   "category": "other",
-   "sprite": "ball"
+   "name": "丝绸围巾",
+   "category": "held",
+   "sprite": "ball",
+   "held": "SILK_SCARF"
   }
  ],
  "weather": "fog_horizontal",

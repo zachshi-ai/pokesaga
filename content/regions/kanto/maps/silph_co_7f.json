@@ -260,8 +260,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM08",
-   "name": "ITEM_TM08",
-   "category": "other",
+   "name": "招式学习器 08",
+   "category": "tm",
    "sprite": "ball"
   },
   {

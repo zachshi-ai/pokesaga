@@ -112,6 +112,8 @@ func run() -> void:
 	world.warp_to(Vector2i(42,40))
 	check(world.blocked_by_terrain(Vector2i(42,39)) and not world.step(Vector2i.UP), "unopened Mt Ember cave wall")
 	world.refresh_story_actors({"ember_ruby_requested": true})
+	check(world.blocked_by_terrain(Vector2i(42,39)), "request alone does not open the guarded cave")
+	world.refresh_story_actors({"beat_ember_grunt_1":true,"beat_ember_grunt_2":true})
 	check(not world.blocked_by_terrain(Vector2i(42,39)), "quest opens Mt Ember cave tile")
 	check(world.step(Vector2i.UP) and not world.pending_warp.is_empty(), "enter revealed cave")
 	world.finish_walk()

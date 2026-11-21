@@ -2,6 +2,699 @@
  "region": "kanto",
  "events": [
   {
+   "id": "kanto_badge_misty",
+   "trigger": {"type": "badge", "badge": "蓝色徽章"},
+   "steps": [
+    {"who": "小霞", "say": ["蓝色徽章归你啦！水之波动会用震动的水流攻击，有时还能让对手混乱。"]},
+    {"give_item": {"name": "招式学习器 03", "count": 1, "category": "tm"}}
+   ]
+  },
+  {
+   "id": "kanto_badge_ltsurge",
+   "trigger": {"type": "badge", "badge": "橙色徽章"},
+   "steps": [
+    {"who": "马志士", "say": ["真有胆量！橙色徽章给你。电击波出手极快，别让对手找到躲开的机会。"]},
+    {"give_item": {"name": "招式学习器 34", "count": 1, "category": "tm"}}
+   ]
+  },
+  {
+   "id": "kanto_badge_erika",
+   "trigger": {"type": "badge", "badge": "彩虹徽章"},
+   "steps": [
+    {"who": "莉佳", "say": ["你照顾伙伴的方式真好。请收下彩虹徽章，还有能吸收对方体力的终极吸取。"]},
+    {"give_item": {"name": "招式学习器 19", "count": 1, "category": "tm"}}
+   ]
+  },
+  {
+   "id": "kanto_badge_koga",
+   "trigger": {"type": "badge", "badge": "粉红徽章"},
+   "steps": [
+    {"who": "阿桔", "say": ["我认可你的实力。粉红徽章是你的了。剧毒造成的伤害会逐回合加重。"]},
+    {"give_item": {"name": "招式学习器 06", "count": 1, "category": "tm"}}
+   ]
+  },
+  {
+   "id": "kanto_badge_sabrina",
+   "trigger": {"type": "badge", "badge": "金色徽章"},
+   "steps": [
+    {"who": "娜姿", "say": ["预见了交手，却没有预见这样的结局。金色徽章归你，冥想可以强化精神力量。"]},
+    {"give_item": {"name": "招式学习器 04", "count": 1, "category": "tm"}}
+   ]
+  },
+  {
+   "id": "kanto_badge_blaine",
+   "trigger": {"type": "badge", "badge": "深红徽章"},
+   "steps": [
+    {"who": "夏伯", "say": ["回答得漂亮！深红徽章给你。留意大字爆炎的火力，发挥不好可会打空。"]},
+    {"give_item": {"name": "招式学习器 38", "count": 1, "category": "tm"}}
+   ]
+  },
+  {
+   "id": "bike_voucher",
+   "trigger": {"type": "talk", "map": "vermilion_city_pokemon_fan_club", "actor": "fan_chair"},
+   "steps": [
+    {"who": "会长", "say": ["我的烈焰马最喜欢在海边跑步。它的鬃毛暖暖的，比最好的毯子还舒服……", "咦，讲了这么久？谢谢你一直听着。这张自行车兑换券就送你吧！"]},
+    {"give_item": {"name": "自行车兑换券", "count": 1, "category": "key"}},
+    {"flag": "bike_voucher"}
+   ]
+  },
+  {
+   "id": "bike_exchange",
+   "trigger": {"type": "talk", "map": "ceruleancity_bikeshop", "actor": "bike_clerk"},
+   "steps": [
+    {"who": "店员", "say": ["是会长的兑换券！这辆自行车归你了。在背包里使用就可以骑。"]},
+    {"remove_item": "自行车兑换券"},
+    {"give_item": {"name": "自行车", "count": 1, "category": "key"}},
+    {"flag": "received_kanto_bike"}
+   ],
+   "require": {"flags_all": ["bike_voucher"], "flags_none": ["received_kanto_bike"]}
+  },
+  {
+   "id": "bike_price",
+   "trigger": {"type": "talk", "map": "ceruleancity_bikeshop", "actor": "bike_clerk"},
+   "steps": [
+    {"who": "店员", "say": ["标价一百万，带枯叶爱好俱乐部的兑换券来也行。"]}
+   ],
+   "require": {"flags_none": ["bike_voucher", "received_kanto_bike"]},
+   "once": false
+  },
+  {
+   "id": "moon_grunt_1_win",
+   "trigger": {"type": "talk", "map": "mt_moon_b2f", "actor": "moon_grunt_1"},
+   "steps": [
+    {"who": "火箭队手下 甲", "say": ["这洞里的化石都值钱！别在这里东张西望。"]},
+    {"battle": {"name": "火箭队手下 甲", "team": [{"species": 19, "level": 13}, {"species": 41, "level": 13}]}},
+    {"flag": "moon_grunt_1_win"}
+   ]
+  },
+  {
+   "id": "moon_grunt_2_win",
+   "trigger": {"type": "talk", "map": "mt_moon_b2f", "actor": "moon_grunt_2"},
+   "steps": [
+    {"who": "火箭队手下 乙", "say": ["这洞里的化石都值钱！别在这里东张西望。"]},
+    {"battle": {"name": "火箭队手下 乙", "team": [{"species": 27, "level": 11}, {"species": 19, "level": 11}, {"species": 41, "level": 11}]}},
+    {"flag": "moon_grunt_2_win"}
+   ]
+  },
+  {
+   "id": "moon_grunt_3_win",
+   "trigger": {"type": "talk", "map": "mt_moon_b2f", "actor": "moon_grunt_3"},
+   "steps": [
+    {"who": "火箭队手下 丙", "say": ["这洞里的化石都值钱！别在这里东张西望。"]},
+    {"battle": {"name": "火箭队手下 丙", "team": [{"species": 41, "level": 11}, {"species": 23, "level": 11}]}},
+    {"flag": "moon_grunt_3_win"}
+   ]
+  },
+  {
+   "id": "moon_grunt_4_win",
+   "trigger": {"type": "talk", "map": "mt_moon_b2f", "actor": "moon_grunt_4"},
+   "steps": [
+    {"who": "火箭队手下 丁", "say": ["这洞里的化石都值钱！别在这里东张西望。"]},
+    {"battle": {"name": "火箭队手下 丁", "team": [{"species": 19, "level": 13}, {"species": 27, "level": 13}]}},
+    {"flag": "moon_grunt_4_win"}
+   ]
+  },
+  {
+   "id": "repeat_kanto_loreleis_win",
+   "trigger": {"type": "talk", "map": "pokemon_league_loreleis_room", "actor": "league_loreleis"},
+   "steps": [
+    {"who": "科拿", "say": ["七岛的旅行还顺利吗？这次我的队伍也有了新伙伴。"]},
+    {"battle": {"name": "科拿", "team": [{"species": 87, "level": 64, "moves": [58, 57, 324, 104]}, {"species": 91, "level": 63, "moves": [58, 57, 48, 240]}, {"species": 221, "level": 63, "moves": [59, 89, 38, 157]}, {"species": 124, "level": 66, "moves": [58, 94, 142, 213]}, {"species": 131, "level": 66, "moves": [58, 57, 94, 87], "berry": "cheri"}]}},
+    {"flag": "repeat_kanto_loreleis_win"}
+   ],
+   "require": {"flags_all": ["sevii_network_online", "kanto_champion", "kanto_rematch_running"], "flags_none": ["repeat_kanto_loreleis_win"]},
+   "once": false
+  },
+  {
+   "id": "repeat_kanto_brunos_win",
+   "trigger": {"type": "talk", "map": "pokemon_league_brunos_room", "actor": "league_brunos"},
+   "steps": [
+    {"who": "希巴", "say": ["更强的伙伴也需要一起训练。你准备好迎接新挑战了吗？"]},
+    {"battle": {"name": "希巴", "team": [{"species": 208, "level": 65, "moves": [89, 231, 242, 317]}, {"species": 107, "level": 65, "moves": [327, 183, 157, 68]}, {"species": 106, "level": 65, "moves": [25, 193, 89, 157]}, {"species": 208, "level": 66, "moves": [89, 231, 242, 225]}, {"species": 68, "level": 68, "moves": [238, 89, 280, 157], "berry": "persim"}]}},
+    {"flag": "repeat_kanto_brunos_win"}
+   ],
+   "require": {"flags_all": ["sevii_network_online", "kanto_champion", "kanto_rematch_running", "repeat_kanto_loreleis_win"], "flags_none": ["repeat_kanto_brunos_win"]},
+   "once": false
+  },
+  {
+   "id": "repeat_kanto_agathas_win",
+   "trigger": {"type": "talk", "map": "pokemon_league_agathas_room", "actor": "league_agathas"},
+   "steps": [
+    {"who": "菊子", "say": ["老朋友又回来了。这次要当心影子里藏着什么。"]},
+    {"battle": {"name": "菊子", "team": [{"species": 94, "level": 66, "moves": [247, 94, 109, 95]}, {"species": 169, "level": 66, "moves": [188, 314, 247, 109]}, {"species": 200, "level": 65, "moves": [247, 94, 85, 213]}, {"species": 24, "level": 68, "moves": [188, 89, 202, 104]}, {"species": 94, "level": 70, "moves": [247, 94, 85, 188], "berry": "chesto"}]}},
+    {"flag": "repeat_kanto_agathas_win"}
+   ],
+   "require": {"flags_all": ["sevii_network_online", "kanto_champion", "kanto_rematch_running", "repeat_kanto_brunos_win"], "flags_none": ["repeat_kanto_agathas_win"]},
+   "once": false
+  },
+  {
+   "id": "repeat_kanto_lances_win",
+   "trigger": {"type": "talk", "map": "pokemon_league_lances_room", "actor": "league_lances"},
+   "steps": [
+    {"who": "阿渡", "say": ["龙的修行还没有结束。过了我这关，你就能再见到冠军。"]},
+    {"battle": {"name": "阿渡", "team": [{"species": 130, "level": 68, "moves": [63, 349, 89, 86]}, {"species": 149, "level": 66, "moves": [63, 89, 337, 53]}, {"species": 230, "level": 66, "moves": [63, 349, 57, 58]}, {"species": 142, "level": 70, "moves": [63, 246, 332, 89]}, {"species": 149, "level": 72, "moves": [63, 200, 85, 58], "berry": "persim"}]}},
+    {"flag": "repeat_kanto_lances_win"}
+   ],
+   "require": {"flags_all": ["sevii_network_online", "kanto_champion", "kanto_rematch_running", "repeat_kanto_agathas_win"], "flags_none": ["repeat_kanto_lances_win"]},
+   "once": false
+  },
+  {
+   "id": "repeat_kanto_champions_win",
+   "trigger": {"type": "talk", "map": "pokemon_league_champions_room", "actor": "league_champions"},
+   "steps": [
+    {"who": "小茂", "say": ["我可没有停在原地。让我们的伙伴再认真打一次吧！"]},
+    {"battle": {"name": "小茂", "team": [{"species": 214, "level": 72, "moves": [224, 89, 68, 317]}, {"species": 65, "level": 73, "moves": [94, 247, 347, 115]}, {"species": 248, "level": 72, "moves": [242, 89, 85, 332]}, {"species": 103, "level": 73, "moves": [202, 94, 79, 113]}, {"species": 130, "level": 73, "moves": [56, 349, 89, 63]}, {"species": 135, "level": 75, "berry": "sitrus"}]}},
+    {"flag": "repeat_kanto_champions_win"}
+   ],
+   "require": {"flags_all": ["sevii_network_online", "kanto_champion", "kanto_rematch_running", "repeat_kanto_lances_win"], "flags_none": ["repeat_kanto_champions_win"]},
+   "once": false
+  },
+  {
+   "id": "kanto_rematch_hall",
+   "trigger": {"type": "map_enter", "map": "pokemon_league_hall_of_fame"},
+   "steps": [
+    {"who": "大木博士", "say": ["来自各地的伙伴也见证了这场胜利。恭喜再次完成联盟挑战！", "名人堂保存着你的首次冠军队伍，回到这里随时可以查阅。"]},
+    {"flag": "kanto_rematch_complete"}
+   ],
+   "require": {"flags_all": ["kanto_rematch_running", "repeat_kanto_champions_win"], "flags_none": ["kanto_rematch_complete"]},
+   "once": false
+  },
+  {
+   "id": "anne_departs",
+   "trigger": {"type": "map_enter", "map": "s_s_anne_exterior"},
+   "steps": [
+    {"who": "旁白", "say": ["船长站在甲板上向你挥手。长笛响了三声，圣安奴号缓缓离开枯叶的码头。"]},
+    {"flag": "anne_departed"},
+    {"warp": {"region": "kanto", "map": "kanto_main", "at": [287, 234], "facing": "up"}}
+   ],
+   "require": {"flags_all": ["anne_cut"]}
+  },
+  {
+   "id": "museum_amber_gift",
+   "trigger": {"type": "talk", "map": "pewtercity_museum1f", "actor": "museum_amber"},
+   "steps": [
+    {"who": "研究员", "say": ["这块古老的琥珀里有宝可梦的遗传物质。可惜馆长不许我亲自去红莲岛，你能带给那里的实验室吗？"]},
+    {"give_item": {"name": "秘密琥珀", "count": 1, "category": "key"}},
+    {"flag": "got_old_amber"}
+   ]
+  },
+  {
+   "id": "fossil_pickup_dome_fossil",
+   "trigger": {"type": "talk", "map": "cinnabar_island_pokemon_lab_experiment_room", "actor": "fossil_researcher"},
+   "steps": [
+    {"who": "研究员", "say": ["它活过来了！这只从古代苏醒的伙伴就交给你。"]},
+    {"give_mon": {"species": 140, "level": 5}}
+   ],
+   "require": {"flags_all": ["fossil_ready_dome_fossil"]}
+  },
+  {
+   "id": "fossil_wait_dome_fossil",
+   "trigger": {"type": "map_enter", "map": "cinnabar_island_pokemon_lab_entrance"},
+   "steps": [
+    {"flag": "fossil_ready_dome_fossil"}
+   ],
+   "require": {"flags_all": ["fossil_work_dome_fossil"]}
+  },
+  {
+   "id": "fossil_restore_dome_fossil",
+   "trigger": {"type": "talk", "map": "cinnabar_island_pokemon_lab_experiment_room", "actor": "fossil_researcher"},
+   "steps": [
+    {"who": "研究员", "say": ["是甲壳化石！我能从中提取遗传物质。把它交给我吧，等你出去一趟再回来就好了。"]},
+    {"remove_item": "甲壳化石"},
+    {"flag": "fossil_work_dome_fossil"}
+   ],
+   "require": {"flags_all": ["story_choose_dome_fossil"]}
+  },
+  {
+   "id": "fossil_pickup_helix_fossil",
+   "trigger": {"type": "talk", "map": "cinnabar_island_pokemon_lab_experiment_room", "actor": "fossil_researcher"},
+   "steps": [
+    {"who": "研究员", "say": ["它活过来了！这只从古代苏醒的伙伴就交给你。"]},
+    {"give_mon": {"species": 138, "level": 5}}
+   ],
+   "require": {"flags_all": ["fossil_ready_helix_fossil"]}
+  },
+  {
+   "id": "fossil_wait_helix_fossil",
+   "trigger": {"type": "map_enter", "map": "cinnabar_island_pokemon_lab_entrance"},
+   "steps": [
+    {"flag": "fossil_ready_helix_fossil"}
+   ],
+   "require": {"flags_all": ["fossil_work_helix_fossil"]}
+  },
+  {
+   "id": "fossil_restore_helix_fossil",
+   "trigger": {"type": "talk", "map": "cinnabar_island_pokemon_lab_experiment_room", "actor": "fossil_researcher"},
+   "steps": [
+    {"who": "研究员", "say": ["是贝壳化石！我能从中提取遗传物质。把它交给我吧，等你出去一趟再回来就好了。"]},
+    {"remove_item": "贝壳化石"},
+    {"flag": "fossil_work_helix_fossil"}
+   ],
+   "require": {"flags_all": ["story_choose_helix_fossil"]}
+  },
+  {
+   "id": "fossil_pickup_old_amber",
+   "trigger": {"type": "talk", "map": "cinnabar_island_pokemon_lab_experiment_room", "actor": "fossil_researcher"},
+   "steps": [
+    {"who": "研究员", "say": ["它活过来了！这只从古代苏醒的伙伴就交给你。"]},
+    {"give_mon": {"species": 142, "level": 5}}
+   ],
+   "require": {"flags_all": ["fossil_ready_old_amber"]}
+  },
+  {
+   "id": "fossil_wait_old_amber",
+   "trigger": {"type": "map_enter", "map": "cinnabar_island_pokemon_lab_entrance"},
+   "steps": [
+    {"flag": "fossil_ready_old_amber"}
+   ],
+   "require": {"flags_all": ["fossil_work_old_amber"]}
+  },
+  {
+   "id": "fossil_restore_old_amber",
+   "trigger": {"type": "talk", "map": "cinnabar_island_pokemon_lab_experiment_room", "actor": "fossil_researcher"},
+   "steps": [
+    {"who": "研究员", "say": ["是秘密琥珀！我能从中提取遗传物质。把它交给我吧，等你出去一趟再回来就好了。"]},
+    {"remove_item": "秘密琥珀"},
+    {"flag": "fossil_work_old_amber"}
+   ],
+   "require": {"flags_all": ["got_old_amber"]}
+  },
+  {
+   "id": "nugget_bridge_rocket",
+   "trigger": {"type": "talk", "map": "kanto_main", "actor": "nugget_recruiter"},
+   "steps": [
+    {"who": "招募员", "say": ["通过五位训练家的考验了？这是奖品！再问你一句，要不要为火箭队工作？", "……拒绝吗？那就用对战回答我！"]},
+    {"battle": {"name": "火箭队招募员", "team": [{"species": 23, "level": 15}, {"species": 41, "level": 15}]}},
+    {"give_item": {"name": "金珠", "count": 1, "category": "other"}}
+   ],
+   "require": {"flags_all": ["rival_bridge"]},
+   "also": [{"type": "step", "map": "kanto_main", "area": [286, 15, 288, 16]}]
+  },
+  {
+   "id": "trainer_quiz_quinn",
+   "trigger": {"type": "talk", "map": "cinnabarisland_gym", "actor": "quiz_quinn"},
+   "steps": [
+    {"who": "窃贼 奎因", "say": ["想通过这间道馆，也可以用一场对战来证明自己！"]},
+    {"battle": {"name": "窃贼 奎因", "team": [{"species": 58, "level": 36}, {"species": 37, "level": 36}, {"species": 38, "level": 36}]}},
+    {"flag": "cinnabar_quiz_1"}
+   ],
+   "require": {"flags_none": ["cinnabar_quiz_1"]}
+  },
+  {
+   "id": "trainer_quiz_avery",
+   "trigger": {"type": "talk", "map": "cinnabarisland_gym", "actor": "quiz_avery"},
+   "steps": [
+    {"who": "理科男 艾弗里", "say": ["想通过这间道馆，也可以用一场对战来证明自己！"]},
+    {"battle": {"name": "理科男 艾弗里", "team": [{"species": 77, "level": 34}, {"species": 4, "level": 34}, {"species": 37, "level": 34}, {"species": 58, "level": 34}]}},
+    {"flag": "cinnabar_quiz_2"}
+   ],
+   "require": {"flags_none": ["cinnabar_quiz_2"]}
+  },
+  {
+   "id": "trainer_quiz_ramon",
+   "trigger": {"type": "talk", "map": "cinnabarisland_gym", "actor": "quiz_ramon"},
+   "steps": [
+    {"who": "窃贼 拉蒙", "say": ["想通过这间道馆，也可以用一场对战来证明自己！"]},
+    {"battle": {"name": "窃贼 拉蒙", "team": [{"species": 77, "level": 41}]}},
+    {"flag": "cinnabar_quiz_3"}
+   ],
+   "require": {"flags_none": ["cinnabar_quiz_3"]}
+  },
+  {
+   "id": "trainer_quiz_derek",
+   "trigger": {"type": "talk", "map": "cinnabarisland_gym", "actor": "quiz_derek"},
+   "steps": [
+    {"who": "理科男 德里克", "say": ["想通过这间道馆，也可以用一场对战来证明自己！"]},
+    {"battle": {"name": "理科男 德里克", "team": [{"species": 78, "level": 41}]}},
+    {"flag": "cinnabar_quiz_4"}
+   ],
+   "require": {"flags_none": ["cinnabar_quiz_4"]}
+  },
+  {
+   "id": "trainer_quiz_dusty",
+   "trigger": {"type": "talk", "map": "cinnabarisland_gym", "actor": "quiz_dusty"},
+   "steps": [
+    {"who": "窃贼 达斯蒂", "say": ["想通过这间道馆，也可以用一场对战来证明自己！"]},
+    {"battle": {"name": "窃贼 达斯蒂", "team": [{"species": 37, "level": 37}, {"species": 58, "level": 37}]}},
+    {"flag": "cinnabar_quiz_5"}
+   ],
+   "require": {"flags_none": ["cinnabar_quiz_5"]}
+  },
+  {
+   "id": "trainer_quiz_zac",
+   "trigger": {"type": "talk", "map": "cinnabarisland_gym", "actor": "quiz_zac"},
+   "steps": [
+    {"who": "理科男 扎克", "say": ["想通过这间道馆，也可以用一场对战来证明自己！"]},
+    {"battle": {"name": "理科男 扎克", "team": [{"species": 58, "level": 37}, {"species": 37, "level": 37}]}},
+    {"flag": "cinnabar_quiz_6"}
+   ],
+   "require": {"flags_none": ["cinnabar_quiz_6"]}
+  },
+  {
+   "id": "moon_nerd_win",
+   "trigger": {"type": "talk", "map": "mt_moon_b2f", "actor": "moon_nerd"},
+   "steps": [
+    {"who": "理科男 阿宅", "say": ["等等！那两块化石都是我先发现的！"]},
+    {"battle": {"name": "理科男 阿宅", "team": [{"species": 88, "level": 12}, {"species": 100, "level": 12}, {"species": 109, "level": 12}]}},
+    {"flag": "moon_nerd_win"}
+   ],
+   "also": [{"type": "step", "map": "mt_moon_b2f", "area": [14, 11, 15, 12]}]
+  },
+  {
+   "id": "choose_dome_fossil",
+   "trigger": {"type": "talk", "map": "mt_moon_b2f", "actor": "dome_fossil"},
+   "steps": [
+    {"who": "理科男 阿宅", "say": ["就这么分吧！你拿这块，另一块归我。红莲岛的研究所有人懂得怎么复原它。"]},
+    {"give_item": {"name": "甲壳化石", "count": 1, "category": "key"}},
+    {"flag": "moon_fossil_chosen"}
+   ],
+   "require": {"flags_all": ["moon_nerd_win"]}
+  },
+  {
+   "id": "choose_helix_fossil",
+   "trigger": {"type": "talk", "map": "mt_moon_b2f", "actor": "helix_fossil"},
+   "steps": [
+    {"who": "理科男 阿宅", "say": ["就这么分吧！你拿这块，另一块归我。红莲岛的研究所有人懂得怎么复原它。"]},
+    {"give_item": {"name": "贝壳化石", "count": 1, "category": "key"}},
+    {"flag": "moon_fossil_chosen"}
+   ],
+   "require": {"flags_all": ["moon_nerd_win"]}
+  },
+  {
+   "id": "rival_route22_early",
+   "trigger": {"type": "step", "map": "kanto_main", "area": [33, 194, 34, 197]},
+   "steps": [
+    {"who": "小茂", "say": ["联盟的守卫只认徽章。先让我看看，你的伙伴长进了多少？"]},
+    {"battle": {"name": "小茂", "team": [{"species": 16, "level": 9, "moves": [33, 28]}, {"species": 133, "level": 9}]}}
+   ],
+   "require": {"flags_all": ["got_dex"], "flags_none": ["beat_brock"]}
+  },
+  {
+   "id": "rival_bridge",
+   "trigger": {"type": "step", "map": "kanto_main", "area": [286, 46, 289, 47]},
+   "steps": [
+    {"who": "小茂", "say": ["我刚从正辉家回来。他把宝可梦寄存在电脑里，厉害吧？上桥之前先来一场！"]},
+    {"battle": {"name": "小茂", "team": [{"species": 17, "level": 17, "moves": [33, 28, 16, 98]}, {"species": 63, "level": 16, "moves": [100]}, {"species": 19, "level": 15, "moves": [33, 39, 98]}, {"species": 133, "level": 18}]}},
+    {"who": "小茂", "say": ["沿着桥走到海角，正辉的家就在那里。"]},
+    {"flag": "rival_bridge"}
+   ],
+   "require": {"flags_all": ["got_dex"]}
+  },
+  {
+   "id": "rival_anne",
+   "trigger": {"type": "step", "map": "s_s_anne_2_f_corridor", "area": [30, 6, 33, 7]},
+   "steps": [
+    {"who": "小茂", "say": ["这艘船可都是训练家。船长一直晕船，我正要下去透口气。"]},
+    {"battle": {"name": "小茂", "team": [{"species": 17, "level": 19}, {"species": 20, "level": 16}, {"species": 64, "level": 18}, {"species": 133, "level": 20}]}},
+    {"flag": "rival_anne"}
+   ],
+   "require": {"flags_all": ["ss_ticket"]},
+   "also": [{"type": "talk", "map": "s_s_anne_2_f_corridor", "actor": "anne_rival"}]
+  },
+  {
+   "id": "anne_cut",
+   "trigger": {"type": "talk", "map": "s_s_anne_captains_office", "actor": "anne_captain"},
+   "steps": [
+    {"who": "船长", "say": ["呜……海面一晃，我就……", "多谢你替我拍拍背。舒服多了！这份居合斩秘传，是我多年来航行攒下的本领。"]},
+    {"give_item": {"name": "秘传学习器 01", "count": 1, "category": "other"}},
+    {"flag": "anne_cut"}
+   ],
+   "require": {"flags_all": ["ss_ticket", "rival_anne"]}
+  },
+  {
+   "id": "poster_grunt_win",
+   "trigger": {"type": "talk", "map": "celadon_city_game_corner", "actor": "poster_grunt"},
+   "steps": [
+    {"who": "火箭队手下", "say": ["看什么看？海报后面可没有秘密！"]},
+    {"battle": {"name": "火箭队手下", "team": [{"species": 20, "level": 20}, {"species": 41, "level": 20}]}},
+    {"flag": "poster_grunt_win"}
+   ]
+  },
+  {
+   "id": "hideout_stairs",
+   "trigger": {"type": "talk", "map": "celadon_city_game_corner", "actor": "poster_switch"},
+   "steps": [
+    {"who": "旁白", "say": ["海报的背面有一个开关。按下之后，右边墙脚露出了通向地下的楼梯。"]},
+    {"flag": "hideout_stairs"}
+   ],
+   "require": {"flags_all": ["poster_grunt_win"]}
+  },
+  {
+   "id": "lift_grunt_win",
+   "trigger": {"type": "talk", "map": "rocket_hideout_b4f", "actor": "lift_grunt"},
+   "steps": [
+    {"who": "火箭队手下", "say": ["电梯钥匙？那东西可不能交给你！"]},
+    {"battle": {"name": "火箭队手下", "team": [{"species": 109, "level": 21}, {"species": 41, "level": 21}]}},
+    {"flag": "lift_grunt_win"}
+   ]
+  },
+  {
+   "id": "take_lift_key",
+   "trigger": {"type": "talk", "map": "rocket_hideout_b4f", "actor": "lift_key_ball"},
+   "steps": [
+    {"who": "旁白", "say": ["捡起了火箭队电梯的钥匙。到电梯里按操作盘就能选择楼层。"]},
+    {"give_item": {"name": "电梯钥匙", "count": 1, "category": "key"}},
+    {"flag": "lift_key"}
+   ],
+   "require": {"flags_all": ["lift_grunt_win"]}
+  },
+  {
+   "id": "hideout_guard_1_win",
+   "trigger": {"type": "talk", "map": "rocket_hideout_b4f", "actor": "hideout_guard_1"},
+   "steps": [
+    {"who": "首领的警卫", "say": ["办公室是首领的地盘，站住！"]},
+    {"battle": {"name": "首领的警卫", "team": [{"species": 27, "level": 23}, {"species": 23, "level": 23}, {"species": 28, "level": 23}]}},
+    {"flag": "hideout_guard_1_win"}
+   ],
+   "require": {"flags_all": ["lift_key"]}
+  },
+  {
+   "id": "hideout_guard_2_win",
+   "trigger": {"type": "talk", "map": "rocket_hideout_b4f", "actor": "hideout_guard_2"},
+   "steps": [
+    {"who": "首领的警卫", "say": ["办公室是首领的地盘，站住！"]},
+    {"battle": {"name": "首领的警卫", "team": [{"species": 23, "level": 23}, {"species": 27, "level": 23}, {"species": 24, "level": 23}]}},
+    {"flag": "hideout_guard_2_win"}
+   ],
+   "require": {"flags_all": ["lift_key"]}
+  },
+  {
+   "id": "hideout_boss_win",
+   "trigger": {"type": "talk", "map": "rocket_hideout_b4f", "actor": "hideout_boss"},
+   "steps": [
+    {"who": "坂木", "say": ["我们借宝可梦建立事业。你执意要挡在我面前，那就试试吧。"]},
+    {"battle": {"name": "坂木", "team": [{"species": 95, "level": 25}, {"species": 111, "level": 24}, {"species": 115, "level": 29}]}},
+    {"flag": "hideout_boss_win"}
+   ],
+   "require": {"flags_all": ["hideout_guard_1_win", "hideout_guard_2_win"]}
+  },
+  {
+   "id": "take_silph_scope",
+   "trigger": {"type": "talk", "map": "rocket_hideout_b4f", "actor": "scope_ball"},
+   "steps": [
+    {"who": "旁白", "say": ["坂木离开时留下了西尔佛检视镜。透过镜片可以看清幽灵的真面目。"]},
+    {"give_item": {"name": "西尔佛检视镜", "count": 1, "category": "key"}},
+    {"flag": "silph_scope"}
+   ],
+   "require": {"flags_all": ["hideout_boss_win"]}
+  },
+  {
+   "id": "rival_tower",
+   "trigger": {"type": "talk", "map": "pokemontower_2f", "actor": "tower_rival"},
+   "steps": [
+    {"who": "小茂", "say": ["这座塔是纪念宝可梦的地方。继续往上之前，先让我看看你的队伍。"]},
+    {"battle": {"name": "小茂", "team": [{"species": 17, "level": 25}, {"species": 102, "level": 23}, {"species": 130, "level": 22}, {"species": 64, "level": 20}, {"species": 135, "level": 25}]}},
+    {"flag": "rival_tower"}
+   ],
+   "also": [{"type": "step", "map": "pokemontower_2f", "area": [17, 5, 18, 6]}, {"type": "step", "map": "pokemontower_2f", "area": [16, 6, 17, 7]}]
+  },
+  {
+   "id": "tower_mother",
+   "trigger": {"type": "step", "map": "pokemontower_6f", "area": [11, 15, 12, 16]},
+   "steps": [
+    {"who": "旁白", "say": ["镜片里的幽灵显出嘎啦嘎啦的身影。失去了孩子的母亲仍守在楼梯前。"]},
+    {"battle": {"name": "嘎啦嘎啦的幽灵", "team": [{"species": 105, "level": 30}]}},
+    {"who": "旁白", "say": ["嘎啦嘎啦缓缓低下头，消失在雾里。楼上的呼救声传了下来。"]},
+    {"flag": "tower_mother"}
+   ],
+   "require": {"flags_all": ["silph_scope"]},
+   "also": [{"type": "step", "map": "pokemontower_6f", "area": [12, 16, 13, 17]}]
+  },
+  {
+   "id": "saffron_tea",
+   "trigger": {"type": "talk", "map": "celadon_city_condominiums_1f", "actor": "tea_woman"},
+   "steps": [
+    {"who": "婆婆", "say": ["走这么远口一定渴了。这壶茶刚刚泡好，拿着吧。"]},
+    {"give_item": {"name": "茶", "count": 1, "category": "key"}},
+    {"flag": "saffron_tea"}
+   ]
+  },
+  {
+   "id": "share_tea_route5_south_entrance",
+   "trigger": {"type": "talk", "map": "route5_south_entrance", "actor": "saffron_guard"},
+   "steps": [
+    {"who": "警卫", "say": ["这茶闻起来真香！谢谢，我这就告诉另外三处关卡的同事。今后你可以自由进出金黄市。"]},
+    {"remove_item": "茶"},
+    {"flag": "saffron_gates_open"}
+   ],
+   "require": {"flags_all": ["saffron_tea"], "flags_none": ["saffron_gates_open"]}
+  },
+  {
+   "id": "share_tea_route6_north_entrance",
+   "trigger": {"type": "talk", "map": "route6_north_entrance", "actor": "saffron_guard"},
+   "steps": [
+    {"who": "警卫", "say": ["这茶闻起来真香！谢谢，我这就告诉另外三处关卡的同事。今后你可以自由进出金黄市。"]},
+    {"remove_item": "茶"},
+    {"flag": "saffron_gates_open"}
+   ],
+   "require": {"flags_all": ["saffron_tea"], "flags_none": ["saffron_gates_open"]}
+  },
+  {
+   "id": "share_tea_route7_east_entrance",
+   "trigger": {"type": "talk", "map": "route7_east_entrance", "actor": "saffron_guard"},
+   "steps": [
+    {"who": "警卫", "say": ["这茶闻起来真香！谢谢，我这就告诉另外三处关卡的同事。今后你可以自由进出金黄市。"]},
+    {"remove_item": "茶"},
+    {"flag": "saffron_gates_open"}
+   ],
+   "require": {"flags_all": ["saffron_tea"], "flags_none": ["saffron_gates_open"]}
+  },
+  {
+   "id": "share_tea_route8_west_entrance",
+   "trigger": {"type": "talk", "map": "route8_west_entrance", "actor": "saffron_guard"},
+   "steps": [
+    {"who": "警卫", "say": ["这茶闻起来真香！谢谢，我这就告诉另外三处关卡的同事。今后你可以自由进出金黄市。"]},
+    {"remove_item": "茶"},
+    {"flag": "saffron_gates_open"}
+   ],
+   "require": {"flags_all": ["saffron_tea"], "flags_none": ["saffron_gates_open"]}
+  },
+  {
+   "id": "rival_silph",
+   "trigger": {"type": "talk", "map": "silph_co_7f", "actor": "silph_rival"},
+   "steps": [
+    {"who": "小茂", "say": ["我就知道你会来。坂木去了顶楼，不过我也正为联盟挑战作准备！"]},
+    {"battle": {"name": "小茂", "team": [{"species": 18, "level": 37}, {"species": 102, "level": 38}, {"species": 130, "level": 35}, {"species": 65, "level": 35}, {"species": 135, "level": 40}]}},
+    {"flag": "rival_silph"}
+   ],
+   "require": {"flags_all": ["card_key"]},
+   "also": [{"type": "step", "map": "silph_co_7f", "area": [2, 4, 3, 6]}]
+  },
+  {
+   "id": "silph_lapras",
+   "trigger": {"type": "talk", "map": "silph_co_7f", "actor": "lapras_worker"},
+   "steps": [
+    {"who": "职员", "say": ["我藏在这里照顾乘龙。它能听懂人话，跟着训练家去海上会比留在公司安全。"]},
+    {"give_mon": {"species": 131, "level": 25}}
+   ],
+   "require": {"flags_all": ["rival_silph"]}
+  },
+  {
+   "id": "silph_master_ball",
+   "trigger": {"type": "talk", "map": "silph_co_11f", "actor": "silph_president"},
+   "steps": [
+    {"who": "社长", "say": ["多亏了你，火箭队撤走了。把这颗大师球带走吧。我们只做成了这一颗。"]},
+    {"give_item": {"name": "大师球", "count": 1, "category": "ball"}}
+   ],
+   "require": {"flags_all": ["freed_silph"]}
+  },
+  {
+   "id": "safari_surf",
+   "trigger": {"type": "talk", "map": "safari_zone_secret_house", "actor": "safari_prize"},
+   "steps": [
+    {"who": "管理员", "say": ["终于有人找到这里了！这是寻宝活动的奖品，能让宝可梦载着你跨过水面的冲浪秘传。"]},
+    {"give_item": {"name": "秘传学习器 03", "count": 1, "category": "other"}},
+    {"flag": "safari_surf"}
+   ]
+  },
+  {
+   "id": "warden_strength",
+   "trigger": {"type": "talk", "map": "fuchsia_city_wardens_house", "actor": "warden"},
+   "steps": [
+    {"who": "园长", "say": ["我的金假牙！这下总算能好好说话了。你帮了我的大忙，这份怪力秘传送给你。"]},
+    {"remove_item": "金假牙"},
+    {"give_item": {"name": "秘传学习器 04", "count": 1, "category": "other"}},
+    {"flag": "warden_strength"}
+   ],
+   "require": {"flags_all": ["gold_teeth"]}
+  },
+  {
+   "id": "rival_route22_final",
+   "trigger": {"type": "step", "map": "kanto_main", "area": [33, 194, 34, 197]},
+   "steps": [
+    {"who": "小茂", "say": ["八枚徽章收齐了？我也是。这条路的尽头就是联盟，出发前再比一场吧！"]},
+    {"battle": {"name": "小茂", "team": [{"species": 18, "level": 47, "moves": [297, 17, 16, 98]}, {"species": 111, "level": 45, "moves": [36, 32, 350, 31]}, {"species": 102, "level": 45, "moves": [76, 79, 77, 78]}, {"species": 130, "level": 45, "moves": [56, 239, 43, 240]}, {"species": 65, "level": 47, "moves": [94, 347, 248, 50]}, {"species": 135, "level": 53}]}},
+    {"flag": "rival_route22_final"}
+   ],
+   "require": {"flags_all": ["beat_giovanni"]}
+  },
+  {
+   "id": "kanto_loreleis_win",
+   "trigger": {"type": "talk", "map": "pokemon_league_loreleis_room", "actor": "league_loreleis"},
+   "steps": [
+    {"who": "科拿", "say": ["走进这里就要接受四天王的挑战。冰冷的海水会告诉你，第一关有多深。"]},
+    {"battle": {"name": "科拿", "team": [{"species": 87, "level": 52, "moves": [58, 57, 258, 219]}, {"species": 91, "level": 51, "moves": [191, 182, 258, 291]}, {"species": 80, "level": 52, "moves": [58, 57, 133, 281]}, {"species": 124, "level": 54, "moves": [8, 3, 142, 213]}, {"species": 131, "level": 54, "moves": [109, 58, 57, 34], "berry": "sitrus"}]}},
+    {"who": "科拿", "say": ["你打碎了冰层。去下一间吧。"]},
+    {"flag": "kanto_loreleis_win"}
+   ],
+   "require": {"flags_all": ["kanto_eight_badges"]}
+  },
+  {
+   "id": "kanto_brunos_win",
+   "trigger": {"type": "talk", "map": "pokemon_league_brunos_room", "actor": "league_brunos"},
+   "steps": [
+    {"who": "希巴", "say": ["我和伙伴们一同锻炼到今天。让我见识你们并肩出战的力量！"]},
+    {"battle": {"name": "希巴", "team": [{"species": 95, "level": 51, "moves": [89, 317, 231, 46]}, {"species": 107, "level": 53, "moves": [327, 183, 317, 68]}, {"species": 106, "level": 53, "moves": [25, 193, 280, 263]}, {"species": 95, "level": 54, "moves": [38, 89, 231, 328]}, {"species": 68, "level": 56, "moves": [238, 339, 184, 317], "berry": "sitrus"}]}},
+    {"who": "希巴", "say": ["我的伙伴已经尽力了，下一关在等你。"]},
+    {"flag": "kanto_brunos_win"}
+   ],
+   "require": {"flags_all": ["kanto_loreleis_win"]}
+  },
+  {
+   "id": "kanto_agathas_win",
+   "trigger": {"type": "talk", "map": "pokemon_league_agathas_room", "actor": "league_agathas"},
+   "steps": [
+    {"who": "菊子", "say": ["大木又把图鉴托给了年轻人？既然来了，就让我的幽灵领教一下。"]},
+    {"battle": {"name": "菊子", "team": [{"species": 94, "level": 54, "moves": [325, 109, 92, 104]}, {"species": 42, "level": 54, "moves": [109, 305, 314, 44]}, {"species": 93, "level": 53, "moves": [95, 138, 174, 212]}, {"species": 24, "level": 56, "moves": [188, 103, 231, 44]}, {"species": 94, "level": 58, "moves": [247, 188, 95, 171], "berry": "sitrus"}]}},
+    {"who": "菊子", "say": ["难得有人能跟上它们的步子。向前走吧。"]},
+    {"flag": "kanto_agathas_win"}
+   ],
+   "require": {"flags_all": ["kanto_brunos_win"]}
+  },
+  {
+   "id": "kanto_lances_win",
+   "trigger": {"type": "talk", "map": "pokemon_league_lances_room", "actor": "league_lances"},
+   "steps": [
+    {"who": "阿渡", "say": ["龙的力量可不容易驾驭。你和伙伴已经走到这里，尽全力挑战我吧！"]},
+    {"battle": {"name": "阿渡", "team": [{"species": 130, "level": 56, "moves": [63, 82, 239, 44]}, {"species": 148, "level": 54, "moves": [63, 219, 82, 200]}, {"species": 148, "level": 54, "moves": [63, 219, 86, 200]}, {"species": 142, "level": 58, "moves": [63, 246, 17, 184]}, {"species": 149, "level": 60, "moves": [63, 219, 200, 17], "berry": "sitrus"}]}},
+    {"who": "阿渡", "say": ["你战胜了四天王，但还有一个人比你先到。冠军正在前面等你。"]},
+    {"flag": "kanto_lances_win"}
+   ],
+   "require": {"flags_all": ["kanto_agathas_win"]}
+  },
+  {
+   "id": "kanto_champions_win",
+   "trigger": {"type": "talk", "map": "pokemon_league_champions_room", "actor": "league_champions"},
+   "steps": [
+    {"who": "小茂", "say": ["我就知道你会来！我和我的伙伴抢先一步坐上了冠军的位置。最后这场，你准备好了吗？"]},
+    {"battle": {"name": "小茂", "team": [{"species": 18, "level": 59, "moves": [332, 297, 28, 18]}, {"species": 65, "level": 57, "moves": [94, 248, 105, 115]}, {"species": 112, "level": 59, "moves": [36, 89, 317, 184]}, {"species": 103, "level": 59, "moves": [202, 121, 79, 113]}, {"species": 130, "level": 61, "moves": [56, 82, 44, 37]}, {"species": 135, "level": 63, "berry": "sitrus"}]}},
+    {"who": "小茂", "say": ["明明已经赢过四天王了……原来我还得学会相信自己的伙伴。"]},
+    {"flag": "kanto_champions_win"}
+   ],
+   "require": {"flags_all": ["kanto_lances_win"]},
+   "also": [{"type": "step", "map": "pokemon_league_champions_room", "area": [6, 9, 7, 10]}]
+  },
+  {
+   "id": "kanto_hall",
+   "trigger": {"type": "map_enter", "map": "pokemon_league_hall_of_fame"},
+   "steps": [
+    {"who": "大木博士", "say": ["我一路追到这里，正好赶上了。把精灵球放到记录台上吧。", "从真新镇出发时只有你和皮卡丘，如今整支队伍都站上了关都的顶点。"]},
+    {"hall_of_fame": "kanto"},
+    {"who": "大木博士", "say": ["恭喜你，关都联盟冠军！回真新镇看看图鉴吧。记录下六十种捕获之后，再来实验室找我。"]}
+   ],
+   "require": {"flags_all": ["kanto_champions_win"]}
+  },
+  {
    "id": "oak_escort",
    "once": true,
    "trigger": {
@@ -223,11 +916,18 @@
      "who": "大木博士",
      "say": [
       "送到啦！谢谢你。这是我订做的精灵球。",
-      "桌上的图鉴交给你。遇到的宝可梦会记在上面。"
+      "桌上的图鉴交给你。遇到的宝可梦会记在上面。再带上这 5 个精灵球，去草丛里试试吧。"
      ]
     },
     {
      "remove_item": "大木的包裹"
+    },
+    {
+     "give_item": {
+      "name": "精灵球",
+      "category": "ball",
+      "count": 5
+     }
     },
     {
      "flag": "got_dex"
@@ -864,6 +1564,10 @@
    "require": {
     "flags_none": [
      "freed_silph"
+    ],
+    "flags_all": [
+     "card_key",
+     "rival_silph"
     ]
    },
    "steps": [
@@ -964,16 +1668,9 @@
      }
     },
     {
-     "give_item": {
-      "name": "精灵球",
-      "category": "ball",
-      "count": 5
-     }
-    },
-    {
      "who": "大木博士",
      "say": [
-      "这几颗精灵球也拿好。北边的常磐市有家商店，去那里看看吧。"
+      "北边的常磐市有家商店，带上皮卡丘，去那里看看吧。"
      ]
     },
     {
@@ -1013,12 +1710,17 @@
    },
    "steps": [
     {
+     "who": "小刚",
      "say": [
-      "小刚：看得出来，你对宝可梦是有耐心的。",
-      "这块灰色徽章，是你的了。",
-      "有了它，训练家们会认可你。"
-     ],
-     "who": "小刚"
+      "你和伙伴穿过了岩石的防线。带上灰色徽章！岩石封锁能封住对手的退路。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "招式学习器 39",
+      "count": 1,
+      "category": "tm"
+     }
     },
     {
      "flag": "beat_brock"
@@ -1034,12 +1736,17 @@
    },
    "steps": [
     {
+     "who": "坂木",
      "say": [
-      "坂木：……输了。",
-      "常磐道馆的绿色徽章归你了。",
-      "不过，这世界的胜负不只有一场。"
-     ],
-     "who": "坂木"
+      "我输了。绿色徽章，以及地震的招式学习器，都归你。火箭队在关都的行动到此为止。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "招式学习器 26",
+      "count": 1,
+      "category": "tm"
+     }
     },
     {
      "flag": "beat_giovanni"

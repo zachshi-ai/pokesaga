@@ -155,8 +155,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM17",
-   "name": "ITEM_TM17",
-   "category": "other",
+   "name": "招式学习器 17",
+   "category": "tm",
    "sprite": "ball"
   },
   {
@@ -166,8 +166,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM25",
-   "name": "ITEM_TM25",
-   "category": "other",
+   "name": "招式学习器 25",
+   "category": "tm",
    "sprite": "ball"
   },
   {
@@ -178,7 +178,7 @@
    "kind": "item",
    "item": "ITEM_THUNDER_STONE",
    "name": "雷之石",
-   "category": "other",
+   "category": "evo",
    "sprite": "ball"
   },
   {
@@ -212,7 +212,7 @@
    "kind": "hidden",
    "item": "ITEM_THUNDER_STONE",
    "name": "雷之石",
-   "category": "other",
+   "category": "evo",
    "flag": "FLAG_HIDDEN_ITEM_POWER_PLANT_THUNDER_STONE",
    "count": 1
   }

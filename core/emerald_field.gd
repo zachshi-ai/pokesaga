@@ -37,6 +37,12 @@ static func _tileset() -> TileSet:
 	_tiles.add_source(src,0)
 	for n in int(_catalog.tiles):
 		src.create_tile(_atlas_coord(n))
+	var switches := TileSetAtlasSource.new()
+	switches.texture=load(ART+"kanto_puzzles.png")
+	switches.texture_region_size=Vector2i(CELL,CELL)
+	_tiles.add_source(switches,1)
+	for y in floori(switches.texture.get_height()/float(CELL)):
+		for x in 16: switches.create_tile(Vector2i(x,y))
 	return _tiles
 
 @warning_ignore("integer_division")
@@ -139,5 +145,8 @@ func _change(key: Vector2i,show_chunk: bool) -> void:
 		active.erase(key)
 
 func _set_tile(layer: TileMapLayer,pos: Vector2i,id: int) -> void:
-	if id!=0:
+	if id>=32768:
+		var n:=id-32768
+		layer.set_cell(pos,1,Vector2i(n%16,floori(n/16.0)))
+	elif id!=0:
 		layer.set_cell(pos,0,_atlas_coord(id))

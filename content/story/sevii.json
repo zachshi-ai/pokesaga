@@ -1,71 +1,1525 @@
 {
   "region": "sevii",
   "events": [
-    {"id": "rescue_icefall", "trigger": {"type": "step", "map": "four_island_icefall_cave_back", "area": [11, 18, 14, 19]}, "also": [{"type": "talk", "map": "four_island_icefall_cave_back", "actor": "icefall_lorelei"}], "steps": [{"who": "科拿", "say": ["那些人想抓走洞里的宝可梦。请帮我挡住右边的手下！"]}, {"battle": {"name": "火箭队手下", "team": [{"species": 41, "level": 38}, {"species": 41, "level": 38}, {"species": 42, "level": 38}]}}, {"who": "火箭队手下", "say": ["撤退！回五之岛的仓库！"]}, {"who": "科拿", "say": ["刚才多亏有你。五之岛还有他们的同伙。"]}, {"flag": "rescued_icefall"}]},
-    {"id": "celio_accept_ruby", "trigger": {"type": "talk", "actor": "celio", "map": "one_island_pokemon_center_1f"}, "require": {"flags_all": ["got_ember_ruby"]}, "steps": [{"who": "锦辉", "say": ["正是这块红宝石！我终于能把它装进网络机器了。收下这张彩虹通行证吧。"]}, {"remove_item": "红宝石"}, {"give_item": {"name": "彩虹通行证", "category": "key", "count": 1}}, {"flag": "delivered_ember_ruby"}]},
-    {"id": "celio_requests_ruby", "trigger": {"type": "talk", "actor": "celio", "map": "one_island_pokemon_center_1f"}, "require": {"flags_all": ["got_dex"]}, "steps": [{"who": "锦辉", "say": ["你的图鉴已经能记录各地的宝可梦了！我也想让各地的电脑连起来。听说在灯火山能找到机器需要的红宝石，可以替我找找吗？"]}, {"flag": "ember_ruby_requested"}]},
-    {"id": "ember_warehouse_password", "trigger": {"type": "step", "map": "mt_ember_exterior", "area": [37, 43, 40, 44]}, "require": {"flags_all": ["ember_ruby_requested"]}, "steps": [{"who": "火箭队手下", "say": ["终于挖通了！仓库的第一个口令是「角金鱼，需要它」……喂！你偷听到了什么？"]}]},
-    {"id": "ember_grunt_1", "trigger": {"type": "talk", "actor": "ember_grunt_1", "map": "mt_ember_exterior"}, "require": {"flags_all": ["ember_ruby_requested"]}, "steps": [{"who": "火箭队手下", "say": ["不准进去！想过这里，先打赢我！"]}, {"battle": {"name": "火箭队手下", "team": [{"species": 104, "level": 37}, {"species": 105, "level": 37}], "win_say": ["竟然输给你了……"]}}, {"flag": "beat_ember_grunt_1"}]},
-    {"id": "ember_grunt_2", "trigger": {"type": "talk", "actor": "ember_grunt_2", "map": "mt_ember_exterior"}, "require": {"flags_all": ["ember_ruby_requested"]}, "steps": [{"who": "火箭队手下", "say": ["不准进去！想过这里，先打赢我！"]}, {"battle": {"name": "火箭队手下", "team": [{"species": 19, "level": 35}, {"species": 20, "level": 35}, {"species": 27, "level": 35}, {"species": 28, "level": 35}], "win_say": ["竟然输给你了……"]}}, {"flag": "beat_ember_grunt_2"}]},
-    {"id": "collect_ember_ruby", "trigger": {"type": "talk", "actor": "ember_ruby", "map": "mt_ember_ruby_path_b5f"}, "require": {"flags_all": ["beat_ember_grunt_1", "beat_ember_grunt_2"]}, "steps": [{"who": "旁白", "say": ["拿到了红宝石！把它带回一之岛的宝可梦网络中心吧。"]}, {"give_item": {"name": "红宝石", "category": "key", "count": 1}}, {"flag": "got_ember_ruby"}]},
+    {
+      "id": "sevii_rival_four",
+      "trigger": {
+        "type": "map_enter",
+        "map": "four_island"
+      },
+      "require": {
+        "flags_all": [
+          "national_dex",
+          "delivered_ember_ruby",
+          "sevii_detour_finished"
+        ],
+        "flags_none": [
+          "sevii_rival_four",
+          "sevii_rival_six"
+        ]
+      },
+      "steps": [
+        {
+          "who": "小茂",
+          "say": [
+            "连这里都有培育屋！我已经拿到一颗蛋了。你慢慢找吧，我先走一步。"
+          ]
+        },
+        {
+          "flag": "sevii_rival_four"
+        }
+      ],
+      "also": [
+        {
+          "type": "talk",
+          "map": "four_island",
+          "actor": "sevii_rival_four"
+        }
+      ]
+    },
+    {
+      "id": "sevii_rival_six",
+      "trigger": {
+        "type": "map_enter",
+        "map": "six_island_pokemon_center_1f"
+      },
+      "require": {
+        "flags_all": [
+          "national_dex",
+          "delivered_ember_ruby",
+          "sevii_detour_finished"
+        ],
+        "flags_none": [
+          "sevii_rival_six"
+        ]
+      },
+      "steps": [
+        {
+          "who": "小茂",
+          "say": [
+            "我把附近都跑遍了，只在这几座岛上可填不满全国图鉴。我准备回关都去找别的线索。"
+          ]
+        },
+        {
+          "flag": "sevii_rival_six"
+        }
+      ],
+      "also": [
+        {
+          "type": "talk",
+          "map": "six_island_pokemon_center_1f",
+          "actor": "sevii_rival_six"
+        }
+      ]
+    },
+    {
+      "id": "sevii_find_selphy",
+      "trigger": {
+        "type": "map_enter",
+        "map": "five_island_lost_cave_room10"
+      },
+      "require": {
+        "flags_all": [
+          "delivered_ember_ruby",
+          "national_dex",
+          "sevii_detour_finished"
+        ],
+        "flags_none": [
+          "sevii_selphy_found"
+        ]
+      },
+      "steps": [
+        {
+          "who": "阿姿莎",
+          "say": [
+            "你一直跟着我？这里是我一个人散心的地方。先来场对战！"
+          ]
+        },
+        {
+          "battle": {
+            "name": "千金小姐·阿姿莎",
+            "team": [
+              {
+                "species": 53,
+                "level": 49,
+                "moves": [
+                  6,
+                  44,
+                  269,
+                  259
+                ]
+              },
+              {
+                "species": 53,
+                "level": 49,
+                "moves": [
+                  6,
+                  10,
+                  259,
+                  269
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "who": "阿姿莎",
+          "say": [
+            "原来你是来找我的。我在洞里绕了很久，可以送我回度假村吗？"
+          ]
+        },
+        {
+          "flag": "sevii_selphy_found"
+        },
+        {
+          "warp": {
+            "region": "sevii",
+            "map": "five_island_resort_gorgeous",
+            "at": [
+              39,
+              10
+            ]
+          }
+        },
+        {
+          "who": "阿姿莎",
+          "say": [
+            "到家了！以后有空就进来坐坐，我想看看你带来的宝可梦。"
+          ]
+        },
+        {
+          "flag": "sevii_selphy_home"
+        }
+      ],
+      "also": [
+        {
+          "type": "talk",
+          "map": "five_island_lost_cave_room10",
+          "actor": "selphy_lost"
+        }
+      ]
+    },
+    {
+      "id": "sevii_special_tickets",
+      "trigger": {
+        "type": "talk",
+        "map": "one_island_pokemon_center_2f",
+        "actor": "sevii_gift_clerk"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_network_online"
+        ],
+        "flags_none": [
+          "sevii_special_tickets"
+        ]
+      },
+      "steps": [
+        {
+          "who": "神秘礼物配送员",
+          "say": [
+            "网络传来了给你的两张特别船票。神秘船票通往肚脐岩，极光船票通往诞生岛。",
+            "请在枯叶市或七岛任一码头向海烈焰马号船员出示。"
+          ]
+        },
+        {
+          "give_item": {
+            "name": "神秘船票",
+            "category": "key",
+            "count": 1
+          }
+        },
+        {
+          "give_item": {
+            "name": "极光船票",
+            "category": "key",
+            "count": 1
+          }
+        },
+        {
+          "flag": "sevii_special_tickets"
+        }
+      ]
+    },
+    {
+      "id": "sevii_celio_parcel",
+      "trigger": {
+        "type": "talk",
+        "map": "one_island_pokemon_center_1f",
+        "actor": "celio"
+      },
+      "also": [
+        {
+          "type": "talk",
+          "map": "one_island_pokemon_center_1f",
+          "actor": "sevii_bill_lab"
+        },
+        {
+          "type": "map_enter",
+          "map": "one_island_pokemon_center_1f"
+        }
+      ],
+      "require": {
+        "flags_all": [
+          "sevii_visit_started"
+        ],
+        "flags_none": [
+          "sevii_meteorite_errand"
+        ]
+      },
+      "steps": [
+        {
+          "who": "正辉",
+          "say": [
+            "锦辉，这位就是我说过的训练家。网络机器的接线交给我，你先看看关都那端。"
+          ]
+        },
+        {
+          "who": "锦辉",
+          "say": [
+            "电脑能工作了，可两个地区还连不上。我们得一起留在机房。"
+          ]
+        },
+        {
+          "who": "正辉",
+          "say": [
+            "能帮我把这块陨石带给二之岛游戏厅的老板吗？"
+          ]
+        },
+        {
+          "give_item": {
+            "name": "陨石",
+            "category": "key",
+            "count": 1
+          }
+        },
+        {
+          "who": "锦辉",
+          "say": [
+            "拿着这张三岛通行证吧。一、二、三之岛的码头都认它。"
+          ]
+        },
+        {
+          "give_item": {
+            "name": "三岛通行证",
+            "category": "key",
+            "count": 1
+          }
+        },
+        {
+          "flag": "sevii_meteorite_errand"
+        }
+      ]
+    },
+    {
+      "id": "sevii_lostelle_missing",
+      "trigger": {
+        "type": "map_enter",
+        "map": "two_island_joyful_game_corner"
+      },
+      "also": [
+        {
+          "type": "talk",
+          "map": "two_island_joyful_game_corner",
+          "actor": "lostelle_father"
+        }
+      ],
+      "require": {
+        "flags_all": [
+          "sevii_meteorite_errand"
+        ]
+      },
+      "steps": [
+        {
+          "who": "游戏厅老板",
+          "say": [
+            "你看见我女儿了吗？她去三之岛采树果，一直到现在还没回来。"
+          ]
+        },
+        {
+          "who": "暴走族",
+          "say": [
+            "这是什么破地方？喂，三之岛怎么走？"
+          ]
+        },
+        {
+          "who": "游戏厅老板",
+          "say": [
+            "码头在外面！……拜托你，帮我到三之岛看看她。陨石等她回来再说。"
+          ]
+        },
+        {
+          "flag": "sevii_lostelle_missing"
+        }
+      ]
+    },
+    {
+      "id": "sevii_three_island_bikers",
+      "trigger": {
+        "type": "talk",
+        "map": "three_island",
+        "actor": "sevii_biker"
+      },
+      "also": [
+        {
+          "type": "talk",
+          "map": "three_island",
+          "actor": "sevii_defender"
+        },
+        {
+          "type": "step",
+          "map": "three_island",
+          "area": [
+            8,
+            25,
+            11,
+            27
+          ]
+        }
+      ],
+      "require": {
+        "flags_all": [
+          "sevii_lostelle_missing"
+        ]
+      },
+      "steps": [
+        {
+          "who": "岛民",
+          "say": [
+            "桥被他们堵住了。你能来帮忙吗？"
+          ]
+        },
+        {
+          "who": "暴走族",
+          "say": [
+            "别挡路。想过去就跟我们较量！"
+          ]
+        },
+        {
+          "battle": {
+            "name": "暴走族·先头",
+            "team": [
+              {
+                "species": 109,
+                "level": 37,
+                "moves": [
+                  114,
+                  108,
+                  124,
+                  33
+                ]
+              },
+              {
+                "species": 88,
+                "level": 37,
+                "moves": [
+                  151,
+                  103,
+                  107,
+                  124
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "who": "暴走族",
+          "say": [
+            "下一个换我！"
+          ]
+        },
+        {
+          "battle": {
+            "name": "暴走族·二号",
+            "team": [
+              {
+                "species": 109,
+                "level": 38,
+                "moves": [
+                  114,
+                  108,
+                  124,
+                  33
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "who": "暴走族",
+          "say": [
+            "车可还没发动呢！"
+          ]
+        },
+        {
+          "battle": {
+            "name": "暴走族·三号",
+            "team": [
+              {
+                "species": 88,
+                "level": 38
+              }
+            ]
+          }
+        },
+        {
+          "who": "暴走族首领",
+          "say": [
+            "你打倒了我的伙伴。让我来！"
+          ]
+        },
+        {
+          "battle": {
+            "name": "暴走族首领",
+            "team": [
+              {
+                "species": 110,
+                "level": 39
+              },
+              {
+                "species": 89,
+                "level": 39
+              }
+            ]
+          }
+        },
+        {
+          "who": "暴走族首领",
+          "say": [
+            "我们搭下一班船走，再也不来闹了。"
+          ]
+        },
+        {
+          "who": "岛民",
+          "say": [
+            "那女孩常去镇子西边。过索桥，尽头就是树果森林。"
+          ]
+        },
+        {
+          "flag": "sevii_bikers_left"
+        }
+      ]
+    },
+    {
+      "id": "sevii_defender_reward",
+      "trigger": {
+        "type": "talk",
+        "map": "three_island",
+        "actor": "sevii_defender"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_bikers_left"
+        ]
+      },
+      "steps": [
+        {
+          "who": "岛民",
+          "say": [
+            "辛苦你了，拿瓶全复药带在路上。"
+          ]
+        },
+        {
+          "give_item": {
+            "name": "全复药",
+            "category": "heal",
+            "count": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "sevii_lostelle_rescued",
+      "trigger": {
+        "type": "talk",
+        "map": "three_island_berry_forest",
+        "actor": "lostelle_forest"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_bikers_left"
+        ]
+      },
+      "steps": [
+        {
+          "who": "迷失妹",
+          "say": [
+            "别过来……啊，你不是刚才那个！它藏在树后面，又回来了！"
+          ]
+        },
+        {
+          "battle": {
+            "name": "引梦貘人",
+            "wild": true,
+            "team": [
+              {
+                "species": 97,
+                "level": 30
+              }
+            ]
+          }
+        },
+        {
+          "who": "迷失妹",
+          "say": [
+            "谢谢你！这个芭亚果送给你。我想回去找爸爸。"
+          ]
+        },
+        {
+          "give_item": {
+            "name": "芭亚果",
+            "category": "berry",
+            "count": 1,
+            "berry": "iapapa"
+          }
+        },
+        {
+          "flag": "sevii_lostelle_rescued"
+        },
+        {
+          "warp": {
+            "region": "sevii",
+            "map": "two_island_joyful_game_corner",
+            "at": [
+              6,
+              6
+            ]
+          }
+        },
+        {
+          "who": "游戏厅老板",
+          "say": [
+            "你总算回来了！下次可不能一个人跑那么远。"
+          ]
+        },
+        {
+          "who": "迷失妹",
+          "say": [
+            "我想送你树果，结果让你担心了。"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sevii_deliver_meteorite",
+      "trigger": {
+        "type": "talk",
+        "map": "two_island_joyful_game_corner",
+        "actor": "lostelle_father"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_lostelle_rescued"
+        ]
+      },
+      "steps": [
+        {
+          "who": "游戏厅老板",
+          "say": [
+            "正辉托你带来了陨石？谢谢你还把孩子平安送回家。这块月之石请收下。"
+          ]
+        },
+        {
+          "remove_item": "陨石"
+        },
+        {
+          "give_item": {
+            "name": "月之石",
+            "category": "evo",
+            "count": 1
+          }
+        },
+        {
+          "flag": "sevii_delivered_meteorite"
+        }
+      ]
+    },
+    {
+      "id": "sevii_return_bill",
+      "trigger": {
+        "type": "talk",
+        "map": "one_island_pokemon_center_1f",
+        "actor": "sevii_bill_lab"
+      },
+      "also": [
+        {
+          "type": "talk",
+          "map": "one_island_pokemon_center_1f",
+          "actor": "celio"
+        }
+      ],
+      "require": {
+        "flags_all": [
+          "sevii_delivered_meteorite"
+        ],
+        "flags_none": [
+          "sevii_detour_finished"
+        ]
+      },
+      "steps": [
+        {
+          "who": "锦辉",
+          "say": [
+            "连接关都的线路恢复了！多亏正辉留在这里帮忙。"
+          ]
+        },
+        {
+          "who": "正辉",
+          "say": [
+            "事情办好了？那我们一起回红莲岛吧。以后拿着通行证，从枯叶市也能再来。"
+          ]
+        },
+        {
+          "flag": "sevii_detour_finished"
+        },
+        {
+          "warp": {
+            "region": "kanto",
+            "map": "cinnabarisland_pokemoncenter_1f",
+            "at": [
+              10,
+              5
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "celio_requests_ruby",
+      "trigger": {
+        "type": "talk",
+        "actor": "celio",
+        "map": "one_island_pokemon_center_1f"
+      },
+      "require": {
+        "flags_all": [
+          "national_dex",
+          "sevii_detour_finished"
+        ],
+        "flags_none": [
+          "ember_ruby_requested"
+        ]
+      },
+      "steps": [
+        {
+          "who": "锦辉",
+          "say": [
+            "这次想把机器连到丰缘。你的全国图鉴能辨认更多宝可梦，正好帮我调查灯火山。",
+            "那里有一块红宝石，据说能作为通讯机的零件。"
+          ]
+        },
+        {
+          "flag": "ember_ruby_requested"
+        }
+      ]
+    },
+    {
+      "id": "ember_warehouse_password",
+      "trigger": {
+        "type": "step",
+        "map": "mt_ember_exterior",
+        "area": [
+          37,
+          43,
+          40,
+          44
+        ]
+      },
+      "require": {
+        "flags_all": [
+          "ember_ruby_requested"
+        ]
+      },
+      "steps": [
+        {
+          "who": "火箭队手下",
+          "say": [
+            "终于挖通了！仓库的第一个口令是「角金鱼，需要它」……喂！你偷听到了什么？"
+          ]
+        },
+        {
+          "flag": "sevii_password_one"
+        }
+      ],
+      "also": [
+        {
+          "type": "talk",
+          "map": "mt_ember_exterior",
+          "actor": "ember_grunt_1"
+        },
+        {
+          "type": "talk",
+          "map": "mt_ember_exterior",
+          "actor": "ember_grunt_2"
+        }
+      ]
+    },
+    {
+      "id": "ember_grunt_1",
+      "trigger": {
+        "type": "talk",
+        "actor": "ember_grunt_1",
+        "map": "mt_ember_exterior"
+      },
+      "require": {
+        "flags_all": [
+          "ember_ruby_requested",
+          "sevii_password_one"
+        ]
+      },
+      "steps": [
+        {
+          "who": "火箭队手下",
+          "say": [
+            "不准进去！想过这里，先打赢我！"
+          ]
+        },
+        {
+          "battle": {
+            "name": "火箭队手下",
+            "team": [
+              {
+                "species": 104,
+                "level": 37
+              },
+              {
+                "species": 105,
+                "level": 37
+              }
+            ],
+            "win_say": [
+              "竟然输给你了……"
+            ]
+          }
+        },
+        {
+          "flag": "beat_ember_grunt_1"
+        }
+      ]
+    },
+    {
+      "id": "ember_grunt_2",
+      "trigger": {
+        "type": "talk",
+        "actor": "ember_grunt_2",
+        "map": "mt_ember_exterior"
+      },
+      "require": {
+        "flags_all": [
+          "ember_ruby_requested",
+          "sevii_password_one"
+        ]
+      },
+      "steps": [
+        {
+          "who": "火箭队手下",
+          "say": [
+            "不准进去！想过这里，先打赢我！"
+          ]
+        },
+        {
+          "battle": {
+            "name": "火箭队手下",
+            "team": [
+              {
+                "species": 19,
+                "level": 35
+              },
+              {
+                "species": 20,
+                "level": 35
+              },
+              {
+                "species": 27,
+                "level": 35
+              },
+              {
+                "species": 28,
+                "level": 35
+              }
+            ],
+            "win_say": [
+              "竟然输给你了……"
+            ]
+          }
+        },
+        {
+          "flag": "beat_ember_grunt_2"
+        }
+      ]
+    },
+    {
+      "id": "collect_ember_ruby",
+      "trigger": {
+        "type": "talk",
+        "actor": "ember_ruby",
+        "map": "mt_ember_ruby_path_b5f"
+      },
+      "require": {
+        "flags_all": [
+          "beat_ember_grunt_1",
+          "beat_ember_grunt_2"
+        ]
+      },
+      "steps": [
+        {
+          "who": "旁白",
+          "say": [
+            "拿到了红宝石！把它带回一之岛的宝可梦网络中心吧。"
+          ]
+        },
+        {
+          "give_item": {
+            "name": "红宝石",
+            "category": "key",
+            "count": 1
+          }
+        },
+        {
+          "flag": "got_ember_ruby"
+        }
+      ]
+    },
+    {
+      "id": "celio_accept_ruby",
+      "trigger": {
+        "type": "talk",
+        "actor": "celio",
+        "map": "one_island_pokemon_center_1f"
+      },
+      "require": {
+        "flags_all": [
+          "got_ember_ruby",
+          "sevii_detour_finished",
+          "national_dex"
+        ]
+      },
+      "steps": [
+        {
+          "who": "锦辉",
+          "say": [
+            "红宝石严丝合缝！你的三岛通行证换成这张彩虹通行证，剩下四座岛也能搭船过去。",
+            "机器还有一个插槽。听说四之岛出了事，从那里开始找第二块宝石吧。"
+          ]
+        },
+        {
+          "remove_item": "红宝石"
+        },
+        {
+          "remove_item": "三岛通行证"
+        },
+        {
+          "give_item": {
+            "name": "彩虹通行证",
+            "category": "key",
+            "count": 1
+          }
+        },
+        {
+          "flag": "delivered_ember_ruby"
+        }
+      ]
+    },
+    {
+      "id": "rescue_icefall",
+      "trigger": {
+        "type": "step",
+        "map": "four_island_icefall_cave_back",
+        "area": [
+          11,
+          18,
+          14,
+          19
+        ]
+      },
+      "also": [
+        {
+          "type": "talk",
+          "map": "four_island_icefall_cave_back",
+          "actor": "icefall_lorelei"
+        }
+      ],
+      "steps": [
+        {
+          "who": "科拿",
+          "say": [
+            "那些人想抓走洞里的宝可梦。请帮我挡住右边的手下！"
+          ]
+        },
+        {
+          "battle": {
+            "name": "火箭队手下",
+            "team": [
+              {
+                "species": 41,
+                "level": 38
+              },
+              {
+                "species": 41,
+                "level": 38
+              },
+              {
+                "species": 42,
+                "level": 38
+              }
+            ]
+          }
+        },
+        {
+          "who": "火箭队手下",
+          "say": [
+            "撤退！回五之岛的仓库！"
+          ]
+        },
+        {
+          "who": "科拿",
+          "say": [
+            "刚才多亏有你。五之岛还有他们的同伙。"
+          ]
+        },
+        {
+          "flag": "rescued_icefall"
+        }
+      ],
+      "require": {
+        "flags_all": [
+          "delivered_ember_ruby",
+          "national_dex",
+          "sevii_detour_finished"
+        ],
+        "flags_none": [
+          "rescued_icefall"
+        ]
+      }
+    },
+    {
+      "id": "sevii_stolen_sapphire",
+      "trigger": {
+        "type": "talk",
+        "map": "six_island_dotted_hole_sapphire_room",
+        "actor": "sapphire"
+      },
+      "require": {
+        "flags_all": [
+          "rescued_icefall",
+          "ruin_valley_cut_door",
+          "delivered_ember_ruby",
+          "national_dex",
+          "sevii_detour_finished"
+        ]
+      },
+      "steps": [
+        {
+          "who": "旁白",
+          "say": [
+            "蓝宝石就在石台中央。脚步声忽然从后面传来。"
+          ]
+        },
+        {
+          "who": "研究员",
+          "say": [
+            "我跟着你找到了它！火箭队愿意出好价钱。想追就来五之岛仓库吧，第二句口令是「吉利蛋，不答应」。"
+          ]
+        },
+        {
+          "flag": "sevii_password_two"
+        }
+      ]
+    },
+    {
+      "id": "sevii_warehouse_entry",
+      "trigger": {
+        "type": "map_enter",
+        "map": "five_island_rocket_warehouse"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_password_one",
+          "sevii_password_two"
+        ]
+      },
+      "steps": [
+        {
+          "who": "旁白",
+          "say": [
+            "两句口令都对。仓库铁门咔哒一声打开了。里面有人在搬运成箱的宝可梦。"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sevii_warehouse_grunt1",
+      "trigger": {
+        "type": "talk",
+        "map": "five_island_rocket_warehouse",
+        "actor": "warehouse_grunt1"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_password_two"
+        ]
+      },
+      "steps": [
+        {
+          "who": "火箭队手下·入口",
+          "say": [
+            "站住！不要乱碰仓库里的货。"
+          ]
+        },
+        {
+          "battle": {
+            "name": "火箭队手下·入口",
+            "team": [
+              {
+                "species": 228,
+                "level": 49
+              },
+              {
+                "species": 228,
+                "level": 49
+              }
+            ]
+          }
+        },
+        {
+          "flag": "sevii_warehouse_grunt1"
+        }
+      ]
+    },
+    {
+      "id": "sevii_warehouse_grunt2",
+      "trigger": {
+        "type": "talk",
+        "map": "five_island_rocket_warehouse",
+        "actor": "warehouse_grunt2"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_password_two"
+        ]
+      },
+      "steps": [
+        {
+          "who": "火箭队手下·货架",
+          "say": [
+            "这些宝可梦可值钱了。"
+          ]
+        },
+        {
+          "battle": {
+            "name": "火箭队手下·货架",
+            "team": [
+              {
+                "species": 66,
+                "level": 48
+              },
+              {
+                "species": 66,
+                "level": 48
+              },
+              {
+                "species": 67,
+                "level": 48
+              }
+            ]
+          }
+        },
+        {
+          "flag": "sevii_warehouse_grunt2"
+        }
+      ]
+    },
+    {
+      "id": "sevii_warehouse_grunt3",
+      "trigger": {
+        "type": "talk",
+        "map": "five_island_rocket_warehouse",
+        "actor": "warehouse_grunt3"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_password_two"
+        ]
+      },
+      "steps": [
+        {
+          "who": "火箭队手下·通道",
+          "say": [
+            "没听到命令吗？退回去！"
+          ]
+        },
+        {
+          "battle": {
+            "name": "火箭队手下·通道",
+            "team": [
+              {
+                "species": 97,
+                "level": 49
+              },
+              {
+                "species": 97,
+                "level": 49
+              }
+            ]
+          }
+        },
+        {
+          "flag": "sevii_warehouse_grunt3"
+        }
+      ]
+    },
+    {
+      "id": "sevii_warehouse_admin1",
+      "trigger": {
+        "type": "talk",
+        "map": "five_island_rocket_warehouse",
+        "actor": "warehouse_admin1"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_password_two"
+        ]
+      },
+      "steps": [
+        {
+          "who": "火箭队女干部",
+          "say": [
+            "你一路追到这里来，看来得由我来招待。"
+          ]
+        },
+        {
+          "battle": {
+            "name": "火箭队女干部",
+            "team": [
+              {
+                "species": 89,
+                "level": 52,
+                "moves": [
+                  188,
+                  103,
+                  107,
+                  317
+                ]
+              },
+              {
+                "species": 24,
+                "level": 53,
+                "moves": [
+                  188,
+                  44,
+                  89,
+                  231
+                ]
+              },
+              {
+                "species": 45,
+                "level": 54,
+                "moves": [
+                  188,
+                  202,
+                  79,
+                  78
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "flag": "sevii_warehouse_admin1"
+        }
+      ]
+    },
+    {
+      "id": "sevii_warehouse_admin2",
+      "trigger": {
+        "type": "talk",
+        "map": "five_island_rocket_warehouse",
+        "actor": "warehouse_admin2"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_password_two",
+          "sevii_warehouse_admin1"
+        ]
+      },
+      "steps": [
+        {
+          "who": "火箭队男干部",
+          "say": [
+            "关都的总部解散了？我才不会只听你的一面之词。"
+          ]
+        },
+        {
+          "battle": {
+            "name": "火箭队男干部",
+            "team": [
+              {
+                "species": 42,
+                "level": 53,
+                "moves": [
+                  109,
+                  188,
+                  314,
+                  247
+                ]
+              },
+              {
+                "species": 110,
+                "level": 54,
+                "moves": [
+                  188,
+                  85,
+                  153,
+                  247
+                ]
+              },
+              {
+                "species": 229,
+                "level": 55,
+                "moves": [
+                  53,
+                  242,
+                  231,
+                  247
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "flag": "sevii_warehouse_admin2"
+        },
+        {
+          "who": "火箭队男干部",
+          "say": [
+            "你见过坂木……看来消息是真的。通知全员撤出仓库。"
+          ]
+        },
+        {
+          "flag": "sevii_warehouse_cleared"
+        }
+      ]
+    },
+    {
+      "id": "sevii_recover_sapphire",
+      "trigger": {
+        "type": "talk",
+        "map": "five_island_rocket_warehouse",
+        "actor": "gideon"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_warehouse_cleared"
+        ]
+      },
+      "steps": [
+        {
+          "who": "研究员",
+          "say": [
+            "买家居然撤走了！你真想拿走宝石，就自己赢回来。"
+          ]
+        },
+        {
+          "battle": {
+            "name": "研究员·基甸",
+            "team": [
+              {
+                "species": 100,
+                "level": 46,
+                "moves": [
+                  129,
+                  103,
+                  209,
+                  49
+                ]
+              },
+              {
+                "species": 101,
+                "level": 46,
+                "moves": [
+                  209,
+                  49,
+                  103,
+                  268
+                ]
+              },
+              {
+                "species": 81,
+                "level": 46,
+                "moves": [
+                  103,
+                  129,
+                  209,
+                  86
+                ]
+              },
+              {
+                "species": 82,
+                "level": 46,
+                "moves": [
+                  161,
+                  209,
+                  86,
+                  49
+                ]
+              },
+              {
+                "species": 137,
+                "level": 46,
+                "moves": [
+                  161,
+                  160,
+                  105,
+                  60
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "who": "基甸",
+          "say": [
+            "蓝宝石还给你。你们拿它做什么，已经和我无关了。"
+          ]
+        },
+        {
+          "give_item": {
+            "name": "蓝宝石",
+            "category": "key",
+            "count": 1
+          }
+        },
+        {
+          "flag": "sevii_recovered_sapphire"
+        }
+      ]
+    },
+    {
+      "id": "sevii_network_online",
+      "trigger": {
+        "type": "talk",
+        "map": "one_island_pokemon_center_1f",
+        "actor": "celio"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_recovered_sapphire"
+        ]
+      },
+      "steps": [
+        {
+          "who": "锦辉",
+          "say": [
+            "蓝宝石！请帮我扶住接头……听，丰缘那边有回音了。"
+          ]
+        },
+        {
+          "remove_item": "蓝宝石"
+        },
+        {
+          "flag": "sevii_network_online"
+        },
+        {
+          "who": "锦辉",
+          "say": [
+            "通了！关都和丰缘的宝可梦网络终于连在了一起。这台机器会一直开着。"
+          ]
+        }
+      ]
+    },
     {
       "id": "sevii_arrive",
       "once": true,
-      "trigger": {"type": "map_enter", "map": "one_island_harbor"},
-      "require": {"flags_none": ["sevii_arrived"]},
+      "trigger": {
+        "type": "map_enter",
+        "map": "one_island_harbor"
+      },
+      "require": {
+        "flags_none": [
+          "sevii_arrived"
+        ]
+      },
       "steps": [
-        {"say": ["船靠岸了。", "风里有很重的咸味，码头上有几只长翅鸥在抢食。", "这里是七之岛的一号岛。"], "who": "旁白"},
-        {"flag": "sevii_arrived"}
+        {
+          "say": [
+            "船靠岸了。几只长翅鸥在码头的桩子上抢鱼。这里是一之岛。"
+          ],
+          "who": "旁白"
+        },
+        {
+          "flag": "sevii_arrived"
+        }
       ]
     },
     {
       "id": "sevii_kindled",
       "once": true,
-      "trigger": {"type": "map_enter", "map": "one_island_kindle_road"},
-      "require": {"flags_all": ["sevii_arrived"]},
+      "trigger": {
+        "type": "map_enter",
+        "map": "one_island_kindle_road"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_arrived"
+        ]
+      },
       "steps": [
-        {"say": ["路面越来越烫，火种之路的名字不是白叫的。", "山脚那边有条小路，往上就是焰之山。"], "who": "旁白"},
-        {"flag": "sevii_kindle_seen"}
+        {
+          "say": [
+            "路面越来越烫，火种之路的名字不是白叫的。",
+            "山脚那边有条小路，往上就是焰之山。"
+          ],
+          "who": "旁白"
+        },
+        {
+          "flag": "sevii_kindle_seen"
+        }
       ]
     },
     {
       "id": "sevii_ember_top",
       "once": true,
-      "trigger": {"type": "map_enter", "map": "mt_ember_summit"},
-      "require": {"flags_all": ["sevii_kindle_seen"]},
+      "trigger": {
+        "type": "map_enter",
+        "map": "mt_ember_summit"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_kindle_seen"
+        ]
+      },
       "steps": [
-        {"say": ["火山口冒着热气，脚下是滚烫的岩石。", "这里什么都没有——或者说，现在还没有。"], "who": "旁白"},
-        {"flag": "sevii_ember_top"}
+        {
+          "say": [
+            "火山口冒着热气，脚下是滚烫的岩石。",
+            "这里什么都没有——或者说，现在还没有。"
+          ],
+          "who": "旁白"
+        },
+        {
+          "flag": "sevii_ember_top"
+        }
       ]
     },
     {
       "id": "sevii_berry_forest",
       "once": true,
-      "trigger": {"type": "map_enter", "map": "three_island_berry_forest"},
+      "trigger": {
+        "type": "map_enter",
+        "map": "three_island_berry_forest"
+      },
       "steps": [
-        {"say": ["整片林子都是树果树。", "地上有松过的土，看起来以前有人在这里种树果。"], "who": "旁白"},
-        {"give_item": {"name": "橙橙果", "category": "berry", "count": 3, "berry": "ORAN_BERRY"}},
-        {"flag": "sevii_berry_seen"}
-      ]
+        {
+          "say": [
+            "泥土里留着小小的鞋印，绕过树丛往西北角去了。"
+          ],
+          "who": "旁白"
+        },
+        {
+          "give_item": {
+            "name": "橙橙果",
+            "category": "berry",
+            "count": 3,
+            "berry": "ORAN_BERRY"
+          }
+        },
+        {
+          "flag": "sevii_berry_seen"
+        }
+      ],
+      "require": {
+        "flags_all": [
+          "sevii_lostelle_missing"
+        ],
+        "flags_none": [
+          "sevii_lostelle_rescued"
+        ]
+      }
     },
     {
       "id": "sevii_tanoby",
       "once": true,
-      "trigger": {"type": "map_enter", "map": "seven_island_tanoby_ruins"},
-      "require": {"flags_all": ["sevii_arrived"]},
+      "trigger": {
+        "type": "map_enter",
+        "map": "seven_island_tanoby_ruins"
+      },
+      "require": {
+        "flags_all": [
+          "sevii_arrived"
+        ]
+      },
       "steps": [
-        {"say": ["石壁上刻着看不懂的字。", "七个石室，七种符号。", "有人在这里留过东西。"], "who": "旁白"},
-        {"flag": "sevii_tanoby_seen"}
-      ]
-    },
-    {
-      "id": "sevii_rocket_warehouse",
-      "once": true,
-      "trigger": {"type": "map_enter", "map": "five_island_rocket_warehouse"},
-      "require": {"flags_all": ["sevii_arrived"]},
-      "steps": [
-        {"say": ["仓库里堆满了木箱，灰尘很厚。", "墙上还留着火箭队的标记。"], "who": "旁白"},
-        {"flag": "sevii_rocket_seen"}
+        {
+          "say": [
+            "石壁上刻着看不懂的字。",
+            "七个石室，七种符号。",
+            "有人在这里留过东西。"
+          ],
+          "who": "旁白"
+        },
+        {
+          "flag": "sevii_tanoby_seen"
+        }
       ]
     }
   ]

@@ -55,8 +55,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM44",
-   "name": "ITEM_TM44",
-   "category": "other",
+   "name": "招式学习器 44",
+   "category": "tm",
    "sprite": "ball"
   }
  ],

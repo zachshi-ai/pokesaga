@@ -116,8 +116,8 @@
    ],
    "kind": "item",
    "item": "ITEM_X_SPEED",
-   "name": "ITEM_X_SPEED",
-   "category": "other",
+   "name": "速度强化",
+   "category": "battle",
    "sprite": "ball"
   },
   {
@@ -128,7 +128,7 @@
    "kind": "item",
    "item": "ITEM_MOON_STONE",
    "name": "月之石",
-   "category": "other",
+   "category": "evo",
    "sprite": "ball"
   },
   {
@@ -138,8 +138,8 @@
    ],
    "kind": "item",
    "item": "ITEM_TM12",
-   "name": "ITEM_TM12",
-   "category": "other",
+   "name": "招式学习器 12",
+   "category": "tm",
    "sprite": "ball"
   },
   {
