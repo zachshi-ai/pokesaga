@@ -7,7 +7,9 @@
  "music": "frontier",
  "maps": [
   "harbor",
-  "tower_lobby"
+  "tower_lobby",
+  "frontier_isle_walk",
+  "frontier_pass_hoenn_dewford"
  ],
  "encounters": [],
  "encounter_rate": 0

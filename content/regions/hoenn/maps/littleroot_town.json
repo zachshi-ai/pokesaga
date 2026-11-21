@@ -28,6 +28,16 @@
     "这里是前往对战开拓区的接驳点。走到我身旁右边的空地即可出发。",
     "回关都的话，先去开拓区，再从那边北侧的码头坐船。"
    ]
+  },
+  {
+   "name": "领航员",
+   "gfx": "navigator",
+   "transit": true,
+   "at": [
+    11,
+    17
+   ],
+   "atlas": "world"
   }
  ],
  "warps": [
@@ -70,6 +80,48 @@
     "at": [
      14,
      16
+    ]
+   }
+  },
+  {
+   "at": [
+    5,
+    8
+   ],
+   "to": {
+    "region": "hoenn",
+    "map": "littleroot_west_home_1f",
+    "at": [
+     6,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    14,
+    8
+   ],
+   "to": {
+    "region": "hoenn",
+    "map": "littleroot_east_home_1f",
+    "at": [
+     6,
+     7
+    ]
+   }
+  },
+  {
+   "at": [
+    7,
+    16
+   ],
+   "to": {
+    "region": "hoenn",
+    "map": "littleroot_birch_lab",
+    "at": [
+     6,
+     7
     ]
    }
   }

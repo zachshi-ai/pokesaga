@@ -1,0 +1,50 @@
+{
+ "id": "armor",
+ "name": "铠岛",
+ "tileset": "world",
+ "music": "route",
+ "maps": [
+  "armor_fields",
+  "armor_cave",
+  "armor_dojo",
+  "armor_forest",
+  "armor_steps",
+  "armor_towers",
+  "armor_water_tower",
+  "armor_wetland"
+ ],
+ "encounters": [
+  {
+   "species": 403,
+   "min": 5,
+   "max": 12,
+   "weight": 40
+  },
+  {
+   "species": 427,
+   "min": 5,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 661,
+   "min": 5,
+   "max": 12,
+   "weight": 20
+  },
+  {
+   "species": 619,
+   "min": 5,
+   "max": 12,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.08,
+ "start": {
+  "map": "armor_fields",
+  "at": [
+   18,
+   12
+  ]
+ }
+}

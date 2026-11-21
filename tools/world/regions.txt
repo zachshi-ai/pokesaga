@@ -1,0 +1,464 @@
+# Location and regional naming reference: PokeAPI/pokeapi at 193d8d4fbb57cf962e3f7c1ce5299a6fe847b3f8,
+# data/v2/csv/locations.csv and location_names.csv. The walkable layouts, cross-region footpaths,
+# original sign text, schematic positions and terrain compositions are authored for this project.
+# Each block describes a regional route graph. Identifiers never depend on the Chinese label.
+# node | display name | biome | category | optional survey point | optional map position (percent).
+# Numbered tokens in a trail denote that region's numbered routes. Multiple trails may branch and rejoin.
+[hoenn]
+oldale|古玫镇|grass|town|研究员在草地上辨认野生宝可梦的足迹。|19,74
+petalburg|橙华市|forest|city|沿池塘向北，可以找到橙华道馆。|12,77
+rustboro|卡那兹市|city|city|德文公司的工坊与培育训练家的学校隔街相望。|13,39
+dewford|武斗镇|coast|town|镇上的冲浪手在木码头交换海浪的消息。|14,94
+slateport|凯那市|coast|city|造船厂旁的港湾集市每天开门。|44,84
+mauville|紫堇市|city|city|旅人从四方道路汇集到购物中庭。|43,54
+verdanturf|绿荫镇|garden|town|疗养院的病人常沿花坛散步。|28,53
+fallarbor|秋叶镇|volcano|town|火山灰落在农田里，天文台的屋顶仍能看清。|30,20
+lavaridge|釜炎镇|volcano|town|坡顶的石墙围住了温泉。|36,37
+fortree|茵郁市|forest|city|树冠之间留着供行人穿行的空中栈道。|61,26
+lilycove|水静市|coast|city|百货商场往东是看船进港的阶梯。|76,46
+mossdeep|绿岭市|coast|city|宇宙中心的观测台面向东边的大海。|91,39
+sootopolis|琉璃市|highland|city|白色岩壁环绕着城中湖。|82,68
+ever_grande|彩幽市|garden|city|登上花坡便到了丰缘联盟所在的高地。|97,63
+pacifidlog|暮水镇|coast|town|屋子之间用浮桥相连。|67,87
+woods|橙华森林|forest|landmark|老树根围绕着一片蘑菇生长的林间空地。
+rusturf|卡绿隧道|cave|landmark
+granite|石之洞窟|cave|landmark
+fiery|热焰小径|volcano|landmark
+chimney|烟囱山|volcano|landmark
+meteor|流星瀑布|cave|landmark
+desert_ruins|沙漠遗迹|desert|landmark
+weather|天气研究所|interior|facility
+pyre|送神山|ruins|landmark
+shoal|浅滩洞穴|cave|landmark
+sky_pillar|天空之柱|ruins|landmark
+victory|冠军之路|cave|landmark
+league|丰缘宝可梦联盟|city|facility
+seafloor|海底洞窟|cave|landmark
+origin|觉醒神殿|cave|landmark
+museum|海洋科学博物馆|interior|facility
+space_center|宇宙中心|interior|facility
+devon|得文公司|interior|facility
+=oldale 102 petalburg 104 woods rustboro 116 rusturf verdanturf 117 mauville 110 slateport 109 108 107 dewford 106 granite
+=oldale 103 110
+=104 105 106
+=rustboro 115 meteor 114 fallarbor 113 111 mauville
+=111 desert_ruins
+=111 112 fiery chimney lavaridge
+=mauville 118 119 weather fortree 120 121 lilycove 124 mossdeep 125 shoal
+=121 122 pyre
+=122 123 118
+=124 126 sootopolis origin
+=mossdeep 127 128 ever_grande victory league
+=128 seafloor
+=128 129 130 131 pacifidlog 132 133 134 slateport
+=131 sky_pillar
+=slateport museum
+=mossdeep space_center
+=rustboro devon
+
+[sinnoh]
+twinleaf|双叶镇|grass|town|镇子西北的林间小路通往心齐湖。|15,86
+sandgem|真砂镇|coast|town|研究所门前能闻到海边吹来的风。|27,87
+jubilife|祝庆市|city|city|祝庆电视台在铺着石板的广场边播报新闻。|28,68
+oreburgh|黑金市|highland|city|城市南边的矿坑有裸露的煤层。|47,71
+floaroma|花苑镇|garden|town|花圃后面的小路通向风力发电场。|28,44
+eterna|百代市|forest|city|古老雕像的石台旁种着高大的常青树。|49,35
+hearthome|家缘市|city|city|参赛者会在华丽大赛会场前整理服装。|58,61
+solaceon|随意镇|grass|town|东侧的山壁后藏着字母形的遗迹。|69,49
+veilstone|帷幕市|highland|city|陨石坑旁建着银河队的大楼。|84,51
+pastoria|湿原市|marsh|city|湿地栈桥边能观察到芦苇丛里的野生宝可梦。|67,79
+celestic|神和镇|ruins|town|长老守护着镇中心的古代壁画。|63,35
+canalave|水脉市|coast|city|港口吊桥的另一侧就是图书馆。|9,68
+snowpoint|雪峰市|snow|city|雪原向北延伸到古神殿的台阶。|52,12
+sunyshore|滨海市|coast|city|海岬灯塔和架高的步道连在一起。|92,72
+league|神奥宝可梦联盟|city|facility
+fight|对战区|coast|town
+survival|生存区|highland|town
+resort|名胜区|coast|town
+verity|心齐湖|coast|landmark
+valor|立志湖|coast|landmark
+acuity|睿智湖|snow|landmark
+windworks|山谷发电厂|grass|landmark
+forest|百代森林|forest|landmark
+gate|黑金之门|cave|landmark
+mine|黑金炭坑|cave|landmark
+coronet|天冠山|highland|landmark
+spear|枪之柱|ruins|landmark
+tower|迷失塔|ruins|landmark
+marsh|大湿地|marsh|landmark
+ruins|随意遗迹|ruins|landmark
+temple|雪峰神殿|snow|landmark
+library|水脉图书馆|interior|facility
+lighthouse|滨海灯塔|interior|facility
+iron_island|钢铁岛|highland|landmark
+stark|严酷山|volcano|landmark
+victory|冠军之路|cave|landmark
+spring|送泉|marsh|landmark
+=twinleaf 201 sandgem 202 jubilife 203 gate oreburgh mine
+=201 verity
+=jubilife 204 floaroma 205 forest eterna 206 207 oreburgh
+=205 windworks
+=207 coronet 208 hearthome 209 tower solaceon 210 215 veilstone 214 valor 213 pastoria 212 hearthome
+=210 celestic 211 eterna
+=211 coronet spear
+=solaceon ruins
+=pastoria marsh
+=jubilife 218 canalave library
+=canalave iron_island
+=coronet 216 217 acuity snowpoint temple
+=sandgem 219 220 221
+=valor 222 sunyshore 223 victory league
+=sunyshore lighthouse
+=victory 224
+=214 spring
+=snowpoint fight 225 survival 226 227 stark
+=226 228 229 resort 230 fight
+
+[unova]
+nuvema|鹿子镇|grass|town|红豆杉博士的研究所坐落在海风吹来的镇边。|68,91
+accumula|唐草镇|grass|town|风琴声经常从半山的房屋传到广场。|67,78
+striaton|三曜市|garden|city|整齐的庭园小径绕过道馆和研究所。|72,66
+nacrene|七宝市|city|city|旧仓库改成的展厅陈列着化石。|53,69
+castelia|飞云市|coast|city|高楼之间的巷口通往五座码头。|48,64
+nimbasa|雷文市|city|city|摩天轮旁的步道一直通到竞技场。|49,43
+driftveil|帆巴市|coast|city|跳桥和冷藏库的货运车在这里会合。|28,43
+mistralton|吹寄市|grass|city|观察跑道时请站在风向袋后面。|22,31
+icirrus|雪花市|marsh|city|房屋围绕着湿地，冬季湖面会结冰。|33,19
+opelucid|双龙市|ruins|city|龙形石纹从街道延伸到道馆门口。|55,19
+lacunosa|笼目镇|forest|town|夜里居民会从城墙边回到镇中心。|73,18
+undella|涟漪镇|coast|town|海水退去后，别墅前露出白色的沙滩。|84,38
+black_city|黑色市|city|city
+white_forest|白色森林|forest|landmark
+aspertia|桧扇市|highland|city|展望台能望见远处的道路。|11,81
+floccesy|算木镇|grass|town
+virbank|立涌市|coast|city
+lentimas|山路镇|desert|town
+humilau|青海波市|coast|city
+league|合众宝可梦联盟|city|facility
+dreamyard|梦的遗址|ruins|landmark
+pinwheel|矢车森林|forest|landmark
+skyarrow|天箭桥|coast|landmark
+desert|沙漠度假地|desert|landmark
+relic|古代城堡|ruins|landmark
+chargestone|电气石洞穴|cave|landmark
+celestial|天堂之塔|ruins|landmark
+twist|罗斯山|highland|landmark
+dragonspiral|龙螺旋之塔|ruins|landmark
+village|村庄桥|coast|landmark
+giant|巨大洞穴|cave|landmark
+victory|冠军之路|highland|landmark
+reverse|反转山|volcano|landmark
+ranch|算木牧场|grass|landmark
+museum|七宝博物馆|interior|facility
+film|宝可梦好莱坞|city|facility
+=nuvema 1 accumula 2 striaton 3 nacrene pinwheel skyarrow castelia 4 nimbasa 5 driftveil 6 chargestone mistralton 7 twist icirrus 8 9 opelucid 11 village 12 lacunosa 13 undella 14 black_city 15 16 nimbasa
+=14 white_forest 15
+=striaton dreamyard
+=4 desert relic
+=7 celestial
+=icirrus dragonspiral
+=opelucid 10 victory league
+=1 17 18
+=aspertia 19 floccesy 20 virbank film
+=20 ranch
+=virbank castelia
+=undella reverse lentimas
+=undella 21 humilau 22 giant 23 victory
+=nacrene museum
+
+[kalos]
+vaniville|朝香镇|garden|town|花园小路从镇上通向邻近的名水镇。|31,89
+aquacorde|名水镇|coast|town|露天茶座临水而建。|37,83
+santalune|白檀市|garden|city|市中心的喷泉边有通向森林的小径。|45,75
+lumiose|密阿雷市|city|city|棱镜塔周围的放射形大街连通各个街区。|50,49
+camphrier|古木镇|ruins|town
+ambrette|古香镇|coast|town
+cyllage|遥香市|highland|city
+geosenge|石香镇|ruins|town
+shalour|娑罗市|coast|city
+coumarine|比翼市|coast|city
+laverre|香薰市|forest|city
+dendemille|风絮镇|highland|town
+anistar|百刻市|snow|city
+couriway|连理镇|coast|town
+snowbelle|映雪市|snow|city
+kiloude|奇楠市|garden|city
+league|卡洛斯宝可梦联盟|city|facility
+forest|白檀森林|forest|landmark
+palace|巴尔法姆香殿|garden|landmark
+cave|地穴|cave|landmark
+glitter|闪耀洞窟|cave|landmark
+crystals|石香巨石阵|ruins|landmark
+reflection|镜穴|cave|landmark
+mastery|精练之塔|ruins|landmark
+azure|蔚蓝湾|coast|landmark
+factory|精灵球工厂|city|facility
+frost|冰结洞窟|snow|landmark
+village|宝可梦村|forest|landmark
+victory|冠军之路|highland|landmark
+tower|棱镜塔|interior|facility
+=vaniville 1 aquacorde 2 forest 3 santalune 4 lumiose 5 camphrier 7 cave 8 ambrette 9 glitter
+=7 6 palace
+=8 cyllage 10 geosenge crystals 11 reflection shalour mastery
+=shalour 12 coumarine 13 lumiose 14 laverre 15 dendemille 17 anistar 18 couriway 19 snowbelle 20 village
+=12 azure
+=laverre factory
+=dendemille frost
+=15 16 lumiose
+=snowbelle 21 22 santalune
+=22 victory league
+=lumiose tower
+=kiloude 18
+
+[alola]
+iki|利利小镇|grass|town|木台是镇上举行庆典的地方。|16,24
+hauoli|好奥乐市|coast|city|海滨的商铺沿着弯曲的海岸排列。|15,43
+heahea|慷待市|coast|city|港口大道连接海边旅馆与研究所。|43,66
+paniola|欧哈纳镇|grass|town
+konikoni|可霓可市|coast|city
+malie|马利埃静市|garden|city|庭园的湖岸仿照城都风景修建。|70,31
+tapu|卡璞村|ruins|town
+po|魄镇|forest|town
+seafolk|海洋居民之村|coast|town|船屋外的浮桥是村民相识的地方。|81,83
+league|阿罗拉宝可梦联盟|snow|facility
+mahalo|马哈罗山路|forest|landmark
+conflict|战争遗迹|ruins|landmark
+cavern|葱郁洞窟|cave|landmark
+meadow|美乐美乐花园|garden|landmark
+hill|十克拉山丘|highland|landmark
+brooklet|潺潺之丘|marsh|landmark
+wela|维拉火山公园|volcano|landmark
+lush|树荫丛林|forest|landmark
+royal|皇家大道|city|landmark
+life|生命遗迹|ruins|landmark
+hano|豪诺豪诺度假地|coast|landmark
+hokulani|辉克拉尼天文台|highland|facility
+haina|哈伊纳沙漠|desert|landmark
+abundance|丰收遗迹|ruins|landmark
+lanakila|拉纳基拉山|snow|landmark
+wilds|波尼原野|grass|landmark
+canyon|波尼大峡谷|highland|landmark
+altar|日轮祭坛|ruins|landmark
+moone|月轮祭坛|ruins|landmark
+battle_tree|对战树|forest|landmark
+hope|彼岸遗迹|ruins|landmark
+=iki mahalo conflict
+=iki 1 hauoli 2 cavern 3 meadow 1
+=1 hill
+=hauoli heahea 4 paniola 5 brooklet
+=paniola 6 royal 7 wela
+=7 8 lush 5
+=heahea 9 konikoni life
+=heahea hano malie 10 hokulani
+=malie 11 12 13 tapu 14
+=13 haina abundance
+=tapu 15 16 17 po
+=tapu lanakila league
+=15 seafolk wilds canyon altar moone
+=wilds hope
+=canyon battle_tree
+
+[galar]
+postwick|化朗镇|grass|town|牧羊人的矮石墙把山坡分成一块块羊圈。|37,90
+wedgehurst|木杆镇|grass|town|红砖车站旁是宝可梦研究所。|43,80
+motostoke|机擎市|city|city|齿轮升降机连通河边的工厂和上层街道。|49,62
+turffield|草路镇|garden|town|田野的观景台正好能看见巨幅地上图案。|24,53
+hulbury|水舟镇|coast|town|海风从灯塔穿过鱼市场的摊位。|76,51
+hammerlocke|拳关市|ruins|city|城门两侧的石塔沿用旧城堡的地基。|49,40
+stow|溯传镇|highland|town
+ballonlea|舞姿镇|forest|town
+circhester|战竞镇|snow|town
+spikemuth|尖钉镇|city|town
+wyndon|宫门市|city|city|宫门竞技场与城市地铁站隔着一条大道。|51,12
+weald|微寐森林|forest|landmark
+mine|伽勒尔矿山|cave|landmark
+mine2|第二矿山|cave|landmark
+wild_south|煦丽草原|grass|landmark
+wild_lake|牙牙湖|marsh|landmark
+wild_north|巨人凳岩|highland|landmark
+lake_out|逆鳞湖|coast|landmark
+tangle|迷光森林|forest|landmark
+tunnel|九路隧道|cave|landmark
+slope|银白山岭|snow|landmark
+stadium|宫门竞技场|interior|facility
+rose|洛兹大厦|interior|facility
+=weald postwick 1 wedgehurst 2 wild_south wild_lake motostoke 3 mine 4 turffield 5 hulbury mine2 motostoke
+=wild_lake wild_north lake_out
+=wild_north hammerlocke 6 stow tangle ballonlea
+=hammerlocke 7 8 circhester 9 spikemuth tunnel 7
+=hammerlocke 10 slope wyndon stadium
+=wyndon rose
+
+[paldea]
+cabo|小匙镇|coast|town|崖边的小路向北经过灯塔。|42,91
+platos|平碟镇|grass|town
+mesagoza|桌台市|city|city|中央阶梯从商店街一直延伸到学院校门。|48,67
+cortondo|圆模镇|garden|town
+artazon|深钵镇|garden|town
+levincia|酿光市|coast|city|横跨海湾的两道桥通向灯火通明的街区。|85,57
+cascarrafa|玻瓶市|coast|city|水渠把高低错落的街区连在一起。|28,52
+marinada|渍沁镇|coast|town
+medali|锦汇镇|grass|town
+zapapico|穴扎镇|highland|town
+montenevera|冰柜镇|snow|town
+alfornada|焙固镇|highland|town
+glaseado|霜抹山|snow|landmark
+league|帕底亚宝可梦联盟|city|facility
+academy|葡萄学院|interior|facility
+s1|南第一区|grass|route
+s2|南第二区|grass|route
+s3|南第三区|highland|route
+s4|南第四区|grass|route
+s5|南第五区|marsh|route
+s6|南第六区|highland|route
+e1|东第一区|grass|route
+e2|东第二区|coast|route
+e3|东第三区|highland|route
+w1|西第一区|grass|route
+w2|西第二区|coast|route
+w3|西第三区|grass|route
+n1|北第一区|highland|route
+n2|北第二区|forest|route
+n3|北第三区|garden|route
+poco|小匙小径|grass|route
+inlet|海湾洞穴|cave|landmark
+tagtree|印记树林|forest|landmark
+asado|烘烘沙漠|desert|landmark
+lake|大锅湖|coast|landmark
+socarrat|锅巴林道|forest|landmark
+cave|焙固空洞|cave|landmark
+gate|第零区闸口|highland|landmark
+zero|第零区|space|landmark
+lab|奥琳与弗图的第零区研究所|interior|facility
+bamboo|乱击瀑布|forest|landmark
+=cabo poco inlet s1 platos mesagoza academy
+=mesagoza s2 cortondo w1 asado cascarrafa w2 marinada w3 medali
+=mesagoza league
+=s2 s4 s6 cave alfornada
+=s1 s5 s3 artazon e1 e2 levincia e3 zapapico tagtree n2 bamboo
+=s3 mesagoza
+=medali glaseado montenevera n3 lake socarrat
+=zapapico n1 glaseado
+=w3 lake
+=medali gate zero lab
+
+[orange]
+valencia|岱柑岛|garden|town|果树间的小径通往内木博士的研究所。|15,58
+mikan|夏干岛|coast|town
+navel|奈普鲁岛|highland|landmark
+trovita|柚子岛|coast|town
+kumquat|榴柑岛|coast|city
+pummelo|柑橘岛|ruins|town
+stadium|橘子联盟会场|city|facility
+reef|橘子群岛珊瑚栈桥|coast|route
+=valencia reef mikan navel trovita kumquat pummelo stadium
+
+[armor]
+fields|揖礼原野|grass|landmark
+dojo|马师傅武馆|interior|facility
+forest|专注森林|forest|landmark
+cave|战斗洞窟|cave|landmark
+wetland|清凉湿原|marsh|landmark
+steps|挑战之路|highland|route
+towers|恶之塔|ruins|landmark
+water_tower|水之塔|coast|landmark
+=fields dojo
+=fields wetland forest steps towers
+=steps cave
+=forest water_tower
+
+[crown]
+freezington|冻凝村|snow|town
+bed|巨人睡榻|snow|landmark
+slope|雪中溪谷|snow|route
+peak|王冠神殿|ruins|landmark
+lake|球湖湖畔|coast|landmark
+tree|巨树丘陵|forest|landmark
+ruins|抉择遗迹|ruins|landmark
+=freezington bed slope peak
+=bed lake tree
+=lake ruins
+
+[kitakami]
+mossui|翠绿镇|grass|town
+road|北上街道|grass|route
+orchard|苹果之丘|garden|landmark
+hall|北上中心|interior|facility
+mountain|鬼山|highland|landmark
+pool|晶光池|coast|landmark
+woods|永久森林|forest|landmark
+plaza|宝伴广场|ruins|landmark
+=mossui road orchard plaza woods
+=mossui hall mountain pool
+
+[blueberry]
+central|中央广场|city|town
+academy|蓝莓学园入口|interior|facility
+club|联盟社活动室|interior|facility
+savanna|草原区|grass|landmark
+coastal|海岸区|coast|landmark
+canyon|峡谷区|highland|landmark
+polar|极地区|snow|landmark
+cavern|电气石岩窟|cave|landmark
+=academy central club
+=central savanna coastal central canyon polar central
+=canyon cavern
+
+[aether]
+dock|以太乐园码头|coast|town
+lobby|以太会馆|interior|facility
+conservation|生态保护区|garden|landmark
+lab|以太研究层|interior|facility
+mansion|理事长宅邸|interior|facility
+=dock lobby conservation mansion
+=lobby lab
+
+[hisui]
+jubilife|祝庆村|grass|town
+obsidian|黑曜原野|grass|landmark
+heights|高岗基地|highland|town
+mirelands|红莲湿地|marsh|landmark
+coastlands|群青海岸|coast|landmark
+highlands|天冠山麓|highland|landmark
+icelands|纯白冻土|snow|landmark
+temple|神奥神殿|ruins|landmark
+village|银河队总部|interior|facility
+=jubilife obsidian heights highlands temple
+=jubilife mirelands coastlands
+=highlands icelands
+=jubilife village
+
+[distortion]
+threshold|反转世界入口|space|landmark
+pillars|倒置石柱群|space|landmark
+cascade|逆流瀑布|space|landmark
+altar|归途祭台|ruins|landmark
+=threshold pillars cascade altar threshold
+
+[ultra]
+megalopolis|究极大都会|space|city
+tower|究极大都会塔|space|landmark
+forest|究极森林|forest|landmark
+desert|究极沙漠|desert|landmark
+plant|究极发电厂|interior|facility
+crater|究极峡谷|highland|landmark
+=megalopolis tower forest
+=tower desert crater
+=tower plant
+
+[dream]
+oak|梦之树|forest|landmark
+village|梦境小屋|garden|town
+sky|开阔天空|space|landmark
+sea|光辉海洋|coast|landmark
+manor|洋馆小径|ruins|landmark
+=village oak sky sea manor village
+
+[kanto]
+south_walk|真新镇南岸步道|coast|route
+[johto]
+east_walk|若叶镇海滨步道|coast|route
+[sevii]
+island_walk|一之岛海滨长廊|coast|route
+[frontier]
+isle_walk|对战开拓区海堤|coast|route

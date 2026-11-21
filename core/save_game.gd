@@ -10,8 +10,10 @@ static func use_test_slot() -> void:
 	slot = "user://selftest-%s-%s.json" % [OS.get_process_id(), Time.get_ticks_usec()]
 
 static func clear_test_slot() -> void:
-	if slot != PATH and FileAccess.file_exists(slot):
-		DirAccess.remove_absolute(ProjectSettings.globalize_path(slot))
+	if slot != PATH:
+		for suffix in ["", ".previous", ".tmp", ".previous.tmp"]:
+			if FileAccess.file_exists(slot + suffix):
+				DirAccess.remove_absolute(ProjectSettings.globalize_path(slot + suffix))
 	slot = PATH
 
 
@@ -20,8 +22,8 @@ static func empty() -> Dictionary:
 		"version": VERSION,
 		# 新档落在关都·真新镇的出生点（和 content/regions/kanto/region.json 的 start 一致）。
 		"region": "kanto",
-		"map": "kanto_main",
-		"pos": [],
+		"map": "pallet_town_players_house_2f",
+		"pos": [3, 6],
 		"party": [],
 		"money": 3000,
 		"badges": [],
@@ -35,25 +37,44 @@ static func empty() -> Dictionary:
 
 static func save(data: Dictionary) -> bool:
 	data["version"] = VERSION
-	var f := FileAccess.open(slot, FileAccess.WRITE)
-	if f == null:
-		push_error("存档写入失败")
+	var temp_path := slot + ".tmp"
+	var file := FileAccess.open(temp_path, FileAccess.WRITE)
+	if file == null:
 		return false
-	f.store_string(JSON.stringify(data, "\t"))
-	f.close()
-	return true
+	file.store_string(JSON.stringify(data, "\t"))
+	file.flush()
+	var error := file.get_error()
+	file.close()
+	if error != OK:
+		return false
+	return DirAccess.rename_absolute(ProjectSettings.globalize_path(temp_path), ProjectSettings.globalize_path(slot)) == OK
 
-static func load_game() -> Dictionary:
+static func new_game() -> bool:
+	if FileAccess.file_exists(slot):
+		var path := ProjectSettings.globalize_path(slot)
+		if DirAccess.copy_absolute(path, path + ".previous.tmp") != OK:
+			return false
+		if DirAccess.rename_absolute(path + ".previous.tmp", path + ".previous") != OK:
+			return false
+	return save(empty())
+
+## Used by the title screen. An invalid save stays on disk until the player confirms replacement.
+static func existing() -> Dictionary:
 	if not FileAccess.file_exists(slot):
-		return empty()
+		return {}
 	var f := FileAccess.open(slot, FileAccess.READ)
 	if f == null:
-		return empty()
+		return {}
 	var parsed = JSON.parse_string(f.get_as_text())
 	f.close()
-	if parsed == null or not (parsed is Dictionary):
-		return empty()
+	if not parsed is Dictionary or not parsed.get("region") is String or not parsed.get("map") is String:
+		return {}
 	var base := empty()
-	for k in parsed.keys():
-		base[k] = parsed[k]
+	base.merge(parsed, true)
+	if not parsed.has("pos"):
+		base["pos"] = []
 	return base
+
+static func load_game() -> Dictionary:
+	var data := existing()
+	return empty() if data.is_empty() else data

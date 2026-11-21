@@ -10,7 +10,22 @@
   2
  ],
  "npcs": [],
- "warps": [],
+ "warps": [
+  {
+   "at": [
+    2,
+    3
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_pokecenter_2f",
+    "at": [
+     4,
+     2
+    ]
+   }
+  }
+ ],
  "encounters": [],
  "encounter_rate": 0.0,
  "objects": [

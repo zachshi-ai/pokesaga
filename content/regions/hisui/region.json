@@ -1,0 +1,51 @@
+{
+ "id": "hisui",
+ "name": "洗翠地区",
+ "tileset": "world",
+ "music": "route",
+ "maps": [
+  "hisui_jubilife",
+  "hisui_coastlands",
+  "hisui_heights",
+  "hisui_highlands",
+  "hisui_icelands",
+  "hisui_mirelands",
+  "hisui_obsidian",
+  "hisui_temple",
+  "hisui_village"
+ ],
+ "encounters": [
+  {
+   "species": 399,
+   "min": 5,
+   "max": 12,
+   "weight": 40
+  },
+  {
+   "species": 396,
+   "min": 5,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 403,
+   "min": 5,
+   "max": 12,
+   "weight": 20
+  },
+  {
+   "species": 418,
+   "min": 5,
+   "max": 12,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.08,
+ "start": {
+  "map": "hisui_jubilife",
+  "at": [
+   24,
+   16
+  ]
+ }
+}

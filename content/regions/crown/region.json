@@ -1,0 +1,49 @@
+{
+ "id": "crown",
+ "name": "王冠雪原",
+ "tileset": "world",
+ "music": "route",
+ "maps": [
+  "crown_freezington",
+  "crown_bed",
+  "crown_lake",
+  "crown_peak",
+  "crown_ruins",
+  "crown_slope",
+  "crown_tree"
+ ],
+ "encounters": [
+  {
+   "species": 361,
+   "min": 5,
+   "max": 12,
+   "weight": 40
+  },
+  {
+   "species": 582,
+   "min": 5,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 615,
+   "min": 5,
+   "max": 12,
+   "weight": 20
+  },
+  {
+   "species": 459,
+   "min": 5,
+   "max": 12,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.08,
+ "start": {
+  "map": "crown_freezington",
+  "at": [
+   14,
+   12
+  ]
+ }
+}

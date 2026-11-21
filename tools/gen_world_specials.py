@@ -85,7 +85,7 @@ def dashed(d, p0, p1, color, width=3, dash=12, gap=8):
 
 def main():
     graph = json.loads(Path(project_path("content/world_graph.json")).read_text())
-    specials = {s["id"]:s["status"] for s in graph["specials"]}
+    specials = {s["id"]:s for s in graph["specials"]}
     im = Image.new("RGB", (W, H), OCEAN)
     d = ImageDraw.Draw(im, "RGBA")
 
@@ -95,7 +95,7 @@ def main():
         d.line([(40, y), (W - 30, y)], fill=GRID, width=1)
 
     d.text((48, 34), "宝可梦 · 特殊世界与岛屿", font=fb(38), fill=INK)
-    d.text((48, 88), "主盘之外还挂着两层：地理上的附属岛（坐船坐车能到）和同一地点的异层（要特殊入口）",
+    d.text((48, 88), "八个附属地区和四个异层地区各有独立步行入口。每条通道两端都可步行返回。",
            font=fr(19), fill=DIM)
 
     # ---- L0 主盘 ----
@@ -118,7 +118,7 @@ def main():
 
     # ---- L1 岛屿 ----
     l1y = 300
-    d.text((lx, l1y), "L1  地理附属 · 七之岛与对战开拓区可乘船到达", font=fb(20), fill=MINT)
+    d.text((lx, l1y), "L1  附属地区 · 海堤、栈道与山间古道", font=fb(20), fill=MINT)
 
     iw, ih = 178, 108
     igap = 12
@@ -137,12 +137,12 @@ def main():
         d.text((x + 14, y + 10), name, font=fb(20), fill=INK)
         d.text((x + 14, y + 40), "归属 " + dict((k, n) for k, n, *_ in MAIN)[parent],
                font=fr(13), fill=(120, 190, 200))
-        d.text((x + 14, y + 60), route, font=fr(12), fill=DIM)
-        d.text((x + 14, y + 78), src + " · " + specials[key], font=fr(12), fill=GOLD)
+        d.text((x + 14, y + 60), specials[key]["walk_label"], font=fr(12), fill=DIM)
+        d.text((x + 14, y + 78), src + " · " + specials[key]["status"], font=fr(12), fill=GOLD)
 
     # ---- L2 异层 ----
     l2y = 540
-    d.text((lx, l2y), "L2  平行异层 · 以下入口均待建", font=fb(20), fill=MINT)
+    d.text((lx, l2y), "L2  异层地区 · 从现世的遗迹、裂隙与梦境入口进入", font=fb(20), fill=MINT)
 
     lw, lh = 350, 118
     lgap = 20
@@ -155,25 +155,21 @@ def main():
         d.text((x + 18, y + 8), dict((k, n) for k, n, *_ in MAIN)[parent] + "  ›  异层",
                font=fr(12), fill=(150, 132, 200))
         d.text((x + 18, y + 30), name, font=fb(22), fill=INK)
-        d.text((x + 18, y + 66), kind + " · " + specials[key], font=fr(13), fill=GOLD)
-        d.text((x + 18, y + 84), entry, font=fr(12), fill=DIM)
+        d.text((x + 18, y + 66), kind + " · " + specials[key]["status"], font=fr(13), fill=GOLD)
+        d.text((x + 18, y + 84), specials[key]["walk_label"], font=fr(12), fill=DIM)
         d.text((x + 18, y + 100), note, font=fr(11), fill=(150, 160, 165))
 
     # ---- 说明 ----
     ny = 740
     d.rounded_rectangle([lx, ny, W - 48, ny + 296], radius=14, fill=(13, 22, 30),
                         outline=(40, 66, 74), width=1)
-    d.text((lx + 22, ny + 16), "怎么在工程里落", font=fb(19), fill=MINT)
+    d.text((lx + 22, ny + 16), "沿途说明", font=fb(19), fill=MINT)
 
     lines = [
-        ("L1 岛屿", "做成独立 region 目录，用 kind=island 和 parent 指回主地区；入口是主地区地图上的码头 / 车站 warp，",
-         "不做成新大陆，所以不占主盘坐标，只在 world_graph 的 specials 里登记。"),
-        ("L2 异层", "也用 region 目录，但 kind=layer；不改坐标，只加 layer_of 指向同一地点。同一张地图可以有",
-         "现世与异层两个版本，靠 warp 的 layer 字段切换，存档按 layer 分别记位置。"),
-        ("入口方式", "port（码头）/ train（车站）/ dive（潜水）/ rift（裂缝）/ time（时代）/ dream（梦境）六类，",
-         "每类对应一种 gate 组件，加新特殊世界只填数据。"),
-        ("内容规模", "每个附属岛 3–6 张图、1–2 个特色设施；每个异层 2–4 张图、1 条主线。不进主线流程，",
-         "作为可选支线，不影响主盘通关。"),
+        ("七之岛", "七座岛的港口另有六段海堤相连。从一之岛港向东沿栈桥前行，或沿西侧长廊返回关都。", ""),
+        ("异层入口", "从神奥的神和镇附近可经时空遗迹步廊前往洗翠，从送泉可经裂隙步径进入反转世界。", ""),
+        ("异层入口", "从阿罗拉的祭坛可经光桥进入究极空间，从合众的梦的遗址可沿梦烟小径进入梦世界。", ""),
+        ("旅行", "每个地区都有领航员。步行可以自由往返各地，也可以在领航员处选择其他地区的枢纽。", ""),
     ]
     y = ny + 52
     for tag, a, b in lines:

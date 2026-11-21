@@ -46,6 +46,16 @@
     "我以后也要当很强的训练家！",
     "你的宝可梦看起来很精神。"
    ]
+  },
+  {
+   "name": "领航员",
+   "gfx": "navigator",
+   "transit": true,
+   "at": [
+    5,
+    3
+   ],
+   "atlas": "world"
   }
  ],
  "warps": [
@@ -149,6 +159,21 @@
     ]
    },
    "edge": true
+  },
+  {
+   "at": [
+    3,
+    7
+   ],
+   "to": {
+    "region": "johto",
+    "map": "johto_east_walk",
+    "at": [
+     17,
+     29
+    ]
+   },
+   "atlas": "world"
   }
  ],
  "encounters": [],

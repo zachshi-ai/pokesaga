@@ -33,11 +33,15 @@ def main():
         rebuild_islands(root/"content/regions/sevii/maps", root/"content/emerald_maps",
                         source_path("firered","data/maps"))
         run("hoenn_ferry.py")
+        run("build_world_routes.py","--project",root)
+        run("world/render_charts.py","--project",root)
+        run("bake_oras_maps.py")
     if "icons" in stages:
         run("import_bag_icons.py")
     if "dex" in stages:
         run("build_dex_catalog.py", "--csv-dir", source_path("pokeapi","data/v2/csv"))
         run("import_dex_art.py")
+        run("import_oras_pokemon.py")
     if "font" in stages:
         run("subset_ui_font.py", source_path("noto","Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf"))
     if "audio" in stages:

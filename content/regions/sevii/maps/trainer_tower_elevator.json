@@ -10,10 +10,50 @@
   5
  ],
  "npcs": [],
- "warps": [],
+ "warps": [
+  {
+   "at": [
+    2,
+    5
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "trainer_tower_lobby",
+    "at": [
+     17,
+     9
+    ],
+    "recall_passage": "sevii_lift"
+   }
+  },
+  {
+   "at": [
+    0,
+    2
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "trainer_tower_lobby",
+    "at": [
+     17,
+     9
+    ]
+   }
+  }
+ ],
  "encounters": [],
  "encounter_rate": 0.0,
  "weather": "none",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "objects": [
+  {
+   "kind": "sign",
+   "at": [
+    1,
+    2
+   ],
+   "text": "电梯操作盘　左侧操作盘通往大厅，南侧门返回进入电梯时的楼层。"
+  }
+ ]
 }

@@ -1,0 +1,228 @@
+{
+  "models": {
+    "route111": {
+      "repo": "https://github.com/Koolachoo/TestRPG",
+      "rev": "c7afd831d8086967f68340fedbe0f51646ad2ffe",
+      "path": "models/test import/3DS - Pokemon Omega Ruby Alpha Sapphire - Route 111 Desert",
+      "original": "https://models.spriters-resource.com/3ds/pokemonomegarubyalphasapphire/asset/353263/"
+    },
+    "center": {
+      "repo": "https://github.com/uwmadisonieee/Socket_Pokemon_2016",
+      "rev": "53f5c557f05fae5182031de2e9e8d485d3d428af",
+      "path": "MainServer/public/models",
+      "original": "https://models.spriters-resource.com/3ds/pokemonomegarubyalphasapphire/asset/292908/"
+    }
+  },
+  "captures": {
+    "oldaletown": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/36.jpg",
+      "sha256": "82ebc5d03868d6113da8c93b4175b7d440081ff0b724eaf61c3ddde0d2074cb1",
+      "page": "https://www.serebii.net/pokearth/hoenn/oldaletown.shtml"
+    },
+    "petalburgwoods": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/51.jpg",
+      "sha256": "e404ac8781ea783616759c3ab839162244a9d4377f8d1f6d0c821502df03d147",
+      "page": "https://www.serebii.net/pokearth/hoenn/petalburgwoods.shtml"
+    },
+    "route101": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/1.jpg",
+      "sha256": "5c6afe50aa0d0e9ad4ffe83bb1fc3e5e185e08b74ddd24d4de34b3f012544e05",
+      "page": "https://www.serebii.net/pokearth/hoenn/route101.shtml"
+    },
+    "route120": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/20.jpg",
+      "sha256": "5756d103d29f30baa981e90eeea01eeb3d04ea434c440dca2015ddddff8835f6",
+      "page": "https://www.serebii.net/pokearth/hoenn/route120.shtml"
+    },
+    "slateportcity": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/40.jpg",
+      "sha256": "0a2870c7fe67233b7b074d468b9103c6bc1035bcdf400cd8190055d11f23656d",
+      "page": "https://www.serebii.net/pokearth/hoenn/slateportcity.shtml"
+    },
+    "granitecave": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/53.jpg",
+      "sha256": "b79586a1d649dedaefcfdd4e041d63305b6bf781d8c7e3aed35b1217ff3e1ccc",
+      "page": "https://www.serebii.net/pokearth/hoenn/granitecave.shtml"
+    },
+    "shoalcave": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/65.jpg",
+      "sha256": "eb3eb43dc0ded0ad84189ff390c27e8faa7bcf88518b233fc4e18429f5c4d298",
+      "page": "https://www.serebii.net/pokearth/hoenn/shoalcave.shtml"
+    },
+    "meteorfalls": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/64.jpg",
+      "sha256": "77d46d1e808a06a2c24fc74616e2210dc2d78382d8b265c21a56aee5fb15621c",
+      "page": "https://www.serebii.net/pokearth/hoenn/meteorfalls.shtml"
+    },
+    "sootopoliscity": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/49.jpg",
+      "sha256": "5f8780a9e77eb9f0e40913c95fbef4d47fcb7479a454d836827c669c1f30dd71",
+      "page": "https://www.serebii.net/pokearth/hoenn/sootopoliscity.shtml"
+    },
+    "fierypath": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/79.jpg",
+      "sha256": "819b9caa23820ffaec482c4186894241ed1e88b00404d2ffdf10631506e21938",
+      "page": "https://www.serebii.net/pokearth/hoenn/fierypath.shtml"
+    },
+    "fortreecity": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/45.jpg",
+      "sha256": "004b37cc9bf402f0988d2dc66e8a7cccd4c5065d6cdb20aac7706dcf03214cdc",
+      "page": "https://www.serebii.net/pokearth/hoenn/fortreecity.shtml"
+    },
+    "pacifidlogtown": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/48.jpg",
+      "sha256": "0da9c63bbde1ffacaa49a4e60bda823b517b30db2e17441e4358d8e9a6a434ec",
+      "page": "https://www.serebii.net/pokearth/hoenn/pacifidlogtown.shtml"
+    },
+    "fallarbortown": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/43.jpg",
+      "sha256": "550107c8cc6ffa74c2ea200a97fe718b384a78da10345561ba9e9d262269f404",
+      "page": "https://www.serebii.net/pokearth/hoenn/fallarbortown.shtml"
+    },
+    "mauvillecity": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/41.jpg",
+      "sha256": "4c141e61251294d6f005c215649eef4719e00fb797681912c510c075bcdca510",
+      "page": "https://www.serebii.net/pokearth/hoenn/mauvillecity.shtml"
+    },
+    "rustborocity": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/38.jpg",
+      "sha256": "4be6c82e0dccdbcec7e7e391aa36e0d358483d2bd7fd7a19fce7c32adbb8b916",
+      "page": "https://www.serebii.net/pokearth/hoenn/rustborocity.shtml"
+    },
+    "seafloorcavern": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/60.jpg",
+      "sha256": "c426e1ba4e849560fa49ec447baaf0c0efa695621a36bfe400961f7e9e2d9773",
+      "page": "https://www.serebii.net/pokearth/hoenn/seafloorcavern.shtml"
+    },
+    "safarizone": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/59.jpg",
+      "sha256": "ee292a124a4e9103414fd977b33c7c3bae34d12130670ee0badcf9e196f4d6a9",
+      "page": "https://www.serebii.net/pokearth/hoenn/safarizone.shtml"
+    },
+    "route105": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/5.jpg",
+      "sha256": "8fec095d2cc9b147ca67bcc28266b2a1ea5407aacd922b8129a3bc6e3775b072",
+      "page": "https://www.serebii.net/pokearth/hoenn/route105.shtml"
+    },
+    "petalburgcity": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/37.jpg",
+      "sha256": "0f2e10e8fb873ec25b48ea9984876ecfe64d8731790a53c813db29b569cab45e",
+      "page": "https://www.serebii.net/pokearth/hoenn/petalburgcity.shtml"
+    },
+    "lavaridgetown": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/44.jpg",
+      "sha256": "fb0ca6f580de74ceed3ef0156b3539af54329cd44097402096745c7968520c3d",
+      "page": "https://www.serebii.net/pokearth/hoenn/lavaridgetown.shtml"
+    },
+    "verdanturftown": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/42.jpg",
+      "sha256": "7ddf4ce1e5c517ab16e996670721dc596d98a9d659f142d6ee66eea43a345a3a",
+      "page": "https://www.serebii.net/pokearth/hoenn/verdanturftown.shtml"
+    },
+    "bedroom": {
+      "url": "https://oraswiki.com/assets/images/locations/towns-cities/littleroot-town/01-pokemon-oras-inside-your-room.jpg",
+      "sha256": "ca3c92870feb7b68d268773e9a329507b752503f7179c5d7517d020f2dfe3062",
+      "page": "https://oraswiki.com/locations/towns-cities/littleroot-town/"
+    },
+    "rival-house": {
+      "url": "https://oraswiki.com/assets/images/locations/towns-cities/littleroot-town/02-pokemon-oras-outside-your-rivals-house.jpg",
+      "sha256": "86c29950e392527075dd920e1b2d44ad3fd9dc71066af326c936732c3a4c74e1",
+      "page": "https://oraswiki.com/locations/towns-cities/littleroot-town/"
+    },
+    "home-stairs": {
+      "url": "https://oraswiki.com/assets/images/locations/towns-cities/littleroot-town/14-pokemon-oras-pair-of-tickets-gift-from-norman.jpg",
+      "sha256": "fa425d12bfd6a66029fd772819e860363b25bd5bc9332d0acbd4b8a7ad2c96a7",
+      "page": "https://oraswiki.com/locations/towns-cities/littleroot-town/"
+    },
+    "room-bed": {
+      "url": "https://static.oraswiki.com/assets/images/locations/towns-cities/rustboro-city/08-pokemon-oras-hm01-cut-gift-from-an-npc-called-the-cutter.jpg",
+      "sha256": "99c9ecbcfd7199f65b4ff4825d94ff9e33b85f49f1dedacd0f261bc88f038257",
+      "page": "https://oraswiki.com/locations/towns-cities/rustboro-city/"
+    },
+    "lamps": {
+      "url": "https://static.oraswiki.com/assets/images/locations/towns-cities/rustboro-city/13-pokemon-oras-great-ball-gift-from-the-devon-researcher.jpg",
+      "sha256": "ca6671d5dd58b245584259c0ae4882b24ac3270a1f687c8247aedf1ef0790c0b",
+      "page": "https://oraswiki.com/locations/towns-cities/rustboro-city/"
+    },
+    "monument": {
+      "url": "https://static.oraswiki.com/assets/images/locations/towns-cities/rustboro-city/16-pokemon-oras-battling-the-grunts.jpg",
+      "sha256": "5f58f2ae3230e5eda109f39cddba5fb0f6c0b9a9b7e0d55dd422fa794b653e15",
+      "page": "https://oraswiki.com/locations/towns-cities/rustboro-city/"
+    },
+    "plaza": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/41-topfloor.jpg",
+      "sha256": "9b26f8c376a0a7d67da4896a1b924224a953530e983336aa5cb196225cdc3cd8",
+      "page": "https://www.serebii.net/pokearth/hoenn/mauvillecity.shtml"
+    },
+    "birch-lab": {
+      "url": "https://oraswiki.com/assets/images/locations/towns-cities/littleroot-town/03-pokemon-oras-outside-professor-birchs-lab.jpg",
+      "sha256": "ad92d317d98ef260595f0ef75cd410b5f2264835bae6f4da8318c0ddd756f3d0",
+      "page": "https://oraswiki.com/locations/towns-cities/littleroot-town/"
+    },
+    "mall": {
+      "url": "https://static.oraswiki.com/assets/images/locations/towns-cities/mauville-city/09-pokemon-oras-outside-the-battle-institute.jpg",
+      "sha256": "67035f1307e6d491f3219334d94d0dbccd089bf56cdaf0e23e226330d0195d6f",
+      "page": "https://oraswiki.com/locations/towns-cities/mauville-city/"
+    },
+    "stone-city": {
+      "url": "https://static.oraswiki.com/assets/images/locations/towns-cities/rustboro-city/05-pokemon-oras-outside-the-cutters-house.jpg",
+      "sha256": "ecad8dc5ff42808c7b97ad8d75f8f9c1435c1d18fc5a926dd361daa7b7630f99",
+      "page": "https://oraswiki.com/locations/towns-cities/rustboro-city/"
+    },
+    "shoal-ice": {
+      "url": "https://oraswiki.com/assets/images/locations/caves/shoal-cave/02-pokemon-oras-near-the-ice-rock.jpg",
+      "sha256": "21dbc8600b6b21c408e2fa73199b67eef7da05fc24c78db8b461a5c24504d0aa",
+      "page": "https://oraswiki.com/locations/caves-forests/shoal-cave/"
+    },
+    "birch-office": {
+      "url": "https://oraswiki.com/assets/images/locations/towns-cities/littleroot-town/11-pokemon-oras-oval-charm-gift-from-professor-birch.jpg",
+      "sha256": "daa769c9daedb0babaacb77224450e6ee939b4e1d1c21925370dda38dc80e2b8",
+      "page": "https://oraswiki.com/locations/towns-cities/littleroot-town/"
+    },
+    "wharf": {
+      "url": "https://static.oraswiki.com/assets/images/locations/towns-cities/slateport-city/08-pokemon-oras-outside-slateport-harbor.jpg",
+      "sha256": "f943c57ff1a6d36d6f0f99fa0eb0d00eac9c051c15c38e7946c91097c733db60",
+      "page": "https://oraswiki.com/locations/towns-cities/slateport-city/"
+    },
+    "tent": {
+      "url": "https://static.oraswiki.com/assets/images/locations/towns-cities/slateport-city/05-pokemon-oras-buying-dolls.jpg",
+      "sha256": "3a6f93182880f86193e965f9ea79034bf5e65c1e8179b4a4f3e42c705cc91351",
+      "page": "https://oraswiki.com/locations/towns-cities/slateport-city/"
+    },
+    "clinic": {
+      "url": "https://static.oraswiki.com/assets/images/locations/towns-cities/mauville-city/14-pokemon-oras-inside-the-mauville-city-poke-mart.jpg",
+      "sha256": "bc6eba0daaddde25973365d1b5b5028167859d8915d13e98acc4bd9e37559a94",
+      "page": "https://oraswiki.com/locations/towns-cities/mauville-city/"
+    },
+    "marble": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/41-groundfloor.jpg",
+      "sha256": "fa4b59065bd8fbd115b409e8cf57d1f76037a13d3e0d6786ba3497baa500d815",
+      "page": "https://www.serebii.net/pokearth/hoenn/mauvillecity.shtml"
+    },
+    "observatory": {
+      "url": "https://www.serebii.net/pokearth/maps/hoenn-oras/47-gym.jpg",
+      "sha256": "a60bad092f2327163832550fe0009eb52b5b816514782ed5f861b0b75b74d917",
+      "page": "https://www.serebii.net/pokearth/hoenn/mossdeepcity.shtml"
+    },
+    "lavaridge-center": {
+      "url": "https://static.oraswiki.com/assets/images/locations/towns-cities/lavaridge-town/03-pokemon-oras-buying-moomoo-milk.jpg",
+      "sha256": "86b6b7144f9d31977008d9c37bd7c7c93876c67bfb205c5ef692ccecd00122d5",
+      "page": "https://oraswiki.com/locations/towns-cities/lavaridge-town/"
+    },
+    "berry-orchard": {
+      "url": "https://static.oraswiki.com/assets/images/locations/routes/route-123/16-pokemon-oras-sitrus-berry-4-on-a-berry-tree.jpg",
+      "sha256": "bd5ee208b2be21cb1b3127a6b5e3b65d2a373ba9ece13c8c9e47c04774eb99df",
+      "page": "https://oraswiki.com/locations/routes/route-123/"
+    },
+    "cut-tree": {
+      "url": "https://static.oraswiki.com/assets/images/locations/routes/route-123/26-pokemon-oras-hyper-potion-hidden-near-the-prickly-tree.jpg",
+      "sha256": "5b216189b1c9163c5067d88ff04bf86b83bce2c766552e777b3c265849af8fe1",
+      "page": "https://oraswiki.com/locations/routes/route-123/"
+    },
+    "field-item": {
+      "url": "https://oraswiki.com/assets/images/locations/caves/shoal-cave/14-pokemon-oras-big-pearl-northeast-corner-of-the-entrance-room.jpg",
+      "sha256": "b34be82baa91b5d829f55ec2b7767f89f2e123bbbc6df74f6a5c037d9a728a52",
+      "page": "https://oraswiki.com/locations/caves-forests/shoal-cave/"
+    }
+  }
+}

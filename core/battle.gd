@@ -666,7 +666,7 @@ func throw_ball(ball_bonus: float = 1.0, ball_name: String = "精灵球") -> Dic
 	var hp_factor := (3.0 * mx - 2.0 * hp) / (3.0 * mx)
 	var p := clampf((hp_factor * rate / 255.0) * ball_bonus * 1.6, 0.02, 0.96)
 	var shakes := 0
-	if rng.randf() < p:
+	if ball_name == "大师球" or rng.randf() < p:
 		shakes = 3
 		caught = true
 		caught_species = int(target.get("species_id", 0))

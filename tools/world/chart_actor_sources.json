@@ -1,0 +1,18 @@
+{
+  "repository": "thiagoleoncino/Montevideo_Platformer3D",
+  "revision": "71883d78e0db39ca7b6ff26f474fc3cb7067f80b",
+  "directory": "Mvdo Proyecto Unity/Assets/02 - Character/Modelos/BrendanOW",
+  "original": "https://models.spriters-resource.com/3ds/pokemonomegarubyalphasapphire/asset/291499/",
+  "sha256": {
+    "BrendanOW.SMD": "eb1e0f9015daf64c31cfb27f0b61e4f72c0fee8613d2d376416f42248f99e7d4",
+    "BrendanOW_ShoesA.SMD": "9db69dc32c59a139036c461fd79ba9e8d8d82aa6137dbeb3d14be12e55f01a6a",
+    "images/rstr0002_00_fi_body.png": "12e90dcc8bb7ae9c30e42d8ae550f76c4c2f7b6f929a36c289ab91382aa83e6f",
+    "images/rstr0002_00_fi_face.png": "eb03ec8a262f4ea184a6d0dae76d46605a8be412149bfad771681f5e501ae759",
+    "images/rstr0002_00_fi_head.png": "7f93252bee6dbacf1250db8f51082f01bd3fcd094a7e7a12982ef7297e8b424e",
+    "images/rstr0002_00_fi_sw_parts.png": "dbab22cae062616ae61dc5dc21a987f6b1bc07bb78ea5f91ac92c1f50f53babb"
+  },
+  "hoenn_art": {
+    "source": "https://cdn.pokemon-france.com/wp-content/uploads/2026/10/rubis-omega-saphir-alpha-carte-hoenn-1024x725.png",
+    "sha256": "5cc30e4aae1b4a2ac15ead6eb49d6b92222e8b91ec86db965fbd00cd7588f356"
+  }
+}

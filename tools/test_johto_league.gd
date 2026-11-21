@@ -117,6 +117,8 @@ func run() -> void:
 	game = load("res://scenes/boot.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
+	game.title_screen.continue_button.pressed.emit()
+	await process_frame
 	world = game.world
 	game.rng.seed = 486
 	check(world.map_data.id == old.map and world.player_pos == Vector2i(6,16), "legacy room position")

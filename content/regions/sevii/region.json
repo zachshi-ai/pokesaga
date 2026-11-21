@@ -162,7 +162,14 @@
   "two_island_house",
   "two_island_joyful_game_corner",
   "two_island_pokemon_center_1f",
-  "two_island_pokemon_center_2f"
+  "two_island_pokemon_center_2f",
+  "sevii_island_walk",
+  "sevii_causeway_five",
+  "sevii_causeway_four",
+  "sevii_causeway_one",
+  "sevii_causeway_six",
+  "sevii_causeway_three",
+  "sevii_causeway_two"
  ],
  "start": "one_island_harbor",
  "encounters": [],

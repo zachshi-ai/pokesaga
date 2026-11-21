@@ -636,6 +636,16 @@
     6
    ],
    "name": "岛上的游客"
+  },
+  {
+   "name": "领航员",
+   "gfx": "navigator",
+   "transit": true,
+   "at": [
+    15,
+    15
+   ],
+   "atlas": "world"
   }
  ],
  "warps": [
@@ -680,6 +690,21 @@
      234
     ]
    }
+  },
+  {
+   "at": [
+    6,
+    8
+   ],
+   "to": {
+    "region": "frontier",
+    "map": "frontier_isle_walk",
+    "at": [
+     15,
+     21
+    ]
+   },
+   "atlas": "world"
   }
  ]
 }

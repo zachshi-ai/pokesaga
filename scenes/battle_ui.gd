@@ -37,6 +37,8 @@ var menu: Control
 var move_menu: Control
 var flash_t := 0.0
 var trainer_name := ""
+var backdrop := "meadow"
+var backdrop_texture: Texture2D
 var fast := false   # 自检时压缩等待
 var shake_t := 0.0
 var bag: Array = []          # 只读引用，投球时弹窗列出来
@@ -62,6 +64,7 @@ func _build() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	position = Vector2.ZERO
 
+	backdrop_texture = load("res://assets/oras/battle/%s.jpg" % backdrop)
 	bg = Control.new()
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	bg.draw.connect(_draw_bg)
@@ -69,7 +72,7 @@ func _build() -> void:
 
 	# 站位：敌右上方、我左下方，都留出与血条框、底栏的空隙
 	enemy_sprite = _make_sprite(battle.cur_b(), Vector2(318, 44), 2.0)
-	player_sprite = _make_sprite(battle.cur_a(), Vector2(70, 92), 2.0)
+	player_sprite = _make_sprite(battle.cur_a(), Vector2(70, 92), 2.0, true)
 
 	enemy_hp = _make_hpbox(Vector2(12, 12), battle.cur_b())
 	player_hp = _make_hpbox(Vector2(274, 158), battle.cur_a())
@@ -118,9 +121,11 @@ func _panel(pos: Vector2, size: Vector2, radius := 8) -> Panel:
 	p.add_theme_stylebox_override("panel", sb)
 	return p
 
-func _make_sprite(c: Dictionary, pos: Vector2, scale_f: float) -> TextureRect:
+func _make_sprite(c: Dictionary, pos: Vector2, scale_f: float, rear := false) -> TextureRect:
 	var t := TextureRect.new()
+	t.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	t.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	t.set_meta("rear",rear)
 	var effect := DexEffect.new()
 	effect.name = "Appearance"
 	t.add_child(effect)
@@ -130,8 +135,7 @@ func _make_sprite(c: Dictionary, pos: Vector2, scale_f: float) -> TextureRect:
 	t.custom_minimum_size = Vector2(64, 64)
 	t.size = Vector2(64, 64)
 	t.scale = Vector2(scale_f, scale_f)
-	t.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	t.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	t.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	add_child(t)
 	return t
 
@@ -184,7 +188,7 @@ func _make_menu() -> Control:
 	# 底板收窄后右侧整列归指令：上排三个变化类指令，下面 2×2 常规四格
 	var extra: Array = []
 	if not battle.available_forms("a").is_empty():
-		extra.append([transform_label(), "form"])
+		extra.append(["变身", "form"])
 	if battle.can_use_z("a"):
 		extra.append(["Z招式", "z"])
 	if battle.can_use_tera("a"):
@@ -262,22 +266,15 @@ func _make_move_menu() -> Control:
 	return wrap
 
 func _draw_bg() -> void:
-	var W := size.x
-	var H := size.y
-	# 天空
-	for i in 40:
-		var t := float(i) / 40.0
-		var col := Color(0.62, 0.82, 0.90).lerp(Color(0.86, 0.94, 0.92), t)
-		bg.draw_rect(Rect2(0, H * 0.5 * t, W, H * 0.5 / 40.0 + 1), col)
-	# 草地
-	bg.draw_rect(Rect2(0, H * 0.5, W, H * 0.5), Color(0.45, 0.66, 0.42))
-	bg.draw_rect(Rect2(0, H * 0.5, W, 6), Color(0.55, 0.75, 0.50))
-	# 平台
-	bg.draw_set_transform(Vector2(120, 214), 0, Vector2(1, 0.32))
-	bg.draw_circle(Vector2.ZERO, 86, Color(0.40, 0.60, 0.38))
-	bg.draw_set_transform(Vector2(352, 118), 0, Vector2(1, 0.30))
-	bg.draw_circle(Vector2.ZERO, 74, Color(0.42, 0.62, 0.40))
-	bg.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
+	bg.draw_texture_rect(backdrop_texture, Rect2(0,-10,size.x,250), false)
+	bg.draw_rect(Rect2(0,239,size.x,maxf(0,size.y-239)),INK)
+	for sprite in [enemy_sprite, player_sprite]:
+		if not is_instance_valid(sprite) or sprite.texture == null: continue
+		var baseline := float(sprite.texture.get_meta("footline",.90))
+		var foot := Vector2(sprite.position.x+64, sprite.position.y+128*baseline+1)
+		bg.draw_set_transform(foot,0,Vector2(1,.16))
+		bg.draw_circle(Vector2.ZERO,24,Color("#233b4240"),true,-1,true)
+	bg.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 
 func _dur(x: float) -> float:
 	return 0.02 if fast else x
@@ -767,7 +764,9 @@ func _apply_appearance(sprite: TextureRect, mon: Dictionary) -> void:
 	if sprite.get_meta("identity", "") == identity:
 		return
 	sprite.set_meta("identity", identity)
-	var texture := DexArt.texture(sid, form, true) if shine != "none" else null
+	var texture := DexArt.model_view(sid, form, shine != "none", true) if sprite.get_meta("rear",false) else null
+	if texture == null:
+		texture = DexArt.texture(sid, form, shine != "none")
 	sprite.texture = texture if texture != null else load(Data.sprite_path(sid, form))
 	var effect = sprite.get_node("Appearance")
 	effect.shine = shine
@@ -776,6 +775,7 @@ func _apply_appearance(sprite: TextureRect, mon: Dictionary) -> void:
 	effect.visible = shine != "none" or tera != "" or effect.giant
 	effect.set_process(effect.visible)
 	effect.queue_redraw()
+	if bg: bg.queue_redraw()
 
 func _update_hpbox(box: Control, c: Dictionary) -> void:
 	var track: ColorRect = box.get_node("Track")

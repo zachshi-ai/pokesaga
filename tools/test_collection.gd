@@ -33,6 +33,8 @@ func run() -> void:
 	game = load("res://scenes/boot.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
+	game.title_screen.new_button.pressed.emit()
+	await process_frame
 	party = load("res://core/party.gd")
 	dex = load("res://core/dex_variants.gd")
 	game._close_all_dialogs()
@@ -64,6 +66,10 @@ func run() -> void:
 			break
 		ui._process(2.0)
 	check(game.active_battle == null and status(19, "RATTATA_ALOLA", "square") == 2, "capture via ball panel")
+	if game.save_data.party.size() < 2:
+		Save.clear_test_slot()
+		quit(1)
+		return
 	check(game.save_data.party[1].shiny_kind == "square" and game.save_data.party[1].form == "RATTATA_ALOLA", "capture kept identity")
 	await process_frame
 	next_shiny("star")

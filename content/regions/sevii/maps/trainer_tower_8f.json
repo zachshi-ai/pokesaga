@@ -115,8 +115,19 @@
     "map": "trainer_tower_elevator",
     "at": [
      2,
-     5
-    ]
+     4
+    ],
+    "remember_passage": {
+     "key": "sevii_lift",
+     "destination": {
+      "region": "sevii",
+      "map": "trainer_tower_8f",
+      "at": [
+       14,
+       5
+      ]
+     }
+    }
    }
   }
  ],

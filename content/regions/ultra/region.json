@@ -1,0 +1,23 @@
+{
+ "id": "ultra",
+ "name": "究极空间",
+ "tileset": "world",
+ "music": "route",
+ "maps": [
+  "ultra_megalopolis",
+  "ultra_crater",
+  "ultra_desert",
+  "ultra_forest",
+  "ultra_plant",
+  "ultra_tower"
+ ],
+ "encounters": [],
+ "encounter_rate": 0,
+ "start": {
+  "map": "ultra_megalopolis",
+  "at": [
+   19,
+   13
+  ]
+ }
+}

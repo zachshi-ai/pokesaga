@@ -1,0 +1,50 @@
+{
+ "id": "kitakami",
+ "name": "北上乡",
+ "tileset": "world",
+ "music": "route",
+ "maps": [
+  "kitakami_mossui",
+  "kitakami_hall",
+  "kitakami_mountain",
+  "kitakami_orchard",
+  "kitakami_plaza",
+  "kitakami_pool",
+  "kitakami_road",
+  "kitakami_woods"
+ ],
+ "encounters": [
+  {
+   "species": 261,
+   "min": 5,
+   "max": 12,
+   "weight": 40
+  },
+  {
+   "species": 273,
+   "min": 5,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 193,
+   "min": 5,
+   "max": 12,
+   "weight": 20
+  },
+  {
+   "species": 840,
+   "min": 5,
+   "max": 12,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.08,
+ "start": {
+  "map": "kitakami_mossui",
+  "at": [
+   17,
+   13
+  ]
+ }
+}

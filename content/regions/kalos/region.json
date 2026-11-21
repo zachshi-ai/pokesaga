@@ -1,0 +1,95 @@
+{
+ "id": "kalos",
+ "name": "卡洛斯",
+ "tileset": "world",
+ "music": "route",
+ "maps": [
+  "kalos_vaniville",
+  "kalos_1",
+  "kalos_10",
+  "kalos_11",
+  "kalos_12",
+  "kalos_13",
+  "kalos_14",
+  "kalos_15",
+  "kalos_16",
+  "kalos_17",
+  "kalos_18",
+  "kalos_19",
+  "kalos_2",
+  "kalos_20",
+  "kalos_21",
+  "kalos_22",
+  "kalos_3",
+  "kalos_4",
+  "kalos_5",
+  "kalos_6",
+  "kalos_7",
+  "kalos_8",
+  "kalos_9",
+  "kalos_ambrette",
+  "kalos_anistar",
+  "kalos_aquacorde",
+  "kalos_azure",
+  "kalos_camphrier",
+  "kalos_cave",
+  "kalos_coumarine",
+  "kalos_couriway",
+  "kalos_crystals",
+  "kalos_cyllage",
+  "kalos_dendemille",
+  "kalos_factory",
+  "kalos_forest",
+  "kalos_frost",
+  "kalos_geosenge",
+  "kalos_glitter",
+  "kalos_kiloude",
+  "kalos_laverre",
+  "kalos_league",
+  "kalos_lumiose",
+  "kalos_mastery",
+  "kalos_palace",
+  "kalos_pass_paldea_n3",
+  "kalos_reflection",
+  "kalos_santalune",
+  "kalos_shalour",
+  "kalos_snowbelle",
+  "kalos_tower",
+  "kalos_victory",
+  "kalos_village"
+ ],
+ "encounters": [
+  {
+   "species": 659,
+   "min": 5,
+   "max": 12,
+   "weight": 40
+  },
+  {
+   "species": 661,
+   "min": 5,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 664,
+   "min": 5,
+   "max": 12,
+   "weight": 20
+  },
+  {
+   "species": 672,
+   "min": 5,
+   "max": 12,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.08,
+ "start": {
+  "map": "kalos_vaniville",
+  "at": [
+   19,
+   15
+  ]
+ }
+}

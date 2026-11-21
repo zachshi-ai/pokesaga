@@ -1,0 +1,85 @@
+{
+ "id": "paldea",
+ "name": "帕底亚",
+ "tileset": "world",
+ "music": "route",
+ "maps": [
+  "paldea_mesagoza",
+  "paldea_academy",
+  "paldea_alfornada",
+  "paldea_artazon",
+  "paldea_asado",
+  "paldea_bamboo",
+  "paldea_cabo",
+  "paldea_cascarrafa",
+  "paldea_cave",
+  "paldea_cortondo",
+  "paldea_e1",
+  "paldea_e2",
+  "paldea_e3",
+  "paldea_gate",
+  "paldea_glaseado",
+  "paldea_inlet",
+  "paldea_lab",
+  "paldea_lake",
+  "paldea_league",
+  "paldea_levincia",
+  "paldea_marinada",
+  "paldea_medali",
+  "paldea_montenevera",
+  "paldea_n1",
+  "paldea_n2",
+  "paldea_n3",
+  "paldea_pass_kitakami_road",
+  "paldea_pass_unova_undella",
+  "paldea_platos",
+  "paldea_poco",
+  "paldea_s1",
+  "paldea_s2",
+  "paldea_s3",
+  "paldea_s4",
+  "paldea_s5",
+  "paldea_s6",
+  "paldea_socarrat",
+  "paldea_tagtree",
+  "paldea_w1",
+  "paldea_w2",
+  "paldea_w3",
+  "paldea_zapapico",
+  "paldea_zero"
+ ],
+ "encounters": [
+  {
+   "species": 915,
+   "min": 5,
+   "max": 12,
+   "weight": 40
+  },
+  {
+   "species": 917,
+   "min": 5,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 921,
+   "min": 5,
+   "max": 12,
+   "weight": 20
+  },
+  {
+   "species": 928,
+   "min": 5,
+   "max": 12,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.08,
+ "start": {
+  "map": "paldea_mesagoza",
+  "at": [
+   21,
+   13
+  ]
+ }
+}

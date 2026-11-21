@@ -38,13 +38,35 @@ func run() -> void:
 	game.rng.seed = 1947
 	game.appearance_rng.seed = 7748
 	var phase: String = OS.get_cmdline_user_args()[0]
+	if not check(is_instance_valid(game.title_screen), "missing title screen"):
+		quit(1)
+		return
 	if phase == "play":
+		check(game.title_screen.continue_button == null, "continue offered on a fresh save")
+		game.title_screen.new_button.pressed.emit()
+		await process_frame
 		await play()
 	else:
+		check(game.title_screen.continue_button != null, "missing continue")
+		var before := FileAccess.get_file_as_string(Save.slot)
+		game.title_screen.new_button.pressed.emit()
+		game.title_screen.cancel_button.pressed.emit()
+		check(FileAccess.get_file_as_string(Save.slot) == before, "cancelled new game changed save")
+		game.title_screen.continue_button.pressed.emit()
+		await process_frame
 		var expected = JSON.parse_string(FileAccess.get_file_as_string(directory.path_join("expected.json")))
 		var restored = JSON.parse_string(JSON.stringify(snapshot()))
 		for key in expected:
 			check(restored.get(key) == expected[key], "changed after restarting: " + key)
+		game._notification(Node.NOTIFICATION_WM_GO_BACK_REQUEST)
+		game._dialogs.back().btn_yes.pressed.emit()
+		var previous := FileAccess.get_file_as_string(Save.slot)
+		game.title_screen.new_button.pressed.emit()
+		game.title_screen.confirm_button.pressed.emit()
+		await process_frame
+		check(world.map_data.id == "pallet_town_players_house_2f" and world.player_pos == Vector2i(3,6), "replacement new game spawn")
+		check(game.save_data.badges.is_empty() and not game._has_party(), "new run retained progress")
+		check(FileAccess.get_file_as_string(Save.slot + ".previous") == previous, "original file not backed up")
 	print("CHAPTER ", phase, " ", "FAIL" if failed else "PASS", " walks=", walks, " encounters=", encounters, " balls=", balls_used, " nurse=", heal_requests, " wins=", battle_wins)
 	quit(1 if failed else 0)
 
@@ -186,7 +208,22 @@ func nurse_in_viridian() -> void:
 	await walk(Vector2i(7,8))
 
 func play() -> void:
-	if not check(world.map_data.id == "kanto_main" and world.player_pos == Vector2i(72,277) and not game._has_party(), "wrong fresh start"): return
+	if not check(world.map_data.id == "pallet_town_players_house_2f" and world.player_pos == Vector2i(3,6) and not game._has_party(), "wrong bedroom start"): return
+	if not check(world.object_at(Vector2i(11,1)).get("kind") == "wall_map", "missing bedroom map"): return
+	await walk(Vector2i(11,2))
+	if failed: return
+	game._move("up")
+	game._on_action()
+	if not check(game.panel_open == 1, "did not open wall map"): return
+	var atlas = game.menu_layer.get_child(-1)
+	if not check(atlas.get_script().resource_path == "res://scenes/world_atlas.gd" and not atlas.travel and atlas.here_region == "kanto", "bedroom wall map traveling or incorrect region"): return
+	game._on_back()
+	await process_frame
+	if not check(game.panel_open == 0 and world.map_data.id == "pallet_town_players_house_2f", "wall map did not dismiss"): return
+	await walk(Vector2i(10,2))
+	if not check(world.map_data.id == "pallettown_playershouse_1f" and world.player_pos == Vector2i(10,3), "stairs to first floor"): return
+	await walk(Vector2i(5,8))
+	if not check(world.map_data.id == "kanto_main" and world.player_pos == Vector2i(66,267), "leaving the house"): return
 	dialogs()
 	await walk(Vector2i(76,273))
 	if not check(world.map_data.id == "pallettown_professoroakslab", "lab door"): return

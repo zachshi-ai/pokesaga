@@ -1,13 +1,13 @@
 {
- "name": "关都·真新镇·players house 2f",
+ "name": "真新镇·我的房间 2F",
  "emerald": "pallet_town_players_house_2f_frlg",
  "size": [
   12,
   9
  ],
  "spawn": [
-  10,
-  2
+  3,
+  6
  ],
  "npcs": [],
  "warps": [
@@ -21,7 +21,7 @@
     "map": "pallettown_playershouse_1f",
     "at": [
      10,
-     2
+     3
     ]
    }
   }
@@ -43,9 +43,9 @@
     11,
     1
    ],
-   "kind": "sign",
-   "sprite": "sign",
-   "text": "一份贴士……\n如果你有问题的话就看帮助！\n按L或R键！"
+   "kind": "wall_map",
+   "sprite": "wall_map",
+   "name": "城镇地图"
   }
  ],
  "weather": "none",

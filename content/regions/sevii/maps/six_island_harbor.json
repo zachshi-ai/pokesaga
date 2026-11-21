@@ -65,6 +65,36 @@
      2
     ]
    }
+  },
+  {
+   "at": [
+    0,
+    3
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "sevii_causeway_five",
+    "at": [
+     15,
+     21
+    ]
+   },
+   "atlas": "world"
+  },
+  {
+   "at": [
+    15,
+    3
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "sevii_causeway_six",
+    "at": [
+     29,
+     15
+    ]
+   },
+   "atlas": "world"
   }
  ],
  "encounters": [],

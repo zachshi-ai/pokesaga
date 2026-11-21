@@ -14,7 +14,8 @@ PATHS = {
     "emerald": ["graphics/items","graphics/pokemon","src/data/graphics","src/data/pokemon","sound/songs/midi"],
     "pokeapi": ["data/v2/csv"],
     "sprites": ["sprites/pokemon/back/female","sprites/pokemon/back/shiny/female",
-                "sprites/pokemon/versions/generation-ix/scarlet-violet"],
+                "sprites/pokemon/versions/generation-ix/scarlet-violet",
+                "sprites/pokemon/versions/generation-vi/omega-ruby-alpha-sapphire","sprites/pokemon/other/home"],
     "noto": ["Sans/OTF/SimplifiedChinese"],
 }
 
@@ -25,6 +26,8 @@ def fetch(name, pin):
         head = subprocess.check_output(["git","-C",str(destination),"rev-parse","HEAD"],text=True).strip()
         if head != pin["revision"]:
             raise SystemExit(f"{destination} is at {head}; expected {pin['revision']}. Select another input directory.")
+        if name == "sprites" and not all((destination/p).is_dir() for p in PATHS[name]):
+            subprocess.run(["git","-C",str(destination),"sparse-checkout","add",*PATHS[name]],check=True)
         print(f"{name} {head} ({destination})", flush=True)
         return
     destination.parent.mkdir(parents=True, exist_ok=True)

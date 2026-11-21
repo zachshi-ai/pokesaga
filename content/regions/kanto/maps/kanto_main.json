@@ -5012,6 +5012,16 @@
     "你也是去岩山隧道吗？"
    ],
    "sight": 5
+  },
+  {
+   "name": "领航员",
+   "gfx": "navigator",
+   "transit": true,
+   "at": [
+    72,
+    276
+   ],
+   "atlas": "world"
   }
  ],
  "warps": [
@@ -8122,6 +8132,21 @@
      4
     ]
    }
+  },
+  {
+   "at": [
+    71,
+    279
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_south_walk",
+    "at": [
+     29,
+     15
+    ]
+   },
+   "atlas": "world"
   }
  ],
  "encounters": [],

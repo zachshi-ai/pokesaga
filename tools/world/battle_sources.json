@@ -1,0 +1,38 @@
+{
+  "meadow": {
+    "url": "https://play.pokemonshowdown.com/sprites/gen6bgs/bg-meadow.jpg",
+    "sha256": "d9998f1a41a970de078ff28765168dcd0ee18aa4ac728fe479d4352d42ba0015"
+  },
+  "forest": {
+    "url": "https://play.pokemonshowdown.com/sprites/gen6bgs/bg-forest.jpg",
+    "sha256": "093d22ac3762d2a529483e3607d550d1bf96ece3cebc0fa1c8c3d264453cfe82"
+  },
+  "earthycave": {
+    "url": "https://play.pokemonshowdown.com/sprites/gen6bgs/bg-earthycave.jpg",
+    "sha256": "2594cfbea7dd47e4307136525f5b3c1f05b6c2298e4461310f29b167730a4d75"
+  },
+  "orasdesert": {
+    "url": "https://play.pokemonshowdown.com/sprites/gen6bgs/bg-orasdesert.jpg",
+    "sha256": "e5915928a4d6256e088f9093956f5af7accbb8658456c69cbdf6bdc96ccfab80"
+  },
+  "orassea": {
+    "url": "https://play.pokemonshowdown.com/sprites/gen6bgs/bg-orassea.jpg",
+    "sha256": "0b935eefa0106dd1eb9f42eada8aef33b5f1d08a84cc423427743de688ae42dc"
+  },
+  "city": {
+    "url": "https://play.pokemonshowdown.com/sprites/gen6bgs/bg-city.jpg",
+    "sha256": "c0dbb3edf323d25f56f04832dee49eacb610cdbc98d5dfe8d0f5abcccd081e96"
+  },
+  "elite4drake": {
+    "url": "https://play.pokemonshowdown.com/sprites/gen6bgs/bg-elite4drake.jpg",
+    "sha256": "0fc8b359ec6551879282be095e2597238b63fe34fe94d76b4d6ec679355ff211"
+  },
+  "skypillar": {
+    "url": "https://play.pokemonshowdown.com/sprites/gen6bgs/bg-skypillar.jpg",
+    "sha256": "cefe1094b46e5bc296042ad08131eb7be5dd874af7175a1ea363f9b40f1c47c7"
+  },
+  "icecave": {
+    "url": "https://play.pokemonshowdown.com/sprites/gen6bgs/bg-icecave.jpg",
+    "sha256": "ab8e0194fc90e3f98708544053c3eb278e9b092695c514eb8391a84430342e2e"
+  }
+}

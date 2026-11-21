@@ -84,7 +84,9 @@ static func art(path: String) -> TextureRect:
 	return t
 
 static func portrait(id: int, form := "") -> TextureRect:
-	var t := art(Data.party_hd_path(id) if form.is_empty() else Data.sprite_path(id,form))
+	var texture := DexArt.model_view(id,form,false)
+	var t := art("")
+	t.texture = texture if texture != null else load(Data.party_hd_path(id) if form.is_empty() else Data.sprite_path(id,form))
 	t.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	return t
 

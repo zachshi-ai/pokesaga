@@ -61,7 +61,7 @@
   {
    "at": [
     3,
-    8
+    11
    ],
    "name": "短裤小子",
    "gfx": "youngster",
@@ -107,9 +107,20 @@
     "region": "johto",
     "map": "johto_fast_ship_1f",
     "at": [
-     13,
-     3
-    ]
+     12,
+     1
+    ],
+    "remember_passage": {
+     "key": "johto_ship",
+     "destination": {
+      "region": "johto",
+      "map": "johto_vermilion_port",
+      "at": [
+       3,
+       7
+      ]
+     }
+    }
    }
   },
   {

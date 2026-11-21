@@ -1,6 +1,7 @@
 extends Node2D
 ## 启动场景：自检 + 场景装配 + 输入（键盘 / 触摸）。
 
+const TitleScreen := preload("res://scenes/title_screen.gd")
 const WorldScript := preload("res://core/world.gd")
 const BattleScript := preload("res://core/battle.gd")
 const BattleUI := preload("res://scenes/battle_ui.gd")
@@ -24,6 +25,8 @@ const FusionUI := preload("res://scenes/fusion_ui.gd")
 const FormItemUI := preload("res://scenes/form_item_ui.gd")
 
 var world
+var title_screen
+var title_layer: CanvasLayer
 var snd                     # 原版曲子的 BGM / SFX
 var _last_bump := 0
 var results: Array = []
@@ -215,9 +218,12 @@ func _ready() -> void:
 		get_tree().quit(0 if ok else 1)
 		return
 
+	var argv: Array = OS.get_cmdline_args() + OS.get_cmdline_user_args()
+	if not _has_debug_start(argv):
+		_show_title()
+		return
 	_restore_from_save()
 
-	var argv: Array = OS.get_cmdline_args() + OS.get_cmdline_user_args()
 	for a in argv:
 		if String(a).begins_with("--at="):
 			var xy := String(a).substr(5).split(",")
@@ -617,6 +623,57 @@ func _ready() -> void:
 		img.save_png("/root/build/pokesaga/shot.png")
 		print("SHOT %dx%d" % [img.get_width(), img.get_height()])
 		get_tree().quit(0)
+
+## Engine arguments on Android and desktop must not skip the title.
+func _has_debug_start(args: Array) -> bool:
+	const ACTIONS := ["party","bag","editor","dex","battle","wild","fusion","fusionvis","press","at-shop","at-nurse",
+		"shop-ui","party-evolve","party-held","shot","shot-field","story-demo","interact","map","at","talk","walk",
+		"e2e","e2e-story","e2e-johto-story","e2e-walk","e2e-all"]
+	for arg in args:
+		if str(arg).trim_prefix("-").trim_prefix("-").get_slice("=", 0) in ACTIONS:
+			return true
+	return false
+
+func _show_title() -> void:
+	held_dir = ""
+	set_process(false)
+	world.visible = false
+	ui_layer.visible = false
+	menu_layer.visible = false
+	touch_layer.visible = false
+	snd.stop_music()
+	var stored := SaveScript.existing()
+	var summary := {}
+	if not stored.is_empty():
+		var last_map: Dictionary = Data.load_map(str(stored.region), str(stored.map))
+		summary = {"location":str(stored.get("location_label", last_map.get("name", stored.map))),
+			"badge_count":stored.get("badges", []).size()}
+	title_layer = CanvasLayer.new()
+	title_layer.layer = 12
+	add_child(title_layer)
+	title_screen = TitleScreen.new()
+	title_layer.add_child(title_screen)
+	title_screen.setup(summary, FileAccess.file_exists(SaveScript.slot))
+	title_screen.start_requested.connect(_enter_game)
+	title_screen.quit_requested.connect(func() -> void: get_tree().quit())
+
+func _enter_game(fresh: bool) -> void:
+	if not is_instance_valid(title_screen):
+		return
+	if fresh and not SaveScript.new_game():
+		title_screen.show_failure("未能写入新存档，请检查设备可用空间。")
+		return
+	if not fresh and SaveScript.existing().is_empty():
+		title_screen.show_failure("无法读取原存档。")
+		return
+	title_layer.queue_free()
+	title_screen = null
+	world.visible = true
+	ui_layer.visible = true
+	menu_layer.visible = true
+	touch_layer.visible = true
+	set_process(true)
+	_restore_from_save()
 
 func _refresh_hud() -> void:
 	if name_label:
@@ -1026,19 +1083,24 @@ func _try_surf() -> bool:
 func _notification(what: int) -> void:
 	if what != NOTIFICATION_WM_GO_BACK_REQUEST or not is_node_ready():
 		return
-	if DisplayServer.virtual_keyboard_get_height() > 0:
+	if is_instance_valid(title_screen):
+		title_screen.handle_back()
+		return
+	if DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD) and DisplayServer.virtual_keyboard_get_height() > 0:
 		DisplayServer.virtual_keyboard_hide()
 		get_viewport().gui_release_focus()
 		return
 	if panel_open > 0 or not _dialogs.is_empty() or is_instance_valid(active_battle):
 		_on_back()
 		return
-	var prompt = _dialog(["要保存进度并退出游戏吗？"])
-	prompt.ask("保存退出", "继续游戏")
+	var prompt = _dialog(["要保存进度并返回标题吗？"])
+	prompt.ask("保存并返回", "继续游戏")
 	prompt.answered.connect(func(yes: bool) -> void:
 		if yes:
-			_persist()
-			get_tree().quit())
+			if _persist():
+				_show_title()
+			else:
+				_show_toast("存档写入失败，请检查设备空间。"))
 
 
 func _on_back() -> void:
@@ -1258,6 +1320,7 @@ func _do_warp(target: Dictionary) -> void:
 				held_dir = ""
 				_dialog([gate], "联盟")
 				return
+	target = preload("res://core/passage_memory.gd").resolve(save_data,target)
 	var next_map: Dictionary = Data.load_map(String(target.get("region", "")), String(target.get("map", "")))
 	if next_map.is_empty():
 		# 目标地图缺失时说清楚，别让人以为门坏了
@@ -1265,7 +1328,7 @@ func _do_warp(target: Dictionary) -> void:
 		_dialog(["这扇门打不开。"], "")
 		return
 	snd.play_sfx("door")
-	_show_toast("前往 " + String(target.get("map", "")))
+	_show_toast("前往 " + String(next_map.get("name", "")))
 	world.load_map(next_map)
 	var at: Array = target.get("at", [0, 0])
 	world.warp_to(Vector2i(int(at[0]), int(at[1])))
@@ -1434,6 +1497,8 @@ func _handle_object(o: Dictionary) -> void:
 		return
 	snd.play_sfx("select")
 	match String(o.get("kind", "")):
+		"wall_map":
+			_open_world_atlas(false)
 		"sign":
 			var t := String(o.get("text", ""))
 			_dialog([t] if t != "" else ["（字迹被磨掉了）"], "")
@@ -1894,8 +1959,33 @@ func _tm_teach_menu(mv: int, slots: Array, names: Array) -> void:
 	_dialog(["没有宝可梦能学这招。"], "")
 
 
+func _battle_backdrop() -> String:
+	var m: Dictionary = world.map_data
+	var id := String(m.get("id",""))
+	var biome := String(m.get("biome",""))
+	if world.surfing or world.diving or biome=="coast" or id.contains("harbor"):
+		return "orassea"
+	if biome in ["sand","desert"] or id.contains("desert"):
+		return "orasdesert"
+	if biome=="snow" or id.contains("ice_path"):
+		return "icecave"
+	if biome in ["ruins","space"] or id.contains("sky_pillar"):
+		return "skypillar"
+	if biome in ["cave","volcano"] or id.contains("cave") or id.contains("tunnel"):
+		return "earthycave"
+	if id.contains("gym") or johto_league.stage(id)>0:
+		return "elite4drake"
+	if biome=="city":
+		return "city"
+	if biome in ["forest","marsh"] or id.contains("forest"):
+		return "forest"
+	return "meadow"
+
 func _talk_to_npc(npc: Dictionary) -> void:
 	if npc.is_empty():
+		return
+	if npc.get("transit", false):
+		_open_world_atlas(true)
 		return
 	if npc.get("hall_record", false):
 		_dialog(johto_league.record_lines(save_data), "名人堂")
@@ -2059,6 +2149,7 @@ func _start_facility_battle() -> void:
 	layer.layer = 6
 	add_child(layer)
 	var ui := BattleUI.new()
+	ui.backdrop = _battle_backdrop()
 	ui.observe_variant = _battle_variant_seen.bind(PartyScript.occupied(save_data.get("party", [])) > 0)
 	active_battle = ui
 	held_dir = ""
@@ -2161,6 +2252,7 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 	layer.layer = 6
 	add_child(layer)
 	var ui := BattleUI.new()
+	ui.backdrop = _battle_backdrop()
 	ui.observe_variant = _battle_variant_seen.bind(PartyScript.occupied(save_data.get("party", [])) > 0)
 	active_battle = ui
 	held_dir = ""
@@ -2219,6 +2311,7 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "") -> v
 	layer.layer = 6
 	add_child(layer)
 	var ui := BattleUI.new()
+	ui.backdrop = _battle_backdrop()
 	ui.observe_variant = _battle_variant_seen.bind(PartyScript.occupied(save_data.get("party", [])) > 0)
 	active_battle = ui
 	held_dir = ""
@@ -2519,6 +2612,21 @@ func _test_battle() -> bool:
 				return false
 	return true
 
+func _battle_art_key(texture: Texture2D) -> String:
+	if texture is AtlasTexture:
+		var frame := texture as AtlasTexture
+		if frame.atlas == null or not frame.region.has_area():
+			return ""
+		return frame.atlas.resource_path + "#" + str(frame.region)
+	return texture.resource_path if texture != null else ""
+
+func _expected_battle_art(sid: int, form: String, rear: bool) -> String:
+	const Art := preload("res://core/dex_art.gd")
+	var texture := Art.model_view(sid, form, false, true) if rear else null
+	if texture == null:
+		texture = Art.texture(sid, form, false)
+	return _battle_art_key(texture) if texture != null else Data.sprite_path(sid, form)
+
 func _test_battle_ui() -> bool:
 	var mine := [BattleScript.make_combatant(4, 20, [33, 52])]
 	var enemy := [BattleScript.make_combatant(1, 12, [33])]
@@ -2574,14 +2682,14 @@ func _test_battle_ui() -> bool:
 	var a3: Dictionary = ui3.battle.cur_a()
 	var spr := ""
 	if ui3.player_sprite and is_instance_valid(ui3.player_sprite) and ui3.player_sprite.texture:
-		spr = ui3.player_sprite.texture.resource_path
-	var want3 := Data.sprite_path(6, "CHARIZARD_MEGA_X")
+		spr = _battle_art_key(ui3.player_sprite.texture)
+	var want3 := _expected_battle_art(6, "CHARIZARD_MEGA_X", true)
 	print("battle ui dbg: 变形态后 ", String(a3.get("name", "")), " 立绘 ", spr.get_file())
 	if String(a3.get("form", "")) != "CHARIZARD_MEGA_X":
 		print("!! 界面点 Mega 没生效")
 		ui3.queue_free()
 		return false
-	if spr != want3:
+	if spr.is_empty() or spr != want3 or spr == _expected_battle_art(6, "", true):
 		print("!! 立绘没换成 Mega 形态")
 		ui3.queue_free()
 		return false
@@ -2608,22 +2716,21 @@ func _test_battle_ui() -> bool:
 	while ui2.state == "intro" and waited2 < 3.0:
 		await get_tree().process_frame
 		waited2 += 0.016
+	var expected_foes := {74: _expected_battle_art(74, "", false), 95: _expected_battle_art(95, "", false)}
 	var seen: Array = []
 	var r2 := 0
 	while String(done2["result"]) == "" and r2 < 900 and is_instance_valid(ui2):
 		if ui2.state == "menu":
+			var sid := int(ui2.battle.cur_b().get("species_id", 1))
+			var now := _battle_art_key(ui2.enemy_sprite.texture)
+			var want := str(expected_foes.get(sid, ""))
+			if now.is_empty() or now != want:
+				print("battle ui dbg: 敌方精灵与当前对手不一致 %s != %s" % [now, want])
+				ui2.queue_free()
+				return false
+			if not seen.has(now):
+				seen.append(now)
 			ui2._on_move(0)
-		var want := Data.sprite_path(int(ui2.battle.cur_b().get("species_id", 1)),
-			String(ui2.battle.cur_b().get("form", "")))
-		var now: String = ""
-		if ui2.enemy_sprite and is_instance_valid(ui2.enemy_sprite) and ui2.enemy_sprite.texture:
-			now = ui2.enemy_sprite.texture.resource_path
-		if now != "" and now != want and ui2.state == "menu":
-			print("battle ui dbg: 敌方精灵与当前对手不一致 %s != %s" % [now, want])
-			ui2.queue_free()
-			return false
-		if now != "" and not seen.has(now):
-			seen.append(now)
 		await get_tree().process_frame
 		r2 += 1
 	if is_instance_valid(ui2):
@@ -5880,8 +5987,8 @@ func _test_npc_lines() -> bool:
 		var d: Dictionary = Data.load_map("kanto", mid)
 		var seen := {}
 		for n in d.get("npcs", []):
-			# 店员和护士走的是各自的界面，不靠台词
-			if bool(n.get("shop", false)) or bool(n.get("heal", false)):
+			# 商店、治疗与地区领航各自打开交互界面。
+			if bool(n.get("shop", false)) or bool(n.get("heal", false)) or bool(n.get("transit", false)):
 				continue
 			total += 1
 			var nm := String(n.get("name", ""))
@@ -6782,6 +6889,7 @@ func _test_catch_add() -> bool:
 	return ok
 
 func _test_editor() -> bool:
+	save_data = SaveScript.empty()
 	save_data["party"] = PartyScript.compact([PartyScript.make(25, 10, [84])])
 	bag_items = _default_items()
 	var ov: Dictionary = {}
@@ -6813,9 +6921,10 @@ func _test_editor() -> bool:
 		return false
 	# 存读一轮，覆盖值要跟着回来
 	save_data["species_override"] = ui.overrides
-	SaveScript.save(save_data)
+	if not SaveScript.save(save_data):
+		return false
 	var back: Dictionary = SaveScript.load_game()
-	if int((back["species_override"] as Dictionary)["25"]["atk"]) != before * 2:
+	if int(back.get("species_override", {}).get("25", {}).get("atk", -1)) != before * 2:
 		return false
 	Data.apply_species_overrides({})
 	if int((Data.species_of(25) as Dictionary)["base"]["atk"]) != before:
@@ -7160,8 +7269,8 @@ func _restore_from_save() -> void:
 	# 出生地：地区表里写死的起点。没有存档 / 存档地图没了，都回到这里，
 	# 而不是随随便便落到地区表里排序第一的那张图。
 	var start_region := "kanto"
-	var start_map := "kanto_main"
-	var start_at := Vector2i(72, 277)
+	var start_map := "pallet_town_players_house_2f"
+	var start_at := Vector2i(3, 6)
 	var reg_home: Dictionary = Data.load_region(start_region)
 	var st = reg_home.get("start", {})
 	if st is Dictionary and (st as Dictionary).has("map"):
@@ -7174,13 +7283,6 @@ func _restore_from_save() -> void:
 	var map_id := String(save_data.get("map", start_map))
 	var saved_pos: Array = save_data.get("pos", [])
 	var has_saved_spot := saved_pos.size() == 2
-	# v1 存档里的默认点是 [10,8]（尼比市正中），那是旧版本写死的错误出生点，
-	# 读到这种老档就当没有存档位置，直接回出生地，免得又把人扔进城里。
-	if int(save_data.get("version", 1)) < 2:
-		has_saved_spot = false
-		saved_pos = []
-		save_data["version"] = 2
-
 	var map: Dictionary = {}
 	var first_path := "res://content/regions/%s/maps/%s.json" % [region, map_id]
 	if FileAccess.file_exists(first_path):
@@ -7200,26 +7302,33 @@ func _restore_from_save() -> void:
 		return
 	save_data["region"] = region
 	save_data["map"] = map_id
+	world.taken = _flags()
+	world.facing = str(save_data.get("facing", "down"))
 	world.load_map(map)
 
 	var spot := start_at
 	if has_saved_spot:
 		spot = Vector2i(int(saved_pos[0]), int(saved_pos[1]))
 	# 存档点要是被挡住（换版本后地块变了），退到这张图自己的出生点
-	if world.is_blocked(spot):
+	world.surfing = has_saved_spot and world.is_water(spot) and bool(save_data.get("surfing", true))
+	world.diving = world.surfing and bool(save_data.get("diving", world.is_deep(spot)))
+	world.bike = bool(save_data.get("bike", false))
+	var on_water: bool = world.surfing and world.can_enter(spot, Vector2i.ZERO, true)
+	if world.is_blocked(spot) and not on_water:
 		print("[start] 存档点 %s 不可走，回出生点" % [spot])
 		var sp: Array = map.get("spawn", [])
 		if sp.size() == 2:
 			spot = Vector2i(int(sp[0]), int(sp[1]))
-	if world.is_blocked(spot):
+	if world.is_blocked(spot) and not on_water:
 		spot = start_at
 	world.warp_to(spot)
+	_apply_defeated()
+	grass_streak = 0
 	_refresh_scene()
 	print("[start] %s/%s %s" % [region, String(map.get("id", map_id)), spot])
 	_story_init()
 	_story_fire("map_enter", {"map": String(map.get("id", map_id)), "region": region})
 	_ensure_form_npc()
-	_show_toast("方向键 / W A S D 移动，右上角可开队伍与背包")
 
 ## 加道具：同名的叠数量，不重复占格子
 func _give_item(name: String, count: int, category := "other") -> void:
@@ -7282,13 +7391,18 @@ func _grant_hms() -> void:
 	save_data["bag"] = bag_items
 
 
-func _persist() -> void:
+func _persist() -> bool:
 	save_data["region"] = String(world.map_data.get("region", "hoenn"))
 	save_data["map"] = String(world.map_data.get("id", "littleroot_town"))
 	save_data["pos"] = [world.player_pos.x, world.player_pos.y]
+	save_data["facing"] = world.facing
+	save_data["surfing"] = world.surfing
+	save_data["diving"] = world.diving
+	save_data["bike"] = world.bike
+	save_data["location_label"] = world.display_name()
 	save_data["party"] = save_data.get("party", [])
 	save_data["bag"] = bag_items
-	SaveScript.save(save_data)
+	return SaveScript.save(save_data)
 
 func _build_menu_buttons() -> void:
 	menu_layer = CanvasLayer.new()
@@ -7671,6 +7785,24 @@ func _change_tera(slot: int, tera_type: String, ui) -> void:
 		panel_open = maxi(0, panel_open - 1)
 		_set_hud_visible(true)
 		_open_party()
+
+func _open_world_atlas(travel: bool) -> void:
+	var atlas := preload("res://scenes/world_atlas.gd").new()
+	menu_layer.add_child(atlas)
+	panel_open += 1
+	held_dir = ""
+	_set_hud_visible(false)
+	atlas.closed.connect(func() -> void:
+		panel_open = maxi(0, panel_open - 1)
+		_set_hud_visible(panel_open == 0))
+	atlas.trip_requested.connect(func(region_id: String) -> void:
+		var hub: Dictionary = Data.travel_regions().get(region_id, {}).get("hub", {})
+		if travel and not hub.is_empty():
+			world.surfing = false
+			world.diving = false
+			_do_warp(hub)
+			_persist())
+	atlas.setup(Data.travel_regions(), world.map_data, travel, world.player_pos, world.area_name())
 
 func _open_bag() -> void:
 	var ui := BagUI.new()

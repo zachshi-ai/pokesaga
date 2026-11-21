@@ -1,0 +1,21 @@
+{
+ "id": "distortion",
+ "name": "反转世界",
+ "tileset": "world",
+ "music": "route",
+ "maps": [
+  "distortion_threshold",
+  "distortion_altar",
+  "distortion_cascade",
+  "distortion_pillars"
+ ],
+ "encounters": [],
+ "encounter_rate": 0,
+ "start": {
+  "map": "distortion_threshold",
+  "at": [
+   20,
+   15
+  ]
+ }
+}

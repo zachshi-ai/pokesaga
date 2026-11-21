@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""九地区世界大盘示意图：按现实原型地理位置排布，标注陆路 / 海路 / 空路三类通道。"""
+"""九地区世界大盘示意图：按现实原型地理位置排布，标注陆路、海岸栈道和隧道。"""
 from asset_paths import project_path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -109,7 +109,7 @@ def main():
 
     # 标题
     d.text((60, 34), "宝可梦 · 九地区世界大盘", font=fb(38), fill=INK)
-    d.text((60, 86), "关都与城都由渡轮往返。关都经对战开拓区接驳丰缘，其他路线尚待建设。",
+    d.text((60, 86), "九个地区之间可经海岸栈道、山口和隧道步行往返。关都与丰缘之间经过对战开拓区。",
            font=fr(19), fill=DIM)
 
     # 通道
@@ -194,8 +194,8 @@ def main():
     d.rounded_rectangle([lx, ly, lx + 400, ly + 150], radius=12,
                         fill=(14, 24, 32, 235), outline=(52, 84, 92), width=1)
     d.text((lx + 18, ly + 14), "通道图例", font=fb(18), fill=MINT)
-    rows = [("land", "陆路 · 直接走过去"), ("sea", "海路 · 港口渡轮"),
-            ("tunnel", "海底隧道"), ("air", "空路 · 飞空艇 / 航线")]
+    rows = [("land", "陆路 · 峡谷、山口与古道"), ("sea", "海岸 · 浮桥、海堤与栈道"),
+            ("tunnel", "隧道 · 地下与海底通道")]
     for i, (kind, text) in enumerate(rows):
         y = ly + 48 + i * 26
         if kind == "land":
@@ -209,7 +209,7 @@ def main():
         d.text((lx + 92, y), text, font=fr(14), fill=(206, 218, 220))
 
     # 底部说明
-    d.text((60, H - 66), "丰缘当前开放未白镇、101 号道路和样板小镇。",
+    d.text((60, H - 66), "从各地区的领航员可以查看全景图并前往另一地区。丰缘 101 至 134 号道路均可探索。",
            font=fr(15), fill=DIM)
 
     im.save(project_path("doc/world_map.png"), quality=95)

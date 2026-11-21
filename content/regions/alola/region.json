@@ -1,0 +1,93 @@
+{
+ "id": "alola",
+ "name": "阿罗拉",
+ "tileset": "world",
+ "music": "route",
+ "maps": [
+  "alola_hauoli",
+  "alola_1",
+  "alola_10",
+  "alola_11",
+  "alola_12",
+  "alola_13",
+  "alola_14",
+  "alola_15",
+  "alola_16",
+  "alola_17",
+  "alola_2",
+  "alola_3",
+  "alola_4",
+  "alola_5",
+  "alola_6",
+  "alola_7",
+  "alola_8",
+  "alola_9",
+  "alola_abundance",
+  "alola_altar",
+  "alola_battle_tree",
+  "alola_brooklet",
+  "alola_canyon",
+  "alola_cavern",
+  "alola_conflict",
+  "alola_haina",
+  "alola_hano",
+  "alola_heahea",
+  "alola_hill",
+  "alola_hokulani",
+  "alola_hope",
+  "alola_iki",
+  "alola_konikoni",
+  "alola_lanakila",
+  "alola_league",
+  "alola_life",
+  "alola_lush",
+  "alola_mahalo",
+  "alola_malie",
+  "alola_meadow",
+  "alola_moone",
+  "alola_paniola",
+  "alola_pass_aether_dock",
+  "alola_pass_hoenn_pacifidlog",
+  "alola_pass_ultra_megalopolis",
+  "alola_po",
+  "alola_royal",
+  "alola_seafolk",
+  "alola_tapu",
+  "alola_wela",
+  "alola_wilds"
+ ],
+ "encounters": [
+  {
+   "species": 731,
+   "min": 5,
+   "max": 12,
+   "weight": 40
+  },
+  {
+   "species": 734,
+   "min": 5,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 736,
+   "min": 5,
+   "max": 12,
+   "weight": 20
+  },
+  {
+   "species": 742,
+   "min": 5,
+   "max": 12,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.08,
+ "start": {
+  "map": "alola_hauoli",
+  "at": [
+   17,
+   18
+  ]
+ }
+}

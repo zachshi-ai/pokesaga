@@ -1,0 +1,50 @@
+{
+ "id": "orange",
+ "name": "橘子群岛",
+ "tileset": "world",
+ "music": "route",
+ "maps": [
+  "orange_valencia",
+  "orange_kumquat",
+  "orange_mikan",
+  "orange_navel",
+  "orange_pummelo",
+  "orange_reef",
+  "orange_stadium",
+  "orange_trovita"
+ ],
+ "encounters": [
+  {
+   "species": 54,
+   "min": 5,
+   "max": 12,
+   "weight": 40
+  },
+  {
+   "species": 60,
+   "min": 5,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 90,
+   "min": 5,
+   "max": 12,
+   "weight": 20
+  },
+  {
+   "species": 116,
+   "min": 5,
+   "max": 12,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.08,
+ "start": {
+  "map": "orange_valencia",
+  "at": [
+   17,
+   11
+  ]
+ }
+}

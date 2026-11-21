@@ -107,8 +107,21 @@ func load_core_tables() -> bool:
 
 	return not species.is_empty() and not moves.is_empty()
 
-## 加载一个地区（region.json + 其中所有地图）
+var destinations: Dictionary = {}
+var world_passages: Array = []
+
+func travel_regions() -> Dictionary:
+	if destinations.is_empty():
+		var catalog = load_json("res://content/world_destinations.json")
+		if catalog is Dictionary:
+			destinations = catalog.get("regions", {})
+			world_passages = catalog.get("passages", [])
+	return destinations
+
+## 保留完整地图目录，具体地图首次进入时才读入内存。
 func load_region(region_id: String) -> Dictionary:
+	if regions.has(region_id):
+		return regions[region_id]
 	var base := "res://content/regions/%s/" % region_id
 	var region = load_json(base + "region.json")
 	if region == null:
@@ -116,6 +129,12 @@ func load_region(region_id: String) -> Dictionary:
 
 	region["id"] = region_id
 	region["_base"] = base
+	var map_ids: Array = region.get("maps", []).duplicate()
+	for file_name in DirAccess.get_files_at(base + "maps"):
+		if file_name.ends_with(".json") and not map_ids.has(file_name.get_basename()):
+			map_ids.append(file_name.get_basename())
+	map_ids.sort()
+	region["map_ids"] = map_ids
 	region["maps"] = {}
 	regions[region_id] = region
 	return region

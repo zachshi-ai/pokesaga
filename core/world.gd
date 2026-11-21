@@ -4,9 +4,10 @@ extends Node2D
 ##   0-15 独立瓦片；16-31 土路 autotile；32-47 水域 autotile
 ## 地图数据只用地形编号：0 草 1 树 2 水 3 路 4 花 5 石 6 墙 7 屋顶 8 门 9 栅栏 10 沙
 
+const OrasField := preload("res://core/oras_field.gd")
 const TILE := 16
 const ATLAS_PATH := "res://assets/tiles_emerald.png"
-const PLAYER_PATH := "res://assets/player_emerald.png"
+const PLAYER_PATH := "res://assets/oras/actors/brendan_walk.png"
 const SHADOW_PATH := "res://assets/shadow.png"
 
 const PATH_BASE := 32
@@ -129,6 +130,8 @@ func _ready() -> void:
 	add_child(_player_shadow)
 	_player_sprite = Sprite2D.new()
 	_player_sprite.texture = sheet
+	_player_sprite.scale = Vector2.ONE * (32.0 / sheet.get_height())
+	_player_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	_player_sprite.hframes = 9
 	_player_sprite.vframes = 1
 	_player_sprite.frame = 0
@@ -200,6 +203,9 @@ func load_map(data: Dictionary) -> void:
 	surfing = false
 	emerald_dir = []
 	emerald_chunks = []
+	emerald_wild_any = false
+	diving = false
+	dark = bool(data.get("dark", false))
 	var size_arr: Array = data.get("size", [20, 15])
 	tile_size = Vector2i(int(size_arr[0]), int(size_arr[1]))
 	tiles = data.get("tiles", [])
@@ -212,6 +218,7 @@ func load_map(data: Dictionary) -> void:
 	render_pos = Vector2(player_pos)
 	walking = false
 	_rebuild()
+	_apply_cam_limits()
 	_sync_player()
 
 func _load_emerald_map(name: String) -> void:
@@ -892,6 +899,7 @@ func _mask_at(p: Vector2i, kind: int) -> int:
 	return mask
 
 ## 按名字稳定分配一套 NPC 角色，同一个人每次进来长得一样
+const NpcAppearance := preload("res://core/npc_appearance.gd")
 const NPC_ROLES := [
 	["护士", "nurse"], ["馆主", "brock"], ["水手", "sailor"], ["港口", "sailor"],
 	["商人", "man"], ["老板", "man"], ["老伯", "old_man"], ["老人", "old_man"],
@@ -943,6 +951,48 @@ func _rebuild() -> void:
 		n.queue_free()
 	_npc_nodes.clear()
 
+	var plan := OrasField.plan_for(map_data)
+	if not plan.is_empty():
+		var field := OrasField.new()
+		add_child(field)
+		field.setup(self, plan)
+		_tile_nodes.append(field)
+	else:
+		_build_legacy_ground()
+
+	for n in npcs:
+		var at: Array = n.get("at", [0, 0])
+		var s := Sprite2D.new()
+		var tex: Texture2D = NpcAppearance.texture_for(n)
+		var is_model := tex != null and tex.resource_path.begins_with("res://assets/oras_npc/")
+		if tex == null:
+			var gfx := String(n.get("gfx", ""))
+			var legacy := "res://assets/npc/%s.png" % gfx
+			tex = load(legacy) if gfx != "" and ResourceLoader.exists(legacy) else _npc_texture(str(n.get("name", "")))
+		s.texture = tex
+		if is_model:
+			s.scale = Vector2.ONE * 0.30
+			s.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+		var sh := Sprite2D.new()
+		sh.texture = NpcAppearance.foot_shadow() if is_model else _shadow_tex
+		if is_model:
+			sh.scale = Vector2.ONE * 0.3
+			sh.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+		var nz: int = Z_ACTOR + int(at[1]) * 2
+		sh.z_index = nz - 1
+		sh.position = Vector2(int(at[0]) * TILE + TILE / 2, int(at[1]) * TILE + TILE - 2)
+		add_child(sh)
+		_npc_nodes.append(sh)
+		# 同上：脚底对齐格子下沿
+		var foot := Vector2(int(at[0]) * TILE + TILE / 2, (int(at[1]) + 1) * TILE)
+		s.position = foot - Vector2(0, tex.get_height() * s.scale.y * 0.5)
+		s.z_index = nz
+		add_child(s)
+		_npc_nodes.append(s)
+	_draw_objects()
+	apply_light()
+
+func _build_legacy_ground() -> void:
 	if is_emerald():
 		# 拼过的大地图按块贴，单张纹理不超过手机上限
 		if not emerald_chunks.is_empty():
@@ -979,36 +1029,6 @@ func _rebuild() -> void:
 			add_child(s)
 			_tile_nodes.append(s)
 
-	for n in npcs:
-		var at: Array = n.get("at", [0, 0])
-		var s := Sprite2D.new()
-		var gfx := String(n.get("gfx", ""))
-		var tex: Texture2D = null
-		if gfx != "" and ResourceLoader.exists("res://assets/npc/%s.png" % gfx):
-			tex = load("res://assets/npc/%s.png" % gfx)
-		if tex == null:
-			tex = _npc_texture(String(n.get("name", "")))
-		s.texture = tex
-		s.hframes = 1
-		s.vframes = 1
-		s.centered = true
-		s.frame = 0
-		s.modulate = Color(1.0, 1.0, 1.0)
-		var sh := Sprite2D.new()
-		sh.texture = _shadow_tex
-		var nz: int = Z_ACTOR + int(at[1]) * 2
-		sh.z_index = nz - 1
-		sh.position = Vector2(int(at[0]) * TILE + TILE / 2, int(at[1]) * TILE + TILE - 2)
-		add_child(sh)
-		_npc_nodes.append(sh)
-		# 同上：脚底对齐格子下沿
-		s.position = Vector2(int(at[0]) * TILE + TILE / 2, int(at[1]) * TILE)
-		s.offset = Vector2.ZERO
-		s.z_index = nz
-		add_child(s)
-		_npc_nodes.append(s)
-	_draw_objects()
-	apply_light()
 
 func _object_texture(o: Dictionary) -> Texture2D:
 	var kind := String(o.get("kind", ""))
@@ -1034,42 +1054,50 @@ func _object_texture(o: Dictionary) -> Texture2D:
 	return null
 
 
+# Coordinates are the object's footprint. Taller shrubs extend upward from that cell.
+const FIELD_INTERACTIVE := {
+	"item": ["pickup", 10, 10],
+	"cut": ["cut_tree", 15, 23],
+	"rock": ["rock", 14, 13],
+	"boulder": ["boulder", 17, 19],
+	"berry_tree": ["berry_tree", 19, 25],
+	"soil": ["soil", 15, 8]
+}
+
 func _draw_objects() -> void:
 	for n in _obj_nodes:
 		n.queue_free()
 	_obj_nodes.clear()
+	var has_oras := not OrasField.plan_for(map_data).is_empty()
 	for o in objects:
 		var flag := String(o.get("flag", ""))
 		var key := _object_key(o)
 		if taken.get(key, false) or (flag != "" and taken.get(flag, false)):
 			continue
+		var kind := String(o.get("kind", ""))
+		# The field plan already contains signs, wall maps and bedroom furniture.
+		if kind == "sign" or (kind == "wall_map" and map_data.get("id") == "pallet_town_players_house_2f"):
+			continue
 		var at: Array = o.get("at", [0, 0])
-		# 告示牌不额外画立牌：原版地图里牌子本来就画在图块上了，
-		# 再叠一个精灵就成了"满地立牌"。这里只保留可交互的透明点。
-		if String(o.get("kind", "")) == "sign":
+		var base := Vector2(int(at[0]) * TILE, int(at[1]) * TILE)
+		var field_art: Array = FIELD_INTERACTIVE.get(kind, []) if has_oras else []
+		var texture := OrasField.prop_texture(field_art[0]) if not field_art.is_empty() else _object_texture(o)
+		if texture == null:
 			continue
-		var tex := _object_texture(o)
-		if tex == null:
-			continue
-		var sp := Sprite2D.new()
-		var kind0 := String(o.get("kind", ""))
-		# 贴图比格子高的（球、树）以前按"底边对齐"往上顶了整整一格，
-		# 看着像浮在上一行，人站过去却按不到。这里让贴图严格落在自己这一格里。
-		sp.texture = tex
-		sp.centered = false
-		# 球的高光/影子在贴图上沿，直接摆会浮到上一行、看着在脑袋顶上飞；
-		# 只取最下面一格像素，让它老实待在自己这格里
-		var th := tex.get_height()
-		if th > TILE:
-			sp.region_enabled = true
-			sp.region_rect = Rect2(0, th - TILE, tex.get_width(), TILE)
-		sp.position = Vector2(int(at[0]) * TILE, int(at[1]) * TILE)
-		# 物件与本行前景同层再高 1：既不被同一行的树冠盖住，
-		# 又低于站在它正下方那格的人（人的 z 是行号*2）
-		# 比站在同一行的人低一层：人走到球上时人压在球上，不会被球糊住
-		sp.z_index = Z_ACTOR + int(at[1]) * 2 - 1
-		add_child(sp)
-		_obj_nodes.append(sp)
+		var sprite := Sprite2D.new()
+		sprite.texture = texture
+		sprite.centered = false
+		sprite.position = base
+		if not field_art.is_empty():
+			var size := Vector2(field_art[1],field_art[2])
+			sprite.scale = size / texture.get_size()
+			sprite.position += Vector2((TILE-size.x)/2, TILE-size.y)
+		elif texture.get_height() > TILE:
+			sprite.region_enabled = true
+			sprite.region_rect = Rect2(0,texture.get_height()-TILE,texture.get_width(),TILE)
+		sprite.z_index = Z_ACTOR + int(at[1]) * 2 - 1
+		add_child(sprite)
+		_obj_nodes.append(sprite)
 
 
 func _object_key(o: Dictionary) -> String:

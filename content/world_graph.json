@@ -1,6 +1,6 @@
 {
  "version": 1,
- "note": "已开放的地区、附属区域与交通按当前游戏地图登记。其余坐标和待建路线用于规划。",
+ "note": "九个主地区、八个附属地区与四个异层地区均可步行探索。地区地点与步行通道见 world_destinations.json。",
  "plate": {
   "size": [
    1600,
@@ -37,8 +37,8 @@
     880,
     645
    ],
-   "status": "部分开放",
-   "scope": "未白镇、101号道路、样板小镇"
+   "status": "已开放",
+   "scope": "未白镇至彩幽市，101至134号道路及主要地标"
   },
   "sinnoh": {
    "name": "神奥",
@@ -48,7 +48,7 @@
     1270,
     240
    ],
-   "status": "待建"
+   "status": "已开放"
   },
   "unova": {
    "name": "合众",
@@ -58,7 +58,7 @@
     300,
     615
    ],
-   "status": "待建"
+   "status": "已开放"
   },
   "kalos": {
    "name": "卡洛斯",
@@ -68,7 +68,7 @@
     640,
     380
    ],
-   "status": "待建"
+   "status": "已开放"
   },
   "alola": {
    "name": "阿罗拉",
@@ -78,7 +78,7 @@
     200,
     855
    ],
-   "status": "待建"
+   "status": "已开放"
   },
   "galar": {
    "name": "伽勒尔",
@@ -88,7 +88,7 @@
     430,
     235
    ],
-   "status": "待建"
+   "status": "已开放"
   },
   "paldea": {
    "name": "帕底亚",
@@ -98,7 +98,7 @@
     490,
     540
    ],
-   "status": "待建"
+   "status": "已开放"
   }
  },
  "links": [
@@ -106,15 +106,20 @@
    "a": "kanto",
    "b": "johto",
    "kind": "sea",
-   "label": "枯叶港 ⇄ 浅葱港",
+   "label": "石英沿岸步道",
    "gate": null,
-   "status": "已开放"
+   "status": "已开放",
+   "walkway": {
+    "region": "kanto",
+    "map": "kanto_pass_johto_east_walk"
+   },
+   "walk_label": "石英沿岸步道"
   },
   {
    "a": "kanto",
    "b": "hoenn",
    "kind": "sea",
-   "label": "枯叶港 ⇄ 开拓区码头 ⇄ 未白镇",
+   "label": "经开拓群岛防波堤与武斗岛外海栈道",
    "gate": null,
    "status": "已开放",
    "via": "frontier"
@@ -123,81 +128,131 @@
    "a": "johto",
    "b": "hoenn",
    "kind": "sea",
-   "label": "渡轮 · 内海航线",
+   "label": "丰城海峡连廊",
    "gate": null,
-   "status": "待建"
+   "status": "已开放",
+   "walkway": {
+    "region": "johto",
+    "map": "johto_pass_hoenn_fallarbor"
+   },
+   "walk_label": "丰城海峡连廊"
   },
   {
    "a": "johto",
    "b": "sinnoh",
-   "kind": "sea",
-   "label": "渡轮 · 东北航线",
+   "kind": "land",
+   "label": "心齐湖峡谷联络道",
    "gate": null,
-   "status": "待建"
+   "status": "已开放",
+   "walkway": {
+    "region": "johto",
+    "map": "johto_pass_sinnoh_twinleaf"
+   },
+   "walk_label": "心齐湖峡谷联络道"
   },
   {
    "a": "kanto",
    "b": "sinnoh",
-   "kind": "air",
-   "label": "飞空艇",
+   "kind": "tunnel",
+   "label": "水脉海底人行隧道",
    "gate": null,
-   "status": "待建"
+   "status": "已开放",
+   "walkway": {
+    "region": "kanto",
+    "map": "kanto_pass_sinnoh_canalave"
+   },
+   "walk_label": "水脉海底人行隧道"
   },
   {
    "a": "galar",
    "b": "kalos",
    "kind": "tunnel",
-   "label": "海底隧道",
+   "label": "伽勒尔海峡隧道",
    "gate": null,
-   "status": "待建"
+   "status": "已开放",
+   "walkway": {
+    "region": "galar",
+    "map": "galar_pass_kalos_cyllage"
+   },
+   "walk_label": "伽勒尔海峡隧道"
   },
   {
    "a": "kalos",
    "b": "paldea",
    "kind": "land",
-   "label": "山道",
+   "label": "连理山口",
    "gate": null,
-   "status": "待建"
+   "status": "已开放",
+   "walkway": {
+    "region": "kalos",
+    "map": "kalos_pass_paldea_n3"
+   },
+   "walk_label": "连理山口"
   },
   {
    "a": "paldea",
    "b": "unova",
    "kind": "sea",
-   "label": "跨洋渡轮",
+   "label": "涟漪海堤",
    "gate": null,
-   "status": "待建"
+   "status": "已开放",
+   "walkway": {
+    "region": "paldea",
+    "map": "paldea_pass_unova_undella"
+   },
+   "walk_label": "涟漪海堤"
   },
   {
    "a": "unova",
    "b": "alola",
-   "kind": "air",
-   "label": "跨洋航线",
+   "kind": "sea",
+   "label": "美乐美乐群岛长桥",
    "gate": null,
-   "status": "待建"
+   "status": "已开放",
+   "walkway": {
+    "region": "unova",
+    "map": "unova_pass_alola_hauoli"
+   },
+   "walk_label": "美乐美乐群岛长桥"
   },
   {
    "a": "unova",
    "b": "galar",
-   "kind": "air",
-   "label": "跨大西洋空路",
+   "kind": "land",
+   "label": "北海石脊古道",
    "gate": null,
-   "status": "待建"
+   "status": "已开放",
+   "walkway": {
+    "region": "unova",
+    "map": "unova_pass_galar_wedgehurst"
+   },
+   "walk_label": "北海石脊古道"
   },
   {
    "a": "kanto",
    "b": "unova",
-   "kind": "air",
-   "label": "跨太平洋空路",
+   "kind": "land",
+   "label": "桧扇群山古道",
    "gate": null,
-   "status": "待建"
+   "status": "已开放",
+   "walkway": {
+    "region": "kanto",
+    "map": "kanto_pass_unova_aspertia"
+   },
+   "walk_label": "桧扇群山古道"
   },
   {
    "a": "alola",
    "b": "hoenn",
-   "kind": "air",
-   "label": "南洋航线",
+   "kind": "sea",
+   "label": "南洋浮桥群",
    "gate": null,
-   "status": "待建"
+   "status": "已开放",
+   "walkway": {
+    "region": "alola",
+    "map": "alola_pass_hoenn_pacifidlog"
+   },
+   "walk_label": "南洋浮桥群"
   }
  ],
  "axes": [
@@ -211,7 +266,7 @@
    "extra": [
     "sinnoh"
    ],
-   "note": "目前通过关都枯叶港往返城都及开拓区。未白镇经开拓区接驳。"
+   "note": "经海滨、峡谷和联络步道往返东亚各地区。"
   },
   {
    "name": "欧洲轴",
@@ -220,7 +275,7 @@
     "kalos",
     "paldea"
    ],
-   "note": "规划中的陆路连接"
+   "note": "经海峡隧道与山口步行连接。"
   },
   {
    "name": "跨洋桥",
@@ -228,13 +283,13 @@
     "unova",
     "alola"
    ],
-   "note": "规划中的跨洋航线"
+   "note": "跨区栈桥和长堤连接陆地、海岸与群岛。"
   }
  ],
  "layers": {
   "L0": "现世主盘，九个地区，有盘面坐标",
-  "L1": "地理附属岛，不占主盘坐标，parent 指回主地区，入口是码头/车站/潜水",
-  "L2": "平行异层，同一地点或同一片海的另一层，layer_of 指向同一地点，入口是裂缝/时代/梦境"
+  "L1": "地理附属区。可经各自的海堤、栈道、山道或隧道往返主地区。",
+  "L2": "异层地区。可从现世的裂隙、遗迹或梦境入口步行往返。"
  },
  "specials": [
   {
@@ -243,8 +298,13 @@
    "kind": "island",
    "parent": "kanto",
    "source": "火红·叶绿",
-   "access": "port",
-   "status": "已开放"
+   "access": "walk",
+   "status": "已开放",
+   "walkway": {
+    "region": "kanto",
+    "map": "kanto_pass_sevii_island_walk"
+   },
+   "walk_label": "七岛海滨栈桥"
   },
   {
    "id": "orange",
@@ -252,8 +312,13 @@
    "kind": "island",
    "parent": "kanto",
    "source": "动画设定",
-   "access": "port",
-   "status": "待建"
+   "access": "walk",
+   "status": "已开放",
+   "walkway": {
+    "region": "kanto",
+    "map": "kanto_pass_orange_valencia"
+   },
+   "walk_label": "橘子群岛礁盘长堤"
   },
   {
    "id": "armor",
@@ -261,8 +326,13 @@
    "kind": "island",
    "parent": "galar",
    "source": "剑·盾 DLC",
-   "access": "train",
-   "status": "待建"
+   "access": "walk",
+   "status": "已开放",
+   "walkway": {
+    "region": "galar",
+    "map": "galar_pass_armor_fields"
+   },
+   "walk_label": "铠岛防波堤"
   },
   {
    "id": "crown",
@@ -270,8 +340,13 @@
    "kind": "island",
    "parent": "galar",
    "source": "剑·盾 DLC",
-   "access": "train",
-   "status": "待建"
+   "access": "walk",
+   "status": "已开放",
+   "walkway": {
+    "region": "galar",
+    "map": "galar_pass_crown_freezington"
+   },
+   "walk_label": "王冠雪线隧道"
   },
   {
    "id": "kitakami",
@@ -279,8 +354,13 @@
    "kind": "island",
    "parent": "paldea",
    "source": "朱·紫 DLC",
-   "access": "train",
-   "status": "待建"
+   "access": "walk",
+   "status": "已开放",
+   "walkway": {
+    "region": "paldea",
+    "map": "paldea_pass_kitakami_road"
+   },
+   "walk_label": "北上山岭古道"
   },
   {
    "id": "blueberry",
@@ -288,8 +368,13 @@
    "kind": "island",
    "parent": "unova",
    "source": "朱·紫 DLC",
-   "access": "dive",
-   "status": "待建"
+   "access": "walk",
+   "status": "已开放",
+   "walkway": {
+    "region": "unova",
+    "map": "unova_pass_blueberry_academy"
+   },
+   "walk_label": "蓝莓海底观景廊"
   },
   {
    "id": "aether",
@@ -297,8 +382,13 @@
    "kind": "island",
    "parent": "alola",
    "source": "日·月",
-   "access": "port",
-   "status": "待建"
+   "access": "walk",
+   "status": "已开放",
+   "walkway": {
+    "region": "alola",
+    "map": "alola_pass_aether_dock"
+   },
+   "walk_label": "以太浮台连廊"
   },
   {
    "id": "frontier",
@@ -306,8 +396,13 @@
    "kind": "island",
    "parent": "hoenn",
    "source": "绿宝石",
-   "access": "port",
-   "status": "已开放"
+   "access": "walk",
+   "status": "已开放",
+   "walkway": {
+    "region": "frontier",
+    "map": "frontier_pass_hoenn_dewford"
+   },
+   "walk_label": "武斗岛外海栈道"
   },
   {
    "id": "hisui",
@@ -316,8 +411,13 @@
    "parent": "sinnoh",
    "layer_of": "sinnoh",
    "source": "传说 阿尔宙斯",
-   "access": "time",
-   "status": "待建"
+   "access": "walk",
+   "status": "已开放",
+   "walkway": {
+    "region": "sinnoh",
+    "map": "sinnoh_pass_hisui_jubilife"
+   },
+   "walk_label": "时空遗迹步廊"
   },
   {
    "id": "distortion",
@@ -326,8 +426,13 @@
    "parent": "sinnoh",
    "layer_of": "sinnoh",
    "source": "钻石·珍珠",
-   "access": "rift",
-   "status": "待建"
+   "access": "walk",
+   "status": "已开放",
+   "walkway": {
+    "region": "sinnoh",
+    "map": "sinnoh_pass_distortion_threshold"
+   },
+   "walk_label": "送泉裂隙步径"
   },
   {
    "id": "ultra",
@@ -336,8 +441,13 @@
    "parent": "alola",
    "layer_of": "alola",
    "source": "日·月",
-   "access": "rift",
-   "status": "待建"
+   "access": "walk",
+   "status": "已开放",
+   "walkway": {
+    "region": "alola",
+    "map": "alola_pass_ultra_megalopolis"
+   },
+   "walk_label": "究极之洞光桥"
   },
   {
    "id": "dream",
@@ -346,8 +456,13 @@
    "parent": "unova",
    "layer_of": "unova",
    "source": "黑·白",
-   "access": "dream",
-   "status": "待建"
+   "access": "walk",
+   "status": "已开放",
+   "walkway": {
+    "region": "unova",
+    "map": "unova_pass_dream_village"
+   },
+   "walk_label": "梦烟小径"
   }
  ],
  "access_types": {
@@ -356,6 +471,7 @@
   "dive": "潜水艇",
   "rift": "空间裂缝",
   "time": "时代回溯",
-  "dream": "梦境同步"
+  "dream": "梦境同步",
+  "walk": "连续步行通道"
  }
 }

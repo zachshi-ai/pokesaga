@@ -1,12 +1,14 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.47.0-study`，versionCode 为 80，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.48.0-study`，versionCode 为 81，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
 
 ## 从真新镇开始
 
-进大木研究所选择初始伙伴，再向北进入 1 号道路。草丛里可以遇敌、投球、练级，常磐市的宝可梦中心可以治疗队伍。经 2 号道路和常磐森林抵达尼比市，打赢小刚即可获得首枚徽章。城都另有八徽章门禁、四天王、冠军与名人堂登记。
+启动游戏先到盖欧卡标题页。选择「新的冒险」从真新镇家中二楼的床边出发。走到右上方墙图前面朝上按 A，可翻看世界全景地图。丰缘索引还收有《始源蓝宝石》的地区原画。下楼出门，进大木研究所选择初始伙伴，再向北进入 1 号道路。草丛里可以遇敌、投球、练级，常磐市的宝可梦中心可以治疗队伍。经 2 号道路和常磐森林抵达尼比市，打赢小刚即可获得首枚徽章。城都另有八徽章门禁、四天王、冠军与名人堂登记。
 
-工程装入了 757 张地图配置，关都 216 张、七之岛 159 张、城都 377 张、丰缘 3 张、对战开拓区 2 张。丰缘可从枯叶港经开拓区往返未白镇。世界盘面另列的神奥等地区属于规划。城都书架、路牌、设施说明和隐藏道具已按原事件接入，通信终端等设施仅有场景说明。
+本版共 1,230 张地图。九个主地区与十二个附属区域均有地图、步行入口和领航员，墙图登记了 555 个地点。24 条跨区通道包括海堤、栈道、隧道及山口。第一次从真新镇出发，可以直接找家外的领航员，点目标地区，再点「出发前往」。地图室、道路、道馆与室内房间保留各自的碰撞和进出点。新建地区侧重探索与交通；首枚徽章和城都联盟已有可游玩的剧情。
+
+场景以《始源蓝宝石》为美术基准。关都、城都等地区保留本作地图结构，使用丰缘的地面、树木、房屋和角色重新搭建。宝可梦优先显示 ORAS 中具有独立图像的原色、异色与正背面，后世代形态采用 Pokémon HOME 对应外观；余下的细分花纹与造型使用已有专用图集。素材来源与重建命令见 [地图与素材说明](doc/素材重建.md)。
 
 ## 队伍与触屏菜单
 
@@ -23,15 +25,19 @@
 ```bash
 godot --headless --path . --import
 godot --path .
-tools/build_android.sh ../交付/PokeSaga-4.47.0-study.apk
+tools/build_android.sh ../交付/PokeSaga-4.48.0-study.apk
 ```
 
-构建 Android 需要匹配的 Godot 导出模板、JDK 17、Android SDK、platform-tools、build-tools 和 Godot 可访问的本机调试签名。已配置的机器可用 `GODOT_BIN`、`JAVA_HOME`、`ANDROID_HOME` 选择工具路径。本机脚本也识别 `~/Library/Application Support/PokeSagaBuild`。学习版使用 `Android Study` 导出预设，目标架构为 ARM64，输出为签名调试 APK。安装可用 `adb install -r ../交付/PokeSaga-4.47.0-study.apk`。
+构建 Android 需要匹配的 Godot 导出模板、JDK 17、Android SDK、platform-tools、build-tools 和 Godot 可访问的本机调试签名。已配置的机器可用 `GODOT_BIN`、`JAVA_HOME`、`ANDROID_HOME` 选择工具路径。本机脚本也识别 `~/Library/Application Support/PokeSagaBuild`。学习版使用 `Android Study` 导出预设，目标架构为 ARM64，输出为签名调试 APK。安装可用 `adb install -r ../交付/PokeSaga-4.48.0-study.apk`。
 
 ## 验证改动
 
 ```bash
 godot --headless --path . -- --selftest
+godot --headless --path . --script tools/test_world_returns.gd
+godot --headless --path . --script tools/test_world_walks.gd
+godot --headless --fixed-fps 60 --path . --script tools/test_world_atlas.gd
+godot --headless --path . --script tools/test_npc_appearances.gd
 python3 tools/test_first_chapter.py --godot /path/to/godot
 godot --headless --fixed-fps 60 --path . --script tools/test_collection.gd
 godot --headless --path . --script tools/test_dex_catalog.gd

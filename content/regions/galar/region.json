@@ -1,0 +1,78 @@
+{
+ "id": "galar",
+ "name": "伽勒尔",
+ "tileset": "world",
+ "music": "route",
+ "maps": [
+  "galar_postwick",
+  "galar_1",
+  "galar_10",
+  "galar_2",
+  "galar_3",
+  "galar_4",
+  "galar_5",
+  "galar_6",
+  "galar_7",
+  "galar_8",
+  "galar_9",
+  "galar_ballonlea",
+  "galar_circhester",
+  "galar_hammerlocke",
+  "galar_hulbury",
+  "galar_lake_out",
+  "galar_mine",
+  "galar_mine2",
+  "galar_motostoke",
+  "galar_pass_armor_fields",
+  "galar_pass_crown_freezington",
+  "galar_pass_kalos_cyllage",
+  "galar_rose",
+  "galar_slope",
+  "galar_spikemuth",
+  "galar_stadium",
+  "galar_stow",
+  "galar_tangle",
+  "galar_tunnel",
+  "galar_turffield",
+  "galar_weald",
+  "galar_wedgehurst",
+  "galar_wild_lake",
+  "galar_wild_north",
+  "galar_wild_south",
+  "galar_wyndon"
+ ],
+ "encounters": [
+  {
+   "species": 819,
+   "min": 5,
+   "max": 12,
+   "weight": 40
+  },
+  {
+   "species": 821,
+   "min": 5,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 824,
+   "min": 5,
+   "max": 12,
+   "weight": 20
+  },
+  {
+   "species": 827,
+   "min": 5,
+   "max": 12,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.08,
+ "start": {
+  "map": "galar_postwick",
+  "at": [
+   20,
+   16
+  ]
+ }
+}

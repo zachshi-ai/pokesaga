@@ -24,6 +24,21 @@
      1
     ]
    }
+  },
+  {
+   "at": [
+    9,
+    0
+   ],
+   "to": {
+    "region": "hoenn",
+    "map": "hoenn_oldale",
+    "at": [
+     9,
+     33
+    ]
+   },
+   "atlas": "world"
   }
  ],
  "encounters": [

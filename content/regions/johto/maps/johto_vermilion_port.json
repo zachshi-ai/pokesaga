@@ -12,8 +12,8 @@
  "npcs": [
   {
    "at": [
-    3,
-    7
+    6,
+    5
    ],
    "name": "水手",
    "gfx": "sailor",
@@ -71,9 +71,20 @@
     "region": "johto",
     "map": "johto_fast_ship_1f",
     "at": [
-     13,
-     3
-    ]
+     12,
+     1
+    ],
+    "remember_passage": {
+     "key": "johto_ship",
+     "destination": {
+      "region": "johto",
+      "map": "johto_olivine_port",
+      "at": [
+       3,
+       8
+      ]
+     }
+    }
    }
   }
  ],

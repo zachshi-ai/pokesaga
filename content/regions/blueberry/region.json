@@ -1,0 +1,50 @@
+{
+ "id": "blueberry",
+ "name": "蓝莓学园",
+ "tileset": "world",
+ "music": "route",
+ "maps": [
+  "blueberry_central",
+  "blueberry_academy",
+  "blueberry_canyon",
+  "blueberry_cavern",
+  "blueberry_club",
+  "blueberry_coastal",
+  "blueberry_polar",
+  "blueberry_savanna"
+ ],
+ "encounters": [
+  {
+   "species": 203,
+   "min": 5,
+   "max": 12,
+   "weight": 40
+  },
+  {
+   "species": 328,
+   "min": 5,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 459,
+   "min": 5,
+   "max": 12,
+   "weight": 20
+  },
+  {
+   "species": 456,
+   "min": 5,
+   "max": 12,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.08,
+ "start": {
+  "map": "blueberry_central",
+  "at": [
+   21,
+   13
+  ]
+ }
+}

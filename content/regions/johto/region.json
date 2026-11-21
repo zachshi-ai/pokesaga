@@ -380,7 +380,10 @@
   "johto_whirl_island_se",
   "johto_whirl_island_sw",
   "johto_wills_room",
-  "johto_wise_trios_room"
+  "johto_wise_trios_room",
+  "johto_east_walk",
+  "johto_pass_hoenn_fallarbor",
+  "johto_pass_sinnoh_twinleaf"
  ],
  "start": "johto_new_bark_town",
  "encounters": [],

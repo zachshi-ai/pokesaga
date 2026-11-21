@@ -1,0 +1,47 @@
+{
+ "id": "aether",
+ "name": "以太乐园",
+ "tileset": "world",
+ "music": "route",
+ "maps": [
+  "aether_dock",
+  "aether_conservation",
+  "aether_lab",
+  "aether_lobby",
+  "aether_mansion"
+ ],
+ "encounters": [
+  {
+   "species": 734,
+   "min": 5,
+   "max": 12,
+   "weight": 40
+  },
+  {
+   "species": 742,
+   "min": 5,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 764,
+   "min": 5,
+   "max": 12,
+   "weight": 20
+  },
+  {
+   "species": 753,
+   "min": 5,
+   "max": 12,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.08,
+ "start": {
+  "map": "aether_dock",
+  "at": [
+   19,
+   16
+  ]
+ }
+}
