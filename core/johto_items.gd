@@ -1,9 +1,21 @@
 extends RefCounted
 ## Crystal optional encounters and field gifts. Coordinates refer to the playable map grid.
-const BADGES := {"FLASH":"飞翼徽章","CUT":"昆虫徽章","STRENGTH":"标准徽章","SURF":"魅影徽章","FLY":"打击徽章","WHIRLPOOL":"冰川徽章","WATERFALL":"升龙徽章"}
+const BADGES := {"FLASH":"飞翼徽章","CUT":"昆虫徽章","STRENGTH":"标准徽章","SURF":"魅影徽章","FLY":"打击徽章","WHIRLPOOL":"冰川徽章","WATERFALL":"升龙徽章","ROCK_CLIMB":"绿色徽章"}
 const QUEST_HELD := {"CHARCOAL":["j_charcoal","木炭"],"EXP_SHARE":["j_exp_share","学习装置"],"EVERSTONE":["j_everstone","不变之石"]}
 const RODS := ["破旧钓竿","好钓竿","厉害钓竿"]
 const HM_WHIRL := "城都秘传学习器 06"
+const HM_CLIMB := "城都秘传学习器 08"
+# Crystal's international Odd Egg table. Each pair is its normal and shiny weight.
+const ODD_EGGS := [
+	[172,8,1,[84,204,146]],[173,16,3,[1,204,146]],[174,16,3,[47,204,146]],
+	[238,14,2,[1,122,146]],[240,10,2,[52,146]],[239,12,2,[98,43,146]],[236,10,1,[33,146]]
+]
+# HGSS files/poketool/personal/personal.json, national species 1–493 with HM08 set.
+const CLIMBERS := [3,9,27,28,31,34,55,56,57,59,62,66,67,68,74,75,76,95,104,105,
+	106,107,108,111,112,113,115,125,126,127,128,139,141,143,150,151,154,157,160,181,
+	208,210,217,242,243,244,245,248,254,257,260,272,288,289,295,296,297,306,335,377,
+	378,379,383,387,388,389,390,391,392,395,400,408,409,443,444,445,446,448,452,453,
+	454,460,463,464,466,467,473,485,486,487,491,493]
 const QUIZ := ["有些宝可梦只有早晨才会出现，对吗？","在城都商店买不到普通树果，对吗？","城都的秘传学习器 01 是闪光，对吗？","桔梗道馆馆主阿速擅长鸟宝可梦，对吗？","满金游戏厅的转轮上有小火龙吗？"]
 const ANSWERS := [0,0,1,0,1]
 const GIFTS := {
@@ -78,7 +90,26 @@ static func same_tile(a: Array, b: Array) -> bool:
 
 static func roster(map: Dictionary, flags: Dictionary, rows: Array) -> Array:
 	var mid: String = map.get("id","")
-	rows=preload("res://core/johto_apricorns.gd").roster(mid,rows)
+	rows=preload("res://core/johto_apricorns.gd").roster(mid,rows,flags)
+	if mid=="johto_day_care":
+		for npc in rows:
+			if npc.name=="老爷爷":
+				npc["role"]="j_odd_egg_man"
+				npc["name"]="培育屋爷爷"
+				npc["native_anchor"]={"at":[4,5],"facing":"down"}
+			elif npc.name=="老奶奶":
+				npc["role"]="j_daycare_lady"
+				npc["name"]="培育屋婆婆"
+				npc["native_anchor"]={"at":[3,5],"facing":"down"}
+	if mid == "johto_elms_lab" and map.has("hgss"):
+		rows = rows.filter(func(n):return not n.has("gives_mon"))
+		# HGSS scr_seq_T20R0101_012 is one BG event on the machine's center tile.
+		var count := 3
+		if flags.get("j_badge_1",false): count=0
+		elif flags.get("j_rival1",false): count=1
+		elif flags.get("johto_starter",false): count=2
+		rows.append({"at":[8,4],"native_anchor":{"at":[8,4]},"hgss_native":true,
+			"name":"初始宝可梦选择装置","role":"j_starter_device","starter_balls":count})
 	if flags.get("j_gs_ready",false) and not flags.get("j_gs_return",false):
 		if mid=="johto_kurts_house": rows=rows.filter(func(n):return n.get("role","")!="j_kurt_back")
 		if mid=="johto_azalea_town":
@@ -113,12 +144,15 @@ static func roster(map: Dictionary, flags: Dictionary, rows: Array) -> Array:
 			if key in ["2,1","4,0","7,1"] and not rainbow: continue
 		if mid=="johto_players_house_1f":
 			if npc.name=="妈妈": continue
-			if npc.name=="宝可梦迷" and not flags.get("j_gear",false): continue
+			if npc.name=="宝可梦迷":
+				if not flags.get("j_gear",false): continue
+				npc = npc.duplicate()
+				npc.merge({"name":"邻居阿姨","field_art":"johto_moms_friend","lines":["你妈妈一直惦记着你的旅行。路上记得给她打个电话。"]},true)
 		if not gift.is_empty() and same_tile(npc.at,pos):
 			added = true
 			if (gift[1]=="道具球" or gift[2]=="j_map_card") and flags.get(gift[2],false): continue
 			var row: Dictionary = npc.duplicate()
-			row.merge({"name":gift[1],"johto_gift":true},true)
+			row.merge({"name":gift[1],"johto_gift":true,"johto_gift_map":mid},true)
 			if gift[1]=="道具球": row["field_art"]="fr_item_ball"
 			out.append(row)
 			continue
@@ -135,7 +169,7 @@ static func roster(map: Dictionary, flags: Dictionary, rows: Array) -> Array:
 			break
 		if not matched: out.append(original)
 	if not added and not gift.is_empty() and not (gift[1]=="道具球" and flags.get(gift[2],false)):
-		out.append({"name":gift[1],"at":pos,"gfx":"mom" if gift[1]=="妈妈" else "sailor","johto_gift":true})
+		out.append({"name":gift[1],"at":pos,"gfx":"mom" if gift[1]=="妈妈" else "sailor","johto_gift":true,"johto_gift_map":mid})
 	return out
 
 static func grant(g, flag: String, item: String, who: String, lines: Array = []) -> void:
@@ -197,6 +231,32 @@ static func enter(g):
 
 static func talk(g, npc: Dictionary) -> bool:
 	var map: String = g.world.map_data.id
+	if npc.get("role","") in ["j_odd_egg_man","j_daycare_lady"]:
+		if npc.role=="j_odd_egg_man" and not g._flags().get("j_odd_egg_received",false):
+			if g.PartyScript.occupied(g.save_data.party)>=g.PartyScript.MAX_SIZE:
+				g._dialog(["我有一颗奇异蛋想托给你。让队伍空出一个位置再来吧。"],npc.name)
+			else:
+				g.save_data.j_odd_egg=odd_egg(g.rng.randi_range(0,99))
+				grant(g,"j_odd_egg_received","奇异蛋",npc.name,["我在照料宝可梦时发现了这颗蛋。你愿意带着它去旅行吗？","走累了就来看看我们，说不定能见到刚孵出来的小家伙呢。"])
+		else:
+			g._daycare(npc)
+		return true
+	if npc.get("role","")=="j2_oak" and g._flags().get("j2_silver_pass",false) and g._bag_count(HM_CLIMB)==0:
+		g._give_item(HM_CLIMB,1,"tm")
+		g._flags().j2_rock_climb=true
+		g._persist()
+		g._dialog(["这台攀岩的秘传学习器给你。让伙伴学会后，面对白银山的岩壁按 A。","获得了%s！"%HM_CLIMB],"大木博士")
+		return true
+	if npc.get("role","")=="j_starter_device":
+		if not g._flags().get("johto_elm_told",false):
+			g._dialog(["先听听空木博士的委托吧。"])
+		elif g._flags().get("johto_starter",false):
+			g._dialog(["你已经选择了自己的伙伴。"])
+		else:
+			g._pick("选择你的第一只宝可梦",["菊草叶 · 草","火球鼠 · 火","小锯鳄 · 水"],func(i: int):
+				if i>=0 and i<3:
+					g._talk_to_npc({"at":npc.at,"name":"精灵球","gives_mon":{"species":[152,155,158][i],"level":5,"flag":"johto_starter"}}))
+		return true
 	if npc.get("role","")=="j_gs_kurt":
 		grant(g,"j_gs_return","GS球","钢铁",["球发出了奇怪的光。桐树林也躁动起来……把球带去那座小祠吧。"])
 		return true
@@ -213,7 +273,7 @@ static func talk(g, npc: Dictionary) -> bool:
 		if npc.johto_service=="points": redeem_points(g)
 		else: coins(g,npc.johto_service=="prizes")
 		return true
-	if map=="johto_mr_pokemons_house" and same_tile(npc.at,[1,2]) and g._bag_count("红色鳞片")>0 and not g._flags().get("j_exp_share",false):
+	if map=="johto_mr_pokemons_house" and npc.get("role","")=="j_mr_pokemon" and g._bag_count("红色鳞片")>0 and not g._flags().get("j_exp_share",false):
 		g._pick("把红色鳞片交换给宝可梦爷爷吗？",["交换","先留着"],func(i):
 			if i==0:
 				g._consume_item("红色鳞片")
@@ -237,7 +297,7 @@ static func talk(g, npc: Dictionary) -> bool:
 				else: g._dialog(["成为联盟冠军，亲自收服雷公、炎帝和水君，再来见我。"],npc.name)
 		return true
 	if not npc.get("johto_gift",false): return false
-	var gift: Array = GIFTS[map]
+	var gift: Array = GIFTS[npc.get("johto_gift_map",map)]
 	var flag: String = gift[2]
 	var item: String = gift[3]
 	if g._flags().get(flag,false):
@@ -274,11 +334,41 @@ static func sight(g, role: String):
 
 static func field_step(g):
 	var map: String = g.world.map_data.id
-	var pos: Vector2i = g.world.player_pos
-	if map=="johto_route_42" and pos in [Vector2i(12,6),Vector2i(13,7),Vector2i(12,8)] and visible("suicune42",g._flags()): sight(g,"suicune42")
-	elif map=="johto_route_36" and pos in [Vector2i(10,4),Vector2i(11,3)] and visible("suicune36",g._flags()): sight(g,"suicune36")
+	var sites: Array
+	var event: String
+	if map == "johto_route_42":
+		sites = [Vector2i(12,6),Vector2i(13,7),Vector2i(12,8)]
+		event = "suicune42"
+	elif map == "johto_route_36":
+		sites = [Vector2i(10,4),Vector2i(11,3)]
+		event = "suicune36"
+	else: return
+	if not visible(event,g._flags()): return
+	for tile: Vector2i in sites:
+		if g.world.player_pos == preload("res://core/hgss_field.gd").position(g.world.map_data,tile):
+			sight(g,event)
+			return
+
+static func odd_egg(roll: int) -> Dictionary:
+	for row in ODD_EGGS:
+		if roll<int(row[1])+int(row[2]):
+			return {"species":row[0],"shiny":"star" if roll>=int(row[1]) else "none","moves":row[3].duplicate(),"steps":5120}
+		roll-=int(row[1])+int(row[2])
+	return {}
 
 static func tick_egg(g):
+	var odd: Dictionary=g.save_data.get("j_odd_egg",{})
+	if not odd.is_empty() and g._bag_count("奇异蛋")>0:
+		odd.steps=int(odd.steps)-1
+		if odd.steps<=0:
+			var baby: Dictionary=g.PartyScript.make(int(odd.species),5,odd.moves)
+			g.PartyScript.set_shiny_kind(baby,odd.shiny)
+			var location: String=g._store_mon(baby)
+			g._consume_item("奇异蛋")
+			g.save_data.erase("j_odd_egg")
+			g._flags().j_odd_egg_hatched=true
+			g._persist()
+			g._dialog(["奇异蛋的蛋壳裂开了！%s孵出来了，还会迷昏拳。"%baby.name,"队伍满了，已送往电脑。" if location=="box" else "%s加入了队伍。"%baby.name])
 	if g._flags().get("j_togepi_hatched",false) or g._bag_count("波克比的蛋")==0: return
 	var steps := int(g.save_data.get("j_togepi_steps",2560))-1
 	g.save_data["j_togepi_steps"]=steps
@@ -344,6 +434,7 @@ static func use(g,item: String) -> bool:
 					return true
 			g._dialog(["面对36号道路上挡路的怪树，可以用喷壶浇水。"])
 		"波克比的蛋": g._dialog(["还能听到蛋里的动静。再走约%d步就能孵化。" % int(g.save_data.get("j_togepi_steps",2560))])
+		"奇异蛋": g._dialog(["这颗从培育屋带来的蛋正在动。再走约%d步就能孵化。"%int(g.save_data.get("j_odd_egg",{}).get("steps",5120))])
 		"宝可装置": gear(g)
 		"地图卡": g._open_world_atlas(false,g._bag_ui)
 		"收音机卡": radio(g)

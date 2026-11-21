@@ -62,7 +62,8 @@ static func new_game(origin := "kanto") -> bool:
 	if origin == "johto":
 		fresh["region"] = "johto"
 		fresh["map"] = "johto_players_house_2f"
-		fresh["pos"] = [1,1]
+		fresh["pos"] = [6,6]
+		fresh["johto_field_revision"] = 1
 	return save(fresh)
 
 ## Used by the title screen. An invalid save stays on disk until the player confirms replacement.

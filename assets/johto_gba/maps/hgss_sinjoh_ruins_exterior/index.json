@@ -1,0 +1,1 @@
+{"native_header":"MAP_SINJOH_RUINS_EXTERIOR","size":[32,32],"tile_px":16,"pieces":[{"png":"ground_0_0.png","at":[0,0]},{"png":"res://assets/johto_gba/fields/cave_mouth.png","at":[192,96],"sort_y":119},{"png":"res://assets/johto_gba/fields/fr_sign.png","at":[192,144],"sort_y":159},{"png":"res://assets/johto_gba/fields/cave_mouth.png","at":[304,384],"sort_y":407}],"doors":[]}

@@ -9,20 +9,25 @@ const TREES := {
 const FLEE := [81,88,114,122,133,137,147,148,176,197,201,209,214,104,144,145,146,195,225,216,231,243,244]
 static var weights := {}
 
-static func roster(mid: String, rows: Array) -> Array:
+static func sync(save: Dictionary) -> void:
+	if save.has("j_apricorns"):
+		save.flags["j_apricorns"] = save.j_apricorns
+
+static func roster(mid: String, rows: Array, flags: Dictionary) -> Array:
 	var trees: Dictionary = TREES.get(mid,{})
 	if trees.is_empty(): return rows
 	var updated := rows.duplicate(true)
 	for loc: String in trees:
 		var found := false
+		var picked: bool = flags.get("j_apricorns",{}).get(trees[loc],"")==Time.get_date_string_from_system()
 		for row in updated:
 			if "%d,%d"%row.at==loc:
-				row.merge({"name":"球果树","apricorn":trees[loc]},true)
+				row.merge({"name":"球果树","apricorn":trees[loc],"picked":picked},true)
 				found=true
 				break
 		if not found:
 			var xy := loc.split(",")
-			updated.append({"at":[int(xy[0]),int(xy[1])],"name":"球果树","apricorn":trees[loc],"field_art":"cr_apricorn_tree"})
+			updated.append({"at":[int(xy[0]),int(xy[1])],"name":"球果树","apricorn":trees[loc],"picked":picked,"field_art":"cr_apricorn_tree"})
 	return updated
 
 static func talk(g, npc: Dictionary) -> bool:
@@ -35,6 +40,8 @@ static func talk(g, npc: Dictionary) -> bool:
 		else:
 			harvest[fruit]=today
 			g.save_data.j_apricorns=harvest
+			sync(g.save_data)
+			g.world.refresh_story_actors(g._flags())
 			g._give_item(fruit,1,"other")
 			g._persist()
 			g._dialog(["摘到了%s！桧皮镇的钢铁能用它做精灵球。" % fruit],npc.name)

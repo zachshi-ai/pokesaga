@@ -462,7 +462,7 @@ class Fields:
         physical=data.get('emerald','')
         if (region=='johto' and physical.startswith('johto_')) or physical=='demo_town':
             meta=json.loads((ROOT/'content/emerald_maps'/(physical+'.json')).read_text())
-            if physical=='demo_town' or self.crystal_needs_original(data,plan,meta):
+            if physical=='demo_town' or (physical!='johto_safari_zone_beta' and self.crystal_needs_original(data,plan,meta)):
                 return self.original_image(meta,w,h)
         if key in ('kanto/pallet_town_players_house_2f','kanto/pallettown_playershouse_1f'):
             return self.bedrooms(w,h,name.endswith('2f'))

@@ -19,10 +19,15 @@ func warp(room: String):
 	game._do_warp({"region":"johto","map":"johto_"+room,"at":[1,1]})
 	game._close_all_dialogs()
 
+func local_actor(pos: Array) -> Dictionary:
+	for row: Dictionary in game.world.npcs:
+		if Items.same_tile(row.get("legacy_at",row.at),pos): return row
+	return {}
+
 func actor(room: String, pos: Array) -> Dictionary:
 	warp(room)
-	var match_row: Dictionary = game.world._npc_at(Vector2i(pos[0],pos[1]))
-	if match_row.is_empty(): push_error("No NPC in " + room + str(pos))
+	var match_row := local_actor(pos)
+	if match_row.is_empty(): push_error("No NPC in "+room+str(pos))
 	return match_row
 
 func choose(label: String):
@@ -68,10 +73,22 @@ func test_rods():
 func test_egg():
 	warp("players_house_2f")
 	game._give_item("波克比的蛋",1,"key")
-	var a := Vector2i(1,1)
-	game.world.player_pos=a
-	var dir := "right" if game.world.can_step(Vector2i.RIGHT) else "down"
-	var back := "left" if dir=="right" else "up"
+	var start: Vector2i = game.world.player_pos
+	var dir := ""
+	var back := ""
+	for yy in game.world.tile_size.y:
+		for xx in game.world.tile_size.x:
+			var cell := Vector2i(xx,yy)
+			if game.world.is_blocked(cell) or game.world.is_blocked(cell+Vector2i.RIGHT): continue
+			if not game.world.warp_at(cell).is_empty() or not game.world.warp_at(cell+Vector2i.RIGHT).is_empty(): continue
+			start=cell
+			dir="right"
+			back="left"
+			break
+		if dir!="": break
+	expect(dir!="","bedroom has a free two-tile walking path")
+	if dir.is_empty(): return
+	game.world.warp_to(start)
 	for n in 1280:
 		for d in [dir,back]:
 			game._move(d)
@@ -87,6 +104,12 @@ func test_egg():
 		expect(game._bag_count("不变之石")==1,"show actual hatched Togepi to Elm")
 
 func test_trade_and_legend():
+	var islands := {"nw":[0,0],"ne":[1,0],"sw":[0,1],"se":[1,1]}
+	for key in islands:
+		warp("whirl_island_"+key)
+		var at: Vector2i=game.world.player_pos
+		expect(game.world.map_data.id=="hgss_whirl_islands_1f" and Vector2i(at.x/32,at.y/32)==Vector2i(islands[key][0],islands[key][1]) and not game.world.is_blocked(at),"legacy Whirl Islands "+key+" redirects to its own cave mouth")
+	expect(game.world.map_data.objects.filter(func(o):return o.get("name","")=="高级球").size()==2,"the two original Whirl Island Ultra Balls share the native cave")
 	warp("route_36")
 	game._flags().j_tree_clear=true
 	gift("route_36",[22,4],"城都招式学习器 08")
@@ -96,11 +119,11 @@ func test_trade_and_legend():
 	warp("goldenrod_game_corner")
 	game.save_data.money=2000
 	for k in 2:
-		game._talk_to_npc(game.world._npc_at(Vector2i(1,1)))
+		game._talk_to_npc(local_actor([1,1]))
 		choose("50枚　¥1000")
 		game._close_all_dialogs()
 	expect(game.save_data.money==0 and game.save_data.j_coins==100,"two exact coin purchases")
-	game._talk_to_npc(game.world._npc_at(Vector2i(8,1)))
+	game._talk_to_npc(local_actor([8,1]))
 	choose("凯西　100枚")
 	expect(game.save_data.j_coins==0 and Items.has_partner(game,63,true),"buy Abra with the case's actual balance")
 	warp("pewter_city")
@@ -148,12 +171,12 @@ func test_apricorns():
 			choose("交给他 1 个")
 			expect(game._bag_count(fruit)==0 and Save.load_game().get("j_apricorn_order",{}).get("fruit","")==fruit,"Kurt saves order "+fruit)
 			game._close_all_dialogs()
-			game._talk_to_npc(game.world._npc_at(Vector2i(7,1)))
+			game._talk_to_npc(local_actor([7,1]))
 			expect(not game.save_data.get("j_apricorn_order",{}).is_empty(),"craft waits until next date")
 			# Exercise the following day's pickup without changing the computer clock.
 			game.save_data.j_apricorn_order.date="2000-01-01"
 			game._close_all_dialogs()
-			game._talk_to_npc(game.world._npc_at(Vector2i(7,1)))
+			game._talk_to_npc(local_actor([7,1]))
 			expect(game._bag_count(Apricorns.BALLS[fruit])>0 and not game.save_data.has("j_apricorn_order"),"Kurt delivers "+Apricorns.BALLS[fruit])
 	var p={"species_id":35,"level":60,"sex":"male"}
 	var t={"species_id":35,"level":10,"sex":"female"}
@@ -173,7 +196,9 @@ func test_gs_ball():
 	game._talk_to_npc(actor("azalea_town",[3,2]))
 	expect(game._bag_count("GS球")==1 and game._flags().get("j_gs_return",false),"Kurt returns GS Ball outside on following date")
 	warp("ilex_forest")
-	var shrine: Dictionary=game.world.object_at(Vector2i(4,11))
+	var shrine: Dictionary = {}
+	for obj: Dictionary in game.world.objects:
+		if Items.same_tile(obj.get("legacy_at",obj.at),[4,11]): shrine=obj
 	game._handle_object(shrine)
 	choose("放上去")
 	check_legend_battle(251,30)
@@ -183,34 +208,61 @@ func test_channels():
 	# All moves are known in this fixture. Remove one badge at a time to verify field controls.
 	var lead: Dictionary=game.save_data.party[0]
 	lead.moves=[57,127,250]
-	game._do_warp({"region":"johto","map":"johto_tohjo_falls","at":[5,6]})
-	game._close_all_dialogs()
-	game.world.surfing=true
-	game.world.facing="up"
+	warp("tohjo_falls")
+	var world=game.world
+	var base := Vector2i(-1,-1)
+	var landing := Vector2i.ZERO
+	for yy in range(1,world.tile_size.y-1):
+		for xx in range(1,world.tile_size.x-1):
+			var tile := Vector2i(xx,yy)
+			if not world.is_waterfall(tile) or world.is_waterfall(tile+Vector2i.DOWN): continue
+			if not world.is_water(tile+Vector2i.DOWN): continue
+			var accept := tile
+			while world.is_waterfall(accept): accept+=Vector2i.UP
+			if not world.is_water(accept): continue
+			base=tile+Vector2i.DOWN
+			landing=accept
+			break
+		if base.x>=0: break
+	expect(base.x>=0,"Tohjo has a native navigable waterfall")
+	if base.x<0:return
+	world.warp_to(base)
+	world.surfing=true
+	world.facing="up"
 	game.save_data.badges.erase("升龙徽章")
 	game._on_action()
 	game._close_all_dialogs()
 	game._move("up")
-	game.world.tick_walk(1.0)
-	expect(game.world.player_pos==Vector2i(5,6),"uncleared Tohjo waterfall blocks running/walking without Rising Badge")
+	world.tick_walk(1.0)
+	expect(world.player_pos==base,"uncleared Tohjo waterfall blocks running/walking without Rising Badge")
 	game.save_data.badges.append("升龙徽章")
 	game._on_action()
-	expect(game.world.player_pos==Vector2i(5,3),"A ascends the full real Tohjo waterfall and lands above it")
+	expect(world.player_pos==landing,"A ascends the full real Tohjo waterfall and lands above it")
 	game._close_all_dialogs()
-	game._do_warp({"region":"johto","map":"johto_dragons_den_b1_f","at":[5,9]})
-	game._close_all_dialogs()
-	game.world.surfing=true
-	game.world.facing="down"
+	warp("dragons_den_b1_f")
+	var whirl:=Vector2i(-1,-1)
+	for yy in range(1,world.tile_size.y-1):
+		for xx in range(1,world.tile_size.x-1):
+			var tile:=Vector2i(xx,yy)
+			if world.is_whirl(tile) and world.is_water(tile+Vector2i.UP) and not world.is_whirl(tile+Vector2i.UP):
+				whirl=tile
+				break
+		if whirl.x>=0:break
+	expect(whirl.x>=0,"Dragon's Den has a native navigable whirlpool")
+	if whirl.x<0:return
+	world.warp_to(whirl+Vector2i.UP)
+	world.surfing=true
+	world.facing="down"
 	game.save_data.badges.erase("冰川徽章")
 	game._on_action()
 	game._close_all_dialogs()
-	expect(not game.world.can_step(Vector2i.DOWN),"Dragon's Den whirlpool blocks passage without Glacier Badge")
+	expect(not world.can_step(Vector2i.DOWN),"Dragon's Den whirlpool blocks passage without Glacier Badge")
 	game.save_data.badges.append("冰川徽章")
 	game._on_action()
 	game._close_all_dialogs()
 	game._move("down")
-	game.world.tick_walk(1)
-	expect(game.world.player_pos==Vector2i(5,10) and game.world.whirl_cleared(Vector2i(5,10)),"use Whirlpool and surf across the real Dragon's Den current")
+	world.tick_walk(1)
+	expect(world.player_pos==whirl and world.whirl_cleared(whirl),"use Whirlpool and surf across the real Dragon's Den current")
 
 func run():
 	Save.use_test_slot()
@@ -245,7 +297,7 @@ func run():
 		expect(game._required_field_badge(move).is_empty(),move+" accepts the right badge")
 	gift("cianwood_city",[5,23],"秘传学习器 02")
 	gift("ice_path_1f",[15,3],"秘传学习器 07")
-	expect(game.world._npc_at(Vector2i(15,3)).is_empty(),"collected Ice Path HM disappears")
+	expect(local_actor([15,3]).is_empty(),"collected Ice Path HM disappears")
 	expect(root.get_node("Data").tm_map[Items.HM_WHIRL]==250 and root.get_node("Data").tm_map["秘传学习器 06"]==249,"Crystal whirlpool and Kanto rock smash stay distinct")
 	test_rods()
 	test_egg()

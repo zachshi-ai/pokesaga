@@ -8,111 +8,111 @@ var journal := {}
 var originals := {}
 
 func load_at(target: Dictionary) -> void:
-	var dest := Passage.resolve(journal,target)
+	var from: String=world.map_data.get("id","") if is_instance_valid(world) else ""
+	var dest := preload("res://core/johto_postgame.gd").destination(from,target,journal)
+	dest=preload("res://core/hgss_field.gd").merged_destination(Passage.resolve(journal,dest))
 	var k := str(dest.region)+"/"+str(dest.map)
 	if not places.has(k):
 		places[k]=db.load_map(str(dest.region),str(dest.map))
 	super.load_at(dest)
 
-func fill_reachable(seed_key: String, graph: Dictionary) -> Dictionary:
-	var found := {}
-	var todo := [seed_key]
-	while not todo.is_empty():
-		var key: String=todo.pop_back()
-		if found.has(key):continue
-		found[key]=true
-		for dst in graph[key]:todo.append(dst)
-	return found
-
 func check_graph() -> int:
-	var graph := {}
-	var reverse := {}
-	for r in atlas.regions:
-		var folder := "res://content/regions/%s/maps/" % r
-		var registry: Dictionary = db.load_json("res://content/regions/%s/region.json" % r)
-		var actual := {}
-		for file in DirAccess.get_files_at(folder):
-			if file.ends_with(".json"): actual[file.get_basename()]=true
-		if registry.maps.size()!=actual.size():
-			fail("region map count differs from directory: "+str(r))
-			return 0
-		var seen_maps := {}
-		for mid in registry.maps:
-			var key := str(r)+"/"+str(mid)
-			if seen_maps.has(mid) or not actual.has(mid):
-				fail("missing or duplicate map "+key)
-				return 0
-			seen_maps[mid]=true
-			if not reverse.has(key):reverse[key]=[]
-			graph[key]=[]
-			var map: Dictionary=db.load_map(str(r),str(mid))
-			var field := Field.plan_for(map)
+	const Passages=preload("res://core/world_passages.gd")
+	var rooms:=Passages.maps(db)
+	var graph:=Passages.graph(rooms)
+	originals=graph.records
+	for room in rooms:
+		var map: Dictionary=room.m
+		var key:="%s/%s"%[room.rid,room.mid]
+		if not map.has("hgss"):
+			var field:=Field.plan_for(map)
 			if field.is_empty():
 				fail("missing Emerald scenery for "+key)
 				return 0
-			var bytes := int(field.s[0]) * int(field.s[1]) * 2
+			var bytes:=int(field.s[0])*int(field.s[1])*2
 			for layer in ["t","a"]:
-				if layer=="a" and not field.has(layer):continue
-				if Marshalls.base64_to_raw(field[layer]).decompress(bytes, FileAccess.COMPRESSION_DEFLATE).size()!=bytes:
+				if layer=="a" and not field.has(layer): continue
+				if Marshalls.base64_to_raw(field[layer]).decompress(bytes,FileAccess.COMPRESSION_DEFLATE).size()!=bytes:
 					fail("invalid Emerald tile layer "+key+" "+layer)
 					return 0
-			var cells := {}
-			for w in map.warps:
-				var at:=vec(w.at)
-				if cells.has(at):continue
-				cells[at]=true
-				var target: Dictionary=w.to
-				var dst:=str(target.region)+"/"+str(target.map)
-				graph[key].append(dst)
-				if not reverse.has(dst):reverse[dst]=[]
-				reverse[dst].append(key)
-				if target.has("remember_passage"):
-					if not originals.has(target.remember_passage.key):
-						originals[target.remember_passage.key]=[]
-					originals[target.remember_passage.key].append([r,mid,w])
-	for dst in reverse:
-		if not graph.has(dst):
-			fail("invalid warp target "+dst)
+		else:
+			var directory:="res://assets/johto_gba/maps/%s/"%room.mid
+			var art:=preload("res://core/hgss_field.gd").read_file(directory+"index.json")
+			if art.get("pieces",[]).is_empty():
+				fail("missing GBA scenery for "+key)
+				return 0
+			for piece in art.pieces:
+				var path:String=piece.png
+				if not path.begins_with("res://"): path=directory+path
+				if not ResourceLoader.exists(path) and not FileAccess.file_exists(path):
+					fail("missing GBA image "+path)
+					return 0
+	var bedroom:="kanto/pallet_town_players_house_2f"
+	for links in [graph.forward,graph.reverse]:
+		var seen:=Passages.reachable(bedroom,links)
+		if seen.size()!=rooms.size():
+			fail("bedroom directed reach %d/%d; missing %s"%[seen.size(),rooms.size(),links.keys().filter(func(k):return not seen.has(k))])
 			return 0
-	var bedroom := "kanto/pallet_town_players_house_2f"
-	var outward := fill_reachable(bedroom,graph)
-	var inward := fill_reachable(bedroom,reverse)
-	if outward.size()!=graph.size() or inward.size()!=graph.size():
-		fail("bedroom directed reach %d, reverse %d, registry %d"%[outward.size(),inward.size(),graph.size()])
-		return 0
-	return graph.size()
+	return rooms.size()
+
+func approach(w: Dictionary) -> bool:
+	var at := vec(w.at)
+	for direction in [Vector2i.UP,Vector2i.DOWN,Vector2i.LEFT,Vector2i.RIGHT]:
+		var beside: Vector2i=at-direction
+		if not world.can_enter(beside,direction) or not world.warp_at(beside).is_empty(): continue
+		if w.get("trigger","")=="door" and direction!=Vector2i.UP: continue
+		world.warp_to(beside)
+		world.finish_walk()
+		return walk(at)
+	return fail("no approach to %s %s"%[current,at])
 
 func probe(entry: Array, slot: String) -> bool:
-	var r: String=entry[0]
-	var mid: String=entry[1]
-	var w: Dictionary=entry[2]
-	var expected: Dictionary=w.to.remember_passage.destination
-	var source: Dictionary={"region":r,"map":mid,"at":expected.at}
-	match slot:
-		"johto_lift":
-			source.at=([3,1] if mid.ends_with("_1f") else [6,1])
-		"johto_ship":
-			source.at=([3,8] if mid=="johto_olivine_port" else [3,7])
+	var source={"region":entry[0],"map":entry[1],"at":entry[2].at,"hgss":true}
 	load_at(source)
-	if not walk(vec(w.at)) or current!=r+"/"+str(w.to.map):
-		return fail("did not enter shared room from "+r+"/"+mid)
-	# Serialize/reload the same structure persisted by SaveGame, as if the
-	# player continued on another day while visiting the shared room.
+	var w:Dictionary=entry[2]
+	var expected:Dictionary=w.to.remember_passage.destination
+	if not approach(w) or current!=entry[0]+"/"+str(w.to.map):
+		return fail("did not enter shared room from "+str(entry[1]))
 	journal=JSON.parse_string(JSON.stringify(journal))
-	if slot=="johto_center" and mid.contains("cherrygrove"):
-		# The mobile battle room was another dead end; its doors do not
-		# overwrite the original city's shared stair reference.
+	if slot=="johto_center" and str(entry[1]).contains("cherrygrove"):
 		if not walk(Vector2i(4,1)) or not current.ends_with("johto_mobile_battle_room"):return fail("cannot visit mobile battle room")
 		if not walk(Vector2i(2,3)) or not current.ends_with("johto_pokecenter_2f"):return fail("cannot leave mobile battle room")
-	var back: Vector2i
-	match slot:
-		"johto_center":back=Vector2i(0,3)
-		"johto_ship":back=Vector2i(12,0)
-		"johto_lift":back=Vector2i(1,1)
-		"sevii_lift", "rocket_hideout_elevator", "silph_co_elevator", "celadon_city_department_store_elevator":back=Vector2i(2,5)
-	if not walk(back):return false
-	if current!=str(expected.region)+"/"+str(expected.map) or world.player_pos!=vec(expected.at):
-		return fail("wrong remembered destination from "+r+"/"+mid)
+	var exits:Array=world.map_data.warps.filter(func(row):return row.to.get("recall_passage","")==slot)
+	if exits.is_empty():return fail("missing return "+slot+" from "+current)
+	if not walk(vec(exits[0].at)):return false
+	var pos:=vec(expected.at)
+	if not expected.get("hgss",false):pos=preload("res://core/hgss_field.gd").position(world.map_data,pos)
+	if current!=str(expected.region)+"/"+str(expected.map) or world.player_pos!=pos:
+		return fail("wrong remembered destination from %s: %s %s, expected %s %s"%[entry[1],current,world.player_pos,expected.map,pos])
+	return true
+
+func ship() -> bool:
+	var ship_id:="johto_fast_ship_1f"
+	for west in [false,true]:
+		var from:="johto_vermilion_port" if west else "johto_olivine_port"
+		var to:="johto_olivine_port" if west else "johto_vermilion_port"
+		load_at({"region":"johto","map":from,"at":[0,0],"hgss":true})
+		var quay:Array=world.map_data.warps.filter(func(w): return w.to.map==ship_id)
+		journal["j2_westbound"]=west
+		if quay.is_empty() or not approach(quay[0]) or current!="johto/"+ship_id:return fail("cannot board at "+from)
+		journal=JSON.parse_string(JSON.stringify(journal))
+		var exit:Array=world.map_data.warps.filter(func(w):return w.to.map in ["johto_vermilion_port","johto_olivine_port"])
+		if not walk(vec(exit[0].at)) or current!="johto/"+to:return fail("cannot disembark at "+to)
+	return true
+
+func ruins() -> bool:
+	for wing in ["kabuto","omanyte","aerodactyl","ho_oh"]:
+		var item_room:="johto_ruins_of_alph_%s_item_room"%wing
+		var gallery:="johto_ruins_of_alph_%s_word_room"%wing
+		load_at({"region":"johto","map":item_room,"hgss":true,"at":[6,5]})
+		var pits:Array=world.map_data.warps.filter(func(w):return w.to.map==gallery)
+		if pits.size()!=1 or not approach(pits[0]) or current!="johto/"+gallery:
+			return fail("no drop to "+gallery)
+		var landing:Vector2i=world.player_pos
+		if not world.can_enter(landing,Vector2i.DOWN):return fail("blocked scripted landing in "+gallery)
+		var falls:Array=world.map_data.warps.filter(func(w):return w.to.map=="johto_ruins_of_alph_inner_chamber")
+		if falls.size()!=1 or not walk(vec(falls[0].at)) or current!="johto/johto_ruins_of_alph_inner_chamber":
+			return fail("no walking route from inscription room to hall "+gallery)
 	return true
 
 func run() -> void:
@@ -124,14 +124,13 @@ func run() -> void:
 	var count := check_graph()
 	var probes := 0
 	if not failed:
-		for slot in ["johto_center","johto_lift","johto_ship","sevii_lift","rocket_hideout_elevator","silph_co_elevator","celadon_city_department_store_elevator"]:
-			if not originals.has(slot):
-				fail("unregistered shared passage "+slot)
-				break
+		for slot in originals:
 			for entry in originals[slot]:
 				if not probe(entry,slot):break
 				probes+=1
 			if failed:break
+	if not failed and ship(): probes+=2
+	if not failed: ruins()
 	if not failed:
 		journal.clear()
 		load_at({"region":"sevii","map":"trainer_tower_elevator","at":[2,4]})

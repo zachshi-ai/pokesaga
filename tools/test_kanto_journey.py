@@ -31,8 +31,8 @@ class Player:
             self.routes.history = self.state["history"]
             badges = self.state["badges"]
             field_badges = {15: "蓝色徽章", 57: "粉红徽章", 70: "彩虹徽章", 249: "金色徽章"}
-            if self.pos[0].startswith("johto_"):
-                field_badges = {15:"昆虫徽章", 57:"魅影徽章", 70:"标准徽章", 250:"冰川徽章", 127:"升龙徽章"}
+            if self.pos[0].startswith(("johto_","hgss_")):
+                field_badges = {15:"昆虫徽章", 57:"魅影徽章", 70:"标准徽章", 250:"冰川徽章", 127:"升龙徽章",431:"绿色徽章"}
             moves = frozenset(move for member in self.state["party"] for move in member[5]
                               if field_badges.get(move) in badges)
             if self.routes.field_moves != moves:
@@ -70,8 +70,10 @@ class Player:
             for i in range(0, len(plan), 24):
                 batch = plan[i:i+24]
                 previous = self.pos
+                previous_flags = self.last_flags
                 self.do("walk", legs=[[k, end] for _, k, end in batch])
                 if self.pos == batch[-1][2]: continue
+                if self.last_flags != previous_flags: break  # A one-time field event can interrupt a door or step.
                 event = self.state["obstruction"]
                 stuck = (tuple(event[0]), event[1], tuple(event[2])) if event else None
                 if not stuck: break  # a story cutscene or a remembered door changed position
@@ -80,7 +82,7 @@ class Player:
                 dx, dy, _, _ = VECTORS[key]
                 x, y = self.pos[1] + dx, self.pos[2] + dy
                 if (self.pos == stuck[0] and 0 <= x < field.w and 0 <= y < field.h and
-                        (field.get("water",x,y) or (x,y) in field.blockers)):
+                        (field.get("water",x,y) or field.get("climb",x,y) or (x,y) in field.blockers)):
                     self.do("face", dir=key)
                     if self.pos!=stuck[0]: break  # Waterfall moves the player as part of pressing A.
                     for options in [("冲浪", "好", "使用居合斩"), ("好",)]:

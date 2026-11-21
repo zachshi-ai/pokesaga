@@ -59,7 +59,9 @@ func _trigger_match(tr: Dictionary, kind: String, ctx: Dictionary) -> bool:
 		return false
 	match kind:
 		"map_enter":
-			if tr.has("at") and (int(tr.at[0])!=int(ctx.get("x",-1)) or int(tr.at[1])!=int(ctx.get("y",-1))): return false
+			if tr.has("at") and ctx.has("hgss"):
+				if not preload("res://core/hgss_field.gd").trigger_match(ctx.hgss,tr,Vector2i(ctx.x,ctx.y)): return false
+			elif tr.has("at") and (int(tr.at[0])!=int(ctx.get("x",-1)) or int(tr.at[1])!=int(ctx.get("y",-1))): return false
 			if tr.has("area_name") and tr.area_name != ctx.get("area_name",""):
 				return false
 			var m := String(tr.get("map", ""))
@@ -77,7 +79,7 @@ func _trigger_match(tr: Dictionary, kind: String, ctx: Dictionary) -> bool:
 			# 同一张大图里也分段触发（真新镇 → 1 号道路不用切图）
 			var sm := String(tr.get("map", ""))
 			if sm != "" and sm != String(ctx.get("map", "")):
-				return false
+				return ctx.has("hgss") and preload("res://core/hgss_field.gd").foreign_step(ctx.hgss,tr,Vector2i(ctx.x,ctx.y))
 			if tr.has("area_name"):
 				return String(tr["area_name"]) == String(ctx.get("area_name", ""))
 			var area = tr.get("area", [])
@@ -85,6 +87,7 @@ func _trigger_match(tr: Dictionary, kind: String, ctx: Dictionary) -> bool:
 				return false
 			var px := int(ctx.get("x", -1))
 			var py := int(ctx.get("y", -1))
+			if ctx.has("hgss"): return preload("res://core/hgss_field.gd").trigger_match(ctx.hgss,tr,Vector2i(px,py))
 			return px >= int(area[0]) and py >= int(area[1]) and px < int(area[2]) and py < int(area[3])
 	return false
 

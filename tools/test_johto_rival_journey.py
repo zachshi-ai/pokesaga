@@ -6,7 +6,8 @@ import shutil
 import tempfile
 from pathlib import Path
 
-from campaign_route import ROOT, Routes
+from campaign_route import ROOT
+from hgss_route import JohtoRoutes
 from test_johto_journey import JohtoPlayer
 
 LOBBY = "johto_indigo_plateau_pokecenter_1f"
@@ -14,8 +15,9 @@ MOON = "johto_mount_moon"
 
 
 def visit_corridor(p):
-    p.visit(LOBBY,(8,3))
-    p.visit(LOBBY,(8,2))
+    room, (x,y) = p.native_target(LOBBY,(8,2),trigger=True)
+    p.go({(room,x,y+1)})
+    p.go({(room,x,y)})
 
 
 def verify(args):
@@ -33,7 +35,7 @@ def verify(args):
             ("2026-11-30","next_monday",3),
         ]:
             env=dict(os.environ,POKESAGA_CHAPTER_TEST_DIR=folder,POKESAGA_CHAPTER_TEST_DATE=day)
-            p=JohtoPlayer(Routes(("johto",)),cmd,env,folder)
+            p=JohtoPlayer(JohtoRoutes(),cmd,env,folder)
             try:
                 if stage=="moon":
                     p.enter(MOON)

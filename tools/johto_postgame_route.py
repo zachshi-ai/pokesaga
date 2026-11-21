@@ -19,15 +19,16 @@ def talk(p, role, event=None):
     if done(p, flag):
         return
     room, pos = ROLES["j2_" + role]
-    p.interact(room, pos)
+    p.interact(room, pos, role="j2_"+role)
     p.milestone(flag)
 
 
 def voyage(p):
     if not done(p, "j2_ship_ticket"):
         if p.pos[0] == "johto_hall_of_fame":
-            p.visit("johto_hall_of_fame", (2,5))
-            p.do("walk",legs=[["d",["johto_players_house_2f",1,1]]])
+            p.go({("johto_hall_of_fame",6,22)})
+            p.do("walk",legs=[["d",["johto_players_house_2f",6,6]]])
+            assert p.pos==("johto_players_house_2f",6,6)
         p.interact("johto_elms_lab", (2,1))
         p.milestone("j2_ship_ticket")
     if done(p, "j2_ship_landed"): return
@@ -39,8 +40,8 @@ def voyage(p):
     talk(p, "sailor_sleep", "sailor_back")
     talk(p, "girl", "girl_found")
     assert p.state["bag"].get("金属膜",0) > 0
-    p.visit(SHIP, (12,1))
-    p.do("walk", legs=[["u",["johto_vermilion_port",3,7]]])
+    p.go({(SHIP,24,19)})
+    p.do("walk", legs=[["d",["johto_vermilion_port",23,18]]])
     p.milestone("j2_ship_landed")
 
 
@@ -51,10 +52,12 @@ def kanto_power(p):
         p.milestone("j2_thief_ran")
     talk(p,"robber_bridge","thief_beaten")
     if not done(p,"j2_machine_part"):
-        p.visit("johto_cerulean_gym",(1,3),"d")
+        p.interact("johto_cerulean_gym",(1,4))
         p.milestone("j2_machine_part")
         assert p.state["bag"]["发电机零件"] == 1
-    talk(p,"manager","power")
+    if not done(p,"j2_power"):
+        talk(p,"manager","power")
+        assert p.pos[0]=="hgss_route_10_power_plant_repaired",(p.pos,"generators after repair")
     assert not p.state["bag"].get("发电机零件",0)
     if not done(p,"j2_misty_back"):
         p.enter("johto_route_25")
@@ -69,9 +72,10 @@ def kanto_power(p):
     for station, destination in (("saffron","goldenrod"),("goldenrod","saffron")):
         mid = "johto_" + station + "_magnet_train_station"
         other = "johto_" + destination + "_magnet_train_station"
-        p.visit(mid,(3,3))
-        p.do("walk",legs=[["u",[other,5,3]]])
-        assert p.pos == (other,5,3), (p.pos,p.state["dialog"])
+        gate = (14,7) if station=="saffron" else (6,6)
+        p.go({(mid,*gate)})
+        p.do("walk",legs=[["u",[other,3,3]]])
+        assert p.pos == (other,3,3), (p.pos,p.state["dialog"])
     if not done(p,"j2_snorlax"):
         p.enter("johto_vermilion_city")
         p.key_item("收音机扩充卡")
@@ -86,7 +90,8 @@ def kanto_power(p):
 
 def postgame(p):
     voyage(p)
-    kanto_power(p)
+    if not done(p,"j2_snorlax"):
+        kanto_power(p)
     for group in ("ltsurge","sabrina","erika","janine","misty","brock","blaine","blue"):
         if group == "blue": talk(p,"blue","blue_returns")
         flag = "badge_" + group
@@ -99,8 +104,12 @@ def postgame(p):
     assert set(BOOK["badges"]) <= set(p.state["flags"])
     talk(p,"oak","silver_pass")
     if not done(p,"j2_red_defeated"):
+        if not p.state["bag"].get("城都秘传学习器 08"):
+            p.interact("johto_oaks_lab",(2,1),role="j2_oak")
         p.train("johto_silver_cave_room_1",88)
         p.heal()
+        p.teach("攀岩",431)
+        assert 431 in p.routes.field_moves,(p.state["badges"],p.state["party"])
         p.enter("johto_silver_cave_room_3")
         p.checkpoint("red")
         talk(p,"red","red_defeated")
@@ -114,7 +123,7 @@ def resume():
     import tempfile
     from pathlib import Path
 
-    from campaign_route import Routes
+    from hgss_route import JohtoRoutes
     from test_johto_journey import JohtoPlayer
 
     parser = argparse.ArgumentParser(description=__doc__)
@@ -130,7 +139,7 @@ def resume():
         cmd = [args.godot, "--headless", "--fixed-fps", "60"]
         cmd += ["--main-pack",str(args.pack.resolve())] if args.pack else ["--path",str(ROOT)]
         env = dict(os.environ, POKESAGA_CHAPTER_TEST_DIR=folder)
-        routes = Routes(("johto",))
+        routes = JohtoRoutes()
         player = JohtoPlayer(routes,cmd,env,folder)
         try:
             assert done(player,"johto_champion"), "The supplied save has not entered the Johto Hall of Fame"

@@ -6,7 +6,8 @@ import shutil
 import tempfile
 from pathlib import Path
 
-from campaign_route import ROOT, Routes
+from campaign_route import ROOT
+from hgss_route import JohtoRoutes
 from johto_item_route import back_to_field, cast, use
 from test_johto_journey import JohtoPlayer
 
@@ -112,7 +113,7 @@ def main():
             print("DATE FIXTURE: only the temporary copy's two order dates are set to",yesterday,flush=True)
         cmd=[args.godot,"--headless","--fixed-fps","60"]+(
             ["--main-pack",str(args.pack.resolve())] if args.pack else ["--path",str(ROOT)])
-        routes=Routes(("johto",))
+        routes=JohtoRoutes()
         env=dict(os.environ,POKESAGA_CHAPTER_TEST_DIR=folder)
         p=JohtoPlayer(routes,cmd,env,folder)
         try:

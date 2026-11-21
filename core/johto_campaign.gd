@@ -112,11 +112,12 @@ static func interact_field(game) -> bool:
 		else: game._dialog(["嘎嘎！"],"大葱鸭")
 		return true
 	if mid == "johto_lake_of_rage" and game.world._npc_at(tile).get("role","") == "j_red_gyarados": actor = "j_red_gyarados"
-	if mid == "johto_goldenrod_underground" and tile == Vector2i(9,3): actor = "j_basement_door"
-	if mid == "johto_radio_tower_3f" and tile == Vector2i(7,1): actor = "j_radio_door"
+	if mid == "johto_goldenrod_underground" and tile == preload("res://core/hgss_field.gd").position(game.world.map_data,Vector2i(9,3)): actor = "j_basement_door"
+	if mid == "johto_radio_tower_3f" and tile == preload("res://core/hgss_field.gd").position(game.world.map_data,Vector2i(7,1)): actor = "j_radio_door"
 	if actor != "": return game._story_fire("talk",{"map":mid,"actor":actor})
 	if mid != SWITCH_ROOM: return false
 	var switches := [Vector2i(7,1),Vector2i(4,1),Vector2i(0,1),Vector2i(10,5)]
+	for i in switches.size(): switches[i]=preload("res://core/hgss_field.gd").position(game.world.map_data,switches[i])
 	var selected := switches.find(tile)
 	if selected < 0 or not flags.get("j_rival4",false): return false
 	var key := "j_switch_%d" % selected

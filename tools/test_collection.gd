@@ -105,7 +105,8 @@ func run() -> void:
 	await process_frame
 	var db = root.get_node("Data")
 	game.world.load_map(db.load_map("johto", "johto_route_30"))
-	game.world.warp_to(Vector2i(7, 4))
+	var potion_tile := Vector2i(11,31) # Native Route 30 hidden potion event.
+	game.world.warp_to(potion_tile)
 	game._refresh_scene()
 	var before: int = game._bag_count("伤药")
 	game._on_action()
@@ -114,7 +115,7 @@ func run() -> void:
 	var variants: Dictionary = game.save_data.dex_variants.duplicate(true)
 	game._restore_from_save()
 	check(game.save_data.dex_variants == variants, "saved collection changed")
-	check(game.world.object_at(Vector2i(7, 4)).is_empty(), "hidden item respawned after reloading")
+	check(game.world.object_at(potion_tile).is_empty(), "hidden item respawned after reloading")
 	game._on_action()
 	check(game._bag_count("伤药") == before + 1, "duplicate hidden pickup")
 	Save.clear_test_slot()

@@ -1,0 +1,1 @@
+{"native_header":"MAP_MOUNT_SILVER_CAVE_SUMMIT","size":[64,64],"tile_px":16,"pieces":[{"png":"ground_0_0.png","at":[0,0]},{"png":"ground_32_0.png","at":[512,0]},{"png":"ground_0_32.png","at":[0,512]},{"png":"ground_32_32.png","at":[512,512]}],"doors":[]}

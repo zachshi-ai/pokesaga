@@ -71,6 +71,14 @@ class Routes:
                 continue
             if not (0 <= nx < f.w and 0 <= ny < f.h):
                 continue
+            cliff = f.get("climb",nx,ny)
+            if cliff:
+                if 431 not in self.field_moves or (dx and cliff!=76) or (dy and cliff!=75): continue
+                while 0<=nx<f.w and 0<=ny<f.h and f.get("climb",nx,ny)==cliff:
+                    nx,ny=nx+dx,ny+dy
+                if 0<=nx<f.w and 0<=ny<f.h and not f.get("collision",nx,ny):
+                    edges.append((key,(mid,nx,ny)))
+                continue
             if f.crystal:
                 if f.get("whirl",nx,ny) and 250 not in self.field_moves and (mid,nx,ny) not in self.cleared:
                     continue

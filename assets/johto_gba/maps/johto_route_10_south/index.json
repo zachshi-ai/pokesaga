@@ -1,0 +1,1 @@
+{"native_header":"MAP_ROUTE_10_SOUTH","size":[32,32],"tile_px":16,"pieces":[{"png":"ground_0_0.png","at":[0,0]},{"png":"res://assets/johto_gba/fields/cave_mouth.png","at":[64,112],"sort_y":135},{"png":"res://assets/johto_gba/fields/fr_sign.png","at":[64,160],"sort_y":175}],"doors":[]}

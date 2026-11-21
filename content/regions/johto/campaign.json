@@ -1437,6 +1437,23 @@
      "……我们再打一场。"
     ]
    }
+  },
+  "johto_blackthorn_city": {
+   "8,6": {
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "10,1": {
+    "until": [
+     "j_gym8"
+    ]
+   },
+   "9,0": {
+    "requires": [
+     "j_gym8"
+    ]
+   }
   }
  },
  "add": {

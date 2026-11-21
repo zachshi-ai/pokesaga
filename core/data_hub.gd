@@ -147,6 +147,11 @@ func load_region(region_id: String) -> Dictionary:
 	for file_name in DirAccess.get_files_at(base + "maps"):
 		if file_name.ends_with(".json") and not map_ids.has(file_name.get_basename()):
 			map_ids.append(file_name.get_basename())
+	if region_id=="johto":
+		var native: Dictionary = load_json("res://content/hgss/registry.json")
+		for mid in native.native:
+			if not map_ids.has(mid): map_ids.append(mid)
+		for mid in native.merged: map_ids.erase(mid)
 	map_ids.sort()
 	region["map_ids"] = map_ids
 	region["maps"] = {}
@@ -163,7 +168,10 @@ func load_map(region_id: String, map_id: String) -> Dictionary:
 	if region["maps"].has(map_id):
 		return region["maps"][map_id]
 
-	var data = load_json(String(region["_base"]) + "maps/" + map_id + ".json")
+	var legacy_path := String(region["_base"]) + "maps/" + map_id + ".json"
+	var data = load_json(legacy_path) if FileAccess.file_exists(legacy_path) else null
+	if region_id == "johto" and FileAccess.file_exists("res://content/hgss/maps/"+map_id+".json"):
+		data = preload("res://core/hgss_field.gd").install(data if data is Dictionary else {},map_id)
 	if data == null:
 		return {}
 

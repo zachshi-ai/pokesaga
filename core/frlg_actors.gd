@@ -104,7 +104,9 @@ static func roster(map: Dictionary, flags: Dictionary) -> Array:
 	if map.get("region","")=="johto":
 		var rows := preload("res://core/johto_campaign.gd").roster(map,flags)
 		rows = preload("res://core/johto_items.gd").roster(map,flags,rows)
-		return preload("res://core/johto_postgame.gd").roster(map,flags,rows)
+		rows = preload("res://core/johto_postgame.gd").roster(map,flags,rows)
+		if map.has("hgss"): rows.append_array(preload("res://core/hgss_field.gd").foreign_actors(map,flags))
+		return preload("res://core/hgss_field.gd").roster(map,rows)
 	if not str(map.get("region","")) in ["kanto","sevii"]:
 		return base.duplicate(true)
 	var specs: Dictionary = data().maps.get("%s/%s" % [map.get("region",""),map.get("id","")],{})

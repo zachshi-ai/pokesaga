@@ -9,13 +9,18 @@ def earned(p, flag):
 
 def talk(p, room, xy, flag):
     if not earned(p, flag):
-        p.interact("johto_" + room, xy)
+        role = {"j_basement_key":"j_fake_director","j_radio_free":"j_broadcast_boss"}.get(flag)
+        p.interact("johto_" + room, xy, role=role)
         p.milestone(flag)
 
 
 def opening(p):
     talk(p,"elms_lab",(2,1),"johto_elm_told")
-    talk(p,"elms_lab",(3,2),"johto_starter")
+    if not earned(p,"johto_starter"):
+        p.interact("johto_elms_lab",(3,2))
+        choice = next((s for s in p.state["buttons"] if s.startswith("小锯鳄")),None)
+        if choice: p.do("click",label=choice)
+        p.milestone("johto_starter")
     talk(p,"elms_lab",(1,4),"j_potion")
     items.cherrygrove(p)
     talk(p,"mr_pokemons_house",(1,2),"j_mystery_egg")
@@ -33,7 +38,13 @@ def azalea(p):
     talk(p,"kurts_house",(1,1),"j_kurt_well")
     talk(p,"slowpoke_well_b1_f",(2,1),"j_well_clear")
     p.train("johto_route_33",18)
-    talk(p,"azalea_gym",(2,3),"昆虫徽章")
+    if not earned(p,"昆虫徽章"):
+        p.enter("johto_azalea_gym")
+        if getattr(p.routes.fields["johto_azalea_gym"], "header", ""):
+            azalea_rail(p,True)
+        talk(p,"azalea_gym",(2,3),"昆虫徽章")
+        if getattr(p.routes.fields["johto_azalea_gym"], "header", ""):
+            azalea_rail(p,False)
     talk(p,"azalea_town",(3,6),"j_rival2")
     talk(p,"ilex_forest",(3,14),"j_bird_request")
     if not earned(p,"j_bird_home"):
@@ -47,6 +58,31 @@ def azalea(p):
     talk(p,"charcoal_kiln",(2,1),"j_charcoal")
     p.teach("居合斩",15)
     talk(p,"ilex_forest",(4,12),"j_forest_path_clear")
+
+
+def azalea_rail(p, inbound):
+    room="johto_azalea_gym"
+    def ride(before, direction, stop):
+        p.go({(room,*before)})
+        p.do("walk",legs=[[direction,[room,*stop]]])
+        assert p.pos == (room,*stop),("Spinarak journey",before,stop,p.state["obstruction"],p.pos)
+    def switch_at(before, direction):
+        p.go({(room,*before)})
+        p.do("face",dir=direction)
+    if inbound:
+        ride((3,33),"u",(9,23))
+        ride((9,18),"u",(3,8))
+        switch_at((4,8),"u")
+        ride((3,8),"d",(3,18))
+        switch_at((3,18),"l")
+        ride((3,18),"u",(9,8))
+    else:
+        ride((9,8),"d",(3,18))
+        switch_at((3,18),"l")
+        ride((3,18),"u",(3,8))
+        switch_at((4,8),"u")
+        ride((3,8),"d",(9,18))
+        ride((9,23),"d",(3,33))
 
 
 def goldenrod(p):
@@ -65,7 +101,9 @@ def goldenrod(p):
 def ecruteak(p):
     items.ecruteak(p)
     talk(p,"burned_tower_1f",(4,4),"j_rival3")
-    talk(p,"burned_tower_b1_f",(5,2),"j_beasts")
+    if not earned(p,"j_beasts"):
+        p.visit("johto_burned_tower_b1_f",(5,2))
+        p.milestone("j_beasts")
     p.train("johto_route_38",28)
     talk(p,"ecruteak_gym",(2,0),"魅影徽章")
     for i, xy in enumerate([(0,1),(1,0),(3,1),(4,0),(5,1)]):
@@ -142,11 +180,9 @@ def dragons_den(p):
 
 
 def main_story(p):
-    opening(p)
-    azalea(p)
-    goldenrod(p)
-    ecruteak(p)
-    coast(p)
-    mahogany(p)
-    radio(p)
-    dragons_den(p)
+    stages = [(opening,"j_egg_aide"), (azalea,"j_forest_path_clear"),
+              (goldenrod,"j_tree_clear"), (ecruteak,"j_surf"), (coast,"j_gym6"),
+              (mahogany,"j_gym7"), (radio,"j_radio_free"), (dragons_den,"j_master_ball")]
+    for play_stage, completed in stages:
+        if not earned(p,completed):
+            play_stage(p)

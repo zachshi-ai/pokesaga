@@ -61,7 +61,12 @@ func walk_to(target: Vector2i) -> bool:
 func door(dest: String) -> void:
 	for w in world.map_data.warps:
 		if w.to.map == dest:
-			check(walk_to(tile(w.at)), "cannot walk to " + dest)
+			if not walk_to(tile(w.at)): continue
+			if world.map_data.id == dest: return
+			for dir in DIRS:
+				if DIRS[dir]==w.get("trigger","step"):
+					step(dir)
+					break
 			return
 	check(false, "missing door to " + dest)
 
@@ -121,10 +126,11 @@ func run() -> void:
 	await process_frame
 	world = game.world
 	game.rng.seed = 486
-	check(world.map_data.id == old.map and world.player_pos == Vector2i(6,16), "legacy room position")
+	var migrated: Vector2i = preload("res://core/hgss_field.gd").position(world.map_data,tile(old.pos))
+	check(world.map_data.id == old.map and world.player_pos == migrated and not world.is_blocked(migrated), "legacy Victory Road save restored on its native floor")
 	check(game.save_data.badges == old.badges and game.save_data.party[0].species_id == 129, "legacy progress")
-	step(Vector2i.UP)
-	check(world.map_data.id == old.map and world.player_pos == Vector2i(6,7), "legacy save stair destination")
+	door("hgss_victory_road_2f")
+	check(world.map_data.id=="hgss_victory_road_2f" and world.player_pos==Vector2i(7,31), "legacy save reaches the native stair landing")
 	var rules: Dictionary = game.johto_league.rules
 	var rooms: Array = rules.rounds
 	var lobby: String = rules.lobby
@@ -133,8 +139,7 @@ func run() -> void:
 	check(world.map_data.id == lobby and not game._dialogs.is_empty(), "badge gate")
 	close_dialogs()
 	game.save_data.badges.append_array(rules.badges)
-	# The badge check left us standing on the doorway. A retries the same door.
-	game._on_action()
+	door(rooms[0].room)
 	check(world.map_data.id == rooms[0].room, "first chamber")
 	talk(world.npcs[0])
 	battle("b")

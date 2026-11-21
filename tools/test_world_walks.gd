@@ -32,7 +32,8 @@ func fail(reason: String) -> bool:
 func load_at(target: Dictionary) -> void:
 	current = String(target.region) + "/" + String(target.map)
 	world.load_map(places[current])
-	world.warp_to(vec(target.at))
+	world.arrive(target)
+	world.finish_walk()
 	transitions += 1
 
 func path(target: Vector2i) -> Array:

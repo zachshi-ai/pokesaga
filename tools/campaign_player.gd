@@ -128,7 +128,7 @@ func settle() -> void:
 				lines.append(line)
 			if dlg.is_waiting_answer(): dlg.btn_yes.pressed.emit()
 			else: game._on_action()
-		elif game._escort_active:
+		elif game._escort_active or (world.map_data.id == "johto_azalea_gym" and game.panel_open > 0 and preload("res://core/hgss_azalea.gd").data().pads.any(func(at): return world.player_pos==Vector2i(int(at[0]),int(at[1])))):
 			await process_frame
 		else:
 			return
@@ -143,12 +143,12 @@ func status() -> Dictionary:
 	for it in game.bag_items:
 		if int(it.count)>0: items[it.name] = it.count
 	var panels := []
-	if game.panel_open > 0:
+	if game.panel_open > 0 and game.menu_layer.get_child_count() > 0:
 		for b in game.menu_layer.get_child(-1).find_children("*","Button",true,false):
 			if b.is_visible_in_tree() and not b.disabled: panels.append(b.text)
 	return {"pos":current(),"party":mons,"bag":items,"flags":game._flags().keys().filter(func(k): return game._flags()[k]),
 		"badges":game.save_data.badges,"money":game.save_data.money,"dex":game.save_data.dex.caught,"defeated":game.save_data.get("defeated",{}),
-		"actors":world.npcs.map(func(n):return [n.at,n.get("role",""),n.get("name",""),n.get("shop",false)]),
+		"actors":world.npcs.map(func(n):return [n.at,n.get("role",""),n.get("name",""),n.get("shop",false),n.get("legacy_at",n.at),n.get("story_map",world.map_data.id),n.get("heal",false),n.get("hgss_source","")]),
 		"bins":[game._flags().get("surge_bin",-1),game._flags().get("surge_second_bin",-1)],"history":game.save_data.get("return_passages",{}),"buttons":panels,"panels":game.panel_open,"held":game.save_data.party.map(func(m):return m.get("held","")),"problem":problem,"fights":fights,
 		"dialog":lines,"turns":turns,"steps":steps,"obstruction":obstruction,"hall":game.save_data.get("hall_of_fame",{})}
 
@@ -293,6 +293,7 @@ func run() -> void:
 		lines.clear()
 		problem = ""
 		await act(cmd)
+		await process_frame
 		if cmd.action in ["back","key_item","click","use","hm","lead"]:
 			await process_frame  # Finish disposing the menu before another button press.
 	preload("res://core/johto_rival.gd").local_date = Time.get_date_dict_from_system

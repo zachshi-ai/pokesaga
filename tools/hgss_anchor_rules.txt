@@ -1,0 +1,102 @@
+# legacy map, followed by role/old-coordinate = exact native object suffix.
+# A header before ':' changes the actual location. A suffix after '@' is the
+# local tile occupied in the active scene rather than the offstage spawn tile.
+elms_lab j_elm=doctor@4,5 j_police=policeman j_aide=assistantm 2,2=bg9 3,2=bg9 4,2=bg9
+players_house_1f j_gear=gsmama 0,1=gsmama 3,2=gsmama 0,2=gsmama
+new_bark_town j_watching_rival=gsrivel
+mr_pokemons_house j_mr_pokemon=gsgentleman j_oak=ookido
+cherrygrove_city j_rival1=gsrivel@63,15 j_map_card=gsoldman1
+sprout_tower_3f j_li=chourou j_tower_rival=gsrivel
+violet_gym j_gym1=gsleader1
+violet_pokecenter_1f j_egg_aide=VIOLET_POKEMART:assistantm
+slowpoke_well_b1_f j_hurt_kurt=gantetsu j_well_boss=rkanbum3
+azalea_gym j_gym2=gsleader2
+azalea_town j_rival2=gsrivel@12,16 j_gym_guard=rocketm_2 4,1=bonguri
+kurts_house j_kurt=gantetsu j_kurt_back=gantetsu
+charcoal_kiln j_kiln_master=gsfighter j_kiln_apprentice=gsboy1
+ilex_forest j_apprentice=gsboy1 j_master=gsfighter j_farfetchd=tsure_poke_static_farfetchd j_waiting_apprentice=gsboy1 4,12=tree
+goldenrod_gym j_gym3=gsleader3 j_whitney_friend=gsgirl1
+goldenrod_flower_shop j_florist=gswoman1
+goldenrod_bike_shop j_bicycle=gsmiddleman1
+goldenrod_game_corner 1,1=gsgentleman 8,1=gsgentleman_2
+route_36 j_floria=gsgirl1_2 j_tree=usokky j_rock_smash=gsbigman
+route_37 6,2=bonguri 7,3=bonguri_2 8,2=bonguri_3
+route_42 13,8=bonguri 14,8=bonguri_3 13,7=bonguri_2 12,7=tsure_poke_static_suicune
+burned_tower_1f j_tower_rival3=gsrivel j_morty_tower=gsleader4 j_eusine=minaki
+burned_tower_b1_f j_beast_raikou=tsure_poke_static_raikou j_beast_entei=tsure_poke_static_entei j_beast_suicune=tsure_poke_static_suicune j_eusine_down=minaki
+ecruteak_gym j_gym4=gsleader4 j_gym_elder=gsoldman1
+dance_theater j_dancer0=dancer j_dancer1=dancer_2 j_dancer2=dancer_3 j_dancer3=dancer_4 j_dancer4=dancer_5 j_surf_gent=gsgentleman
+olivine_city j_harbor_rival=gsrivel
+olivine_lighthouse_6f j_lighthouse=gsleader6 j_amphy=tsure_poke_static_ampharos
+cianwood_city j_cianwood_beast=tsure_poke_static_suicune j_eusine_coast=minaki j_fly=middlewoman1_2
+cianwood_gym j_gym5=gsleader5
+cianwood_pharmacy j_chemist=sunglasses
+olivine_gym j_gym6=gsleader6
+lake_of_rage j_lake_lance=wataru j_red_gyarados=rgyaradosu
+mahogany_mart_1f j_mart_lance=wataru j_dragonite=tsure_poke_static_dragonite
+team_rocket_base_b3_f j_code_lance=wataru j_slowtail=rocketw j_rattail=rocketm_2 j_executive=rkanbum2 j_murkrow=tsure_poke_static_murkrow j_base_rival=gsrivel
+team_rocket_base_b2_f j_engine_boss=rkanbuw j_engine_grunt=rocketm_4 j_engine_lance=wataru j_electrode0=tsure_poke_static_electrode j_electrode1=tsure_poke_static_electrode_2 j_electrode2=tsure_poke_static_electrode_3 j_right0=tsure_poke_static_electrode_4 j_right1=tsure_poke_static_electrode_5 j_right2=tsure_poke_static_electrode_6
+mahogany_gym j_gym7=MAHOGANY_GYM_LEADER_ROOM:gsleader7
+goldenrod_underground_switch_room_entrances j_underground_rival=gsrivel@19,4
+goldenrod_underground_warehouse j_true_director=gsgentleman
+radio_tower_5f j_fake_director=rkanbum2 j_broadcast_boss=GOLDENROD_RADIO_TOWER_OBSERVATION_DECK:rkanbum j_director=gsgentleman
+blackthorn_gym_1f j_gym8=gsleader8
+dragon_shrine j_master_elder=chourou j_clair_shrine=gsleader8
+dragons_den_b1_f j_clair_den=gsleader8
+route_32_pokecenter_1f j_old_rod=fishing_2
+ecruteak_itemfinder_house j_finder=gsman3
+olivine_good_rod_house j_good_rod=fishing_2
+route_12_super_rod_house j_super_rod=fishing_2
+olivine_cafe j_strength=seaman_2
+pewter_city j_silver_wing=gsoldman1
+radio_tower_1f j_radio_card=gswoman6_3
+radio_tower_2f j_blue_card=gswoman2 6,3=gswoman2_2
+ice_path_1f j_waterfall=monstarball
+tin_tower_1f 4,0=bozu
+tin_tower_roof 4,2=hou_obj01
+whirl_island_lugia_chamber 1,5=lug_obj01
+victory_road j2_rival_victory=VICTORY_ROAD_3F:gsrivel
+victory_road_gate j2_silver_guard=policeman_2 j2_east_guard=policeman_3
+lances_room j2_mary=kurumi j2_press_oak=ookido 2,1=wataru
+wills_room 2,3=gsbigfour1
+kogas_room 2,3=gsbigfour2
+brunos_room 2,3=gsbigfour3
+karens_room 2,3=gsbigfour4
+indigo_plateau_pokecenter_1f j2_plateau_rival=gsrivel
+olivine_port j2_board_e=seaman_2@28,22
+vermilion_port j2_board_w=seaman_2@24,19
+fast_ship_b1_f j2_sailor_watch=seaman_2 j2_sailor_duplicate=seaman_2
+fast_ship_cabins_nnw_nne_ne j2_sailor_sleep=SS_AQUA_1F_SOUTHEAST_ROOMS:seaman_2
+fast_ship_cabins_se_sse_captains_cabin j2_captain=SS_AQUA_CAPTAIN_ROOM:captain j2_grandpa=SS_AQUA_1F_NORTHWEST_ROOMS:gsgentleman j2_girl=SS_AQUA_CAPTAIN_ROOM:gsbabygirl1 j2_girl_after=SS_AQUA_1F_NORTHWEST_ROOMS:gsbabygirl1_3
+power_plant j2_manager=gsbigman
+cerulean_gym j2_robber=rocketm j2_badge_misty=gsleader11
+route_24 j2_robber_bridge=rocketm
+route_25 j2_misty_date=gsleader11 j2_date=gsman1
+lav_radio_tower_1f j2_radio=gsgentleman
+copycats_house_2f j2_copy=gsgirl1
+pokemon_fan_club j2_lost_doll=mono_pip j2_doll_owner=gsbigman
+vermilion_city j2_snorlax=ROUTE_11:kabigon
+vermilion_gym j2_badge_ltsurge=gsleader9
+saffron_gym j2_badge_sabrina=gsleader10
+celadon_gym j2_badge_erika=gsleader12
+fuchsia_gym j2_badge_janine=gsleader13
+pewter_gym j2_badge_brock=gsleader14
+seafoam_gym j2_badge_blaine=gsleader15
+cinnabar_island j2_blue=gsleader16
+viridian_gym j2_badge_blue=gsleader16
+oaks_lab j2_oak=ookido
+silver_cave_room_3 j2_red=red
+mount_moon j2_moon_rival=gsrivel
+goldenrod_underground 9,3=bg0
+radio_tower_3f 7,1=bg2
+goldenrod_underground_switch_room_entrances 7,1=bg0 4,1=bg1 0,1=bg2 10,5=bg3
+azalea_town 15,4=rocketm 10,4=gsoldman1 7,6=gswoman1 3,4=gsman1
+# Crystal's one-bird chase traverses the two native HGSS Farfetch'd clearings.
+# These are the four stops of each HGSS bird, followed by the foreman's reunion.
+ilex_forest 7,15=tsure_poke_static_farfetchd 7,12=tsure_poke_static_farfetchd@32,62 10,12=tsure_poke_static_farfetchd@32,52 14,11=tsure_poke_static_farfetchd_2 14,15=tsure_poke_static_farfetchd_2@49,54 12,17=tsure_poke_static_farfetchd_2@49,64 11,15=tsure_poke_static_farfetchd_2@41,64 7,14=tsure_poke_static_farfetchd_2@41,64 5,17=tsure_poke_static_farfetchd 3,13=tsure_poke_static_farfetchd_3
+azalea_gym 1,5=gsbabygirl1 1,4=gsbabygirl1_2 3,6=AZALEA_GYM_ENTRANCE:sunglasses
+blackthorn_city 8,6=gsman1 10,1=gsoldman1 9,0=gsoldman1_2 12,15=gsfighter 4,12=gswoman3 6,7=gsboy1 11,10=gsboy2 17,9=gswoman3_2
+cerulean_gym 1,4=stop
+olivine_port 3,9=seaman_2_2 3,10=gswoman2 5,4=tile24,24 5,6=tile19,24 3,11=tile22,25
+vermilion_port 4,3=tile19,21 4,4=tile16,19
+power_plant 2,7=policeman 1,4=gsassistantm_2 3,5=gsassistantm 4,1=policeman_2 3,1=gsassistantm_3 2,2=gsassistantm_4

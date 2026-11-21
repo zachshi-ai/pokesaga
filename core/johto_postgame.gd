@@ -73,11 +73,18 @@ static func passage_message(game, target: Dictionary) -> String:
 		if not flags.get("j2_snorlax", false): return "东侧通路还没有开放。枯叶市地鼠洞入口旁，一只卡比兽睡得正香。"
 	return ""
 
-static func destination(room: String, target: Dictionary, flags: Dictionary) -> Dictionary:
+static func destination(room: String, target: Dictionary, flags: Dictionary, local_time: Dictionary={}) -> Dictionary:
+	if target.has("clefairy_night"):
+		var now:=Time.get_datetime_dict_from_system() if local_time.is_empty() else local_time
+		if (now.weekday==Time.WEEKDAY_MONDAY and now.hour>=20) or (now.weekday==Time.WEEKDAY_TUESDAY and now.hour<4):
+			return target.clefairy_night
+	if target.has("until_power") and not flags.get("j2_power",false): return target.until_power
 	if room == "johto_hall_of_fame" and target.get("map","") == "johto_lances_room" and flags.get("johto_champion",false):
-		return {"region":"johto","map":"johto_players_house_2f","at":[1,1]}
+		return {"region":"johto","map":"johto_players_house_2f","at":[6,6],"hgss":true}
 	if room == SHIP and target.get("map","") in [OLIVINE,VERMILION]:
 		var east: bool = not flags.get("j2_westbound",false)
+		if target.get("hgss",false):
+			return {"region":"johto","map":VERMILION if east else OLIVINE,"at":[23,18] if east else [27,21],"hgss":true}
 		return {"region":"johto","map":VERMILION if east else OLIVINE,"at":[3,7] if east else [3,8]}
 	return target
 
@@ -103,7 +110,7 @@ static func use_item(game, item: String) -> bool:
 
 static func field_action(game) -> bool:
 	var ahead: Vector2i = game.world.player_pos + game.world._dir_vec()
-	if game.world.map_data.get("id","") == CABIN and ahead in [Vector2i(3,0),Vector2i(3,1)]:
+	if game.world.map_data.get("id","") == CABIN and ahead in [preload("res://core/hgss_field.gd").position(game.world.map_data,Vector2i(3,0)),preload("res://core/hgss_field.gd").position(game.world.map_data,Vector2i(3,1))]:
 		game._flags().j2_ship_rested = true
 		game._heal_party()
 		game._persist()
@@ -112,7 +119,8 @@ static func field_action(game) -> bool:
 		game._dialog([message],"水流号客舱")
 		return true
 	if game.world.map_data.get("id","") != "johto_cerulean_gym": return false
-	if ahead != Vector2i(1,4) and game.world.player_pos != Vector2i(1,4): return false
+	var part := preload("res://core/hgss_field.gd").position(game.world.map_data,Vector2i(1,4))
+	if ahead != part and game.world.player_pos != part: return false
 	return game._story_fire("talk",{"map":"johto_cerulean_gym","actor":"j2_part"})
 
 static func leave_league(room: String, target: String, save: Dictionary) -> void:

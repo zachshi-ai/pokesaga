@@ -1,0 +1,1 @@
+{"native_header":"MAP_ROUTE_9","size":[96,32],"tile_px":16,"pieces":[{"png":"ground_0_0.png","at":[0,0]},{"png":"ground_32_0.png","at":[512,0]},{"png":"ground_64_0.png","at":[1024,0]},{"png":"res://assets/johto_gba/fields/fr_sign.png","at":[368,240],"sort_y":255}],"doors":[]}

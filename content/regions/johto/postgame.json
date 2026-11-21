@@ -838,6 +838,18 @@
     },
     {
      "flag": "j2_power"
+    },
+    {
+     "warp": {
+      "region": "johto",
+      "map": "hgss_route_10_power_plant_repaired",
+      "at": [
+       13,
+       7
+      ],
+      "hgss": true,
+      "facing": "down"
+     }
     }
    ],
    "require": {
@@ -1955,8 +1967,19 @@
      "who": "大木博士",
      "say": [
       "你已经集齐城都和关都的十六枚徽章！",
+      "收下攀岩的秘传学习器吧。让能攀岩的伙伴学会它，白银山上那些有抓痕的岩壁就能翻过去了。",
       "我会通知联盟关卡开放通往白银山的西侧通道。山里的宝可梦很强，小心行进。"
      ]
+    },
+    {
+     "give_item": {
+      "name": "城都秘传学习器 08",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "flag": "j2_rock_climb"
     },
     {
      "flag": "j2_silver_pass"

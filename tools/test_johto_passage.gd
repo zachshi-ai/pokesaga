@@ -3,7 +3,9 @@ extends SceneTree
 ## godot --headless --path . --script tools/test_johto_passage.gd
 
 const DIRS := [Vector2i.DOWN, Vector2i.UP, Vector2i.RIGHT, Vector2i.LEFT]
-const WORLD = preload("res://core/world.gd")
+class Walker extends "res://core/world.gd":
+	func _ready() -> void: pass
+	func _rebuild(_story_flags: Variant = null) -> void: pass
 
 var world
 var db
@@ -46,6 +48,13 @@ func exits_from(room: String, arrival: Vector2i) -> Dictionary:
 		for dir in DIRS:
 			world.player_pos = p
 			world.surfing = world.is_water(p) or world.is_water(p + dir)
+			if dir != Vector2i.DOWN and (world.is_waterfall(p) or world.is_waterfall(p+dir)):
+				if dir==Vector2i.UP and world.is_waterfall(p+dir):
+					var landing: Vector2i = world.waterfall_landing(p)
+					if not prev.has(landing):
+						prev[landing]=[p,dir]
+						queue.append(landing)
+				continue
 			var directional: Dictionary = world._warp_from(p,dir)
 			if not directional.is_empty():
 				var target: Dictionary = directional.to
@@ -68,7 +77,7 @@ func exits_from(room: String, arrival: Vector2i) -> Dictionary:
 	return exits
 
 func run() -> void:
-	world = WORLD.new()
+	world = Walker.new()
 	root.add_child(world)
 	await process_frame
 	db = root.get_node("Data")
@@ -76,7 +85,10 @@ func run() -> void:
 	if not world.step(Vector2i.LEFT) or world.pending_warp.get("map") != start[0]:
 		fail("missing Kanto ferry")
 		return
-	start[1] = tile(world.pending_warp.at)
+	var landing: Dictionary = world.pending_warp.duplicate()
+	world.load_map(db.load_map("johto", start[0]))
+	world.arrive(landing)
+	start[1] = world.player_pos
 	world.finish_walk()
 	var queue := [start]
 	var prev := {start: null}
@@ -115,6 +127,10 @@ func replay(prev: Dictionary, last: Array) -> void:
 					fail("cannot surf from %s" % world.player_pos)
 					return
 				surf_entries += 1
+			elif dir==Vector2i.UP and world.surfing and world.is_waterfall(world.player_pos+dir):
+				var top: Vector2i=world.waterfall_landing(world.player_pos)
+				world.warp_to(top)
+				world.surfing=world.is_water(top)
 			elif not world.step(dir):
 				fail("blocked in %s at %s" % [world.map_data.id, world.player_pos])
 				return

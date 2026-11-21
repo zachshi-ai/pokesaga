@@ -123,6 +123,8 @@ func _ready() -> void:
 		elif want == "story":
 			ok = _t("剧情流程", _test_story()) and ok
 			ok = _t("剧情表体检", _test_story_table()) and ok
+		elif want == "graph":
+			ok = _t("地图落点", _test_map_graph()) and ok
 		elif want == "wf":
 			ok = _t("进出房间方向", _test_warp_facing()) and ok
 		elif want == "surf":
@@ -835,6 +837,7 @@ func _story_fire(kind: String, ctx: Dictionary) -> bool:
 		preload("res://core/johto_campaign.gd").sync(save_data)
 	if kind in ["step","map_enter"]:
 		ctx["area_name"] = world.area_name()
+		if world.map_data.has("hgss"): ctx["hgss"]=world.map_data.hgss
 		ctx["x"] = world.player_pos.x
 		ctx["y"] = world.player_pos.y
 	if (kind == "talk" and ctx.get("actor","") == "lab_oak") or (kind == "map_enter" and world.map_data.id == "kanto_main"):
@@ -965,7 +968,10 @@ func _story_do(act: Dictionary) -> void:
 		for actor in act.johto_press: cast["j2_press_"+actor] = true
 		world.refresh_story_actors(cast)
 	if act.has("johto_enter_hall"):
-		call_deferred("_do_warp", {"region":"johto","map":"johto_hall_of_fame","at":[2,5]})
+		var enter_hall := func():
+			if world.map_data.id=="johto_lances_room":
+				_do_warp({"region":"johto","map":"johto_hall_of_fame","at":[6,22],"hgss":true})
+		enter_hall.call_deferred()
 	if act.has("scene_cast"):
 		var temporary := {"sevii_" + str(act.scene_cast):true}
 		world.refresh_story_actors(flags.merged(temporary,true))
@@ -982,7 +988,7 @@ func _story_do(act: Dictionary) -> void:
 				break
 	if act.has("set_player_at"):
 		var xy: Array = act.set_player_at
-		world.warp_to(Vector2i(int(xy[0]),int(xy[1])))
+		world.warp_to(preload("res://core/hgss_field.gd").position(world.map_data,Vector2i(int(xy[0]),int(xy[1]))))
 	if act.has("warp"):
 		_do_warp(act.warp)
 	if act.has("give_mon"):
@@ -1072,6 +1078,7 @@ func _on_action() -> void:
 		if hk == "item" or hk == "hidden":
 			_handle_object(here)
 			return
+	if preload("res://core/hgss_azalea.gd").flip(self): return
 	if preload("res://core/johto_postgame.gd").field_action(self): return
 	if world.map_data.get("region","") == "johto" and preload("res://core/johto_campaign.gd").interact_field(self):
 		return
@@ -1102,7 +1109,7 @@ func _on_action() -> void:
 			world.last_npc = {}
 			# 有剧情先播剧情，没有才走普通台词
 			if not _story_fire("talk", {"npc": String(npc_row.get("name", "")), "actor":npc_row.get("role",""),
-					"map": String(world.map_data.get("id", ""))}):
+					"map": String(npc_row.get("story_map",world.map_data.get("id", "")))}):
 				_talk_to_npc(npc_row)
 		else:
 			_talk_to(nm)
@@ -1151,6 +1158,8 @@ func _open_ruin_door() -> void:
 			_show_toast("点之穴的大门打开了。"))
 
 func _on_water_action() -> bool:
+	if not world._npc_at(world.player_pos+world._dir_vec()).is_empty():
+		return false
 	if world.surfing:
 		return _try_surf()
 	var face: Vector2i = world.player_pos + world._dir_vec()
@@ -1457,6 +1466,7 @@ func _update_music() -> void:
 
 
 func _do_warp(target: Dictionary) -> void:
+	target = preload("res://core/hgss_field.gd").merged_destination(target)
 	if target.get("sea_connection",false) and not _party_can_move("SURF"):
 		_dialog([_field_move_hint("SURF","冲浪")])
 		return
@@ -1541,6 +1551,7 @@ func _do_warp(target: Dictionary) -> void:
 	preload("res://core/johto_items.gd").enter(self)
 
 func _after_step() -> void:
+	if preload("res://core/hgss_azalea.gd").board(self): return
 	preload("res://core/johto_items.gd").field_step(self)
 	preload("res://core/sevii_campaign.gd").request_step(save_data)
 	if _flags().get("got_vs_seeker",false) and int(save_data.get("vs_charge",100)) < 100:
@@ -1610,7 +1621,9 @@ func _try_encounter() -> void:
 	var pool: Array = world.map_data.get("encounters", [])
 	var rate := float(world.map_data.get("encounter_rate", 0.0))
 	# 单张图上冲浪时优先用原版水面分布（城都这些图都是独立一张）
-	var crystal_map := String(world.map_data.get("emerald", "")).begins_with("johto_")
+	if world.map_data.has("hgss_encounters"):
+		pool=world.map_data.hgss_encounters[preload("res://core/hgss_field.gd").period()]
+	var crystal_map: bool = world.map_data.get("region","")=="johto"
 	if crystal_map and not on_sea:
 		var hour := int(Time.get_time_dict_from_system().hour)
 		var period := "morn" if hour >= 4 and hour < 10 else ("day" if hour >= 10 and hour < 18 else "nite")
@@ -1804,7 +1817,7 @@ func _open_elevator() -> void:
 		for stop in native_stops:
 			var m: Dictionary = Data.load_map(stop.region, stop.map)
 			var label := String(stop.map).get_slice("_",2).to_upper()
-			names.append(label if cur=="rocket_hideout_elevator" else m.get("name", stop.map))
+			names.append(stop.get("lift_label",label if cur=="rocket_hideout_elevator" else m.get("name", stop.map)))
 		_pick("要去哪一层？", names, func(index: int) -> void:
 			if index >= 0 and index < native_stops.size():
 				_do_warp(native_stops[index])
@@ -1827,7 +1840,7 @@ func _open_elevator() -> void:
 			return
 		var at: Array = r[2]
 		world.load_map(m2)
-		world.warp_to(Vector2i(int(at[0]), int(at[1])))
+		world.warp_to(preload("res://core/hgss_field.gd").position(m2,Vector2i(int(at[0]), int(at[1]))))
 		world.finish_walk()
 		_refresh_scene()
 		_persist()
@@ -1926,8 +1939,8 @@ func _try_terrain_move() -> bool:
 		return true
 	# 攀岩
 	if world.is_climb(face):
-		if not _party_has_move("ROCK_CLIMB"):
-			_dialog(["岩壁陡得很。", "（需要会「攀岩」的宝可梦）"], "")
+		if not _party_can_move("ROCK_CLIMB"):
+			_dialog(["岩壁陡得很。", _field_move_hint("ROCK_CLIMB","攀岩")], "")
 			return true
 		if world.climb_up():
 			snd.play_sfx("hit")
@@ -1946,14 +1959,10 @@ func _use_waterfall() -> bool:
 	if not _party_can_move("WATERFALL"):
 		_dialog([_field_move_hint("WATERFALL", "攀瀑")])
 		return true
-	var top: Vector2i = world.player_pos
-	while world.is_waterfall(top + dir):
-		if not world.can_enter(top + dir,dir):
-			_dialog(["这里爬不上去。"])
-			return true
-		top += dir
-	if world.can_enter(top + dir,dir):
-		top += dir
+	var top: Vector2i = world.waterfall_landing(world.player_pos)
+	if top == world.player_pos:
+		_dialog(["这里爬不上去。"])
+		return true
 	world.warp_to(top)
 	world.surfing = world.is_water(top)
 	_persist()
@@ -2204,6 +2213,8 @@ func _tm_move_of(nm: String) -> int:
 ## 原版的"招式机兼容表"我们没有搬进来（machine_set 是空的），
 ## 所以招式机一律放行，不然玩家永远学不会冲浪/飞行/闪光。
 func _can_learn_move(sid: int, mv: int) -> bool:
+	if mv==431 and sid<=493:
+		return sid in preload("res://core/johto_items.gd").CLIMBERS
 	var sp: Dictionary = Data.species_of(sid)
 	for row in sp.get("learnset", []):
 		if row is Array and int(row[1]) == mv:
@@ -3303,9 +3314,10 @@ func _test_menus() -> bool:
 			if not matched:
 				return false
 		ok = ok and names.is_empty() and bag_ui.empty_state.visible == (bag_ui.row_box.get_child_count() == 0)
-	party_ui.queue_free()
-	bag_ui.queue_free()
-	return ok
+	bag_ui.handle_back()
+	party_ui.handle_back() # Return from the selected creature to its party.
+	party_ui.handle_back()
+	return ok and panel_open==0
 
 func _test_dex() -> bool:
 	# 图鉴：见过/抓到分别记，重复标记不产生重复条目
@@ -3884,80 +3896,57 @@ func _test_catch() -> bool:
 	return true
 
 # Travel state after the Kanto gates and the Sevii story guards have cleared.
-const OPEN_FIELD_FLAGS := {"sevii_network_online":true,"got_dex":true,"ss_ticket":true,"freed_silph":true,"beat_giovanni":true,
+const OPEN_FIELD_FLAGS := {"j_radio_free":true,"j_well_clear":true,"j_gym8":true,"sevii_network_online":true,"got_dex":true,"ss_ticket":true,"freed_silph":true,"beat_giovanni":true,
 	"ember_ruby_requested":true,"beat_ember_grunt_1":true,"beat_ember_grunt_2":true,
 	"ruin_valley_cut_door":true,"rescued_icefall":true,
 	"FLAG_HIDE_MT_EMBER_EXTERIOR_ROCKETS":true,"FLAG_HIDE_RUIN_VALLEY_SCIENTIST":true}
 
 ## 全量地图体检：每张图能加载、warp 双向、落点不撞墙不撞人、传送图连通
 func _test_map_graph() -> bool:
-	# 扫目录而不是写死地区名：新加地区目录自动纳入体检
-	var dirs: Array = []
-	for d in DirAccess.get_directories_at("res://content/regions"):
-		dirs.append(String(d))
-	dirs.sort()
-	var seen: Dictionary = {}          # "region/map" -> true
-	var collision_by_map := {}
-	var residents_by_map := {}
-	for rid in dirs:
-		var base := "res://content/regions/%s/maps" % rid
-		var files := DirAccess.get_files_at(base)
-		if files.is_empty():
-			print("graph dbg: 地区没有地图 ", rid)
-			return false
-		for f in files:
-			if not String(f).ends_with(".json"):
-				continue
-			var mid := String(f).get_basename()
-			var m: Dictionary = Data.load_map(rid, mid)
-			if m.is_empty():
-				print("graph dbg: 加载失败 ", rid, "/", mid)
-				return false
-			seen["%s/%s" % [rid, mid]] = true
-			if int(m.get("size", [0, 0])[0]) <= 0:
-				print("graph dbg: 尺寸异常 ", mid)
-				return false
-			# 出生点必须能站人
-			var sp: Array = m.get("spawn", [0, 0])
-			if _tile_blocked(m, int(sp[0]), int(sp[1]), collision_by_map):
-				print("graph dbg: 出生点被挡 ", rid, "/", mid)
-				return false
-			for w in m.get("warps", []):
-				var target: Dictionary = w.get("to", {})
-				var trid := String(target.get("region", ""))
-				var tmid := String(target.get("map", ""))
-				var path := "res://content/regions/%s/maps/%s.json" % [trid, tmid]
-				if not FileAccess.file_exists(path):
-					print("graph dbg: 传送目标不存在 ", trid, "/", tmid, " <- ", mid)
-					return false
-				var tm: Dictionary = Data.load_map(trid, tmid)
-				var at: Array = target.get("at", [0, 0])
-				if _tile_blocked(tm, int(at[0]), int(at[1]), collision_by_map):
-					print("graph dbg: 传送落点被挡 ", trid, "/", tmid, " ", at)
-					return false
-				var destination_id := trid + "/" + tmid
-				if not residents_by_map.has(destination_id):
-					# Some arrivals (the robbed house, for example) are guarded until a story flag moves the NPC.
-					var initial := preload("res://core/frlg_actors.gd").roster(tm,{})
-					var later := preload("res://core/frlg_actors.gd").roster(tm,OPEN_FIELD_FLAGS)
-					residents_by_map[destination_id] = initial.filter(func(n): return later.any(func(a): return a.at == n.at))
-				for n in residents_by_map[destination_id]:
-					var nat: Array = n.get("at", [-1, -1])
-					if int(nat[0]) == int(at[0]) and int(nat[1]) == int(at[1]):
-						print("graph dbg: 落点站着 NPC ", tmid, " ", at)
-						return false
-	# 关都这条线必须从真新镇一路通到尼比道馆
-	var must := ["kanto/kanto_main", "kanto/viridianforest",
-		"kanto/pewtercity_gym", "kanto/viridiancity_pokemoncenter_1f"]
-	for key in must:
-		if not seen.has(key):
-			print("graph dbg: 缺地图 ", key)
-			return false
-	print("graph dbg: %d 张地图，warp 全部可达且落点可行走" % seen.size())
-	return true
+	const Passages=preload("res://core/world_passages.gd")
+	const Native=preload("res://core/hgss_field.gd")
+	var rooms:=_all_maps()
+	var graph:=Passages.graph(rooms)
+	var collision:={}
+	var ok:=true
+	for room in rooms:
+		var m: Dictionary=room.m
+		var key:="%s/%s"%[room.rid,room.mid]
+		if m.is_empty() or int(m.get("size",[0,0])[0])<=0:
+			print("graph dbg: 无法加载地图 ",key)
+			ok=false
+			continue
+		var spawn:=Native.vec(m.spawn)
+		if _tile_blocked(m,spawn.x,spawn.y,collision):
+			print("graph dbg: 出生点被挡 ",key," ",spawn)
+			ok=false
+		var initial:=preload("res://core/frlg_actors.gd").roster(m,{})
+		var later:=preload("res://core/frlg_actors.gd").roster(m,OPEN_FIELD_FLAGS)
+		var permanent:={}
+		for actor in initial:
+			if later.any(func(n): return n.at==actor.at):
+				permanent[Native.vec(actor.at)]=actor.get("name","")
+		for arrival in graph.arrivals.get(key,{}):
+			var pos:=Native.vec(arrival[0])
+			if not arrival[1]: pos=Native.position(m,pos)
+			if _tile_blocked(m,pos.x,pos.y,collision):
+				print("graph dbg: 传送落点被挡 ",key," ",pos)
+				ok=false
+			if permanent.has(pos):
+				print("graph dbg: 落点站着 NPC ",key," ",pos," ",permanent[pos])
+				ok=false
+	for missing in graph.reverse:
+		if not graph.forward.has(missing):
+			print("graph dbg: 缺失地图 ",missing)
+			ok=false
+	print("graph dbg: %d 张地图的出生点和门口落点已检查" % rooms.size())
+	return ok
 
 func _tile_blocked(m: Dictionary, x: int, y: int, cache: Dictionary) -> bool:
 	var size: Array = m.get("size", [0, 0])
+	if m.has("hgss"):
+		var word:=preload("res://core/hgss_field.gd").word(m.hgss,Vector2i(x,y))
+		return bool(word & 0x8000)
 	# 原版地图没有 tiles 数组，碰撞要读预渲染时导出的表
 	if String(m.get("emerald", "")) != "":
 		if x < 0 or y < 0 or x >= int(size[0]) or y >= int(size[1]):
@@ -4749,7 +4738,10 @@ func _test_fieldwork() -> bool:
 	save_data["egg"] = {"species": 133, "steps": 3}
 	for i in 5:
 		_tick_egg()
-	var hatched: bool = (save_data.get("egg", {}) as Dictionary).is_empty() and (save_data["party"] as Array).size() >= 2
+	var hatch_dialog: Node=_dialogs.back() if not _dialogs.is_empty() else null
+	if hatch_dialog!=null:
+		for press_count in 2*hatch_dialog.lines.size(): _on_action()
+	var hatched: bool = hatch_dialog!=null and not _dialogs.has(hatch_dialog) and (save_data.get("egg", {}) as Dictionary).is_empty() and (save_data["party"] as Array).size() >= 2
 	print("field dbg: 蛋孵出 %s，队伍 %d 只" % [str(hatched), (save_data["party"] as Array).size()])
 	if not hatched:
 		print("!! 蛋没孵出来")
@@ -4860,30 +4852,21 @@ func _test_fieldwork() -> bool:
 
 	# 3.58) 全库坡沿覆盖：每张有坡的图都要能用
 	var maps_with_ledge := 0
-	var dirs := []
-	for d in DirAccess.get_directories_at("res://content/regions"):
-		dirs.append(String(d))
-	for rid in dirs:
-		var base := "res://content/regions/%s/maps" % rid
-		for f in DirAccess.get_files_at(base):
-			if not String(f).ends_with(".json"):
-				continue
-			var mm: Dictionary = Data.load_map(rid, String(f).get_basename())
-			var meta_name := String(mm.get("emerald", ""))
-			if meta_name == "":
-				continue
-			var p2 := "res://content/emerald_maps/%s.json" % meta_name
-			if not FileAccess.file_exists(p2):
-				continue
-			var mt: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(p2))
-			var lg: Array = mt.get("ledge", [])
-			var cnt := 0
-			for row in lg:
-				for v in row:
-					if int(v) != 0:
-						cnt += 1
-			if cnt > 0:
-				maps_with_ledge += 1
+	for room in _all_maps():
+		var mm: Dictionary=room.m
+		if mm.has("hgss"):
+			var words: PackedByteArray=mm.hgss.words
+			for offset in range(0,words.size(),2):
+				if (words.decode_u16(offset)&255) in [56,57,58,59]:
+					maps_with_ledge+=1
+					break
+			continue
+		var meta_name:=String(mm.get("emerald",""))
+		var path:="res://content/emerald_maps/%s.json" % meta_name
+		if meta_name!="" and FileAccess.file_exists(path):
+			var meta: Dictionary=Data.load_json(path)
+			if meta.get("ledge",[]).any(func(row): return row.any(func(v): return int(v)!=0)):
+				maps_with_ledge+=1
 	print("field dbg: 有坡的地图 %d 张" % maps_with_ledge)
 	if maps_with_ledge < 50:
 		print("!! 坡的数据覆盖太少")
@@ -6699,41 +6682,15 @@ func _test_story() -> bool:
 ## 从起始地图出发，靠门口能不能真的走到各个地区。
 ## 只要有一张该到的地方走不到，就说明"功能做了但玩家触发不到"。
 func _test_world_reach() -> bool:
-	var maps := {}
-	for rid in DirAccess.get_directories_at("res://content/regions"):
-		var r := String(rid)
-		var dp := "res://content/regions/%s/maps" % r
-		var d := DirAccess.open(dp)
-		if d == null:
-			continue
-		for f in d.get_files():
-			if f.ends_with(".json"):
-				maps["%s/%s" % [r, f.get_basename()]] = dp + "/" + f
-	var start := "kanto/kanto_main"
-	if not maps.has(start):
-		print("reach dbg: 没有起始地图")
+	var passages=preload("res://core/world_passages.gd")
+	var graph: Dictionary=passages.graph(_all_maps())
+	var maps: Dictionary=graph.forward
+	var start := "kanto/pallet_town_players_house_2f"
+	var seen: Dictionary=passages.reachable(start,maps)
+	var returns: Dictionary=passages.reachable(start,graph.reverse)
+	if returns.size()!=maps.size():
+		print("reach dbg: 无法返回起点 ", maps.keys().filter(func(k): return not returns.has(k)))
 		return false
-	var seen := {start: true}
-	var queue: Array = [start]
-	while not queue.is_empty():
-		var cur: String = queue.pop_front()
-		var raw = JSON.parse_string(FileAccess.get_file_as_string(String(maps[cur])))
-		if not (raw is Dictionary):
-			continue
-		var exits := {}
-		for w in (raw as Dictionary).get("warps", []):
-			var at: Array = w.get("at", [])
-			if at.size() != 2:
-				return false
-			var tile := Vector2i(int(at[0]), int(at[1]))
-			if exits.has(tile):
-				continue
-			exits[tile] = true
-			var to: Dictionary = (w as Dictionary).get("to", {})
-			var key := "%s/%s" % [String(to.get("region", "")), String(to.get("map", ""))]
-			if maps.has(key) and not seen.has(key):
-				seen[key] = true
-				queue.append(key)
 	var must := [
 		"kanto/pallettown_professoroakslab", "kanto/pewtercity_gym", "kanto/indigo_plateau_pokemon_center_1f",
 		"frontier/tower_lobby",
@@ -6777,57 +6734,43 @@ func _test_world_reach() -> bool:
 
 ## 百货电梯：楼层表每一层都落得住，站门口按 A 真能上去
 func _test_elevator() -> bool:
-	var ok2 := true
-	var expect := {"johto_goldenrod_dept_store_elevator": 8, "johto_celadon_dept_store_elevator": 6}
-	for ev in expect.keys():
-		var rows: Array = ELEVATOR_FLOORS.get(String(ev), [])
-		if rows.size() != int(expect[ev]):
-			print("lift dbg: %s 只有 %d 层，应为 %d" % [ev, rows.size(), int(expect[ev])])
-			ok2 = false
-			continue
-		for r in rows:
-			var md: Dictionary = Data.load_map("johto", String((r as Array)[1]))
-			if md.is_empty():
-				print("lift dbg: %s 的 %s 这张图没有" % [ev, String((r as Array)[1])])
-				ok2 = false
-				continue
-			var at: Array = (r as Array)[2]
-			world.load_map(md)
-			if world.is_blocked(Vector2i(int(at[0]), int(at[1]))):
-				print("lift dbg: %s 去 %s 的落点 %s 站不住" % [ev, String((r as Array)[1]), str(at)])
-				ok2 = false
-	# 从满金 1F 门口走进去，必须切到电梯
-	var f1: Dictionary = Data.load_map("johto", "johto_goldenrod_dept_store_1f")
-	world.load_map(f1)
-	world.finish_walk()
-	world.warp_to(Vector2i(1, 2))
-	world.finish_walk()
-	var went := false
-	world.step(Vector2i(-1, 0))
-	world.tick_walk(0.3)
-	world.finish_walk()
-	world.step(Vector2i(0, -1))
-	world.tick_walk(0.3)
-	world.finish_walk()
-	if String(world.map_data.get("id", "")) == "johto_goldenrod_dept_store_elevator":
-		went = true
-	if not went:
-		print("lift dbg: 从 1F (1,2) 往左走没进得了电梯，停在 %s %s" % [String(world.map_data.get("id", "")), str(world.player_pos)])
-		ok2 = false
-	# 电梯里按 A 出得去（出口门在 (0,0)）
-	var ele: Dictionary = Data.load_map("johto", "johto_goldenrod_dept_store_elevator")
-	world.load_map(ele)
-	world.warp_to(Vector2i(1, 1))
-	world.finish_walk()
-	var panel_ok := false
-	for o in world.objects:
-		if String(o.get("kind", "")) == "elevator":
-			panel_ok = true
-	if not panel_ok:
-		print("lift dbg: 电梯里没有操作面板")
-		ok2 = false
-	print("lift dbg: 满金 %d 层、玉虹 %d 层，门口能进、面板在" % [(ELEVATOR_FLOORS["johto_goldenrod_dept_store_elevator"] as Array).size(), (ELEVATOR_FLOORS["johto_celadon_dept_store_elevator"] as Array).size()])
-	return ok2
+	const Native=preload("res://core/hgss_field.gd")
+	var expected := {"johto_goldenrod_dept_store_elevator":8,"johto_celadon_dept_store_elevator":6}
+	for elevator in expected:
+		var cab:Dictionary=Data.load_map("johto",elevator)
+		var stops:Array=cab.get("lift_stops",[])
+		if stops.size()!=expected[elevator]:return false
+		var first:Array=stops.filter(func(stop):return stop.map.ends_with("_1f"))
+		var floor:Dictionary=Data.load_map("johto",first[0].map)
+		for idx in stops.size():
+			world.load_map(floor)
+			world.arrive(first[0])
+			world.finish_walk()
+			if not world.step(Vector2i.UP):return false
+			world.tick_walk(1.0)
+			world.finish_walk()
+			if world.map_data.id!=elevator or world.player_pos!=Vector2i(3,5):
+				print("lift dbg: 未能从一楼进入 ",elevator," ",world.player_pos)
+				return false
+			for dir in [Vector2i.RIGHT,Vector2i.UP]:
+				if not world.step(dir):return false
+				world.tick_walk(1.0)
+			world.facing="up"
+			_on_action()
+			var ui:=menu_layer.get_child(-1)
+			var options:Array=ui.find_children("*","Button",true,false).filter(func(b):return not b.text=="返回")
+			if options.size()!=stops.size():
+				print("lift dbg: 楼层面板没有显示 ",elevator)
+				return false
+			options[idx].pressed.emit()
+			var stop:Dictionary=stops[idx]
+			var landing:=Native.vec(stop.at)
+			if not stop.get("hgss",false):landing=Native.position(world.map_data,landing)
+			if world.map_data.id!=stop.map or world.player_pos!=landing or world.is_blocked(landing):
+				print("lift dbg: 楼层/落点异常 ",stop," ",world.map_data.id," ",world.player_pos)
+				return false
+		print("lift dbg: 面板实选 ",elevator," 的 ",stops.size()," 个楼层并逐次抵达")
+	return true
 
 
 func _test_gyms() -> bool:
@@ -6890,31 +6833,17 @@ func _test_gyms() -> bool:
 func _test_warp_reach() -> bool:
 	var all_reached := true
 	var maps := _all_maps()
-	var arrivals := {}
-	for source in maps:
-		# Floor-selection panels can arrive inside isolated elevator lobbies.
-		for stop in source.m.get("lift_stops", []):
-			var floor_key := "%s/%s" % [stop.region,stop.map]
-			if not arrivals.has(floor_key): arrivals[floor_key] = {}
-			arrivals[floor_key][Vector2i(int(stop.at[0]),int(stop.at[1]))] = true
-		var exits := {}
-		for warp in source.m.get("warps", []):
-			var origin: Array = warp.at
-			var tile := Vector2i(int(origin[0]), int(origin[1]))
-			if exits.has(tile):
-				continue
-			exits[tile] = true
-			var to: Dictionary = warp.to
-			var key := "%s/%s" % [to.region, to.map]
-			if not arrivals.has(key):
-				arrivals[key] = {}
-			arrivals[key][Vector2i(int(to.at[0]), int(to.at[1]))] = true
+	var arrivals: Dictionary = preload("res://core/world_passages.gd").graph(maps).arrivals
 	for room in maps:
 		var rid := str(room.rid)
 		var mid := str(room.mid)
 		world.load_map(room.m)
 		var sp: Array = room.m.get("spawn", [0, 0])
-		var seed: Dictionary = arrivals.get("%s/%s" % [rid, mid], {}).duplicate()
+		var seed := {}
+		for entry in arrivals.get("%s/%s" % [rid,mid],{}):
+			var pos := Vector2i(int(entry[0][0]),int(entry[0][1]))
+			if not entry[1]: pos=preload("res://core/hgss_field.gd").position(room.m,pos)
+			seed[pos]=true
 		seed[Vector2i(int(sp[0]), int(sp[1]))] = true
 		if mid in ["mt_ember_exterior","six_island_ruin_valley"]:
 			world.refresh_story_actors(OPEN_FIELD_FLAGS)
@@ -6971,15 +6900,7 @@ func _walkable_from(seed: Dictionary) -> Dictionary:
 
 ## 所有地区地图（供"入口落点"扫描用）
 func _all_maps() -> Array:
-	var out: Array = []
-	for rid in DirAccess.get_directories_at("res://content/regions"):
-		for f in DirAccess.get_files_at("res://content/regions/%s/maps" % rid):
-			if not String(f).ends_with(".json"):
-				continue
-			var m: Dictionary = Data.load_map(String(rid), String(f).get_basename())
-			if not m.is_empty():
-				out.append({"rid": String(rid), "mid": String(f).get_basename(), "m": m})
-	return out
+	return preload("res://core/world_passages.gd").maps(Data)
 
 ## 土坡：从高的一侧走过去要能落到两格之外，反过来必须走不过去
 func _test_ledge() -> bool:
@@ -7721,6 +7642,7 @@ func _e2e_pc() -> void:
 
 func _restore_from_save() -> void:
 	save_data = SaveScript.load_game()
+	preload("res://core/johto_apricorns.gd").sync(save_data)
 	preload("res://core/frlg_actors.gd").migrate_progress(save_data)
 	PartyScript.migrate_legacy_box(save_data)
 	DexVariants.restore(save_data)
@@ -7766,15 +7688,20 @@ func _restore_from_save() -> void:
 	if save_data.get("origin","kanto") == "johto":
 		start_region = "johto"
 		start_map = "johto_players_house_2f"
-		start_at = Vector2i(1,1)
+		start_at = Vector2i(6,6)
 
 	var region := String(save_data.get("region", start_region))
 	var map_id := String(save_data.get("map", start_map))
 	var saved_pos: Array = save_data.get("pos", [])
 	var has_saved_spot := saved_pos.size() == 2
+	var merged_target := preload("res://core/hgss_field.gd").merged_destination({"region":region,"map":map_id,"at":saved_pos if has_saved_spot else [0,0]})
+	if merged_target.map!=map_id:
+		map_id=merged_target.map
+		saved_pos=merged_target.at
+		save_data.johto_field_revision=1
 	var map: Dictionary = {}
 	var first_path := "res://content/regions/%s/maps/%s.json" % [region, map_id]
-	if FileAccess.file_exists(first_path):
+	if FileAccess.file_exists(first_path) or (region=="johto" and FileAccess.file_exists("res://content/hgss/maps/"+map_id+".json")):
 		map = Data.load_map(region, map_id)
 	if map.is_empty():
 		print("[start] 存档地图 %s/%s 不存在，回出生地" % [region, map_id])
@@ -7798,6 +7725,8 @@ func _restore_from_save() -> void:
 	var spot := start_at
 	if has_saved_spot:
 		spot = Vector2i(int(saved_pos[0]), int(saved_pos[1]))
+		if map.has("hgss") and not save_data.has("johto_field_revision"):
+			spot = preload("res://core/hgss_field.gd").saved_position(world,spot,save_data.get("surfing",false))
 		# Before 4.51 the interior and connecting exterior of Saffron City overlapped.
 		if map_id == "kanto_main" and not save_data.has("field_revision") and Rect2i(264,120,66,55).has_point(spot):
 			var city_spot := spot + Vector2i(48,30)
@@ -7864,6 +7793,7 @@ func _persist() -> bool:
 	save_data["map"] = String(world.map_data.get("id", "littleroot_town"))
 	save_data["pos"] = [world.player_pos.x, world.player_pos.y]
 	save_data["field_revision"] = 1
+	if world.map_data.has("hgss"): save_data["johto_field_revision"] = 1
 	save_data["field_elevation"] = world.last_elevation
 	save_data["facing"] = world.facing
 	save_data["surfing"] = world.surfing
@@ -8969,6 +8899,7 @@ func _open_hm() -> void:
 	for i in 8:
 		machines.append("秘传学习器 0%d" % (i + 1))
 	machines.insert(5,preload("res://core/johto_items.gd").HM_WHIRL)
+	machines.append(preload("res://core/johto_items.gd").HM_CLIMB)
 	for nm in machines:
 		if _bag_count(nm) <= 0 or not Data.tm_map.has(nm):
 			continue

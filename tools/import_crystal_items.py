@@ -134,6 +134,7 @@ def build(source, root):
         key = ("PSYCHIC" if name == "PSYCHIC_M" else name).replace("_", "")
         tm_map[f"城都招式学习器 {number:02}"] = move_ids[key]
     tm_map["城都秘传学习器 06"] = move_ids["WHIRLPOOL"]
+    tm_map["城都秘传学习器 08"] = move_ids["ROCKCLIMB"]
     tm_file.write_text(json.dumps(tm_map, ensure_ascii=False, indent=1)+"\n")
     data = (source / "data/wild/fish.asm").read_text()
     names = re.findall(r"^\s*const FISHGROUP_(\w+)", (source / "constants/map_data_constants.asm").read_text(), re.M)[1:]

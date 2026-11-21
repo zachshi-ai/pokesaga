@@ -5,6 +5,7 @@ extends Node2D
 ## 地图数据只用地形编号：0 草 1 树 2 水 3 路 4 花 5 石 6 墙 7 屋顶 8 门 9 栅栏 10 沙
 
 const EmeraldField := preload("res://core/emerald_field.gd")
+const JohtoCast := preload("res://core/johto_gba_cast.gd")
 const TILE := 16
 const ATLAS_PATH := "res://assets/tiles_emerald.png"
 const PLAYER_PATH := "res://assets/player_emerald.png"
@@ -244,7 +245,9 @@ func load_map(data: Dictionary) -> void:
 func _load_emerald_map(name: String) -> void:
 	var meta_path := "res://content/emerald_maps/%s.json" % name
 	var meta: Dictionary = {}
-	if FileAccess.file_exists(meta_path):
+	if map_data.has("hgss"):
+		meta = preload("res://core/hgss_field.gd").grids(map_data.hgss)
+	elif FileAccess.file_exists(meta_path):
 		meta = JSON.parse_string(FileAccess.get_file_as_string(meta_path))
 	emerald_collision = meta.get("collision", [])
 	emerald_elevation = meta.get("elevation", [])
@@ -280,6 +283,8 @@ func _load_emerald_map(name: String) -> void:
 	walking = false
 	npcs = preload("res://core/frlg_actors.gd").roster(map_data, taken)
 	objects = (map_data.get("objects", []) as Array).duplicate(true)
+	if map_data.has("hgss") and map_data.hgss.header in ["MAP_ICE_PATH_B1F","MAP_ICE_PATH_B2F"]:
+		objects=objects.filter(func(o):return (not o.has("ice_rock") or not taken.get("ice:rock:"+str(o.ice_rock),false)) and (not o.has("ice_rest") or taken.get("ice:pit:%d"%int(o.ice_rest),false)))
 	if map_data.get("region","")=="kanto":
 		objects=preload("res://core/kanto_campaign.gd").victory_rocks(map_data.id,objects,taken)
 	weather = String(map_data.get("weather", ""))
@@ -389,6 +394,7 @@ func _dir_bit(dir: Vector2i) -> int:
 
 ## 从 dir 方向走进 p 这一格行不行（方向性阻挡只挡对应方向）
 func can_enter(p: Vector2i, dir: Vector2i, ignore_mask: bool = false) -> bool:
+	if map_data.get("hgss",{}).get("header","")=="MAP_OLIVINE_LIGHTHOUSE_LIGHT_ROOM" and p==Vector2i(8,12) and not taken.get("j_sick_amphy",false): return false
 	# 非原版地图（开拓区这类自建图）只有 tiles 网格，没有方向阻挡
 	if not is_emerald():
 		if p.y < 0 or p.y >= tiles.size():
@@ -544,6 +550,14 @@ func _push_dir_of(grid: Array, p: Vector2i) -> Vector2i:
 	return Vector2i.ZERO
 
 
+func waterfall_landing(origin: Vector2i) -> Vector2i:
+	var top := origin
+	while is_waterfall(top + Vector2i.UP):
+		if not can_enter(top + Vector2i.UP,Vector2i.UP): return origin
+		top += Vector2i.UP
+	if top != origin and can_enter(top + Vector2i.UP,Vector2i.UP): top += Vector2i.UP
+	return top
+
 ## 这一格是不是瀑布
 func is_waterfall(p: Vector2i) -> bool:
 	if emerald_waterfall.is_empty() or p.y < 0 or p.y >= emerald_waterfall.size():
@@ -624,6 +638,18 @@ func whirl_cleared(p: Vector2i) -> bool:
 
 func clear_whirl(p: Vector2i) -> void:
 	taken[_whirl_key(p)] = true
+	if not map_data.has("hgss") or not is_whirl(p): return
+	# A native current covers several adjacent cells. One use clears that current.
+	var pending: Array[Vector2i] = [p]
+	var checked := {p:true}
+	while not pending.is_empty():
+		var current: Vector2i = pending.pop_back()
+		for delta: Vector2i in [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]:
+			var next := current+delta
+			if is_whirl(next) and not checked.has(next):
+				checked[next]=true
+				taken[_whirl_key(next)]=true
+				pending.append(next)
 
 
 ## 站定之后要不要被地形带着再走一步（冰面打滑 / 洋流）
@@ -782,6 +808,17 @@ func climb_up() -> bool:
 	var face := player_pos + _dir_vec()
 	if not is_climb(face):
 		return false
+	if map_data.has("hgss"):
+		var direction := _dir_vec()
+		var field: Dictionary = map_data.hgss
+		var behavior := preload("res://core/hgss_field.gd").word(field,face) & 255
+		if (behavior==75 and direction.x!=0) or (behavior==76 and direction.y!=0): return false
+		var landing := face
+		while (preload("res://core/hgss_field.gd").word(field,landing)&255)==behavior:
+			landing+=direction
+		if not can_enter(landing,direction): return false
+		warp_to(landing)
+		return true
 	# 先踩上岩壁这一格（它是障碍，普通移动进不去，攀岩可以），再往上翻一格
 	player_pos = face
 	for i in 2:
@@ -864,6 +901,13 @@ func _check_talk() -> void:
 	if npc.is_empty() and is_desk(face):
 		npc = _npc_at(face + dir_vec)
 	if not npc.is_empty():
+		var index := npcs.find(npc)
+		if index>=0 and index*2+1<_npc_nodes.size():
+			var sprite: Sprite2D = _npc_nodes[index*2+1]
+			var identity := str(sprite.get_meta("johto_identity",""))
+			if not identity.is_empty() and not npc.has("apricorn"):
+				var turn: String = {"left":"right","right":"left","up":"down","down":"up"}[facing]
+				JohtoCast.draw(sprite,identity,turn)
 		last_npc = npc
 		last_event = "talk:" + String(npc.get("name", ""))
 		return
@@ -939,6 +983,7 @@ func _dir_vec() -> Vector2i:
 
 ## 相机别越过地图边界，否则边缘会露出黑底
 func _field_actor_scale() -> float:
+	if map_data.has("hgss"): return 1.0
 	# One Crystal block projects two native walking tiles onto one world cell.
 	return 0.5 if str(map_data.get("emerald","")).begins_with("johto_") else 1.0
 
@@ -946,6 +991,14 @@ func _apply_cam_limits() -> void:
 	if cam == null:
 		return
 	cam.zoom = Vector2(3,3) if map_data.get("region","") == "johto" and tile_size.x <= 6 and tile_size.y <= 6 else Vector2(2,2)
+	if map_data.has("hgss"):
+		var viewport_size := Vector2i(Vector2(480,320)/cam.zoom)
+		var bounds := preload("res://core/hgss_field.gd").camera_bounds(map_data,viewport_size)
+		cam.limit_left=bounds.position.x
+		cam.limit_top=bounds.position.y
+		cam.limit_right=bounds.end.x
+		cam.limit_bottom=bounds.end.y
+		return
 	cam.limit_left = 0
 	cam.limit_top = 0
 	cam.limit_right = tile_size.x * TILE
@@ -1079,6 +1132,16 @@ func _rebuild(story_flags: Variant = null) -> void:
 		n.queue_free()
 	_tile_nodes.clear()
 
+	if map_data.has("hgss"):
+		mansion_switches.clear()
+		quest_door_flag = ""
+		quest_door_tile = Vector2i(-2,-2)
+		preload("res://core/hgss_field.gd").draw(self)
+		preload("res://core/hgss_azalea.gd").draw(self)
+		_draw_npcs()
+		_draw_objects()
+		apply_light()
+		return
 	var plan := EmeraldField.plan_for(map_data)
 	var mansion: Dictionary = plan.get("mansion",{})
 	mansion_switches.clear()
@@ -1101,10 +1164,7 @@ func _rebuild(story_flags: Variant = null) -> void:
 		overrides.append_array(preload("res://core/kanto_campaign.gd").tiles(map_data.id,taken if story_flags==null else story_flags))
 	for row in overrides:
 		emerald_collision[int(row[1])][int(row[0])] = int(row[4])
-	# On a projected Crystal interior, a complete source room preserves the desk,
-	# doors and stage that the player and the scripted characters interact with.
-	var use_crystal_room: bool = plan.get("source","") == "emerald_on_crystal" and plan.get("biome","") in ["interior","cave","ruins"] and ResourceLoader.exists(emerald_png_path)
-	if not plan.is_empty() and not use_crystal_room:
+	if not plan.is_empty():
 		var field := EmeraldField.new()
 		add_child(field)
 		field.setup(self, plan, overrides)
@@ -1147,8 +1207,18 @@ func _draw_npcs() -> void:
 	for n in npcs:
 		var at: Array = n.get("at", [0, 0])
 		var s := Sprite2D.new()
-		var tex: Texture2D = NpcAppearance.texture_for(n)
-		if tex == null:
+		var johto: bool = map_data.get("region","")=="johto"
+		var identity := JohtoCast.character(n) if johto else ""
+		var tex: Texture2D
+		if not identity.is_empty():
+			s.set_meta("johto_identity",identity)
+			JohtoCast.draw(s,identity,JohtoCast.facing(n.get("hgss_facing","down")))
+			tex=s.texture
+		elif johto and (n.get("name","")=="道具球" or n.has("gives_mon")):
+			tex = EmeraldField.prop_texture("pickup")
+		elif not n.has("starter_balls"):
+			tex = NpcAppearance.texture_for(n)
+		if tex == null and not n.has("starter_balls"):
 			var gfx := String(n.get("gfx", ""))
 			var legacy := "res://assets/npc/%s.png" % gfx
 			tex = load(legacy) if gfx != "" and ResourceLoader.exists(legacy) else _npc_texture(str(n.get("name", "")))
@@ -1158,7 +1228,7 @@ func _draw_npcs() -> void:
 		var sh := Sprite2D.new()
 		sh.scale = s.scale
 		sh.texture = _shadow_tex
-		sh.visible = not n.get("in_water_pose",false)
+		sh.visible = not n.get("in_water_pose",false) and tex!=null and not (n.has("apricorn") or n.has("gives_mon") or n.get("name","")=="道具球")
 		var nz: int = Z_ACTOR + int(at[1]) * 2
 		sh.z_index = nz - 1
 		sh.position = Vector2(int(at[0]) * TILE + TILE / 2, int(at[1]) * TILE + TILE - 2)
@@ -1166,7 +1236,15 @@ func _draw_npcs() -> void:
 		_npc_nodes.append(sh)
 		# 同上：脚底对齐格子下沿
 		var foot := Vector2(int(at[0]) * TILE + TILE / 2, (int(at[1]) + 1) * TILE)
-		s.position = foot - Vector2(0, tex.get_height() * s.scale.y * 0.5)
+		s.position = foot
+		if tex: s.position.y -= tex.get_height()*s.scale.y*0.5
+		if n.has("starter_balls"):
+			var offsets := [Vector2(-6,-23),Vector2(6,-23),Vector2(0,-18)]
+			for i in int(n.starter_balls):
+				var ball := Sprite2D.new()
+				ball.texture=EmeraldField.prop_texture("pickup")
+				ball.position=offsets[i]
+				s.add_child(ball)
 		s.z_index = nz
 		add_child(s)
 		_npc_nodes.append(s)
@@ -1179,8 +1257,10 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 	var sprite: Sprite2D = _npc_nodes[index*2+1]
 	var shadow: Sprite2D = _npc_nodes[index*2]
 	var npc_position := Vector2i(int(row.at[0]),int(row.at[1]))
-	sprite.texture = preload("res://assets/npc/fr_oak_walk.png")
-	sprite.hframes = 9
+	var johto_identity := str(sprite.get_meta("johto_identity",""))
+	if johto_identity.is_empty():
+		sprite.texture = preload("res://assets/npc/fr_oak_walk.png")
+		sprite.hframes = 9
 	var actor_face := "down"
 	var directions := {"L":Vector2i.LEFT,"R":Vector2i.RIGHT,"U":Vector2i.UP,"D":Vector2i.DOWN}
 	var faces := {"L":"left","R":"right","U":"up","D":"down"}
@@ -1190,8 +1270,10 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 			var delta: Vector2i = directions[npc_path[i]]
 			npc_position+=delta
 			actor_face = faces[npc_path[i]]
-			sprite.flip_h = actor_face == "right"
-			sprite.frame = (WALK_A if i%2 == 0 else WALK_B)[actor_face]
+			if johto_identity.is_empty():
+				sprite.flip_h = actor_face == "right"
+				sprite.frame = (WALK_A if i%2 == 0 else WALK_B)[actor_face]
+			else: JohtoCast.draw(sprite,johto_identity,actor_face,1+i%2)
 			row.at=[npc_position.x,npc_position.y]
 			sprite.z_index=Z_ACTOR+npc_position.y*2
 			shadow.z_index=sprite.z_index-1
@@ -1203,7 +1285,8 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 			player_pos+=Vector2i(directions[player_path[i]])
 			tween.tween_method(_render_story_step,render_pos,Vector2(player_pos),0.11)
 		await tween.finished
-		sprite.frame = FACE_FRAME[actor_face]
+		if johto_identity.is_empty(): sprite.frame = FACE_FRAME[actor_face]
+		else: JohtoCast.draw(sprite,johto_identity,actor_face)
 	frame_col=0
 	_sync_player()
 
@@ -1283,7 +1366,7 @@ func _draw_objects() -> void:
 	for n in _obj_nodes:
 		n.queue_free()
 	_obj_nodes.clear()
-	var has_emerald := not EmeraldField.plan_for(map_data).is_empty()
+	var has_emerald := map_data.has("hgss") or not EmeraldField.plan_for(map_data).is_empty()
 	for o in objects:
 		var flag := String(o.get("flag", ""))
 		var key := _object_key(o)
@@ -1291,7 +1374,7 @@ func _draw_objects() -> void:
 			continue
 		var kind := String(o.get("kind", ""))
 		# The field plan already contains signs, wall maps and bedroom furniture.
-		if kind == "sign" or (kind == "wall_map" and map_data.get("id") == "pallet_town_players_house_2f"):
+		if o.get("native_fixture",false) or kind == "sign" or (kind == "wall_map" and map_data.get("id") == "pallet_town_players_house_2f"):
 			continue
 		var at: Array = o.get("at", [0, 0])
 		var base := Vector2(int(at[0]) * TILE, int(at[1]) * TILE)
@@ -1316,8 +1399,8 @@ func _draw_objects() -> void:
 
 
 func _object_key(o: Dictionary) -> String:
-	var at: Array = o.get("at", [0, 0])
-	return "%s:%d,%d" % [String(map_data.get("id", "")), int(at[0]), int(at[1])]
+	var at: Array = o.get("legacy_at", o.get("at", [0, 0]))
+	return "%s:%d,%d" % [String(o.get("legacy_map",map_data.get("id",""))), int(at[0]), int(at[1])]
 
 
 ## 这一格上有没有能按 A 的东西
@@ -1351,13 +1434,24 @@ func object_ref(p: Vector2i) -> Dictionary:
 
 ## 怪力：把石头往 dir 方向推一格。推不动就返回 false，调用方负责说话
 func push_object(o: Dictionary, dir: Vector2i) -> bool:
-	if o.is_empty() or taken.has("placed:"+str(o.get("rock_id",""))):
+	if o.is_empty() or o.has("ice_rest") or taken.has("placed:"+str(o.get("rock_id",""))):
 		return false
 	var at: Array = o.get("at", [0, 0])
 	var from := Vector2i(int(at[0]), int(at[1]))
 	var to := from + dir
 	if to.x < 0 or to.y < 0 or to.x >= tile_size.x or to.y >= tile_size.y:
 		return false
+	if o.has("ice_rock"):
+		var pit:=warp_at(to)
+		if pit.has("ice_pit"):
+			var filled:="ice:pit:%d"%int(pit.ice_pit)
+			if taken.get(filled,false): return false
+			taken[filled]=true
+			taken["ice:rock:"+str(o.ice_rock)]=true
+			o["dropped"]=true
+			objects.erase(o)
+			_draw_objects()
+			return true
 	if map_data.get("id","")=="victoryroad_3f" and to==Vector2i(34,18):
 		taken["victory_rock_dropped"]=true
 		o["dropped"]=true
@@ -1407,7 +1501,8 @@ func apply_light() -> void:
 		add_child(_night_tint)
 	var base := Color(1, 1, 1)
 	# FireRed maps use the palette assigned to their tileset throughout the day.
-	if night > 0.01 and EmeraldField.plan_for(map_data).get("source","") != "pokefirered":
+	var lit_room: bool = map_data.get("hgss",{}).get("art",{}).get("indoors",false)
+	if night > 0.01 and not lit_room and EmeraldField.plan_for(map_data).get("source","") != "pokefirered":
 		var t: float = clampf(night, 0.0, 1.0)
 		base = Color(1.0 - 0.30 * t, 1.0 - 0.28 * t, 1.0 - 0.12 * t)
 	match weather:
@@ -1692,6 +1787,8 @@ func warp_to(pos: Vector2i) -> void:
 
 func arrive(target: Dictionary) -> void:
 	var pos := Vector2i(int(target.at[0]), int(target.at[1]))
+	if map_data.has("hgss") and not target.get("hgss",false):
+		pos=preload("res://core/hgss_field.gd").position(map_data,pos)
 	facing = str(target.get("facing", facing))
 	if not is_water(pos):
 		surfing = false
