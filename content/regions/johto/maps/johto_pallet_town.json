@@ -341,5 +341,26 @@
  ],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 72,
+   "min": 35,
+   "max": 35,
+   "weight": 60
+  },
+  {
+   "species": 72,
+   "min": 30,
+   "max": 30,
+   "weight": 30
+  },
+  {
+   "species": 73,
+   "min": 35,
+   "max": 35,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.06
 }

@@ -103,32 +103,6 @@
   },
   {
    "at": [
-    3,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    16,
-    4
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
     12,
     7
    ],
@@ -292,66 +266,36 @@
    "species": 23,
    "min": 13,
    "max": 13,
-   "weight": 60
+   "weight": 30
   },
   {
    "species": 21,
    "min": 14,
    "max": 14,
-   "weight": 60
+   "weight": 30
   },
   {
    "species": 19,
    "min": 15,
    "max": 15,
-   "weight": 40
-  },
-  {
-   "species": 19,
-   "min": 13,
-   "max": 13,
-   "weight": 30
-  },
-  {
-   "species": 41,
-   "min": 14,
-   "max": 14,
-   "weight": 30
+   "weight": 20
   },
   {
    "species": 20,
    "min": 16,
    "max": 16,
-   "weight": 20
-  },
-  {
-   "species": 20,
-   "min": 15,
-   "max": 15,
-   "weight": 20
-  },
-  {
-   "species": 42,
-   "min": 16,
-   "max": 16,
-   "weight": 15
+   "weight": 10
   },
   {
    "species": 24,
    "min": 15,
    "max": 15,
-   "weight": 10
+   "weight": 5
   },
   {
    "species": 22,
    "min": 16,
    "max": 16,
-   "weight": 10
-  },
-  {
-   "species": 183,
-   "min": 15,
-   "max": 15,
    "weight": 5
   }
  ],
@@ -399,6 +343,32 @@
    "category": "heal",
    "flag": "johto:EVENT_ROUTE_42_HIDDEN_MAX_POTION",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    2
+   ],
+   "source_script": "Route42UltraBall",
+   "flag": "EVENT_ROUTE_42_ULTRA_BALL",
+   "sprite": "item",
+   "name": "高级球",
+   "category": "ball",
+   "item": "ITEM_ULTRA_BALL"
+  },
+  {
+   "kind": "item",
+   "at": [
+    16,
+    4
+   ],
+   "source_script": "Route42SuperPotion",
+   "flag": "EVENT_ROUTE_42_SUPER_POTION",
+   "sprite": "item",
+   "name": "好伤药",
+   "category": "heal",
+   "item": "ITEM_SUPER_POTION"
   }
  ],
  "weather": "",
@@ -424,5 +394,42 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.04
+ "water_encounter_rate": 0.04,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 19,
+     "min": 13,
+     "max": 13,
+     "weight": 30
+    },
+    {
+     "species": 41,
+     "min": 14,
+     "max": 14,
+     "weight": 30
+    },
+    {
+     "species": 20,
+     "min": 15,
+     "max": 15,
+     "weight": 20
+    },
+    {
+     "species": 42,
+     "min": 16,
+     "max": 16,
+     "weight": 15
+    },
+    {
+     "species": 183,
+     "min": 15,
+     "max": 15,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

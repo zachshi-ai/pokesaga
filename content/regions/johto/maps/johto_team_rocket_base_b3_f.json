@@ -141,71 +141,6 @@
     "我以后也要当很强的训练家！",
     "你的宝可梦看起来很精神。"
    ]
-  },
-  {
-   "at": [
-    0,
-    6
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    1,
-    6
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    12,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    8,
-    1
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    7,
-    5
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -318,6 +253,71 @@
    "kind": "sign",
    "sprite": "sign",
    "text": "火箭队的誓词写道：夺取宝可梦来牟利，利用宝可梦征服世界！"
+  },
+  {
+   "kind": "item",
+   "at": [
+    0,
+    6
+   ],
+   "source_script": "TeamRocketBaseB3FProtein",
+   "flag": "EVENT_TEAM_ROCKET_BASE_B3F_PROTEIN",
+   "sprite": "item",
+   "name": "攻击增强剂",
+   "category": "other",
+   "item": "ITEM_PROTEIN"
+  },
+  {
+   "kind": "item",
+   "at": [
+    1,
+    6
+   ],
+   "source_script": "TeamRocketBaseB3FXSpecial",
+   "flag": "EVENT_TEAM_ROCKET_BASE_B3F_X_SPECIAL",
+   "sprite": "item",
+   "name": "特攻强化",
+   "category": "battle",
+   "item": "ITEM_X_SPECIAL"
+  },
+  {
+   "kind": "item",
+   "at": [
+    12,
+    2
+   ],
+   "source_script": "TeamRocketBaseB3FFullHeal",
+   "flag": "EVENT_TEAM_ROCKET_BASE_B3F_FULL_HEAL",
+   "sprite": "item",
+   "name": "万灵药",
+   "category": "heal",
+   "item": "ITEM_FULL_HEAL"
+  },
+  {
+   "kind": "item",
+   "at": [
+    8,
+    1
+   ],
+   "source_script": "TeamRocketBaseB3FIceHeal",
+   "flag": "EVENT_TEAM_ROCKET_BASE_B3F_ICE_HEAL",
+   "sprite": "item",
+   "name": "解冻药",
+   "category": "heal",
+   "item": "ITEM_ICE_HEAL"
+  },
+  {
+   "kind": "item",
+   "at": [
+    7,
+    5
+   ],
+   "source_script": "TeamRocketBaseB3FUltraBall",
+   "flag": "EVENT_TEAM_ROCKET_BASE_B3F_ULTRA_BALL",
+   "sprite": "item",
+   "name": "高级球",
+   "category": "ball",
+   "item": "ITEM_ULTRA_BALL"
   }
  ],
  "weather": "",

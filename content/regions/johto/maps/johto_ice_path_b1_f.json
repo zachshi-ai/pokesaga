@@ -61,19 +61,6 @@
     "城都这地方，慢慢逛才有味道。",
     "出远门记得带足伤药。"
    ]
-  },
-  {
-   "at": [
-    2,
-    17
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -192,55 +179,37 @@
  ],
  "encounters": [
   {
-   "species": 41,
-   "min": 23,
-   "max": 23,
-   "weight": 90
-  },
-  {
-   "species": 42,
-   "min": 23,
-   "max": 23,
-   "weight": 72
-  },
-  {
    "species": 220,
-   "min": 22,
-   "max": 22,
-   "weight": 60
-  },
-  {
-   "species": 225,
    "min": 22,
    "max": 22,
    "weight": 30
   },
   {
-   "species": 220,
-   "min": 24,
-   "max": 24,
-   "weight": 20
+   "species": 41,
+   "min": 23,
+   "max": 23,
+   "weight": 30
   },
   {
    "species": 42,
-   "min": 25,
-   "max": 25,
-   "weight": 15
+   "min": 23,
+   "max": 23,
+   "weight": 24
   },
   {
-   "species": 225,
+   "species": 220,
    "min": 24,
    "max": 24,
    "weight": 10
   },
   {
-   "species": 124,
-   "min": 22,
-   "max": 22,
-   "weight": 2
+   "species": 42,
+   "min": 25,
+   "max": 25,
+   "weight": 5
   },
   {
-   "species": 215,
+   "species": 124,
    "min": 22,
    "max": 22,
    "weight": 1
@@ -260,9 +229,65 @@
    "category": "heal",
    "flag": "johto:EVENT_ICE_PATH_B1F_HIDDEN_MAX_POTION",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    2,
+    17
+   ],
+   "source_script": "IcePathB1FIron",
+   "flag": "EVENT_ICE_PATH_B1F_IRON",
+   "sprite": "item",
+   "name": "防御增强剂",
+   "category": "other",
+   "item": "ITEM_IRON"
   }
  ],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 225,
+     "min": 22,
+     "max": 22,
+     "weight": 30
+    },
+    {
+     "species": 41,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 42,
+     "min": 23,
+     "max": 23,
+     "weight": 24
+    },
+    {
+     "species": 225,
+     "min": 24,
+     "max": 24,
+     "weight": 10
+    },
+    {
+     "species": 42,
+     "min": 25,
+     "max": 25,
+     "weight": 5
+    },
+    {
+     "species": 215,
+     "min": 22,
+     "max": 22,
+     "weight": 1
+    }
+   ],
+   "rate": 0.02
+  }
+ }
 }

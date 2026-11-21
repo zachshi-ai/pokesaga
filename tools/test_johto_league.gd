@@ -157,7 +157,12 @@ func run() -> void:
 		talk(npc)
 		battle("a")
 		check(SAVE.load_game().flags.get(row.flag,false), "round win did not save")
-		door(next_room)
+		if i == rooms.size()-1:
+			close_dialogs()
+			await process_frame  # Lance leads the player into the Hall after the press arrive.
+			close_dialogs()
+		if world.map_data.id != next_room:
+			door(next_room)
 	if not failed:
 		var saved := SAVE.load_game()
 		check(saved.flags.get("johto_champion",false) and saved.map == rules.hall, "champion did not save")

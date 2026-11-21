@@ -9,47 +9,7 @@
   5,
   4
  ],
- "npcs": [
-  {
-   "at": [
-    3,
-    6
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    5,
-    3
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    1,
-    0
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  }
- ],
+ "npcs": [],
  "warps": [
   {
    "at": [
@@ -139,56 +99,121 @@
  "encounters": [
   {
    "species": 19,
-   "min": 22,
-   "max": 22,
-   "weight": 70
-  },
-  {
-   "species": 19,
-   "min": 20,
-   "max": 20,
-   "weight": 60
-  },
-  {
-   "species": 19,
-   "min": 21,
-   "max": 21,
-   "weight": 60
-  },
-  {
-   "species": 92,
    "min": 20,
    "max": 20,
    "weight": 30
   },
   {
-   "species": 92,
+   "species": 19,
    "min": 21,
    "max": 21,
    "weight": 30
   },
   {
-   "species": 92,
+   "species": 19,
    "min": 22,
    "max": 22,
-   "weight": 20
+   "weight": 30
   },
   {
    "species": 19,
    "min": 23,
    "max": 23,
-   "weight": 15
+   "weight": 5
   },
   {
    "species": 19,
    "min": 24,
    "max": 24,
-   "weight": 15
+   "weight": 5
   }
  ],
  "encounter_rate": 0.02,
- "objects": [],
+ "objects": [
+  {
+   "kind": "item",
+   "at": [
+    3,
+    6
+   ],
+   "source_script": "TinTower8FNugget",
+   "flag": "EVENT_TIN_TOWER_8F_NUGGET",
+   "sprite": "item",
+   "name": "金珠",
+   "category": "other",
+   "item": "ITEM_NUGGET"
+  },
+  {
+   "kind": "item",
+   "at": [
+    5,
+    3
+   ],
+   "source_script": "TinTower8FMaxElixer",
+   "flag": "EVENT_TIN_TOWER_8F_MAX_ELIXER",
+   "sprite": "item",
+   "name": "PP 多项全补剂",
+   "category": "heal",
+   "item": "ITEM_MAX_ELIXIR"
+  },
+  {
+   "kind": "item",
+   "at": [
+    1,
+    0
+   ],
+   "source_script": "TinTower8FFullRestore",
+   "flag": "EVENT_TIN_TOWER_8F_FULL_RESTORE",
+   "sprite": "item",
+   "name": "全复药",
+   "category": "heal",
+   "item": "ITEM_FULL_RESTORE"
+  }
+ ],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 92,
+     "min": 20,
+     "max": 20,
+     "weight": 30
+    },
+    {
+     "species": 92,
+     "min": 21,
+     "max": 21,
+     "weight": 30
+    },
+    {
+     "species": 92,
+     "min": 22,
+     "max": 22,
+     "weight": 20
+    },
+    {
+     "species": 19,
+     "min": 22,
+     "max": 22,
+     "weight": 10
+    },
+    {
+     "species": 19,
+     "min": 23,
+     "max": 23,
+     "weight": 5
+    },
+    {
+     "species": 19,
+     "min": 24,
+     "max": 24,
+     "weight": 5
+    }
+   ],
+   "rate": 0.02
+  }
+ }
 }

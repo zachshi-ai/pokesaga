@@ -83,32 +83,6 @@
     "城都这地方，慢慢逛才有味道。",
     "出远门记得带足伤药。"
    ]
-  },
-  {
-   "at": [
-    2,
-    0
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    17,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -324,6 +298,32 @@
    "category": "heal",
    "flag": "johto:EVENT_VIOLET_CITY_HIDDEN_HYPER_POTION",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    2,
+    0
+   ],
+   "source_script": "VioletCityPPUp",
+   "flag": "EVENT_VIOLET_CITY_PP_UP",
+   "sprite": "item",
+   "name": "PP 提升剂",
+   "category": "other",
+   "item": "ITEM_PP_UP"
+  },
+  {
+   "kind": "item",
+   "at": [
+    17,
+    2
+   ],
+   "source_script": "VioletCityRareCandy",
+   "flag": "EVENT_VIOLET_CITY_RARE_CANDY",
+   "sprite": "item",
+   "name": "神奇糖果",
+   "category": "other",
+   "item": "ITEM_RARE_CANDY"
   }
  ],
  "weather": "",

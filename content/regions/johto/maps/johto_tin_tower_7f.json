@@ -9,21 +9,7 @@
   5,
   4
  ],
- "npcs": [
-  {
-   "at": [
-    8,
-    0
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  }
- ],
+ "npcs": [],
  "warps": [
   {
    "at": [
@@ -99,56 +85,95 @@
  "encounters": [
   {
    "species": 19,
-   "min": 22,
-   "max": 22,
-   "weight": 70
-  },
-  {
-   "species": 19,
-   "min": 20,
-   "max": 20,
-   "weight": 60
-  },
-  {
-   "species": 19,
-   "min": 21,
-   "max": 21,
-   "weight": 60
-  },
-  {
-   "species": 92,
    "min": 20,
    "max": 20,
    "weight": 30
   },
   {
-   "species": 92,
+   "species": 19,
    "min": 21,
    "max": 21,
    "weight": 30
   },
   {
-   "species": 92,
+   "species": 19,
    "min": 22,
    "max": 22,
-   "weight": 20
+   "weight": 30
   },
   {
    "species": 19,
    "min": 23,
    "max": 23,
-   "weight": 15
+   "weight": 5
   },
   {
    "species": 19,
    "min": 24,
    "max": 24,
-   "weight": 15
+   "weight": 5
   }
  ],
  "encounter_rate": 0.02,
- "objects": [],
+ "objects": [
+  {
+   "kind": "item",
+   "at": [
+    8,
+    0
+   ],
+   "source_script": "TinTower7FMaxRevive",
+   "flag": "EVENT_TIN_TOWER_7F_MAX_REVIVE",
+   "sprite": "item",
+   "name": "活力块",
+   "category": "heal",
+   "item": "ITEM_MAX_REVIVE"
+  }
+ ],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 92,
+     "min": 20,
+     "max": 20,
+     "weight": 30
+    },
+    {
+     "species": 92,
+     "min": 21,
+     "max": 21,
+     "weight": 30
+    },
+    {
+     "species": 92,
+     "min": 22,
+     "max": 22,
+     "weight": 20
+    },
+    {
+     "species": 19,
+     "min": 22,
+     "max": 22,
+     "weight": 10
+    },
+    {
+     "species": 19,
+     "min": 23,
+     "max": 23,
+     "weight": 5
+    },
+    {
+     "species": 19,
+     "min": 24,
+     "max": 24,
+     "weight": 5
+    }
+   ],
+   "rate": 0.02
+  }
+ }
 }

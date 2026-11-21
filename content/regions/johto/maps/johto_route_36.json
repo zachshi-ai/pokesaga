@@ -167,7 +167,7 @@
  "warps": [
   {
    "at": [
-    13,
+    9,
     4
    ],
    "to": {
@@ -181,7 +181,7 @@
   },
   {
    "at": [
-    13,
+    10,
     4
    ],
    "to": {
@@ -189,14 +189,14 @@
     "map": "johto_route_36_national_park_gate",
     "at": [
      4,
-     3
+     0
     ]
    }
   },
   {
    "at": [
-    16,
-    4
+    23,
+    6
    ],
    "to": {
     "region": "johto",
@@ -209,14 +209,14 @@
   },
   {
    "at": [
-    16,
-    4
+    24,
+    6
    ],
    "to": {
     "region": "johto",
     "map": "johto_route_36_ruins_of_alph_gate",
     "at": [
-     2,
+     1,
      1
     ]
    }
@@ -317,60 +317,30 @@
    "species": 16,
    "min": 4,
    "max": 4,
-   "weight": 90
+   "weight": 60
   },
   {
    "species": 69,
    "min": 5,
    "max": 5,
-   "weight": 60
-  },
-  {
-   "species": 165,
-   "min": 4,
-   "max": 4,
-   "weight": 30
-  },
-  {
-   "species": 167,
-   "min": 4,
-   "max": 4,
-   "weight": 30
-  },
-  {
-   "species": 163,
-   "min": 4,
-   "max": 4,
-   "weight": 30
+   "weight": 20
   },
   {
    "species": 58,
    "min": 5,
    "max": 5,
-   "weight": 20
-  },
-  {
-   "species": 163,
-   "min": 5,
-   "max": 5,
-   "weight": 15
+   "weight": 10
   },
   {
    "species": 16,
    "min": 5,
    "max": 5,
-   "weight": 10
+   "weight": 5
   },
   {
    "species": 16,
    "min": 6,
    "max": 6,
-   "weight": 10
-  },
-  {
-   "species": 92,
-   "min": 5,
-   "max": 5,
    "weight": 5
   }
  ],
@@ -409,5 +379,83 @@
  ],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "encounters_by_time": {
+  "morn": {
+   "pool": [
+    {
+     "species": 165,
+     "min": 4,
+     "max": 4,
+     "weight": 30
+    },
+    {
+     "species": 16,
+     "min": 4,
+     "max": 4,
+     "weight": 30
+    },
+    {
+     "species": 69,
+     "min": 5,
+     "max": 5,
+     "weight": 20
+    },
+    {
+     "species": 58,
+     "min": 5,
+     "max": 5,
+     "weight": 10
+    },
+    {
+     "species": 16,
+     "min": 5,
+     "max": 5,
+     "weight": 5
+    },
+    {
+     "species": 16,
+     "min": 6,
+     "max": 6,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  },
+  "nite": {
+   "pool": [
+    {
+     "species": 167,
+     "min": 4,
+     "max": 4,
+     "weight": 30
+    },
+    {
+     "species": 163,
+     "min": 4,
+     "max": 4,
+     "weight": 30
+    },
+    {
+     "species": 69,
+     "min": 5,
+     "max": 5,
+     "weight": 20
+    },
+    {
+     "species": 163,
+     "min": 5,
+     "max": 5,
+     "weight": 15
+    },
+    {
+     "species": 92,
+     "min": 5,
+     "max": 5,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

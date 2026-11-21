@@ -102,7 +102,7 @@ static func moves_learned(mon: Dictionary, from_lv: int, to_lv: int) -> Array:
 ## 该不该进化：返回 {to, form}，没得进化返回空字典。
 ## 形态要跟着走：阿罗拉小拉达进化成阿罗拉拉达，不是普通拉达。
 static func evolution_of(mon: Dictionary) -> Dictionary:
-	if mon.is_empty():
+	if mon.is_empty() or mon.get("held","")=="EVERSTONE":
 		return {}
 	var sid := int(mon.get("species_id", 0))
 	var form_key := String(mon.get("form", ""))

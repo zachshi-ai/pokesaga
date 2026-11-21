@@ -121,19 +121,6 @@
     "城都这地方，慢慢逛才有味道。",
     "出远门记得带足伤药。"
    ]
-  },
-  {
-   "at": [
-    0,
-    7
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -320,37 +307,31 @@
    "species": 74,
    "min": 2,
    "max": 2,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 21,
    "min": 2,
    "max": 2,
-   "weight": 60
+   "weight": 30
   },
   {
    "species": 74,
    "min": 3,
    "max": 3,
-   "weight": 60
-  },
-  {
-   "species": 19,
-   "min": 2,
-   "max": 2,
-   "weight": 55
+   "weight": 20
   },
   {
    "species": 19,
    "min": 3,
    "max": 3,
-   "weight": 30
+   "weight": 10
   },
   {
-   "species": 231,
+   "species": 19,
    "min": 2,
    "max": 2,
-   "weight": 5
+   "weight": 10
   }
  ],
  "encounter_rate": 0.1,
@@ -364,9 +345,94 @@
    "kind": "sign",
    "sprite": "sign",
    "text": "46 号道路，前方是山路。"
+  },
+  {
+   "kind": "item",
+   "at": [
+    0,
+    7
+   ],
+   "source_script": "Route46XSpeed",
+   "flag": "EVENT_ROUTE_46_X_SPEED",
+   "sprite": "item",
+   "name": "速度强化",
+   "category": "battle",
+   "item": "ITEM_X_SPEED"
   }
  ],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "encounters_by_time": {
+  "morn": {
+   "pool": [
+    {
+     "species": 74,
+     "min": 2,
+     "max": 2,
+     "weight": 30
+    },
+    {
+     "species": 21,
+     "min": 2,
+     "max": 2,
+     "weight": 30
+    },
+    {
+     "species": 74,
+     "min": 3,
+     "max": 3,
+     "weight": 20
+    },
+    {
+     "species": 19,
+     "min": 3,
+     "max": 3,
+     "weight": 10
+    },
+    {
+     "species": 231,
+     "min": 2,
+     "max": 2,
+     "weight": 5
+    },
+    {
+     "species": 19,
+     "min": 2,
+     "max": 2,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  },
+  "nite": {
+   "pool": [
+    {
+     "species": 74,
+     "min": 2,
+     "max": 2,
+     "weight": 30
+    },
+    {
+     "species": 19,
+     "min": 2,
+     "max": 2,
+     "weight": 40
+    },
+    {
+     "species": 74,
+     "min": 3,
+     "max": 3,
+     "weight": 20
+    },
+    {
+     "species": 19,
+     "min": 3,
+     "max": 3,
+     "weight": 10
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

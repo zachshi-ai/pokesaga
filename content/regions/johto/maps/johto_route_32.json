@@ -240,19 +240,6 @@
   },
   {
    "at": [
-    3,
-    26
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
     7,
     6
    ],
@@ -274,19 +261,6 @@
     "这条路我闭着眼都能走。",
     "听说北边的塔里住着传说中的宝可梦。",
     "天快黑了，早点回去吧。"
-   ]
-  },
-  {
-   "at": [
-    1,
-    15
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
    ]
   }
  ],
@@ -470,61 +444,37 @@
  ],
  "encounters": [
   {
-   "species": 19,
-   "min": 5,
-   "max": 5,
-   "weight": 90
-  },
-  {
    "species": 23,
-   "min": 4,
-   "max": 4,
-   "weight": 60
-  },
-  {
-   "species": 69,
-   "min": 7,
-   "max": 7,
-   "weight": 60
-  },
-  {
-   "species": 194,
    "min": 4,
    "max": 4,
    "weight": 30
   },
   {
+   "species": 19,
+   "min": 5,
+   "max": 5,
+   "weight": 30
+  },
+  {
+   "species": 69,
+   "min": 7,
+   "max": 7,
+   "weight": 20
+  },
+  {
    "species": 187,
    "min": 6,
    "max": 6,
-   "weight": 20
+   "weight": 10
   },
   {
    "species": 16,
    "min": 7,
    "max": 7,
-   "weight": 10
-  },
-  {
-   "species": 187,
-   "min": 7,
-   "max": 7,
-   "weight": 10
-  },
-  {
-   "species": 41,
-   "min": 6,
-   "max": 6,
-   "weight": 10
-  },
-  {
-   "species": 163,
-   "min": 7,
-   "max": 7,
    "weight": 5
   },
   {
-   "species": 92,
+   "species": 187,
    "min": 7,
    "max": 7,
    "weight": 5
@@ -574,6 +524,32 @@
    "category": "heal",
    "flag": "johto:EVENT_ROUTE_32_HIDDEN_SUPER_POTION",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    26
+   ],
+   "source_script": "Route32GreatBall",
+   "flag": "EVENT_ROUTE_32_GREAT_BALL",
+   "sprite": "item",
+   "name": "超级球",
+   "category": "ball",
+   "item": "ITEM_GREAT_BALL"
+  },
+  {
+   "kind": "item",
+   "at": [
+    1,
+    15
+   ],
+   "source_script": "Route32Repel",
+   "flag": "EVENT_ROUTE_32_REPEL",
+   "sprite": "item",
+   "name": "除虫喷雾",
+   "category": "other",
+   "item": "ITEM_REPEL"
   }
  ],
  "weather": "",
@@ -599,5 +575,48 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.06
+ "water_encounter_rate": 0.06,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 194,
+     "min": 4,
+     "max": 4,
+     "weight": 30
+    },
+    {
+     "species": 19,
+     "min": 5,
+     "max": 5,
+     "weight": 30
+    },
+    {
+     "species": 69,
+     "min": 7,
+     "max": 7,
+     "weight": 20
+    },
+    {
+     "species": 41,
+     "min": 6,
+     "max": 6,
+     "weight": 10
+    },
+    {
+     "species": 163,
+     "min": 7,
+     "max": 7,
+     "weight": 5
+    },
+    {
+     "species": 92,
+     "min": 7,
+     "max": 7,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

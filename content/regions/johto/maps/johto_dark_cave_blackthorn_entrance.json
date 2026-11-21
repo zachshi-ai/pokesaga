@@ -21,32 +21,6 @@
     "你好。",
     "路上小心。"
    ]
-  },
-  {
-   "at": [
-    10,
-    12
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    3,
-    11
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -84,43 +58,25 @@
    "species": 74,
    "min": 23,
    "max": 23,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 41,
    "min": 23,
    "max": 23,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 75,
    "min": 25,
    "max": 25,
-   "weight": 60
+   "weight": 20
   },
   {
    "species": 217,
    "min": 25,
    "max": 25,
-   "weight": 20
-  },
-  {
-   "species": 42,
-   "min": 23,
-   "max": 23,
-   "weight": 15
-  },
-  {
-   "species": 202,
-   "min": 20,
-   "max": 20,
    "weight": 10
-  },
-  {
-   "species": 216,
-   "min": 20,
-   "max": 20,
-   "weight": 5
   },
   {
    "species": 217,
@@ -129,14 +85,40 @@
    "weight": 5
   },
   {
-   "species": 202,
-   "min": 25,
-   "max": 25,
+   "species": 42,
+   "min": 23,
+   "max": 23,
    "weight": 5
   }
  ],
  "encounter_rate": 0.04,
- "objects": [],
+ "objects": [
+  {
+   "kind": "item",
+   "at": [
+    10,
+    12
+   ],
+   "source_script": "DarkCaveBlackthornEntranceRevive",
+   "flag": "EVENT_DARK_CAVE_BLACKTHORN_ENTRANCE_REVIVE",
+   "sprite": "item",
+   "name": "活力碎片",
+   "category": "heal",
+   "item": "ITEM_REVIVE"
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    11
+   ],
+   "source_script": "DarkCaveBlackthornEntranceTMSnore",
+   "flag": "EVENT_DARK_CAVE_BLACKTHORN_ENTRANCE_TM_SNORE",
+   "sprite": "item",
+   "name": "城都招式学习器·打鼾",
+   "category": "tm"
+  }
+ ],
  "weather": "",
  "weather_name": "",
  "cycling": false,
@@ -161,5 +143,89 @@
   }
  ],
  "water_encounter_rate": 0.02,
- "dark": true
+ "dark": true,
+ "encounters_by_time": {
+  "morn": {
+   "pool": [
+    {
+     "species": 74,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 41,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 75,
+     "min": 25,
+     "max": 25,
+     "weight": 20
+    },
+    {
+     "species": 217,
+     "min": 25,
+     "max": 25,
+     "weight": 10
+    },
+    {
+     "species": 216,
+     "min": 20,
+     "max": 20,
+     "weight": 5
+    },
+    {
+     "species": 42,
+     "min": 23,
+     "max": 23,
+     "weight": 5
+    }
+   ],
+   "rate": 0.04
+  },
+  "nite": {
+   "pool": [
+    {
+     "species": 74,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 41,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 75,
+     "min": 25,
+     "max": 25,
+     "weight": 20
+    },
+    {
+     "species": 202,
+     "min": 20,
+     "max": 20,
+     "weight": 10
+    },
+    {
+     "species": 202,
+     "min": 25,
+     "max": 25,
+     "weight": 5
+    },
+    {
+     "species": 42,
+     "min": 23,
+     "max": 23,
+     "weight": 5
+    }
+   ],
+   "rate": 0.04
+  }
+ }
 }

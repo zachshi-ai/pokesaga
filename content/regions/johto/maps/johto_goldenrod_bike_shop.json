@@ -33,10 +33,11 @@
     "region": "johto",
     "map": "johto_goldenrod_city",
     "at": [
-     14,
-     15
+     13,
+     14
     ]
-   }
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -47,10 +48,11 @@
     "region": "johto",
     "map": "johto_goldenrod_city",
     "at": [
-     14,
-     15
+     13,
+     14
     ]
-   }
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

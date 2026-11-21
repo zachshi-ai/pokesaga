@@ -6,6 +6,8 @@ var game
 var world
 var db
 var mode := "travel"
+var requested_ball := ""
+var requested_species := 0
 var turns := 0
 var steps := 0
 var obstruction := []
@@ -70,12 +72,14 @@ func battle() -> void:
 		if ui.state == "menu":
 			turns += 1
 			var ball := ""
-			if capture:
+			if wild and mode=="throw" and (requested_species==0 or int(enemy.species_id)==requested_species) and count_item(requested_ball)>0:
+				ball=requested_ball
+			elif capture:
 				for kind in ["超级球","精灵球","高级球"]:
 					if count_item(kind) > 0:
 						ball = kind
 						break
-			var weaken := soften_move(ui, enemy) if ball != "" else -1
+			var weaken := soften_move(ui, enemy) if capture and ball != "" else -1
 			if weaken >= 0:
 				ui._on_command_kind("fight")
 				ui._on_move(weaken)
@@ -108,7 +112,7 @@ func battle() -> void:
 	if game.active_battle != null:
 		problem = "Battle did not finish: " + str(ui.trainer_name)
 		return
-	if not wild or ui.battle.winner in ["caught","b"]:
+	if not wild or ui.battle.winner in ["caught","b"] or ui.battle.fishing_encounter:
 		fights.append([str(ui.trainer_name),enemy.name,enemy.level,ui.battle.winner])
 	await process_frame
 
@@ -145,7 +149,7 @@ func status() -> Dictionary:
 	return {"pos":current(),"party":mons,"bag":items,"flags":game._flags().keys().filter(func(k): return game._flags()[k]),
 		"badges":game.save_data.badges,"money":game.save_data.money,"dex":game.save_data.dex.caught,"defeated":game.save_data.get("defeated",{}),
 		"actors":world.npcs.map(func(n):return [n.at,n.get("role",""),n.get("name",""),n.get("shop",false)]),
-		"bins":[game._flags().get("surge_bin",-1),game._flags().get("surge_second_bin",-1)],"history":game.save_data.get("return_passages",{}),"buttons":panels,"problem":problem,"fights":fights,
+		"bins":[game._flags().get("surge_bin",-1),game._flags().get("surge_second_bin",-1)],"history":game.save_data.get("return_passages",{}),"buttons":panels,"panels":game.panel_open,"held":game.save_data.party.map(func(m):return m.get("held","")),"problem":problem,"fights":fights,
 		"dialog":lines,"turns":turns,"steps":steps,"obstruction":obstruction,"hall":game.save_data.get("hall_of_fame",{})}
 
 func act(cmd: Dictionary) -> void:
@@ -165,6 +169,11 @@ func act(cmd: Dictionary) -> void:
 				if world.map_data.id != expected[0] or world.player_pos != Vector2i(int(expected[1]),int(expected[2])) or game.panel_open > 0 or problem:
 					obstruction = [before,leg[0],expected]
 					break
+		"turn":
+			# A directional press against an unwalkable tile turns the field sprite.
+			world.tick_walk(1.0)
+			game._move(DIR[cmd.dir])
+			world.tick_walk(1.0)
 		"face":
 			# Attempting to walk against the person, counter, tree or wall turns to face it.
 			world.tick_walk(1.0)
@@ -174,6 +183,17 @@ func act(cmd: Dictionary) -> void:
 			if not click(cmd.label): problem = "Missing button: " + str(cmd.label)
 		"back": game._on_back()
 		"hm": game._open_hm()
+		"throw_with":
+			requested_ball=cmd.item
+			requested_species=int(cmd.get("species",0))
+			mode="throw"
+		"equip":
+			game._open_party()
+			var team=game.menu_layer.get_child(-1)
+			team._open_detail(int(cmd.slot))
+			if not click("携带物品") or not click(cmd.item):
+				problem="Missing held item "+str(cmd.item)
+			while is_instance_valid(team) and not team.is_queued_for_deletion(): team.handle_back()
 		"lead":
 			game._open_party()
 			var party_ui = game.menu_layer.get_child(-1)
@@ -192,7 +212,7 @@ func act(cmd: Dictionary) -> void:
 			else:
 				problem = "No party member at slot %d" % slot
 			pc.handle_back()
-		"use":
+		"use", "key_item":
 			game._open_bag()
 			var bag = game._bag_ui
 			var item_name := str(cmd.item)
@@ -203,16 +223,18 @@ func act(cmd: Dictionary) -> void:
 				for label in bag.row_box.find_children("*", "Label", true, false):
 					if label.text == item_name and not label.get_parent().is_queued_for_deletion():
 						label.get_parent().pressed.emit()
-						row_index = int(cmd.slot)
+						row_index = int(cmd.get("slot", 0))
 						break
 				break
-			if row_index >= 0 and row_index < game.save_data.party.size():
+			if cmd.action == "key_item" and row_index >= 0:
+				pass
+			elif row_index >= 0 and row_index < game.save_data.party.size():
 				var mon: Dictionary = game.save_data.party[row_index]
 				if mon.is_empty() or not click(str(mon.name) + " "):
 					problem = "Cannot use " + item_name + " on party member"
 			else:
 				problem = "Item absent from bag: " + item_name
-			bag.handle_back()
+			if cmd.action == "use" and is_instance_valid(bag): bag.handle_back()
 		"mode": mode = str(cmd.value)
 		"save": game._persist()
 		"shop":
@@ -235,17 +257,28 @@ func run() -> void:
 		quit(1)
 		return
 	Save.slot = folder.path_join("save.json")
+	var calendar := OS.get_environment("POKESAGA_CHAPTER_TEST_DATE")
+	if calendar!="":
+		var day := Time.get_datetime_dict_from_datetime_string(calendar,true)
+		preload("res://core/johto_rival.gd").local_date = func(): return day
 	seed(843)
 	game = load("res://scenes/boot.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
 	world = game.world
 	db = root.get_node("Data")
-	if game.title_screen.continue_button == null:
+	if OS.get_cmdline_user_args().has("new-johto"):
+		if game.title_screen.continue_button != null:
+			push_error("Johto new-game replay requires an empty slot")
+			quit(1)
+			return
+		game.title_screen.johto_button.pressed.emit()
+	elif game.title_screen.continue_button == null:
 		push_error("First chapter save missing")
 		quit(1)
 		return
-	game.title_screen.continue_button.pressed.emit()
+	else:
+		game.title_screen.continue_button.pressed.emit()
 	await process_frame
 	game.rng.seed = 843
 	game.appearance_rng.seed = 933
@@ -260,4 +293,7 @@ func run() -> void:
 		lines.clear()
 		problem = ""
 		await act(cmd)
+		if cmd.action in ["back","key_item","click","use","hm","lead"]:
+			await process_frame  # Finish disposing the menu before another button press.
+	preload("res://core/johto_rival.gd").local_date = Time.get_date_dict_from_system
 	quit()

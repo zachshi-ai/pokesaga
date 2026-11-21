@@ -16,10 +16,12 @@ from johto_warps import ambiguous, blocking_objects, landing, place_warps
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--map", action="append", default=[], help="Also restore projected doors on this map ID")
-    requested = set(parser.parse_args().map)
+    requested = {"johto_azalea_gym", "johto_goldenrod_city", "johto_route_36", *parser.parse_args().map}
+    requested.update(f"johto_olivine_lighthouse_{floor}f" for floor in range(1,7))
     directory = Path(gen_johto.REG) / "maps"
     files = {p.stem: p for p in sorted(directory.glob("*.json"))}
-    rooms = {k: json.loads(p.read_text()) for k, p in files.items()}
+    rooms = {k: room for k, p in files.items() if (room := json.loads(p.read_text())).get("emerald","").startswith("johto_")}
+    files = {k: files[k] for k in rooms}
     meta = {k: json.loads((Path(gen_johto.EMAPS) / (m["emerald"] + ".json")).read_text())
             for k, m in rooms.items()}
     room_for = {gen_johto.const_of(v["map"]): k for k, v in meta.items()}
@@ -61,12 +63,15 @@ def main():
             newly_moved += 1
         if not newly_moved:
             break
-        for events, matches, _ in assigned.values():
+        for origin, (events, matches, _) in assigned.items():
             for n, warp in matches.items():
                 dst = warp["to"]["map"]
                 door = moved.get(dst, {}).get(events[n]["idx"])
                 if door is not None:
-                    warp["to"]["at"] = landing(meta[dst], door, door_cells[dst], blocking_objects(rooms[dst]))
+                    if origin.startswith("johto_olivine_lighthouse_") and dst.startswith("johto_olivine_lighthouse_"):
+                        warp["to"]["at"] = list(door)
+                    else:
+                        warp["to"]["at"] = landing(meta[dst], door, door_cells[dst], blocking_objects(rooms[dst]))
 
     for room_id, room in rooms.items():
         if ambiguous(room["warps"]):

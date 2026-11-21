@@ -195,19 +195,6 @@
   },
   {
    "at": [
-    17,
-    6
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
     13,
     3
    ],
@@ -216,19 +203,6 @@
    "lines": [
     "你好。",
     "路上小心。"
-   ]
-  },
-  {
-   "at": [
-    0,
-    21
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
    ]
   }
  ],
@@ -250,14 +224,14 @@
   {
    "at": [
     16,
-    9
+    8
    ],
    "to": {
     "region": "johto",
     "map": "johto_route_36_national_park_gate",
     "at": [
-     0,
-     3
+     2,
+     0
     ]
    }
   },
@@ -278,13 +252,13 @@
   {
    "at": [
     5,
-    23
+    22
    ],
    "to": {
     "region": "johto",
     "map": "johto_route_35_national_park_gate",
     "at": [
-     1,
+     3,
      1
     ]
    }
@@ -292,40 +266,16 @@
  ],
  "encounters": [
   {
-   "species": 32,
-   "min": 12,
-   "max": 12,
-   "weight": 60
-  },
-  {
    "species": 29,
    "min": 12,
    "max": 12,
-   "weight": 60
+   "weight": 30
   },
   {
-   "species": 54,
+   "species": 32,
    "min": 12,
    "max": 12,
    "weight": 30
-  },
-  {
-   "species": 163,
-   "min": 13,
-   "max": 13,
-   "weight": 30
-  },
-  {
-   "species": 165,
-   "min": 14,
-   "max": 14,
-   "weight": 20
-  },
-  {
-   "species": 16,
-   "min": 13,
-   "max": 13,
-   "weight": 20
   },
   {
    "species": 191,
@@ -334,39 +284,21 @@
    "weight": 20
   },
   {
-   "species": 167,
-   "min": 14,
-   "max": 14,
-   "weight": 20
+   "species": 16,
+   "min": 13,
+   "max": 13,
+   "weight": 10
   },
   {
    "species": 10,
    "min": 10,
    "max": 10,
-   "weight": 10
+   "weight": 5
   },
   {
    "species": 13,
    "min": 10,
    "max": 10,
-   "weight": 10
-  },
-  {
-   "species": 163,
-   "min": 15,
-   "max": 15,
-   "weight": 10
-  },
-  {
-   "species": 48,
-   "min": 10,
-   "max": 10,
-   "weight": 5
-  },
-  {
-   "species": 48,
-   "min": 12,
-   "max": 12,
    "weight": 5
   }
  ],
@@ -414,9 +346,118 @@
    "kind": "sign",
    "sprite": "sign",
    "text": "训练家心得：当年的通信设备还可以把收到的邮件打印出来。"
+  },
+  {
+   "kind": "item",
+   "at": [
+    17,
+    6
+   ],
+   "source_script": "NationalParkParlyzHeal",
+   "flag": "EVENT_NATIONAL_PARK_PARLYZ_HEAL",
+   "sprite": "item",
+   "name": "麻痹药",
+   "category": "heal",
+   "item": "ITEM_PARALYZE_HEAL"
+  },
+  {
+   "kind": "item",
+   "at": [
+    0,
+    21
+   ],
+   "source_script": "NationalParkTMDig",
+   "flag": "EVENT_NATIONAL_PARK_TM_DIG",
+   "sprite": "item",
+   "name": "城都招式学习器·挖洞",
+   "category": "tm"
   }
  ],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "encounters_by_time": {
+  "morn": {
+   "pool": [
+    {
+     "species": 32,
+     "min": 12,
+     "max": 12,
+     "weight": 30
+    },
+    {
+     "species": 29,
+     "min": 12,
+     "max": 12,
+     "weight": 30
+    },
+    {
+     "species": 165,
+     "min": 14,
+     "max": 14,
+     "weight": 20
+    },
+    {
+     "species": 16,
+     "min": 13,
+     "max": 13,
+     "weight": 10
+    },
+    {
+     "species": 10,
+     "min": 10,
+     "max": 10,
+     "weight": 5
+    },
+    {
+     "species": 13,
+     "min": 10,
+     "max": 10,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  },
+  "nite": {
+   "pool": [
+    {
+     "species": 54,
+     "min": 12,
+     "max": 12,
+     "weight": 30
+    },
+    {
+     "species": 163,
+     "min": 13,
+     "max": 13,
+     "weight": 30
+    },
+    {
+     "species": 167,
+     "min": 14,
+     "max": 14,
+     "weight": 20
+    },
+    {
+     "species": 163,
+     "min": 15,
+     "max": 15,
+     "weight": 10
+    },
+    {
+     "species": 48,
+     "min": 10,
+     "max": 10,
+     "weight": 5
+    },
+    {
+     "species": 48,
+     "min": 12,
+     "max": 12,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

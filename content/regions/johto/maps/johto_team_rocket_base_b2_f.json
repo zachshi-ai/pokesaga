@@ -208,19 +208,6 @@
     ]
    },
    "trainer": "GruntM#19"
-  },
-  {
-   "at": [
-    1,
-    5
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -410,6 +397,18 @@
    "category": "heal",
    "flag": "johto:EVENT_TEAM_ROCKET_BASE_B2F_HIDDEN_FULL_HEAL",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    1,
+    5
+   ],
+   "source_script": "TeamRocketBaseB2FTMThief",
+   "flag": "EVENT_TEAM_ROCKET_BASE_B2F_TM_THIEF",
+   "sprite": "item",
+   "name": "城都招式学习器·小偷",
+   "category": "tm"
   }
  ],
  "weather": "",

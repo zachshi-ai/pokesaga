@@ -9,47 +9,7 @@
   7,
   9
  ],
- "npcs": [
-  {
-   "at": [
-    3,
-    12
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    3,
-    8
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    7,
-    1
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  }
- ],
+ "npcs": [],
  "warps": [
   {
    "at": [
@@ -108,8 +68,45 @@
    }
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 104,
+   "min": 12,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 74,
+   "min": 14,
+   "max": 14,
+   "weight": 30
+  },
+  {
+   "species": 95,
+   "min": 16,
+   "max": 16,
+   "weight": 20
+  },
+  {
+   "species": 41,
+   "min": 12,
+   "max": 12,
+   "weight": 10
+  },
+  {
+   "species": 105,
+   "min": 15,
+   "max": 15,
+   "weight": 5
+  },
+  {
+   "species": 115,
+   "min": 15,
+   "max": 15,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.06,
  "objects": [
   {
    "at": [
@@ -123,10 +120,92 @@
    "category": "heal",
    "flag": "johto:EVENT_ROCK_TUNNEL_B1F_HIDDEN_MAX_POTION",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    12
+   ],
+   "source_script": "RockTunnelB1FIron",
+   "flag": "EVENT_ROCK_TUNNEL_B1F_IRON",
+   "sprite": "item",
+   "name": "防御增强剂",
+   "category": "other",
+   "item": "ITEM_IRON"
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    8
+   ],
+   "source_script": "RockTunnelB1FPPUp",
+   "flag": "EVENT_ROCK_TUNNEL_B1F_PP_UP",
+   "sprite": "item",
+   "name": "PP 提升剂",
+   "category": "other",
+   "item": "ITEM_PP_UP"
+  },
+  {
+   "kind": "item",
+   "at": [
+    7,
+    1
+   ],
+   "source_script": "RockTunnelB1FRevive",
+   "flag": "EVENT_ROCK_TUNNEL_B1F_REVIVE",
+   "sprite": "item",
+   "name": "活力碎片",
+   "category": "heal",
+   "item": "ITEM_REVIVE"
   }
  ],
  "weather": "",
  "weather_name": "",
  "cycling": false,
- "dark": true
+ "dark": true,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 41,
+     "min": 12,
+     "max": 12,
+     "weight": 30
+    },
+    {
+     "species": 74,
+     "min": 14,
+     "max": 14,
+     "weight": 30
+    },
+    {
+     "species": 95,
+     "min": 16,
+     "max": 16,
+     "weight": 20
+    },
+    {
+     "species": 41,
+     "min": 15,
+     "max": 15,
+     "weight": 10
+    },
+    {
+     "species": 93,
+     "min": 15,
+     "max": 15,
+     "weight": 5
+    },
+    {
+     "species": 42,
+     "min": 15,
+     "max": 15,
+     "weight": 5
+    }
+   ],
+   "rate": 0.06
+  }
+ }
 }

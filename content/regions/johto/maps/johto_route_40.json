@@ -322,9 +322,10 @@
     "region": "johto",
     "map": "johto_route_41",
     "at": [
-     19,
-     6
-    ]
+     15,
+     0
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -337,9 +338,10 @@
     "region": "johto",
     "map": "johto_route_41",
     "at": [
-     19,
-     6
-    ]
+     16,
+     0
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -352,9 +354,10 @@
     "region": "johto",
     "map": "johto_route_41",
     "at": [
-     19,
-     6
-    ]
+     17,
+     0
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -367,9 +370,10 @@
     "region": "johto",
     "map": "johto_route_41",
     "at": [
-     19,
-     6
-    ]
+     18,
+     0
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -383,8 +387,9 @@
     "map": "johto_route_41",
     "at": [
      19,
-     6
-    ]
+     0
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -397,9 +402,10 @@
     "region": "johto",
     "map": "johto_route_41",
     "at": [
-     19,
-     6
-    ]
+     20,
+     0
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -412,9 +418,10 @@
     "region": "johto",
     "map": "johto_route_41",
     "at": [
-     19,
-     6
-    ]
+     21,
+     0
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -427,9 +434,10 @@
     "region": "johto",
     "map": "johto_route_41",
     "at": [
-     19,
-     6
-    ]
+     22,
+     0
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -442,9 +450,10 @@
     "region": "johto",
     "map": "johto_route_41",
     "at": [
-     19,
-     6
-    ]
+     23,
+     0
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -457,9 +466,10 @@
     "region": "johto",
     "map": "johto_route_41",
     "at": [
-     19,
-     6
-    ]
+     24,
+     0
+    ],
+    "sea_connection": true
    },
    "edge": true
   }

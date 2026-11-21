@@ -295,10 +295,152 @@
    "edge": true
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 10,
+   "min": 8,
+   "max": 8,
+   "weight": 30
+  },
+  {
+   "species": 191,
+   "min": 12,
+   "max": 12,
+   "weight": 30
+  },
+  {
+   "species": 10,
+   "min": 10,
+   "max": 10,
+   "weight": 20
+  },
+  {
+   "species": 63,
+   "min": 12,
+   "max": 12,
+   "weight": 10
+  },
+  {
+   "species": 69,
+   "min": 10,
+   "max": 10,
+   "weight": 5
+  },
+  {
+   "species": 12,
+   "min": 14,
+   "max": 14,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.1,
  "objects": [],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "encounters_by_time": {
+  "morn": {
+   "pool": [
+    {
+     "species": 10,
+     "min": 8,
+     "max": 8,
+     "weight": 30
+    },
+    {
+     "species": 10,
+     "min": 10,
+     "max": 10,
+     "weight": 30
+    },
+    {
+     "species": 11,
+     "min": 12,
+     "max": 12,
+     "weight": 20
+    },
+    {
+     "species": 63,
+     "min": 12,
+     "max": 12,
+     "weight": 10
+    },
+    {
+     "species": 69,
+     "min": 10,
+     "max": 10,
+     "weight": 5
+    },
+    {
+     "species": 12,
+     "min": 14,
+     "max": 14,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  },
+  "nite": {
+   "pool": [
+    {
+     "species": 48,
+     "min": 10,
+     "max": 10,
+     "weight": 30
+    },
+    {
+     "species": 43,
+     "min": 10,
+     "max": 10,
+     "weight": 30
+    },
+    {
+     "species": 43,
+     "min": 12,
+     "max": 12,
+     "weight": 20
+    },
+    {
+     "species": 63,
+     "min": 12,
+     "max": 12,
+     "weight": 10
+    },
+    {
+     "species": 69,
+     "min": 10,
+     "max": 10,
+     "weight": 5
+    },
+    {
+     "species": 44,
+     "min": 14,
+     "max": 14,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  }
+ },
+ "water_encounters": [
+  {
+   "species": 118,
+   "min": 10,
+   "max": 10,
+   "weight": 60
+  },
+  {
+   "species": 118,
+   "min": 5,
+   "max": 5,
+   "weight": 30
+  },
+  {
+   "species": 119,
+   "min": 10,
+   "max": 10,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.04
 }

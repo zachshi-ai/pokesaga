@@ -231,7 +231,7 @@
     "map": "johto_celadon_gym",
     "at": [
      2,
-     3
+     7
     ]
    }
   },
@@ -329,5 +329,26 @@
  ],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 88,
+   "min": 20,
+   "max": 20,
+   "weight": 60
+  },
+  {
+   "species": 88,
+   "min": 15,
+   "max": 15,
+   "weight": 30
+  },
+  {
+   "species": 89,
+   "min": 15,
+   "max": 15,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.02
 }

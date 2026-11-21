@@ -251,58 +251,6 @@
   },
   {
    "at": [
-    3,
-    25
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    2,
-    33
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    3,
-    10
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    3,
-    16
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
     2,
     35
    ],
@@ -575,54 +523,36 @@
    "species": 74,
    "min": 23,
    "max": 23,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 75,
    "min": 23,
    "max": 23,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 207,
    "min": 24,
    "max": 24,
-   "weight": 60
+   "weight": 20
   },
   {
    "species": 232,
    "min": 25,
    "max": 25,
-   "weight": 20
-  },
-  {
-   "species": 227,
-   "min": 27,
-   "max": 27,
    "weight": 10
-  },
-  {
-   "species": 75,
-   "min": 25,
-   "max": 25,
-   "weight": 10
-  },
-  {
-   "species": 75,
-   "min": 27,
-   "max": 27,
-   "weight": 10
-  },
-  {
-   "species": 231,
-   "min": 20,
-   "max": 20,
-   "weight": 5
   },
   {
    "species": 232,
    "min": 30,
    "max": 30,
+   "weight": 5
+  },
+  {
+   "species": 227,
+   "min": 27,
+   "max": 27,
    "weight": 5
   }
  ],
@@ -650,6 +580,58 @@
    "category": "other",
    "flag": "johto:EVENT_ROUTE_45_HIDDEN_PP_UP",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    25
+   ],
+   "source_script": "Route45Nugget",
+   "flag": "EVENT_ROUTE_45_NUGGET",
+   "sprite": "item",
+   "name": "金珠",
+   "category": "other",
+   "item": "ITEM_NUGGET"
+  },
+  {
+   "kind": "item",
+   "at": [
+    2,
+    33
+   ],
+   "source_script": "Route45Revive",
+   "flag": "EVENT_ROUTE_45_REVIVE",
+   "sprite": "item",
+   "name": "活力碎片",
+   "category": "heal",
+   "item": "ITEM_REVIVE"
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    10
+   ],
+   "source_script": "Route45Elixer",
+   "flag": "EVENT_ROUTE_45_ELIXER",
+   "sprite": "item",
+   "name": "PP 多项小补剂",
+   "category": "heal",
+   "item": "ITEM_ELIXIR"
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    16
+   ],
+   "source_script": "Route45MaxPotion",
+   "flag": "EVENT_ROUTE_45_MAX_POTION",
+   "sprite": "item",
+   "name": "全满药",
+   "category": "heal",
+   "item": "ITEM_MAX_POTION"
   }
  ],
  "weather": "",
@@ -675,5 +657,83 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.02
+ "water_encounter_rate": 0.02,
+ "encounters_by_time": {
+  "morn": {
+   "pool": [
+    {
+     "species": 74,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 75,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 207,
+     "min": 24,
+     "max": 24,
+     "weight": 20
+    },
+    {
+     "species": 232,
+     "min": 25,
+     "max": 25,
+     "weight": 10
+    },
+    {
+     "species": 231,
+     "min": 20,
+     "max": 20,
+     "weight": 5
+    },
+    {
+     "species": 227,
+     "min": 27,
+     "max": 27,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  },
+  "nite": {
+   "pool": [
+    {
+     "species": 74,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 75,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 207,
+     "min": 24,
+     "max": 24,
+     "weight": 20
+    },
+    {
+     "species": 75,
+     "min": 25,
+     "max": 25,
+     "weight": 10
+    },
+    {
+     "species": 75,
+     "min": 27,
+     "max": 27,
+     "weight": 10
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

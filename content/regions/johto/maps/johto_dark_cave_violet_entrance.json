@@ -12,19 +12,6 @@
  "npcs": [
   {
    "at": [
-    3,
-    4
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
     8,
     7
    ],
@@ -69,45 +56,6 @@
    "lines": [
     "你好。",
     "路上小心。"
-   ]
-  },
-  {
-   "at": [
-    18,
-    10
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    17,
-    4
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    15,
-    14
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
    ]
   }
  ],
@@ -157,46 +105,40 @@
  ],
  "encounters": [
   {
-   "species": 41,
-   "min": 2,
-   "max": 2,
-   "weight": 100
-  },
-  {
    "species": 74,
    "min": 3,
    "max": 3,
-   "weight": 90
-  },
-  {
-   "species": 74,
-   "min": 2,
-   "max": 2,
-   "weight": 60
-  },
-  {
-   "species": 74,
-   "min": 4,
-   "max": 4,
    "weight": 30
   },
   {
    "species": 41,
-   "min": 4,
-   "max": 4,
-   "weight": 12
-  },
-  {
-   "species": 216,
    "min": 2,
    "max": 2,
-   "weight": 5
+   "weight": 35
+  },
+  {
+   "species": 74,
+   "min": 2,
+   "max": 2,
+   "weight": 20
+  },
+  {
+   "species": 74,
+   "min": 4,
+   "max": 4,
+   "weight": 10
+  },
+  {
+   "species": 41,
+   "min": 4,
+   "max": 4,
+   "weight": 4
   },
   {
    "species": 206,
    "min": 4,
    "max": 4,
-   "weight": 3
+   "weight": 1
   }
  ],
  "encounter_rate": 0.04,
@@ -213,6 +155,58 @@
    "category": "heal",
    "flag": "johto:EVENT_DARK_CAVE_VIOLET_ENTRANCE_HIDDEN_ELIXER",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    4
+   ],
+   "source_script": "DarkCaveVioletEntrancePotion",
+   "flag": "EVENT_DARK_CAVE_VIOLET_ENTRANCE_POTION",
+   "sprite": "item",
+   "name": "伤药",
+   "category": "heal",
+   "item": "ITEM_POTION"
+  },
+  {
+   "kind": "item",
+   "at": [
+    18,
+    10
+   ],
+   "source_script": "DarkCaveVioletEntranceFullHeal",
+   "flag": "EVENT_DARK_CAVE_VIOLET_ENTRANCE_FULL_HEAL",
+   "sprite": "item",
+   "name": "万灵药",
+   "category": "heal",
+   "item": "ITEM_FULL_HEAL"
+  },
+  {
+   "kind": "item",
+   "at": [
+    17,
+    4
+   ],
+   "source_script": "DarkCaveVioletEntranceHyperPotion",
+   "flag": "EVENT_DARK_CAVE_VIOLET_ENTRANCE_HYPER_POTION",
+   "sprite": "item",
+   "name": "厉害伤药",
+   "category": "heal",
+   "item": "ITEM_HYPER_POTION"
+  },
+  {
+   "kind": "item",
+   "at": [
+    15,
+    14
+   ],
+   "source_script": "DarkCaveVioletEntranceDireHit",
+   "flag": "EVENT_DARK_CAVE_VIOLET_ENTRANCE_DIRE_HIT",
+   "sprite": "item",
+   "name": "要害攻击",
+   "category": "battle",
+   "item": "ITEM_DIRE_HIT"
   }
  ],
  "weather": "",
@@ -239,5 +233,54 @@
   }
  ],
  "water_encounter_rate": 0.02,
- "dark": true
+ "dark": true,
+ "encounters_by_time": {
+  "morn": {
+   "pool": [
+    {
+     "species": 74,
+     "min": 3,
+     "max": 3,
+     "weight": 30
+    },
+    {
+     "species": 41,
+     "min": 2,
+     "max": 2,
+     "weight": 30
+    },
+    {
+     "species": 74,
+     "min": 2,
+     "max": 2,
+     "weight": 20
+    },
+    {
+     "species": 74,
+     "min": 4,
+     "max": 4,
+     "weight": 10
+    },
+    {
+     "species": 216,
+     "min": 2,
+     "max": 2,
+     "weight": 5
+    },
+    {
+     "species": 41,
+     "min": 4,
+     "max": 4,
+     "weight": 4
+    },
+    {
+     "species": 206,
+     "min": 4,
+     "max": 4,
+     "weight": 1
+    }
+   ],
+   "rate": 0.04
+  }
+ }
 }

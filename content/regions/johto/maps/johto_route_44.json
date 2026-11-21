@@ -242,45 +242,6 @@
     "城都这地方，慢慢逛才有味道。",
     "出远门记得带足伤药。"
    ]
-  },
-  {
-   "at": [
-    14,
-    4
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    22,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    6,
-    4
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -469,52 +430,34 @@
    "species": 114,
    "min": 23,
    "max": 23,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 108,
    "min": 22,
    "max": 22,
-   "weight": 60
+   "weight": 30
   },
   {
    "species": 69,
    "min": 22,
    "max": 22,
-   "weight": 60
+   "weight": 20
   },
   {
    "species": 70,
    "min": 24,
    "max": 24,
-   "weight": 30
-  },
-  {
-   "species": 60,
-   "min": 22,
-   "max": 22,
-   "weight": 30
-  },
-  {
-   "species": 108,
-   "min": 24,
-   "max": 24,
    "weight": 10
   },
   {
    "species": 108,
-   "min": 26,
-   "max": 26,
-   "weight": 10
-  },
-  {
-   "species": 61,
    "min": 24,
    "max": 24,
    "weight": 5
   },
   {
-   "species": 61,
+   "species": 108,
    "min": 26,
    "max": 26,
    "weight": 5
@@ -554,6 +497,45 @@
    "category": "heal",
    "flag": "johto:EVENT_ROUTE_44_HIDDEN_ELIXER",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    14,
+    4
+   ],
+   "source_script": "Route44MaxRevive",
+   "flag": "EVENT_ROUTE_44_MAX_REVIVE",
+   "sprite": "item",
+   "name": "活力块",
+   "category": "heal",
+   "item": "ITEM_MAX_REVIVE"
+  },
+  {
+   "kind": "item",
+   "at": [
+    22,
+    2
+   ],
+   "source_script": "Route44UltraBall",
+   "flag": "EVENT_ROUTE_44_ULTRA_BALL",
+   "sprite": "item",
+   "name": "高级球",
+   "category": "ball",
+   "item": "ITEM_ULTRA_BALL"
+  },
+  {
+   "kind": "item",
+   "at": [
+    6,
+    4
+   ],
+   "source_script": "Route44MaxRepel",
+   "flag": "EVENT_ROUTE_44_MAX_REPEL",
+   "sprite": "item",
+   "name": "黄金喷雾",
+   "category": "other",
+   "item": "ITEM_MAX_REPEL"
   }
  ],
  "weather": "",
@@ -579,5 +561,48 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.02
+ "water_encounter_rate": 0.02,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 114,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 60,
+     "min": 22,
+     "max": 22,
+     "weight": 30
+    },
+    {
+     "species": 69,
+     "min": 22,
+     "max": 22,
+     "weight": 20
+    },
+    {
+     "species": 70,
+     "min": 24,
+     "max": 24,
+     "weight": 10
+    },
+    {
+     "species": 61,
+     "min": 24,
+     "max": 24,
+     "weight": 5
+    },
+    {
+     "species": 61,
+     "min": 26,
+     "max": 26,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

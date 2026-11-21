@@ -22,32 +22,6 @@
     "城都这地方，慢慢逛才有味道。",
     "出远门记得带足伤药。"
    ]
-  },
-  {
-   "at": [
-    17,
-    10
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    17,
-    4
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -110,51 +84,103 @@
  ],
  "encounters": [
   {
-   "species": 41,
-   "min": 22,
-   "max": 22,
-   "weight": 90
-  },
-  {
-   "species": 42,
-   "min": 22,
-   "max": 22,
-   "weight": 75
-  },
-  {
    "species": 220,
-   "min": 21,
-   "max": 21,
-   "weight": 60
-  },
-  {
-   "species": 225,
    "min": 21,
    "max": 21,
    "weight": 30
   },
   {
+   "species": 41,
+   "min": 22,
+   "max": 22,
+   "weight": 30
+  },
+  {
+   "species": 42,
+   "min": 22,
+   "max": 22,
+   "weight": 25
+  },
+  {
    "species": 220,
    "min": 23,
    "max": 23,
-   "weight": 20
+   "weight": 10
   },
   {
    "species": 42,
    "min": 24,
    "max": 24,
-   "weight": 15
-  },
-  {
-   "species": 225,
-   "min": 23,
-   "max": 23,
-   "weight": 10
+   "weight": 5
   }
  ],
  "encounter_rate": 0.02,
- "objects": [],
+ "objects": [
+  {
+   "kind": "item",
+   "at": [
+    17,
+    10
+   ],
+   "source_script": "IcePath1FPPUp",
+   "flag": "EVENT_ICE_PATH_1F_PP_UP",
+   "sprite": "item",
+   "name": "PP 提升剂",
+   "category": "other",
+   "item": "ITEM_PP_UP"
+  },
+  {
+   "kind": "item",
+   "at": [
+    17,
+    4
+   ],
+   "source_script": "IcePath1FProtein",
+   "flag": "EVENT_ICE_PATH_1F_PROTEIN",
+   "sprite": "item",
+   "name": "攻击增强剂",
+   "category": "other",
+   "item": "ITEM_PROTEIN"
+  }
+ ],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 225,
+     "min": 21,
+     "max": 21,
+     "weight": 30
+    },
+    {
+     "species": 41,
+     "min": 22,
+     "max": 22,
+     "weight": 30
+    },
+    {
+     "species": 42,
+     "min": 22,
+     "max": 22,
+     "weight": 25
+    },
+    {
+     "species": 225,
+     "min": 23,
+     "max": 23,
+     "weight": 10
+    },
+    {
+     "species": 42,
+     "min": 24,
+     "max": 24,
+     "weight": 5
+    }
+   ],
+   "rate": 0.02
+  }
+ }
 }

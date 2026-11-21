@@ -180,19 +180,6 @@
     "城都这地方，慢慢逛才有味道。",
     "出远门记得带足伤药。"
    ]
-  },
-  {
-   "at": [
-    6,
-    16
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -377,64 +364,34 @@
    "species": 161,
    "min": 15,
    "max": 15,
-   "weight": 60
+   "weight": 30
   },
   {
    "species": 17,
    "min": 16,
    "max": 16,
-   "weight": 60
+   "weight": 30
   },
   {
    "species": 83,
    "min": 16,
    "max": 16,
-   "weight": 40
-  },
-  {
-   "species": 48,
-   "min": 15,
-   "max": 15,
-   "weight": 30
-  },
-  {
-   "species": 164,
-   "min": 16,
-   "max": 16,
-   "weight": 30
+   "weight": 20
   },
   {
    "species": 162,
    "min": 15,
    "max": 15,
-   "weight": 20
-  },
-  {
-   "species": 20,
-   "min": 16,
-   "max": 16,
-   "weight": 20
+   "weight": 10
   },
   {
    "species": 20,
    "min": 17,
    "max": 17,
-   "weight": 15
+   "weight": 5
   },
   {
    "species": 162,
-   "min": 17,
-   "max": 17,
-   "weight": 10
-  },
-  {
-   "species": 48,
-   "min": 17,
-   "max": 17,
-   "weight": 10
-  },
-  {
-   "species": 49,
    "min": 17,
    "max": 17,
    "weight": 5
@@ -471,6 +428,19 @@
    "kind": "sign",
    "sprite": "sign",
    "text": "训练家心得：留心属性相性，即使等级更高也可能被克制。"
+  },
+  {
+   "kind": "item",
+   "at": [
+    6,
+    16
+   ],
+   "source_script": "Route43MaxEther",
+   "flag": "EVENT_ROUTE_43_MAX_ETHER",
+   "sprite": "item",
+   "name": "PP 单项全补剂",
+   "category": "heal",
+   "item": "ITEM_MAX_ETHER"
   }
  ],
  "weather": "",
@@ -496,5 +466,48 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.02
+ "water_encounter_rate": 0.02,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 48,
+     "min": 15,
+     "max": 15,
+     "weight": 30
+    },
+    {
+     "species": 164,
+     "min": 16,
+     "max": 16,
+     "weight": 30
+    },
+    {
+     "species": 20,
+     "min": 16,
+     "max": 16,
+     "weight": 20
+    },
+    {
+     "species": 48,
+     "min": 17,
+     "max": 17,
+     "weight": 10
+    },
+    {
+     "species": 20,
+     "min": 17,
+     "max": 17,
+     "weight": 5
+    },
+    {
+     "species": 49,
+     "min": 17,
+     "max": 17,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

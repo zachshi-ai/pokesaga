@@ -12,84 +12,6 @@
  "npcs": [
   {
    "at": [
-    13,
-    11
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    1,
-    16
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    9,
-    8
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    8,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    4,
-    5
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    14,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
     6,
     13
    ],
@@ -152,48 +74,36 @@
    "species": 75,
    "min": 31,
    "max": 31,
-   "weight": 90
-  },
-  {
-   "species": 74,
-   "min": 31,
-   "max": 31,
-   "weight": 70
+   "weight": 30
   },
   {
    "species": 67,
    "min": 32,
    "max": 32,
-   "weight": 60
+   "weight": 30
+  },
+  {
+   "species": 74,
+   "min": 31,
+   "max": 31,
+   "weight": 20
   },
   {
    "species": 20,
    "min": 30,
    "max": 30,
-   "weight": 40
-  },
-  {
-   "species": 42,
-   "min": 30,
-   "max": 30,
-   "weight": 20
-  },
-  {
-   "species": 66,
-   "min": 28,
-   "max": 28,
    "weight": 10
   },
   {
-   "species": 183,
+   "species": 66,
    "min": 28,
    "max": 28,
    "weight": 5
   },
   {
    "species": 42,
-   "min": 32,
-   "max": 32,
+   "min": 30,
+   "max": 30,
    "weight": 5
   }
  ],
@@ -211,6 +121,83 @@
    "category": "heal",
    "flag": "johto:EVENT_MOUNT_MORTAR_2F_INSIDE_HIDDEN_FULL_RESTORE",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    13,
+    11
+   ],
+   "source_script": "MountMortar2FInsideMaxPotion",
+   "flag": "EVENT_MOUNT_MORTAR_2F_INSIDE_MAX_POTION",
+   "sprite": "item",
+   "name": "全满药",
+   "category": "heal",
+   "item": "ITEM_MAX_POTION"
+  },
+  {
+   "kind": "item",
+   "at": [
+    1,
+    16
+   ],
+   "source_script": "MountMortar2FInsideRareCandy",
+   "flag": "EVENT_MOUNT_MORTAR_2F_INSIDE_RARE_CANDY",
+   "sprite": "item",
+   "name": "神奇糖果",
+   "category": "other",
+   "item": "ITEM_RARE_CANDY"
+  },
+  {
+   "kind": "item",
+   "at": [
+    9,
+    8
+   ],
+   "source_script": "MountMortar2FInsideTMDefenseCurl",
+   "flag": "EVENT_MOUNT_MORTAR_2F_INSIDE_TM_DEFENSE_CURL",
+   "sprite": "item",
+   "name": "城都招式学习器·变圆",
+   "category": "tm"
+  },
+  {
+   "kind": "item",
+   "at": [
+    8,
+    2
+   ],
+   "source_script": "MountMortar2FInsideDragonScale",
+   "flag": "EVENT_MOUNT_MORTAR_2F_INSIDE_DRAGON_SCALE",
+   "sprite": "item",
+   "name": "龙之鳞片",
+   "category": "evo",
+   "item": "ITEM_DRAGON_SCALE"
+  },
+  {
+   "kind": "item",
+   "at": [
+    4,
+    5
+   ],
+   "source_script": "MountMortar2FInsideElixer",
+   "flag": "EVENT_MOUNT_MORTAR_2F_INSIDE_ELIXER",
+   "sprite": "item",
+   "name": "PP 多项小补剂",
+   "category": "heal",
+   "item": "ITEM_ELIXIR"
+  },
+  {
+   "kind": "item",
+   "at": [
+    14,
+    2
+   ],
+   "source_script": "MountMortar2FInsideEscapeRope",
+   "flag": "EVENT_MOUNT_MORTAR_2F_INSIDE_ESCAPE_ROPE",
+   "sprite": "item",
+   "name": "离洞绳",
+   "category": "other",
+   "item": "ITEM_ESCAPE_ROPE"
   }
  ],
  "weather": "",
@@ -236,5 +223,48 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.02
+ "water_encounter_rate": 0.02,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 75,
+     "min": 31,
+     "max": 31,
+     "weight": 30
+    },
+    {
+     "species": 74,
+     "min": 31,
+     "max": 31,
+     "weight": 30
+    },
+    {
+     "species": 20,
+     "min": 30,
+     "max": 30,
+     "weight": 20
+    },
+    {
+     "species": 42,
+     "min": 30,
+     "max": 30,
+     "weight": 10
+    },
+    {
+     "species": 183,
+     "min": 28,
+     "max": 28,
+     "weight": 5
+    },
+    {
+     "species": 42,
+     "min": 32,
+     "max": 32,
+     "weight": 5
+    }
+   ],
+   "rate": 0.06
+  }
+ }
 }

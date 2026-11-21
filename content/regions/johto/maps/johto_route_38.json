@@ -176,7 +176,7 @@
   {
    "at": [
     2,
-    4
+    1
    ],
    "name": "大姐姐 Olivia",
    "gfx": "man",
@@ -288,52 +288,40 @@
  ],
  "encounters": [
   {
-   "species": 20,
-   "min": 16,
-   "max": 16,
-   "weight": 90
-  },
-  {
    "species": 19,
    "min": 16,
    "max": 16,
-   "weight": 60
+   "weight": 30
+  },
+  {
+   "species": 20,
+   "min": 16,
+   "max": 16,
+   "weight": 30
   },
   {
    "species": 81,
    "min": 16,
    "max": 16,
-   "weight": 60
-  },
-  {
-   "species": 52,
-   "min": 16,
-   "max": 16,
-   "weight": 40
+   "weight": 20
   },
   {
    "species": 17,
    "min": 16,
    "max": 16,
-   "weight": 20
+   "weight": 10
   },
   {
    "species": 128,
    "min": 13,
    "max": 13,
-   "weight": 10
+   "weight": 5
   },
   {
    "species": 241,
    "min": 13,
    "max": 13,
-   "weight": 10
-  },
-  {
-   "species": 164,
-   "min": 16,
-   "max": 16,
-   "weight": 10
+   "weight": 5
   }
  ],
  "encounter_rate": 0.1,
@@ -361,5 +349,36 @@
  ],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 52,
+     "min": 16,
+     "max": 16,
+     "weight": 40
+    },
+    {
+     "species": 20,
+     "min": 16,
+     "max": 16,
+     "weight": 30
+    },
+    {
+     "species": 81,
+     "min": 16,
+     "max": 16,
+     "weight": 20
+    },
+    {
+     "species": 164,
+     "min": 16,
+     "max": 16,
+     "weight": 10
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

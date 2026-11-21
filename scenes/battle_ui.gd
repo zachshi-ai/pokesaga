@@ -542,7 +542,7 @@ func _do_transform(form_key: String) -> void:
 	msg.text = ""
 	wait = _dur(0.1)
 
-const BALL_BONUS := {"精灵球": 1.0, "超级球": 1.5, "高级球": 2.0, "大师球": 255.0}
+const BALL_BONUS := {"精灵球": 1.0, "超级球": 1.5, "高级球": 2.0, "大师球": 255.0, "等级球":1.0, "诱饵球":1.0, "月亮球":1.0, "友友球":1.0, "速度球":1.0, "沉重球":1.0, "甜蜜球":1.0}
 
 ## Share the field bag with battle. Trainer battles only allow battle supplies.
 func _open_balls() -> void:

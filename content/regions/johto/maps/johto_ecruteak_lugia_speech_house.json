@@ -48,7 +48,8 @@
      2,
      11
     ]
-   }
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -62,7 +63,8 @@
      2,
      11
     ]
-   }
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

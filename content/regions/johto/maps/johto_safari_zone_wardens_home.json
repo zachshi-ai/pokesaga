@@ -37,7 +37,8 @@
      13,
      14
     ]
-   }
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -51,7 +52,8 @@
      13,
      14
     ]
-   }
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

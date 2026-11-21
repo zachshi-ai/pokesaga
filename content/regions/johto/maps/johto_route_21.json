@@ -314,10 +314,146 @@
    "edge": true
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 114,
+   "min": 30,
+   "max": 30,
+   "weight": 30
+  },
+  {
+   "species": 19,
+   "min": 25,
+   "max": 25,
+   "weight": 30
+  },
+  {
+   "species": 114,
+   "min": 35,
+   "max": 35,
+   "weight": 20
+  },
+  {
+   "species": 20,
+   "min": 20,
+   "max": 20,
+   "weight": 10
+  },
+  {
+   "species": 122,
+   "min": 28,
+   "max": 28,
+   "weight": 5
+  },
+  {
+   "species": 122,
+   "min": 30,
+   "max": 30,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.06,
  "objects": [],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "encounters_by_time": {
+  "morn": {
+   "pool": [
+    {
+     "species": 114,
+     "min": 30,
+     "max": 30,
+     "weight": 30
+    },
+    {
+     "species": 19,
+     "min": 25,
+     "max": 25,
+     "weight": 30
+    },
+    {
+     "species": 114,
+     "min": 35,
+     "max": 35,
+     "weight": 20
+    },
+    {
+     "species": 20,
+     "min": 20,
+     "max": 20,
+     "weight": 10
+    },
+    {
+     "species": 122,
+     "min": 30,
+     "max": 30,
+     "weight": 5
+    },
+    {
+     "species": 122,
+     "min": 28,
+     "max": 28,
+     "weight": 5
+    }
+   ],
+   "rate": 0.06
+  },
+  "nite": {
+   "pool": [
+    {
+     "species": 114,
+     "min": 30,
+     "max": 30,
+     "weight": 35
+    },
+    {
+     "species": 19,
+     "min": 25,
+     "max": 25,
+     "weight": 30
+    },
+    {
+     "species": 114,
+     "min": 35,
+     "max": 35,
+     "weight": 20
+    },
+    {
+     "species": 20,
+     "min": 20,
+     "max": 20,
+     "weight": 10
+    },
+    {
+     "species": 114,
+     "min": 28,
+     "max": 28,
+     "weight": 5
+    }
+   ],
+   "rate": 0.06
+  }
+ },
+ "water_encounters": [
+  {
+   "species": 72,
+   "min": 35,
+   "max": 35,
+   "weight": 60
+  },
+  {
+   "species": 72,
+   "min": 30,
+   "max": 30,
+   "weight": 30
+  },
+  {
+   "species": 73,
+   "min": 35,
+   "max": 35,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.06
 }

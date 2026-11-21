@@ -35,7 +35,7 @@ func exits_from(room: String, arrival: Vector2i) -> Dictionary:
 	for w in world.map_data.warps:
 		var at := tile(w.at)
 		if not doors.has(at):
-			doors[at] = w.to
+			if w.get("trigger","step") == "step": doors[at] = w.to
 	var prev := {arrival: null}
 	var queue := [arrival]
 	var exits := {}
@@ -46,6 +46,13 @@ func exits_from(room: String, arrival: Vector2i) -> Dictionary:
 		for dir in DIRS:
 			world.player_pos = p
 			world.surfing = world.is_water(p) or world.is_water(p + dir)
+			var directional: Dictionary = world._warp_from(p,dir)
+			if not directional.is_empty():
+				var target: Dictionary = directional.to
+				if target.region == "johto":
+					var next := [target.map,tile(target.at)]
+					if not exits.has(next): exits[next] = route_to(prev,p,dir)
+				continue
 			if not world.can_step(dir):
 				continue
 			var dest: Vector2i = world.jump_landing(dir) if world.hop_wanted(dir) else p + dir

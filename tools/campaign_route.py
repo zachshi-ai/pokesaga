@@ -17,8 +17,9 @@ class Field:
     def __init__(self, data, meta):
         self.data = data
         self.w, self.h = meta.get("size", data["size"])
+        self.crystal = data.get("emerald", "").startswith("johto_")
         self.grid = {k: [int(v) for row in arr for v in row] for k, arr in meta.items()
-                     if k in ("collision", "water", "elevation", "ledge", "dirblock", "counter") and arr}
+                     if k in ("collision", "water", "elevation", "ledge", "dirblock", "counter", "grass", "whirl", "waterfall", "slide") and arr}
         self.doors = {}
         for door in data.get("warps", []):
             self.doors.setdefault(tuple(door["at"]), door)
@@ -31,9 +32,10 @@ class Field:
 
 
 class Routes:
-    def __init__(self):
+    def __init__(self, regions=("kanto", "sevii")):
+        self.regions = regions
         self.fields = {}
-        for region in ("kanto", "sevii"):
+        for region in regions:
             for path in (ROOT / "content/regions" / region / "maps").glob("*.json"):
                 data = read(path)
                 meta_path = ROOT / "content/emerald_maps" / (str(data.get("emerald", "")) + ".json")
@@ -46,9 +48,11 @@ class Routes:
         self.field_moves = frozenset()
 
     def projection(self, dest):
+        if self.regions == ("johto",) and dest.get("map") == "johto_pokecenter_2f":
+            return None  # The cable-club upstairs always returns to the same local Center.
         if dest.get("recall_passage") in self.history:
             dest = self.history[dest["recall_passage"]]
-        if dest.get("region") in ("kanto", "sevii") and dest.get("map") in self.fields:
+        if dest.get("region") in self.regions and dest.get("map") in self.fields:
             return (dest["map"], *map(int, dest["at"]))
         return None
 
@@ -67,12 +71,28 @@ class Routes:
                 continue
             if not (0 <= nx < f.w and 0 <= ny < f.h):
                 continue
+            if f.crystal:
+                if f.get("whirl",nx,ny) and 250 not in self.field_moves and (mid,nx,ny) not in self.cleared:
+                    continue
+                if key!="d" and (f.get("waterfall",nx,ny) or f.get("waterfall",x,y)):
+                    if key!="u" or not f.get("waterfall",nx,ny) or not {57,127} <= self.field_moves: continue
+                    # The A action ascends the full cascade and one accessible cell of bank.
+                    top=ny
+                    while top>0 and f.get("waterfall",nx,top-1): top-=1
+                    if top>0 and (f.get("water",nx,top-1) or not f.get("collision",nx,top-1)): top-=1
+                    edges.append((key,(mid,nx,top)))
+                    continue
             jump = f.get("ledge", nx, ny)
             if jump:
-                if not jump & bit:
-                    continue
-                nx, ny = nx + dx, ny + dy
-                if not (0 <= nx < f.w and 0 <= ny < f.h):
+                if jump & bit:
+                    for offset in (range(1, 5) if f.crystal else (1,)):
+                        lx, ly = nx + dx * offset, ny + dy * offset
+                        if 0 <= lx < f.w and 0 <= ly < f.h and not f.get("collision", lx, ly):
+                            nx, ny = lx, ly
+                            break
+                    else:
+                        continue
+                elif not f.crystal or not ((dx and jump in (1,2)) or (dy and jump in (4,8))):
                     continue
             if not jump:
                 if f.get("dirblock", nx, ny) & bit or f.get("dirblock", x, y) & reverse:
@@ -85,7 +105,8 @@ class Routes:
             required = {"cut": 15, "rock": 249, "boulder": 70}.get(f.blockers.get((nx, ny)))
             if required and required not in self.field_moves and (mid, nx, ny) not in self.cleared:
                 continue
-            if f.get("collision", nx, ny) and (nx, ny) not in f.blockers and (mid, nx, ny) not in self.cleared:
+            surfable = f.crystal and f.get("water", nx, ny) and 57 in self.field_moves
+            if f.get("collision", nx, ny) and not surfable and (nx, ny) not in f.blockers and (mid, nx, ny) not in self.cleared:
                 continue
             step = f.doors.get((nx, ny), {})
             dest = step["to"] if step and step.get("trigger", "step") == "step" else (mid, nx, ny)

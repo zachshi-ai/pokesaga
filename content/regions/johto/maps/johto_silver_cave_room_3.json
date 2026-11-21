@@ -36,7 +36,8 @@
      5,
      3
     ]
-   }
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [
@@ -44,66 +45,91 @@
    "species": 42,
    "min": 51,
    "max": 51,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 95,
    "min": 48,
    "max": 48,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 75,
    "min": 48,
    "max": 48,
-   "weight": 60
+   "weight": 20
   },
   {
    "species": 217,
    "min": 50,
    "max": 50,
-   "weight": 20
+   "weight": 10
   },
   {
    "species": 246,
    "min": 20,
    "max": 20,
-   "weight": 10
-  },
-  {
-   "species": 42,
-   "min": 49,
-   "max": 49,
-   "weight": 10
+   "weight": 5
   },
   {
    "species": 246,
    "min": 15,
    "max": 15,
-   "weight": 8
-  },
-  {
-   "species": 55,
-   "min": 45,
-   "max": 45,
-   "weight": 5
-  },
-  {
-   "species": 42,
-   "min": 53,
-   "max": 53,
-   "weight": 5
+   "weight": 4
   },
   {
    "species": 247,
    "min": 20,
    "max": 20,
-   "weight": 2
+   "weight": 1
   }
  ],
  "encounter_rate": 0.06,
  "objects": [],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 42,
+     "min": 51,
+     "max": 51,
+     "weight": 30
+    },
+    {
+     "species": 95,
+     "min": 48,
+     "max": 48,
+     "weight": 30
+    },
+    {
+     "species": 75,
+     "min": 48,
+     "max": 48,
+     "weight": 20
+    },
+    {
+     "species": 42,
+     "min": 49,
+     "max": 49,
+     "weight": 10
+    },
+    {
+     "species": 55,
+     "min": 45,
+     "max": 45,
+     "weight": 5
+    },
+    {
+     "species": 42,
+     "min": 53,
+     "max": 53,
+     "weight": 5
+    }
+   ],
+   "rate": 0.06
+  }
+ }
 }

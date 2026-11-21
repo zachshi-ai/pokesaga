@@ -129,32 +129,6 @@
     ]
    },
    "trainer": "FisherKyle"
-  },
-  {
-   "at": [
-    2,
-    21
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    2,
-    25
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -418,9 +392,56 @@
    "category": "heal",
    "flag": "johto:EVENT_ROUTE_12_HIDDEN_ELIXER",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    2,
+    21
+   ],
+   "source_script": "Route12Calcium",
+   "flag": "EVENT_ROUTE_12_CALCIUM",
+   "sprite": "item",
+   "name": "特攻增强剂",
+   "category": "other",
+   "item": "ITEM_CALCIUM"
+  },
+  {
+   "kind": "item",
+   "at": [
+    2,
+    25
+   ],
+   "source_script": "Route12Nugget",
+   "flag": "EVENT_ROUTE_12_NUGGET",
+   "sprite": "item",
+   "name": "金珠",
+   "category": "other",
+   "item": "ITEM_NUGGET"
   }
  ],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "water_encounters": [
+  {
+   "species": 72,
+   "min": 25,
+   "max": 25,
+   "weight": 60
+  },
+  {
+   "species": 195,
+   "min": 25,
+   "max": 25,
+   "weight": 30
+  },
+  {
+   "species": 73,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.06
 }

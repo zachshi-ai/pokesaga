@@ -52,8 +52,8 @@
    "gfx": "navigator",
    "transit": true,
    "at": [
-    5,
-    3
+    7,
+    4
    ],
    "atlas": "world"
   }

@@ -193,32 +193,6 @@
     "你好。",
     "路上小心。"
    ]
-  },
-  {
-   "at": [
-    3,
-    5
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    17,
-    1
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -309,6 +283,31 @@
    "category": "heal",
    "flag": "johto:EVENT_LAKE_OF_RAGE_HIDDEN_MAX_POTION",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    5
+   ],
+   "source_script": "LakeOfRageElixer",
+   "flag": "EVENT_LAKE_OF_RAGE_ELIXER",
+   "sprite": "item",
+   "name": "PP 多项小补剂",
+   "category": "heal",
+   "item": "ITEM_ELIXIR"
+  },
+  {
+   "kind": "item",
+   "at": [
+    17,
+    1
+   ],
+   "source_script": "LakeOfRageTMDetect",
+   "flag": "EVENT_LAKE_OF_RAGE_TM_DETECT",
+   "sprite": "item",
+   "name": "城都招式学习器·看穿",
+   "category": "tm"
   }
  ],
  "weather": "",

@@ -9,60 +9,7 @@
   5,
   9
  ],
- "npcs": [
-  {
-   "at": [
-    2,
-    4
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    7,
-    14
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    2,
-    15
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    3,
-    9
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  }
- ],
+ "npcs": [],
  "warps": [
   {
    "at": [
@@ -98,67 +45,43 @@
    "species": 75,
    "min": 43,
    "max": 43,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 217,
    "min": 44,
    "max": 44,
-   "weight": 60
+   "weight": 30
   },
   {
    "species": 95,
    "min": 42,
    "max": 42,
-   "weight": 60
-  },
-  {
-   "species": 42,
-   "min": 44,
-   "max": 44,
-   "weight": 30
+   "weight": 20
   },
   {
    "species": 126,
    "min": 45,
    "max": 45,
-   "weight": 20
+   "weight": 10
   },
   {
    "species": 42,
    "min": 45,
    "max": 45,
-   "weight": 10
-  },
-  {
-   "species": 42,
-   "min": 42,
-   "max": 42,
-   "weight": 10
+   "weight": 5
   },
   {
    "species": 246,
    "min": 20,
    "max": 20,
-   "weight": 8
-  },
-  {
-   "species": 55,
-   "min": 45,
-   "max": 45,
-   "weight": 5
-  },
-  {
-   "species": 42,
-   "min": 46,
-   "max": 46,
-   "weight": 5
+   "weight": 4
   },
   {
    "species": 246,
    "min": 15,
    "max": 15,
-   "weight": 2
+   "weight": 1
   }
  ],
  "encounter_rate": 0.06,
@@ -188,9 +111,104 @@
    "category": "ball",
    "flag": "johto:EVENT_SILVER_CAVE_ROOM_1_HIDDEN_ULTRA_BALL",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    2,
+    4
+   ],
+   "source_script": "SilverCaveRoom1MaxElixer",
+   "flag": "EVENT_SILVER_CAVE_ROOM_1_MAX_ELIXER",
+   "sprite": "item",
+   "name": "PP 多项全补剂",
+   "category": "heal",
+   "item": "ITEM_MAX_ELIXIR"
+  },
+  {
+   "kind": "item",
+   "at": [
+    7,
+    14
+   ],
+   "source_script": "SilverCaveRoom1Protein",
+   "flag": "EVENT_SILVER_CAVE_ROOM_1_PROTEIN",
+   "sprite": "item",
+   "name": "攻击增强剂",
+   "category": "other",
+   "item": "ITEM_PROTEIN"
+  },
+  {
+   "kind": "item",
+   "at": [
+    2,
+    15
+   ],
+   "source_script": "SilverCaveRoom1EscapeRope",
+   "flag": "EVENT_SILVER_CAVE_ROOM_1_ESCAPE_ROPE",
+   "sprite": "item",
+   "name": "离洞绳",
+   "category": "other",
+   "item": "ITEM_ESCAPE_ROPE"
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    9
+   ],
+   "source_script": "SilverCaveRoom1UltraBall",
+   "flag": "EVENT_SILVER_CAVE_ROOM_1_ULTRA_BALL",
+   "sprite": "item",
+   "name": "高级球",
+   "category": "ball",
+   "item": "ITEM_ULTRA_BALL"
   }
  ],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 75,
+     "min": 43,
+     "max": 43,
+     "weight": 30
+    },
+    {
+     "species": 42,
+     "min": 44,
+     "max": 44,
+     "weight": 30
+    },
+    {
+     "species": 95,
+     "min": 42,
+     "max": 42,
+     "weight": 20
+    },
+    {
+     "species": 42,
+     "min": 42,
+     "max": 42,
+     "weight": 10
+    },
+    {
+     "species": 55,
+     "min": 45,
+     "max": 45,
+     "weight": 5
+    },
+    {
+     "species": 42,
+     "min": 46,
+     "max": 46,
+     "weight": 5
+    }
+   ],
+   "rate": 0.06
+  }
+ }
 }

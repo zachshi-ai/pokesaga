@@ -113,15 +113,15 @@
   },
   {
    "at": [
-    0,
-    2
+    1,
+    0
    ],
    "to": {
     "region": "johto",
     "map": "johto_national_park",
     "at": [
      16,
-     10
+     7
     ]
    }
   },
@@ -134,22 +134,22 @@
     "region": "johto",
     "map": "johto_route_36",
     "at": [
-     13,
-     3
+     9,
+     4
     ]
    }
   },
   {
    "at": [
     4,
-    2
+    1
    ],
    "to": {
     "region": "johto",
     "map": "johto_route_36",
     "at": [
-     13,
-     3
+     10,
+     5
     ]
    }
   }

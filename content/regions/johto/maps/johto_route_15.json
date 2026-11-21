@@ -181,19 +181,6 @@
     ]
    },
    "trainer": "TeacherHillary"
-  },
-  {
-   "at": [
-    6,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -331,8 +318,45 @@
    "edge": true
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 33,
+   "min": 23,
+   "max": 23,
+   "weight": 30
+  },
+  {
+   "species": 30,
+   "min": 23,
+   "max": 23,
+   "weight": 30
+  },
+  {
+   "species": 17,
+   "min": 25,
+   "max": 25,
+   "weight": 20
+  },
+  {
+   "species": 187,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  },
+  {
+   "species": 187,
+   "min": 27,
+   "max": 27,
+   "weight": 9
+  },
+  {
+   "species": 113,
+   "min": 25,
+   "max": 25,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.1,
  "objects": [
   {
    "at": [
@@ -343,9 +367,65 @@
    "kind": "sign",
    "sprite": "sign",
    "text": "15 号道路，浅红市至紫苑镇。"
+  },
+  {
+   "kind": "item",
+   "at": [
+    6,
+    2
+   ],
+   "source_script": "Route15PPUp",
+   "flag": "EVENT_ROUTE_15_PP_UP",
+   "sprite": "item",
+   "name": "PP 提升剂",
+   "category": "other",
+   "item": "ITEM_PP_UP"
   }
  ],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 48,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 195,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 164,
+     "min": 25,
+     "max": 25,
+     "weight": 20
+    },
+    {
+     "species": 49,
+     "min": 25,
+     "max": 25,
+     "weight": 10
+    },
+    {
+     "species": 195,
+     "min": 25,
+     "max": 25,
+     "weight": 9
+    },
+    {
+     "species": 113,
+     "min": 25,
+     "max": 25,
+     "weight": 1
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

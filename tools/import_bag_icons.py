@@ -75,6 +75,19 @@ def main():
                     "PP 多项":"ELIXIR","PP 全满":"MAX_ELIXIR","力量强化":"X_ATTACK","圣灰":"SACRED_ASH",
                     "自行车":"MACH_BIKE","其他":"TM_CASE","携带":"LEFTOVERS","太晶":"NORMAL_TERA_SHARD",
                     "钓竿":"OLD_ROD","PP 提升剂":"PP_UP","优质伤药":"SUPER_POTION","地区转移器":"SCANNER"})
+    aliases.update({
+        "破旧钓竿":"OLD_ROD","好钓竿":"GOOD_ROD","厉害钓竿":"SUPER_ROD",
+        "等级球":"LEVEL_BALL","诱饵球":"LURE_BALL","月亮球":"MOON_BALL","友友球":"FRIEND_BALL",
+        "速度球":"FAST_BALL","沉重球":"HEAVY_BALL","甜蜜球":"LOVE_BALL","代币盒":"COIN_CASE",
+        "地图卡":"TOWN_MAP","杰尼龟喷壶":"WAILMER_PAIL","地下钥匙":"BASEMENT_KEY",
+        "钥匙卡（广播塔）":"CARD_KEY","秘传药":"HEAL_POWDER","红色鳞片":"DRAGON_SCALE",
+        "宝可装置":"SCANNER","探宝器":"DOWSING_MACHINE","透明铃铛":"SOOTHE_BELL",
+        "银色之羽":"PRETTY_FEATHER","虹色之羽":"GENIUS_FEATHER","波克比的蛋":"LUCKY_EGG",
+        "神奇的蛋":"LUCKY_EGG","高速船船票":"SS_TICKET","蓝卡":"CONTEST_PASS",
+        "收音机卡":"TRI_PASS","收音机扩充卡":"RAINBOW_PASS","磁浮列车通行证":"EON_TICKET",
+        "发电机零件":"DEVON_PARTS","遗失玩偶":"POKE_DOLL",
+        **{color+"球果":key+"_APRICORN" for color,key in zip("红蓝黄绿白黑粉",
+                                                            ["RED","BLUE","YELLOW","GREEN","WHITE","BLACK","PINK"])}})
     for name, ident in aliases.items():
         if ident in pairs:
             register(name, *pairs[ident])

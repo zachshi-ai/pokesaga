@@ -94,26 +94,13 @@
     "你好。",
     "路上小心。"
    ]
-  },
-  {
-   "at": [
-    4,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
   {
    "at": [
-    4,
-    1
+    0,
+    0
    ],
    "to": {
     "region": "johto",
@@ -171,6 +158,19 @@
    "kind": "sign",
    "sprite": "sign",
    "text": "书架上整齐地排着各种宝可梦杂志。"
+  },
+  {
+   "kind": "item",
+   "at": [
+    4,
+    2
+   ],
+   "source_script": "RadioTower5FUltraBall",
+   "flag": "EVENT_RADIO_TOWER_5F_ULTRA_BALL",
+   "sprite": "item",
+   "name": "高级球",
+   "category": "ball",
+   "item": "ITEM_ULTRA_BALL"
   }
  ],
  "weather": "",

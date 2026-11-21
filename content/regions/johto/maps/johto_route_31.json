@@ -92,32 +92,6 @@
     "城都这地方，慢慢逛才有味道。",
     "出远门记得带足伤药。"
    ]
-  },
-  {
-   "at": [
-    14,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    9,
-    7
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -196,73 +170,37 @@
  ],
  "encounters": [
   {
+   "species": 16,
+   "min": 4,
+   "max": 4,
+   "weight": 30
+  },
+  {
    "species": 10,
    "min": 4,
    "max": 4,
-   "weight": 60
+   "weight": 30
   },
   {
    "species": 69,
    "min": 5,
    "max": 5,
-   "weight": 60
-  },
-  {
-   "species": 165,
-   "min": 4,
-   "max": 4,
-   "weight": 30
-  },
-  {
-   "species": 16,
-   "min": 4,
-   "max": 4,
-   "weight": 30
-  },
-  {
-   "species": 167,
-   "min": 4,
-   "max": 4,
-   "weight": 30
-  },
-  {
-   "species": 60,
-   "min": 4,
-   "max": 4,
-   "weight": 30
+   "weight": 20
   },
   {
    "species": 16,
    "min": 5,
    "max": 5,
-   "weight": 20
+   "weight": 10
   },
   {
    "species": 13,
    "min": 4,
    "max": 4,
-   "weight": 10
-  },
-  {
-   "species": 187,
-   "min": 5,
-   "max": 5,
-   "weight": 10
-  },
-  {
-   "species": 163,
-   "min": 5,
-   "max": 5,
-   "weight": 10
-  },
-  {
-   "species": 41,
-   "min": 4,
-   "max": 4,
    "weight": 5
   },
   {
-   "species": 92,
+   "species": 187,
    "min": 5,
    "max": 5,
    "weight": 5
@@ -289,6 +227,32 @@
    "kind": "sign",
    "sprite": "sign",
    "text": "黑暗洞窟。"
+  },
+  {
+   "kind": "item",
+   "at": [
+    14,
+    2
+   ],
+   "source_script": "Route31Potion",
+   "flag": "EVENT_ROUTE_31_POTION",
+   "sprite": "item",
+   "name": "伤药",
+   "category": "heal",
+   "item": "ITEM_POTION"
+  },
+  {
+   "kind": "item",
+   "at": [
+    9,
+    7
+   ],
+   "source_script": "Route31PokeBall",
+   "flag": "EVENT_ROUTE_31_POKE_BALL",
+   "sprite": "item",
+   "name": "精灵球",
+   "category": "ball",
+   "item": "ITEM_POKE_BALL"
   }
  ],
  "weather": "",
@@ -314,5 +278,89 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.02
+ "water_encounter_rate": 0.02,
+ "encounters_by_time": {
+  "morn": {
+   "pool": [
+    {
+     "species": 165,
+     "min": 4,
+     "max": 4,
+     "weight": 30
+    },
+    {
+     "species": 10,
+     "min": 4,
+     "max": 4,
+     "weight": 30
+    },
+    {
+     "species": 69,
+     "min": 5,
+     "max": 5,
+     "weight": 20
+    },
+    {
+     "species": 16,
+     "min": 5,
+     "max": 5,
+     "weight": 10
+    },
+    {
+     "species": 13,
+     "min": 4,
+     "max": 4,
+     "weight": 5
+    },
+    {
+     "species": 187,
+     "min": 5,
+     "max": 5,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  },
+  "nite": {
+   "pool": [
+    {
+     "species": 167,
+     "min": 4,
+     "max": 4,
+     "weight": 30
+    },
+    {
+     "species": 60,
+     "min": 4,
+     "max": 4,
+     "weight": 30
+    },
+    {
+     "species": 69,
+     "min": 5,
+     "max": 5,
+     "weight": 20
+    },
+    {
+     "species": 163,
+     "min": 5,
+     "max": 5,
+     "weight": 10
+    },
+    {
+     "species": 41,
+     "min": 4,
+     "max": 4,
+     "weight": 5
+    },
+    {
+     "species": 92,
+     "min": 5,
+     "max": 5,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

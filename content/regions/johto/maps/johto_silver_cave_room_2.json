@@ -9,47 +9,7 @@
   7,
   9
  ],
- "npcs": [
-  {
-   "at": [
-    11,
-    5
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    12,
-    11
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    2,
-    10
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  }
- ],
+ "npcs": [],
  "warps": [
   {
    "at": [
@@ -75,7 +35,7 @@
     "map": "johto_silver_cave_room_3",
     "at": [
      4,
-     17
+     15
     ]
    }
   },
@@ -113,61 +73,43 @@
    "species": 42,
    "min": 48,
    "max": 48,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 67,
    "min": 48,
    "max": 48,
-   "weight": 60
+   "weight": 30
   },
   {
    "species": 217,
    "min": 47,
    "max": 47,
-   "weight": 40
-  },
-  {
-   "species": 47,
-   "min": 46,
-   "max": 46,
-   "weight": 30
-  },
-  {
-   "species": 55,
-   "min": 48,
-   "max": 48,
-   "weight": 30
-  },
-  {
-   "species": 42,
-   "min": 46,
-   "max": 46,
    "weight": 20
   },
   {
    "species": 47,
+   "min": 46,
+   "max": 46,
+   "weight": 10
+  },
+  {
+   "species": 47,
    "min": 48,
    "max": 48,
-   "weight": 15
+   "weight": 5
   },
   {
    "species": 246,
    "min": 15,
    "max": 15,
-   "weight": 8
-  },
-  {
-   "species": 200,
-   "min": 45,
-   "max": 45,
-   "weight": 5
+   "weight": 4
   },
   {
    "species": 246,
    "min": 20,
    "max": 20,
-   "weight": 2
+   "weight": 1
   }
  ],
  "encounter_rate": 0.06,
@@ -184,6 +126,45 @@
    "category": "heal",
    "flag": "johto:EVENT_SILVER_CAVE_ROOM_2_HIDDEN_MAX_POTION",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    11,
+    5
+   ],
+   "source_script": "SilverCaveRoom2Calcium",
+   "flag": "EVENT_SILVER_CAVE_ROOM_2_CALCIUM",
+   "sprite": "item",
+   "name": "特攻增强剂",
+   "category": "other",
+   "item": "ITEM_CALCIUM"
+  },
+  {
+   "kind": "item",
+   "at": [
+    12,
+    11
+   ],
+   "source_script": "SilverCaveRoom2UltraBall",
+   "flag": "EVENT_SILVER_CAVE_ROOM_2_ULTRA_BALL",
+   "sprite": "item",
+   "name": "高级球",
+   "category": "ball",
+   "item": "ITEM_ULTRA_BALL"
+  },
+  {
+   "kind": "item",
+   "at": [
+    2,
+    10
+   ],
+   "source_script": "SilverCaveRoom2PPUp",
+   "flag": "EVENT_SILVER_CAVE_ROOM_2_PP_UP",
+   "sprite": "item",
+   "name": "PP 提升剂",
+   "category": "other",
+   "item": "ITEM_PP_UP"
   }
  ],
  "weather": "",
@@ -209,5 +190,48 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.02
+ "water_encounter_rate": 0.02,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 42,
+     "min": 48,
+     "max": 48,
+     "weight": 30
+    },
+    {
+     "species": 55,
+     "min": 48,
+     "max": 48,
+     "weight": 30
+    },
+    {
+     "species": 42,
+     "min": 46,
+     "max": 46,
+     "weight": 20
+    },
+    {
+     "species": 47,
+     "min": 46,
+     "max": 46,
+     "weight": 10
+    },
+    {
+     "species": 47,
+     "min": 48,
+     "max": 48,
+     "weight": 5
+    },
+    {
+     "species": 200,
+     "min": 45,
+     "max": 45,
+     "weight": 5
+    }
+   ],
+   "rate": 0.06
+  }
+ }
 }

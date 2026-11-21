@@ -219,19 +219,6 @@
     "城都这地方，慢慢逛才有味道。",
     "出远门记得带足伤药。"
    ]
-  },
-  {
-   "at": [
-    7,
-    4
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -259,7 +246,7 @@
     "map": "johto_goldenrod_underground_warehouse",
     "at": [
      1,
-     6
+     4
     ]
    }
   },
@@ -420,6 +407,19 @@
    "category": "heal",
    "flag": "johto:EVENT_GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES_HIDDEN_REVIVE",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    7,
+    4
+   ],
+   "source_script": "GoldenrodUndergroundSwitchRoomEntrancesFullHeal",
+   "flag": "EVENT_GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES_FULL_HEAL",
+   "sprite": "item",
+   "name": "万灵药",
+   "category": "heal",
+   "item": "ITEM_FULL_HEAL"
   }
  ],
  "weather": "",

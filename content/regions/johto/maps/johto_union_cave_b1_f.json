@@ -116,36 +116,10 @@
   },
   {
    "at": [
-    1,
-    7
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
     3,
     5
    ],
    "name": "岩石",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    8,
-    11
-   ],
-   "name": "道具球",
    "gfx": "man",
    "lines": [
     "哟，眼生得很啊。",
@@ -231,47 +205,67 @@
    "species": 74,
    "min": 8,
    "max": 8,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 41,
    "min": 6,
    "max": 6,
-   "weight": 90
-  },
-  {
-   "species": 41,
-   "min": 8,
-   "max": 8,
-   "weight": 40
-  },
-  {
-   "species": 95,
-   "min": 8,
-   "max": 8,
    "weight": 30
   },
   {
-   "species": 194,
+   "species": 41,
    "min": 8,
    "max": 8,
    "weight": 20
   },
   {
+   "species": 95,
+   "min": 8,
+   "max": 8,
+   "weight": 10
+  },
+  {
    "species": 19,
    "min": 6,
    "max": 6,
-   "weight": 15
+   "weight": 5
   },
   {
    "species": 19,
    "min": 8,
    "max": 8,
-   "weight": 15
+   "weight": 5
   }
  ],
  "encounter_rate": 0.06,
- "objects": [],
+ "objects": [
+  {
+   "kind": "item",
+   "at": [
+    1,
+    7
+   ],
+   "source_script": "UnionCaveB1FTMSwift",
+   "flag": "EVENT_UNION_CAVE_B1F_TM_SWIFT",
+   "sprite": "item",
+   "name": "城都招式学习器·高速星星",
+   "category": "tm"
+  },
+  {
+   "kind": "item",
+   "at": [
+    8,
+    11
+   ],
+   "source_script": "UnionCaveB1FXDefend",
+   "flag": "EVENT_UNION_CAVE_B1F_X_DEFEND",
+   "sprite": "item",
+   "name": "防御强化",
+   "category": "battle",
+   "item": "ITEM_X_DEFEND"
+  }
+ ],
  "weather": "",
  "weather_name": "",
  "cycling": false,
@@ -295,5 +289,48 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.02
+ "water_encounter_rate": 0.02,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 74,
+     "min": 8,
+     "max": 8,
+     "weight": 30
+    },
+    {
+     "species": 41,
+     "min": 6,
+     "max": 6,
+     "weight": 30
+    },
+    {
+     "species": 194,
+     "min": 8,
+     "max": 8,
+     "weight": 20
+    },
+    {
+     "species": 95,
+     "min": 8,
+     "max": 8,
+     "weight": 10
+    },
+    {
+     "species": 19,
+     "min": 6,
+     "max": 6,
+     "weight": 5
+    },
+    {
+     "species": 19,
+     "min": 8,
+     "max": 8,
+     "weight": 5
+    }
+   ],
+   "rate": 0.06
+  }
+ }
 }

@@ -85,45 +85,6 @@
     ]
    },
    "trainer": "ScientistJed"
-  },
-  {
-   "at": [
-    13,
-    3
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    7,
-    7
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    10,
-    6
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -269,6 +230,45 @@
    "category": "heal",
    "flag": "johto:EVENT_TEAM_ROCKET_BASE_B1F_HIDDEN_REVIVE",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    13,
+    3
+   ],
+   "source_script": "TeamRocketBaseB1FHyperPotion",
+   "flag": "EVENT_TEAM_ROCKET_BASE_B1F_HYPER_POTION",
+   "sprite": "item",
+   "name": "厉害伤药",
+   "category": "heal",
+   "item": "ITEM_HYPER_POTION"
+  },
+  {
+   "kind": "item",
+   "at": [
+    7,
+    7
+   ],
+   "source_script": "TeamRocketBaseB1FNugget",
+   "flag": "EVENT_TEAM_ROCKET_BASE_B1F_NUGGET",
+   "sprite": "item",
+   "name": "金珠",
+   "category": "other",
+   "item": "ITEM_NUGGET"
+  },
+  {
+   "kind": "item",
+   "at": [
+    10,
+    6
+   ],
+   "source_script": "TeamRocketBaseB1FGuardSpec",
+   "flag": "EVENT_TEAM_ROCKET_BASE_B1F_GUARD_SPEC",
+   "sprite": "item",
+   "name": "能力防守",
+   "category": "battle",
+   "item": "ITEM_GUARD_SPEC"
   }
  ],
  "weather": "",

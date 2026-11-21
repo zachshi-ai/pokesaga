@@ -97,19 +97,6 @@
   },
   {
    "at": [
-    8,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
     5,
     6
    ],
@@ -212,42 +199,56 @@
    "species": 19,
    "min": 14,
    "max": 14,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 109,
    "min": 14,
    "max": 14,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 109,
    "min": 16,
    "max": 16,
-   "weight": 72
+   "weight": 24
   },
   {
    "species": 41,
    "min": 15,
    "max": 15,
-   "weight": 30
+   "weight": 10
   },
   {
    "species": 109,
    "min": 12,
    "max": 12,
-   "weight": 15
+   "weight": 5
   },
   {
    "species": 110,
    "min": 16,
    "max": 16,
-   "weight": 3
+   "weight": 1
   }
  ],
  "encounter_rate": 0.06,
- "objects": [],
+ "objects": [
+  {
+   "kind": "item",
+   "at": [
+    8,
+    2
+   ],
+   "source_script": "BurnedTowerB1FTMEndure",
+   "flag": "EVENT_BURNED_TOWER_B1F_TM_ENDURE",
+   "sprite": "item",
+   "name": "城都招式学习器·挺住",
+   "category": "tm"
+  }
+ ],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "encounters_by_time": {}
 }

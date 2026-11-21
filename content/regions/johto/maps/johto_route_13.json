@@ -317,8 +317,45 @@
    "edge": true
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 33,
+   "min": 23,
+   "max": 23,
+   "weight": 30
+  },
+  {
+   "species": 30,
+   "min": 23,
+   "max": 23,
+   "weight": 30
+  },
+  {
+   "species": 17,
+   "min": 25,
+   "max": 25,
+   "weight": 20
+  },
+  {
+   "species": 187,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  },
+  {
+   "species": 187,
+   "min": 27,
+   "max": 27,
+   "weight": 9
+  },
+  {
+   "species": 113,
+   "min": 25,
+   "max": 25,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.1,
  "objects": [
   {
    "at": [
@@ -366,5 +403,69 @@
  ],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 48,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 195,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 164,
+     "min": 25,
+     "max": 25,
+     "weight": 20
+    },
+    {
+     "species": 49,
+     "min": 25,
+     "max": 25,
+     "weight": 10
+    },
+    {
+     "species": 195,
+     "min": 25,
+     "max": 25,
+     "weight": 9
+    },
+    {
+     "species": 113,
+     "min": 25,
+     "max": 25,
+     "weight": 1
+    }
+   ],
+   "rate": 0.1
+  }
+ },
+ "water_encounters": [
+  {
+   "species": 72,
+   "min": 25,
+   "max": 25,
+   "weight": 60
+  },
+  {
+   "species": 195,
+   "min": 25,
+   "max": 25,
+   "weight": 30
+  },
+  {
+   "species": 73,
+   "min": 25,
+   "max": 25,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.06
 }

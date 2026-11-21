@@ -38,7 +38,8 @@
      }
     ]
    },
-   "trainer": "FirebreatherLyle"
+   "trainer": "FirebreatherLyle",
+   "j2_voyage": "first"
   },
   {
    "at": [
@@ -64,7 +65,8 @@
      }
     ]
    },
-   "trainer": "BugCatcherKen"
+   "trainer": "BugCatcherKen",
+   "j2_voyage": "first"
   },
   {
    "at": [
@@ -90,7 +92,8 @@
      }
     ]
    },
-   "trainer": "BeautyCassie"
+   "trainer": "BeautyCassie",
+   "j2_voyage": "west"
   }
  ],
  "warps": [
@@ -103,7 +106,7 @@
     "region": "johto",
     "map": "johto_fast_ship_1f",
     "at": [
-     5,
+     7,
      3
     ]
    }

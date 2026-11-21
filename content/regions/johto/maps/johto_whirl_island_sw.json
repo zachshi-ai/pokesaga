@@ -9,21 +9,7 @@
   5,
   4
  ],
- "npcs": [
-  {
-   "at": [
-    7,
-    1
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  }
- ],
+ "npcs": [],
  "warps": [
   {
    "at": [
@@ -101,47 +87,55 @@
    "species": 98,
    "min": 22,
    "max": 22,
-   "weight": 110
+   "weight": 30
   },
   {
    "species": 41,
    "min": 23,
    "max": 23,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 86,
    "min": 22,
    "max": 22,
-   "weight": 40
+   "weight": 20
   },
   {
    "species": 98,
-   "min": 24,
-   "max": 24,
-   "weight": 30
-  },
-  {
-   "species": 42,
-   "min": 25,
-   "max": 25,
-   "weight": 15
-  },
-  {
-   "species": 86,
    "min": 24,
    "max": 24,
    "weight": 10
   },
   {
    "species": 42,
+   "min": 25,
+   "max": 25,
+   "weight": 5
+  },
+  {
+   "species": 86,
    "min": 24,
    "max": 24,
    "weight": 5
   }
  ],
  "encounter_rate": 0.06,
- "objects": [],
+ "objects": [
+  {
+   "kind": "item",
+   "at": [
+    7,
+    1
+   ],
+   "source_script": "WhirlIslandSWUltraBall",
+   "flag": "EVENT_WHIRL_ISLAND_SW_ULTRA_BALL",
+   "sprite": "item",
+   "name": "高级球",
+   "category": "ball",
+   "item": "ITEM_ULTRA_BALL"
+  }
+ ],
  "weather": "",
  "weather_name": "",
  "cycling": false,
@@ -165,5 +159,42 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.04
+ "water_encounter_rate": 0.04,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 98,
+     "min": 22,
+     "max": 22,
+     "weight": 50
+    },
+    {
+     "species": 41,
+     "min": 23,
+     "max": 23,
+     "weight": 30
+    },
+    {
+     "species": 98,
+     "min": 24,
+     "max": 24,
+     "weight": 10
+    },
+    {
+     "species": 42,
+     "min": 25,
+     "max": 25,
+     "weight": 5
+    },
+    {
+     "species": 42,
+     "min": 24,
+     "max": 24,
+     "weight": 5
+    }
+   ],
+   "rate": 0.06
+  }
+ }
 }

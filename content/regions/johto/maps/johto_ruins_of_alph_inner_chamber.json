@@ -181,7 +181,7 @@
    "species": 201,
    "min": 5,
    "max": 5,
-   "weight": 300
+   "weight": 100
   }
  ],
  "encounter_rate": 0.06,
@@ -409,5 +409,6 @@
  ],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "encounters_by_time": {}
 }

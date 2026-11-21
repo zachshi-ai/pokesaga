@@ -171,19 +171,6 @@
     "你今天也很有精神呢。",
     "慢慢来，不用急。"
    ]
-  },
-  {
-   "at": [
-    4,
-    17
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -263,75 +250,39 @@
  ],
  "encounters": [
   {
-   "species": 10,
-   "min": 3,
-   "max": 3,
-   "weight": 60
-  },
-  {
-   "species": 10,
-   "min": 4,
-   "max": 4,
-   "weight": 40
-  },
-  {
-   "species": 165,
-   "min": 3,
-   "max": 3,
-   "weight": 30
-  },
-  {
    "species": 16,
    "min": 3,
    "max": 3,
    "weight": 30
   },
   {
-   "species": 167,
+   "species": 10,
    "min": 3,
    "max": 3,
    "weight": 30
   },
   {
-   "species": 163,
-   "min": 3,
-   "max": 3,
-   "weight": 30
+   "species": 10,
+   "min": 4,
+   "max": 4,
+   "weight": 20
   },
   {
    "species": 16,
    "min": 4,
    "max": 4,
-   "weight": 20
-  },
-  {
-   "species": 60,
-   "min": 4,
-   "max": 4,
-   "weight": 20
-  },
-  {
-   "species": 163,
-   "min": 4,
-   "max": 4,
-   "weight": 15
+   "weight": 10
   },
   {
    "species": 13,
    "min": 3,
    "max": 3,
-   "weight": 10
+   "weight": 5
   },
   {
    "species": 187,
    "min": 4,
    "max": 4,
-   "weight": 10
-  },
-  {
-   "species": 41,
-   "min": 3,
-   "max": 3,
    "weight": 5
   }
  ],
@@ -389,6 +340,19 @@
    "category": "heal",
    "flag": "johto:EVENT_ROUTE_30_HIDDEN_POTION",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    4,
+    17
+   ],
+   "source_script": "Route30Antidote",
+   "flag": "EVENT_ROUTE_30_ANTIDOTE",
+   "sprite": "item",
+   "name": "解毒药",
+   "category": "heal",
+   "item": "ITEM_ANTIDOTE"
   }
  ],
  "weather": "",
@@ -414,5 +378,83 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.02
+ "water_encounter_rate": 0.02,
+ "encounters_by_time": {
+  "morn": {
+   "pool": [
+    {
+     "species": 165,
+     "min": 3,
+     "max": 3,
+     "weight": 30
+    },
+    {
+     "species": 10,
+     "min": 3,
+     "max": 3,
+     "weight": 30
+    },
+    {
+     "species": 10,
+     "min": 4,
+     "max": 4,
+     "weight": 20
+    },
+    {
+     "species": 16,
+     "min": 4,
+     "max": 4,
+     "weight": 10
+    },
+    {
+     "species": 13,
+     "min": 3,
+     "max": 3,
+     "weight": 5
+    },
+    {
+     "species": 187,
+     "min": 4,
+     "max": 4,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  },
+  "nite": {
+   "pool": [
+    {
+     "species": 167,
+     "min": 3,
+     "max": 3,
+     "weight": 30
+    },
+    {
+     "species": 163,
+     "min": 3,
+     "max": 3,
+     "weight": 30
+    },
+    {
+     "species": 60,
+     "min": 4,
+     "max": 4,
+     "weight": 20
+    },
+    {
+     "species": 163,
+     "min": 4,
+     "max": 4,
+     "weight": 15
+    },
+    {
+     "species": 41,
+     "min": 3,
+     "max": 3,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

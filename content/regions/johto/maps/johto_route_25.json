@@ -223,19 +223,6 @@
     "要不要来一场？",
     "我可是练了很久的。"
    ]
-  },
-  {
-   "at": [
-    16,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -389,8 +376,45 @@
    "edge": true
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 10,
+   "min": 10,
+   "max": 10,
+   "weight": 30
+  },
+  {
+   "species": 16,
+   "min": 10,
+   "max": 10,
+   "weight": 30
+  },
+  {
+   "species": 17,
+   "min": 12,
+   "max": 12,
+   "weight": 20
+  },
+  {
+   "species": 11,
+   "min": 12,
+   "max": 12,
+   "weight": 10
+  },
+  {
+   "species": 69,
+   "min": 10,
+   "max": 10,
+   "weight": 5
+  },
+  {
+   "species": 12,
+   "min": 14,
+   "max": 14,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.1,
  "objects": [
   {
    "at": [
@@ -414,9 +438,86 @@
    "category": "heal",
    "flag": "johto:EVENT_ROUTE_25_HIDDEN_POTION",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    16,
+    2
+   ],
+   "source_script": "Route25Protein",
+   "flag": "EVENT_ROUTE_25_PROTEIN",
+   "sprite": "item",
+   "name": "攻击增强剂",
+   "category": "other",
+   "item": "ITEM_PROTEIN"
   }
  ],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 43,
+     "min": 10,
+     "max": 10,
+     "weight": 30
+    },
+    {
+     "species": 163,
+     "min": 10,
+     "max": 10,
+     "weight": 30
+    },
+    {
+     "species": 48,
+     "min": 10,
+     "max": 10,
+     "weight": 20
+    },
+    {
+     "species": 164,
+     "min": 12,
+     "max": 12,
+     "weight": 10
+    },
+    {
+     "species": 69,
+     "min": 10,
+     "max": 10,
+     "weight": 5
+    },
+    {
+     "species": 164,
+     "min": 14,
+     "max": 14,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  }
+ },
+ "water_encounters": [
+  {
+   "species": 118,
+   "min": 10,
+   "max": 10,
+   "weight": 60
+  },
+  {
+   "species": 118,
+   "min": 5,
+   "max": 5,
+   "weight": 30
+  },
+  {
+   "species": 119,
+   "min": 10,
+   "max": 10,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.04
 }

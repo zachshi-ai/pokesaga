@@ -299,10 +299,90 @@
    "edge": true
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 33,
+   "min": 26,
+   "max": 26,
+   "weight": 30
+  },
+  {
+   "species": 30,
+   "min": 26,
+   "max": 26,
+   "weight": 30
+  },
+  {
+   "species": 17,
+   "min": 28,
+   "max": 28,
+   "weight": 20
+  },
+  {
+   "species": 187,
+   "min": 28,
+   "max": 28,
+   "weight": 10
+  },
+  {
+   "species": 188,
+   "min": 30,
+   "max": 30,
+   "weight": 9
+  },
+  {
+   "species": 113,
+   "min": 28,
+   "max": 28,
+   "weight": 1
+  }
+ ],
+ "encounter_rate": 0.1,
  "objects": [],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 48,
+     "min": 26,
+     "max": 26,
+     "weight": 30
+    },
+    {
+     "species": 195,
+     "min": 26,
+     "max": 26,
+     "weight": 30
+    },
+    {
+     "species": 164,
+     "min": 28,
+     "max": 28,
+     "weight": 20
+    },
+    {
+     "species": 49,
+     "min": 28,
+     "max": 28,
+     "weight": 10
+    },
+    {
+     "species": 195,
+     "min": 28,
+     "max": 28,
+     "weight": 9
+    },
+    {
+     "species": 113,
+     "min": 28,
+     "max": 28,
+     "weight": 1
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

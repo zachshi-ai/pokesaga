@@ -269,19 +269,6 @@
     ]
    },
    "trainer": "CooltrainerFKate"
-  },
-  {
-   "at": [
-    3,
-    15
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -463,52 +450,40 @@
  ],
  "encounters": [
   {
-   "species": 19,
-   "min": 11,
-   "max": 11,
-   "weight": 90
-  },
-  {
    "species": 209,
    "min": 10,
    "max": 10,
-   "weight": 60
+   "weight": 30
+  },
+  {
+   "species": 19,
+   "min": 11,
+   "max": 11,
+   "weight": 30
   },
   {
    "species": 16,
    "min": 12,
    "max": 12,
-   "weight": 40
+   "weight": 20
   },
   {
    "species": 63,
    "min": 10,
    "max": 10,
-   "weight": 30
-  },
-  {
-   "species": 96,
-   "min": 12,
-   "max": 12,
-   "weight": 30
-  },
-  {
-   "species": 163,
-   "min": 12,
-   "max": 12,
-   "weight": 20
+   "weight": 10
   },
   {
    "species": 39,
    "min": 12,
    "max": 12,
-   "weight": 15
+   "weight": 5
   },
   {
    "species": 132,
    "min": 10,
    "max": 10,
-   "weight": 15
+   "weight": 5
   }
  ],
  "encounter_rate": 0.1,
@@ -545,6 +520,19 @@
    "category": "other",
    "flag": "johto:EVENT_ROUTE_34_HIDDEN_RARE_CANDY",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    15
+   ],
+   "source_script": "Route34Nugget",
+   "flag": "EVENT_ROUTE_34_NUGGET",
+   "sprite": "item",
+   "name": "金珠",
+   "category": "other",
+   "item": "ITEM_NUGGET"
   }
  ],
  "weather": "",
@@ -570,5 +558,48 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.06
+ "water_encounter_rate": 0.06,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 96,
+     "min": 12,
+     "max": 12,
+     "weight": 30
+    },
+    {
+     "species": 19,
+     "min": 11,
+     "max": 11,
+     "weight": 30
+    },
+    {
+     "species": 163,
+     "min": 12,
+     "max": 12,
+     "weight": 20
+    },
+    {
+     "species": 63,
+     "min": 10,
+     "max": 10,
+     "weight": 10
+    },
+    {
+     "species": 39,
+     "min": 12,
+     "max": 12,
+     "weight": 5
+    },
+    {
+     "species": 132,
+     "min": 10,
+     "max": 10,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

@@ -83,19 +83,6 @@
     ]
    },
    "trainer": "PicnickerSharon"
-  },
-  {
-   "at": [
-    13,
-    1
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -324,8 +311,45 @@
    "edge": true
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 21,
+   "min": 5,
+   "max": 5,
+   "weight": 30
+  },
+  {
+   "species": 19,
+   "min": 5,
+   "max": 5,
+   "weight": 30
+  },
+  {
+   "species": 23,
+   "min": 8,
+   "max": 8,
+   "weight": 20
+  },
+  {
+   "species": 20,
+   "min": 10,
+   "max": 10,
+   "weight": 10
+  },
+  {
+   "species": 24,
+   "min": 10,
+   "max": 10,
+   "weight": 5
+  },
+  {
+   "species": 27,
+   "min": 10,
+   "max": 10,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.1,
  "objects": [
   {
    "at": [
@@ -349,9 +373,80 @@
    "category": "ball",
    "flag": "johto:EVENT_ROUTE_4_HIDDEN_ULTRA_BALL",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    13,
+    1
+   ],
+   "source_script": "Route4HPUp",
+   "flag": "EVENT_ROUTE_4_HP_UP",
+   "sprite": "item",
+   "name": "HP 增强剂",
+   "category": "other",
+   "item": "ITEM_HP_UP"
   }
  ],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 19,
+     "min": 5,
+     "max": 5,
+     "weight": 35
+    },
+    {
+     "species": 19,
+     "min": 10,
+     "max": 10,
+     "weight": 30
+    },
+    {
+     "species": 20,
+     "min": 10,
+     "max": 10,
+     "weight": 20
+    },
+    {
+     "species": 41,
+     "min": 6,
+     "max": 6,
+     "weight": 10
+    },
+    {
+     "species": 35,
+     "min": 6,
+     "max": 6,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  }
+ },
+ "water_encounters": [
+  {
+   "species": 118,
+   "min": 10,
+   "max": 10,
+   "weight": 60
+  },
+  {
+   "species": 118,
+   "min": 5,
+   "max": 5,
+   "weight": 30
+  },
+  {
+   "species": 119,
+   "min": 10,
+   "max": 10,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.04
 }

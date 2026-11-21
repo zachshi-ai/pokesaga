@@ -100,45 +100,6 @@
     "城都这地方，慢慢逛才有味道。",
     "出远门记得带足伤药。"
    ]
-  },
-  {
-   "at": [
-    8,
-    6
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    5,
-    5
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    1,
-    0
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -187,7 +148,46 @@
  ],
  "encounters": [],
  "encounter_rate": 0.0,
- "objects": [],
+ "objects": [
+  {
+   "kind": "item",
+   "at": [
+    8,
+    6
+   ],
+   "source_script": "GoldenrodUndergroundWarehouseMaxEther",
+   "flag": "EVENT_GOLDENROD_UNDERGROUND_WAREHOUSE_MAX_ETHER",
+   "sprite": "item",
+   "name": "PP 单项全补剂",
+   "category": "heal",
+   "item": "ITEM_MAX_ETHER"
+  },
+  {
+   "kind": "item",
+   "at": [
+    5,
+    5
+   ],
+   "source_script": "GoldenrodUndergroundWarehouseTMSleepTalk",
+   "flag": "EVENT_GOLDENROD_UNDERGROUND_WAREHOUSE_TM_SLEEP_TALK",
+   "sprite": "item",
+   "name": "城都招式学习器·梦话",
+   "category": "tm"
+  },
+  {
+   "kind": "item",
+   "at": [
+    1,
+    0
+   ],
+   "source_script": "GoldenrodUndergroundWarehouseUltraBall",
+   "flag": "EVENT_GOLDENROD_UNDERGROUND_WAREHOUSE_ULTRA_BALL",
+   "sprite": "item",
+   "name": "高级球",
+   "category": "ball",
+   "item": "ITEM_ULTRA_BALL"
+  }
+ ],
  "weather": "",
  "weather_name": "",
  "cycling": false

@@ -73,7 +73,7 @@ func _switch(cat: String) -> void:
 
 func _category(obj: Dictionary) -> String:
 	var name := str(obj.get("name",""))
-	if name.begins_with("招式学习器") or name.begins_with("秘传学习器"):
+	if name.contains("招式学习器") or name.contains("秘传学习器"):
 		return "tm"
 	var key := str(obj.get("category","other"))
 	for group in CATEGORIES:
@@ -96,8 +96,8 @@ func refresh() -> void:
 		b.custom_minimum_size.y = 47
 		row_box.add_child(b)
 		var key := nm if names.has(nm) else fallback
-		if nm.begins_with("秘传学习器"): key = "HM"
-		elif nm.begins_with("招式学习器"): key = "TM"
+		if nm.contains("秘传学习器"): key = "HM"
+		elif nm.contains("招式学习器"): key = "TM"
 		UI.place(b,_icon(key),6,4,38,38)
 		var name_label := UI.label(nm,15)
 		name_label.clip_text = true

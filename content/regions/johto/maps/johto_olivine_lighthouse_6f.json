@@ -70,19 +70,6 @@
     "城都这地方，慢慢逛才有味道。",
     "出远门记得带足伤药。"
    ]
-  },
-  {
-   "at": [
-    1,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -96,7 +83,7 @@
     "map": "johto_olivine_lighthouse_5f",
     "at": [
      4,
-     6
+     7
     ]
    }
   },
@@ -124,14 +111,28 @@
     "map": "johto_olivine_lighthouse_5f",
     "at": [
      7,
-     1
+     2
     ]
    }
   }
  ],
  "encounters": [],
  "encounter_rate": 0.0,
- "objects": [],
+ "objects": [
+  {
+   "kind": "item",
+   "at": [
+    1,
+    2
+   ],
+   "source_script": "OlivineLighthouse6FSuperPotion",
+   "flag": "EVENT_OLIVINE_LIGHTHOUSE_6F_SUPER_POTION",
+   "sprite": "item",
+   "name": "好伤药",
+   "category": "heal",
+   "item": "ITEM_SUPER_POTION"
+  }
+ ],
  "weather": "",
  "weather_name": "",
  "cycling": false

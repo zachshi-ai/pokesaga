@@ -4,211 +4,3027 @@
   {
    "id": "johto_arrive",
    "once": true,
-   "trigger": {"type": "map_enter", "map": "johto_new_bark_town"},
-   "require": {"flags_none": ["johto_arrived"]},
+   "trigger": {
+    "type": "map_enter",
+    "map": "johto_new_bark_town"
+   },
+   "require": {
+    "flags_none": [
+     "johto_arrived"
+    ]
+   },
    "steps": [
-    {"say": ["这里的风比关都凉一些，带着松针的味道。", "小镇只有几条街，尽头是一栋亮着灯的研究所。", "听说那位博士正在找人帮忙。"], "who": "旁白"},
-    {"flag": "johto_arrived"}
+    {
+     "who": "妈妈",
+     "say": [
+      "空木博士说有事想拜托你。他的研究所就在隔壁。"
+     ]
+    },
+    {
+     "flag": "johto_arrived"
+    }
    ]
   },
   {
-   "id": "johto_elm_meet",
-   "once": true,
-   "trigger": {"type": "talk", "npc": "空木博士", "map": "johto_elms_lab"},
-   "require": {"flags_none": ["johto_elm_told"]},
+   "id": "johto_elm_told",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_elm",
+    "map": "johto_elms_lab"
+   },
    "steps": [
-    {"say": ["你来得正好。", "我这边有三只刚照看大的孩子，桌上三个精灵球里就是它们。", "挑一只带走吧——野外不比城里，空着手可不行。"], "who": "空木博士"},
-    {"flag": "johto_elm_told"}
+    {
+     "who": "空木博士",
+     "say": [
+      "宝可梦爷爷来信，说找到一样稀罕的东西。你能替我去拜访他吗？",
+      "桌上的三只都是刚开始旅行的伙伴。选一个，我们就出发。"
+     ]
+    },
+    {
+     "flag": "johto_elm_told"
+    }
    ]
   },
   {
-   "id": "johto_elm_dex",
-   "once": true,
-   "trigger": {"type": "map_enter", "map": "johto_elms_lab"},
-   "require": {"flags_all": ["johto_elm_told"], "flags_none": ["johto_dex"], "has_party": true},
+   "id": "j_potion",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_aide",
+    "map": "johto_elms_lab"
+   },
    "steps": [
-    {"say": ["挑好了？让我看看。", "嗯，眼神挺精神。", "把这个带上——它会记录你见过的每一只宝可梦。", "路上用得上的东西也一起给你。"], "who": "空木博士"},
-    {"give_item": {"name": "精灵球", "category": "ball", "count": 10}},
-    {"give_item": {"name": "伤药", "category": "heal", "count": 3}},
-    {"flag": "johto_dex"},
-    {"flag": "got_dex"}
+    {
+     "who": "空木的助手",
+     "say": [
+      "野外可能会受伤。这瓶伤药放进背包吧。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "伤药",
+      "count": 1,
+      "category": "heal"
+     }
+    },
+    {
+     "flag": "j_potion"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "johto_starter"
+    ],
+    "flags_none": [
+     "j_egg_return"
+    ]
+   },
+   "also": [
+    {
+     "type": "step",
+     "area": [
+      2,
+      4,
+      3,
+      5
+     ],
+     "map": "johto_elms_lab"
+    }
    ]
   },
   {
-   "id": "johto_rival_30",
-   "once": true,
-   "trigger": {"type": "map_enter", "map": "johto_route_30"},
-   "require": {"flags_all": ["johto_dex"], "flags_none": ["johto_rival1"]},
+   "id": "j_mystery_egg",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_mr_pokemon",
+    "map": "johto_mr_pokemons_house"
+   },
    "steps": [
-    {"say": ["嘿，你也从博士那儿拿到了？", "那正好——让我看看你的那只值不值得。", "别说我欺负人，我可只带了一只。"], "who": "劲敌"},
-    {"battle": {"team": [{"species": 158, "level": 6}]}},
-    {"say": ["……行吧，这次算你厉害。", "下次见面可没这么简单。"], "who": "劲敌"},
-    {"flag": "johto_rival1"}
+    {
+     "who": "宝可梦爷爷",
+     "say": [
+      "这是培育屋发现的蛋。能把它带给空木博士吗？"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "神奇的蛋",
+      "count": 1,
+      "category": "key"
+     }
+    },
+    {
+     "who": "大木博士",
+     "say": [
+      "我是真新镇的大木。你和伙伴相处得真好，把这本图鉴带上吧。"
+     ]
+    },
+    {
+     "flag": "johto_dex"
+    },
+    {
+     "flag": "got_dex"
+    },
+    {
+     "heal": true
+    },
+    {
+     "who": "空木博士（电话）",
+     "say": [
+      "研究所出事了！请尽快回来。"
+     ]
+    },
+    {
+     "flag": "j_mystery_egg"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "johto_starter"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_rival1",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_rival1",
+    "map": "johto_cherrygrove_city"
+   },
+   "steps": [
+    {
+     "who": "红发少年",
+     "say": [
+      "你从研究所领的？让我看看它有多少本事。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "劲敌 阿银",
+      "johto_rival": 1,
+      "finish_on_loss": true
+     }
+    },
+    {
+     "who": "红发少年",
+     "say": [
+      "这张训练家证……别挡路！"
+     ]
+    },
+    {
+     "flag": "j_rival1"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_mystery_egg"
+    ],
+    "flags_none": []
+   },
+   "also": [
+    {
+     "type": "step",
+     "area": [
+      16,
+      2,
+      18,
+      5
+     ],
+     "map": "johto_cherrygrove_city"
+    }
    ]
   },
   {
-   "id": "johto_sprout_tower",
-   "once": true,
-   "trigger": {"type": "map_enter", "map": "johto_sprout_tower_3f"},
-   "require": {"flags_none": ["johto_sprout_done"]},
+   "id": "j_egg_return",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_elm",
+    "map": "johto_elms_lab"
+   },
    "steps": [
-    {"say": ["塔顶的老和尚正在打坐。", "「宝可梦不是工具。你手里那只，也是会累会怕的。」", "「带着这份心，再往西去吧。」"], "who": "旁白"},
-    {"flag": "johto_sprout_done"}
+    {
+     "who": "警察",
+     "say": [
+      "你在吉花见到了那个少年？我会去调查。"
+     ]
+    },
+    {
+     "who": "空木博士",
+     "say": [
+      "原来宝可梦爷爷发现的是蛋！就交给我研究吧。既然大木给了你图鉴，去挑战桔梗市的道馆怎么样？"
+     ]
+    },
+    {
+     "remove_item": "神奇的蛋"
+    },
+    {
+     "flag": "j_egg_return"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_rival1"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_balls",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_aide",
+    "map": "johto_elms_lab"
+   },
+   "steps": [
+    {
+     "who": "助手",
+     "say": [
+      "既然要收集图鉴，这五个精灵球就交给你。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "精灵球",
+      "count": 5,
+      "category": "ball"
+     }
+    },
+    {
+     "flag": "j_balls"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_egg_return"
+    ],
+    "flags_none": []
+   },
+   "also": [
+    {
+     "type": "step",
+     "area": [
+      2,
+      4,
+      3,
+      5
+     ],
+     "map": "johto_elms_lab"
+    }
    ]
   },
   {
-   "id": "johto_badge_falkner",
-   "once": true,
-   "trigger": {"type": "badge", "badge": "飞翼徽章"},
-   "require": {},
+   "id": "j_sprout_rival",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_tower_rival",
+    "map": "johto_sprout_tower_3f"
+   },
    "steps": [
-    {"say": ["阿速把徽章递过来，指尖还带着羽毛的触感。", "「飞行的速度不是莽撞，是判断。」"], "who": "旁白"},
-    {"flag": "johto_badge_1"}
+    {
+     "who": "长老李",
+     "say": [
+      "你赢了，却只顾让宝可梦变强。"
+     ]
+    },
+    {
+     "who": "阿银",
+     "say": [
+      "这些说教我已经听够了。用离洞绳走吧。"
+     ]
+    },
+    {
+     "flag": "j_sprout_rival"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "johto_starter"
+    ],
+    "flags_none": []
+   },
+   "also": [
+    {
+     "type": "step",
+     "area": [
+      3,
+      1,
+      7,
+      4
+     ],
+     "map": "johto_sprout_tower_3f"
+    }
    ]
   },
   {
-   "id": "johto_badge_bugsy",
-   "once": true,
-   "trigger": {"type": "badge", "badge": "昆虫徽章"},
-   "require": {},
+   "id": "j_flash",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_li",
+    "map": "johto_sprout_tower_3f"
+   },
    "steps": [
-    {"say": ["阿笔收起了捕虫网。", "「虫子看着小，耐性可比谁都强。」"], "who": "旁白"},
-    {"flag": "johto_badge_2"}
+    {
+     "who": "长老李",
+     "say": [
+      "你是怎么与宝可梦一起战斗的？让我亲眼看看。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "长老李",
+      "team": [
+       {
+        "level": 7,
+        "species": 69
+       },
+       {
+        "level": 7,
+        "species": 69
+       },
+       {
+        "level": 10,
+        "species": 163
+       }
+      ]
+     }
+    },
+    {
+     "give_item": {
+      "name": "秘传学习器 05",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "who": "长老李",
+     "say": [
+      "把闪光教给伙伴吧。黑暗的洞窟里也能找到路。"
+     ]
+    },
+    {
+     "flag": "j_flash"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "johto_starter"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_gym1",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_gym1",
+    "map": "johto_violet_gym"
+   },
+   "steps": [
+    {
+     "who": "阿速",
+     "say": [
+      "我会让你见识用翅膀飞向天空的力量。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 阿速",
+      "team": [
+       {
+        "level": 7,
+        "species": 16,
+        "moves": [
+         33,
+         189
+        ]
+       },
+       {
+        "level": 9,
+        "species": 17,
+        "moves": [
+         33,
+         189,
+         16
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "johto_badge": "飞翼徽章"
+    },
+    {
+     "give_item": {
+      "name": "城都招式学习器 31",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "who": "阿速",
+     "say": [
+      "这是飞翼徽章和我的招式学习器。把这场胜利带到下一站吧。"
+     ]
+    },
+    {
+     "flag": "j_gym1"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_egg_return"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_gym2",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_gym2",
+    "map": "johto_azalea_gym"
+   },
+   "steps": [
+    {
+     "who": "阿笔",
+     "say": [
+      "我研究虫宝可梦。让你看看研究的成果吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 阿笔",
+      "team": [
+       {
+        "level": 14,
+        "species": 11,
+        "moves": [
+         33,
+         81,
+         106
+        ]
+       },
+       {
+        "level": 14,
+        "species": 14,
+        "moves": [
+         40,
+         81,
+         106
+        ]
+       },
+       {
+        "level": 16,
+        "species": 123,
+        "moves": [
+         98,
+         43,
+         210
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "johto_badge": "昆虫徽章"
+    },
+    {
+     "give_item": {
+      "name": "城都招式学习器 49",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "who": "阿笔",
+     "say": [
+      "这是昆虫徽章和我的招式学习器。把这场胜利带到下一站吧。"
+     ]
+    },
+    {
+     "flag": "j_gym2"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_well_clear"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_gym3",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_gym3",
+    "map": "johto_goldenrod_gym"
+   },
+   "steps": [
+    {
+     "who": "小茜",
+     "say": [
+      "我才刚成为训练家不久。输赢都要认真哦！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 小茜",
+      "team": [
+       {
+        "level": 18,
+        "species": 35,
+        "moves": [
+         3,
+         102,
+         227,
+         118
+        ]
+       },
+       {
+        "level": 20,
+        "species": 241,
+        "moves": [
+         205,
+         213,
+         23,
+         208
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "who": "小茜",
+     "say": [
+      "呜……我明明已经很努力了……"
+     ]
+    },
+    {
+     "flag": "j_gym3"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_cut"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_gym4",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_gym4",
+    "map": "johto_ecruteak_gym"
+   },
+   "steps": [
+    {
+     "who": "松叶",
+     "say": [
+      "幽灵与这座城的历史紧紧相连。让我看看你选择的路。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 松叶",
+      "team": [
+       {
+        "level": 21,
+        "species": 92,
+        "moves": [
+         122,
+         180,
+         212,
+         174
+        ]
+       },
+       {
+        "level": 21,
+        "species": 93,
+        "moves": [
+         95,
+         102,
+         174,
+         101
+        ]
+       },
+       {
+        "level": 25,
+        "species": 94,
+        "moves": [
+         95,
+         247,
+         212,
+         138
+        ]
+       },
+       {
+        "level": 23,
+        "species": 93,
+        "moves": [
+         180,
+         212,
+         102,
+         101
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "johto_badge": "魅影徽章"
+    },
+    {
+     "give_item": {
+      "name": "城都招式学习器 30",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "who": "松叶",
+     "say": [
+      "这是魅影徽章和我的招式学习器。把这场胜利带到下一站吧。"
+     ]
+    },
+    {
+     "flag": "j_gym4"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_beasts"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_gym5",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_gym5",
+    "map": "johto_cianwood_gym"
+   },
+   "steps": [
+    {
+     "who": "阿四",
+     "say": [
+      "巨石也挡不住我。现在轮到我们和宝可梦较量了！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 阿四",
+      "team": [
+       {
+        "level": 27,
+        "species": 57,
+        "moves": [
+         43,
+         99,
+         2,
+         154
+        ]
+       },
+       {
+        "level": 30,
+        "species": 62,
+        "moves": [
+         95,
+         170,
+         57,
+         223
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "johto_badge": "打击徽章"
+    },
+    {
+     "give_item": {
+      "name": "城都招式学习器 01",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "who": "阿四",
+     "say": [
+      "这是打击徽章和我的招式学习器。把这场胜利带到下一站吧。"
+     ]
+    },
+    {
+     "flag": "j_gym5"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_badge_4"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_gym6",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_gym6",
+    "map": "johto_olivine_gym"
+   },
+   "steps": [
+    {
+     "who": "阿蜜",
+     "say": [
+      "多亏你送来秘传药，阿蜜儿又能照亮海面了。我用钢系宝可梦接受挑战。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 阿蜜",
+      "team": [
+       {
+        "level": 30,
+        "species": 81,
+        "moves": [
+         85,
+         48,
+         49,
+         86
+        ]
+       },
+       {
+        "level": 30,
+        "species": 81,
+        "moves": [
+         85,
+         48,
+         49,
+         86
+        ]
+       },
+       {
+        "level": 35,
+        "species": 208,
+        "moves": [
+         103,
+         241,
+         88,
+         231
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "johto_badge": "矿物徽章"
+    },
+    {
+     "give_item": {
+      "name": "城都招式学习器 23",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "who": "阿蜜",
+     "say": [
+      "这是矿物徽章和我的招式学习器。把这场胜利带到下一站吧。"
+     ]
+    },
+    {
+     "flag": "j_gym6"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_lighthouse_cured"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_gym7",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_gym7",
+    "map": "johto_mahogany_gym"
+   },
+   "steps": [
+    {
+     "who": "柳伯",
+     "say": [
+      "冰封很久也不会失去韧性。年轻人，使出你的本领。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 柳伯",
+      "team": [
+       {
+        "level": 27,
+        "species": 86,
+        "moves": [
+         29,
+         196,
+         62,
+         156
+        ]
+       },
+       {
+        "level": 29,
+        "species": 87,
+        "moves": [
+         29,
+         196,
+         62,
+         156
+        ]
+       },
+       {
+        "level": 31,
+        "species": 221,
+        "moves": [
+         196,
+         31,
+         54,
+         59
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "johto_badge": "冰川徽章"
+    },
+    {
+     "give_item": {
+      "name": "城都招式学习器 16",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "who": "柳伯",
+     "say": [
+      "这是冰川徽章和我的招式学习器。把这场胜利带到下一站吧。"
+     ]
+    },
+    {
+     "flag": "j_gym7"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_plant_clear"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_gym8",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_gym8",
+    "map": "johto_blackthorn_gym_1f"
+   },
+   "steps": [
+    {
+     "who": "小椿",
+     "say": [
+      "我出身于龙之一族。让我看看你能否胜过我的龙。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 小椿",
+      "team": [
+       {
+        "level": 37,
+        "species": 148,
+        "moves": [
+         86,
+         57,
+         21,
+         225
+        ]
+       },
+       {
+        "level": 37,
+        "species": 148,
+        "moves": [
+         86,
+         85,
+         21,
+         225
+        ]
+       },
+       {
+        "level": 37,
+        "species": 148,
+        "moves": [
+         86,
+         58,
+         21,
+         225
+        ]
+       },
+       {
+        "level": 40,
+        "species": 230,
+        "moves": [
+         108,
+         57,
+         63,
+         225
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "who": "小椿",
+     "say": [
+      "我还不能承认你。去道馆北方的龙穴，找祠堂里的长老接受考验。"
+     ]
+    },
+    {
+     "flag": "j_gym8"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_radio_free"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_egg_aide",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_egg_aide",
+    "map": "johto_violet_pokecenter_1f"
+   },
+   "steps": [
+    {
+     "who": "空木的助手",
+     "say": [
+      "研究所的蛋快有动静了。你愿意带它一起旅行吗？"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "波克比的蛋",
+      "count": 1,
+      "category": "key"
+     }
+    },
+    {
+     "flag": "j_egg_aide"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_badge_1"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_kurt_well",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_kurt",
+    "map": "johto_kurts_house"
+   },
+   "steps": [
+    {
+     "who": "钢铁",
+     "say": [
+      "火箭队竟敢割掉呆呆兽的尾巴拿去卖！我这就去井边。"
+     ]
+    },
+    {
+     "flag": "j_kurt_well"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_egg_return"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_well_clear",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_well_boss",
+    "map": "johto_slowpoke_well_b1_f"
+   },
+   "steps": [
+    {
+     "who": "火箭队队员",
+     "say": [
+      "呆呆兽的尾巴很值钱。别妨碍我们的生意！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "火箭队队员",
+      "team": [
+       {
+        "level": 14,
+        "species": 109
+       }
+      ]
+     }
+    },
+    {
+     "who": "钢铁",
+     "say": [
+      "他们撤了。呆呆兽的尾巴会再长出来。跟我回家吧！"
+     ]
+    },
+    {
+     "warp": {
+      "region": "johto",
+      "map": "johto_kurts_house",
+      "at": [
+       2,
+       2
+      ]
+     }
+    },
+    {
+     "give_item": {
+      "name": "诱饵球",
+      "count": 1,
+      "category": "ball"
+     }
+    },
+    {
+     "flag": "j_well_clear"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_kurt_well"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_rival2",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_rival2",
+    "map": "johto_azalea_town"
+   },
+   "steps": [
+    {
+     "who": "阿银",
+     "say": [
+      "你说你赶走了火箭队？我不相信。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "劲敌 阿银",
+      "johto_rival": 2,
+      "finish_on_loss": false
+     }
+    },
+    {
+     "flag": "j_rival2"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_well_clear"
+    ],
+    "flags_none": []
+   },
+   "also": [
+    {
+     "type": "step",
+     "area": [
+      2,
+      4,
+      3,
+      7
+     ],
+     "map": "johto_azalea_town"
+    }
    ]
   },
   {
-   "id": "johto_badge_whitney",
-   "once": true,
-   "trigger": {"type": "badge", "badge": "标准徽章"},
-   "require": {},
+   "id": "j_bird_request",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_apprentice",
+    "map": "johto_ilex_forest"
+   },
    "steps": [
-    {"say": ["小茜揉了揉眼睛，还是笑了。", "「哭归哭，徽章还是要给的。」"], "who": "旁白"},
-    {"flag": "johto_badge_3"}
+    {
+     "who": "炭窑学徒",
+     "say": [
+      "师傅的大葱鸭跑进树林了。它一受惊就会往你背对的一边跑，能把它赶回来吗？"
+     ]
+    },
+    {
+     "flag": "j_bird_request"
+    }
    ]
   },
   {
-   "id": "johto_badge_morty",
-   "once": true,
-   "trigger": {"type": "badge", "badge": "魅影徽章"},
-   "require": {},
+   "id": "j_cut",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_master",
+    "map": "johto_ilex_forest"
+   },
    "steps": [
-    {"say": ["松叶把灯吹熄了一瞬。", "「有些东西看不见，但并不等于不存在。」"], "who": "旁白"},
-    {"flag": "johto_badge_4"}
+    {
+     "who": "炭窑师傅",
+     "say": [
+      "原来是你把大葱鸭赶回来的。没有它，烧炭的木头就没着落了。这份居合斩送给你。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "秘传学习器 01",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "flag": "j_cut"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_bird_home"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_charcoal",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_kiln_apprentice",
+    "map": "johto_charcoal_kiln"
+   },
+   "steps": [
+    {
+     "who": "炭窑学徒",
+     "say": [
+      "这是我们烧出的木炭。让伙伴携带它，火属性招式会更强。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "木炭",
+      "count": 1,
+      "category": "held"
+     }
+    },
+    {
+     "flag": "j_charcoal"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_cut"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_whitney_calm",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_whitney_friend",
+    "map": "johto_goldenrod_gym"
+   },
+   "steps": [
+    {
+     "who": "少女",
+     "say": [
+      "她输了就会哭。等一等，再跟她说句话就好。"
+     ]
+    },
+    {
+     "flag": "j_whitney_calm"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_gym3"
+    ],
+    "flags_none": []
+   },
+   "also": [
+    {
+     "type": "step",
+     "area": [
+      3,
+      3,
+      6,
+      6
+     ],
+     "map": "johto_goldenrod_gym"
+    }
    ]
   },
   {
-   "id": "johto_badge_chuck",
-   "once": true,
-   "trigger": {"type": "badge", "badge": "打击徽章"},
-   "require": {},
+   "id": "j_plain_received",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_gym3",
+    "map": "johto_goldenrod_gym"
+   },
    "steps": [
-    {"say": ["阿四甩了甩手腕。", "「拳头再硬，也得靠腿站稳。」"], "who": "旁白"},
-    {"flag": "johto_badge_5"}
+    {
+     "who": "小茜",
+     "say": [
+      "对不起，差点忘了！这是标准徽章。迷人这个招式也送你。"
+     ]
+    },
+    {
+     "johto_badge": "标准徽章"
+    },
+    {
+     "give_item": {
+      "name": "城都招式学习器 45",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "flag": "j_plain_received"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_whitney_calm"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_floria",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_floria",
+    "map": "johto_route_36"
+   },
+   "steps": [
+    {
+     "who": "花店妹妹",
+     "say": [
+      "我一浇水，那棵怪树就动了。我要回花店告诉姐姐！"
+     ]
+    },
+    {
+     "flag": "j_floria"
+    }
    ]
   },
   {
-   "id": "johto_badge_jasmine",
-   "once": true,
-   "trigger": {"type": "badge", "badge": "矿物徽章"},
-   "require": {},
+   "id": "j_squirt",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_florist",
+    "map": "johto_goldenrod_flower_shop"
+   },
    "steps": [
-    {"say": ["阿蜜轻声说了句对不起，然后递来徽章。", "「钢是硬的，但也可以很温柔。」"], "who": "旁白"},
-    {"flag": "johto_badge_6"}
+    {
+     "who": "花店姐姐",
+     "say": [
+      "你打赢小茜了，我就放心把杰尼龟喷壶借给你。去浇浇36号道路的怪树吧。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "杰尼龟喷壶",
+      "count": 1,
+      "category": "key"
+     }
+    },
+    {
+     "flag": "j_squirt"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_badge_3",
+     "j_floria"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_tree_clear",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_tree",
+    "map": "johto_route_36"
+   },
+   "steps": [
+    {
+     "who": "旁白",
+     "say": [
+      "水洒到树上。它猛地站了起来！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "野生宝可梦",
+      "team": [
+       {
+        "species": 185,
+        "level": 20
+       }
+      ],
+      "wild": true
+     }
+    },
+    {
+     "flag": "j_tree_clear"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_squirt"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_rival3",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_tower_rival3",
+    "map": "johto_burned_tower_1f"
+   },
+   "steps": [
+    {
+     "who": "阿银",
+     "say": [
+      "听说传说中的宝可梦就在这座塔里。我一定要得到它！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "劲敌 阿银",
+      "johto_rival": 3,
+      "finish_on_loss": false
+     }
+    },
+    {
+     "who": "旁白",
+     "say": [
+      "焦黑的地板塌了，你落在塔的地下室。"
+     ]
+    },
+    {
+     "warp": {
+      "region": "johto",
+      "map": "johto_burned_tower_b1_f",
+      "at": [
+       5,
+       4
+      ]
+     }
+    },
+    {
+     "flag": "j_rival3"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_tree_clear"
+    ],
+    "flags_none": []
+   },
+   "also": [
+    {
+     "type": "step",
+     "area": [
+      3,
+      4,
+      5,
+      5
+     ],
+     "map": "johto_burned_tower_1f"
+    }
    ]
   },
   {
-   "id": "johto_badge_pryce",
-   "once": true,
-   "trigger": {"type": "badge", "badge": "冰川徽章"},
-   "require": {},
+   "id": "j_beasts",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_beast_suicune",
+    "map": "johto_burned_tower_b1_f"
+   },
    "steps": [
-    {"say": ["柳伯呼吸很慢。", "「冰面看着结实，其实每一步都得算好。」"], "who": "旁白"},
-    {"flag": "johto_badge_7"}
+    {
+     "who": "旁白",
+     "say": [
+      "雷公和炎帝相继冲出塔外。水君跳到你面前，望了你一眼，也奔向了远方。"
+     ]
+    },
+    {
+     "who": "米那君",
+     "say": [
+      "就是它！我终于亲眼见到了水君。"
+     ]
+    },
+    {
+     "flag": "j_beasts"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_rival3"
+    ],
+    "flags_none": []
+   },
+   "also": [
+    {
+     "type": "step",
+     "area": [
+      4,
+      2,
+      7,
+      4
+     ],
+     "map": "johto_burned_tower_b1_f"
+    }
    ]
   },
   {
-   "id": "johto_badge_clair",
-   "once": true,
-   "trigger": {"type": "badge", "badge": "升龙徽章"},
-   "require": {},
+   "id": "j_dance0",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_dancer0",
+    "map": "johto_dance_theater"
+   },
    "steps": [
-    {"say": ["小椿没说话，只是把徽章拍在桌上。", "「龙认实力，不认嘴。」"], "who": "旁白"},
-    {"flag": "johto_badge_8"}
+    {
+     "who": "和服少女",
+     "say": [
+      "请欣赏我们和宝可梦一道练习的舞步。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "和服少女 直子",
+      "team": [
+       {
+        "level": 20,
+        "species": 188
+       },
+       {
+        "level": 20,
+        "species": 37
+       },
+       {
+        "level": 18,
+        "species": 188
+       }
+      ]
+     }
+    },
+    {
+     "flag": "j_dance0"
+    }
    ]
   },
   {
-   "id": "johto_slowpoke_well",
-   "once": true,
-   "trigger": {"type": "map_enter", "map": "johto_slowpoke_well_b1_f"},
-   "require": {"flags_none": ["johto_well_done"]},
+   "id": "j_dance1",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_dancer1",
+    "map": "johto_dance_theater"
+   },
    "steps": [
-    {"say": ["井底的水声里混着铁器的响。", "有人把呆呆兽的尾巴当成了生意。", "「谁在那儿？多管闲事的家伙。」"], "who": "旁白"},
-    {"battle": {"team": [{"species": 109, "level": 14}, {"species": 109, "level": 14}]}},
-    {"say": ["火箭队的人被赶跑了。", "呆呆兽慢吞吞地挪回水边，看了你一眼。"], "who": "旁白"},
-    {"flag": "johto_well_done"}
+    {
+     "who": "和服少女",
+     "say": [
+      "请欣赏我们和宝可梦一道练习的舞步。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "和服少女 小夜",
+      "team": [
+       {
+        "level": 17,
+        "species": 196
+       }
+      ]
+     }
+    },
+    {
+     "flag": "j_dance1"
+    }
    ]
   },
   {
-   "id": "johto_burned_tower",
-   "once": true,
-   "trigger": {"type": "map_enter", "map": "johto_burned_tower_1f"},
-   "require": {"flags_none": ["johto_burned_done"]},
+   "id": "j_dance2",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_dancer2",
+    "map": "johto_dance_theater"
+   },
    "steps": [
-    {"say": ["烧焦的横梁横在头顶，灰烬一直落。", "三道光从塔顶掠过，快得只剩残影。", "它们在这个地区游荡，谁也不知道下一次会在哪儿遇见。"], "who": "旁白"},
-    {"flag": "johto_burned_done"}
+    {
+     "who": "和服少女",
+     "say": [
+      "请欣赏我们和宝可梦一道练习的舞步。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "和服少女 珠姬",
+      "team": [
+       {
+        "level": 17,
+        "species": 197
+       }
+      ]
+     }
+    },
+    {
+     "flag": "j_dance2"
+    }
    ]
   },
   {
-   "id": "johto_lake_rage",
-   "once": true,
-   "trigger": {"type": "talk", "npc": "龙使者 阿渡", "map": "johto_lake_of_rage"},
-   "require": {"flags_none": ["johto_lake_done"]},
+   "id": "j_dance3",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_dancer3",
+    "map": "johto_dance_theater"
+   },
    "steps": [
-    {"say": ["「你也是为那东西来的？」", "「湖里的暴鲤龙不对劲，红得反常，脾气也反常。」", "「先把它的火气压下去，别让它冲上村子。」"], "who": "龙使者 阿渡"},
-    {"battle": {"team": [{"species": 130, "level": 30}]}},
-    {"say": ["暴鲤龙沉回湖底，水面终于平了。", "「后面还有事，我在广播塔等你。」"], "who": "龙使者 阿渡"},
-    {"flag": "johto_lake_done"}
+    {
+     "who": "和服少女",
+     "say": [
+      "请欣赏我们和宝可梦一道练习的舞步。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "和服少女 朽叶",
+      "team": [
+       {
+        "level": 17,
+        "species": 134
+       }
+      ]
+     }
+    },
+    {
+     "flag": "j_dance3"
+    }
    ]
   },
   {
-   "id": "johto_radio_tower",
-   "once": true,
-   "trigger": {"type": "map_enter", "map": "johto_radio_tower_1f"},
-   "require": {"flags_none": ["johto_radio_done"]},
+   "id": "j_dance4",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_dancer4",
+    "map": "johto_dance_theater"
+   },
    "steps": [
-    {"say": ["广播断了，走廊里全是回音。", "火箭队的人在楼梯口拦住去路。", "「这栋楼今天归我们管。」"], "who": "旁白"},
-    {"battle": {"team": [{"species": 109, "level": 22}, {"species": 110, "level": 24}]}},
-    {"say": ["楼梯口的守卫倒下了。", "上面的广播还在响，但不该是这个声音。"], "who": "旁白"},
-    {"flag": "johto_radio_done"}
+    {
+     "who": "和服少女",
+     "say": [
+      "请欣赏我们和宝可梦一道练习的舞步。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "和服少女 美纪",
+      "team": [
+       {
+        "level": 17,
+        "species": 135
+       }
+      ]
+     }
+    },
+    {
+     "flag": "j_dance4"
+    }
    ]
   },
   {
-   "id": "johto_dragons_den",
-   "once": true,
-   "trigger": {"type": "map_enter", "map": "johto_dragons_den_1f"},
-   "require": {"flags_none": ["johto_den_done"]},
+   "id": "j_surf",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_surf_gent",
+    "map": "johto_dance_theater"
+   },
    "steps": [
-    {"say": ["洞窟深处有水，水面上有光在晃。", "龙在这里被养大，也被这里挑过。", "「能站到这儿，说明前面那八道关你没虚过。」"], "who": "旁白"},
-    {"flag": "johto_den_done"}
+    {
+     "who": "绅士",
+     "say": [
+      "我看了五场精彩的对战。把冲浪送给你吧，海那边还有新的伙伴。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "秘传学习器 03",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "flag": "j_surf"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_dance0",
+     "j_dance1",
+     "j_dance2",
+     "j_dance3",
+     "j_dance4"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_harbor_rival",
+   "trigger": {
+    "type": "step",
+    "area": [
+     6,
+     6,
+     7,
+     7
+    ],
+    "map": "johto_olivine_city"
+   },
+   "steps": [
+    {
+     "johto_stage": "j_harbor_scene"
+    },
+    {
+     "who": "阿银",
+     "say": [
+      "你也要找道馆馆主？她去灯塔照顾生病的宝可梦了。弱小的家伙就让它待着好了。我要去找更强的对手。"
+     ]
+    },
+    {
+     "flag": "j_harbor_rival"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "johto_starter"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_sick_amphy",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_lighthouse",
+    "map": "johto_olivine_lighthouse_6f"
+   },
+   "steps": [
+    {
+     "who": "阿蜜",
+     "say": [
+      "这孩子一直用尾巴照亮港口。它病得连站都站不稳了……能去海对岸的湛蓝市问问有没有药吗？"
+     ]
+    },
+    {
+     "flag": "j_sick_amphy"
+    }
    ]
   },
   {
-   "id": "johto_victory_road",
-   "once": true,
-   "trigger": {"type": "map_enter", "map": "johto_victory_road"},
-   "require": {"flags_none": ["johto_victory_done"]},
+   "id": "j_medicine",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_chemist",
+    "map": "johto_cianwood_pharmacy"
+   },
    "steps": [
-    {"say": ["八枚徽章在背包里碰出轻响。", "前面就是联盟，过的这一路都算数。", "先把队伍养好——里面没人会让你。"], "who": "旁白"},
-    {"flag": "johto_victory_done"}
+    {
+     "who": "药店老板",
+     "say": [
+      "什么，灯塔的电龙病了？这瓶是我家的秘传药，带回去给它服下吧。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "秘传药",
+      "count": 1,
+      "category": "key"
+     }
+    },
+    {
+     "flag": "j_medicine"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_sick_amphy"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_lighthouse_cured",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_lighthouse",
+    "map": "johto_olivine_lighthouse_6f"
+   },
+   "steps": [
+    {
+     "who": "阿蜜",
+     "say": [
+      "这就是秘传药！阿蜜儿，慢慢喝下去。"
+     ]
+    },
+    {
+     "remove_item": "秘传药"
+    },
+    {
+     "who": "阿蜜",
+     "say": [
+      "它又能点亮灯塔了！谢谢你，我回浅葱道馆等你。"
+     ]
+    },
+    {
+     "flag": "j_lighthouse_cured"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_medicine"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_eusine_battle",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_cianwood_beast",
+    "map": "johto_cianwood_city"
+   },
+   "steps": [
+    {
+     "who": "旁白",
+     "say": [
+      "水君越过岩石，沿海面疾驰而去。"
+     ]
+    },
+    {
+     "who": "米那君",
+     "say": [
+      "它又出现在你的面前！来打一场，让我明白它为什么选择了你。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "神秘人 米那君",
+      "team": [
+       {
+        "level": 23,
+        "species": 96,
+        "moves": [
+         138,
+         95,
+         50,
+         93
+        ]
+       },
+       {
+        "level": 23,
+        "species": 93,
+        "moves": [
+         122,
+         95,
+         212,
+         174
+        ]
+       },
+       {
+        "level": 25,
+        "species": 101,
+        "moves": [
+         103,
+         49,
+         87,
+         205
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "flag": "j_eusine_battle"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_beasts"
+    ],
+    "flags_none": []
+   },
+   "also": [
+    {
+     "type": "step",
+     "area": [
+      5,
+      8,
+      6,
+      9
+     ],
+     "map": "johto_cianwood_city"
+    },
+    {
+     "type": "talk",
+     "actor": "j_eusine_coast",
+     "map": "johto_cianwood_city"
+    }
    ]
+  },
+  {
+   "id": "j_red_scale",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_red_gyarados",
+    "map": "johto_lake_of_rage"
+   },
+   "steps": [
+    {
+     "who": "旁白",
+     "say": [
+      "奇怪的无线电波传遍湖面。这只红色暴鲤龙看起来十分痛苦！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "野生宝可梦",
+      "team": [
+       {
+        "species": 130,
+        "level": 30
+       }
+      ],
+      "wild": true,
+      "shiny_kind": "star"
+     }
+    },
+    {
+     "give_item": {
+      "name": "红色鳞片",
+      "count": 1,
+      "category": "key"
+     }
+    },
+    {
+     "flag": "j_red_scale"
+    }
+   ]
+  },
+  {
+   "id": "j_lance_lake",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_lake_lance",
+    "map": "johto_lake_of_rage"
+   },
+   "steps": [
+    {
+     "who": "阿渡",
+     "say": [
+      "城镇方向传来的无线电波迫使鲤鱼王进化。来卡吉镇的纪念品店，我需要你的帮助。"
+     ]
+    },
+    {
+     "flag": "j_lance_lake"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_red_scale"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_base_open",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_mart_lance",
+    "map": "johto_mahogany_mart_1f"
+   },
+   "steps": [
+    {
+     "who": "阿渡",
+     "say": [
+      "快龙！把那个挡路的家伙吓开。看，柜子下面藏着通向地下的楼梯。"
+     ]
+    },
+    {
+     "flag": "j_base_open"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_lance_lake"
+    ],
+    "flags_none": []
+   },
+   "also": [
+    {
+     "type": "map_enter",
+     "map": "johto_mahogany_mart_1f"
+    }
+   ]
+  },
+  {
+   "id": "j_slowtail",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_slowtail",
+    "map": "johto_team_rocket_base_b3_f"
+   },
+   "steps": [
+    {
+     "who": "火箭队女队员",
+     "say": [
+      "想听口令？先打赢我。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "火箭队女队员",
+      "team": [
+       {
+        "level": 18,
+        "species": 23,
+        "moves": [
+         35,
+         43,
+         40,
+         44
+        ]
+       },
+       {
+        "level": 18,
+        "species": 44,
+        "moves": [
+         71,
+         230,
+         78,
+         79
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "who": "火箭队女队员",
+     "say": [
+      "其中一句口令是「呆呆兽的尾巴」。"
+     ]
+    },
+    {
+     "flag": "j_slowtail"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_base_open"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_rattail",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_rattail",
+    "map": "johto_team_rocket_base_b3_f"
+   },
+   "steps": [
+    {
+     "who": "火箭队男队员",
+     "say": [
+      "想听口令？先打赢我。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "火箭队男队员",
+      "team": [
+       {
+        "level": 19,
+        "species": 20
+       }
+      ]
+     }
+    },
+    {
+     "who": "火箭队男队员",
+     "say": [
+      "其中一句口令是「拉达的尾巴」。"
+     ]
+    },
+    {
+     "flag": "j_rattail"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_base_open"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_base_executive",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_executive",
+    "map": "johto_team_rocket_base_b3_f"
+   },
+   "steps": [
+    {
+     "who": "火箭队干部",
+     "say": [
+      "用电波让宝可梦强制进化。你以为你能阻止我们？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "火箭队干部",
+      "team": [
+       {
+        "level": 22,
+        "species": 41
+       },
+       {
+        "level": 24,
+        "species": 20
+       },
+       {
+        "level": 22,
+        "species": 109
+       }
+      ]
+     }
+    },
+    {
+     "flag": "j_base_executive"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_slowtail",
+     "j_rattail"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_voice",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_murkrow",
+    "map": "johto_team_rocket_base_b3_f"
+   },
+   "steps": [
+    {
+     "who": "黑暗鸦",
+     "say": [
+      "敬礼！坂木老大！嘎，打开大门！"
+     ]
+    },
+    {
+     "flag": "j_voice"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_base_executive"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_base_rival",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_base_rival",
+    "map": "johto_team_rocket_base_b3_f"
+   },
+   "steps": [
+    {
+     "who": "阿银",
+     "say": [
+      "那个自称龙使者的家伙……说我不够关心宝可梦。他懂什么！"
+     ]
+    },
+    {
+     "flag": "j_base_rival"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_base_open"
+    ],
+    "flags_none": []
+   },
+   "also": [
+    {
+     "type": "step",
+     "area": [
+      4,
+      4,
+      5,
+      6
+     ],
+     "map": "johto_team_rocket_base_b3_f"
+    }
+   ]
+  },
+  {
+   "id": "j_engine_boss",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_engine_boss",
+    "map": "johto_team_rocket_base_b2_f"
+   },
+   "steps": [
+    {
+     "who": "火箭队女干部",
+     "say": [
+      "两个人对你一个，可别说我们欺负你！"
+     ]
+    },
+    {
+     "who": "阿渡",
+     "say": [
+      "另一位交给我。你来对付干部！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "火箭队女干部",
+      "team": [
+       {
+        "level": 23,
+        "species": 24,
+        "moves": [
+         35,
+         43,
+         40,
+         44
+        ]
+       },
+       {
+        "level": 23,
+        "species": 44,
+        "moves": [
+         71,
+         230,
+         79,
+         51
+        ]
+       },
+       {
+        "level": 25,
+        "species": 198,
+        "moves": [
+         64,
+         228,
+         114
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "flag": "j_engine_boss"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_voice"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_electrode0",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_electrode0",
+    "map": "johto_team_rocket_base_b2_f"
+   },
+   "steps": [
+    {
+     "who": "阿渡",
+     "say": [
+      "让它脱离电波发生器吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "野生宝可梦",
+      "team": [
+       {
+        "species": 101,
+        "level": 23
+       }
+      ],
+      "wild": true
+     }
+    },
+    {
+     "flag": "j_electrode0"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_engine_boss"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_electrode1",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_electrode1",
+    "map": "johto_team_rocket_base_b2_f"
+   },
+   "steps": [
+    {
+     "who": "阿渡",
+     "say": [
+      "让它脱离电波发生器吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "野生宝可梦",
+      "team": [
+       {
+        "species": 101,
+        "level": 23
+       }
+      ],
+      "wild": true
+     }
+    },
+    {
+     "flag": "j_electrode1"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_engine_boss"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_electrode2",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_electrode2",
+    "map": "johto_team_rocket_base_b2_f"
+   },
+   "steps": [
+    {
+     "who": "阿渡",
+     "say": [
+      "让它脱离电波发生器吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "野生宝可梦",
+      "team": [
+       {
+        "species": 101,
+        "level": 23
+       }
+      ],
+      "wild": true
+     }
+    },
+    {
+     "flag": "j_electrode2"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_engine_boss"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_plant_clear",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_engine_lance",
+    "map": "johto_team_rocket_base_b2_f"
+   },
+   "steps": [
+    {
+     "who": "阿渡",
+     "say": [
+      "干得好，湖里的宝可梦终于能恢复正常了。这是漩涡，可以穿过水上的漩涡。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "城都秘传学习器 06",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "flag": "j_plant_clear"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_electrode0",
+     "j_electrode1",
+     "j_electrode2"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_basement_key",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_fake_director",
+    "map": "johto_radio_tower_5f"
+   },
+   "steps": [
+    {
+     "who": "假局长",
+     "say": [
+      "我们向全城广播，坂木老大一定会回来。你竟然认出我是假冒的！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "伪装成局长的干部",
+      "team": [
+       {
+        "level": 30,
+        "species": 109,
+        "moves": [
+         33,
+         120,
+         124,
+         108
+        ]
+       },
+       {
+        "level": 30,
+        "species": 109,
+        "moves": [
+         33,
+         120,
+         124,
+         108
+        ]
+       },
+       {
+        "level": 30,
+        "species": 109,
+        "moves": [
+         33,
+         120,
+         124,
+         108
+        ]
+       },
+       {
+        "level": 32,
+        "species": 110,
+        "moves": [
+         33,
+         153,
+         124,
+         108
+        ]
+       },
+       {
+        "level": 30,
+        "species": 109,
+        "moves": [
+         33,
+         120,
+         124,
+         108
+        ]
+       },
+       {
+        "level": 30,
+        "species": 109,
+        "moves": [
+         33,
+         123,
+         124,
+         108
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "who": "假局长",
+     "say": [
+      "真局长被关在地下仓库。这把钥匙只开地下通道东边的门。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "地下钥匙",
+      "count": 1,
+      "category": "key"
+     }
+    },
+    {
+     "flag": "j_basement_key"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_radio_takeover"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_rival4",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_underground_rival",
+    "map": "johto_goldenrod_underground_switch_room_entrances"
+   },
+   "steps": [
+    {
+     "who": "阿银",
+     "say": [
+      "火箭队要找他们的老大，我也要和你算账。战斗吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "劲敌 阿银",
+      "johto_rival": 4,
+      "finish_on_loss": false
+     }
+    },
+    {
+     "flag": "j_rival4"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_basement_key"
+    ],
+    "flags_none": []
+   },
+   "also": [
+    {
+     "type": "step",
+     "area": [
+      9,
+      1,
+      12,
+      4
+     ],
+     "map": "johto_goldenrod_underground_switch_room_entrances"
+    }
+   ]
+  },
+  {
+   "id": "j_card_key",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_true_director",
+    "map": "johto_goldenrod_underground_warehouse"
+   },
+   "steps": [
+    {
+     "who": "局长",
+     "say": [
+      "谢谢！电台三楼的隔门用这张钥匙卡打开。阻止他们向全城播放那段录音吧。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "钥匙卡（广播塔）",
+      "count": 1,
+      "category": "key"
+     }
+    },
+    {
+     "flag": "j_card_key"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_switches"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_radio_free",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_broadcast_boss",
+    "map": "johto_radio_tower_5f"
+   },
+   "steps": [
+    {
+     "who": "火箭队总干部",
+     "say": [
+      "只要让坂木老大听到这段广播，火箭队就能重建！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "火箭队总干部",
+      "team": [
+       {
+        "level": 33,
+        "species": 228,
+        "moves": [
+         52,
+         46,
+         44,
+         185
+        ]
+       },
+       {
+        "level": 33,
+        "species": 109,
+        "moves": [
+         33,
+         124,
+         108,
+         114
+        ]
+       },
+       {
+        "level": 35,
+        "species": 229,
+        "moves": [
+         52,
+         123,
+         44,
+         185
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "who": "火箭队总干部",
+     "say": [
+      "三年前就已经结束了吗……所有人听令，解散！"
+     ]
+    },
+    {
+     "who": "电台局长",
+     "say": [
+      "这是圆朱市原来那座塔里传下的透明铃铛。收好它吧。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "透明铃铛",
+      "count": 1,
+      "category": "key"
+     }
+    },
+    {
+     "flag": "j_radio_free"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_card_key",
+     "j_radio_door"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_shrine_pass",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_master_elder",
+    "map": "johto_dragon_shrine"
+   },
+   "steps": [
+    {
+     "who": "长老",
+     "say": [
+      "小椿送你来的？坐下。我想听听你如何看待宝可梦。"
+     ]
+    },
+    {
+     "johto_quiz": [
+      [
+       "你认为宝可梦是什么？",
+       [
+        "伙伴",
+        "部下",
+        "朋友"
+       ],
+       [
+        0,
+        2
+       ]
+      ],
+      [
+       "胜利靠什么？",
+       [
+        "战术",
+        "培育",
+        "作弊"
+       ],
+       [
+        0,
+        1
+       ]
+      ],
+      [
+       "想和怎样的训练家对战？",
+       [
+        "弱小的人",
+        "强大的人",
+        "任何人"
+       ],
+       [
+        1,
+        2
+       ]
+      ],
+      [
+       "培育宝可梦最重要的是什么？",
+       [
+        "爱心",
+        "暴力",
+        "知识"
+       ],
+       [
+        0,
+        2
+       ]
+      ],
+      [
+       "强弱不同的宝可梦，你会选择？",
+       [
+        "强大的",
+        "没有差别",
+        "弱小的"
+       ],
+       [
+        1
+       ]
+      ]
+     ]
+    },
+    {
+     "johto_stage": "j_shrine_clair"
+    },
+    {
+     "who": "长老",
+     "say": [
+      "小椿，这孩子具备了与你一样挑战联盟的资格。"
+     ]
+    },
+    {
+     "who": "小椿",
+     "say": [
+      "连长老也认可了你。升龙徽章，请收下。"
+     ]
+    },
+    {
+     "johto_badge": "升龙徽章"
+    },
+    {
+     "flag": "j_shrine_pass"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_gym8"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_den_tm",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_clair_den",
+    "map": "johto_dragons_den_b1_f"
+   },
+   "steps": [
+    {
+     "who": "小椿",
+     "say": [
+      "这是龙息。对不起，我先前太不甘心了。回去找空木博士，然后向联盟出发吧。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "城都招式学习器 24",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "flag": "j_den_tm"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_shrine_pass"
+    ],
+    "flags_none": []
+   },
+   "also": [
+    {
+     "type": "step",
+     "area": [
+      8,
+      2,
+      12,
+      6
+     ],
+     "map": "johto_dragons_den_b1_f"
+    }
+   ]
+  },
+  {
+   "id": "j_dratini",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_master_elder",
+    "map": "johto_dragon_shrine"
+   },
+   "steps": [
+    {
+     "who": "长老",
+     "say": [
+      "把这只迷你龙带上吧，让它在旅行中看看更大的世界。"
+     ]
+    },
+    {
+     "johto_dratini": true
+    },
+    {
+     "flag": "j_dratini"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_den_tm"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_master_ball",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_elm",
+    "map": "johto_elms_lab"
+   },
+   "steps": [
+    {
+     "who": "空木博士",
+     "say": [
+      "八枚徽章都拿到了？我的研究也获得了表彰。这个大师球送给你，继续向东边的联盟出发吧。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "大师球",
+      "count": 1,
+      "category": "ball"
+     }
+    },
+    {
+     "flag": "j_master_ball"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_shrine_pass"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_basement_open",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_basement_door",
+    "map": "johto_goldenrod_underground"
+   },
+   "steps": [
+    {
+     "who": "旁白",
+     "say": [
+      "地下钥匙插入锁孔，通往仓库的门打开了。"
+     ]
+    },
+    {
+     "flag": "j_basement_open"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_basement_key"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j_radio_door",
+   "trigger": {
+    "type": "talk",
+    "actor": "j_radio_door",
+    "map": "johto_radio_tower_3f"
+   },
+   "steps": [
+    {
+     "who": "旁白",
+     "say": [
+      "钥匙卡插进读卡槽。隔门升起，广播室这一边通行了。"
+     ]
+    },
+    {
+     "flag": "j_radio_door"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j_card_key"
+    ],
+    "flags_none": []
+   }
   },
   {
    "id": "johto_hall_of_fame",
-   "trigger": {"type": "map_enter", "map": "johto_hall_of_fame"},
-   "require": {"flags_all": ["johto_league_will", "johto_league_koga", "johto_league_bruno", "johto_league_karen", "johto_league_lance"], "flags_none": ["johto_champion"], "has_party": true},
+   "trigger": {
+    "type": "map_enter",
+    "map": "johto_hall_of_fame"
+   },
+   "require": {
+    "flags_all": [
+     "johto_league_will",
+     "johto_league_koga",
+     "johto_league_bruno",
+     "johto_league_karen",
+     "johto_league_lance"
+    ],
+    "flags_none": [
+     "johto_champion"
+    ],
+    "has_party": true
+   },
    "steps": [
-    {"hall_of_fame": "johto"},
-    {"say": ["把伙伴的精灵球放到登记台上吧。", "你们的名字已经载入名人堂。恭喜你，城都联盟的新冠军！"], "who": "阿渡"}
+    {
+     "hall_of_fame": "johto"
+    },
+    {
+     "say": [
+      "把伙伴的精灵球放到登记台上吧。",
+      "你们的名字已经载入名人堂。恭喜你，城都联盟的新冠军！"
+     ],
+     "who": "阿渡"
+    }
+   ]
+  },
+  {
+   "id": "j2_rival_moon",
+   "trigger": {
+    "type": "map_enter",
+    "map": "johto_mount_moon"
+   },
+   "also": [
+    {
+     "type": "talk",
+     "map": "johto_mount_moon",
+     "actor": "j2_moon_rival"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "johto_champion"
+    ],
+    "flags_none": [
+     "j2_rival_moon"
+    ]
+   },
+   "steps": [
+    {
+     "who": "阿银",
+     "say": [
+      "又见面了。这段时间我一直在想，为什么我总是输给你。现在，我和我的伙伴已经不同了。来吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "劲敌 阿银",
+      "johto_rival": 6
+     }
+    },
+    {
+     "who": "阿银",
+     "say": [
+      "我还是输给你了……可这次我听到了伙伴的声音。下次再见时，请你再和我们打一场！"
+     ]
+    },
+    {
+     "flag": "j2_rival_moon"
+    }
+   ]
+  },
+  {
+   "id": "j2_rival_plateau",
+   "once": false,
+   "trigger": {
+    "type": "step",
+    "map": "johto_indigo_plateau_pokecenter_1f",
+    "area": [
+     8,
+     2,
+     9,
+     3
+    ]
+   },
+   "also": [
+    {
+     "type": "talk",
+     "map": "johto_indigo_plateau_pokecenter_1f",
+     "actor": "j2_plateau_rival"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_rival_available"
+    ]
+   },
+   "steps": [
+    {
+     "who": "阿银",
+     "say": [
+      "等一下！这里是我们第一次向联盟挑战的地方。你说过会和我再战，我的伙伴也在等着！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "劲敌 阿银",
+      "johto_rival": 7
+     }
+    },
+    {
+     "who": "阿银",
+     "say": [
+      "我的队伍还能变得更强。我会和它们一起练习，直到下一次碰面。"
+     ]
+    },
+    {
+     "johto_rival_rematch": true
+    }
    ]
   }
  ]

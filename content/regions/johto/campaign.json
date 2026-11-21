@@ -1,0 +1,2607 @@
+{
+ "actors": {
+  "johto_elms_lab": {
+   "2,1": {
+    "role": "j_elm",
+    "story_only": true,
+    "name": "空木博士",
+    "field_art": "cr_elm",
+    "lines": [
+     "宝可梦爷爷住在吉花市以北的30号道路。"
+    ]
+   },
+   "3,1": {
+    "at": [
+     2,
+     2
+    ],
+    "gives_mon": {
+     "species": 155,
+     "level": 5,
+     "flag": "johto_starter"
+    },
+    "until": [
+     "j_picked_155"
+    ]
+   },
+   "2,0": {
+    "at": [
+     3,
+     2
+    ],
+    "gives_mon": {
+     "species": 158,
+     "level": 5,
+     "flag": "johto_starter"
+    },
+    "until": [
+     "j_picked_158"
+    ]
+   },
+   "4,1": {
+    "at": [
+     4,
+     2
+    ],
+    "gives_mon": {
+     "species": 152,
+     "level": 5,
+     "flag": "johto_starter"
+    },
+    "until": [
+     "j_picked_152"
+    ]
+   },
+   "1,4": {
+    "role": "j_aide",
+    "story_only": true,
+    "name": "空木的助手",
+    "field_art": "cr_scientist",
+    "lines": [
+     "旅途平安。"
+    ]
+   },
+   "3,0": {
+    "role": "j_police",
+    "story_only": true,
+    "name": "警察",
+    "field_art": "cr_officer",
+    "requires": [
+     "j_mystery_egg"
+    ],
+    "until": [
+     "j_egg_return"
+    ],
+    "lines": [
+     "丢失的精灵球，是被一个红发少年拿走的。"
+    ]
+   }
+  },
+  "johto_mr_pokemons_house": {
+   "1,2": {
+    "role": "j_mr_pokemon",
+    "story_only": true,
+    "name": "宝可梦爷爷",
+    "field_art": "cr_gentleman",
+    "lines": [
+     "空木博士一定会想看看这个蛋。"
+    ]
+   },
+   "3,2": {
+    "role": "j_oak",
+    "story_only": true,
+    "name": "大木博士",
+    "field_art": "cr_oak",
+    "until": [
+     "j_mystery_egg"
+    ]
+   }
+  },
+  "johto_cherrygrove_city": {
+   "18,3": {
+    "role": "j_rival1",
+    "story_only": true,
+    "name": "红发少年",
+    "field_art": "cr_rival",
+    "requires": [
+     "j_mystery_egg"
+    ],
+    "until": [
+     "j_rival1"
+    ]
+   }
+  },
+  "johto_sprout_tower_3f": {
+   "5,1": {
+    "role": "j_li",
+    "story_only": true,
+    "name": "长老李",
+    "field_art": "cr_sage",
+    "lines": [
+     "强韧的茎也懂得随风摇摆。"
+    ]
+   },
+   "5,2": {
+    "role": "j_tower_rival",
+    "story_only": true,
+    "name": "阿银",
+    "field_art": "cr_rival",
+    "until": [
+     "j_sprout_rival"
+    ]
+   }
+  },
+  "johto_violet_gym": {
+   "2,0": {
+    "role": "j_gym1",
+    "story_only": true,
+    "name": "馆主 阿速",
+    "field_art": "cr_falkner",
+    "lines": [
+     "继续带着你的伙伴旅行吧。"
+    ]
+   }
+  },
+  "johto_azalea_gym": {
+   "2,3": {
+    "role": "j_gym2",
+    "story_only": true,
+    "name": "馆主 阿笔",
+    "field_art": "cr_bugsy",
+    "lines": [
+     "继续带着你的伙伴旅行吧。"
+    ]
+   }
+  },
+  "johto_goldenrod_gym": {
+   "4,1": {
+    "role": "j_gym3",
+    "story_only": true,
+    "name": "馆主 小茜",
+    "field_art": "cr_whitney",
+    "lines": [
+     "继续带着你的伙伴旅行吧。"
+    ]
+   },
+   "4,3": {
+    "role": "j_whitney_friend",
+    "story_only": true,
+    "name": "少女",
+    "field_art": "cr_lass",
+    "requires": [
+     "j_gym3"
+    ],
+    "lines": [
+     "馆主情绪恢复了吗？"
+    ]
+   }
+  },
+  "johto_ecruteak_gym": {
+   "2,0": {
+    "role": "j_gym4",
+    "story_only": true,
+    "name": "馆主 松叶",
+    "field_art": "cr_morty",
+    "requires": [
+     "j_beasts"
+    ],
+    "lines": [
+     "继续带着你的伙伴旅行吧。"
+    ]
+   },
+   "1,8": {
+    "role": "j_gym_elder",
+    "story_only": true,
+    "name": "长老",
+    "field_art": "cr_sage",
+    "until": [
+     "j_beasts"
+    ],
+    "lines": [
+     "松叶去烧焦塔调查了。"
+    ]
+   }
+  },
+  "johto_cianwood_gym": {
+   "2,0": {
+    "role": "j_gym5",
+    "story_only": true,
+    "name": "馆主 阿四",
+    "field_art": "cr_chuck",
+    "lines": [
+     "继续带着你的伙伴旅行吧。"
+    ]
+   }
+  },
+  "johto_olivine_gym": {
+   "2,1": {
+    "role": "j_gym6",
+    "story_only": true,
+    "name": "馆主 阿蜜",
+    "field_art": "cr_jasmine",
+    "requires": [
+     "j_lighthouse_cured"
+    ],
+    "lines": [
+     "继续带着你的伙伴旅行吧。"
+    ]
+   }
+  },
+  "johto_mahogany_gym": {
+   "2,1": {
+    "role": "j_gym7",
+    "story_only": true,
+    "name": "馆主 柳伯",
+    "field_art": "cr_pryce",
+    "lines": [
+     "继续带着你的伙伴旅行吧。"
+    ]
+   }
+  },
+  "johto_blackthorn_gym_1f": {
+   "2,1": {
+    "role": "j_gym8",
+    "story_only": true,
+    "name": "馆主 小椿",
+    "field_art": "cr_clair",
+    "lines": [
+     "继续带着你的伙伴旅行吧。"
+    ]
+   }
+  },
+  "johto_violet_pokecenter_1f": {
+   "2,1": {
+    "role": "j_egg_aide",
+    "story_only": true,
+    "name": "空木的助手",
+    "field_art": "cr_scientist",
+    "requires": [
+     "j_badge_1"
+    ],
+    "until": [
+     "j_egg_aide"
+    ]
+   }
+  },
+  "johto_kurts_house": {
+   "1,1": {
+    "role": "j_kurt",
+    "story_only": true,
+    "name": "钢铁",
+    "field_art": "cr_kurt",
+    "until": [
+     "j_kurt_well"
+    ]
+   },
+   "7,1": {
+    "role": "j_kurt_back",
+    "story_only": true,
+    "name": "钢铁",
+    "field_art": "cr_kurt",
+    "requires": [
+     "j_well_clear"
+    ],
+    "lines": [
+     "桧皮的呆呆兽终于又能安心生活了。"
+    ]
+   },
+   "5,2": {
+    "requires": [
+     "j_well_clear"
+    ]
+   }
+  },
+  "johto_slowpoke_well_b1_f": {
+   "7,6": {
+    "role": "j_hurt_kurt",
+    "story_only": true,
+    "name": "钢铁",
+    "field_art": "cr_kurt",
+    "requires": [
+     "j_kurt_well"
+    ],
+    "until": [
+     "j_well_clear"
+    ],
+    "lines": [
+     "我掉了下来，腰疼得厉害。前面就交给你了。"
+    ]
+   },
+   "7,3": {
+    "field_art": "cr_rocket",
+    "requires": [
+     "j_kurt_well"
+    ],
+    "until": [
+     "j_well_clear"
+    ]
+   },
+   "2,3": {
+    "field_art": "cr_rocket",
+    "requires": [
+     "j_kurt_well"
+    ],
+    "until": [
+     "j_well_clear"
+    ]
+   },
+   "5,2": {
+    "field_art": "cr_rocket",
+    "requires": [
+     "j_kurt_well"
+    ],
+    "until": [
+     "j_well_clear"
+    ]
+   },
+   "2,1": {
+    "role": "j_well_boss",
+    "story_only": true,
+    "name": "火箭队队员",
+    "field_art": "cr_rocket",
+    "requires": [
+     "j_kurt_well"
+    ],
+    "until": [
+     "j_well_clear"
+    ]
+   }
+  },
+  "johto_azalea_town": {
+   "4,8": {
+    "name": "呆呆兽",
+    "field_art": "cr_slowpoke",
+    "requires": [
+     "j_well_clear"
+    ]
+   },
+   "9,4": {
+    "name": "呆呆兽",
+    "field_art": "cr_slowpoke",
+    "requires": [
+     "j_well_clear"
+    ]
+   },
+   "14,4": {
+    "name": "呆呆兽",
+    "field_art": "cr_slowpoke",
+    "requires": [
+     "j_well_clear"
+    ]
+   },
+   "7,7": {
+    "name": "呆呆兽",
+    "field_art": "cr_slowpoke",
+    "requires": [
+     "j_well_clear"
+    ]
+   },
+   "15,4": {
+    "name": "火箭队队员",
+    "field_art": "cr_rocket",
+    "until": [
+     "j_kurt_well"
+    ],
+    "lines": [
+     "呆呆兽之井正在施工，闲人免进。"
+    ]
+   },
+   "5,5": {
+    "at": [
+     3,
+     6
+    ],
+    "role": "j_rival2",
+    "story_only": true,
+    "name": "阿银",
+    "field_art": "cr_rival",
+    "requires": [
+     "j_well_clear"
+    ],
+    "until": [
+     "j_rival2"
+    ]
+   }
+  },
+  "johto_ilex_forest": {
+   "3,14": {
+    "role": "j_apprentice",
+    "story_only": true,
+    "name": "炭窑学徒",
+    "field_art": "cr_youngster",
+    "until": [
+     "j_bird_request"
+    ],
+    "lines": [
+     "能把大葱鸭赶回我这里吗？"
+    ]
+   },
+   "2,14": {
+    "role": "j_master",
+    "story_only": true,
+    "name": "炭窑师傅",
+    "field_art": "cr_black_belt",
+    "requires": [
+     "j_bird_home"
+    ],
+    "until": [
+     "j_cut"
+    ]
+   },
+   "1,12": {
+    "requires": [
+     "johto_unused_object"
+    ]
+   },
+   "0,12": {
+    "requires": [
+     "johto_unused_object"
+    ]
+   },
+   "7,15": {
+    "role": "j_farfetchd",
+    "story_only": true,
+    "name": "大葱鸭",
+    "field_art": "cr_bird",
+    "until": [
+     "j_cut"
+    ]
+   }
+  },
+  "johto_charcoal_kiln": {
+   "1,1": {
+    "role": "j_kiln_master",
+    "story_only": true,
+    "name": "炭窑师傅",
+    "field_art": "cr_black_belt",
+    "requires": [
+     "j_cut"
+    ],
+    "lines": [
+     "你和大葱鸭帮了我们的大忙。"
+    ]
+   },
+   "2,1": {
+    "role": "j_kiln_apprentice",
+    "story_only": true,
+    "name": "炭窑学徒",
+    "field_art": "cr_youngster",
+    "requires": [
+     "j_cut"
+    ],
+    "lines": [
+     "我的大葱鸭没有再迷路。"
+    ]
+   }
+  },
+  "johto_route_36": {
+   "16,6": {
+    "role": "j_floria",
+    "story_only": true,
+    "name": "花店妹妹",
+    "field_art": "cr_lass",
+    "until": [
+     "j_floria"
+    ]
+   },
+   "17,4": {
+    "role": "j_tree",
+    "story_only": true,
+    "name": "怪树",
+    "field_art": "cr_sudowoodo",
+    "until": [
+     "j_tree_clear"
+    ],
+    "lines": [
+     "这棵树像是在躲避水滴。"
+    ]
+   }
+  },
+  "johto_goldenrod_flower_shop": {
+   "2,3": {
+    "at": [
+     2,
+     0
+    ],
+    "name": "花店妹妹",
+    "field_art": "cr_lass",
+    "requires": [
+     "j_floria"
+    ]
+   }
+  },
+  "johto_new_bark_town": {
+   "1,1": {
+    "role": "j_watching_rival",
+    "story_only": true,
+    "name": "红发少年",
+    "field_art": "cr_rival",
+    "until": [
+     "j_mystery_egg"
+    ],
+    "lines": [
+     "研究所里有什么？别碍事。"
+    ]
+   }
+  },
+  "johto_burned_tower_1f": {
+   "6,6": {
+    "role": "j_eusine",
+    "story_only": true,
+    "name": "米那君",
+    "field_art": "cr_eusine",
+    "until": [
+     "j_beasts"
+    ],
+    "lines": [
+     "我追了水君十年。它一定就在这座塔中。"
+    ]
+   },
+   "8,6": {
+    "role": "j_morty_tower",
+    "story_only": true,
+    "name": "松叶",
+    "field_art": "cr_morty",
+    "until": [
+     "j_beasts"
+    ],
+    "lines": [
+     "地下室里沉睡着传说中的宝可梦。"
+    ]
+   },
+   "4,4": {
+    "role": "j_tower_rival3",
+    "story_only": true,
+    "name": "阿银",
+    "field_art": "cr_rival",
+    "until": [
+     "j_rival3"
+    ],
+    "lines": [
+     "又见面了。"
+    ]
+   }
+  },
+  "johto_burned_tower_b1_f": {
+   "3,1": {
+    "role": "j_beast_raikou",
+    "story_only": true,
+    "name": "雷公",
+    "field_art": "cr_raikou",
+    "until": [
+     "j_beasts"
+    ]
+   },
+   "5,1": {
+    "role": "j_beast_entei",
+    "story_only": true,
+    "name": "炎帝",
+    "field_art": "cr_entei",
+    "until": [
+     "j_beasts"
+    ]
+   },
+   "5,2": {
+    "role": "j_beast_suicune",
+    "story_only": true,
+    "name": "水君",
+    "field_art": "cr_suicune",
+    "until": [
+     "j_beasts"
+    ]
+   },
+   "2,0": {
+    "requires": [
+     "johto_unused_object"
+    ]
+   },
+   "4,0": {
+    "requires": [
+     "johto_unused_object"
+    ]
+   },
+   "4,1": {
+    "requires": [
+     "johto_unused_object"
+    ]
+   },
+   "5,6": {
+    "role": "j_eusine_down",
+    "story_only": true,
+    "name": "米那君",
+    "field_art": "cr_eusine",
+    "requires": [
+     "j_beasts"
+    ],
+    "lines": [
+     "水君竟然在你身边停了片刻。它看上了你身上的什么？"
+    ]
+   }
+  },
+  "johto_dance_theater": {
+   "0,1": {
+    "role": "j_dancer0",
+    "story_only": true,
+    "name": "和服少女",
+    "field_art": "cr_kimono_girl",
+    "lines": [
+     "跳舞和对战一样，都要和伙伴同心。"
+    ]
+   },
+   "1,0": {
+    "role": "j_dancer1",
+    "story_only": true,
+    "name": "和服少女",
+    "field_art": "cr_kimono_girl",
+    "lines": [
+     "跳舞和对战一样，都要和伙伴同心。"
+    ]
+   },
+   "3,1": {
+    "role": "j_dancer2",
+    "story_only": true,
+    "name": "和服少女",
+    "field_art": "cr_kimono_girl",
+    "lines": [
+     "跳舞和对战一样，都要和伙伴同心。"
+    ]
+   },
+   "4,0": {
+    "role": "j_dancer3",
+    "story_only": true,
+    "name": "和服少女",
+    "field_art": "cr_kimono_girl",
+    "lines": [
+     "跳舞和对战一样，都要和伙伴同心。"
+    ]
+   },
+   "5,1": {
+    "role": "j_dancer4",
+    "story_only": true,
+    "name": "和服少女",
+    "field_art": "cr_kimono_girl",
+    "lines": [
+     "跳舞和对战一样，都要和伙伴同心。"
+    ]
+   },
+   "3,5": {
+    "role": "j_surf_gent",
+    "story_only": true,
+    "name": "绅士",
+    "field_art": "cr_gentleman",
+    "lines": [
+     "五位和服少女各有一只不同进化形态的伊布家族成员。"
+    ]
+   }
+  },
+  "johto_olivine_lighthouse_6f": {
+   "4,4": {
+    "role": "j_lighthouse",
+    "story_only": true,
+    "name": "阿蜜",
+    "field_art": "cr_jasmine",
+    "until": [
+     "j_lighthouse_cured"
+    ],
+    "lines": [
+     "拜托你，湛蓝市的药房可能有适合它的药。"
+    ]
+   },
+   "3,3": {
+    "role": "j_amphy",
+    "story_only": true,
+    "name": "阿蜜儿",
+    "field_art": "cr_amphy",
+    "lines": [
+     "电龙照亮了浅葱港的航道。"
+    ]
+   }
+  },
+  "johto_cianwood_pharmacy": {
+   "1,1": {
+    "role": "j_chemist",
+    "story_only": true,
+    "name": "药店老板",
+    "field_art": "cr_scientist",
+    "lines": [
+     "我们家的秘传药救过不少宝可梦。"
+    ]
+   }
+  },
+  "johto_cianwood_city": {
+   "5,7": {
+    "role": "j_cianwood_beast",
+    "story_only": true,
+    "name": "水君",
+    "field_art": "cr_suicune",
+    "requires": [
+     "j_beasts"
+    ],
+    "until": [
+     "j_eusine_battle"
+    ]
+   },
+   "5,10": {
+    "role": "j_eusine_coast",
+    "story_only": true,
+    "name": "米那君",
+    "field_art": "cr_eusine",
+    "requires": [
+     "j_beasts"
+    ],
+    "until": [
+     "j_eusine_battle"
+    ]
+   }
+  },
+  "johto_lake_of_rage": {
+   "10,14": {
+    "role": "j_lake_lance",
+    "story_only": true,
+    "name": "龙使者 阿渡",
+    "field_art": "cr_lance",
+    "requires": [
+     "j_red_scale"
+    ],
+    "until": [
+     "j_lance_lake"
+    ]
+   }
+  },
+  "johto_mahogany_mart_1f": {
+   "2,1": {
+    "until": [
+     "j_plant_clear"
+    ]
+   },
+   "0,3": {
+    "until": [
+     "j_plant_clear"
+    ]
+   },
+   "1,2": {
+    "role": "j_mart_lance",
+    "story_only": true,
+    "name": "阿渡",
+    "field_art": "cr_lance",
+    "requires": [
+     "j_lance_lake"
+    ],
+    "until": [
+     "j_base_open"
+    ]
+   },
+   "0,2": {
+    "role": "j_dragonite",
+    "story_only": true,
+    "name": "快龙",
+    "field_art": "cr_dragon",
+    "requires": [
+     "j_lance_lake"
+    ],
+    "until": [
+     "j_base_open"
+    ]
+   },
+   "0,1": {
+    "shop": true,
+    "name": "纪念品店主",
+    "requires": [
+     "j_plant_clear"
+    ]
+   }
+  },
+  "johto_team_rocket_base_b3_f": {
+   "12,7": {
+    "role": "j_code_lance",
+    "story_only": true,
+    "name": "阿渡",
+    "field_art": "cr_lance",
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_plant_clear"
+    ],
+    "lines": [
+     "首领办公室有两句口令。一定有队员知道。"
+    ]
+   },
+   "10,3": {
+    "role": "j_slowtail",
+    "story_only": true,
+    "name": "火箭队女队员",
+    "field_art": "cr_rocket_girl",
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_plant_clear"
+    ]
+   },
+   "2,7": {
+    "role": "j_rattail",
+    "story_only": true,
+    "name": "火箭队男队员",
+    "field_art": "cr_rocket",
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_plant_clear"
+    ]
+   },
+   "4,1": {
+    "role": "j_executive",
+    "story_only": true,
+    "name": "火箭队干部",
+    "field_art": "cr_rocket",
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_base_executive"
+    ],
+    "lines": [
+     "首领办公室的门需要两句口令。"
+    ]
+   },
+   "3,1": {
+    "role": "j_murkrow",
+    "story_only": true,
+    "name": "黑暗鸦",
+    "field_art": "cr_murkrow",
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_plant_clear"
+    ],
+    "lines": [
+     "它模仿着干部的声音。"
+    ]
+   },
+   "2,2": {
+    "role": "j_base_rival",
+    "story_only": true,
+    "name": "阿银",
+    "field_art": "cr_rival",
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_base_rival"
+    ]
+   },
+   "11,5": {
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_plant_clear"
+    ]
+   },
+   "5,7": {
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_plant_clear"
+    ]
+   },
+   "11,6": {
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_plant_clear"
+    ]
+   }
+  },
+  "johto_team_rocket_base_b2_f": {
+   "9,7": {
+    "role": "j_engine_boss",
+    "story_only": true,
+    "name": "火箭队女干部",
+    "field_art": "cr_rocket_girl",
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_engine_boss"
+    ],
+    "lines": [
+     "要开这扇电动门，得知道声音口令。"
+    ]
+   },
+   "10,8": {
+    "role": "j_engine_grunt",
+    "story_only": true,
+    "name": "队员",
+    "field_art": "cr_rocket",
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_engine_boss"
+    ]
+   },
+   "2,6": {
+    "role": "j_engine_lance",
+    "story_only": true,
+    "name": "阿渡",
+    "field_art": "cr_lance",
+    "requires": [
+     "j_engine_boss"
+    ],
+    "until": [
+     "j_plant_clear"
+    ],
+    "lines": [
+     "我来负责右边三只，你帮帮左边的顽皮雷弹。"
+    ]
+   },
+   "4,6": {
+    "field_art": "cr_dragon",
+    "requires": [
+     "j_engine_boss"
+    ],
+    "until": [
+     "j_plant_clear"
+    ]
+   },
+   "3,2": {
+    "role": "j_electrode0",
+    "story_only": true,
+    "name": "顽皮雷弹",
+    "field_art": "cr_electrode",
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_electrode0"
+    ]
+   },
+   "10,2": {
+    "role": "j_right0",
+    "story_only": true,
+    "name": "顽皮雷弹",
+    "field_art": "cr_electrode",
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_electrode0"
+    ]
+   },
+   "3,3": {
+    "role": "j_electrode1",
+    "story_only": true,
+    "name": "顽皮雷弹",
+    "field_art": "cr_electrode",
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_electrode1"
+    ]
+   },
+   "10,3": {
+    "role": "j_right1",
+    "story_only": true,
+    "name": "顽皮雷弹",
+    "field_art": "cr_electrode",
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_electrode1"
+    ]
+   },
+   "3,4": {
+    "role": "j_electrode2",
+    "story_only": true,
+    "name": "顽皮雷弹",
+    "field_art": "cr_electrode",
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_electrode2"
+    ]
+   },
+   "10,4": {
+    "role": "j_right2",
+    "story_only": true,
+    "name": "顽皮雷弹",
+    "field_art": "cr_electrode",
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_electrode2"
+    ]
+   },
+   "12,6": {
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_plant_clear"
+    ]
+   },
+   "2,0": {
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_plant_clear"
+    ]
+   },
+   "10,7": {
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_plant_clear"
+    ]
+   }
+  },
+  "johto_team_rocket_base_b1_f": {
+   "0,0": {
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_plant_clear"
+    ]
+   },
+   "1,2": {
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_plant_clear"
+    ]
+   },
+   "9,6": {
+    "requires": [
+     "j_base_open"
+    ],
+    "until": [
+     "j_plant_clear"
+    ]
+   }
+  },
+  "johto_goldenrod_city": {
+   "8,11": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "14,9": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "14,3": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "15,5": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   }
+  },
+  "johto_radio_tower_1f": {
+   "6,0": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "8,2": {
+    "civilian_during_takeover": true
+   },
+   "7,2": {
+    "civilian_during_takeover": true
+   },
+   "4,3": {
+    "civilian_during_takeover": true
+   },
+   "6,3": {
+    "civilian_during_takeover": true
+   }
+  },
+  "johto_radio_tower_2f": {
+   "3,3": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "0,2": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "4,2": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "2,0": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "3,1": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "6,0": {
+    "civilian_during_takeover": true
+   },
+   "6,3": {
+    "civilian_during_takeover": true
+   }
+  },
+  "johto_radio_tower_3f": {
+   "3,2": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "2,0": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "8,3": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "4,3": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   }
+  },
+  "johto_radio_tower_4f": {
+   "2,3": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "6,2": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "2,1": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "3,2": {
+    "requires": [
+     "j_radio_free"
+    ]
+   }
+  },
+  "johto_radio_tower_5f": {
+   "6,2": {
+    "role": "j_broadcast_boss",
+    "story_only": true,
+    "name": "火箭队总干部",
+    "field_art": "cr_rocket",
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ],
+    "lines": [
+     "广播室所在的一侧要用钥匙卡通行。"
+    ]
+   },
+   "8,1": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "5,1": {
+    "requires": [
+     "j_radio_free"
+    ]
+   },
+   "1,3": {
+    "role": "j_fake_director",
+    "story_only": true,
+    "name": "局长",
+    "field_art": "cr_gentleman",
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_basement_key"
+    ]
+   }
+  },
+  "johto_goldenrod_underground_switch_room_entrances": {
+   "8,1": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "5,1": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "1,1": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "9,6": {
+    "at": [
+     8,
+     4
+    ],
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "2,4": {
+    "at": [
+     0,
+     4
+    ]
+   }
+  },
+  "johto_goldenrod_underground_warehouse": {
+   "4,4": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "4,7": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "7,1": {
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_radio_free"
+    ]
+   },
+   "6,4": {
+    "role": "j_true_director",
+    "story_only": true,
+    "name": "真正的局长",
+    "field_art": "cr_gentleman",
+    "requires": [
+     "j_radio_takeover"
+    ],
+    "until": [
+     "j_card_key"
+    ]
+   }
+  },
+  "johto_dragon_shrine": {
+   "2,0": {
+    "role": "j_master_elder",
+    "story_only": true,
+    "name": "龙之长老",
+    "field_art": "cr_sage",
+    "lines": [
+     "请珍惜每一位与你同行的伙伴。"
+    ]
+   },
+   "1,3": {
+    "role": "j_clair_shrine",
+    "story_only": true,
+    "name": "小椿",
+    "field_art": "cr_clair",
+    "requires": [
+     "j_shrine_clair"
+    ],
+    "until": [
+     "j_den_tm"
+    ]
+   }
+  },
+  "johto_dragons_den_b1_f": {
+   "7,15": {
+    "role": "j_clair_den",
+    "story_only": true,
+    "name": "小椿",
+    "field_art": "cr_clair",
+    "requires": [
+     "j_shrine_pass"
+    ],
+    "until": [
+     "j_den_tm"
+    ],
+    "lines": [
+     "还有一样东西要交给你。"
+    ]
+   }
+  },
+  "johto_mount_moon": {
+   "3,1": {
+    "name": "阿银",
+    "role": "j2_moon_rival",
+    "field_art": "cr_rival",
+    "story_only": true,
+    "requires": [
+     "johto_champion"
+    ],
+    "until": [
+     "j2_rival_moon"
+    ],
+    "lines": [
+     "……我们再打一场。"
+    ]
+   }
+  },
+  "johto_indigo_plateau_pokecenter_1f": {
+   "8,4": {
+    "name": "阿银",
+    "role": "j2_plateau_rival",
+    "field_art": "cr_rival",
+    "story_only": true,
+    "requires": [
+     "j2_rival_appearing"
+    ],
+    "until": [],
+    "lines": [
+     "……我们再打一场。"
+    ]
+   }
+  }
+ },
+ "add": {
+  "johto_azalea_town": [
+   {
+    "role": "j_gym_guard",
+    "story_only": true,
+    "name": "火箭队队员",
+    "field_art": "cr_rocket",
+    "until": [
+     "j_well_clear"
+    ],
+    "lines": [
+     "道馆？先等我们办完事。"
+    ],
+    "at": [
+     6,
+     8
+    ]
+   }
+  ],
+  "johto_ilex_forest": [
+   {
+    "role": "j_waiting_apprentice",
+    "story_only": true,
+    "name": "炭窑学徒",
+    "field_art": "cr_youngster",
+    "requires": [
+     "j_bird_request"
+    ],
+    "until": [
+     "j_cut"
+    ],
+    "lines": [
+     "师傅的大葱鸭认得这条路。"
+    ],
+    "at": [
+     1,
+     13
+    ]
+   }
+  ],
+  "johto_goldenrod_flower_shop": [
+   {
+    "role": "j_florist",
+    "story_only": true,
+    "name": "花店姐姐",
+    "field_art": "cr_lass",
+    "lines": [
+     "那棵会动的树似乎怕水。"
+    ],
+    "at": [
+     1,
+     2
+    ]
+   }
+  ],
+  "johto_olivine_city": [
+   {
+    "role": "j_harbor_rival",
+    "story_only": true,
+    "name": "阿银",
+    "field_art": "cr_rival",
+    "requires": [
+     "j_harbor_scene"
+    ],
+    "until": [
+     "j_harbor_rival"
+    ],
+    "at": [
+     5,
+     5
+    ]
+   }
+  ],
+  "johto_lake_of_rage": [
+   {
+    "in_water_pose": true,
+    "role": "j_red_gyarados",
+    "story_only": true,
+    "name": "红色暴鲤龙",
+    "field_art": "cr_red_gyarados",
+    "until": [
+     "j_red_scale"
+    ],
+    "lines": [
+     "红色的暴鲤龙在湖面上翻腾。"
+    ],
+    "at": [
+     9,
+     11
+    ]
+   }
+  ],
+  "johto_radio_tower_5f": [
+   {
+    "role": "j_director",
+    "story_only": true,
+    "name": "电台局长",
+    "field_art": "cr_gentleman",
+    "requires": [
+     "j_radio_free"
+    ],
+    "lines": [
+     "感谢你让满金电台恢复了自己的声音。"
+    ],
+    "at": [
+     1,
+     3
+    ]
+   }
+  ],
+  "johto_goldenrod_underground_switch_room_entrances": [
+   {
+    "role": "j_underground_rival",
+    "story_only": true,
+    "name": "阿银",
+    "field_art": "cr_rival",
+    "requires": [
+     "j_basement_key"
+    ],
+    "until": [
+     "j_rival4"
+    ],
+    "at": [
+     10,
+     2
+    ]
+   }
+  ]
+ },
+ "gates": {
+  "johto_slowpoke_well_b1_f": [
+   {
+    "requires": [
+     "j_kurt_well"
+    ],
+    "message": "井口被火箭队占据。去镇西北找钢铁先生。",
+    "from": "johto_azalea_town"
+   }
+  ],
+  "johto_azalea_gym": [
+   {
+    "requires": [
+     "j_well_clear"
+    ],
+    "message": "有个火箭队队员堵着道馆入口。",
+    "from": "johto_azalea_town"
+   }
+  ],
+  "johto_ilex_forest": [
+   {
+    "requires": [
+     "j_well_clear"
+    ],
+    "message": "桧皮镇的呆呆兽还在井里。",
+    "from": "johto_ilex_forest_azalea_gate"
+   }
+  ],
+  "johto_route_34_ilex_forest_gate": [
+   {
+    "requires": [
+     "j_forest_path_clear"
+    ],
+    "message": "先在森林的祠堂南边用居合斩开路。",
+    "from": "johto_ilex_forest"
+   }
+  ],
+  "johto_route_37": [
+   {
+    "requires": [
+     "j_tree_clear"
+    ],
+    "message": "36号道路的怪树挡住了北上的小路。",
+    "from": "johto_route_36"
+   }
+  ],
+  "johto_route_29": [
+   {
+    "requires": [
+     "johto_starter"
+    ],
+    "message": "老师：外面有野生宝可梦。先在研究所选一位伙伴吧。",
+    "from": "johto_new_bark_town"
+   }
+  ],
+  "johto_team_rocket_base_b1_f": [
+   {
+    "requires": [
+     "j_base_open"
+    ],
+    "message": "通向地下的楼梯被货柜遮着。",
+    "from": "johto_mahogany_mart_1f"
+   }
+  ],
+  "johto_mahogany_gym": [
+   {
+    "requires": [
+     "j_plant_clear"
+    ],
+    "message": "纪念品店地下传来异样的电波。道馆暂不接受挑战。",
+    "from": "johto_mahogany_town"
+   }
+  ],
+  "johto_goldenrod_underground_warehouse": [
+   {
+    "requires": [
+     "j_switches"
+    ],
+    "message": "地下仓库通道被隔门封住。先在地下开关室操作墙上的三个开关。",
+    "from": "johto_goldenrod_underground_switch_room_entrances"
+   }
+  ],
+  "johto_ice_path_1f": [
+   {
+    "requires": [
+     "j_radio_free"
+    ],
+    "message": "通往烟墨的道路仍被封锁。满金电台的事件还没有结束。",
+    "from": "johto_route_44"
+   }
+  ],
+  "johto_blackthorn_gym_1f": [
+   {
+    "requires": [
+     "j_radio_free"
+    ],
+    "message": "道馆暂时关闭，满金电台还在播放火箭队的广播。",
+    "from": "johto_blackthorn_city"
+   }
+  ],
+  "johto_dragons_den_1f": [
+   {
+    "requires": [
+     "j_gym8"
+    ],
+    "message": "长老只接见通过小椿考验的训练家。",
+    "from": "johto_blackthorn_city"
+   }
+  ]
+ },
+ "badges": [
+  "飞翼徽章",
+  "昆虫徽章",
+  "标准徽章",
+  "魅影徽章",
+  "打击徽章",
+  "矿物徽章",
+  "冰川徽章",
+  "升龙徽章"
+ ],
+ "rivals": {
+  "1": {
+   "152": [
+    {
+     "level": 5,
+     "species": 155
+    }
+   ],
+   "155": [
+    {
+     "level": 5,
+     "species": 158
+    }
+   ],
+   "158": [
+    {
+     "level": 5,
+     "species": 152
+    }
+   ]
+  },
+  "2": {
+   "152": [
+    {
+     "level": 12,
+     "species": 92
+    },
+    {
+     "level": 14,
+     "species": 41
+    },
+    {
+     "level": 16,
+     "species": 156
+    }
+   ],
+   "155": [
+    {
+     "level": 12,
+     "species": 92
+    },
+    {
+     "level": 14,
+     "species": 41
+    },
+    {
+     "level": 16,
+     "species": 159
+    }
+   ],
+   "158": [
+    {
+     "level": 12,
+     "species": 92
+    },
+    {
+     "level": 14,
+     "species": 41
+    },
+    {
+     "level": 16,
+     "species": 153
+    }
+   ]
+  },
+  "3": {
+   "152": [
+    {
+     "level": 20,
+     "species": 93,
+     "moves": [
+      122,
+      180,
+      212,
+      174
+     ]
+    },
+    {
+     "level": 18,
+     "species": 81,
+     "moves": [
+      33,
+      84,
+      48,
+      49
+     ]
+    },
+    {
+     "level": 20,
+     "species": 41,
+     "moves": [
+      141,
+      48,
+      44,
+      109
+     ]
+    },
+    {
+     "level": 22,
+     "species": 156,
+     "moves": [
+      43,
+      108,
+      52,
+      98
+     ]
+    }
+   ],
+   "155": [
+    {
+     "level": 20,
+     "species": 93,
+     "moves": [
+      122,
+      180,
+      212,
+      174
+     ]
+    },
+    {
+     "level": 18,
+     "species": 81,
+     "moves": [
+      33,
+      84,
+      48,
+      49
+     ]
+    },
+    {
+     "level": 20,
+     "species": 41,
+     "moves": [
+      141,
+      48,
+      44,
+      109
+     ]
+    },
+    {
+     "level": 22,
+     "species": 159,
+     "moves": [
+      43,
+      99,
+      55,
+      44
+     ]
+    }
+   ],
+   "158": [
+    {
+     "level": 20,
+     "species": 93,
+     "moves": [
+      122,
+      180,
+      212,
+      174
+     ]
+    },
+    {
+     "level": 18,
+     "species": 81,
+     "moves": [
+      33,
+      84,
+      48,
+      49
+     ]
+    },
+    {
+     "level": 20,
+     "species": 41,
+     "moves": [
+      141,
+      48,
+      44,
+      109
+     ]
+    },
+    {
+     "level": 22,
+     "species": 153,
+     "moves": [
+      45,
+      115,
+      75,
+      77
+     ]
+    }
+   ]
+  },
+  "4": {
+   "152": [
+    {
+     "level": 30,
+     "species": 42,
+     "moves": [
+      141,
+      44,
+      109,
+      17
+     ]
+    },
+    {
+     "level": 28,
+     "species": 81,
+     "moves": [
+      33,
+      84,
+      49,
+      86
+     ]
+    },
+    {
+     "level": 30,
+     "species": 93,
+     "moves": [
+      122,
+      212,
+      174,
+      247
+     ]
+    },
+    {
+     "level": 32,
+     "species": 215,
+     "moves": [
+      43,
+      98,
+      103,
+      185
+     ]
+    },
+    {
+     "level": 32,
+     "species": 156,
+     "moves": [
+      108,
+      52,
+      98,
+      172
+     ]
+    }
+   ],
+   "155": [
+    {
+     "level": 30,
+     "species": 42,
+     "moves": [
+      141,
+      44,
+      109,
+      17
+     ]
+    },
+    {
+     "level": 28,
+     "species": 81,
+     "moves": [
+      33,
+      84,
+      49,
+      86
+     ]
+    },
+    {
+     "level": 30,
+     "species": 93,
+     "moves": [
+      122,
+      212,
+      174,
+      247
+     ]
+    },
+    {
+     "level": 32,
+     "species": 215,
+     "moves": [
+      43,
+      98,
+      103,
+      185
+     ]
+    },
+    {
+     "level": 32,
+     "species": 160,
+     "moves": [
+      99,
+      55,
+      44,
+      184
+     ]
+    }
+   ],
+   "158": [
+    {
+     "level": 30,
+     "species": 42,
+     "moves": [
+      141,
+      44,
+      109,
+      17
+     ]
+    },
+    {
+     "level": 28,
+     "species": 81,
+     "moves": [
+      33,
+      84,
+      49,
+      86
+     ]
+    },
+    {
+     "level": 30,
+     "species": 93,
+     "moves": [
+      122,
+      212,
+      174,
+      247
+     ]
+    },
+    {
+     "level": 32,
+     "species": 215,
+     "moves": [
+      43,
+      98,
+      103,
+      185
+     ]
+    },
+    {
+     "level": 32,
+     "species": 154,
+     "moves": [
+      115,
+      75,
+      77,
+      34
+     ]
+    }
+   ]
+  },
+  "5": {
+   "152": [
+    {
+     "level": 34,
+     "species": 215,
+     "moves": [
+      98,
+      103,
+      185,
+      210
+     ]
+    },
+    {
+     "level": 36,
+     "species": 42,
+     "moves": [
+      141,
+      44,
+      109,
+      17
+     ]
+    },
+    {
+     "level": 35,
+     "species": 82,
+     "moves": [
+      84,
+      49,
+      86,
+      129
+     ]
+    },
+    {
+     "level": 35,
+     "species": 93,
+     "moves": [
+      212,
+      174,
+      247,
+      109
+     ]
+    },
+    {
+     "level": 35,
+     "species": 64,
+     "moves": [
+      50,
+      60,
+      105,
+      248
+     ]
+    },
+    {
+     "level": 38,
+     "species": 157,
+     "moves": [
+      108,
+      52,
+      98,
+      172
+     ]
+    }
+   ],
+   "155": [
+    {
+     "level": 34,
+     "species": 215,
+     "moves": [
+      98,
+      103,
+      185,
+      210
+     ]
+    },
+    {
+     "level": 36,
+     "species": 42,
+     "moves": [
+      141,
+      44,
+      109,
+      17
+     ]
+    },
+    {
+     "level": 34,
+     "species": 82,
+     "moves": [
+      84,
+      49,
+      86,
+      129
+     ]
+    },
+    {
+     "level": 35,
+     "species": 93,
+     "moves": [
+      212,
+      174,
+      247,
+      109
+     ]
+    },
+    {
+     "level": 35,
+     "species": 64,
+     "moves": [
+      50,
+      60,
+      105,
+      248
+     ]
+    },
+    {
+     "level": 38,
+     "species": 160,
+     "moves": [
+      99,
+      55,
+      184,
+      163
+     ]
+    }
+   ],
+   "158": [
+    {
+     "level": 34,
+     "species": 215,
+     "moves": [
+      98,
+      103,
+      185,
+      210
+     ]
+    },
+    {
+     "level": 36,
+     "species": 42,
+     "moves": [
+      141,
+      44,
+      109,
+      17
+     ]
+    },
+    {
+     "level": 35,
+     "species": 82,
+     "moves": [
+      84,
+      49,
+      86,
+      129
+     ]
+    },
+    {
+     "level": 35,
+     "species": 93,
+     "moves": [
+      212,
+      174,
+      247,
+      109
+     ]
+    },
+    {
+     "level": 35,
+     "species": 64,
+     "moves": [
+      50,
+      60,
+      105,
+      248
+     ]
+    },
+    {
+     "level": 38,
+     "species": 154,
+     "moves": [
+      115,
+      75,
+      77,
+      34
+     ]
+    }
+   ]
+  },
+  "6": {
+   "152": [
+    {
+     "level": 41,
+     "species": 215,
+     "moves": [
+      98,
+      103,
+      185,
+      210
+     ]
+    },
+    {
+     "level": 42,
+     "species": 42,
+     "moves": [
+      141,
+      44,
+      109,
+      17
+     ]
+    },
+    {
+     "level": 41,
+     "species": 82,
+     "moves": [
+      84,
+      49,
+      86,
+      129
+     ]
+    },
+    {
+     "level": 43,
+     "species": 94,
+     "moves": [
+      212,
+      174,
+      247,
+      109
+     ]
+    },
+    {
+     "level": 43,
+     "species": 65,
+     "moves": [
+      50,
+      105,
+      248,
+      94
+     ]
+    },
+    {
+     "level": 45,
+     "species": 157,
+     "moves": [
+      108,
+      98,
+      172,
+      129
+     ]
+    }
+   ],
+   "155": [
+    {
+     "level": 41,
+     "species": 215,
+     "moves": [
+      98,
+      103,
+      185,
+      210
+     ]
+    },
+    {
+     "level": 42,
+     "species": 42,
+     "moves": [
+      141,
+      44,
+      109,
+      17
+     ]
+    },
+    {
+     "level": 41,
+     "species": 82,
+     "moves": [
+      84,
+      49,
+      86,
+      129
+     ]
+    },
+    {
+     "level": 43,
+     "species": 94,
+     "moves": [
+      212,
+      174,
+      247,
+      109
+     ]
+    },
+    {
+     "level": 43,
+     "species": 65,
+     "moves": [
+      50,
+      105,
+      248,
+      94
+     ]
+    },
+    {
+     "level": 45,
+     "species": 160,
+     "moves": [
+      99,
+      55,
+      184,
+      163
+     ]
+    }
+   ],
+   "158": [
+    {
+     "level": 41,
+     "species": 215,
+     "moves": [
+      98,
+      103,
+      185,
+      210
+     ]
+    },
+    {
+     "level": 42,
+     "species": 42,
+     "moves": [
+      141,
+      44,
+      109,
+      17
+     ]
+    },
+    {
+     "level": 41,
+     "species": 82,
+     "moves": [
+      84,
+      49,
+      86,
+      129
+     ]
+    },
+    {
+     "level": 43,
+     "species": 94,
+     "moves": [
+      212,
+      174,
+      247,
+      109
+     ]
+    },
+    {
+     "level": 43,
+     "species": 65,
+     "moves": [
+      50,
+      105,
+      248,
+      94
+     ]
+    },
+    {
+     "level": 45,
+     "species": 154,
+     "moves": [
+      75,
+      77,
+      34,
+      113
+     ]
+    }
+   ]
+  },
+  "7": {
+   "152": [
+    {
+     "level": 45,
+     "species": 215,
+     "moves": [
+      98,
+      103,
+      185,
+      210
+     ]
+    },
+    {
+     "level": 48,
+     "species": 169,
+     "moves": [
+      92,
+      44,
+      109,
+      17
+     ]
+    },
+    {
+     "level": 45,
+     "species": 82,
+     "moves": [
+      87,
+      49,
+      86,
+      129
+     ]
+    },
+    {
+     "level": 46,
+     "species": 94,
+     "moves": [
+      212,
+      174,
+      247,
+      109
+     ]
+    },
+    {
+     "level": 46,
+     "species": 65,
+     "moves": [
+      105,
+      248,
+      94,
+      115
+     ]
+    },
+    {
+     "level": 50,
+     "species": 157,
+     "moves": [
+      108,
+      98,
+      126,
+      129
+     ]
+    }
+   ],
+   "155": [
+    {
+     "level": 45,
+     "species": 215,
+     "moves": [
+      98,
+      103,
+      185,
+      210
+     ]
+    },
+    {
+     "level": 48,
+     "species": 169,
+     "moves": [
+      92,
+      44,
+      109,
+      17
+     ]
+    },
+    {
+     "level": 45,
+     "species": 82,
+     "moves": [
+      87,
+      49,
+      86,
+      129
+     ]
+    },
+    {
+     "level": 46,
+     "species": 94,
+     "moves": [
+      212,
+      174,
+      247,
+      109
+     ]
+    },
+    {
+     "level": 46,
+     "species": 65,
+     "moves": [
+      105,
+      248,
+      94,
+      115
+     ]
+    },
+    {
+     "level": 50,
+     "species": 160,
+     "moves": [
+      57,
+      240,
+      163,
+      103
+     ]
+    }
+   ],
+   "158": [
+    {
+     "level": 45,
+     "species": 215,
+     "moves": [
+      98,
+      103,
+      185,
+      210
+     ]
+    },
+    {
+     "level": 48,
+     "species": 169,
+     "moves": [
+      92,
+      44,
+      109,
+      17
+     ]
+    },
+    {
+     "level": 45,
+     "species": 82,
+     "moves": [
+      87,
+      49,
+      86,
+      129
+     ]
+    },
+    {
+     "level": 46,
+     "species": 94,
+     "moves": [
+      212,
+      174,
+      247,
+      109
+     ]
+    },
+    {
+     "level": 46,
+     "species": 65,
+     "moves": [
+      105,
+      248,
+      94,
+      115
+     ]
+    },
+    {
+     "level": 50,
+     "species": 154,
+     "moves": [
+      202,
+      34,
+      113,
+      219
+     ]
+    }
+   ]
+  }
+ }
+}

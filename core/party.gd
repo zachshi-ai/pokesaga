@@ -98,8 +98,10 @@ static func make(species_id: int, level: int, move_ids: Array, form_key: String 
 		"shiny_kind": "none",
 	}
 
-	if species_id in [280, 281, 282, 361, 362]:
-		mon["sex"] = "female" if randi() % 2 == 0 else "male"
+	var female_ratio := int(sp.get("gender",255))
+	if female_ratio != 255:
+		var sex_rng := RandomNumberGenerator.new()
+		mon["sex"] = "female" if female_ratio==254 or sex_rng.randi_range(0,253)<female_ratio else "male"
 	return mon
 
 ## 进化：换物种、按新种族值重算、保留等级与当前血量比例

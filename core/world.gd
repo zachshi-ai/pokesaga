@@ -461,7 +461,7 @@ func _blocked_by_object(p: Vector2i) -> bool:
 		var k := String(o.get("kind", ""))
 		# FRLG bg_events mark text on existing map blocks (even walk-through holes).
 		# Solid signposts already have collision in their native layout.
-		if k == "sign" and not emerald_elevation.is_empty():
+		if k == "sign" and (not emerald_elevation.is_empty() or (map_data.get("region", "") == "johto" and o.has("source_script"))):
 			continue
 		# 树果树 / 道具球 / 告示牌在原版里都占一格，人不该踩过去
 		# 道具球不再挡路：踩上去就自动捡（以前把球也当墙，人永远走不到它那格，
@@ -938,9 +938,14 @@ func _dir_vec() -> Vector2i:
 		_: return Vector2i(1, 0)
 
 ## 相机别越过地图边界，否则边缘会露出黑底
+func _field_actor_scale() -> float:
+	# One Crystal block projects two native walking tiles onto one world cell.
+	return 0.5 if str(map_data.get("emerald","")).begins_with("johto_") else 1.0
+
 func _apply_cam_limits() -> void:
 	if cam == null:
 		return
+	cam.zoom = Vector2(3,3) if map_data.get("region","") == "johto" and tile_size.x <= 6 and tile_size.y <= 6 else Vector2(2,2)
 	cam.limit_left = 0
 	cam.limit_top = 0
 	cam.limit_right = tile_size.x * TILE
@@ -982,7 +987,10 @@ func _sync_player() -> void:
 	var lift: float = round(jump_lift)
 	# 16x32 的人物图要「脚踩格子下沿」，不是「身子居中」：
 	# 居中会让脚多踩下半格，看起来就像站在下面那张桌子上
-	_player_sprite.position = Vector2(px + TILE / 2, py - lift)
+	var actor_scale := _field_actor_scale()
+	_player_sprite.scale = Vector2.ONE * actor_scale
+	_player_shadow.scale = _player_sprite.scale
+	_player_sprite.position = Vector2(px + TILE / 2, py + TILE * (1.0 - actor_scale) - lift)
 	_player_sprite.offset = Vector2(0, 4 if afloat else 0)
 	_player_shadow.visible = not afloat
 	_player_sprite.z_index = Z_ACTOR + int(render_pos.y) * 2
@@ -1093,7 +1101,10 @@ func _rebuild(story_flags: Variant = null) -> void:
 		overrides.append_array(preload("res://core/kanto_campaign.gd").tiles(map_data.id,taken if story_flags==null else story_flags))
 	for row in overrides:
 		emerald_collision[int(row[1])][int(row[0])] = int(row[4])
-	if not plan.is_empty():
+	# On a projected Crystal interior, a complete source room preserves the desk,
+	# doors and stage that the player and the scripted characters interact with.
+	var use_crystal_room: bool = plan.get("source","") == "emerald_on_crystal" and plan.get("biome","") in ["interior","cave","ruins"] and ResourceLoader.exists(emerald_png_path)
+	if not plan.is_empty() and not use_crystal_room:
 		var field := EmeraldField.new()
 		add_child(field)
 		field.setup(self, plan, overrides)
@@ -1101,6 +1112,17 @@ func _rebuild(story_flags: Variant = null) -> void:
 	else:
 		_build_legacy_ground()
 
+	if map_data.get("id","") == preload("res://core/johto_campaign.gd").SWITCH_ROOM:
+		preload("res://core/johto_campaign.gd").draw_shutters(self,taken if story_flags==null else story_flags)
+	if map_data.get("id","")=="johto_ilex_forest" and taken.get("j_forest_path_clear",false):
+		var clear_tile := Sprite2D.new()
+		clear_tile.texture = load("res://assets/field/crystal_ilex_cut.png")
+		clear_tile.centered = false
+		clear_tile.scale = Vector2(0.5,0.5)
+		clear_tile.position = Vector2(4,12)*TILE
+		clear_tile.z_index = 1
+		add_child(clear_tile)
+		_tile_nodes.append(clear_tile)
 	_draw_npcs()
 	_draw_objects()
 	apply_light()
@@ -1110,7 +1132,9 @@ func refresh_story_actors(flags: Dictionary) -> void:
 	for row in npcs:
 		if row.get("form_items",false): updated.append(row)
 	npcs = updated
-	if (not quest_door_flag.is_empty() and _quest_passage_open(flags) != quest_door_open) or (map_data.get("region","") in ["kanto","sevii"] and not preload("res://core/kanto_campaign.gd").field_rules(map_data.id).is_empty()):
+	if map_data.get("id","") == preload("res://core/johto_campaign.gd").SWITCH_ROOM:
+		_rebuild(flags)
+	elif (not quest_door_flag.is_empty() and _quest_passage_open(flags) != quest_door_open) or (map_data.get("region","") in ["kanto","sevii"] and not preload("res://core/kanto_campaign.gd").field_rules(map_data.id).is_empty()):
 		_rebuild(flags)
 	else:
 		_draw_npcs()
@@ -1129,8 +1153,10 @@ func _draw_npcs() -> void:
 			var legacy := "res://assets/npc/%s.png" % gfx
 			tex = load(legacy) if gfx != "" and ResourceLoader.exists(legacy) else _npc_texture(str(n.get("name", "")))
 		s.texture = tex
+		s.scale = Vector2.ONE * _field_actor_scale()
 		s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		var sh := Sprite2D.new()
+		sh.scale = s.scale
 		sh.texture = _shadow_tex
 		sh.visible = not n.get("in_water_pose",false)
 		var nz: int = Z_ACTOR + int(at[1]) * 2
@@ -1261,7 +1287,7 @@ func _draw_objects() -> void:
 	for o in objects:
 		var flag := String(o.get("flag", ""))
 		var key := _object_key(o)
-		if taken.get(key, false) or (flag != "" and taken.get(flag, false)):
+		if taken.get(key, false) or (flag != "" and taken.get(flag, false)) or o.get("baked",false):
 			continue
 		var kind := String(o.get("kind", ""))
 		# The field plan already contains signs, wall maps and bedroom furniture.

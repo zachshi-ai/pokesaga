@@ -96,19 +96,6 @@
     "听说北边的塔里住着传说中的宝可梦。",
     "天快黑了，早点回去吧。"
    ]
-  },
-  {
-   "at": [
-    23,
-    1
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -162,55 +149,37 @@
    "species": 16,
    "min": 2,
    "max": 2,
-   "weight": 60
+   "weight": 30
   },
   {
    "species": 161,
-   "min": 2,
-   "max": 2,
-   "weight": 60
-  },
-  {
-   "species": 19,
-   "min": 2,
-   "max": 2,
-   "weight": 45
-  },
-  {
-   "species": 16,
-   "min": 3,
-   "max": 3,
-   "weight": 40
-  },
-  {
-   "species": 163,
    "min": 2,
    "max": 2,
    "weight": 30
   },
   {
-   "species": 163,
-   "min": 3,
-   "max": 3,
-   "weight": 25
-  },
-  {
-   "species": 161,
+   "species": 16,
    "min": 3,
    "max": 3,
    "weight": 20
   },
   {
-   "species": 187,
+   "species": 161,
    "min": 3,
    "max": 3,
    "weight": 10
   },
   {
    "species": 19,
+   "min": 2,
+   "max": 2,
+   "weight": 5
+  },
+  {
+   "species": 187,
    "min": 3,
    "max": 3,
-   "weight": 10
+   "weight": 5
   }
  ],
  "encounter_rate": 0.1,
@@ -234,9 +203,53 @@
    "kind": "sign",
    "sprite": "sign",
    "text": "29 号道路，樱花镇至若叶镇。"
+  },
+  {
+   "kind": "item",
+   "at": [
+    23,
+    1
+   ],
+   "source_script": "Route29Potion",
+   "flag": "EVENT_ROUTE_29_POTION",
+   "sprite": "item",
+   "name": "伤药",
+   "category": "heal",
+   "item": "ITEM_POTION"
   }
  ],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 163,
+     "min": 2,
+     "max": 2,
+     "weight": 30
+    },
+    {
+     "species": 19,
+     "min": 2,
+     "max": 2,
+     "weight": 35
+    },
+    {
+     "species": 163,
+     "min": 3,
+     "max": 3,
+     "weight": 25
+    },
+    {
+     "species": 19,
+     "min": 3,
+     "max": 3,
+     "weight": 10
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

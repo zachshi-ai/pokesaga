@@ -662,10 +662,10 @@ func _show_title() -> void:
 	title_screen.start_requested.connect(_enter_game)
 	title_screen.quit_requested.connect(func() -> void: get_tree().quit())
 
-func _enter_game(fresh: bool) -> void:
+func _enter_game(fresh: bool, origin := "kanto") -> void:
 	if not is_instance_valid(title_screen):
 		return
-	if fresh and not SaveScript.new_game():
+	if fresh and not SaveScript.new_game(origin):
 		title_screen.show_failure("未能写入新存档，请检查设备可用空间。")
 		return
 	if not fresh and SaveScript.existing().is_empty():
@@ -831,13 +831,16 @@ func _story_fire(kind: String, ctx: Dictionary) -> bool:
 		return false
 	_story_use_region(String(world.map_data.get("region", "kanto")))
 	var flags := _flags()
+	if world.map_data.get("region","")=="johto":
+		preload("res://core/johto_campaign.gd").sync(save_data)
 	if kind in ["step","map_enter"]:
 		ctx["area_name"] = world.area_name()
 		ctx["x"] = world.player_pos.x
 		ctx["y"] = world.player_pos.y
 	if (kind == "talk" and ctx.get("actor","") == "lab_oak") or (kind == "map_enter" and world.map_data.id == "kanto_main"):
 		preload("res://core/sevii_campaign.gd").sync(save_data)
-	var ev: Dictionary = story.take(kind, ctx, flags, _has_party())
+	var candidates := preload("res://core/johto_rival.gd").scene_flags(str(world.map_data.get("id","")),flags)
+	var ev: Dictionary = story.take(kind, ctx, candidates, _has_party())
 	if ev.is_empty():
 		return false
 	_play_story(ev)
@@ -847,6 +850,10 @@ func _play_story(ev: Dictionary) -> void:
 	if world.map_data.get("region","")=="kanto":
 		preload("res://core/kanto_campaign.gd").stage_rival(world,ev.get("id",""))
 	cur_story = ev
+	if ev.get("id","")=="j2_rival_plateau":
+		cur_story = ev.duplicate()
+		cur_story.rival_date = preload("res://core/johto_rival.gd").date_key(preload("res://core/johto_rival.gd").local_date.call())
+		world.refresh_story_actors(_flags().merged({"j2_rival_appearing":true},true))
 	story_queue = ev.get("steps", []).duplicate()
 	story_abort = false
 	_story_step()
@@ -854,6 +861,9 @@ func _play_story(ev: Dictionary) -> void:
 func _story_step() -> void:
 	while not story_queue.is_empty():
 		var act: Dictionary = story_queue.pop_front()
+		if act.has("johto_quiz"):
+			preload("res://core/johto_campaign.gd").quiz(self,act.johto_quiz,0)
+			return
 		if act.has("choice"):
 			var choice: Dictionary = act.choice
 			var prompt = _dialog(choice.say,choice.who)
@@ -880,13 +890,13 @@ func _story_done() -> void:
 	preload("res://core/sevii_campaign.gd").reconcile_pass(_flags(),bag_items)
 	_persist()
 	if story_abort:
-		if world.map_data.get("region","")=="kanto": world.refresh_story_actors(_flags())
+		if world.map_data.get("region","") in ["kanto","johto"]: world.refresh_story_actors(_flags())
 		story_abort = false
 		cur_story = {}
 		return
 	if not cur_story.is_empty() and story != null:
 		story.mark_finished(cur_story, _flags())
-		if world.map_data.get("region","") in ["kanto","sevii"]:
+		if world.map_data.get("region","") in ["kanto","sevii","johto"]:
 			world.refresh_story_actors(_flags())
 			_apply_defeated()
 		save_data["flags"] = _flags()
@@ -898,6 +908,8 @@ func _story_done() -> void:
 ## 剧情里的对战：赢了解锁后续；输了这场作废，可以重新触发
 func _story_battle(cfg) -> void:
 	var conf: Dictionary = cfg if cfg is Dictionary else {}
+	if conf.has("johto_rival"):
+		conf = conf.merged({"team":preload("res://core/johto_campaign.gd").team(conf.johto_rival,_flags())},true)
 	var nm := String(conf.get("name", "对手"))
 	var npc := {"name": nm, "battle": conf}
 	var after := func(result: String) -> void:
@@ -929,13 +941,31 @@ func _story_battle(cfg) -> void:
 						_blackout())
 	if conf.get("wild",false):
 		var foe: Dictionary = conf.team[0]
-		_start_wild_battle(int(foe.species),int(foe.level),"",after)
+		_start_wild_battle(int(foe.species),int(foe.level),"",after,conf.get("shiny_kind",""))
 	else:
 		_start_battle(npc,after)
 
 ## 单个剧情动作
 func _story_do(act: Dictionary) -> void:
 	var flags := _flags()
+	if act.has("johto_stage"):
+		flags[act.johto_stage] = true
+		world.refresh_story_actors(flags)
+	if act.has("johto_rival_rematch"):
+		flags.j2_rival_day = cur_story.rival_date
+		flags.j2_rival_wins = int(flags.get("j2_rival_wins",0))+1
+	if act.has("johto_dratini"):
+		var gift := PartyScript.make(147,15,[35,43,86,239] if flags.get("j_quiz_mistake",false) else [35,86,239,245])
+		_store_mon(gift)
+	if act.has("johto_badge"):
+		_grant_badge(act.johto_badge)
+		preload("res://core/johto_campaign.gd").sync(save_data)
+	if act.has("johto_press"):
+		var cast := flags.duplicate()
+		for actor in act.johto_press: cast["j2_press_"+actor] = true
+		world.refresh_story_actors(cast)
+	if act.has("johto_enter_hall"):
+		call_deferred("_do_warp", {"region":"johto","map":"johto_hall_of_fame","at":[2,5]})
 	if act.has("scene_cast"):
 		var temporary := {"sevii_" + str(act.scene_cast):true}
 		world.refresh_story_actors(flags.merged(temporary,true))
@@ -1042,6 +1072,9 @@ func _on_action() -> void:
 		if hk == "item" or hk == "hidden":
 			_handle_object(here)
 			return
+	if preload("res://core/johto_postgame.gd").field_action(self): return
+	if world.map_data.get("region","") == "johto" and preload("res://core/johto_campaign.gd").interact_field(self):
+		return
 	if _ruin_door_ahead():
 		_open_ruin_door()
 		return
@@ -1081,6 +1114,9 @@ func _on_action() -> void:
 
 ## 火红叶绿的徽章约束场外使用，在战斗中仍能正常选择已学招式。
 func _required_field_badge(key: String) -> String:
+	if world.map_data.get("region","")=="johto":
+		var badge: String = preload("res://core/johto_items.gd").BADGES.get(key,"")
+		return badge if badge not in save_data.get("badges",[]) else ""
 	if world.map_data.get("region","") not in ["kanto","sevii"]: return ""
 	var badge: String = preload("res://core/kanto_campaign.gd").FIELD_BADGES.get(key,"")
 	return badge if badge not in save_data.get("badges",[]) else ""
@@ -1090,7 +1126,7 @@ func _party_can_move(key: String) -> bool:
 
 func _field_move_hint(key: String, move_name: String) -> String:
 	var badge := _required_field_badge(key)
-	if not badge.is_empty(): return "在关都和七岛，获得%s后才能在场外使用%s。" % [badge,move_name]
+	if not badge.is_empty(): return "获得%s后才能在场外使用%s。" % [badge,move_name]
 	return "队伍中需要有会%s的宝可梦。" % move_name
 
 func _has_rod() -> bool:
@@ -1302,7 +1338,7 @@ func _layout_hud() -> void:
 	if _dock != null:
 		_dock.visible = false
 	if world != null and world.cam != null:
-		world.cam.zoom = Vector2(2, 2)
+		world._apply_cam_limits()
 		world.view_shift = 0.0
 		world._sync_player()
 	if _bar != null:
@@ -1421,7 +1457,21 @@ func _update_music() -> void:
 
 
 func _do_warp(target: Dictionary) -> void:
+	if target.get("sea_connection",false) and not _party_can_move("SURF"):
+		_dialog([_field_move_hint("SURF","冲浪")])
+		return
+	if preload("res://core/johto_items.gd").center_departure(self,target): return
+	var crystal_gate := preload("res://core/johto_items.gd").passage(self,target)
+	if not crystal_gate.is_empty():
+		held_dir=""
+		run_held=false
+		_dialog([crystal_gate],"守塔人")
+		return
 	if target.is_empty():
+		return
+	var j_gate := preload("res://core/johto_campaign.gd").gate(world.map_data,target,_flags())
+	if j_gate != "":
+		_dialog([j_gate])
 		return
 	var kanto_gate := preload("res://core/kanto_campaign.gd").passage_message(world.map_data,target,save_data)
 	if kanto_gate != "":
@@ -1437,6 +1487,19 @@ func _do_warp(target: Dictionary) -> void:
 				held_dir = ""
 				_dialog([gate], "联盟")
 				return
+	if world.map_data.id == "johto_victory_road" and target.get("map") == "johto_route_23" and _story_fire("talk",{"map":world.map_data.id,"actor":"j2_rival_victory"}):
+		held_dir = ""
+		return
+	if world.map_data.id == preload("res://core/johto_rival.gd").LOBBY and target.get("map") == "johto_wills_room" and _story_fire("talk",{"map":world.map_data.id,"actor":"j2_plateau_rival"}):
+		held_dir = ""
+		return
+	var j2_gate := preload("res://core/johto_postgame.gd").passage_message(self,target)
+	if not j2_gate.is_empty():
+		held_dir = ""
+		_dialog([j2_gate])
+		return
+	preload("res://core/johto_postgame.gd").leave_league(world.map_data.id,target.get("map",""),save_data)
+	target = preload("res://core/johto_postgame.gd").destination(world.map_data.id,target,_flags())
 	var island_gate := preload("res://core/sevii_campaign.gd").passage_message(world.map_data,target,_flags())
 	if island_gate != "":
 		held_dir = ""
@@ -1459,7 +1522,10 @@ func _do_warp(target: Dictionary) -> void:
 			_flags().erase(rule.variants[0].flags[0])
 	world.load_map(next_map)
 	world.arrive(target)
-	if next_map.region in ["kanto","sevii"] and next_map.get("npcs",[]).any(func(n):return n.get("heal",false) and n.get("name","")=="护士"):
+	if target.get("sea_connection",false):
+		world.surfing=world.is_water(world.player_pos)
+		world._sync_player()
+	if next_map.region in ["kanto","sevii","johto"] and next_map.get("npcs",[]).any(func(n):return n.get("heal",false) and n.get("name","")=="护士"):
 		save_data["last_pokemon_center"] = {"region":next_map.region,"map":next_map.id,"at":next_map.spawn.duplicate()}
 	_start_after_step = false
 	if not target.get("connection",false):
@@ -1472,8 +1538,10 @@ func _do_warp(target: Dictionary) -> void:
 		"region": String(world.map_data.get("region", ""))})
 	_apply_defeated()
 	_ensure_form_npc()
+	preload("res://core/johto_items.gd").enter(self)
 
 func _after_step() -> void:
+	preload("res://core/johto_items.gd").field_step(self)
 	preload("res://core/sevii_campaign.gd").request_step(save_data)
 	if _flags().get("got_vs_seeker",false) and int(save_data.get("vs_charge",100)) < 100:
 		save_data["vs_charge"] += 1
@@ -1529,7 +1597,7 @@ func _try_encounter() -> void:
 	# 手上没有宝可梦就不该被野生宝可梦缠上
 	if not _has_party():
 		return
-	if world.is_blocked(world.player_pos):
+	if world.is_blocked(world.player_pos) and not (world.surfing and world.is_water(world.player_pos)):
 		return
 	# 踩草遇敌；在海上冲浪也算「有东西会冒出来」
 	var on_grass: bool = world.wild_tile_here()
@@ -1542,9 +1610,16 @@ func _try_encounter() -> void:
 	var pool: Array = world.map_data.get("encounters", [])
 	var rate := float(world.map_data.get("encounter_rate", 0.0))
 	# 单张图上冲浪时优先用原版水面分布（城都这些图都是独立一张）
+	var crystal_map := String(world.map_data.get("emerald", "")).begins_with("johto_")
+	if crystal_map and not on_sea:
+		var hour := int(Time.get_time_dict_from_system().hour)
+		var period := "morn" if hour >= 4 and hour < 10 else ("day" if hour >= 10 and hour < 18 else "nite")
+		var slot: Dictionary = world.map_data.get("encounters_by_time", {}).get(period, {})
+		pool = slot.get("pool", pool)
+		rate = float(slot.get("rate", rate))
 	if on_sea:
 		var wp: Array = world.map_data.get("water_encounters", [])
-		if not wp.is_empty():
+		if crystal_map or not wp.is_empty():
 			pool = wp
 			rate = float(world.map_data.get("water_encounter_rate", rate))
 	var zones: Array = world.map_data.get("zones", [])
@@ -1565,7 +1640,7 @@ func _try_encounter() -> void:
 					pool = z.get("encounters", [])
 					rate = float(z.get("rate", 0.0))
 				break
-	if pool.is_empty():
+	if pool.is_empty() and not crystal_map:
 		var reg: Dictionary = Data.load_region(String(world.map_data.get("region", "")))
 		pool = reg.get("encounters", [])
 		rate = float(reg.get("encounter_rate", 0.12))
@@ -1579,6 +1654,17 @@ func _try_encounter() -> void:
 			break
 	if not EncounterScript.should_encounter(rng, rate, grass_streak):
 		return
+	if world.map_data.get("region","")=="johto":
+		var beast := preload("res://core/johto_items.gd").roamer(self,on_grass and not on_sea)
+		if beast>0:
+			grass_streak=0
+			_start_wild_battle(beast,40,"",func(result):
+				if result=="caught":
+					_flags()["j_roam_caught_"+str(beast)]=true
+					preload("res://core/johto_items.gd").sync_beasts(self)
+					_persist()
+				elif result=="b" and _party_fainted(): _blackout())
+			return
 	var wild: Dictionary = EncounterScript.roll(pool, rng)
 	if wild.is_empty():
 		return
@@ -1603,7 +1689,7 @@ func _roll_regional(species_id: int) -> String:
 ## 商店：读货架，买完改背包和钱
 func _open_shop() -> void:
 	var goods := Data.load_shop(str(world.map_data.get("region", "kanto")))
-	if world.map_data.id == "indigo_plateau_pokemon_center_1f":
+	if world.map_data.id in ["indigo_plateau_pokemon_center_1f", "johto_indigo_plateau_pokecenter_1f"]:
 		goods.append_array([{"name":"活力碎片","category":"heal","price":1500},{"name":"厉害伤药","category":"heal","price":1200}])
 	if goods.is_empty():
 		_dialog(["抱歉，今天没什么好卖的。"], "店员")
@@ -1632,6 +1718,7 @@ func _open_shop() -> void:
 
 ## 告示牌 / 道具球 / 树果树 / 土：按 A 之后的分流
 func _handle_object(o: Dictionary) -> void:
+	if preload("res://core/johto_items.gd").shrine(self,o): return
 	if o.get("kind","")=="kanto_puzzle":
 		preload("res://core/kanto_campaign.gd").use_control(self,o)
 		return
@@ -1771,6 +1858,7 @@ func _daycare(npc: Dictionary) -> void:
 
 ## 每走一步看一眼蛋
 func _tick_egg() -> void:
+	preload("res://core/johto_items.gd").tick_egg(self)
 	var egg: Dictionary = save_data.get("egg", {})
 	if egg.is_empty():
 		return
@@ -1827,8 +1915,8 @@ func _try_terrain_move() -> bool:
 		return false
 	# 漩涡
 	if world.is_whirl(face) and not world.whirl_cleared(face):
-		if not _party_has_move("WHIRLPOOL"):
-			_dialog(["水面打着旋。", "（需要会「漩涡」的宝可梦）"], "")
+		if not _party_can_move("WHIRLPOOL"):
+			_dialog(["水面打着旋。", _field_move_hint("WHIRLPOOL","漩涡")], "")
 			return true
 		world.clear_whirl(face)
 		save_data["flags"] = world.taken
@@ -2025,6 +2113,8 @@ func _fish(rod: String = "") -> void:
 		# 4.52 的通用钓竿可继续使用多鱼种鱼群。
 		var rank: int = 1 if rod == "钓竿" else RODS.find(rod)
 		pool = tables[rank] if rank >= 0 and rank < tables.size() else []
+	elif world.map_data.get("region","")=="johto":
+		pool = preload("res://core/johto_items.gd").fish_pool(world.map_data.id,rod,_is_night())
 	elif rod == "破旧钓竿":
 		pool = [{"species":129,"min":5,"max":5}]
 	var pick: Dictionary = EncounterScript.roll(pool,rng)
@@ -2034,6 +2124,7 @@ func _fish(rod: String = "") -> void:
 	snd.play_sfx("water")
 	_dialog(["……","钓到了什么东西！"],"")
 	_start_wild_battle(int(pick.species),int(pick.level))
+	if is_instance_valid(active_battle): active_battle.battle.fishing_encounter=true
 
 
 ## ---------- 招式学习器 ----------
@@ -2222,6 +2313,7 @@ func _receive_field_machine(npc: Dictionary) -> void:
 	_dialog([reward.say,"获得了%s（%s）。" % [item,Data.move_of(int(Data.tm_map[item])).name]],npc.name)
 
 func _talk_to_npc(npc: Dictionary) -> void:
+	if not npc.is_empty() and preload("res://core/johto_items.gd").talk(self,npc): return
 	if npc.is_empty():
 		return
 	if npc.has("gives_hm"):
@@ -2346,26 +2438,25 @@ func _talk_to_npc(npc: Dictionary) -> void:
 			_dialog(["这个精灵球已经空了。"], "")
 			return
 		# 每人只能挑一只城都初始：已有一只 152/155/158 就拦下
+		if not fst.get("johto_elm_told",false):
+			_dialog(["先听听空木博士的委托吧。"])
+			return
 		var picked := bool(fst.get("johto_starter", false))
-		for mon in (save_data.get("party", []) as Array) + (save_data.get("box", []) as Array):
-			if not (mon is Dictionary):
-				continue
-			var sp0 := int((mon as Dictionary).get("species", (mon as Dictionary).get("species_id", 0)))
-			if sp0 == 152 or sp0 == 155 or sp0 == 158:
-				picked = true
-				break
 		if picked:
 			_dialog(["你已经挑过一只了。", "把它照顾好就行。"], "")
 			return
 		var gsid := int(gm.get("species", 152))
 		var glv := int(gm.get("level", 5))
 		fst[fkey] = true
+		fst.j_starter_species = gsid
+		fst["j_picked_" + str(gsid)] = true
 		# 剧情表要能知道"已经挑过初始了"
 		var gf := String(gm.get("flag", ""))
 		if gf != "":
 			fst[gf] = true
 		save_data["flags"] = fst
 		_add_to_team(gsid, glv)
+		world.refresh_story_actors(fst)
 		_persist()
 		snd.play_sfx("item")
 		_dialog([String((Data.species_of(gsid) as Dictionary).get("name", "")) + " 加入了队伍！"], "")
@@ -2499,8 +2590,11 @@ func _party_fainted() -> bool:
 	return _has_party() and not save_data.get("party",[]).any(func(m): return m is Dictionary and int(m.get("hp",0)) > 0)
 
 func _blackout() -> void:
-	if world.map_data.region not in ["kanto","sevii"]: return
-	var destination: Dictionary = save_data.get("last_pokemon_center",{"region":"kanto","map":"pallet_town_players_house_2f","at":[3,6]})
+	if world.map_data.region not in ["kanto","sevii","johto"]: return
+	var home := {"region":"kanto","map":"pallet_town_players_house_2f","at":[3,6]}
+	if save_data.get("origin","kanto") == "johto":
+		home = {"region":"johto","map":"johto_players_house_2f","at":[1,1]}
+	var destination: Dictionary = save_data.get("last_pokemon_center",home)
 	_heal_party()
 	_do_warp(destination)
 	_persist()
@@ -2514,6 +2608,7 @@ func _heal_party() -> void:
 			continue
 		var mon: Dictionary = m
 		mon["hp"] = int(mon.get("max_hp", 1))
+		mon.erase("status")
 		mon["hp_text"] = "%d/%d" % [int(mon["hp"]), int(mon["max_hp"])]
 		var pps: Array = []
 		for mid in mon.get("moves", []):
@@ -2641,6 +2736,7 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 		elif result=="b" and not on_done.is_valid() and not npc.has("league_flag") and _party_fainted():
 			_blackout()
 		elif npc.has("league_flag"):
+			for round_data in johto_league.rules.rounds: _flags().erase(round_data.flag)
 			_do_warp({"region": "johto", "map": johto_league.rules.lobby, "at": [4, 3]})
 			_heal_party()
 			_show_toast("已在联盟中心恢复，可以再次挑战。")
@@ -2651,12 +2747,14 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 		layer.queue_free()
 		if on_done.is_valid():
 			on_done.call(result)
+		elif result == "a" and npc.get("league_flag") == "johto_league_lance":
+			_story_fire("talk",{"map":world.map_data.id,"actor":"j2_press"})
 	)
 
 ## 野外一只，打或抓都行。抓到就入队，队伍满了记进 box。
-func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_done := Callable()) -> void:
+func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_done := Callable(), shiny_kind := "") -> void:
 	var mon := PartyScript.make(species_id, level, EncounterScript.moves_for(species_id, level), form_key)
-	PartyScript.set_shiny_kind(mon, PartyScript.roll_shiny(appearance_rng))
+	PartyScript.set_shiny_kind(mon, shiny_kind if shiny_kind != "" else PartyScript.roll_shiny(appearance_rng))
 	var enemy := [mon.duplicate(true)]
 	var mine: Array = _make_team()
 	var layer := CanvasLayer.new()
@@ -2680,6 +2778,7 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 		if result == "caught":
 			var caught: Dictionary = ui.battle.cur_b()
 			mon["pp"] = caught.pp.duplicate()
+			if caught.has("friendship"): mon.friendship=caught.friendship
 			mon["hp"] = clampi(roundi(float(caught.hp) * mon.max_hp / maxi(1, int(caught.max_hp))), 1, int(mon.max_hp))
 			mon["hp_text"] = "%d/%d" % [mon.hp, mon.max_hp]
 			mon["status"] = str(caught.get("status", ""))
@@ -2730,6 +2829,8 @@ func _award_exp(enemies: Array, prize: int = 0, badge: String = "") -> void:
 			var exp_yield := int(species.get("exp_yield",60))
 			var reward := GrowthScript.gain(int(opponent.level), maxi(1,exp_yield), before)
 			gained += reward * 3 / 2 if prize > 0 else reward
+		if mon.get("held","")=="EXP_SHARE":
+			gained += maxi(1, gained/2)
 		var grew := GrowthScript.add_exp(mon, gained) if before < GrowthScript.MAX_LEVEL else 0
 		PartyScript.recalc(mon, true)
 		if grew > 0:
@@ -4586,18 +4687,21 @@ func _test_held_items() -> bool:
 		ok3 = false
 
 	# 背包 / 商店 / 队伍三处都对得上同一个 key
-	var shop_held := 0
-	for g in Data.load_json("res://content/shop.json"):
-		if g is Dictionary and String((g as Dictionary).get("category", "")) == "held":
-			shop_held += 1
-	var held_only := 0
-	for k in Data.held_items:
-		if String((Data.held_items[k] as Dictionary).get("category", "")) != "tm":
-			held_only += 1
-	print("held dbg: 商店携带道具 %d 件 / 表里 %d 件" % [shop_held, held_only])
-	if shop_held != held_only:
-		print("!! 携带道具没全部上架")
-		ok3 = false
+	var shop_held := {}
+	for goods in Data.load_json("res://content/shop.json"):
+		if goods.get("category","")=="held":
+			shop_held[goods["held"]] = true
+	var quest_held: Dictionary = preload("res://core/johto_items.gd").QUEST_HELD
+	for key in Data.held_items:
+		if Data.held_items[key].get("category","")=="tm": continue
+		if quest_held.has(key):
+			if Data.item_name(key)!=quest_held[key][1]:
+				print("!! 剧情发放的携带道具名称不一致 ",key)
+				ok3=false
+		elif not shop_held.has(key):
+			print("!! 商店缺少携带道具 ",key)
+			ok3=false
+	print("held dbg: 商店携带道具 %d 件 / 剧情携带道具 %d 件" % [shop_held.size(),quest_held.size()])
 	return ok3
 
 ## 树果：数据驱动之后，种类、触发条件、效果都要对得上
@@ -6402,7 +6506,7 @@ func _test_npc_lines() -> bool:
 func _test_story_table() -> bool:
 	var okT := true
 	var allowed_trigger := ["map_enter", "talk", "badge", "step"]
-	var allowed_step := ["choice","scene_cast","set_player_at","warp","escort","remove_item","say", "who", "flag", "give_mon", "give_item", "heal", "money", "battle", "hall_of_fame"]
+	var allowed_step := ["johto_rival_rematch","johto_stage","johto_press","johto_enter_hall","johto_badge","johto_dratini","johto_quiz","choice","scene_cast","set_player_at","warp","escort","remove_item","say", "who", "flag", "give_mon", "give_item", "heal", "money", "battle", "hall_of_fame"]
 	var total := 0
 	var talk_checked := 0
 	var all_ids := {}
@@ -6446,6 +6550,12 @@ func _test_story_table() -> bool:
 							var spec: Dictionary = rules.get("%d,%d" % npc_row.at,{})
 							var combined := preload("res://core/sevii_campaign.gd").speaker(mp.id,npc_row.at,spec,{})
 							if combined.get("role",npc_row.get("role","")) == tr.actor: available = true
+						if rid == "johto":
+							var cast: Dictionary = preload("res://core/johto_campaign.gd").data()
+							var candidates: Array = cast.actors.get(mp.id,{}).values() + cast.add.get(mp.id,[]) + preload("res://core/johto_postgame.gd").data().actors.get(mp.id,[])
+							available = available or candidates.any(func(row): return row.get("role","") == tr.actor)
+							if tr.actor in ["j_basement_door","j_radio_door","j2_part"]: available = true
+						if rid == "johto" and tr.actor == "j2_press" and mp.id == "johto_lances_room": available = true
 						if tr.actor not in ["bill_pc","poster_switch"] and not available:
 							print("!! Unknown story actor ",tr.actor)
 							okT = false
@@ -6469,10 +6579,13 @@ func _test_story_table() -> bool:
 						okT = false
 				if (st as Dictionary).has("battle"):
 					var bt: Dictionary = (st as Dictionary)["battle"]
-					if (bt.get("team", []) as Array).is_empty():
+					var members: Array = bt.get("team",[])
+					if bt.has("johto_rival"):
+						for chosen in [152,155,158]: members += preload("res://core/johto_campaign.gd").team(bt.johto_rival,{"j_starter_species":chosen})
+					if members.is_empty():
 						print("!! %s 的战斗没有队伍" % eid)
 						okT = false
-					for m in (bt.get("team", []) as Array):
+					for m in members:
 						if Data.species_of(int((m as Dictionary).get("species", 0))).is_empty():
 							print("!! %s 的战斗里有不存在的物种 %d" % [eid, int((m as Dictionary).get("species", 0))])
 							okT = false
@@ -6552,21 +6665,19 @@ func _test_story() -> bool:
 	if jt.events.size() < 18:
 		print("story dbg: 城都事件只有 %d 条" % jt.events.size())
 		return false
-	var jflags := {}
-	var badges := ["飞翼徽章", "昆虫徽章", "标准徽章", "魅影徽章", "打击徽章", "矿物徽章", "冰川徽章", "升龙徽章"]
+	var badges: Array = preload("res://core/johto_campaign.gd").data().badges
 	var gotB := 0
 	for bd in badges:
-		var jev: Dictionary = jt.take("badge", {"badge": String(bd)}, jflags, true)
-		if jev.is_empty():
-			print("story dbg: 城都徽章「%s」没有事件" % String(bd))
+		var grants: Array = jt.events.filter(func(event): return event.steps.any(func(action): return action.get("johto_badge","")==bd))
+		if grants.size() != 1:
+			print("story dbg: 城都徽章发放次数 ",bd, " ",grants.size())
 			return false
-		jt.mark_finished(jev, jflags)
 		gotB += 1
 	var jev2: Dictionary = jt.take("map_enter", {"map": "johto_new_bark_town"}, {}, false)
 	if jev2.is_empty() or String(jev2.get("id", "")) != "johto_arrive":
 		print("story dbg: 城都开场没触发 ", jev2.get("id", ""))
 		return false
-	var jev3: Dictionary = jt.take("talk", {"npc": "龙使者 阿渡", "map": "johto_lake_of_rage"}, {}, true)
+	var jev3: Dictionary = jt.take("talk", {"actor": "j_red_gyarados", "map": "johto_lake_of_rage"}, {}, true)
 	if jev3.is_empty():
 		print("story dbg: 湖之怒没触发")
 		return false
@@ -7629,6 +7740,8 @@ func _restore_from_save() -> void:
 		has_bag = arr.size() > 0
 	if has_bag:
 		bag_items = Data.normalize_bag(saved_bag)
+	elif save_data.get("origin","") == "johto":
+		bag_items = []
 	else:
 		bag_items = _default_items()
 	# Keep one permanent device at the top of the key pocket, including in older saves.
@@ -7649,6 +7762,11 @@ func _restore_from_save() -> void:
 		var sa = (st as Dictionary).get("at", [])
 		if sa is Array and (sa as Array).size() == 2 and sa[0] != null:
 			start_at = Vector2i(int(sa[0]), int(sa[1]))
+
+	if save_data.get("origin","kanto") == "johto":
+		start_region = "johto"
+		start_map = "johto_players_house_2f"
+		start_at = Vector2i(1,1)
 
 	var region := String(save_data.get("region", start_region))
 	var map_id := String(save_data.get("map", start_map))
@@ -7726,7 +7844,7 @@ func _give_item(name: String, count: int, category := "other") -> void:
 	name = str(entry.name)
 	for it in bag_items:
 		if it is Dictionary and String((it as Dictionary).get("name", "")) == name:
-			if name.begins_with("秘传学习器") and int(it.get("count",0))>0: return
+			if name.contains("秘传学习器") and int(it.get("count",0))>0: return
 			it["count"] = int(it.get("count", 0)) + count
 			return
 	bag_items.append(entry)
@@ -8327,6 +8445,8 @@ func _pick(title: String, options: Array, cb: Callable) -> void:
 
 ## 背包里点中一件东西：能用的都真的用掉，不能用的说清为什么
 func _use_bag_item(nm: String) -> void:
+	if _bag_count(nm)>0 and preload("res://core/johto_items.gd").use(self,nm): return
+	if _bag_count(nm)>0 and preload("res://core/johto_postgame.gd").use_item(self,nm): return
 	if nm == "对战搜寻器":
 		_use_vs_seeker()
 		return
@@ -8744,9 +8864,7 @@ func _use_rod(rod: String) -> void:
 		return
 	# 从背包里点钓竿时先把背包收掉，免得战斗界面上还压着一层
 	if _bag_ui != null and is_instance_valid(_bag_ui):
-		_bag_ui.closed.emit()
-		_bag_ui.queue_free()
-		_bag_ui = null
+		_bag_ui.handle_back()
 	_fish(rod)
 
 ## 电脑：200 个箱子，存/取队伍里的宝可梦
@@ -8847,8 +8965,11 @@ func _open_hm() -> void:
 	var labels: Array = []
 	var mvs: Array = []
 	var party: Array = save_data.get("party", [])
+	var machines := []
 	for i in 8:
-		var nm := "秘传学习器 0%d" % (i + 1)
+		machines.append("秘传学习器 0%d" % (i + 1))
+	machines.insert(5,preload("res://core/johto_items.gd").HM_WHIRL)
+	for nm in machines:
 		if _bag_count(nm) <= 0 or not Data.tm_map.has(nm):
 			continue
 		var mv := int(Data.tm_map[nm])
@@ -8869,7 +8990,7 @@ func _open_hm() -> void:
 			labels.append(mv_name)
 		mvs.append(mv)
 	if mvs.is_empty():
-		_dialog(["还没有获得秘传学习器。枯叶市圣安奴号的船长会教你居合斩。"])
+		_dialog(["还没有获得秘传学习器。桔梗市喇叭芽之塔顶层的长老会教你闪光。" if world.map_data.get("region","")=="johto" else "还没有获得秘传学习器。枯叶市圣安奴号的船长会教你居合斩。"])
 		return
 	_pick("要用哪个秘传？", labels, func(idx: int) -> void:
 		if idx < 0 or idx >= mvs.size():
@@ -9029,42 +9150,23 @@ func _battle_variant_seen(side: String, mon: Dictionary, has_player_party: bool)
 		return
 	DexVariants.record(save_data, mon, side == "a")
 
-## 城都剧情实战：真实走一遍 进镇旁白 → 空木开场 → 拿初始后给图鉴
+## 城都开场事件的冒烟检查；完整新档走图由 tools/test_johto_journey.py 执行。
 func _e2e_johto_story() -> void:
 	story_on = true
-	_story_init()
 	save_data["flags"] = {}
 	save_data["party"] = []
-	# 1) 进若叶镇
-	var mm: Dictionary = Data.load_map("johto", "johto_new_bark_town")
-	world.load_map(mm)
-	world.warp_to(Vector2i(5, 4))
-	_refresh_scene()
-	var fired := _story_fire("map_enter", {"map": "johto_new_bark_town", "region": "johto"})
-	print("e2e johto: 进镇触发=", fired, " 事件=", String(cur_story.get("id", "")))
-	if fired:
-		for ln in _last_dialog_lines():
-			print("  ", ln)
+	for scene in [
+		["johto_new_bark_town","map_enter","","johto_arrived"],
+		["johto_elms_lab","talk","j_elm","johto_elm_told"],
+		["johto_mr_pokemons_house","talk","j_mr_pokemon","j_mystery_egg"]]:
+		world.load_map(Data.load_map("johto",scene[0]))
+		_story_init()
+		if scene[0]=="johto_mr_pokemons_house":
+			_flags().johto_starter = true
+			save_data.party = [PartyScript.make(158,5,[10])]
+		_story_fire(scene[1],{"map":scene[0],"actor":scene[2]})
 		_close_all_dialogs()
-	# 2) 空木博士说话
-	var lab: Dictionary = Data.load_map("johto", "johto_elms_lab")
-	world.load_map(lab)
-	world.warp_to(Vector2i(2, 3))
-	_refresh_scene()
-	fired = _story_fire("talk", {"npc": "空木博士", "map": "johto_elms_lab"})
-	print("e2e johto: 空木开场触发=", fired, " 事件=", String(cur_story.get("id", "")))
-	for ln in _last_dialog_lines():
-		print("  ", ln)
-	_close_all_dialogs()
-	# 3) 拿初始（模拟点球）后再进研究所 → 给图鉴和道具
-	save_data["party"] = [PartyScript.make(152, 5, [33])]
-	var before_balls := _bag_count("精灵球")
-	fired = _story_fire("map_enter", {"map": "johto_elms_lab", "region": "johto"})
-	print("e2e johto: 拿初始后进所触发=", fired, " 事件=", String(cur_story.get("id", "")))
-	for ln in _last_dialog_lines():
-		print("  ", ln)
-	_close_all_dialogs()
-	print("e2e johto: 精灵球 ", before_balls, " -> ", _bag_count("精灵球"), " 图鉴=", bool(_flags().get("johto_dex", false)))
+		print("e2e johto: ",scene[3]," ",_flags().get(scene[3],false))
 
 func _last_dialog_lines() -> Array:
 	if _dialogs.is_empty():

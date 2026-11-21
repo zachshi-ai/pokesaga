@@ -35,7 +35,7 @@
     "map": "johto_vermilion_city",
     "at": [
      17,
-     4
+     5
     ]
    }
   },
@@ -110,8 +110,39 @@
    }
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 50,
+   "min": 2,
+   "max": 2,
+   "weight": 30
+  },
+  {
+   "species": 50,
+   "min": 4,
+   "max": 4,
+   "weight": 30
+  },
+  {
+   "species": 50,
+   "min": 8,
+   "max": 8,
+   "weight": 20
+  },
+  {
+   "species": 50,
+   "min": 16,
+   "max": 16,
+   "weight": 10
+  },
+  {
+   "species": 51,
+   "min": 16,
+   "max": 16,
+   "weight": 10
+  }
+ ],
+ "encounter_rate": 0.02,
  "objects": [
   {
    "at": [
@@ -129,5 +160,77 @@
  ],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "encounters_by_time": {
+  "morn": {
+   "pool": [
+    {
+     "species": 50,
+     "min": 3,
+     "max": 3,
+     "weight": 30
+    },
+    {
+     "species": 50,
+     "min": 6,
+     "max": 6,
+     "weight": 30
+    },
+    {
+     "species": 50,
+     "min": 12,
+     "max": 12,
+     "weight": 20
+    },
+    {
+     "species": 50,
+     "min": 24,
+     "max": 24,
+     "weight": 10
+    },
+    {
+     "species": 51,
+     "min": 24,
+     "max": 24,
+     "weight": 10
+    }
+   ],
+   "rate": 0.04
+  },
+  "nite": {
+   "pool": [
+    {
+     "species": 50,
+     "min": 4,
+     "max": 4,
+     "weight": 30
+    },
+    {
+     "species": 50,
+     "min": 8,
+     "max": 8,
+     "weight": 30
+    },
+    {
+     "species": 50,
+     "min": 16,
+     "max": 16,
+     "weight": 20
+    },
+    {
+     "species": 50,
+     "min": 32,
+     "max": 32,
+     "weight": 10
+    },
+    {
+     "species": 51,
+     "min": 32,
+     "max": 32,
+     "weight": 10
+    }
+   ],
+   "rate": 0.08
+  }
+ }
 }

@@ -12,6 +12,7 @@ const FieldScript := preload("res://core/field.gd")
 
 var team_a: Array = []
 var team_b: Array = []
+var fishing_encounter := false
 var active_a := 0
 var active_b := 0
 var log: Array = []
@@ -686,6 +687,7 @@ func throw_ball(ball_bonus: float = 1.0, ball_name: String = "精灵球") -> Dic
 	var hp := clampi(int(target.get("hp", 0)), 0, mx)
 	var sp: Dictionary = Data.species_of(int(target.get("species_id", 1)))
 	var rate := float(sp.get("catch_rate", 45))
+	rate = preload("res://core/johto_apricorns.gd").adjusted_rate(ball_name,cur_a(),target,sp,rate,fishing_encounter)
 	# 血少更好抓；捕获率 45 是「普通」，255 是「几乎必中」
 	var hp_factor := (3.0 * mx - 2.0 * hp) / (3.0 * mx)
 	var p := clampf((hp_factor * rate / 255.0) * ball_bonus * 1.6, 0.02, 0.96)
@@ -693,6 +695,7 @@ func throw_ball(ball_bonus: float = 1.0, ball_name: String = "精灵球") -> Dic
 	if ball_name == "大师球" or rng.randf() < p:
 		shakes = 3
 		caught = true
+		if ball_name=="友友球": target.friendship=200
 		caught_species = int(target.get("species_id", 0))
 		over = true
 		winner = "caught"
@@ -1218,6 +1221,8 @@ func damage(attacker: Dictionary, defender: Dictionary, move: Dictionary) -> int
 	# 携带道具：讲究头带/眼镜、生命宝珠、突击背心（笨拙时全部失效）
 	var klutz := bool(atk_eff.get("ignore_own_item", false))
 	match "" if klutz else String(attacker.get("held", "")):
+		"CHARCOAL":
+			if mtype == "fire": base *= 1.1
 		"CHOICE_BAND":
 			if cat == "physical":
 				base *= 1.5

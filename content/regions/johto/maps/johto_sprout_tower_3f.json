@@ -94,32 +94,6 @@
   },
   {
    "at": [
-    3,
-    7
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    6,
-    0
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
     5,
     2
    ],
@@ -152,46 +126,22 @@
    "species": 19,
    "min": 3,
    "max": 3,
-   "weight": 90
+   "weight": 40
   },
   {
    "species": 19,
    "min": 4,
    "max": 4,
-   "weight": 60
+   "weight": 30
   },
   {
    "species": 19,
    "min": 5,
    "max": 5,
-   "weight": 55
-  },
-  {
-   "species": 92,
-   "min": 3,
-   "max": 3,
-   "weight": 30
-  },
-  {
-   "species": 92,
-   "min": 4,
-   "max": 4,
-   "weight": 30
-  },
-  {
-   "species": 92,
-   "min": 5,
-   "max": 5,
-   "weight": 20
+   "weight": 25
   },
   {
    "species": 19,
-   "min": 6,
-   "max": 6,
-   "weight": 10
-  },
-  {
-   "species": 92,
    "min": 6,
    "max": 6,
    "weight": 5
@@ -228,9 +178,78 @@
    "kind": "sign",
    "sprite": "sign",
    "text": "一尊仪态庄严的宝可梦雕像。"
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    7
+   ],
+   "source_script": "SproutTower3FPotion",
+   "flag": "EVENT_SPROUT_TOWER_3F_POTION",
+   "sprite": "item",
+   "name": "伤药",
+   "category": "heal",
+   "item": "ITEM_POTION"
+  },
+  {
+   "kind": "item",
+   "at": [
+    6,
+    0
+   ],
+   "source_script": "SproutTower3FEscapeRope",
+   "flag": "EVENT_SPROUT_TOWER_3F_ESCAPE_ROPE",
+   "sprite": "item",
+   "name": "离洞绳",
+   "category": "other",
+   "item": "ITEM_ESCAPE_ROPE"
   }
  ],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 92,
+     "min": 3,
+     "max": 3,
+     "weight": 30
+    },
+    {
+     "species": 92,
+     "min": 4,
+     "max": 4,
+     "weight": 30
+    },
+    {
+     "species": 92,
+     "min": 5,
+     "max": 5,
+     "weight": 20
+    },
+    {
+     "species": 19,
+     "min": 3,
+     "max": 3,
+     "weight": 10
+    },
+    {
+     "species": 92,
+     "min": 6,
+     "max": 6,
+     "weight": 5
+    },
+    {
+     "species": 19,
+     "min": 5,
+     "max": 5,
+     "weight": 5
+    }
+   ],
+   "rate": 0.02
+  }
+ }
 }

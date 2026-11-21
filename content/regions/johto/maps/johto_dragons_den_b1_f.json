@@ -194,32 +194,6 @@
     "听说北边的塔里住着传说中的宝可梦。",
     "天快黑了，早点回去吧。"
    ]
-  },
-  {
-   "at": [
-    15,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    2,
-    10
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -303,6 +277,32 @@
    "category": "heal",
    "flag": "johto:EVENT_DRAGONS_DEN_B1F_HIDDEN_MAX_ELIXER",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    15,
+    2
+   ],
+   "source_script": "DragonsDenB1FCalcium",
+   "flag": "EVENT_DRAGONS_DEN_B1F_CALCIUM",
+   "sprite": "item",
+   "name": "特攻增强剂",
+   "category": "other",
+   "item": "ITEM_CALCIUM"
+  },
+  {
+   "kind": "item",
+   "at": [
+    2,
+    10
+   ],
+   "source_script": "DragonsDenB1FMaxElixer",
+   "flag": "EVENT_DRAGONS_DEN_B1F_MAX_ELIXER",
+   "sprite": "item",
+   "name": "PP 多项全补剂",
+   "category": "heal",
+   "item": "ITEM_MAX_ELIXIR"
   }
  ],
  "weather": "",

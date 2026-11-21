@@ -49,14 +49,21 @@ static func save(data: Dictionary) -> bool:
 		return false
 	return DirAccess.rename_absolute(ProjectSettings.globalize_path(temp_path), ProjectSettings.globalize_path(slot)) == OK
 
-static func new_game() -> bool:
+static func new_game(origin := "kanto") -> bool:
+	if origin not in ["kanto","johto"]: return false
 	if FileAccess.file_exists(slot):
 		var path := ProjectSettings.globalize_path(slot)
 		if DirAccess.copy_absolute(path, path + ".previous.tmp") != OK:
 			return false
 		if DirAccess.rename_absolute(path + ".previous.tmp", path + ".previous") != OK:
 			return false
-	return save(empty())
+	var fresh := empty()
+	fresh["origin"] = origin
+	if origin == "johto":
+		fresh["region"] = "johto"
+		fresh["map"] = "johto_players_house_2f"
+		fresh["pos"] = [1,1]
+	return save(fresh)
 
 ## Used by the title screen. An invalid save stays on disk until the player confirms replacement.
 static func existing() -> Dictionary:

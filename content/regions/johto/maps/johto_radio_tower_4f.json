@@ -150,8 +150,8 @@
     "region": "johto",
     "map": "johto_radio_tower_5f",
     "at": [
-     4,
-     3
+     0,
+     1
     ]
    }
   },
@@ -192,7 +192,7 @@
     "region": "johto",
     "map": "johto_radio_tower_3f",
     "at": [
-     6,
+     8,
      1
     ]
    }

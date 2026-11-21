@@ -226,19 +226,6 @@
     "城都这地方，慢慢逛才有味道。",
     "出远门记得带足伤药。"
    ]
-  },
-  {
-   "at": [
-    4,
-    7
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -375,8 +362,45 @@
    "edge": true
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 84,
+   "min": 28,
+   "max": 28,
+   "weight": 30
+  },
+  {
+   "species": 28,
+   "min": 28,
+   "max": 28,
+   "weight": 30
+  },
+  {
+   "species": 77,
+   "min": 32,
+   "max": 32,
+   "weight": 20
+  },
+  {
+   "species": 20,
+   "min": 30,
+   "max": 30,
+   "weight": 10
+  },
+  {
+   "species": 84,
+   "min": 30,
+   "max": 30,
+   "weight": 5
+  },
+  {
+   "species": 24,
+   "min": 30,
+   "max": 30,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.1,
  "objects": [
   {
    "at": [
@@ -387,9 +411,80 @@
    "kind": "sign",
    "sprite": "sign",
    "text": "26 号道路，前方是宝可梦联盟接待处。"
+  },
+  {
+   "kind": "item",
+   "at": [
+    4,
+    7
+   ],
+   "source_script": "Route26MaxElixer",
+   "flag": "EVENT_ROUTE_26_MAX_ELIXER",
+   "sprite": "item",
+   "name": "PP 多项全补剂",
+   "category": "heal",
+   "item": "ITEM_MAX_ELIXIR"
   }
  ],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 164,
+     "min": 28,
+     "max": 28,
+     "weight": 30
+    },
+    {
+     "species": 20,
+     "min": 28,
+     "max": 28,
+     "weight": 30
+    },
+    {
+     "species": 164,
+     "min": 32,
+     "max": 32,
+     "weight": 20
+    },
+    {
+     "species": 20,
+     "min": 30,
+     "max": 30,
+     "weight": 10
+    },
+    {
+     "species": 195,
+     "min": 30,
+     "max": 30,
+     "weight": 10
+    }
+   ],
+   "rate": 0.1
+  }
+ },
+ "water_encounters": [
+  {
+   "species": 72,
+   "min": 30,
+   "max": 30,
+   "weight": 60
+  },
+  {
+   "species": 72,
+   "min": 25,
+   "max": 25,
+   "weight": 30
+  },
+  {
+   "species": 73,
+   "min": 30,
+   "max": 30,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.06
 }

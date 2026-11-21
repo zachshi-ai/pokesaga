@@ -11,12 +11,12 @@ from campaign_route import ROOT, VECTORS, Routes
 
 
 class Player:
-    def __init__(self, routes, godot_args, env, folder):
+    def __init__(self, routes, godot_args, env, folder, startup=()):
         self.routes = routes
-        self.process = subprocess.Popen([*godot_args, "--script", str(ROOT / "tools/campaign_player.gd")],
+        self.process = subprocess.Popen([*godot_args, "--script", str(ROOT / "tools/campaign_player.gd"), *startup],
                                         cwd=folder, env=env, stdin=subprocess.PIPE,
-                                        stdout=subprocess.PIPE, text=True, bufsize=1)
-        self.puzzles = json.loads((ROOT / "content/regions/kanto/puzzles.json").read_text())
+                                        stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+        self.puzzles = json.loads((ROOT / "content/regions/kanto/puzzles.json").read_text()) if "kanto" in routes.regions else {}
         self.last_flags = None
         self.receive()
 
@@ -31,6 +31,8 @@ class Player:
             self.routes.history = self.state["history"]
             badges = self.state["badges"]
             field_badges = {15: "蓝色徽章", 57: "粉红徽章", 70: "彩虹徽章", 249: "金色徽章"}
+            if self.pos[0].startswith("johto_"):
+                field_badges = {15:"昆虫徽章", 57:"魅影徽章", 70:"标准徽章", 250:"冰川徽章", 127:"升龙徽章"}
             moves = frozenset(move for member in self.state["party"] for move in member[5]
                               if field_badges.get(move) in badges)
             if self.routes.field_moves != moves:
@@ -80,6 +82,7 @@ class Player:
                 if (self.pos == stuck[0] and 0 <= x < field.w and 0 <= y < field.h and
                         (field.get("water",x,y) or (x,y) in field.blockers)):
                     self.do("face", dir=key)
+                    if self.pos!=stuck[0]: break  # Waterfall moves the player as part of pressing A.
                     for options in [("冲浪", "好", "使用居合斩"), ("好",)]:
                         choice = next((b for b in options if b in self.state["buttons"]), None)
                         if choice: self.do("click", label=choice)

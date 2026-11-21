@@ -27,8 +27,12 @@ def main():
     stages = STAGES if "all" in args.stages else args.stages
     if "maps" in stages:
         run("render_crystal_maps.py", "--active-art")
+        run("import_crystal_story_tiles.py")
         run("repair_johto_warps.py")
         run("johto_bg_events.py")
+        run("import_crystal_items.py",source_path("crystal"),"--project",root)
+        run("import_johto_supplies.py")
+        run("import_johto_encounters.py")
         run("hoenn_ferry.py")
         run("build_world_routes.py","--project",root)
         run("bake_emerald_field.py")

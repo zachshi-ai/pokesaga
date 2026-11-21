@@ -185,9 +185,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     7,
-     5
-    ]
+     13,
+     0
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -200,9 +201,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     7,
-     5
-    ]
+     13,
+     1
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -215,9 +217,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     7,
-     5
-    ]
+     13,
+     2
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -230,9 +233,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     7,
-     5
-    ]
+     13,
+     3
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -245,9 +249,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     7,
-     5
-    ]
+     13,
+     4
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -260,9 +265,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     7,
+     13,
      5
-    ]
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -275,9 +281,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     7,
-     5
-    ]
+     13,
+     6
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -290,9 +297,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     7,
-     5
-    ]
+     13,
+     7
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -305,9 +313,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     7,
-     5
-    ]
+     13,
+     8
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -320,9 +329,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     7,
-     5
-    ]
+     13,
+     9
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -335,9 +345,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     8,
-     15
-    ]
+     13,
+     10
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -350,9 +361,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     9,
-     15
-    ]
+     13,
+     11
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -365,9 +377,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     9,
-     15
-    ]
+     13,
+     12
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -380,9 +393,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     10,
-     16
-    ]
+     13,
+     13
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -395,9 +409,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     11,
-     16
-    ]
+     13,
+     14
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -410,9 +425,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     11,
-     16
-    ]
+     13,
+     15
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -425,9 +441,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     12,
-     17
-    ]
+     13,
+     16
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -440,9 +457,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     12,
+     13,
      17
-    ]
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -455,9 +473,10 @@
     "region": "johto",
     "map": "johto_cianwood_city",
     "at": [
-     12,
-     17
-    ]
+     13,
+     18
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -472,7 +491,8 @@
     "at": [
      13,
      19
-    ]
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -487,7 +507,8 @@
     "at": [
      13,
      20
-    ]
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -502,7 +523,8 @@
     "at": [
      13,
      21
-    ]
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -517,7 +539,8 @@
     "at": [
      13,
      22
-    ]
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -530,9 +553,10 @@
     "region": "johto",
     "map": "johto_route_40",
     "at": [
-     7,
-     6
-    ]
+     0,
+     16
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -545,9 +569,10 @@
     "region": "johto",
     "map": "johto_route_40",
     "at": [
-     7,
-     6
-    ]
+     1,
+     16
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -560,9 +585,10 @@
     "region": "johto",
     "map": "johto_route_40",
     "at": [
-     7,
-     6
-    ]
+     2,
+     16
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -575,9 +601,10 @@
     "region": "johto",
     "map": "johto_route_40",
     "at": [
-     7,
-     6
-    ]
+     3,
+     16
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -590,9 +617,10 @@
     "region": "johto",
     "map": "johto_route_40",
     "at": [
-     7,
-     6
-    ]
+     4,
+     16
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -605,9 +633,10 @@
     "region": "johto",
     "map": "johto_route_40",
     "at": [
-     7,
-     6
-    ]
+     5,
+     16
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -620,9 +649,10 @@
     "region": "johto",
     "map": "johto_route_40",
     "at": [
-     7,
-     6
-    ]
+     6,
+     16
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -636,8 +666,9 @@
     "map": "johto_route_40",
     "at": [
      7,
-     6
-    ]
+     16
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -650,9 +681,10 @@
     "region": "johto",
     "map": "johto_route_40",
     "at": [
-     7,
-     6
-    ]
+     8,
+     16
+    ],
+    "sea_connection": true
    },
    "edge": true
   },
@@ -665,9 +697,10 @@
     "region": "johto",
     "map": "johto_route_40",
     "at": [
-     7,
-     6
-    ]
+     9,
+     16
+    ],
+    "sea_connection": true
    },
    "edge": true
   }

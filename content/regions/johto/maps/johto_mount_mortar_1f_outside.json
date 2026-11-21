@@ -9,34 +9,7 @@
   12,
   7
  ],
- "npcs": [
-  {
-   "at": [
-    6,
-    7
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    15,
-    9
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  }
- ],
+ "npcs": [],
  "warps": [
   {
    "at": [
@@ -170,43 +143,37 @@
    "species": 19,
    "min": 14,
    "max": 14,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 41,
    "min": 13,
    "max": 13,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 66,
    "min": 14,
    "max": 14,
-   "weight": 40
+   "weight": 20
   },
   {
    "species": 42,
    "min": 13,
    "max": 13,
-   "weight": 30
-  },
-  {
-   "species": 183,
-   "min": 14,
-   "max": 14,
-   "weight": 20
+   "weight": 10
   },
   {
    "species": 74,
    "min": 14,
    "max": 14,
-   "weight": 15
+   "weight": 5
   },
   {
    "species": 20,
    "min": 16,
    "max": 16,
-   "weight": 15
+   "weight": 5
   }
  ],
  "encounter_rate": 0.06,
@@ -223,6 +190,32 @@
    "category": "heal",
    "flag": "johto:EVENT_MOUNT_MORTAR_1F_OUTSIDE_HIDDEN_HYPER_POTION",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    6,
+    7
+   ],
+   "source_script": "MountMortar1FOutsideEther",
+   "flag": "EVENT_MOUNT_MORTAR_1F_OUTSIDE_ETHER",
+   "sprite": "item",
+   "name": "PP 单项小补剂",
+   "category": "heal",
+   "item": "ITEM_ETHER"
+  },
+  {
+   "kind": "item",
+   "at": [
+    15,
+    9
+   ],
+   "source_script": "MountMortar1FOutsideRevive",
+   "flag": "EVENT_MOUNT_MORTAR_1F_OUTSIDE_REVIVE",
+   "sprite": "item",
+   "name": "活力碎片",
+   "category": "heal",
+   "item": "ITEM_REVIVE"
   }
  ],
  "weather": "",
@@ -248,5 +241,48 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.04
+ "water_encounter_rate": 0.04,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 19,
+     "min": 14,
+     "max": 14,
+     "weight": 30
+    },
+    {
+     "species": 41,
+     "min": 13,
+     "max": 13,
+     "weight": 30
+    },
+    {
+     "species": 183,
+     "min": 14,
+     "max": 14,
+     "weight": 20
+    },
+    {
+     "species": 42,
+     "min": 13,
+     "max": 13,
+     "weight": 10
+    },
+    {
+     "species": 74,
+     "min": 14,
+     "max": 14,
+     "weight": 5
+    },
+    {
+     "species": 20,
+     "min": 16,
+     "max": 16,
+     "weight": 5
+    }
+   ],
+   "rate": 0.06
+  }
+ }
 }

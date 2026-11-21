@@ -21,19 +21,6 @@
     "你好。",
     "路上小心。"
    ]
-  },
-  {
-   "at": [
-    7,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -57,41 +44,54 @@
    "species": 41,
    "min": 21,
    "max": 21,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 41,
    "min": 23,
    "max": 23,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 41,
    "min": 19,
    "max": 19,
-   "weight": 60
+   "weight": 20
   },
   {
    "species": 79,
    "min": 21,
    "max": 21,
-   "weight": 30
+   "weight": 10
   },
   {
    "species": 42,
    "min": 23,
    "max": 23,
-   "weight": 15
+   "weight": 5
   },
   {
    "species": 79,
    "min": 23,
    "max": 23,
-   "weight": 15
+   "weight": 5
   }
  ],
  "encounter_rate": 0.02,
- "objects": [],
+ "objects": [
+  {
+   "kind": "item",
+   "at": [
+    7,
+    2
+   ],
+   "source_script": "SlowpokeWellB2FTMRainDance",
+   "flag": "EVENT_SLOWPOKE_WELL_B2F_TM_RAIN_DANCE",
+   "sprite": "item",
+   "name": "城都招式学习器·求雨",
+   "category": "tm"
+  }
+ ],
  "weather": "",
  "weather_name": "",
  "cycling": false,
@@ -115,5 +115,6 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.02
+ "water_encounter_rate": 0.02,
+ "encounters_by_time": {}
 }

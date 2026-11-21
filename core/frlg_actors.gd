@@ -101,6 +101,10 @@ static func actor(row: Dictionary, spec: Dictionary, flags: Dictionary) -> Dicti
 
 static func roster(map: Dictionary, flags: Dictionary) -> Array:
 	var base: Array = map.get("npcs",[])
+	if map.get("region","")=="johto":
+		var rows := preload("res://core/johto_campaign.gd").roster(map,flags)
+		rows = preload("res://core/johto_items.gd").roster(map,flags,rows)
+		return preload("res://core/johto_postgame.gd").roster(map,flags,rows)
 	if not str(map.get("region","")) in ["kanto","sevii"]:
 		return base.duplicate(true)
 	var specs: Dictionary = data().maps.get("%s/%s" % [map.get("region",""),map.get("id","")],{})

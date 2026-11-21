@@ -90,58 +90,6 @@
   },
   {
    "at": [
-    0,
-    14
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    0,
-    11
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    9,
-    1
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    7,
-    25
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
     5,
     7
    ],
@@ -271,8 +219,45 @@
    "edge": true
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 10,
+   "min": 3,
+   "max": 3,
+   "weight": 30
+  },
+  {
+   "species": 16,
+   "min": 3,
+   "max": 3,
+   "weight": 30
+  },
+  {
+   "species": 16,
+   "min": 5,
+   "max": 5,
+   "weight": 20
+  },
+  {
+   "species": 12,
+   "min": 7,
+   "max": 7,
+   "weight": 10
+  },
+  {
+   "species": 17,
+   "min": 7,
+   "max": 7,
+   "weight": 5
+  },
+  {
+   "species": 25,
+   "min": 4,
+   "max": 4,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.1,
  "objects": [
   {
    "at": [
@@ -345,9 +330,145 @@
    "category": "heal",
    "flag": "johto:EVENT_ROUTE_2_HIDDEN_REVIVE",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    0,
+    14
+   ],
+   "source_script": "Route2DireHit",
+   "flag": "EVENT_ROUTE_2_DIRE_HIT",
+   "sprite": "item",
+   "name": "要害攻击",
+   "category": "battle",
+   "item": "ITEM_DIRE_HIT"
+  },
+  {
+   "kind": "item",
+   "at": [
+    0,
+    11
+   ],
+   "source_script": "Route2MaxPotion",
+   "flag": "EVENT_ROUTE_2_MAX_POTION",
+   "sprite": "item",
+   "name": "全满药",
+   "category": "heal",
+   "item": "ITEM_MAX_POTION"
+  },
+  {
+   "kind": "item",
+   "at": [
+    9,
+    1
+   ],
+   "source_script": "Route2Carbos",
+   "flag": "EVENT_ROUTE_2_CARBOS",
+   "sprite": "item",
+   "name": "速度增强剂",
+   "category": "other",
+   "item": "ITEM_CARBOS"
+  },
+  {
+   "kind": "item",
+   "at": [
+    7,
+    25
+   ],
+   "source_script": "Route2Elixer",
+   "flag": "EVENT_ROUTE_2_ELIXER",
+   "sprite": "item",
+   "name": "PP 多项小补剂",
+   "category": "heal",
+   "item": "ITEM_ELIXIR"
   }
  ],
  "weather": "",
  "weather_name": "",
- "cycling": true
+ "cycling": true,
+ "encounters_by_time": {
+  "morn": {
+   "pool": [
+    {
+     "species": 10,
+     "min": 3,
+     "max": 3,
+     "weight": 30
+    },
+    {
+     "species": 165,
+     "min": 3,
+     "max": 3,
+     "weight": 30
+    },
+    {
+     "species": 16,
+     "min": 5,
+     "max": 5,
+     "weight": 20
+    },
+    {
+     "species": 12,
+     "min": 7,
+     "max": 7,
+     "weight": 10
+    },
+    {
+     "species": 166,
+     "min": 7,
+     "max": 7,
+     "weight": 5
+    },
+    {
+     "species": 25,
+     "min": 4,
+     "max": 4,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  },
+  "nite": {
+   "pool": [
+    {
+     "species": 163,
+     "min": 3,
+     "max": 3,
+     "weight": 30
+    },
+    {
+     "species": 167,
+     "min": 3,
+     "max": 3,
+     "weight": 30
+    },
+    {
+     "species": 163,
+     "min": 5,
+     "max": 5,
+     "weight": 20
+    },
+    {
+     "species": 164,
+     "min": 7,
+     "max": 7,
+     "weight": 10
+    },
+    {
+     "species": 168,
+     "min": 7,
+     "max": 7,
+     "weight": 5
+    },
+    {
+     "species": 164,
+     "min": 4,
+     "max": 4,
+     "weight": 5
+    }
+   ],
+   "rate": 0.1
+  }
+ }
 }

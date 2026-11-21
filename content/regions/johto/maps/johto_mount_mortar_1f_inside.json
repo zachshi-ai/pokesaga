@@ -25,71 +25,6 @@
   },
   {
    "at": [
-    17,
-    19
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    8,
-    4
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    5,
-    13
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    11,
-    9
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    17,
-    9
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
     16,
     21
    ],
@@ -141,32 +76,6 @@
     ]
    },
    "trainer": "SuperNerdMarkus"
-  },
-  {
-   "at": [
-    3,
-    8
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    8,
-    8
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -260,52 +169,34 @@
    "species": 74,
    "min": 13,
    "max": 13,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 19,
    "min": 14,
    "max": 14,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 66,
    "min": 15,
    "max": 15,
-   "weight": 40
+   "weight": 20
   },
   {
    "species": 20,
    "min": 14,
    "max": 14,
-   "weight": 20
+   "weight": 10
   },
   {
-   "species": 20,
+   "species": 41,
    "min": 15,
    "max": 15,
-   "weight": 20
+   "weight": 5
   },
   {
    "species": 42,
-   "min": 15,
-   "max": 15,
-   "weight": 15
-  },
-  {
-   "species": 41,
-   "min": 15,
-   "max": 15,
-   "weight": 10
-  },
-  {
-   "species": 41,
-   "min": 14,
-   "max": 14,
-   "weight": 10
-  },
-  {
-   "species": 183,
    "min": 15,
    "max": 15,
    "weight": 5
@@ -325,9 +216,143 @@
    "category": "other",
    "flag": "johto:EVENT_MOUNT_MORTAR_1F_INSIDE_HIDDEN_MAX_REPEL",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    17,
+    19
+   ],
+   "source_script": "MountMortar1FInsideEscapeRope",
+   "flag": "EVENT_MOUNT_MORTAR_1F_INSIDE_ESCAPE_ROPE",
+   "sprite": "item",
+   "name": "离洞绳",
+   "category": "other",
+   "item": "ITEM_ESCAPE_ROPE"
+  },
+  {
+   "kind": "item",
+   "at": [
+    8,
+    4
+   ],
+   "source_script": "MountMortar1FInsideMaxRevive",
+   "flag": "EVENT_MOUNT_MORTAR_1F_INSIDE_MAX_REVIVE",
+   "sprite": "item",
+   "name": "活力块",
+   "category": "heal",
+   "item": "ITEM_MAX_REVIVE"
+  },
+  {
+   "kind": "item",
+   "at": [
+    5,
+    13
+   ],
+   "source_script": "MountMortar1FInsideHyperPotion",
+   "flag": "EVENT_MOUNT_MORTAR_1F_INSIDE_HYPER_POTION",
+   "sprite": "item",
+   "name": "厉害伤药",
+   "category": "heal",
+   "item": "ITEM_HYPER_POTION"
+  },
+  {
+   "kind": "item",
+   "at": [
+    11,
+    9
+   ],
+   "source_script": "MountMortar1FInsideMaxPotion",
+   "flag": "EVENT_MOUNT_MORTAR_1F_INSIDE_MAX_POTION",
+   "sprite": "item",
+   "name": "全满药",
+   "category": "heal",
+   "item": "ITEM_MAX_POTION"
+  },
+  {
+   "kind": "item",
+   "at": [
+    17,
+    9
+   ],
+   "source_script": "MountMortar1FInsideNugget",
+   "flag": "EVENT_MOUNT_MORTAR_1F_INSIDE_NUGGET",
+   "sprite": "item",
+   "name": "金珠",
+   "category": "other",
+   "item": "ITEM_NUGGET"
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    8
+   ],
+   "source_script": "MountMortar1FInsideIron",
+   "flag": "EVENT_MOUNT_MORTAR_1F_INSIDE_IRON",
+   "sprite": "item",
+   "name": "防御增强剂",
+   "category": "other",
+   "item": "ITEM_IRON"
+  },
+  {
+   "kind": "item",
+   "at": [
+    8,
+    8
+   ],
+   "source_script": "MountMortar1FInsideUltraBall",
+   "flag": "EVENT_MOUNT_MORTAR_1F_INSIDE_ULTRA_BALL",
+   "sprite": "item",
+   "name": "高级球",
+   "category": "ball",
+   "item": "ITEM_ULTRA_BALL"
   }
  ],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 74,
+     "min": 13,
+     "max": 13,
+     "weight": 30
+    },
+    {
+     "species": 19,
+     "min": 14,
+     "max": 14,
+     "weight": 30
+    },
+    {
+     "species": 20,
+     "min": 15,
+     "max": 15,
+     "weight": 20
+    },
+    {
+     "species": 41,
+     "min": 14,
+     "max": 14,
+     "weight": 10
+    },
+    {
+     "species": 183,
+     "min": 15,
+     "max": 15,
+     "weight": 5
+    },
+    {
+     "species": 42,
+     "min": 15,
+     "max": 15,
+     "weight": 5
+    }
+   ],
+   "rate": 0.06
+  }
+ }
 }

@@ -109,10 +109,11 @@
     "region": "johto",
     "map": "johto_goldenrod_city",
     "at": [
-     3,
-     3
+     2,
+     8
     ]
-   }
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -123,10 +124,11 @@
     "region": "johto",
     "map": "johto_goldenrod_city",
     "at": [
-     3,
-     3
+     2,
+     8
     ]
-   }
+   },
+   "trigger": "down"
   },
   {
    "at": [

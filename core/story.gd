@@ -25,6 +25,8 @@ func load_region(rid: String) -> bool:
 	var list = (raw as Dictionary).get("events", [])
 	if list is Array:
 		events = list
+	if rid == "johto":
+		events = preload("res://core/johto_postgame.gd").data().events + events
 	if rid == "kanto":
 		var island_events: Array = JSON.parse_string(FileAccess.get_file_as_string(preload("res://core/sevii_campaign.gd").BILL_CROSSOVER))
 		events = island_events + events

@@ -168,7 +168,7 @@
     "map": "johto_vermilion_gym",
     "at": [
      2,
-     5
+     7
     ]
    }
   },
@@ -231,111 +231,6 @@
   },
   {
    "at": [
-    0,
-    0
-   ],
-   "to": {
-    "region": "johto",
-    "map": "johto_route_6",
-    "at": [
-     5,
-     7
-    ]
-   },
-   "edge": true
-  },
-  {
-   "at": [
-    1,
-    0
-   ],
-   "to": {
-    "region": "johto",
-    "map": "johto_route_6",
-    "at": [
-     6,
-     7
-    ]
-   },
-   "edge": true
-  },
-  {
-   "at": [
-    2,
-    0
-   ],
-   "to": {
-    "region": "johto",
-    "map": "johto_route_6",
-    "at": [
-     7,
-     7
-    ]
-   },
-   "edge": true
-  },
-  {
-   "at": [
-    3,
-    0
-   ],
-   "to": {
-    "region": "johto",
-    "map": "johto_route_6",
-    "at": [
-     8,
-     7
-    ]
-   },
-   "edge": true
-  },
-  {
-   "at": [
-    4,
-    0
-   ],
-   "to": {
-    "region": "johto",
-    "map": "johto_route_6",
-    "at": [
-     9,
-     7
-    ]
-   },
-   "edge": true
-  },
-  {
-   "at": [
-    5,
-    0
-   ],
-   "to": {
-    "region": "johto",
-    "map": "johto_route_6",
-    "at": [
-     0,
-     8
-    ]
-   },
-   "edge": true
-  },
-  {
-   "at": [
-    6,
-    0
-   ],
-   "to": {
-    "region": "johto",
-    "map": "johto_route_6",
-    "at": [
-     2,
-     6
-    ]
-   },
-   "edge": true
-  },
-  {
-   "at": [
     8,
     0
    ],
@@ -344,36 +239,6 @@
     "map": "johto_route_6",
     "at": [
      3,
-     7
-    ]
-   },
-   "edge": true
-  },
-  {
-   "at": [
-    9,
-    0
-   ],
-   "to": {
-    "region": "johto",
-    "map": "johto_route_6",
-    "at": [
-     4,
-     7
-    ]
-   },
-   "edge": true
-  },
-  {
-   "at": [
-    10,
-    0
-   ],
-   "to": {
-    "region": "johto",
-    "map": "johto_route_6",
-    "at": [
-     5,
      7
     ]
    },
@@ -436,5 +301,26 @@
  ],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "water_encounters": [
+  {
+   "species": 72,
+   "min": 35,
+   "max": 35,
+   "weight": 60
+  },
+  {
+   "species": 72,
+   "min": 30,
+   "max": 30,
+   "weight": 30
+  },
+  {
+   "species": 73,
+   "min": 35,
+   "max": 35,
+   "weight": 10
+  }
+ ],
+ "water_encounter_rate": 0.06
 }

@@ -116,32 +116,6 @@
   },
   {
    "at": [
-    8,
-    1
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    6,
-    9
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
     3,
     13
    ],
@@ -174,41 +148,62 @@
    "species": 41,
    "min": 22,
    "max": 22,
-   "weight": 130
+   "weight": 50
   },
   {
    "species": 42,
    "min": 22,
    "max": 22,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 20,
    "min": 21,
    "max": 21,
-   "weight": 30
-  },
-  {
-   "species": 195,
-   "min": 22,
-   "max": 22,
-   "weight": 20
+   "weight": 10
   },
   {
    "species": 74,
    "min": 20,
    "max": 20,
-   "weight": 15
+   "weight": 5
   },
   {
    "species": 95,
    "min": 23,
    "max": 23,
-   "weight": 15
+   "weight": 5
   }
  ],
  "encounter_rate": 0.04,
- "objects": [],
+ "objects": [
+  {
+   "kind": "item",
+   "at": [
+    8,
+    1
+   ],
+   "source_script": "UnionCaveB2FElixer",
+   "flag": "EVENT_UNION_CAVE_B2F_ELIXER",
+   "sprite": "item",
+   "name": "PP 多项小补剂",
+   "category": "heal",
+   "item": "ITEM_ELIXIR"
+  },
+  {
+   "kind": "item",
+   "at": [
+    6,
+    9
+   ],
+   "source_script": "UnionCaveB2FHyperPotion",
+   "flag": "EVENT_UNION_CAVE_B2F_HYPER_POTION",
+   "sprite": "item",
+   "name": "厉害伤药",
+   "category": "heal",
+   "item": "ITEM_HYPER_POTION"
+  }
+ ],
  "weather": "",
  "weather_name": "",
  "cycling": false,
@@ -232,5 +227,48 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.04
+ "water_encounter_rate": 0.04,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 41,
+     "min": 22,
+     "max": 22,
+     "weight": 30
+    },
+    {
+     "species": 42,
+     "min": 22,
+     "max": 22,
+     "weight": 30
+    },
+    {
+     "species": 195,
+     "min": 22,
+     "max": 22,
+     "weight": 20
+    },
+    {
+     "species": 20,
+     "min": 21,
+     "max": 21,
+     "weight": 10
+    },
+    {
+     "species": 74,
+     "min": 20,
+     "max": 20,
+     "weight": 5
+    },
+    {
+     "species": 95,
+     "min": 23,
+     "max": 23,
+     "weight": 5
+    }
+   ],
+   "rate": 0.04
+  }
+ }
 }

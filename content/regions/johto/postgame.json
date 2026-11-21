@@ -1,0 +1,2241 @@
+{
+ "actors": {
+  "johto_olivine_port": [
+   {
+    "at": [
+     5,
+     5
+    ],
+    "role": "j2_board_e",
+    "name": "水流号船员",
+    "lines": [
+     "在港口南侧的码头出示高速船船票。"
+    ]
+   }
+  ],
+  "johto_vermilion_port": [
+   {
+    "at": [
+     6,
+     5
+    ],
+    "role": "j2_board_w",
+    "name": "水流号船员",
+    "lines": [
+     "返航的登船口在码头南侧。"
+    ]
+   }
+  ],
+  "johto_fast_ship_b1_f": [
+   {
+    "at": [
+     15,
+     3
+    ],
+    "role": "j2_sailor_watch",
+    "name": "值班水手",
+    "lines": [
+     "这一班该有人来换我。"
+    ],
+    "all": [
+     "j2_ship_boarded"
+    ],
+    "none": [
+     "j2_sailor_back"
+    ]
+   },
+   {
+    "at": [
+     14,
+     2
+    ],
+    "role": "j2_sailor_duplicate",
+    "name": "水手",
+    "lines": [],
+    "none": [
+     "j2_ship_boarded"
+    ]
+   }
+  ],
+  "johto_fast_ship_cabins_nnw_nne_ne": [
+   {
+    "at": [
+     2,
+     13
+    ],
+    "role": "j2_sailor_sleep",
+    "name": "偷懒的水手",
+    "lines": [
+     "真舒服……轮到我值班了吗？"
+    ],
+    "all": [
+     "j2_ship_boarded"
+    ],
+    "none": [
+     "j2_sailor_back"
+    ]
+   }
+  ],
+  "johto_fast_ship_cabins_se_sse_captains_cabin": [
+   {
+    "at": [
+     0,
+     12
+    ],
+    "role": "j2_captain",
+    "name": "船长",
+    "lines": [
+     "幸好那孩子平安，靠岸时我会广播。"
+    ]
+   },
+   {
+    "at": [
+     1,
+     8
+    ],
+    "role": "j2_grandpa",
+    "name": "老爷爷",
+    "lines": [
+     "真是个闲不住的孩子。"
+    ],
+    "all": [
+     "j2_ship_boarded"
+    ],
+    "none": [
+     "j2_ship_landed"
+    ]
+   },
+   {
+    "at": [
+     0,
+     13
+    ],
+    "role": "j2_girl",
+    "name": "小女孩",
+    "lines": [
+     "我在跟船长玩呀！"
+    ],
+    "all": [
+     "j2_sailor_back"
+    ],
+    "none": [
+     "j2_girl_found"
+    ],
+    "field_art": "fr_little_girl"
+   },
+   {
+    "at": [
+     2,
+     8
+    ],
+    "role": "j2_girl_after",
+    "name": "小女孩",
+    "lines": [
+     "爷爷，我下次会先告诉你再去玩。"
+    ],
+    "all": [
+     "j2_girl_found"
+    ],
+    "none": [
+     "j2_ship_landed"
+    ],
+    "field_art": "fr_little_girl",
+    "add": true
+   }
+  ],
+  "johto_power_plant": [
+   {
+    "at": [
+     7,
+     5
+    ],
+    "role": "j2_manager",
+    "name": "发电厂厂长",
+    "lines": [
+     "有了发电机，我们才能为关都送电。"
+    ]
+   }
+  ],
+  "johto_cerulean_gym": [
+   {
+    "at": [
+     1,
+     6
+    ],
+    "role": "j2_robber",
+    "name": "慌张的火箭队员",
+    "lines": [
+     "我、我还有事！"
+    ],
+    "all": [
+     "j2_power_missing"
+    ],
+    "none": [
+     "j2_thief_ran"
+    ],
+    "field_art": "team_rocket_m"
+   },
+   {
+    "at": [
+     2,
+     1
+    ],
+    "role": "j2_badge_misty",
+    "name": "馆主 小霞",
+    "lines": [
+     "你的宝可梦游得真快。这枚徽章归你了。"
+    ],
+    "all": [
+     "j2_misty_back"
+    ],
+    "field_art": "crystal_misty"
+   },
+   {
+    "at": [
+     2,
+     3
+    ],
+    "role": "j2_swimmer",
+    "name": "道馆游泳健将",
+    "lines": [
+     "小霞回来了，泳池也热闹起来了。"
+    ],
+    "all": [
+     "j2_misty_back"
+    ],
+    "keep_battle": true
+   },
+   {
+    "at": [
+     1,
+     3
+    ],
+    "role": "j2_swimmer",
+    "name": "道馆游泳健将",
+    "lines": [
+     "小霞回来了，泳池也热闹起来了。"
+    ],
+    "all": [
+     "j2_misty_back"
+    ],
+    "keep_battle": true
+   },
+   {
+    "at": [
+     4,
+     4
+    ],
+    "role": "j2_swimmer",
+    "name": "道馆游泳健将",
+    "lines": [
+     "小霞回来了，泳池也热闹起来了。"
+    ],
+    "all": [
+     "j2_misty_back"
+    ],
+    "keep_battle": true
+   }
+  ],
+  "johto_route_24": [
+   {
+    "at": [
+     5,
+     2
+    ],
+    "role": "j2_robber_bridge",
+    "name": "逃跑的火箭队员",
+    "lines": [
+     "我躲在桥上，他们找不到我。"
+    ],
+    "all": [
+     "j2_thief_ran"
+    ],
+    "none": [
+     "j2_thief_beaten",
+     "j2_power"
+    ],
+    "field_art": "team_rocket_m"
+   }
+  ],
+  "johto_route_25": [
+   {
+    "at": [
+     22,
+     3
+    ],
+    "role": "j2_misty_date",
+    "name": "小霞",
+    "lines": [
+     "唉，好好的约会……"
+    ],
+    "all": [
+     "j2_thief_ran"
+    ],
+    "none": [
+     "j2_misty_back"
+    ],
+    "field_art": "crystal_misty"
+   },
+   {
+    "at": [
+     22,
+     6
+    ],
+    "role": "j2_date",
+    "name": "约会的青年",
+    "lines": [
+     "这里的海风很舒服。"
+    ],
+    "all": [
+     "j2_thief_ran"
+    ],
+    "none": [
+     "j2_misty_back"
+    ]
+   }
+  ],
+  "johto_lav_radio_tower_1f": [
+   {
+    "at": [
+     4,
+     0
+    ],
+    "role": "j2_radio",
+    "name": "电台台长",
+    "lines": [
+     "发电厂停机后，我们的广播设备就一直开不起来。"
+    ]
+   }
+  ],
+  "johto_vermilion_city": [
+   {
+    "at": [
+     17,
+     4
+    ],
+    "role": "j2_snorlax",
+    "name": "卡比兽",
+    "lines": [
+     "巨大的卡比兽睡得很沉。"
+    ],
+    "none": [
+     "j2_snorlax"
+    ],
+    "field_art": "fr_snorlax",
+    "add": true
+   }
+  ],
+  "johto_pokemon_fan_club": [
+   {
+    "at": [
+     0,
+     1
+    ],
+    "role": "j2_doll_owner",
+    "name": "皮皮爱好者",
+    "lines": [
+     "这个皮皮玩偶是一位女孩落下的。"
+    ]
+   },
+   {
+    "at": [
+     4,
+     0
+    ],
+    "role": "j2_lost_doll",
+    "name": "皮皮玩偶",
+    "lines": [
+     "一只做得很逼真的皮皮玩偶。"
+    ],
+    "none": [
+     "j2_doll"
+    ]
+   }
+  ],
+  "johto_copycats_house_2f": [
+   {
+    "at": [
+     2,
+     1
+    ],
+    "role": "j2_copy",
+    "name": "模仿少女",
+    "lines": [
+     "我的皮皮玩偶在枯叶市弄丢了……"
+    ]
+   }
+  ],
+  "johto_cinnabar_island": [
+   {
+    "at": [
+     4,
+     3
+    ],
+    "role": "j2_blue",
+    "name": "青绿",
+    "lines": [
+     "火山喷发以后，这里就只剩下宝可梦中心了。"
+    ],
+    "all": [
+     "j2_ship_landed"
+    ],
+    "none": [
+     "j2_blue_returns"
+    ],
+    "field_art": "crystal_blue"
+   }
+  ],
+  "johto_vermilion_gym": [
+   {
+    "at": [
+     2,
+     1
+    ],
+    "role": "j2_badge_ltsurge",
+    "name": "馆主 马志士",
+    "lines": [
+     "好样的！在关都的第一仗够带劲。"
+    ],
+    "field_art": "crystal_surge"
+   }
+  ],
+  "johto_saffron_gym": [
+   {
+    "at": [
+     4,
+     4
+    ],
+    "role": "j2_badge_sabrina",
+    "name": "馆主 娜姿",
+    "lines": [
+     "你的意志改变了我预见的结果。"
+    ],
+    "field_art": "crystal_sabrina"
+   }
+  ],
+  "johto_celadon_gym": [
+   {
+    "at": [
+     2,
+     1
+    ],
+    "role": "j2_badge_erika",
+    "name": "馆主 莉佳",
+    "lines": [
+     "你和伙伴之间的默契，让我想起春日盛开的花。"
+    ],
+    "field_art": "crystal_erika"
+   }
+  ],
+  "johto_fuchsia_gym": [
+   {
+    "at": [
+     0,
+     5
+    ],
+    "role": "j2_badge_janine",
+    "name": "馆主 阿杏",
+    "lines": [
+     "我还得继续修行。有一天，我要超越爸爸和你。"
+    ],
+    "field_art": "crystal_janine"
+   }
+  ],
+  "johto_pewter_gym": [
+   {
+    "at": [
+     2,
+     0
+    ],
+    "role": "j2_badge_brock",
+    "name": "馆主 小刚",
+    "lines": [
+     "你冲破了我们坚固的阵势。尼比道馆承认你的实力。"
+    ],
+    "field_art": "crystal_brock"
+   }
+  ],
+  "johto_seafoam_gym": [
+   {
+    "at": [
+     2,
+     1
+    ],
+    "role": "j2_badge_blaine",
+    "name": "馆主 夏伯",
+    "lines": [
+     "火焰还在。你遇到过比今天更热的对战吗？"
+    ],
+    "field_art": "crystal_blaine"
+   }
+  ],
+  "johto_viridian_gym": [
+   {
+    "at": [
+     2,
+     1
+    ],
+    "role": "j2_badge_blue",
+    "name": "馆主 青绿",
+    "lines": [
+     "赢得漂亮。绿色徽章给你，接下来的路自己走吧。"
+    ],
+    "all": [
+     "j2_blue_returns"
+    ],
+    "field_art": "crystal_blue"
+   }
+  ],
+  "johto_oaks_lab": [
+   {
+    "at": [
+     2,
+     1
+    ],
+    "role": "j2_oak",
+    "name": "大木博士",
+    "lines": [
+     "城都有八枚徽章，关都也有八枚。集齐以后再来找我。"
+    ]
+   }
+  ],
+  "johto_victory_road_gate": [
+   {
+    "at": [
+     3,
+     2
+    ],
+    "role": "j2_silver_guard",
+    "name": "西侧守卫",
+    "lines": [
+     "白银山只对获得大木博士许可的训练家开放。"
+    ],
+    "none": [
+     "j2_silver_pass"
+    ]
+   },
+   {
+    "at": [
+     6,
+     2
+    ],
+    "role": "j2_east_guard",
+    "name": "东侧守卫",
+    "lines": [
+     "通往关都西部的道路还未开放。"
+    ],
+    "none": [
+     "j2_snorlax"
+    ]
+   }
+  ],
+  "johto_silver_cave_room_3": [
+   {
+    "at": [
+     4,
+     5
+    ],
+    "role": "j2_red",
+    "name": "赤红",
+    "lines": [
+     "…………"
+    ],
+    "all": [
+     "j2_silver_pass"
+    ],
+    "none": [
+     "j2_red_away"
+    ],
+    "field_art": "crystal_red"
+   }
+  ],
+  "johto_victory_road": [
+   {
+    "at": [
+     9,
+     6
+    ],
+    "role": "j2_rival_victory",
+    "name": "劲敌",
+    "lines": [
+     "……原来我缺少的是伙伴之间的信任。"
+    ],
+    "none": [
+     "j2_rival_victory"
+    ]
+   }
+  ],
+  "johto_lances_room": [
+   {
+    "role": "j2_mary",
+    "at": [
+     2,
+     3
+    ],
+    "name": "胡桃",
+    "field_art": "crystal_teacher",
+    "all": [
+     "j2_press_mary"
+    ],
+    "lines": [
+     "冠军的采访……等一下！"
+    ]
+   },
+   {
+    "role": "j2_press_oak",
+    "at": [
+     1,
+     3
+    ],
+    "name": "大木博士",
+    "field_art": "cr_oak",
+    "add": true,
+    "all": [
+     "j2_press_oak"
+    ],
+    "lines": [
+     "你和伙伴的默契，大家都看在眼里。"
+    ]
+   }
+  ]
+ },
+ "events": [
+  {
+   "id": "j2_ship_ticket",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_elms_lab",
+    "npc": "空木博士"
+   },
+   "steps": [
+    {
+     "who": "空木博士",
+     "say": [
+      "听说你登上了名人堂！这张高速船船票送给你。",
+      "从浅葱市港口坐水流号到枯叶市，去看看海那边的关都吧。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "高速船船票",
+      "count": 1,
+      "category": "key"
+     }
+    },
+    {
+     "flag": "j2_ship_ticket"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "johto_champion"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_ship_boarded",
+   "trigger": {
+    "type": "map_enter",
+    "map": "johto_fast_ship_1f"
+   },
+   "steps": [
+    {
+     "who": "老爷爷",
+     "say": [
+      "哎呀，撞到你了！你有没有见到一个小女孩？",
+      "我的孙女不在船舱里。前面走廊和船长室都还没找过。"
+     ]
+    },
+    {
+     "flag": "j2_ship_boarded"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_ship_ticket"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_sailor_missing",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_fast_ship_b1_f",
+    "actor": "j2_sailor_watch"
+   },
+   "steps": [
+    {
+     "who": "值班水手",
+     "say": [
+      "前面是工作区。该来交班的伙伴溜了，你能去隔壁客舱找找他吗？"
+     ]
+    },
+    {
+     "flag": "j2_sailor_missing"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_ship_boarded"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_sailor_back",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_fast_ship_cabins_nnw_nne_ne",
+    "actor": "j2_sailor_sleep"
+   },
+   "steps": [
+    {
+     "who": "水手",
+     "say": [
+      "谁说我在打瞌睡？来打一场我就清醒了！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "水手 斯坦利",
+      "team": [
+       {
+        "level": 31,
+        "species": 66
+       },
+       {
+        "level": 33,
+        "species": 67
+       },
+       {
+        "level": 26,
+        "species": 54
+       }
+      ]
+     }
+    },
+    {
+     "who": "水手",
+     "say": [
+      "糟糕，该交班了。我这就回去！"
+     ]
+    },
+    {
+     "flag": "j2_sailor_back"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_sailor_missing"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_girl_found",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_fast_ship_cabins_se_sse_captains_cabin",
+    "actor": "j2_girl"
+   },
+   "steps": [
+    {
+     "who": "小女孩",
+     "say": [
+      "船长，再陪我玩一会儿嘛！……什么，爷爷在找我？那我跟你回去。"
+     ]
+    },
+    {
+     "flag": "j2_girl_found"
+    },
+    {
+     "warp": {
+      "region": "johto",
+      "map": "johto_fast_ship_cabins_se_sse_captains_cabin",
+      "at": [
+       1,
+       9
+      ]
+     }
+    },
+    {
+     "who": "老爷爷",
+     "say": [
+      "谢谢你把孩子带回来。我有一份金属膜，拿着吧。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "金属膜",
+      "count": 1,
+      "category": "evo"
+     }
+    },
+    {
+     "who": "船内广播",
+     "say": [
+      "水流号即将抵达枯叶港。请从甲板的舷梯下船。"
+     ]
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_sailor_back"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_ship_landed",
+   "trigger": {
+    "type": "map_enter",
+    "map": "johto_vermilion_port"
+   },
+   "steps": [
+    {
+     "who": "船员",
+     "say": [
+      "这里是枯叶港。欢迎来到关都！"
+     ]
+    },
+    {
+     "flag": "j2_ship_landed"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_girl_found"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_power",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_power_plant",
+    "actor": "j2_manager"
+   },
+   "steps": [
+    {
+     "who": "厂长",
+     "say": [
+      "这就是失窃的发电机零件！马上装回去。",
+      "听，机组重新运转了。金黄市列车和紫苑镇电台也能恢复了。这份电磁炮送给你。"
+     ]
+    },
+    {
+     "remove_item": "发电机零件"
+    },
+    {
+     "give_item": {
+      "name": "城都招式学习器 07·电磁炮",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "flag": "j2_power"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_machine_part"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_power_missing",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_power_plant",
+    "actor": "j2_manager"
+   },
+   "steps": [
+    {
+     "who": "厂长",
+     "say": [
+      "发电机的零件被偷了。机组停转，偏偏修到最后一步才出这种事！"
+     ]
+    },
+    {
+     "flag": "j2_power_missing"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_ship_landed"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_power_tip",
+   "trigger": {
+    "type": "step",
+    "map": "johto_power_plant",
+    "area": [
+     0,
+     5,
+     5,
+     9
+    ]
+   },
+   "steps": [
+    {
+     "who": "警卫",
+     "say": [
+      "刚接到消息，华蓝市有人见到可疑男子，像是逃进了道馆。你肯帮忙吗？"
+     ]
+    },
+    {
+     "flag": "j2_power_tip"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_power_missing"
+    ],
+    "flags_none": [
+     "j2_power"
+    ]
+   }
+  },
+  {
+   "id": "j2_thief_ran",
+   "trigger": {
+    "type": "map_enter",
+    "map": "johto_cerulean_gym"
+   },
+   "steps": [
+    {
+     "who": "火箭队员",
+     "say": [
+      "糟糕，有人！我只是路过的……没、没偷东西！"
+     ]
+    },
+    {
+     "flag": "j2_thief_ran"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_power_missing"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_thief_beaten",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_route_24",
+    "actor": "j2_robber_bridge"
+   },
+   "steps": [
+    {
+     "who": "火箭队员",
+     "say": [
+      "你找到我了？好，决胜负！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "火箭队残党",
+      "team": [
+       {
+        "level": 30,
+        "species": 42
+       }
+      ]
+     }
+    },
+    {
+     "who": "火箭队员",
+     "say": [
+      "是我拆下来的。我把零件藏在华蓝道馆水池中间了！"
+     ]
+    },
+    {
+     "flag": "j2_thief_beaten"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_thief_ran"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_machine_part",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_cerulean_gym",
+    "actor": "j2_part"
+   },
+   "steps": [
+    {
+     "who": "",
+     "say": [
+      "你在水池边摸到了一个沉甸甸的金属部件。获得发电机零件！"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "发电机零件",
+      "count": 1,
+      "category": "key"
+     }
+    },
+    {
+     "flag": "j2_machine_part"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_power_missing"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_misty_back",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_route_25",
+    "actor": "j2_misty_date"
+   },
+   "steps": [
+    {
+     "who": "小霞",
+     "say": [
+      "啊！……他跑掉了。你看你，把我们的约会弄砸了。",
+      "等等，你就是从城都来的冠军？那就回华蓝道馆来一场吧！"
+     ]
+    },
+    {
+     "flag": "j2_misty_back"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_thief_ran"
+    ],
+    "flags_none": []
+   },
+   "also": [
+    {
+     "type": "step",
+     "map": "johto_route_25",
+     "area": [
+      21,
+      3,
+      22,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "id": "j2_expn",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_lav_radio_tower_1f",
+    "actor": "j2_radio"
+   },
+   "steps": [
+    {
+     "who": "电台台长",
+     "say": [
+      "信号回来了！多谢你帮忙恢复供电。",
+      "给你的宝可装置装上这张扩充卡，就能调到关都电台的「宝可梦之笛」了。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "收音机扩充卡",
+      "count": 1,
+      "category": "key"
+     }
+    },
+    {
+     "flag": "j2_expn"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_power"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_snorlax",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_vermilion_city",
+    "actor": "j2_snorlax"
+   },
+   "steps": [
+    {
+     "who": "",
+     "say": [
+      "收音机里传出的笛声叫醒了卡比兽！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "卡比兽",
+      "wild": true,
+      "team": [
+       {
+        "species": 143,
+        "level": 50
+       }
+      ]
+     }
+    },
+    {
+     "flag": "j2_snorlax"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_flute",
+     "j2_expn"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_lost_doll",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_copycats_house_2f",
+    "actor": "j2_copy"
+   },
+   "require": {
+    "flags_all": [
+     "j2_power"
+    ]
+   },
+   "steps": [
+    {
+     "who": "模仿少女",
+     "say": [
+      "我最喜欢的皮皮玩偶丢了。是不是落在枯叶市了？谁能帮我找回来，我就把磁浮列车通行证给他。"
+     ]
+    },
+    {
+     "flag": "j2_lost_doll"
+    }
+   ]
+  },
+  {
+   "id": "j2_doll",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_pokemon_fan_club",
+    "actor": "j2_doll_owner"
+   },
+   "steps": [
+    {
+     "who": "皮皮爱好者",
+     "say": [
+      "你认识金黄市那个模仿别人的女孩？这只皮皮玩偶原来是她的。请带回去吧。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "遗失玩偶",
+      "count": 1,
+      "category": "key"
+     }
+    },
+    {
+     "flag": "j2_doll"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_power",
+     "j2_lost_doll"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_train_pass",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_copycats_house_2f",
+    "actor": "j2_copy"
+   },
+   "steps": [
+    {
+     "who": "模仿少女",
+     "say": [
+      "你把我的皮皮找回来了！建磁浮列车时我家搬了家，他们送了我一张通行证。这张给你。"
+     ]
+    },
+    {
+     "remove_item": "遗失玩偶"
+    },
+    {
+     "give_item": {
+      "name": "磁浮列车通行证",
+      "count": 1,
+      "category": "key"
+     }
+    },
+    {
+     "flag": "j2_train_pass"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_doll"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_blue_returns",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_cinnabar_island",
+    "actor": "j2_blue"
+   },
+   "steps": [
+    {
+     "who": "青绿",
+     "say": [
+      "看看这里吧。一座城被火山吞没，只是一瞬间的事。",
+      "不过我还是训练家。你要和我对战，就来常磐道馆。"
+     ]
+    },
+    {
+     "flag": "j2_blue_returns"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_ship_landed"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_badge_ltsurge",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_vermilion_gym",
+    "actor": "j2_badge_ltsurge"
+   },
+   "steps": [
+    {
+     "who": "马志士",
+     "say": [
+      "城都的冠军？来试试我的电击部队！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 马志士",
+      "team": [
+       {
+        "level": 44,
+        "species": 26,
+        "moves": [
+         86,
+         98,
+         85,
+         87
+        ]
+       },
+       {
+        "level": 40,
+        "species": 101,
+        "moves": [
+         103,
+         104,
+         129,
+         153
+        ]
+       },
+       {
+        "level": 40,
+        "species": 82,
+        "moves": [
+         199,
+         104,
+         129,
+         192
+        ]
+       },
+       {
+        "level": 40,
+        "species": 101,
+        "moves": [
+         103,
+         104,
+         129,
+         153
+        ]
+       },
+       {
+        "level": 46,
+        "species": 125,
+        "moves": [
+         98,
+         9,
+         113,
+         87
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "who": "马志士",
+     "say": [
+      "好样的！在关都的第一仗够带劲。",
+      "获得了橙色徽章！"
+     ]
+    },
+    {
+     "johto_badge": "橙色徽章"
+    },
+    {
+     "flag": "j2_badge_ltsurge"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_ship_landed"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_badge_sabrina",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_saffron_gym",
+    "actor": "j2_badge_sabrina"
+   },
+   "steps": [
+    {
+     "who": "娜姿",
+     "say": [
+      "我在冥想时看见了你来这里的样子。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 娜姿",
+      "team": [
+       {
+        "level": 46,
+        "species": 196,
+        "moves": [
+         28,
+         98,
+         129,
+         94
+        ]
+       },
+       {
+        "level": 46,
+        "species": 122,
+        "moves": [
+         112,
+         115,
+         226,
+         94
+        ]
+       },
+       {
+        "level": 48,
+        "species": 65,
+        "moves": [
+         105,
+         248,
+         94,
+         115
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "who": "娜姿",
+     "say": [
+      "你的意志改变了我预见的结果。",
+      "获得了金色徽章！"
+     ]
+    },
+    {
+     "johto_badge": "金色徽章"
+    },
+    {
+     "flag": "j2_badge_sabrina"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_ship_landed"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_badge_erika",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_celadon_gym",
+    "actor": "j2_badge_erika"
+   },
+   "steps": [
+    {
+     "who": "莉佳",
+     "say": [
+      "欢迎来到玉虹道馆。让草系的伙伴们也认识你吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 莉佳",
+      "team": [
+       {
+        "level": 42,
+        "species": 114,
+        "moves": [
+         22,
+         20,
+         202,
+         79
+        ]
+       },
+       {
+        "level": 41,
+        "species": 189,
+        "moves": [
+         72,
+         73,
+         178,
+         202
+        ]
+       },
+       {
+        "level": 46,
+        "species": 71,
+        "moves": [
+         241,
+         235,
+         51,
+         75
+        ]
+       },
+       {
+        "level": 46,
+        "species": 182,
+        "moves": [
+         241,
+         235,
+         80,
+         76
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "who": "莉佳",
+     "say": [
+      "你和伙伴之间的默契，让我想起春日盛开的花。",
+      "获得了彩虹徽章！"
+     ]
+    },
+    {
+     "johto_badge": "彩虹徽章"
+    },
+    {
+     "flag": "j2_badge_erika"
+    },
+    {
+     "give_item": {
+      "name": "城都招式学习器 19·终极吸取",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "who": "莉佳",
+     "say": [
+      "这份终极吸取也送给你。"
+     ]
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_ship_landed"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_badge_janine",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_fuchsia_gym",
+    "actor": "j2_badge_janine"
+   },
+   "steps": [
+    {
+     "who": "阿杏",
+     "say": [
+      "猜对了，我才是阿杏！爸爸去了四天王，我接下了这座道馆。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 阿杏",
+      "team": [
+       {
+        "level": 36,
+        "species": 169,
+        "moves": [
+         103,
+         48,
+         109,
+         17
+        ]
+       },
+       {
+        "level": 36,
+        "species": 110,
+        "moves": [
+         123,
+         188,
+         92,
+         153
+        ]
+       },
+       {
+        "level": 36,
+        "species": 110,
+        "moves": [
+         123,
+         188,
+         92,
+         153
+        ]
+       },
+       {
+        "level": 33,
+        "species": 168,
+        "moves": [
+         184,
+         202,
+         81,
+         101
+        ]
+       },
+       {
+        "level": 39,
+        "species": 49,
+        "moves": [
+         193,
+         104,
+         16,
+         94
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "who": "阿杏",
+     "say": [
+      "我还得继续修行。有一天，我要超越爸爸和你。",
+      "获得了粉红徽章！"
+     ]
+    },
+    {
+     "johto_badge": "粉红徽章"
+    },
+    {
+     "flag": "j2_badge_janine"
+    },
+    {
+     "give_item": {
+      "name": "城都招式学习器 06·剧毒",
+      "count": 1,
+      "category": "tm"
+     }
+    },
+    {
+     "who": "阿杏",
+     "say": [
+      "这份剧毒也送给你。"
+     ]
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_ship_landed"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_badge_misty",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_cerulean_gym",
+    "actor": "j2_badge_misty"
+   },
+   "steps": [
+    {
+     "who": "小霞",
+     "say": [
+      "海角见过面了。站上道馆的泳池，就得用对战说话！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 小霞",
+      "team": [
+       {
+        "level": 42,
+        "species": 55,
+        "moves": [
+         57,
+         50,
+         244,
+         94
+        ]
+       },
+       {
+        "level": 42,
+        "species": 195,
+        "moves": [
+         57,
+         133,
+         89,
+         240
+        ]
+       },
+       {
+        "level": 44,
+        "species": 131,
+        "moves": [
+         57,
+         195,
+         59,
+         240
+        ]
+       },
+       {
+        "level": 47,
+        "species": 121,
+        "moves": [
+         57,
+         109,
+         105,
+         58
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "who": "小霞",
+     "say": [
+      "你的宝可梦游得真快。这枚徽章归你了。",
+      "获得了蓝色徽章！"
+     ]
+    },
+    {
+     "johto_badge": "蓝色徽章"
+    },
+    {
+     "flag": "j2_badge_misty"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_ship_landed",
+     "j2_misty_back"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_badge_brock",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_pewter_gym",
+    "actor": "j2_badge_brock"
+   },
+   "steps": [
+    {
+     "who": "小刚",
+     "say": [
+      "岩石般坚韧的防守，是我和伙伴们的信念。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 小刚",
+      "team": [
+       {
+        "level": 41,
+        "species": 75,
+        "moves": [
+         111,
+         157,
+         205,
+         89
+        ]
+       },
+       {
+        "level": 41,
+        "species": 111,
+        "moves": [
+         31,
+         184,
+         89,
+         32
+        ]
+       },
+       {
+        "level": 42,
+        "species": 139,
+        "moves": [
+         44,
+         57,
+         182,
+         131
+        ]
+       },
+       {
+        "level": 44,
+        "species": 95,
+        "moves": [
+         20,
+         157,
+         117,
+         201
+        ]
+       },
+       {
+        "level": 42,
+        "species": 141,
+        "moves": [
+         163,
+         57,
+         203,
+         202
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "who": "小刚",
+     "say": [
+      "你冲破了我们坚固的阵势。尼比道馆承认你的实力。",
+      "获得了灰色徽章！"
+     ]
+    },
+    {
+     "johto_badge": "灰色徽章"
+    },
+    {
+     "flag": "j2_badge_brock"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_ship_landed"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_badge_blaine",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_seafoam_gym",
+    "actor": "j2_badge_blaine"
+   },
+   "steps": [
+    {
+     "who": "夏伯",
+     "say": [
+      "红莲道馆毁于火山。我在双子岛重新点起了火！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 夏伯",
+      "team": [
+       {
+        "level": 45,
+        "species": 219,
+        "moves": [
+         174,
+         123,
+         53,
+         157
+        ]
+       },
+       {
+        "level": 45,
+        "species": 126,
+        "moves": [
+         9,
+         7,
+         241,
+         109
+        ]
+       },
+       {
+        "level": 50,
+        "species": 78,
+        "moves": [
+         98,
+         83,
+         31,
+         126
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "who": "夏伯",
+     "say": [
+      "火焰还在。你遇到过比今天更热的对战吗？",
+      "获得了深红徽章！"
+     ]
+    },
+    {
+     "johto_badge": "深红徽章"
+    },
+    {
+     "flag": "j2_badge_blaine"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_ship_landed"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_badge_blue",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_viridian_gym",
+    "actor": "j2_badge_blue"
+   },
+   "steps": [
+    {
+     "who": "青绿",
+     "say": [
+      "来了？这座道馆没有固定属性。拿出你最强的队伍！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "馆主 青绿",
+      "team": [
+       {
+        "level": 56,
+        "species": 18,
+        "moves": [
+         98,
+         18,
+         17,
+         119
+        ]
+       },
+       {
+        "level": 54,
+        "species": 65,
+        "moves": [
+         50,
+         105,
+         94,
+         115
+        ]
+       },
+       {
+        "level": 56,
+        "species": 112,
+        "moves": [
+         31,
+         201,
+         157,
+         89
+        ]
+       },
+       {
+        "level": 58,
+        "species": 130,
+        "moves": [
+         239,
+         56,
+         240,
+         63
+        ]
+       },
+       {
+        "level": 58,
+        "species": 103,
+        "moves": [
+         241,
+         73,
+         121,
+         76
+        ]
+       },
+       {
+        "level": 58,
+        "species": 59,
+        "moves": [
+         46,
+         129,
+         53,
+         245
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "who": "青绿",
+     "say": [
+      "赢得漂亮。绿色徽章给你，接下来的路自己走吧。",
+      "获得了绿色徽章！"
+     ]
+    },
+    {
+     "johto_badge": "绿色徽章"
+    },
+    {
+     "flag": "j2_badge_blue"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_ship_landed",
+     "j2_blue_returns"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_silver_pass",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_oaks_lab",
+    "actor": "j2_oak"
+   },
+   "steps": [
+    {
+     "who": "大木博士",
+     "say": [
+      "你已经集齐城都和关都的十六枚徽章！",
+      "我会通知联盟关卡开放通往白银山的西侧通道。山里的宝可梦很强，小心行进。"
+     ]
+    },
+    {
+     "flag": "j2_silver_pass"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "johto_champion",
+     "j2_badge_ltsurge",
+     "j2_badge_sabrina",
+     "j2_badge_erika",
+     "j2_badge_janine",
+     "j2_badge_misty",
+     "j2_badge_brock",
+     "j2_badge_blaine",
+     "j2_badge_blue"
+    ],
+    "flags_none": []
+   }
+  },
+  {
+   "id": "j2_red_battle",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_silver_cave_room_3",
+    "actor": "j2_red"
+   },
+   "steps": [
+    {
+     "who": "赤红",
+     "say": [
+      "…………"
+     ]
+    },
+    {
+     "battle": {
+      "name": "赤红",
+      "team": [
+       {
+        "level": 81,
+        "species": 25,
+        "moves": [
+         204,
+         98,
+         85,
+         87
+        ]
+       },
+       {
+        "level": 73,
+        "species": 196,
+        "moves": [
+         189,
+         115,
+         129,
+         94
+        ]
+       },
+       {
+        "level": 75,
+        "species": 143,
+        "moves": [
+         133,
+         173,
+         156,
+         34
+        ]
+       },
+       {
+        "level": 77,
+        "species": 3,
+        "moves": [
+         241,
+         202,
+         235,
+         76
+        ]
+       },
+       {
+        "level": 77,
+        "species": 6,
+        "moves": [
+         53,
+         17,
+         163,
+         83
+        ]
+       },
+       {
+        "level": 77,
+        "species": 9,
+        "moves": [
+         240,
+         57,
+         59,
+         250
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "who": "赤红",
+     "say": [
+      "…………！"
+     ]
+    },
+    {
+     "flag": "j2_red_defeated"
+    },
+    {
+     "flag": "j2_red_away"
+    },
+    {
+     "heal": true
+    },
+    {
+     "who": "",
+     "say": [
+      "赤红收起精灵球，在山顶的寂静中离开了。你的伙伴也恢复了精神。"
+     ]
+    },
+    {
+     "who": "城都篇 · 终",
+     "say": [
+      "从若叶镇出发的那一天，到白银山顶的最后一战。谢谢与你同行的每一位伙伴。"
+     ]
+    },
+    {
+     "warp": {
+      "region": "johto",
+      "map": "johto_players_house_2f",
+      "at": [
+       1,
+       1
+      ]
+     }
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "j2_silver_pass"
+    ],
+    "flags_none": [
+     "j2_red_away"
+    ]
+   },
+   "once": false
+  },
+  {
+   "id": "j2_rival_victory",
+   "trigger": {
+    "type": "talk",
+    "map": "johto_victory_road",
+    "actor": "j2_rival_victory"
+   },
+   "steps": [
+    {
+     "who": "劲敌",
+     "say": [
+      "站住！连我都赢不了的话，你还想挑战联盟吗？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "劲敌",
+      "johto_rival": 5
+     }
+    },
+    {
+     "who": "劲敌",
+     "say": [
+      "为什么我还是赢不了？……阿渡说过，我该相信我的伙伴。"
+     ]
+    },
+    {
+     "flag": "j2_rival_victory"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "johto_starter"
+    ],
+    "flags_none": []
+   },
+   "also": [
+    {
+     "type": "step",
+     "map": "johto_victory_road",
+     "area": [
+      6,
+      3,
+      7,
+      6
+     ]
+    }
+   ]
+  },
+  {
+   "id": "j2_champion_interview",
+   "once": false,
+   "trigger": {
+    "type": "talk",
+    "map": "johto_lances_room",
+    "actor": "j2_press"
+   },
+   "also": [
+    {
+     "type": "step",
+     "map": "johto_lances_room"
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "johto_league_lance"
+    ],
+    "flags_none": [
+     "j2_press_done"
+    ]
+   },
+   "steps": [
+    {
+     "johto_press": [
+      "mary"
+     ]
+    },
+    {
+     "who": "电台主持人 胡桃",
+     "say": [
+      "博士，快！特别报道可不能错过新冠军诞生的这一刻。"
+     ]
+    },
+    {
+     "johto_press": [
+      "mary",
+      "oak"
+     ]
+    },
+    {
+     "who": "大木博士",
+     "say": [
+      "自从在宝可梦爷爷那里见到你，你的宝可梦图鉴和队伍都成长了不少。你真心爱护伙伴，它们也回应了你。恭喜你，冠军！"
+     ]
+    },
+    {
+     "who": "胡桃",
+     "say": [
+      "听众们都在等着呢！能谈谈你现在的感受吗？"
+     ]
+    },
+    {
+     "who": "阿渡",
+     "say": [
+      "这里太吵了。跟我来，我们先去名人堂，为你和伙伴登记。"
+     ]
+    },
+    {
+     "who": "胡桃",
+     "say": [
+      "等一下！我的采访……！"
+     ]
+    },
+    {
+     "flag": "j2_press_done"
+    },
+    {
+     "johto_enter_hall": true
+    }
+   ]
+  }
+ ],
+ "badges": [
+  "j2_badge_ltsurge",
+  "j2_badge_sabrina",
+  "j2_badge_erika",
+  "j2_badge_janine",
+  "j2_badge_misty",
+  "j2_badge_brock",
+  "j2_badge_blaine",
+  "j2_badge_blue"
+ ]
+}

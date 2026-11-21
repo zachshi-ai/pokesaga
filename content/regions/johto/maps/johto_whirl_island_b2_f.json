@@ -9,47 +9,7 @@
   2,
   6
  ],
- "npcs": [
-  {
-   "at": [
-    4,
-    5
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    3,
-    2
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    2,
-    6
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  }
- ],
+ "npcs": [],
  "warps": [
   {
    "at": [
@@ -113,47 +73,81 @@
    "species": 98,
    "min": 24,
    "max": 24,
-   "weight": 110
+   "weight": 30
   },
   {
    "species": 41,
    "min": 25,
    "max": 25,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 86,
    "min": 24,
    "max": 24,
-   "weight": 40
+   "weight": 20
   },
   {
    "species": 98,
-   "min": 26,
-   "max": 26,
-   "weight": 30
-  },
-  {
-   "species": 42,
-   "min": 27,
-   "max": 27,
-   "weight": 15
-  },
-  {
-   "species": 86,
    "min": 26,
    "max": 26,
    "weight": 10
   },
   {
    "species": 42,
+   "min": 27,
+   "max": 27,
+   "weight": 5
+  },
+  {
+   "species": 86,
    "min": 26,
    "max": 26,
    "weight": 5
   }
  ],
  "encounter_rate": 0.06,
- "objects": [],
+ "objects": [
+  {
+   "kind": "item",
+   "at": [
+    4,
+    5
+   ],
+   "source_script": "WhirlIslandB2FFullRestore",
+   "flag": "EVENT_WHIRL_ISLAND_B2F_FULL_RESTORE",
+   "sprite": "item",
+   "name": "全复药",
+   "category": "heal",
+   "item": "ITEM_FULL_RESTORE"
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    2
+   ],
+   "source_script": "WhirlIslandB2FMaxRevive",
+   "flag": "EVENT_WHIRL_ISLAND_B2F_MAX_REVIVE",
+   "sprite": "item",
+   "name": "活力块",
+   "category": "heal",
+   "item": "ITEM_MAX_REVIVE"
+  },
+  {
+   "kind": "item",
+   "at": [
+    2,
+    6
+   ],
+   "source_script": "WhirlIslandB2FMaxElixer",
+   "flag": "EVENT_WHIRL_ISLAND_B2F_MAX_ELIXER",
+   "sprite": "item",
+   "name": "PP 多项全补剂",
+   "category": "heal",
+   "item": "ITEM_MAX_ELIXIR"
+  }
+ ],
  "weather": "",
  "weather_name": "",
  "cycling": false,
@@ -177,5 +171,42 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.04
+ "water_encounter_rate": 0.04,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 98,
+     "min": 24,
+     "max": 24,
+     "weight": 50
+    },
+    {
+     "species": 41,
+     "min": 25,
+     "max": 25,
+     "weight": 30
+    },
+    {
+     "species": 98,
+     "min": 26,
+     "max": 26,
+     "weight": 10
+    },
+    {
+     "species": 42,
+     "min": 27,
+     "max": 27,
+     "weight": 5
+    },
+    {
+     "species": 42,
+     "min": 26,
+     "max": 26,
+     "weight": 5
+    }
+   ],
+   "rate": 0.06
+  }
+ }
 }

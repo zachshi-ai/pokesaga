@@ -9,34 +9,7 @@
   7,
   9
  ],
- "npcs": [
-  {
-   "at": [
-    2,
-    9
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    5,
-    7
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  }
- ],
+ "npcs": [],
  "warps": [
   {
    "at": [
@@ -123,8 +96,45 @@
    }
   }
  ],
- "encounters": [],
- "encounter_rate": 0.0,
+ "encounters": [
+  {
+   "species": 104,
+   "min": 10,
+   "max": 10,
+   "weight": 30
+  },
+  {
+   "species": 74,
+   "min": 11,
+   "max": 11,
+   "weight": 30
+  },
+  {
+   "species": 66,
+   "min": 12,
+   "max": 12,
+   "weight": 20
+  },
+  {
+   "species": 41,
+   "min": 12,
+   "max": 12,
+   "weight": 10
+  },
+  {
+   "species": 67,
+   "min": 15,
+   "max": 15,
+   "weight": 5
+  },
+  {
+   "species": 105,
+   "min": 12,
+   "max": 12,
+   "weight": 5
+  }
+ ],
+ "encounter_rate": 0.06,
  "objects": [
   {
    "at": [
@@ -151,10 +161,72 @@
    "category": "battle",
    "flag": "johto:EVENT_ROCK_TUNNEL_1F_HIDDEN_X_DEFEND",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    2,
+    9
+   ],
+   "source_script": "RockTunnel1FElixer",
+   "flag": "EVENT_ROCK_TUNNEL_1F_ELIXER",
+   "sprite": "item",
+   "name": "PP 多项小补剂",
+   "category": "heal",
+   "item": "ITEM_ELIXIR"
+  },
+  {
+   "kind": "item",
+   "at": [
+    5,
+    7
+   ],
+   "source_script": "RockTunnel1FTMSteelWing",
+   "flag": "EVENT_ROCK_TUNNEL_1F_TM_STEEL_WING",
+   "sprite": "item",
+   "name": "城都招式学习器·钢翼",
+   "category": "tm"
   }
  ],
  "weather": "",
  "weather_name": "",
  "cycling": false,
- "dark": true
+ "dark": true,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 41,
+     "min": 12,
+     "max": 12,
+     "weight": 30
+    },
+    {
+     "species": 74,
+     "min": 11,
+     "max": 11,
+     "weight": 30
+    },
+    {
+     "species": 74,
+     "min": 12,
+     "max": 12,
+     "weight": 20
+    },
+    {
+     "species": 93,
+     "min": 17,
+     "max": 17,
+     "weight": 10
+    },
+    {
+     "species": 41,
+     "min": 15,
+     "max": 15,
+     "weight": 10
+    }
+   ],
+   "rate": 0.06
+  }
+ }
 }

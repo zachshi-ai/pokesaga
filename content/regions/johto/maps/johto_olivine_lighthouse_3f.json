@@ -60,7 +60,7 @@
     "map": "johto_olivine_lighthouse_4f",
     "at": [
      6,
-     2
+     1
     ]
    }
   },
@@ -73,7 +73,7 @@
     "region": "johto",
     "map": "johto_olivine_lighthouse_2f",
     "at": [
-     3,
+     2,
      1
     ]
    }
@@ -116,7 +116,7 @@
     "map": "johto_olivine_lighthouse_2f",
     "at": [
      7,
-     4
+     5
     ]
    }
   },
@@ -130,7 +130,7 @@
     "map": "johto_olivine_lighthouse_4f",
     "at": [
      8,
-     5
+     4
     ]
    }
   },
@@ -144,7 +144,7 @@
     "map": "johto_olivine_lighthouse_4f",
     "at": [
      7,
-     5
+     4
     ]
    }
   },
@@ -157,7 +157,7 @@
     "region": "johto",
     "map": "johto_olivine_lighthouse_4f",
     "at": [
-     5,
+     4,
      1
     ]
    }
@@ -172,7 +172,7 @@
     "map": "johto_olivine_lighthouse_4f",
     "at": [
      2,
-     2
+     1
     ]
    }
   }

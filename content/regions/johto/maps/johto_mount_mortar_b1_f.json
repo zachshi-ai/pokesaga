@@ -12,32 +12,6 @@
  "npcs": [
   {
    "at": [
-    14,
-    6
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    2,
-    8
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
     4,
     5
    ],
@@ -59,45 +33,6 @@
    "lines": [
     "心技体，缺一不可！",
     "来，跟我练两招。"
-   ]
-  },
-  {
-   "at": [
-    17,
-    12
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    15,
-    1
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    10,
-    13
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
    ]
   }
  ],
@@ -136,43 +71,37 @@
    "species": 41,
    "min": 15,
    "max": 15,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 41,
    "min": 17,
    "max": 17,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 42,
    "min": 17,
    "max": 17,
-   "weight": 60
+   "weight": 20
   },
   {
    "species": 66,
    "min": 16,
    "max": 16,
-   "weight": 20
+   "weight": 10
   },
   {
    "species": 74,
    "min": 16,
    "max": 16,
-   "weight": 15
+   "weight": 5
   },
   {
    "species": 20,
    "min": 18,
    "max": 18,
-   "weight": 15
-  },
-  {
-   "species": 183,
-   "min": 16,
-   "max": 16,
-   "weight": 10
+   "weight": 5
   }
  ],
  "encounter_rate": 0.06,
@@ -189,6 +118,71 @@
    "category": "heal",
    "flag": "johto:EVENT_MOUNT_MORTAR_B1F_HIDDEN_MAX_REVIVE",
    "count": 1
+  },
+  {
+   "kind": "item",
+   "at": [
+    14,
+    6
+   ],
+   "source_script": "MountMortarB1FHyperPotion",
+   "flag": "EVENT_MOUNT_MORTAR_B1F_HYPER_POTION",
+   "sprite": "item",
+   "name": "厉害伤药",
+   "category": "heal",
+   "item": "ITEM_HYPER_POTION"
+  },
+  {
+   "kind": "item",
+   "at": [
+    2,
+    8
+   ],
+   "source_script": "MountMortarB1FCarbos",
+   "flag": "EVENT_MOUNT_MORTAR_B1F_CARBOS",
+   "sprite": "item",
+   "name": "速度增强剂",
+   "category": "other",
+   "item": "ITEM_CARBOS"
+  },
+  {
+   "kind": "item",
+   "at": [
+    17,
+    12
+   ],
+   "source_script": "MountMortarB1FFullRestore",
+   "flag": "EVENT_MOUNT_MORTAR_B1F_FULL_RESTORE",
+   "sprite": "item",
+   "name": "全复药",
+   "category": "heal",
+   "item": "ITEM_FULL_RESTORE"
+  },
+  {
+   "kind": "item",
+   "at": [
+    15,
+    1
+   ],
+   "source_script": "MountMortarB1FMaxEther",
+   "flag": "EVENT_MOUNT_MORTAR_B1F_MAX_ETHER",
+   "sprite": "item",
+   "name": "PP 单项全补剂",
+   "category": "heal",
+   "item": "ITEM_MAX_ETHER"
+  },
+  {
+   "kind": "item",
+   "at": [
+    10,
+    13
+   ],
+   "source_script": "MountMortarB1FPPUp",
+   "flag": "EVENT_MOUNT_MORTAR_B1F_PP_UP",
+   "sprite": "item",
+   "name": "PP 提升剂",
+   "category": "other",
+   "item": "ITEM_PP_UP"
   }
  ],
  "weather": "",
@@ -214,5 +208,48 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.02
+ "water_encounter_rate": 0.02,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 41,
+     "min": 15,
+     "max": 15,
+     "weight": 30
+    },
+    {
+     "species": 41,
+     "min": 17,
+     "max": 17,
+     "weight": 30
+    },
+    {
+     "species": 42,
+     "min": 17,
+     "max": 17,
+     "weight": 20
+    },
+    {
+     "species": 183,
+     "min": 16,
+     "max": 16,
+     "weight": 10
+    },
+    {
+     "species": 74,
+     "min": 16,
+     "max": 16,
+     "weight": 5
+    },
+    {
+     "species": 20,
+     "min": 18,
+     "max": 18,
+     "weight": 5
+    }
+   ],
+   "rate": 0.06
+  }
+ }
 }

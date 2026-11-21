@@ -88,19 +88,6 @@
     ]
    },
    "trainer": "SageChow"
-  },
-  {
-   "at": [
-    8,
-    3
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -197,6 +184,19 @@
    "kind": "sign",
    "sprite": "sign",
    "text": "一尊仪态庄严的宝可梦雕像。"
+  },
+  {
+   "kind": "item",
+   "at": [
+    8,
+    3
+   ],
+   "source_script": "SproutTower1FParlyzHeal",
+   "flag": "EVENT_SPROUT_TOWER_1F_PARLYZ_HEAL",
+   "sprite": "item",
+   "name": "麻痹药",
+   "category": "heal",
+   "item": "ITEM_PARALYZE_HEAL"
   }
  ],
  "weather": "",

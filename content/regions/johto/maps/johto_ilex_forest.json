@@ -61,19 +61,6 @@
   },
   {
    "at": [
-    10,
-    16
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
     1,
     12
    ],
@@ -122,45 +109,6 @@
     ]
    },
    "trainer": "BugCatcherWayne"
-  },
-  {
-   "at": [
-    4,
-    8
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    8,
-    3
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    13,
-    0
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -212,66 +160,36 @@
    "species": 10,
    "min": 5,
    "max": 5,
-   "weight": 60
+   "weight": 30
   },
   {
    "species": 13,
    "min": 5,
    "max": 5,
-   "weight": 60
+   "weight": 30
   },
   {
    "species": 11,
    "min": 7,
    "max": 7,
-   "weight": 40
-  },
-  {
-   "species": 43,
-   "min": 5,
-   "max": 5,
-   "weight": 30
-  },
-  {
-   "species": 48,
-   "min": 5,
-   "max": 5,
-   "weight": 30
+   "weight": 20
   },
   {
    "species": 14,
    "min": 7,
    "max": 7,
-   "weight": 20
-  },
-  {
-   "species": 43,
-   "min": 7,
-   "max": 7,
-   "weight": 20
-  },
-  {
-   "species": 46,
-   "min": 6,
-   "max": 6,
-   "weight": 15
+   "weight": 10
   },
   {
    "species": 16,
    "min": 7,
    "max": 7,
-   "weight": 10
+   "weight": 5
   },
   {
-   "species": 54,
-   "min": 7,
-   "max": 7,
-   "weight": 10
-  },
-  {
-   "species": 163,
-   "min": 7,
-   "max": 7,
+   "species": 46,
+   "min": 6,
+   "max": 6,
    "weight": 5
   }
  ],
@@ -335,6 +253,67 @@
    "kind": "sign",
    "sprite": "sign",
    "text": "林中小祠，供奉着守护这片森林的宝可梦。"
+  },
+  {
+   "kind": "item",
+   "at": [
+    10,
+    16
+   ],
+   "source_script": "IlexForestRevive",
+   "flag": "EVENT_ILEX_FOREST_REVIVE",
+   "sprite": "item",
+   "name": "活力碎片",
+   "category": "heal",
+   "item": "ITEM_REVIVE"
+  },
+  {
+   "kind": "item",
+   "at": [
+    4,
+    8
+   ],
+   "source_script": "IlexForestXAttack",
+   "flag": "EVENT_ILEX_FOREST_X_ATTACK",
+   "sprite": "item",
+   "name": "力量强化",
+   "category": "battle",
+   "item": "ITEM_X_ATTACK"
+  },
+  {
+   "kind": "item",
+   "at": [
+    8,
+    3
+   ],
+   "source_script": "IlexForestAntidote",
+   "flag": "EVENT_ILEX_FOREST_ANTIDOTE",
+   "sprite": "item",
+   "name": "解毒药",
+   "category": "heal",
+   "item": "ITEM_ANTIDOTE"
+  },
+  {
+   "kind": "item",
+   "at": [
+    13,
+    0
+   ],
+   "source_script": "IlexForestEther",
+   "flag": "EVENT_ILEX_FOREST_ETHER",
+   "sprite": "item",
+   "name": "PP 单项小补剂",
+   "category": "heal",
+   "item": "ITEM_ETHER"
+  },
+  {
+   "at": [
+    4,
+    12
+   ],
+   "kind": "cut",
+   "flag": "j_forest_path_clear",
+   "baked": true
   }
  ],
  "weather": "",
@@ -360,5 +339,48 @@
    "weight": 10
   }
  ],
- "water_encounter_rate": 0.02
+ "water_encounter_rate": 0.02,
+ "encounters_by_time": {
+  "nite": {
+   "pool": [
+    {
+     "species": 43,
+     "min": 5,
+     "max": 5,
+     "weight": 30
+    },
+    {
+     "species": 48,
+     "min": 5,
+     "max": 5,
+     "weight": 30
+    },
+    {
+     "species": 43,
+     "min": 7,
+     "max": 7,
+     "weight": 20
+    },
+    {
+     "species": 54,
+     "min": 7,
+     "max": 7,
+     "weight": 10
+    },
+    {
+     "species": 163,
+     "min": 7,
+     "max": 7,
+     "weight": 5
+    },
+    {
+     "species": 46,
+     "min": 6,
+     "max": 6,
+     "weight": 5
+    }
+   ],
+   "rate": 0.04
+  }
+ }
 }

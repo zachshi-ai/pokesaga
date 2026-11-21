@@ -69,45 +69,6 @@
     ]
    },
    "trainer": "BirdKeeperDenis"
-  },
-  {
-   "at": [
-    7,
-    6
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    3,
-    7
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
-  },
-  {
-   "at": [
-    1,
-    6
-   ],
-   "name": "道具球",
-   "gfx": "man",
-   "lines": [
-    "哟，眼生得很啊。",
-    "城都这地方，慢慢逛才有味道。",
-    "出远门记得带足伤药。"
-   ]
   }
  ],
  "warps": [
@@ -121,7 +82,7 @@
     "map": "johto_olivine_lighthouse_6f",
     "at": [
      4,
-     8
+     7
     ]
    }
   },
@@ -135,7 +96,7 @@
     "map": "johto_olivine_lighthouse_4f",
     "at": [
      1,
-     3
+     2
     ]
    }
   },
@@ -162,7 +123,7 @@
     "region": "johto",
     "map": "johto_olivine_lighthouse_4f",
     "at": [
-     7,
+     8,
      3
     ]
    }
@@ -176,7 +137,7 @@
     "region": "johto",
     "map": "johto_olivine_lighthouse_4f",
     "at": [
-     7,
+     8,
      2
     ]
    }
@@ -191,7 +152,7 @@
     "map": "johto_olivine_lighthouse_6f",
     "at": [
      8,
-     3
+     2
     ]
    }
   },
@@ -205,14 +166,53 @@
     "map": "johto_olivine_lighthouse_6f",
     "at": [
      7,
-     3
+     2
     ]
    }
   }
  ],
  "encounters": [],
  "encounter_rate": 0.0,
- "objects": [],
+ "objects": [
+  {
+   "kind": "item",
+   "at": [
+    7,
+    6
+   ],
+   "source_script": "OlivineLighthouse5FRareCandy",
+   "flag": "EVENT_OLIVINE_LIGHTHOUSE_5F_RARE_CANDY",
+   "sprite": "item",
+   "name": "神奇糖果",
+   "category": "other",
+   "item": "ITEM_RARE_CANDY"
+  },
+  {
+   "kind": "item",
+   "at": [
+    3,
+    7
+   ],
+   "source_script": "OlivineLighthouse5FSuperRepel",
+   "flag": "EVENT_OLIVINE_LIGHTHOUSE_5F_SUPER_REPEL",
+   "sprite": "item",
+   "name": "白银喷雾",
+   "category": "other",
+   "item": "ITEM_SUPER_REPEL"
+  },
+  {
+   "kind": "item",
+   "at": [
+    1,
+    6
+   ],
+   "source_script": "OlivineLighthouse5FTMSwagger",
+   "flag": "EVENT_OLIVINE_LIGHTHOUSE_5F_TM_SWAGGER",
+   "sprite": "item",
+   "name": "城都招式学习器·虚张声势",
+   "category": "tm"
+  }
+ ],
  "weather": "",
  "weather_name": "",
  "cycling": false

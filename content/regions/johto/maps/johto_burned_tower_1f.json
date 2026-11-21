@@ -308,31 +308,31 @@
    "species": 19,
    "min": 13,
    "max": 13,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 109,
    "min": 14,
    "max": 14,
-   "weight": 90
+   "weight": 30
   },
   {
    "species": 19,
    "min": 15,
    "max": 15,
-   "weight": 75
+   "weight": 25
   },
   {
    "species": 41,
    "min": 14,
    "max": 14,
-   "weight": 30
+   "weight": 10
   },
   {
    "species": 20,
    "min": 15,
    "max": 15,
-   "weight": 15
+   "weight": 5
   }
  ],
  "encounter_rate": 0.04,
@@ -366,5 +366,6 @@
  ],
  "weather": "",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "encounters_by_time": {}
 }
