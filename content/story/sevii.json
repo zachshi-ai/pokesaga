@@ -1,6 +1,13 @@
 {
   "region": "sevii",
   "events": [
+    {"id": "rescue_icefall", "trigger": {"type": "step", "map": "four_island_icefall_cave_back", "area": [11, 18, 14, 19]}, "also": [{"type": "talk", "map": "four_island_icefall_cave_back", "actor": "icefall_lorelei"}], "steps": [{"who": "科拿", "say": ["那些人想抓走洞里的宝可梦。请帮我挡住右边的手下！"]}, {"battle": {"name": "火箭队手下", "team": [{"species": 41, "level": 38}, {"species": 41, "level": 38}, {"species": 42, "level": 38}]}}, {"who": "火箭队手下", "say": ["撤退！回五之岛的仓库！"]}, {"who": "科拿", "say": ["刚才多亏有你。五之岛还有他们的同伙。"]}, {"flag": "rescued_icefall"}]},
+    {"id": "celio_accept_ruby", "trigger": {"type": "talk", "actor": "celio", "map": "one_island_pokemon_center_1f"}, "require": {"flags_all": ["got_ember_ruby"]}, "steps": [{"who": "锦辉", "say": ["正是这块红宝石！我终于能把它装进网络机器了。收下这张彩虹通行证吧。"]}, {"remove_item": "红宝石"}, {"give_item": {"name": "彩虹通行证", "category": "key", "count": 1}}, {"flag": "delivered_ember_ruby"}]},
+    {"id": "celio_requests_ruby", "trigger": {"type": "talk", "actor": "celio", "map": "one_island_pokemon_center_1f"}, "require": {"flags_all": ["got_dex"]}, "steps": [{"who": "锦辉", "say": ["你的图鉴已经能记录各地的宝可梦了！我也想让各地的电脑连起来。听说在灯火山能找到机器需要的红宝石，可以替我找找吗？"]}, {"flag": "ember_ruby_requested"}]},
+    {"id": "ember_warehouse_password", "trigger": {"type": "step", "map": "mt_ember_exterior", "area": [37, 43, 40, 44]}, "require": {"flags_all": ["ember_ruby_requested"]}, "steps": [{"who": "火箭队手下", "say": ["终于挖通了！仓库的第一个口令是「角金鱼，需要它」……喂！你偷听到了什么？"]}]},
+    {"id": "ember_grunt_1", "trigger": {"type": "talk", "actor": "ember_grunt_1", "map": "mt_ember_exterior"}, "require": {"flags_all": ["ember_ruby_requested"]}, "steps": [{"who": "火箭队手下", "say": ["不准进去！想过这里，先打赢我！"]}, {"battle": {"name": "火箭队手下", "team": [{"species": 104, "level": 37}, {"species": 105, "level": 37}], "win_say": ["竟然输给你了……"]}}, {"flag": "beat_ember_grunt_1"}]},
+    {"id": "ember_grunt_2", "trigger": {"type": "talk", "actor": "ember_grunt_2", "map": "mt_ember_exterior"}, "require": {"flags_all": ["ember_ruby_requested"]}, "steps": [{"who": "火箭队手下", "say": ["不准进去！想过这里，先打赢我！"]}, {"battle": {"name": "火箭队手下", "team": [{"species": 19, "level": 35}, {"species": 20, "level": 35}, {"species": 27, "level": 35}, {"species": 28, "level": 35}], "win_say": ["竟然输给你了……"]}}, {"flag": "beat_ember_grunt_2"}]},
+    {"id": "collect_ember_ruby", "trigger": {"type": "talk", "actor": "ember_ruby", "map": "mt_ember_ruby_path_b5f"}, "require": {"flags_all": ["beat_ember_grunt_1", "beat_ember_grunt_2"]}, "steps": [{"who": "旁白", "say": ["拿到了红宝石！把它带回一之岛的宝可梦网络中心吧。"]}, {"give_item": {"name": "红宝石", "category": "key", "count": 1}}, {"flag": "got_ember_ruby"}]},
     {
       "id": "sevii_arrive",
       "once": true,

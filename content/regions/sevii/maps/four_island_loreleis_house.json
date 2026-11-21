@@ -204,9 +204,15 @@
     "map": "four_island",
     "at": [
      33,
+     24
+    ],
+    "arrival_from": [
+     33,
      23
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

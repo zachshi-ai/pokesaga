@@ -26,20 +26,6 @@
  "warps": [
   {
    "at": [
-    3,
-    7
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     307,
-     158
-    ]
-   }
-  },
-  {
-   "at": [
     4,
     7
    ],
@@ -47,24 +33,16 @@
     "region": "kanto",
     "map": "kanto_main",
     "at": [
-     307,
-     158
-    ]
-   }
-  },
-  {
-   "at": [
-    5,
-    7
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     307,
-     158
-    ]
-   }
+     355,
+     189
+    ],
+    "arrival_from": [
+     355,
+     188
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

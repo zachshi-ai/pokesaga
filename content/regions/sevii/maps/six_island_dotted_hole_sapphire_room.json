@@ -50,21 +50,8 @@
      13,
      5
     ]
-   }
-  },
-  {
-   "at": [
-    5,
-    9
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_dotted_hole_b4f",
-    "at": [
-     6,
-     9
-    ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

@@ -138,3 +138,16 @@ static func matches(entry: int, query: String) -> bool:
 	if wanted.is_empty(): return true
 	if wanted.is_valid_int(): return entry_id(int(wanted)) == id
 	return _search_text(id).contains(wanted.replace(" ","-")) or _search_text(id).contains(wanted)
+
+## Search only the evidence supplied by the caller, including aliases of that species.
+static func matches_variant(option: Dictionary, query: String) -> bool:
+	_ensure()
+	var term := query.strip_edges().trim_prefix("#").to_lower().replace("_", "-")
+	var sid := int(option.species_id)
+	if term.is_valid_int(): return int(term) == sid
+	var row: Dictionary = _species[str(sid)]
+	var words: Array = [option.slug,option.label,row.name,row.english,row.slug]
+	words.append_array(row.aliases)
+	for word in words:
+		if str(word).to_lower().replace("_","-").contains(term): return true
+	return false

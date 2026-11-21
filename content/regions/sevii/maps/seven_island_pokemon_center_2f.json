@@ -76,7 +76,8 @@
      1,
      6
     ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

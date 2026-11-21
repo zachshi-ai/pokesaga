@@ -22,8 +22,10 @@
     "at": [
      5,
      8
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [

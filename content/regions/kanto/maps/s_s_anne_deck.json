@@ -83,8 +83,10 @@
     "at": [
      1,
      4
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -97,8 +99,10 @@
     "at": [
      1,
      4
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   }
  ],
  "encounters": [],

@@ -100,9 +100,15 @@
     "map": "seven_island",
     "at": [
      12,
+     4
+    ],
+    "arrival_from": [
+     12,
      3
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -116,7 +122,8 @@
      1,
      6
     ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

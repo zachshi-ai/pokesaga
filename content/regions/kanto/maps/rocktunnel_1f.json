@@ -106,9 +106,15 @@
     "map": "kanto_main",
     "at": [
      392,
+     70
+    ],
+    "arrival_from": [
+     392,
      69
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -122,7 +128,8 @@
      38,
      28
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -136,7 +143,8 @@
      33,
      3
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -150,7 +158,8 @@
      27,
      12
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -164,7 +173,8 @@
      2,
      3
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -176,9 +186,15 @@
     "map": "kanto_main",
     "at": [
      392,
+     108
+    ],
+    "arrival_from": [
+     392,
      107
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [

@@ -23,7 +23,8 @@
      10,
      6
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -37,7 +38,8 @@
      31,
      4
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -51,7 +53,8 @@
      28,
      19
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -63,9 +66,15 @@
     "map": "kanto_main",
     "at": [
      144,
+     389
+    ],
+    "arrival_from": [
+     144,
      388
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -77,9 +86,15 @@
     "map": "kanto_main",
     "at": [
      156,
+     395
+    ],
+    "arrival_from": [
+     156,
      394
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -93,7 +108,8 @@
      21,
      8
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -107,7 +123,8 @@
      29,
      8
     ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [

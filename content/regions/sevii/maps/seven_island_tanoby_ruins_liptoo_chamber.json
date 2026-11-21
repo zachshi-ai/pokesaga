@@ -21,9 +21,15 @@
     "map": "seven_island_tanoby_ruins",
     "at": [
      103,
+     11
+    ],
+    "arrival_from": [
+     103,
      10
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [

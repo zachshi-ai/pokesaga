@@ -48,9 +48,15 @@
     "map": "one_island",
     "at": [
      19,
+     10
+    ],
+    "arrival_from": [
+     19,
      9
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

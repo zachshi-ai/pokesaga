@@ -23,7 +23,8 @@
      4,
      2
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -35,9 +36,15 @@
     "map": "navel_rock_exterior",
     "at": [
      9,
+     9
+    ],
+    "arrival_from": [
+     9,
      8
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

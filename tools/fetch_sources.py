@@ -10,11 +10,11 @@ from asset_paths import REPO, source_path
 # Restrict large upstream repositories to files used by the production stages.
 PATHS = {
     "crystal": ["constants","data","gfx/tilesets","maps"],
-    "firered": ["data/layouts","data/maps","data/tilesets","include/constants","graphics/object_events/pics/people"],
+    "firered": ["data/layouts","data/maps","data/tilesets","include/constants","graphics/object_events/pics"],
     "emerald": ["graphics/items","graphics/pokemon","src/data/graphics","src/data/pokemon","sound/songs/midi"],
     "emerald_original": ["data/maps","data/layouts","data/tilesets","graphics/pokemon",
                          "graphics/battle_environment","graphics/battle_interface","graphics/object_events/pics",
-                         "graphics/title_screen","graphics/pokenav/region_map","graphics/bag",
+                         "graphics/field_effects/pics","graphics/title_screen","graphics/pokenav/region_map","graphics/bag",
                          "graphics/party_menu","graphics/text_window","graphics/items"],
     "pokeapi": ["data/v2/csv"],
     "sprites": ["sprites/pokemon/back/female","sprites/pokemon/back/shiny/female",

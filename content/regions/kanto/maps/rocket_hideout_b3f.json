@@ -40,6 +40,22 @@
  "warps": [
   {
    "at": [
+    18,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "rocket_hideout_b2f",
+    "at": [
+     21,
+     2
+    ],
+    "facing": "left"
+   },
+   "trigger": "right"
+  },
+  {
+   "at": [
     15,
     18
    ],
@@ -49,22 +65,10 @@
     "at": [
      11,
      15
-    ]
-   }
-  },
-  {
-   "at": [
-    18,
-    2
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "rocket_hideout_elevator",
-    "at": [
-     2,
-     3
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   }
  ],
  "encounters": [],

@@ -45,6 +45,7 @@ var appearance_rng := RandomNumberGenerator.new()
 var story                      # 剧情引擎
 var story_on := true           # 自检/端到端点跑时关掉，免得弹对话打断脚本
 var story_queue: Array = []    # 剧情动作队列
+var _escort_active := false
 var story_abort := false       # 这一场剧情被战斗中断（输了），不写完成标记
 var cur_story: Dictionary = {} # 正在播的事件
 var grass_streak := 0
@@ -52,7 +53,8 @@ var active_battle: Control
 var panel_open := 0
 var held_dir := ""
 var run_held := false
-var _run_released := false
+var _field_fingers := {}
+var _post_warp_keys := {}
 var ui_timer := 0.0
 var touch_layer: CanvasLayer
 var money_label: Label
@@ -734,7 +736,8 @@ func _build_touch_controls() -> void:
 		b.button_down.connect(func() -> void:
 				held_dir = key
 				_move(key))
-		b.button_up.connect(func() -> void: held_dir = "")
+		b.button_up.connect(func() -> void:
+				if held_dir == key: held_dir = "")
 		touch_layer.add_child(b)
 		_dpad.append({"key": String(sp[0]), "off": Vector2(sp[1]), "btn": b})
 
@@ -751,9 +754,7 @@ func _build_touch_controls() -> void:
 	bb.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
 	# B 键：短按关面板；面板全关时按住就是跑
 	bb.button_down.connect(func() -> void: run_held = true)
-	bb.button_up.connect(func() -> void:
-			run_held = false
-			_run_released = true)
+	bb.button_up.connect(func() -> void: run_held = false)
 	bb.pressed.connect(_on_back)
 	touch_layer.add_child(bb)
 	_btn_b = bb
@@ -822,8 +823,7 @@ func _story_use_region(rid: String) -> void:
 		return
 	if String(story.region_id) == rid:
 		return
-	if not story.load_region(rid):
-		story.load_region("kanto")
+	story.load_region(rid)
 
 
 func _story_fire(kind: String, ctx: Dictionary) -> bool:
@@ -831,7 +831,7 @@ func _story_fire(kind: String, ctx: Dictionary) -> bool:
 		return false
 	_story_use_region(String(world.map_data.get("region", "kanto")))
 	var flags := _flags()
-	if kind == "step":
+	if kind in ["step","map_enter"]:
 		ctx["area_name"] = world.area_name()
 	var ev: Dictionary = story.take(kind, ctx, flags, _has_party())
 	if ev.is_empty():
@@ -852,6 +852,9 @@ func _story_step() -> void:
 			var dlg = _dialog(act["say"], String(act.get("who", cur_story.get("who", ""))))
 			dlg.closed.connect(_story_step, CONNECT_ONE_SHOT)
 			return
+		if act.has("escort"):
+			_play_oak_escort(str(act.escort))
+			return
 		if act.has("battle"):
 			_story_battle(act["battle"])
 			return
@@ -867,6 +870,9 @@ func _story_done() -> void:
 		return
 	if not cur_story.is_empty() and story != null:
 		story.mark_finished(cur_story, _flags())
+		if world.map_data.get("region","") in ["kanto","sevii"]:
+			world.refresh_story_actors(_flags())
+			_apply_defeated()
 		save_data["flags"] = _flags()
 		_persist()
 	cur_story = {}
@@ -890,11 +896,11 @@ func _story_battle(cfg) -> void:
 			var d2 = _dialog(tail, nm)
 			d2.connect("closed", func() -> void: _story_step())
 		else:
-			story_abort = true
-			story_queue.clear()
+			story_abort = not conf.get("finish_on_loss",false)
+			if story_abort: story_queue.clear()
 			var lose: Array = conf.get("lose_say", ["……这次算你运气好。"])
 			var d3 = _dialog(lose, nm)
-			d3.connect("closed", func() -> void: _story_done())
+			d3.connect("closed", func() -> void: _story_step())
 	)
 
 ## 单个剧情动作
@@ -906,6 +912,16 @@ func _story_do(act: Dictionary) -> void:
 	if act.has("flag"):
 		flags[String(act["flag"])] = true
 		save_data["flags"] = flags
+	if act.has("remove_item"):
+		for row in bag_items:
+			if row.get("name","") == act.remove_item:
+				bag_items.erase(row)
+				break
+	if act.has("set_player_at"):
+		var xy: Array = act.set_player_at
+		world.warp_to(Vector2i(int(xy[0]),int(xy[1])))
+	if act.has("warp"):
+		_do_warp(act.warp)
 	if act.has("give_mon"):
 		var gm: Dictionary = act["give_mon"]
 		var sid := int(gm.get("species", 25))
@@ -921,6 +937,27 @@ func _story_do(act: Dictionary) -> void:
 		_heal_party()
 	if act.has("money"):
 		save_data["money"] = int(save_data.get("money", 0)) + int(act["money"])
+
+## Walk Oak and the player along the original movement lists without firing doors mid-scene.
+func _play_oak_escort(stage: String) -> void:
+	_escort_active = true
+	panel_open += 1
+	held_dir = ""
+	run_held = false
+	_set_hud_visible(false)
+	world.warp_to(world.player_pos)
+	var side := "Left" if world.player_pos.x == 72 else "Right"
+	var paths: Dictionary = preload("res://core/frlg_actors.gd").data().opening_paths
+	if stage == "approach":
+		world.refresh_story_actors(_flags().merged({"oak_approaching":true}))
+		world.facing = "down"
+	var npc_path: String = paths["OakEnter"+side] if stage == "approach" else paths["OakWalkToLab"+side] + "U"
+	var player_path: String = "" if stage == "approach" else paths["PlayerWalkToLab"+side] + "RU"
+	await world.play_actor_paths("pallet_oak",npc_path,player_path)
+	panel_open -= 1
+	_escort_active = false
+	_set_hud_visible(true)
+	_story_step()
 
 ## 对话框栈：A 键先翻对话，再谈别的
 var _dialogs: Array = []
@@ -957,7 +994,7 @@ func _on_action() -> void:
 	if not _dialogs.is_empty():
 		(_dialogs[_dialogs.size() - 1] as Object).call("advance")
 		return
-	if panel_open > 0:
+	if panel_open > 0 or world.walking:
 		return
 	# 站在道具球上按 A 直接捡：球已经不挡路，人是踩着它站上去的，
 	# 这时候面前是空地，以前就永远捡不到（看着有球、按不到，就是这个原因）
@@ -967,6 +1004,9 @@ func _on_action() -> void:
 		if hk == "item" or hk == "hidden":
 			_handle_object(here)
 			return
+	if _ruin_door_ahead():
+		_open_ruin_door()
+		return
 	# 地形类秘传：潜水 / 漩涡 / 攀岩
 	if _try_terrain_move():
 		return
@@ -990,7 +1030,7 @@ func _on_action() -> void:
 			var npc_row: Dictionary = world.last_npc
 			world.last_npc = {}
 			# 有剧情先播剧情，没有才走普通台词
-			if not _story_fire("talk", {"npc": String(npc_row.get("name", "")),
+			if not _story_fire("talk", {"npc": String(npc_row.get("name", "")), "actor":npc_row.get("role",""),
 					"map": String(world.map_data.get("id", ""))}):
 				_talk_to_npc(npc_row)
 		else:
@@ -999,7 +1039,7 @@ func _on_action() -> void:
 		# Standing on a door has no walk animation to emit warp_ready.
 		var target: Dictionary = world.pending_warp
 		world.pending_warp = {}
-		_do_warp(target)
+		_on_warp_ready(target)
 
 ## 队伍里有没有会某招的宝可梦
 func _party_can_move(key: String) -> bool:
@@ -1018,6 +1058,20 @@ func _has_rod() -> bool:
 	return false
 
 ## 朝水面按 A：能做的事一次问清（原版就是弹一句「要冲浪吗？」）
+func _ruin_door_ahead() -> bool:
+	return world.map_data.get("id","") == "six_island_ruin_valley" and _flags().get("rescued_icefall",false) and not _flags().get("ruin_valley_cut_door",false) and world.player_pos + world._dir_vec() == Vector2i(24,24)
+
+func _open_ruin_door() -> void:
+	if not _party_can_move("CUT"):
+		_dialog(["铁门上刻着点字。读起来是「居合斩」。"],"")
+		return
+	_pick("要对刻着点字的铁门使用居合斩吗？", ["使用居合斩","返回"], func(choice: int) -> void:
+		if choice == 0:
+			_flags().ruin_valley_cut_door = true
+			world.refresh_story_actors(_flags())
+			_persist()
+			_show_toast("点之穴的大门打开了。"))
+
 func _on_water_action() -> bool:
 	if world.surfing:
 		return _try_surf()
@@ -1073,6 +1127,10 @@ func _try_surf() -> bool:
 
 ## B 键：关掉最上层面板
 func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		_field_fingers.clear()
+		held_dir = ""
+		run_held = false
 	if what != NOTIFICATION_WM_GO_BACK_REQUEST or not is_node_ready():
 		return
 	if is_instance_valid(title_screen):
@@ -1096,6 +1154,7 @@ func _notification(what: int) -> void:
 
 
 func _on_back() -> void:
+	if _escort_active: return
 	if is_instance_valid(active_battle) and not active_battle.is_queued_for_deletion():
 		active_battle.handle_back()
 		return
@@ -1252,6 +1311,12 @@ func _move(key: String) -> void:
 
 ## 走到门口、这一步动画走完才切场景，不会半路就闪进去
 func _on_warp_ready(target: Dictionary) -> void:
+	if target.get("region","") == "kanto" and target.get("map","") == "viridiancity_gym" and not _flags().get("viridian_gym_open",false):
+		held_dir = ""
+		run_held = false
+		world.warp_to(Vector2i(84,192))
+		_dialog(["常磐道馆的大门紧闭。先去挑战其他城市的道馆吧。"])
+		return
 	_do_warp(target)
 
 ## 换图后统一刷新：天气、昼夜、背景音乐、物件状态
@@ -1322,17 +1387,23 @@ func _do_warp(target: Dictionary) -> void:
 	snd.play_sfx("door")
 	_show_toast("前往 " + String(next_map.get("name", "")))
 	world.load_map(next_map)
-	var at: Array = target.get("at", [0, 0])
-	world.warp_to(Vector2i(int(at[0]), int(at[1])))
+	world.arrive(target)
+	_start_after_step = false
+	if not target.get("connection",false):
+		for pair in KEY_MAP:
+			if Input.is_physical_key_pressed(int(pair[1])):
+				_post_warp_keys[int(pair[1])] = true
+		held_dir = ""
 	_refresh_scene()
-	# 进门后必须松手再按，否则一直按着方向会立刻从门口走回去
-	held_dir = ""
 	_story_fire("map_enter", {"map": String(world.map_data.get("id", "")),
 		"region": String(world.map_data.get("region", ""))})
 	_apply_defeated()
 	_ensure_form_npc()
 
 func _after_step() -> void:
+	# A door owns the entire step until the arrival animation finishes.
+	if not world.pending_warp.is_empty():
+		return
 	_mark_fly_visits()
 	# 走到道具球那一格就自动捡：手机上不用瞄准，也不会"看着捡不到"
 	var step_obj: Dictionary = world.object_at(world.player_pos)
@@ -1341,10 +1412,7 @@ func _after_step() -> void:
 		if sk == "item" or sk == "hidden":
 			_handle_object(step_obj)
 			return
-	if world.last_event.begins_with("warp:"):
-		# 踩上门口的格子：等这一步走完由 warp_ready 触发（见 tick_walk）
-		pass
-	elif world.last_event.begins_with("obj:"):
+	if world.last_event.begins_with("obj:"):
 		var o: Dictionary = world.last_obj
 		world.last_obj = {}
 		world.last_event = ""
@@ -1485,10 +1553,22 @@ func _open_shop() -> void:
 
 ## 告示牌 / 道具球 / 树果树 / 土：按 A 之后的分流
 func _handle_object(o: Dictionary) -> void:
+	if world.map_data.get("id","") == "route25_sea_cottage" and o.has("at") and Vector2i(int(o.at[0]),int(o.at[1])) == Vector2i(4,5) and world.facing == "up":
+		if not _story_fire("talk",{"map":"route25_sea_cottage","actor":"bill_pc"}):
+			_dialog(["屏幕上显示着传送装置的细胞分离程序。"],"电脑")
+		return
 	if o.is_empty():
 		return
 	snd.play_sfx("select")
 	match String(o.get("kind", "")):
+		"mansion_switch":
+			_pick("雕像上藏着一个开关。要按吗？", ["按下","离开"], func(index: int):
+				if index == 0:
+					world.set_mansion_switch(not world.taken.get(world.MANSION_FLAG,false))
+					save_data["flags"] = world.taken
+					_persist()
+					snd.play_sfx("confirm")
+					_show_toast("远处传来了闸门的声音。"))
 		"wall_map":
 			_open_world_atlas(false)
 		"sign":
@@ -1544,6 +1624,17 @@ const ELEVATOR_FLOORS := {
 
 func _open_elevator() -> void:
 	var cur := String(world.map_data.get("id", ""))
+	var native_stops: Array = world.map_data.get("lift_stops", [])
+	if not native_stops.is_empty():
+		var names: Array = []
+		for stop in native_stops:
+			var m: Dictionary = Data.load_map(stop.region, stop.map)
+			names.append(m.get("name", stop.map))
+		_pick("要去哪一层？", names, func(index: int) -> void:
+			if index >= 0 and index < native_stops.size():
+				_do_warp(native_stops[index])
+				_persist())
+		return
 	var rows = ELEVATOR_FLOORS.get(cur, [])
 	if (rows as Array).is_empty():
 		_dialog(["电梯停运了。"], "")
@@ -1980,6 +2071,20 @@ func _battle_backdrop() -> String:
 func _talk_to_npc(npc: Dictionary) -> void:
 	if npc.is_empty():
 		return
+	var role := str(npc.get("role",""))
+	if role in ["snorlax_12","snorlax_16"]:
+		if not _flags().get("poke_flute",false):
+			_dialog(["一只卡比兽在这里睡得正香。"])
+			return
+		var prompt := _dialog(["要用宝可梦之笛唤醒卡比兽吗？"])
+		prompt.ask("吹奏","离开")
+		prompt.answered.connect(func(play: bool):
+			if play:
+				_flags()["FLAG_HIDE_ROUTE_%s_SNORLAX" % role.get_slice("_",1)] = true
+				world.refresh_story_actors(_flags())
+				_apply_defeated()
+				_start_wild_battle(143,30))
+		return
 	if npc.get("transit", false):
 		_open_world_atlas(true)
 		return
@@ -2348,6 +2453,7 @@ func _grant_badge(badge: String) -> void:
 	if not bs.has(badge):
 		bs.append(badge)
 	save_data["badges"] = bs
+	preload("res://core/frlg_actors.gd").migrate_progress(save_data)
 	# 拿到徽章就触发对应的剧情台词
 	_story_fire("badge", {"badge": badge})
 
@@ -2453,8 +2559,11 @@ func _set_hud_visible(on: bool) -> void:
 	for n in [_bar, name_label, hint_label, money_label, badges_label]:
 		if n:
 			n.visible = field_visible
-	if not field_visible and toast:
-		toast.hide()
+	if not field_visible:
+		held_dir = ""
+		run_held = false
+		if toast:
+			toast.hide()
 	if ui_layer:
 		for c in ui_layer.get_children():
 			if c is Button:
@@ -2478,8 +2587,9 @@ func _process(delta: float) -> void:
 	# 先推进走路时间，再读输入：同一帧走完就能立刻迈下一步，不会每格顿一下
 	# 按住 B 跑步：和原版一致，8 帧一格（正好两倍速）
 	world.running = (run_held or world.bike) and panel_open == 0
+	var changing_map: bool = not world.pending_warp.is_empty()
 	world.tick_walk(delta)
-	if world.walking:
+	if world.walking or changing_map:
 		return
 	if _start_after_step:
 		_start_after_step = false
@@ -2495,8 +2605,11 @@ func _process(delta: float) -> void:
 	if held_dir != "":
 		_move(held_dir)
 		return
+	for code in _post_warp_keys.keys():
+		if not Input.is_physical_key_pressed(code):
+			_post_warp_keys.erase(code)
 	for pair in KEY_MAP:
-		if Input.is_physical_key_pressed(int(pair[1])):
+		if not _post_warp_keys.has(int(pair[1])) and Input.is_physical_key_pressed(int(pair[1])):
 			_move(String(pair[0]))
 			break
 
@@ -3414,6 +3527,12 @@ func _test_catch() -> bool:
 	print("catch dbg: 投球概率与结束状态 OK")
 	return true
 
+# Travel state after the Kanto gates and the Sevii story guards have cleared.
+const OPEN_FIELD_FLAGS := {"got_dex":true,"ss_ticket":true,"freed_silph":true,"beat_giovanni":true,
+	"ember_ruby_requested":true,"beat_ember_grunt_1":true,"beat_ember_grunt_2":true,
+	"ruin_valley_cut_door":true,"rescued_icefall":true,
+	"FLAG_HIDE_MT_EMBER_EXTERIOR_ROCKETS":true,"FLAG_HIDE_RUIN_VALLEY_SCIENTIST":true}
+
 ## 全量地图体检：每张图能加载、warp 双向、落点不撞墙不撞人、传送图连通
 func _test_map_graph() -> bool:
 	# 扫目录而不是写死地区名：新加地区目录自动纳入体检
@@ -3422,6 +3541,8 @@ func _test_map_graph() -> bool:
 		dirs.append(String(d))
 	dirs.sort()
 	var seen: Dictionary = {}          # "region/map" -> true
+	var collision_by_map := {}
+	var residents_by_map := {}
 	for rid in dirs:
 		var base := "res://content/regions/%s/maps" % rid
 		var files := DirAccess.get_files_at(base)
@@ -3442,7 +3563,7 @@ func _test_map_graph() -> bool:
 				return false
 			# 出生点必须能站人
 			var sp: Array = m.get("spawn", [0, 0])
-			if _tile_blocked(m, int(sp[0]), int(sp[1])):
+			if _tile_blocked(m, int(sp[0]), int(sp[1]), collision_by_map):
 				print("graph dbg: 出生点被挡 ", rid, "/", mid)
 				return false
 			for w in m.get("warps", []):
@@ -3455,10 +3576,16 @@ func _test_map_graph() -> bool:
 					return false
 				var tm: Dictionary = Data.load_map(trid, tmid)
 				var at: Array = target.get("at", [0, 0])
-				if _tile_blocked(tm, int(at[0]), int(at[1])):
+				if _tile_blocked(tm, int(at[0]), int(at[1]), collision_by_map):
 					print("graph dbg: 传送落点被挡 ", trid, "/", tmid, " ", at)
 					return false
-				for n in tm.get("npcs", []):
+				var destination_id := trid + "/" + tmid
+				if not residents_by_map.has(destination_id):
+					# Some arrivals (the robbed house, for example) are guarded until a story flag moves the NPC.
+					var initial := preload("res://core/frlg_actors.gd").roster(tm,{})
+					var later := preload("res://core/frlg_actors.gd").roster(tm,OPEN_FIELD_FLAGS)
+					residents_by_map[destination_id] = initial.filter(func(n): return later.any(func(a): return a.at == n.at))
+				for n in residents_by_map[destination_id]:
 					var nat: Array = n.get("at", [-1, -1])
 					if int(nat[0]) == int(at[0]) and int(nat[1]) == int(at[1]):
 						print("graph dbg: 落点站着 NPC ", tmid, " ", at)
@@ -3473,7 +3600,7 @@ func _test_map_graph() -> bool:
 	print("graph dbg: %d 张地图，warp 全部可达且落点可行走" % seen.size())
 	return true
 
-func _tile_blocked(m: Dictionary, x: int, y: int) -> bool:
+func _tile_blocked(m: Dictionary, x: int, y: int, cache: Dictionary) -> bool:
 	var size: Array = m.get("size", [0, 0])
 	# 原版地图没有 tiles 数组，碰撞要读预渲染时导出的表
 	if String(m.get("emerald", "")) != "":
@@ -3482,8 +3609,10 @@ func _tile_blocked(m: Dictionary, x: int, y: int) -> bool:
 		var path := "res://content/emerald_maps/%s.json" % String(m["emerald"])
 		if not FileAccess.file_exists(path):
 			return true
-		var meta: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
-		var col: Array = meta.get("collision", [])
+		if not cache.has(path):
+			var meta: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
+			cache[path] = meta.get("collision", [])
+		var col: Array = cache[path]
 		if y >= col.size() or x >= (col[y] as Array).size():
 			return true
 		return int((col[y] as Array)[x]) != 0
@@ -6018,7 +6147,7 @@ func _test_npc_lines() -> bool:
 func _test_story_table() -> bool:
 	var okT := true
 	var allowed_trigger := ["map_enter", "talk", "badge", "step"]
-	var allowed_step := ["say", "who", "flag", "give_mon", "give_item", "heal", "money", "battle", "hall_of_fame"]
+	var allowed_step := ["set_player_at","warp","escort","remove_item","say", "who", "flag", "give_mon", "give_item", "heal", "money", "battle", "hall_of_fame"]
 	var total := 0
 	var talk_checked := 0
 	var all_ids := {}
@@ -6053,7 +6182,12 @@ func _test_story_table() -> bool:
 					var names: Array = []
 					for n in (mp.get("npcs", []) as Array):
 						names.append(String((n as Dictionary).get("name", "")))
-					if not names.has(String(tr.get("npc", ""))):
+					if tr.has("actor"):
+						var rules: Dictionary = preload("res://core/frlg_actors.gd").data().maps.get(rid+"/"+str(tr["map"]),{})
+						if tr.actor != "bill_pc" and not rules.values().any(func(row): return row.get("role","")==tr.actor):
+							print("!! Unknown story actor ",tr.actor)
+							okT = false
+					elif not names.has(String(tr.get("npc", ""))):
 						print("!! %s 要对话的「%s」在 %s 里找不到" % [eid, String(tr.get("npc", "")), String(tr["map"])])
 						okT = false
 					talk_checked += 1
@@ -6113,17 +6247,18 @@ func _test_story() -> bool:
 	if not st.take("step", route_ctx, flags, true).is_empty():
 		return false
 	# 1) 进图 → 开场旁白
-	var ev1: Dictionary = st.take("map_enter", {"map": "kanto_main"}, flags, has)
+	var ev1: Dictionary = st.take("map_enter", {"map": "kanto_main", "area_name": "真新镇"}, flags, has)
 	if ev1.is_empty() or String(ev1.get("id", "")) != "pallet_intro":
 		print("story dbg: 没触发开场 ", ev1.get("id", ""))
 		return false
 	st.mark_finished(ev1, flags)
-	var ev1b: Dictionary = st.take("map_enter", {"map": "kanto_main"}, flags, has)
+	var ev1b: Dictionary = st.take("map_enter", {"map": "kanto_main", "area_name": "真新镇"}, flags, has)
 	if not ev1b.is_empty() and String(ev1b.get("id", "")) == "pallet_intro":
 		print("story dbg: 开场旁白重复触发")
 		return false
 	# 2) 空手找大木博士 → 拿宝可梦
-	var ev2: Dictionary = st.take("talk", {"npc": "大木博士", "map": "kanto_main"}, flags, false)
+	flags.oak_in_lab = true
+	var ev2: Dictionary = st.take("talk", {"npc": "大木博士", "map": "pallettown_professoroakslab"}, flags, false)
 	if ev2.is_empty() or String(ev2.get("id", "")) != "oak_starter":
 		print("story dbg: 大木博士剧情没触发 ", ev2.get("id", ""))
 		return false
@@ -6136,7 +6271,7 @@ func _test_story() -> bool:
 		return false
 	st.mark_finished(ev2, flags)
 	# 3) 有队伍之后再找他，不给第二只
-	var ev3: Dictionary = st.take("talk", {"npc": "大木博士", "map": "kanto_main"}, flags, true)
+	var ev3: Dictionary = st.take("talk", {"npc": "大木博士", "map": "pallettown_professoroakslab"}, flags, true)
 	if not ev3.is_empty():
 		for stp2 in ev3.get("steps", []):
 			if stp2 is Dictionary and (stp2 as Dictionary).has("give_mon"):
@@ -6326,6 +6461,7 @@ func _test_gyms() -> bool:
 	var found := 0
 	for mid in ["pewtercity_gym", "viridiancity_gym"]:
 		world.load_map(Data.load_map("kanto", mid))
+		world.refresh_story_actors({"viridian_gym_open":true})
 		for n in world.npcs:
 			if not String(n.get("name", "")).contains("馆主"):
 				continue
@@ -6379,9 +6515,15 @@ func _test_gyms() -> bool:
 
 ## 每张图：从出生点出发，所有传送点都必须走得到（含跳土坡）
 func _test_warp_reach() -> bool:
+	var all_reached := true
 	var maps := _all_maps()
 	var arrivals := {}
 	for source in maps:
+		# Floor-selection panels can arrive inside isolated elevator lobbies.
+		for stop in source.m.get("lift_stops", []):
+			var floor_key := "%s/%s" % [stop.region,stop.map]
+			if not arrivals.has(floor_key): arrivals[floor_key] = {}
+			arrivals[floor_key][Vector2i(int(stop.at[0]),int(stop.at[1]))] = true
 		var exits := {}
 		for warp in source.m.get("warps", []):
 			var origin: Array = warp.at
@@ -6399,21 +6541,15 @@ func _test_warp_reach() -> bool:
 		var mid := str(room.mid)
 		world.load_map(room.m)
 		var sp: Array = room.m.get("spawn", [0, 0])
-		var seen: Dictionary = arrivals.get("%s/%s" % [rid, mid], {}).duplicate()
-		seen[Vector2i(int(sp[0]), int(sp[1]))] = true
-		var q: Array = seen.keys()
-		while not q.is_empty():
-			var p: Vector2i = q.pop_front()
-			for dv in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
-				var t: Vector2i = p + dv
-				var dest: Vector2i = Vector2i(-1, -1)
-				if world.can_enter(t, dv):
-					dest = t
-				elif world._ledge_allows(t, dv) and world.can_enter(t + dv, dv):
-					dest = t + dv
-				if dest.x >= 0 and not seen.has(dest):
-					seen[dest] = true
-					q.append(dest)
+		var seed: Dictionary = arrivals.get("%s/%s" % [rid, mid], {}).duplicate()
+		seed[Vector2i(int(sp[0]), int(sp[1]))] = true
+		if mid in ["mt_ember_exterior","six_island_ruin_valley"]:
+			world.refresh_story_actors(OPEN_FIELD_FLAGS)
+		var seen := _walkable_from(seed)
+		if world.get("mansion_switches"):
+			world.set_mansion_switch(true)
+			seen.merge(_walkable_from(seed))
+			world.set_mansion_switch(false)
 		for w in world.map_data.get("warps", []):
 			var at: Array = w.get("at", [0, 0])
 			# 连接生成的地图边缘门、以及海路上的门，都不按"屋里那扇门"的标准判
@@ -6421,10 +6557,35 @@ func _test_warp_reach() -> bool:
 				continue
 			if world.is_water(Vector2i(int(at[0]), int(at[1]))):
 				continue
-			if not seen.has(Vector2i(int(at[0]), int(at[1]))):
+			var approach := Vector2i(int(at[0]),int(at[1]))
+			if w.get("trigger", "") == "door":
+				approach += Vector2i.DOWN
+			if w.get("trigger", "") == "panel":
+				var neighbors := [Vector2i.DOWN,Vector2i.LEFT,Vector2i.UP,Vector2i.RIGHT]
+				if neighbors.any(func(d): return seen.has(approach + d)): continue
+			if not seen.has(approach):
 				print("reach dbg: %s/%s 的门 %s 走不到，可达 %d 格，起点 %s" % [rid, mid, str(at), seen.size(), str(sp)])
-				return false
-	return true
+				all_reached = false
+	return all_reached
+
+func _walkable_from(seed: Dictionary) -> Dictionary:
+	var seen := seed.duplicate()
+	var q: Array = seen.keys()
+	var next := 0
+	while next < q.size():
+		var p: Vector2i = q[next]
+		next += 1
+		for dv in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
+			var t: Vector2i = p + dv
+			var dest: Vector2i = Vector2i(-1, -1)
+			if world.can_enter(t, dv):
+				dest = t
+			elif world._ledge_allows(t, dv) and world.can_enter(t + dv, dv):
+				dest = t + dv
+			if dest.x >= 0 and not seen.has(dest):
+				seen[dest] = true
+				q.append(dest)
+	return seen
 
 ## 所有地区地图（供"入口落点"扫描用）
 func _all_maps() -> Array:
@@ -6608,7 +6769,7 @@ func _test_surf() -> bool:
 					continue
 				# 两个方向都得走得通，否则「上岸」会被方向阻挡卡住
 				world.surfing = true
-				var ok_both: bool = world.can_enter(f2, d) and world.can_enter(Vector2i(x, y), -d)
+				var ok_both: bool = world.can_enter(f2, -d) and world.can_enter(Vector2i(x, y), d)
 				world.surfing = false
 				if not ok_both:
 					continue
@@ -6668,79 +6829,18 @@ func _find_jumpables() -> Array:
 ## 所以进屋时人是朝上的（背对镜头），出门时朝下。以前换图一律重置成朝下，
 ## 进屋会莫名其妙转过身来。这里真的走一遍门，检查换图后朝向对不对。
 func _test_warp_facing() -> bool:
-	var rooms := ["saffroncity_pokemoncenter_1f", "saffroncity_mart", "ceruleancity_gym",
-		"celadoncity_department_store_1f", "vermilioncity_pokemon_center_1f"]
-	var pick := {}
-	var door_at := Vector2i(-1, -1)
-	for rid in rooms:
-		var m: Dictionary = Data.load_map("kanto", rid)
-		if m.is_empty():
-			continue
-		for w in m.get("warps", []):
-			var to: Dictionary = w.get("to", {})
-			if String(to.get("map", "")) == "kanto_main":
-				pick = {"id": rid, "m": m, "w": w}
-				var a: Array = w.get("at", [0, 0])
-				door_at = Vector2i(int(a[0]), int(a[1]))
-				break
-		if not pick.is_empty():
-			break
-	if pick.is_empty():
-		print("warpface dbg: 找不到带室外门的房间")
+	# Outdoor Viridian warp 4 points specifically to Mart warp 1.
+	world.load_map(Data.load_map("kanto", "kanto_main"))
+	var doorstep := Vector2i(84,200)
+	world.warp_to(doorstep)
+	if not world.step(Vector2i.UP): return false
+	world.tick_walk(1.0)
+	if world.map_data.id != "viridiancity_mart" or world.player_pos != Vector2i(4,7) or world.facing != "up":
 		return false
-	var to2: Dictionary = (pick["w"] as Dictionary).get("to", {})
-	var sa: Array = to2.get("at", [0, 0])
-	var street := Vector2i(int(sa[0]), int(sa[1]))
-	# 1) 从街上朝上走，进屋后必须还是朝上
-	var big: Dictionary = Data.load_map("kanto", "kanto_main")
-	if big.is_empty():
-		print("warpface dbg: 大图加载失败")
-		return false
-	world.load_map(big)
-	world.warp_to(street + Vector2i(0, 1))
-	world.facing = "up"
-	if world.is_blocked(street + Vector2i(0, 1)):
-		print("warpface dbg: 门外下方那格被挡住了 ", street, " 房间 ", pick["id"])
-		return false
-	world.step(Vector2i(0, -1))
-	if world.pending_warp.is_empty():
-		print("warpface dbg: 朝上走进不了门 ", pick["id"])
-		world.finish_walk()
-		return false
-	var pending: Dictionary = world.pending_warp
-	world.finish_walk()
-	_do_warp(pending)
-	if String(world.map_data.get("id", "")) != String(pick["id"]):
-		print("warpface dbg: 进门后没进对图 ", world.map_data.get("id", ""))
-		return false
-	if world.facing != "up":
-		print("warpface dbg: 进屋后朝向错了 ", world.facing, "（应为 up）房间 ", pick["id"])
-		return false
-	# 2) 从屋里朝下走，出去后必须还是朝下
-	world.warp_to(door_at + Vector2i(0, -1))
-	world.facing = "down"
-	if world.is_blocked(door_at + Vector2i(0, -1)):
-		print("warpface dbg: 门内上方那格被挡住 ", door_at, " 房间 ", pick["id"])
-		return false
-	world.step(Vector2i(0, 1))
-	if world.pending_warp.is_empty():
-		print("warpface dbg: 朝下走不出门 ", pick["id"], " 门格 ", door_at)
-		world.finish_walk()
-		return false
-	var pending2: Dictionary = world.pending_warp
-	world.finish_walk()
-	_do_warp(pending2)
-	if String(world.map_data.get("id", "")) != "kanto_main":
-		print("warpface dbg: 出门后没回到大图 ", world.map_data.get("id", ""))
-		return false
-	if world.facing != "down":
-		print("warpface dbg: 出门后朝向错了 ", world.facing, "（应为 down）")
-		return false
-	if world.player_pos != street:
-		print("warpface dbg: 出门落点不对 ", world.player_pos, " 期望 ", street)
-		return false
-	print("warpface dbg: 朝上进门后仍朝上、朝下出门后仍朝下、落点正确（%s）" % pick["id"])
-	return true
+	if not world.step(Vector2i.DOWN): return false
+	world.tick_walk(1.0)
+	world.tick_walk(1.0)
+	return world.map_data.id == "kanto_main" and world.player_pos == doorstep and world.facing == "down"
 
 func _test_door_talk() -> bool:
 	var m: Dictionary = Data.load_map("kanto", "pewtercity_pokemoncenter_1f")
@@ -6748,21 +6848,12 @@ func _test_door_talk() -> bool:
 		print("door dbg: 宝可梦中心加载失败")
 		return false
 	world.load_map(m)
-	# 1) 门：从屋里往门口走，必须能出去
+	# 走到门垫再按下，触发原版向南的箭头门。
 	world.warp_to(Vector2i(7, 7))
-	world.facing = "down"
-	var ok_out := false
-	for d in [Vector2i(0, 1), Vector2i(-1, 0), Vector2i(1, 0)]:
-		world.warp_to(Vector2i(7, 7))
-		world.step(d)
-		if not world.pending_warp.is_empty():
-			ok_out = true
-			break
-		world.finish_walk()
+	if not world.step(Vector2i.DOWN) or not world.pending_warp.is_empty(): return false
 	world.finish_walk()
-	if not ok_out:
-		print("door dbg: 屋内走不到出门格")
-		return false
+	if not world.step(Vector2i.DOWN) or world.pending_warp.is_empty(): return false
+	world.finish_walk()
 	# 2) 对话：站柜台前朝上按 A，要能认出柜台上方的护士
 	var nurse_pos := Vector2i(-1, -1)
 	for n in world.npcs:
@@ -6783,7 +6874,7 @@ func _test_door_talk() -> bool:
 		return false
 	world.last_event = ""
 	world.last_npc = {}
-	print("door dbg: 屋内三格门都能出去，隔柜台能跟护士对话")
+	print("door dbg: 屋内中央门垫能正常出门，隔柜台能跟护士对话")
 	return true
 
 func _test_growth() -> bool:
@@ -7040,16 +7131,15 @@ func _e2e_story() -> void:
 		return
 	print("开场对话条数 ", _dialogs.size())
 	_close_all_dialogs()
-	# 走到大木博士面前
-	var oak := Vector2i(-1, -1)
-	for n in world.npcs:
-		if String(n.get("name", "")) == "大木博士":
-			var at: Array = n.get("at", [0, 0])
-			oak = Vector2i(int(at[0]), int(at[1]))
-	if oak.x < 0:
-		print("!! 真新镇找不到大木博士")
+	world.warp_to(Vector2i(72,261))
+	_story_fire("step",{"map":"kanto_main","x":72,"y":261})
+	while not cur_story.is_empty():
+		_close_all_dialogs()
+		await get_tree().process_frame
+	if world.map_data.get("id") != "pallettown_professoroakslab":
+		print("!! 大木没有带玩家回研究所")
 		return
-	world.warp_to(Vector2i(oak.x, oak.y + 1))
+	world.warp_to(Vector2i(6,4))
 	world.facing = "up"
 	_on_action()
 	print("对话栈 ", _dialogs.size())
@@ -7249,6 +7339,7 @@ func _e2e_pc() -> void:
 
 func _restore_from_save() -> void:
 	save_data = SaveScript.load_game()
+	preload("res://core/frlg_actors.gd").migrate_progress(save_data)
 	PartyScript.migrate_legacy_box(save_data)
 	DexVariants.restore(save_data)
 	# 修改器改过的种族值跟着存档走，读档时先合进来再建队伍
@@ -7315,17 +7406,33 @@ func _restore_from_save() -> void:
 	var spot := start_at
 	if has_saved_spot:
 		spot = Vector2i(int(saved_pos[0]), int(saved_pos[1]))
+		# Before 4.51 the interior and connecting exterior of Saffron City overlapped.
+		if map_id == "kanto_main" and not save_data.has("field_revision") and Rect2i(264,120,66,55).has_point(spot):
+			var city_spot := spot + Vector2i(48,30)
+			# Routes 6 and 8 also occupied part of that rectangle in 4.50.
+			# A recorded road name and a still walkable tile preserve that journey.
+			var saved_area := str(save_data.get("location_label","")).trim_prefix("关都·")
+			var road_save: bool = saved_area in ["ROUTE6","ROUTE8","6 号道路","8 号道路"] and not world.is_blocked(spot)
+			if not road_save and (not world.is_blocked(city_spot) or world.warp_at(city_spot).get("trigger", "") == "door"):
+				spot = city_spot
+		world.last_elevation = int(save_data.get("field_elevation", 0))
 	# 存档点要是被挡住（换版本后地块变了），退到这张图自己的出生点
 	world.surfing = has_saved_spot and world.is_water(spot) and bool(save_data.get("surfing", true))
 	world.diving = world.surfing and bool(save_data.get("diving", world.is_deep(spot)))
 	world.bike = bool(save_data.get("bike", false))
+	# Old builds saved on top of animated exterior doors. Restore at that door's doorstep.
+	if has_saved_spot and world.warp_at(spot).get("trigger", "") == "door":
+		var doorstep := spot + Vector2i.DOWN
+		if world.can_enter(doorstep, Vector2i.DOWN):
+			spot = doorstep
+			world.facing = "down"
 	var on_water: bool = world.surfing and world.can_enter(spot, Vector2i.ZERO, true)
-	if world.is_blocked(spot) and not on_water:
+	if (world.is_blocked(spot) or world.is_water(spot)) and not on_water:
 		print("[start] 存档点 %s 不可走，回出生点" % [spot])
 		var sp: Array = map.get("spawn", [])
 		if sp.size() == 2:
 			spot = Vector2i(int(sp[0]), int(sp[1]))
-	if world.is_blocked(spot) and not on_water:
+	if (world.is_blocked(spot) or world.is_water(spot)) and not on_water:
 		spot = start_at
 	world.warp_to(spot)
 	_apply_defeated()
@@ -7401,6 +7508,8 @@ func _persist() -> bool:
 	save_data["region"] = String(world.map_data.get("region", "hoenn"))
 	save_data["map"] = String(world.map_data.get("id", "littleroot_town"))
 	save_data["pos"] = [world.player_pos.x, world.player_pos.y]
+	save_data["field_revision"] = 1
+	save_data["field_elevation"] = world.last_elevation
 	save_data["facing"] = world.facing
 	save_data["surfing"] = world.surfing
 	save_data["diving"] = world.diving
@@ -7417,7 +7526,48 @@ func _build_start_menu() -> void:
 	menu_layer.child_exiting_tree.connect(func(_child: Node): _resume_start_menu.call_deferred())
 	ui_layer.add_child(StartMenu.start_key(_toggle_start_menu))
 
+func _field_key_at(pos: Vector2) -> String:
+	if not is_instance_valid(touch_layer) or not touch_layer.visible:
+		return ""
+	for pad in _dpad:
+		var button: Button = pad.btn
+		if button.get_global_rect().has_point(pos):
+			return pad.key
+	if _btn_b.get_global_rect().has_point(pos):
+		return "run"
+	return ""
+
+# Godot's emulated mouse represents only the first finger. Give the D-pad and
+# B their own touch IDs so releasing one cannot cancel or repeat the other.
+func _handle_field_touch(event: InputEventScreenTouch) -> bool:
+	var key: String
+	if event.pressed:
+		key = _field_key_at(event.position)
+		if key == "": return false
+		_field_fingers[event.index] = key
+		if key == "run":
+			run_held = true
+		else:
+			held_dir = key
+			_move(key)
+	elif _field_fingers.has(event.index):
+		key = _field_fingers[event.index]
+		_field_fingers.erase(event.index)
+		if key == "run":
+			run_held = "run" in _field_fingers.values()
+		elif key == held_dir:
+			held_dir = ""
+	else:
+		return false
+	return true
+
 func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch and _handle_field_touch(event):
+		get_viewport().set_input_as_handled()
+		return
+	if event is InputEventMouseButton and event.device == InputEvent.DEVICE_ID_EMULATION and _field_key_at(event.position) != "":
+		get_viewport().set_input_as_handled()
+		return
 	if not (event is InputEventKey or event is InputEventJoypadButton) or not event.is_pressed() or event.is_echo():
 		return
 	if is_instance_valid(title_screen) or not is_instance_valid(world) or not world.visible:
@@ -7475,7 +7625,7 @@ func _start_selected(command: String) -> void:
 	snd.play_sfx("select")
 	# Keep the selected row underneath a child page. Field actions return to the map.
 	var pages := {"图鉴": _open_dex, "队伍": _open_party, "背包": _open_bag, "电脑": _open_pc,
-		"修改器": _open_editor, "融合": _open_fusion, "秘传": _open_hm, "飞行": _open_fly}
+		"修改器": _open_editor, "融合": _open_fusion, "秘传": _open_hm}
 	if pages.has(command):
 		start_menu.hide()
 		pages[command].call()
@@ -7485,7 +7635,6 @@ func _start_selected(command: String) -> void:
 	_close_start_menu()
 	match command:
 		"骑行": _toggle_bike()
-		"闪光": _toggle_flash()
 		"存档": _show_toast("进度已保存。" if _persist() else "存档写入失败，请检查设备空间。")
 
 
@@ -8360,17 +8509,18 @@ func _toggle_flash() -> void:
 
 
 ## 飞行：只列出真的走到过的城镇，点了就飞
+# Kanto uses FireRed heal_locations.json translated by the merged map offsets.
 const FLY_SPOTS := [
-	{"name": "真新镇", "map": "kanto/kanto_main", "at": [72, 277]},
-	{"name": "常磐市", "map": "kanto/kanto_main", "at": [72, 217]},
-	{"name": "尼比市", "map": "kanto/kanto_main", "at": [72, 158]},
-	{"name": "华蓝市", "map": "kanto/kanto_main", "at": [264, 60]},
-	{"name": "枯叶市", "map": "kanto/kanto_main", "at": [278, 232]},
-	{"name": "紫苑镇", "map": "kanto/kanto_main", "at": [300, 190]},
-	{"name": "玉虹市", "map": "kanto/kanto_main", "at": [200, 132]},
-	{"name": "金黄市", "map": "kanto/kanto_main", "at": [288, 148]},
-	{"name": "浅红市", "map": "kanto/kanto_main", "at": [232, 328]},
-	{"name": "红莲岛", "map": "kanto/kanto_main", "at": [100, 380]},
+	{"name": "真新镇", "map": "kanto/kanto_main", "at": [66, 268]},
+	{"name": "常磐市", "map": "kanto/kanto_main", "at": [74, 207]},
+	{"name": "尼比市", "map": "kanto/kanto_main", "at": [65, 86]},
+	{"name": "华蓝市", "map": "kanto/kanto_main", "at": [286, 60]},
+	{"name": "枯叶市", "map": "kanto/kanto_main", "at": [279, 207], "area": "VERMILION_CITY"},
+	{"name": "紫苑镇", "map": "kanto/kanto_main", "at": [390, 136], "area": "LAVENDER_TOWN"},
+	{"name": "玉虹市", "map": "kanto/kanto_main", "at": [228, 132], "area": "CELADON_CITY"},
+	{"name": "金黄市", "map": "kanto/kanto_main", "at": [336, 189], "area": "SAFFRON_CITY"},
+	{"name": "浅红市", "map": "kanto/kanto_main", "at": [217, 332], "area": "FUCHSIA_CITY"},
+	{"name": "红莲岛", "map": "kanto/kanto_main", "at": [74, 392], "area": "CINNABAR_ISLAND"},
 	{"name": "若叶镇", "map": "johto/johto_new_bark_town", "at": [5, 4]},
 	{"name": "樱花镇", "map": "johto/johto_cherrygrove_city", "at": [10, 4]},
 	{"name": "桔梗市", "map": "johto/johto_violet_city", "at": [10, 9]},
@@ -8391,23 +8541,14 @@ func _mark_fly_visits() -> void:
 	var reg := String(world.map_data.get("region", ""))
 	var flags := _flags()
 	var dirty := false
+	var path := reg + "/" + mid
+	var town: String = world.area_name() if mid == "kanto_main" else ""
 	for sp in FLY_SPOTS:
-		var key := "fly_" + String(sp["name"])
-		if flags.get(key, false):
-			continue
-		var path := String(sp["map"])
-		var at: Array = sp["at"]
-		if mid == path.split("/")[1]:
-			var d: int = absi(world.player_pos.x - int(at[0])) + absi(world.player_pos.y - int(at[1]))
-			if d <= 12:
-				flags[key] = true
-				dirty = true
-		# 大厅地图（kanto_main）里没有独立城镇图，靠坐标判定
-		if reg != "" and path.begins_with("kanto/") and mid == "kanto_main":
-			var d2: int = absi(world.player_pos.x - int(at[0])) + absi(world.player_pos.y - int(at[1]))
-			if d2 <= 12:
-				flags[key] = true
-				dirty = true
+		var key := "fly_" + String(sp.name)
+		if flags.get(key, false) or path != sp.map: continue
+		if mid == "kanto_main" and town != str(sp.get("area", sp.name)) and town != sp.name: continue
+		flags[key] = true
+		dirty = true
 	if dirty:
 		save_data["flags"] = flags
 		_persist()
@@ -8432,15 +8573,10 @@ func _open_fly() -> void:
 			return
 		var sp: Dictionary = spots[idx]
 		var parts := String(sp["map"]).split("/")
-		var big: Dictionary = Data.load_map(String(parts[0]), String(parts[1]))
-		if big.is_empty():
-			_show_toast("这张图暂时打不开。")
-			return
-		snd.play_sfx("confirm")
-		world.load_map(big)
-		var at: Array = sp["at"]
-		world.warp_to(Vector2i(int(at[0]), int(at[1])))
-		_refresh_scene())
+		world.surfing = false
+		world.diving = false
+		_do_warp({"region":parts[0], "map":parts[1], "at":sp.at, "facing":"down"})
+		_persist())
 
 
 ## 秘传：不用翻背包分类，直接在菜单里挑一招、挑一只队伍宝可梦来教
@@ -8475,7 +8611,20 @@ func _open_hm() -> void:
 	_pick("要用哪个秘传？", labels, func(idx: int) -> void:
 		if idx < 0 or idx >= mvs.size():
 			return
-		_hm_pick_who(int(mvs[idx])))
+		var move_id := int(mvs[idx])
+		var move: Dictionary = Data.move_of(move_id)
+		var key := str(move.get("key",""))
+		if (key not in ["FLY","FLASH"] and not (key == "CUT" and _ruin_door_ahead())) or not _party_can_move(key):
+			_hm_pick_who(move_id)
+			return
+		_pick(str(move.name), ["使用" + str(move.name), "教给其他队员"], func(mode: int) -> void:
+			if mode == 1:
+				_hm_pick_who(move_id)
+			elif mode == 0:
+				_close_start_menu()
+				if key == "FLY": _open_fly()
+				elif key == "CUT": _open_ruin_door()
+				else: _toggle_flash()))
 
 
 func _hm_pick_who(mv: int) -> void:

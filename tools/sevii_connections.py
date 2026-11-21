@@ -22,7 +22,8 @@ def normalized(name):
 
 
 def rebuild(region_dir, terrain_dir, source_dir, dry=False):
-    files = {p.stem: p for p in sorted(Path(region_dir).glob("*.json"))}
+    files = {p.stem: p for p in sorted(Path(region_dir).glob("*.json"))
+             if json.loads(p.read_text()).get("emerald")}
     rooms = {k: json.loads(p.read_text()) for k, p in files.items()}
     ids = {normalized(k): k for k in rooms}
     terrain = {k: json.loads((Path(terrain_dir) / (r["emerald"] + ".json")).read_text())
@@ -61,9 +62,8 @@ def rebuild(region_dir, terrain_dir, source_dir, dry=False):
         room["warps"] = kept
         used[key] = {tuple(w["at"]) for w in kept}
         m = terrain[key]
-        water = m.get("water")
         passable[key] = {(x, y) for y, row in enumerate(m["collision"]) for x, solid in enumerate(row)
-                         if not solid or (water and water[y][x])}
+                         if not solid}
         passable[key] -= {tuple(n["at"]) for n in room["npcs"]}
         passable[key] -= {tuple(o["at"]) for o in room.get("objects", [])
                           if o.get("kind") in {"sign", "rock", "cut", "boulder", "berry_tree"}}
@@ -86,9 +86,9 @@ def rebuild(region_dir, terrain_dir, source_dir, dry=False):
                 if (p not in passable[key] or q not in passable[dest]
                         or p in used[key] or q in used[dest]):
                     continue
-                for a, tile, b, other in ((key, p, dest, q), (dest, q, key, p)):
-                    rooms[a]["warps"].append({"at": list(tile), "to": {"region": "sevii",
-                                               "map": b, "at": list(other)}})
+                for a, tile, b, other, direction in ((key,p,dest,q,side),(dest,q,key,p,OPPOSITE[side])):
+                    rooms[a]["warps"].append({"at": list(tile), "trigger":direction, "edge":True,
+                                              "to":{"region":"sevii", "map":b, "at":list(other), "connection":True}})
                     used[a].add(tile)
                 added += 1
             if not added:

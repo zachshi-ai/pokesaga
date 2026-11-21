@@ -6,6 +6,7 @@ const CELL := 16
 const CHUNK := 22
 
 static var _catalog: Dictionary = {}
+static var _atlas_columns: int
 static var _tiles: TileSet
 static var _textures: Dictionary = {}
 
@@ -31,25 +32,35 @@ static func _tileset() -> TileSet:
 	_tiles.tile_size = Vector2i(CELL,CELL)
 	var src := TileSetAtlasSource.new()
 	src.texture = load(ART+"tiles.png")
+	_atlas_columns = floori(float(src.texture.get_width()) / CELL)
 	src.texture_region_size = _tiles.tile_size
 	_tiles.add_source(src,0)
 	for n in int(_catalog.tiles):
-		src.create_tile(Vector2i(n%32,n>>5))
+		src.create_tile(_atlas_coord(n))
 	return _tiles
+
+@warning_ignore("integer_division")
+static func _atlas_coord(id: int) -> Vector2i:
+	return Vector2i(id % _atlas_columns, id / _atlas_columns)
 
 static func prop_texture(kind: String) -> Texture2D:
 	if not _textures.has(kind):
 		_textures[kind] = load(ART+kind+".png")
 	return _textures[kind]
 
-func setup(owner_world: Node2D,plan: Dictionary) -> void:
+func setup(owner_world: Node2D,plan: Dictionary, overrides: Array = []) -> void:
 	world = owner_world
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	extent = Vector2i(plan.s[0],plan.s[1])
 	ground_data = _unpack(plan.t)
-	ground = _layer()
 	if plan.has("a"):
 		above_data = _unpack(plan.a)
+	for row in overrides:
+		var offset := (int(row[1])*extent.x+int(row[0]))*2
+		ground_data.encode_u16(offset,int(row[2]))
+		if not above_data.is_empty(): above_data.encode_u16(offset,int(row[3]))
+	ground = _layer()
+	if not above_data.is_empty():
 		above = _layer()
 		above.z_index = 997
 	for prop in plan.p:
@@ -129,4 +140,4 @@ func _change(key: Vector2i,show_chunk: bool) -> void:
 
 func _set_tile(layer: TileMapLayer,pos: Vector2i,id: int) -> void:
 	if id!=0:
-		layer.set_cell(pos,0,Vector2i(id%32,id>>5))
+		layer.set_cell(pos,0,_atlas_coord(id))

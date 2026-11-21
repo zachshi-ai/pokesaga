@@ -35,8 +35,10 @@
     "at": [
      8,
      3
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -49,8 +51,10 @@
     "at": [
      34,
      18
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -63,8 +67,10 @@
     "at": [
      10,
      13
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   },
   {
    "at": [
@@ -77,22 +83,10 @@
     "at": [
      11,
      11
-    ]
-   }
-  },
-  {
-   "at": [
-    27,
-    17
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pokemon_mansion_3f",
-    "at": [
-     23,
-     18
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   }
  ],
  "encounters": [],

@@ -74,9 +74,15 @@
     "map": "four_island_icefall_cave_1f",
     "at": [
      3,
+     7
+    ],
+    "arrival_from": [
+     3,
      6
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [

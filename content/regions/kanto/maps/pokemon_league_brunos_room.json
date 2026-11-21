@@ -7,7 +7,7 @@
  ],
  "spawn": [
   6,
-  12
+  9
  ],
  "npcs": [
   {
@@ -27,16 +27,22 @@
   {
    "at": [
     6,
-    12
+    10
    ],
    "to": {
     "region": "kanto",
     "map": "pokemon_league_loreleis_room",
     "at": [
      6,
+     3
+    ],
+    "arrival_from": [
+     6,
      2
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -48,9 +54,15 @@
     "map": "pokemon_league_agathas_room",
     "at": [
      6,
+     7
+    ],
+    "arrival_from": [
+     6,
      12
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   }
  ],
  "encounters": [],

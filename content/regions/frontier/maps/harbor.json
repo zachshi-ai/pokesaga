@@ -686,9 +686,10 @@
     "region": "kanto",
     "map": "kanto_main",
     "at": [
-     287,
-     234
-    ]
+     288,
+     232
+    ],
+    "facing": "up"
    }
   },
   {

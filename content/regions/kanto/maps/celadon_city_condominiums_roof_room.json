@@ -7,7 +7,7 @@
  ],
  "spawn": [
   3,
-  8
+  7
  ],
  "npcs": [
   {
@@ -26,20 +26,6 @@
  "warps": [
   {
    "at": [
-    3,
-    8
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_condominiums_roof",
-    "at": [
-     2,
-     12
-    ]
-   }
-  },
-  {
-   "at": [
     4,
     7
    ],
@@ -48,23 +34,15 @@
     "map": "celadon_city_condominiums_roof",
     "at": [
      2,
-     12
-    ]
-   }
-  },
-  {
-   "at": [
-    5,
-    8
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_condominiums_roof",
-    "at": [
+     13
+    ],
+    "arrival_from": [
      2,
      12
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

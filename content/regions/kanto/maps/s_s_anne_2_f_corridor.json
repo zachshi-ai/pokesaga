@@ -47,8 +47,10 @@
     "at": [
      3,
      8
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -61,8 +63,10 @@
     "at": [
      18,
      2
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   },
   {
    "at": [
@@ -75,8 +79,10 @@
     "at": [
      3,
      7
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -89,8 +95,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -103,8 +111,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -117,8 +127,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -131,8 +143,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -145,8 +159,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -159,8 +175,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   }
  ],
  "encounters": [],

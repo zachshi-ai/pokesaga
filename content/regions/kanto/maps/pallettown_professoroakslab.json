@@ -113,37 +113,15 @@
     "map": "kanto_main",
     "at": [
      76,
-     273
-    ]
-   }
-  },
-  {
-   "at": [
-    7,
-    12
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
+     274
+    ],
+    "arrival_from": [
      76,
      273
-    ]
-   }
-  },
-  {
-   "at": [
-    5,
-    12
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     76,
-     273
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

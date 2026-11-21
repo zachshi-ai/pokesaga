@@ -7,7 +7,7 @@
  ],
  "spawn": [
   7,
-  21
+  20
  ],
  "npcs": [
   {
@@ -27,6 +27,26 @@
  "warps": [
   {
    "at": [
+    8,
+    20
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "kanto_main",
+    "at": [
+     345,
+     181
+    ],
+    "arrival_from": [
+     345,
+     180
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
     31,
     2
    ],
@@ -36,22 +56,10 @@
     "at": [
      30,
      2
-    ]
-   }
-  },
-  {
-   "at": [
-    7,
-    21
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     297,
-     150
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -62,10 +70,28 @@
     "region": "kanto",
     "map": "silph_co_elevator",
     "at": [
-     0,
-     3
-    ]
-   }
+     2,
+     5
+    ],
+    "facing": "up",
+    "remember_passage": {
+     "key": "silph_co_elevator",
+     "destination": {
+      "region": "kanto",
+      "map": "silph_co_1f",
+      "at": [
+       22,
+       4
+      ],
+      "arrival_from": [
+       22,
+       3
+      ],
+      "facing": "down"
+     }
+    }
+   },
+   "trigger": "door"
   }
  ],
  "encounters": [],

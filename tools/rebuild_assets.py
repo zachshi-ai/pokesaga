@@ -30,14 +30,16 @@ def main():
         run("repair_johto_warps.py")
         run("johto_bg_events.py")
         run("rebuild_frlg_grass.py", source_path("firered"), "--project", root)
-        rebuild_islands(root/"content/regions/sevii/maps", root/"content/emerald_maps",
-                        source_path("firered","data/maps"))
         run("hoenn_ferry.py")
         run("build_world_routes.py","--project",root)
-        run("world/render_charts.py","--project",root)
         run("bake_emerald_field.py")
+        rebuild_islands(root/"content/regions/sevii/maps", root/"content/emerald_maps",
+                        source_path("firered","data/maps"))
+        run("import_firered_warps.py","--project",root)
+        run("world/render_charts.py","--project",root)
         run("import_emerald_ui.py")
         run("import_official_chars.py")
+        run("import_frlg_actors.py")
         run("import_emerald_battle.py")
     if "icons" in stages:
         run("import_bag_icons.py")

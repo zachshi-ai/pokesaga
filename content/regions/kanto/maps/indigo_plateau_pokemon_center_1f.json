@@ -118,9 +118,15 @@
     "map": "kanto_main",
     "at": [
      11,
+     17
+    ],
+    "arrival_from": [
+     11,
      16
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -132,9 +138,15 @@
     "map": "pokemon_league_loreleis_room",
     "at": [
      6,
+     7
+    ],
+    "arrival_from": [
+     6,
      12
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -148,7 +160,8 @@
      1,
      6
     ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

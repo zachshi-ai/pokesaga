@@ -7,7 +7,7 @@
  ],
  "spawn": [
   8,
-  11
+  12
  ],
  "npcs": [
   {
@@ -62,8 +62,10 @@
     "at": [
      9,
      9
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -76,8 +78,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -90,8 +94,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -103,22 +109,31 @@
     "map": "one_island_harbor",
     "at": [
      8,
+     3
+    ],
+    "arrival_from": [
+     8,
      2
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
     23,
     0
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island_kindle_road",
     "at": [
      0,
      120
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -126,13 +141,16 @@
     23,
     3
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island_kindle_road",
     "at": [
      0,
      123
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -140,55 +158,16 @@
     23,
     4
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island_kindle_road",
     "at": [
      0,
      124
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    7
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "one_island_kindle_road",
-    "at": [
-     0,
-     127
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    10
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "one_island_kindle_road",
-    "at": [
-     0,
-     130
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    11
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "one_island_kindle_road",
-    "at": [
-     0,
-     131
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -196,13 +175,16 @@
     23,
     12
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island_kindle_road",
     "at": [
      0,
      132
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -210,13 +192,16 @@
     23,
     13
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island_kindle_road",
     "at": [
      0,
      133
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -224,13 +209,16 @@
     0,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island_treasure_beach",
     "at": [
      0,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -238,13 +226,16 @@
     1,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island_treasure_beach",
     "at": [
      1,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -252,13 +243,16 @@
     4,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island_treasure_beach",
     "at": [
      4,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -266,13 +260,16 @@
     7,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island_treasure_beach",
     "at": [
      7,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -280,13 +277,16 @@
     8,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island_treasure_beach",
     "at": [
      8,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -294,13 +294,16 @@
     20,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island_treasure_beach",
     "at": [
      20,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -308,13 +311,16 @@
     21,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island_treasure_beach",
     "at": [
      21,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -322,13 +328,16 @@
     22,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island_treasure_beach",
     "at": [
      22,
      0
-    ]
+    ],
+    "connection": true
    }
   }
  ],

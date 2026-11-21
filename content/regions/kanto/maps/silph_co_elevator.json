@@ -13,162 +13,184 @@
  "warps": [
   {
    "at": [
-    0,
-    3
+    2,
+    5
    ],
    "to": {
     "region": "kanto",
     "map": "silph_co_1f",
     "at": [
      22,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    1,
-    3
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "silph_co_2f",
-    "at": [
+     4
+    ],
+    "arrival_from": [
      22,
      3
-    ]
-   }
-  },
-  {
-   "at": [
-    2,
-    3
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "silph_co_3f",
-    "at": [
-     22,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    3,
-    3
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "silph_co_4f",
-    "at": [
-     22,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    4,
-    3
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "silph_co_5f",
-    "at": [
-     22,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    4
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "silph_co_6f",
-    "at": [
-     20,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    1,
-    4
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "silph_co_7f",
-    "at": [
-     23,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    2,
-    4
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "silph_co_8f",
-    "at": [
-     22,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    3,
-    4
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "silph_co_9f",
-    "at": [
-     24,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    4,
-    4
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "silph_co_10f",
-    "at": [
-     13,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    5
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "silph_co_11f",
-    "at": [
-     13,
-     3
-    ]
-   }
+    ],
+    "facing": "down",
+    "recall_passage": "silph_co_elevator"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],
  "encounter_rate": 0.0,
  "weather": "none",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "lift_stops": [
+  {
+   "region": "kanto",
+   "map": "silph_co_1f",
+   "at": [
+    22,
+    4
+   ],
+   "arrival_from": [
+    22,
+    3
+   ],
+   "facing": "down"
+  },
+  {
+   "region": "kanto",
+   "map": "silph_co_2f",
+   "at": [
+    22,
+    4
+   ],
+   "arrival_from": [
+    22,
+    3
+   ],
+   "facing": "down"
+  },
+  {
+   "region": "kanto",
+   "map": "silph_co_3f",
+   "at": [
+    22,
+    4
+   ],
+   "arrival_from": [
+    22,
+    3
+   ],
+   "facing": "down"
+  },
+  {
+   "region": "kanto",
+   "map": "silph_co_4f",
+   "at": [
+    22,
+    4
+   ],
+   "arrival_from": [
+    22,
+    3
+   ],
+   "facing": "down"
+  },
+  {
+   "region": "kanto",
+   "map": "silph_co_5f",
+   "at": [
+    22,
+    4
+   ],
+   "arrival_from": [
+    22,
+    3
+   ],
+   "facing": "down"
+  },
+  {
+   "region": "kanto",
+   "map": "silph_co_6f",
+   "at": [
+    20,
+    4
+   ],
+   "arrival_from": [
+    20,
+    3
+   ],
+   "facing": "down"
+  },
+  {
+   "region": "kanto",
+   "map": "silph_co_7f",
+   "at": [
+    23,
+    4
+   ],
+   "arrival_from": [
+    23,
+    3
+   ],
+   "facing": "down"
+  },
+  {
+   "region": "kanto",
+   "map": "silph_co_8f",
+   "at": [
+    22,
+    4
+   ],
+   "arrival_from": [
+    22,
+    3
+   ],
+   "facing": "down"
+  },
+  {
+   "region": "kanto",
+   "map": "silph_co_9f",
+   "at": [
+    24,
+    4
+   ],
+   "arrival_from": [
+    24,
+    3
+   ],
+   "facing": "down"
+  },
+  {
+   "region": "kanto",
+   "map": "silph_co_10f",
+   "at": [
+    13,
+    4
+   ],
+   "arrival_from": [
+    13,
+    3
+   ],
+   "facing": "down"
+  },
+  {
+   "region": "kanto",
+   "map": "silph_co_11f",
+   "at": [
+    13,
+    4
+   ],
+   "arrival_from": [
+    13,
+    3
+   ],
+   "facing": "down"
+  }
+ ],
+ "objects": [
+  {
+   "at": [
+    0,
+    2
+   ],
+   "kind": "elevator",
+   "name": "电梯操作盘"
+  }
+ ]
 }

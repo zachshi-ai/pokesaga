@@ -100,9 +100,15 @@
     "map": "five_island_meadow",
     "at": [
      12,
+     22
+    ],
+    "arrival_from": [
+     12,
      21
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

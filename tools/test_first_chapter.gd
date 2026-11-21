@@ -165,7 +165,10 @@ func path_to(goal: Vector2i) -> Array:
 			var next: Vector2i = here + dir
 			if prev.has(next) or doors.has(next) or world.ledge_bits(next) != 0: continue
 			if world.map_data.id == "kanto_main" and not Rect2i(45, 57, 53, 227).has_point(next): continue
-			if not world.can_enter(next, dir): continue
+			var passage: Dictionary = world._warp_from(here, dir)
+			if not passage.is_empty():
+				if next != goal or passage.get("trigger") != "door": continue
+			elif not world.can_enter(next, dir): continue
 			prev[next] = here
 			q.append(next)
 	var path := []
@@ -177,10 +180,11 @@ func path_to(goal: Vector2i) -> Array:
 	return path
 
 func walk(goal: Vector2i) -> void:
-	if failed or goal == world.player_pos: return
+	if failed: return
+	world.tick_walk(0.5)
 	var id: String = world.map_data.id
 	var path := path_to(goal)
-	if not check(not path.is_empty(), "no walking route in %s %s -> %s" % [id,world.player_pos,goal]): return
+	if not check(goal == world.player_pos or not path.is_empty(), "no walking route in %s %s -> %s" % [id,world.player_pos,goal]): return
 	for delta in path:
 		var old: Vector2i = world.player_pos
 		game._move(DIRS[delta])
@@ -190,6 +194,12 @@ func walk(goal: Vector2i) -> void:
 		dialogs()
 		if is_instance_valid(game.active_battle): await battle()
 		if failed: return
+	if world.map_data.id == id and world.player_pos == goal:
+		var direction: String = world.warp_at(goal).get("trigger", "")
+		if direction in world.WARP_DIR:
+			game._move(direction)
+			world.tick_walk(0.5)
+			dialogs()
 	print("WALK ", id, " to ", goal, " arrived ", world.map_data.id, " ", world.player_pos)
 
 func talk(face: String) -> void:
@@ -221,12 +231,18 @@ func play() -> void:
 	await process_frame
 	if not check(game.panel_open == 0 and world.map_data.id == "pallet_town_players_house_2f", "wall map did not dismiss"): return
 	await walk(Vector2i(10,2))
-	if not check(world.map_data.id == "pallettown_playershouse_1f" and world.player_pos == Vector2i(10,3), "stairs to first floor"): return
-	await walk(Vector2i(5,8))
-	if not check(world.map_data.id == "kanto_main" and world.player_pos == Vector2i(66,267), "leaving the house"): return
+	if not check(world.map_data.id == "pallettown_playershouse_1f" and world.player_pos == Vector2i(10,2), "stairs to first floor"): return
+	await walk(Vector2i(4,8))
+	if not check(world.map_data.id == "kanto_main" and world.player_pos == Vector2i(66,268), "leaving the house"): return
 	dialogs()
-	await walk(Vector2i(76,273))
-	if not check(world.map_data.id == "pallettown_professoroakslab", "lab door"): return
+	# Oak is outside only during his scripted approach at the northern grass.
+	if not check(game._find_npc("大木博士").is_empty(), "Oak appeared in town before trigger"): return
+	await walk(Vector2i(72,261))
+	for frame in 650:
+		dialogs()
+		if not game._escort_active and game.cur_story.is_empty(): break
+		await process_frame
+	if not check(world.map_data.id == "pallettown_professoroakslab" and game._flags().get("oak_in_lab",false), "Oak led player into lab: %s %s current=%s flags=%s" % [world.map_data.id,world.player_pos,game.cur_story.get("id",""),game._flags()]): return
 	if not check(game._battle_backdrop() == "building", "lab battles use Emerald interior art"): return
 	await walk(Vector2i(6,4))
 	await talk("up")
@@ -246,6 +262,16 @@ func play() -> void:
 	if not check(game._flags().get("story_route1_blurb", false), "route 1 introduction"): return
 	await nurse_in_viridian()
 	if not check(heal_requests == 1, "first nurse interaction"): return
+	await walk(Vector2i(84,199))
+	await walk(Vector2i(4,3))
+	await talk("left")
+	if not check(bag_count("大木的包裹") == 1,"picked up Oak's parcel"): return
+	await walk(Vector2i(4,7))
+	await walk(Vector2i(76,273))
+	await walk(Vector2i(6,4))
+	await talk("up")
+	if not check(game._flags().get("got_dex",false) and bag_count("大木的包裹") == 0,"delivered parcel"): return
+	await walk(Vector2i(6,12))
 	# 在常磐市南门外的草地训练，HP 或招式 PP 见底前回中心补给。
 	for lap in 150:
 		if failed or int(game.save_data.party[0].level) >= 9: break

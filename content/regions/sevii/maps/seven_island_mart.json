@@ -74,9 +74,15 @@
     "map": "seven_island",
     "at": [
      5,
+     10
+    ],
+    "arrival_from": [
+     5,
      9
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

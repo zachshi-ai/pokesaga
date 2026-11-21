@@ -22,8 +22,10 @@
     "at": [
      7,
      4
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -36,8 +38,10 @@
     "at": [
      7,
      4
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "left"
   }
  ],
  "encounters": [],

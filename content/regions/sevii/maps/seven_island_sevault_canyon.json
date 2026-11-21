@@ -7,7 +7,7 @@
  ],
  "spawn": [
   14,
-  61
+  62
  ],
  "npcs": [
   {
@@ -396,8 +396,10 @@
     "at": [
      7,
      13
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -410,35 +412,26 @@
     "at": [
      4,
      7
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    7
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "seven_island_sevault_canyon_entrance",
-    "at": [
-     23,
-     27
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
     0,
     8
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_sevault_canyon_entrance",
     "at": [
      23,
      28
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -446,27 +439,16 @@
     0,
     9
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_sevault_canyon_entrance",
     "at": [
      23,
      29
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    10
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "seven_island_sevault_canyon_entrance",
-    "at": [
-     23,
-     30
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -474,13 +456,16 @@
     0,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_tanoby_ruins",
     "at": [
      48,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -488,13 +473,16 @@
     1,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_tanoby_ruins",
     "at": [
      49,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -502,13 +490,16 @@
     5,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_tanoby_ruins",
     "at": [
      53,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -516,13 +507,16 @@
     6,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_tanoby_ruins",
     "at": [
      54,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -530,13 +524,16 @@
     15,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_tanoby_ruins",
     "at": [
      63,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -544,13 +541,16 @@
     16,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_tanoby_ruins",
     "at": [
      64,
      0
-    ]
+    ],
+    "connection": true
    }
   }
  ],

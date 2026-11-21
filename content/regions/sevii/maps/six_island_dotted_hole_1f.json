@@ -21,9 +21,15 @@
     "map": "six_island_ruin_valley",
     "at": [
      24,
+     25
+    ],
+    "arrival_from": [
+     24,
      24
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -37,7 +43,8 @@
      6,
      7
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -51,21 +58,8 @@
      11,
      7
     ]
-   }
-  },
-  {
-   "at": [
-    6,
-    7
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_dotted_hole_b1f",
-    "at": [
-     11,
-     5
-    ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

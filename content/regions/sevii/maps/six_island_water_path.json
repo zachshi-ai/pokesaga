@@ -7,7 +7,7 @@
  ],
  "spawn": [
   5,
-  13
+  14
  ],
  "npcs": [
   {
@@ -268,8 +268,10 @@
     "at": [
      3,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -282,21 +284,26 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
     0,
     48
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island",
     "at": [
      23,
      8
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -304,13 +311,16 @@
     0,
     52
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island",
     "at": [
      23,
      12
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -318,13 +328,16 @@
     0,
     53
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island",
     "at": [
      23,
      13
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -332,13 +345,16 @@
     0,
     0
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      71,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -346,55 +362,16 @@
     0,
     1
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      71,
      1
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    2
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_green_path",
-    "at": [
-     71,
-     2
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    3
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_green_path",
-    "at": [
-     71,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    4
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_green_path",
-    "at": [
-     71,
-     4
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -402,13 +379,16 @@
     0,
     5
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      71,
      5
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -416,13 +396,16 @@
     0,
     6
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      71,
      6
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -430,13 +413,16 @@
     0,
     7
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      71,
      7
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -444,13 +430,16 @@
     0,
     8
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      71,
      8
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -458,13 +447,16 @@
     0,
     9
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      71,
      9
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -472,13 +464,16 @@
     0,
     10
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      71,
      10
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -486,13 +481,16 @@
     0,
     11
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      71,
      11
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -500,13 +498,16 @@
     0,
     12
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      71,
      12
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -514,13 +515,16 @@
     0,
     13
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      71,
      13
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -528,55 +532,16 @@
     0,
     14
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      71,
      14
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    15
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_green_path",
-    "at": [
-     71,
-     15
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    16
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_green_path",
-    "at": [
-     71,
-     16
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    17
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "six_island_green_path",
-    "at": [
-     71,
-     17
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -584,13 +549,16 @@
     0,
     18
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      71,
      18
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -598,13 +566,16 @@
     0,
     19
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      71,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -612,13 +583,16 @@
     0,
     89
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_ruin_valley",
     "at": [
      47,
      9
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -626,13 +600,16 @@
     0,
     90
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_ruin_valley",
     "at": [
      47,
      10
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -640,13 +617,16 @@
     0,
     91
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_ruin_valley",
     "at": [
      47,
      11
-    ]
+    ],
+    "connection": true
    }
   }
  ],

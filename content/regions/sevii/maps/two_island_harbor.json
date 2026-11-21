@@ -49,22 +49,26 @@
     "at": [
      10,
      8
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
-    8,
-    1
+    7,
+    5
    ],
    "to": {
     "region": "sevii",
     "map": "three_island_harbor",
     "at": [
      8,
-     2
-    ]
-   }
+     3
+    ],
+    "facing": "up"
+   },
+   "trigger": "left"
   },
   {
    "at": [

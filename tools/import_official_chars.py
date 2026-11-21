@@ -36,6 +36,19 @@ def indexed_sprite(path):
         return image.convert("RGBA")
 
 
+def surf_sheet(rider_path, mount_path):
+    # Emerald's sPicTable_BrendanSurfing uses frames 0/2/4 while riding.
+    # UpdateBobbingEffect draws the corresponding mount eight pixels lower.
+    rider = indexed_sprite(rider_path)
+    mount = indexed_sprite(mount_path)
+    sheet = Image.new("RGBA", (96, 40))
+    for direction in range(3):
+        x = direction * 32
+        sheet.alpha_composite(mount.crop((x, 0, x + 32, 32)), (x, 8))
+        sheet.alpha_composite(rider.crop((2*x, 0, 2*x + 32, 32)), (x, 0))
+    return sheet
+
+
 if __name__ == "__main__":
     people = "graphics/object_events/pics/people"
     output = Path(project_path("assets"))
@@ -43,6 +56,8 @@ if __name__ == "__main__":
     emerald = Path(source_path("emerald_original", people))
     firered = Path(source_path("firered", people))
     indexed_sprite(emerald/"brendan"/"walking.png").save(output/"player_emerald.png")
+    mount = source_path("emerald_original", "graphics/field_effects/pics/surf_blob.png")
+    surf_sheet(emerald/"brendan"/"surfing.png", mount).save(output/"player_surf.png")
     for root, mappings in [(emerald, EMERALD), (firered, FIRERED)]:
         for role, source in mappings.items():
             image = indexed_sprite(root / (source + ".png"))

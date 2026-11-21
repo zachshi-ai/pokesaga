@@ -141,10 +141,16 @@
     "region": "kanto",
     "map": "kanto_main",
     "at": [
-     311,
-     141
-    ]
-   }
+     359,
+     172
+    ],
+    "arrival_from": [
+     359,
+     171
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

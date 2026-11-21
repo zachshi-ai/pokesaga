@@ -23,7 +23,8 @@
      3,
      1
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -37,7 +38,8 @@
      2,
      2
     ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

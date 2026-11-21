@@ -599,8 +599,10 @@
     "at": [
      28,
      48
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "up"
   },
   {
    "at": [
@@ -613,8 +615,10 @@
     "at": [
      29,
      48
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "up"
   },
   {
    "at": [
@@ -627,21 +631,26 @@
     "at": [
      13,
      36
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
     0,
     120
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island",
     "at": [
      23,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -649,13 +658,16 @@
     0,
     123
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island",
     "at": [
      23,
      3
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -663,55 +675,16 @@
     0,
     124
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island",
     "at": [
      23,
      4
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    127
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "one_island",
-    "at": [
-     23,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    130
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "one_island",
-    "at": [
-     23,
-     10
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    131
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "one_island",
-    "at": [
-     23,
-     11
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -719,13 +692,16 @@
     0,
     132
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island",
     "at": [
      23,
      12
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -733,13 +709,16 @@
     0,
     133
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island",
     "at": [
      23,
      13
-    ]
+    ],
+    "connection": true
    }
   }
  ],

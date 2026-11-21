@@ -100,9 +100,15 @@
     "map": "one_island",
     "at": [
      14,
+     6
+    ],
+    "arrival_from": [
+     14,
      5
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -116,7 +122,8 @@
      1,
      6
     ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

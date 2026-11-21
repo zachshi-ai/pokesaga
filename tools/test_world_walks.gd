@@ -4,7 +4,7 @@ extends SceneTree
 
 class Walker extends "res://core/world.gd":
 	func _ready() -> void: pass
-	func _rebuild() -> void: pass
+	func _rebuild(_story_flags: Variant = null) -> void: pass
 
 const DIR := {Vector2i.UP:"up", Vector2i.DOWN:"down", Vector2i.LEFT:"left", Vector2i.RIGHT:"right"}
 var world
@@ -47,7 +47,9 @@ func path(target: Vector2i) -> Array:
 		i += 1
 		for dir in DIR:
 			world.player_pos = p
-			if not world.can_step(dir):continue
+			var passage: Dictionary = world._warp_from(p,dir)
+			if not passage.is_empty() and (passage.get("trigger") != "door" or vec(passage.at) != target): continue
+			if passage.is_empty() and not world.can_step(dir):continue
 			var next: Vector2i = world.jump_landing(dir) if world.hop_wanted(dir) else p+dir
 			if previous.has(next) or (warps.has(next) and next != target): continue
 			previous[next]=[p,dir]
@@ -65,10 +67,16 @@ func path(target: Vector2i) -> Array:
 	return out
 
 func walk(target: Vector2i) -> bool:
+	var origin := current
 	for dir in path(target):
 		if not world.step(dir): return fail("replay blocked at %s %s" % [current,world.player_pos])
 		steps += 1
 		world.tick_walk(1.0)
+	if current == origin and world.player_pos == target:
+		var direction: String = world.warp_at(target).get("trigger", "")
+		if direction in world.WARP_DIR:
+			if not world.step(world.WARP_DIR[direction]): return fail("cannot activate "+str(target))
+			world.tick_walk(1.0)
 	return not failed
 
 func take_gate(target: String) -> bool:

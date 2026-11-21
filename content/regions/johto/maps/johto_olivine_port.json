@@ -132,9 +132,10 @@
     "region": "kanto",
     "map": "kanto_main",
     "at": [
-     287,
-     234
-    ]
+     286,
+     232
+    ],
+    "facing": "up"
    }
   },
   {
@@ -146,9 +147,10 @@
     "region": "kanto",
     "map": "kanto_main",
     "at": [
-     287,
-     234
-    ]
+     286,
+     232
+    ],
+    "facing": "up"
    }
   }
  ],

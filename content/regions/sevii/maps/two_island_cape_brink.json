@@ -7,7 +7,7 @@
  ],
  "spawn": [
   12,
-  16
+  17
  ],
  "npcs": [],
  "warps": [
@@ -22,21 +22,26 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
     12,
     39
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "two_island",
     "at": [
      36,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -44,13 +49,16 @@
     13,
     39
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "two_island",
     "at": [
      37,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -58,13 +66,16 @@
     14,
     39
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "two_island",
     "at": [
      38,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -72,13 +83,16 @@
     15,
     39
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "two_island",
     "at": [
      39,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -86,13 +100,16 @@
     16,
     39
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "two_island",
     "at": [
      40,
      0
-    ]
+    ],
+    "connection": true
    }
   }
  ],

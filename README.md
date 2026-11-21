@@ -1,30 +1,36 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.50.0-study`，versionCode 为 83，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.51.0-study`，versionCode 为 84，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
 
-[下载 4.50 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.50.0-study/PokeSaga-4.50.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.50.0-study)
+[下载 4.51 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.51.0-study/PokeSaga-4.51.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.51.0-study)
 
-![安卓模拟器实拍。左图是在未白镇按 START 打开的右侧菜单，右图是从队伍第十二位换上快龙后的战斗指令。](.github/preview/v4.50-start-and-battle.png)
+![安卓同位置实拍对比。左列为 4.50，右列为 4.51。上排是常磐商店门前，下排是华蓝道馆的木桥和水池。](.github/preview/v4.51-field.png)
+
+[查看战斗动图：皮卡丘使用十万伏特时，水伊布的 HP 从 132 降至 79](.github/preview/v4.51-battle-hp.gif)
 
 ## 从真新镇开始
 
-启动游戏先到《绿宝石》的烈空坐标题页。选择「新的冒险」从真新镇家中二楼的床边出发。走到右上方墙图前面朝上按 A，可翻看世界全景地图。在丰缘索引点「丰缘地图」，可以缩放《绿宝石》宝可导航的地区地图。下楼出门，进大木研究所选择初始伙伴，再向北进入 1 号道路。草丛里可以遇敌、投球、练级，常磐市的宝可梦中心可以治疗队伍。经 2 号道路和常磐森林抵达尼比市，打赢小刚即可获得首枚徽章。城都另有八徽章门禁、四天王、冠军与名人堂登记。
+启动游戏先到《绿宝石》的烈空坐标题页。选择「新的冒险」从真新镇家中二楼的床边出发。走到右上方墙图前面朝上按 A，可翻看世界全景地图。在丰缘索引点「丰缘地图」，可以缩放《绿宝石》宝可导航的地区地图。下楼出门，走到真新镇北边的草丛，大木会带你去研究所领取初始伙伴。在研究所出口和小茂对战后，前往常磐商店领取包裹，交回大木就能拿到图鉴，常磐市北面的老人也会让路。草丛里可以遇敌、投球、练级，常磐市的宝可梦中心可以治疗队伍。经 2 号道路和常磐森林抵达尼比市，打赢小刚即可获得首枚徽章。城都另有八徽章门禁、四天王、冠军与名人堂登记。
 
 本版共 1,230 张地图。九个主地区与十二个附属区域均有地图、步行入口和领航员，墙图登记了 555 个地点。24 条跨区通道包括海堤、栈道、隧道及山口。第一次从真新镇出发，可以直接找家外的领航员，点目标地区，再点「出发前往」。地图室、道路、道馆与室内房间保留各自的碰撞和进出点。新建地区侧重探索与交通；首枚徽章和城都联盟已有可游玩的剧情。
 
-场景以 GBA《绿宝石》的 16 像素地图块搭建。真新镇使用丰缘的房屋和家具；大木、小刚等关都专属人物使用同世代《火红》的像素角色。标题页、背包、丰缘导航图和战斗场地采用原游戏图块与配色。前三世代宝可梦优先采用《绿宝石》正背面及异色，后来登场的宝可梦和形态使用与之相配的像素图。各地图的通行、剧情和存档继续使用本作的坐标。[地图与素材说明](doc/素材重建.md)
+关都与七岛的 375 张地图采用《火红／叶绿》的 16 像素图块、调色板、地形属性和出入口编号。华蓝道馆的木桥可以步行，面向池水按 A 并确认冲浪后才会下水。城都沿用《水晶》的路网，按能否准确对齐来选择《绿宝石》素材或保留《水晶》原图。其他自建地区主要使用《绿宝石》素材。[地图与素材说明](doc/素材重建.md)
+
+大木、小茂、常磐老人、正辉、富士老人、火箭队和卡比兽会按事件进度出场、移位或让路。七岛可向一之岛的锦辉接下红宝石委托，在灯火山击败两名守卫、进洞取石并交还。在冰冻瀑布洞窟帮助科拿后，六岛门前的研究员才会让开，带会居合斩的队员可以打开点之穴。其他尚未移植的原版支线沿用本作的探索流程。
+
+标题页、背包、丰缘导航图和战斗场地采用原游戏图块与配色。前三世代宝可梦优先采用《绿宝石》正背面及异色，后来登场的宝可梦和形态使用与之相配的像素图。
 
 ## 队伍与触屏菜单
 
-探索时点右上角 **START**，右侧会弹出图鉴、队伍、背包、电脑、工具和存档。点「工具」可以骑行、使用闪光、飞行、秘传或打开修改器，在宝可梦中心还能进入融合工坊。关掉图鉴等页面后，光标会回到刚才那一行。点地图空白处可直接收起菜单。键盘 Enter 开菜单，上下键选择、Enter 确认、Esc 返回。手柄可用 START、方向键及 A/B。
+探索时点右上角 **START**，右侧会弹出图鉴、队伍、背包、电脑、工具和存档。点「工具」可以骑行、进入秘传或打开修改器，在宝可梦中心还能进入融合工坊。队员会飞翔或闪光时，在「秘传」选中该招即可使用，也可以教给其他队员。关掉图鉴等页面后，光标会回到刚才那一行。点地图空白处可直接收起菜单。键盘 Enter 开菜单，上下键选择、Enter 确认、Esc 返回。手柄可用 START、方向键及 A/B。
 
-战斗时，右下角固定显示「战斗」「背包」「宝可梦」「逃跑」四项。点「战斗」查看每招的属性、威力和剩余 PP。当场可用的变身、Z 招式和太晶化在「特殊行动」里。点「宝可梦」可以滑动查看最多 12 名队员并换人。
+战斗时，右下角固定显示「战斗」「背包」「宝可梦」「逃跑」四项。点「战斗」查看每招的属性、威力和剩余 PP。当场可用的变身、Z 招式和太晶化在「特殊行动」里。出招时，受击一方的血条和 HP 数值一同逐渐下降，按各自行动顺序结算。点「宝可梦」可以滑动查看最多 12 名队员并换人。
 
 - 同行队伍可带 12 只。满员后捕获的成员进电脑；在电脑中点选具体成员存入或取回，最后一只留在队伍中。旧存档的单箱收藏会迁入电脑。
 - 队伍、背包、图鉴、修改器共用触屏控件。可以在卡片上直接滑动，松手后再点选。修改器支持按名字或编号查找、选招式和道具，保存后同时写入队伍与背包；取消会放弃本次草稿。
-- 图鉴以主编号组织形态，1,025 个战斗物种归入 1,003 个主条目。按本作设计，22 只悖谬种归在其原型下。输入 `990` 或铁辙迹会打开顿甲 No.0232 中的铁辙迹，战斗与存档继续使用铁辙迹自己的物种 ID。
-- 图鉴详情分别选形态、闪光和战斗状态。地区形态、Mega、超极巨、不同属性、颜色、花纹和造型可单独查看。星星闪和方块闪共用该形态真实的异色配色，预览与战斗使用不同的闪光图形。普通极巨和通用太晶采用图层表现。多形态示例包括彩粉蝶的 20 种花纹、未知图腾的 28 种字形，以及霜奶仙的 9 种奶油 × 7 种糖饰。
-- “该编号已捕获”表示物种收集进度。“外观预览”“已见过此外观”“已拥有此外观”对应具体形态、闪光和太晶组合。图鉴预览不会新增捕获记录。旧个体只有布尔型闪光字段时按星星闪迁移，缺少个体证据的旧历史只保留编号进度。
+- 图鉴以主编号组织形态，1,025 个战斗物种归入 1,003 个主条目。按本作设计，22 只悖谬种归在其原型下。遇见铁辙迹后，输入 `990` 或铁辙迹可打开顿甲 No.0232 中的铁辙迹，战斗与存档继续使用铁辙迹自己的物种 ID。
+- 图鉴默认列出已经见过的编号，详情只显示实际遇到或拥有的形态、闪光和战斗状态组合。地区形态、Mega、超极巨、不同属性、颜色、花纹和造型可单独查看。星星闪和方块闪共用该形态真实的异色配色，预览与战斗使用不同的闪光图形。太晶化按实际发动时的属性收录。多形态示例包括彩粉蝶的 20 种花纹、未知图腾的 28 种字形，以及霜奶仙的 9 种奶油 × 7 种糖饰。
+- “该编号已捕获”表示物种收集进度。“已见过此外观”和“已拥有此外观”对应具体形态、闪光和太晶组合。查看图鉴不会新增记录。旧个体只有布尔型闪光字段时按星星闪迁移，缺少个体证据的旧历史只保留编号进度。
 
 ## 从源码安装
 
@@ -33,10 +39,10 @@
 ```bash
 godot --headless --path . --import
 godot --path .
-tools/build_android.sh ../交付/PokeSaga-4.50.0-study.apk
+tools/build_android.sh ../交付/PokeSaga-4.51.0-study.apk
 ```
 
-构建 Android 需要匹配的 Godot 导出模板、JDK 17、Android SDK、platform-tools、build-tools 和 Godot 可访问的本机调试签名。已配置的机器可用 `GODOT_BIN`、`JAVA_HOME`、`ANDROID_HOME` 选择工具路径。本机脚本也识别 `~/Library/Application Support/PokeSagaBuild`。学习版使用 `Android Study` 导出预设，目标架构为 ARM64，输出为签名调试 APK。安装可用 `adb install -r ../交付/PokeSaga-4.50.0-study.apk`。
+构建 Android 需要匹配的 Godot 导出模板、JDK 17、Android SDK、platform-tools、build-tools 和 Godot 可访问的本机调试签名。已配置的机器可用 `GODOT_BIN`、`JAVA_HOME`、`ANDROID_HOME` 选择工具路径。本机脚本也识别 `~/Library/Application Support/PokeSagaBuild`。学习版使用 `Android Study` 导出预设，目标架构为 ARM64，输出为签名调试 APK。安装可用 `adb install -r ../交付/PokeSaga-4.51.0-study.apk`。
 
 ## 验证改动
 
@@ -44,6 +50,9 @@ tools/build_android.sh ../交付/PokeSaga-4.50.0-study.apk
 godot --headless --path . -- --selftest
 godot --headless --path . --script tools/test_world_returns.gd
 godot --headless --path . --script tools/test_world_walks.gd
+godot --headless --fixed-fps 60 --path . --script tools/test_field_mapping.gd
+godot --headless --fixed-fps 60 --path . --script tools/test_firered_passages.gd
+godot --headless --fixed-fps 60 --path . --script tools/test_frlg_story.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_world_atlas.gd
 godot --headless --path . --script tools/test_npc_appearances.gd
 python3 tools/test_first_chapter.py --godot /path/to/godot
@@ -51,6 +60,8 @@ godot --headless --fixed-fps 60 --path . --script tools/test_collection.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_start_menu.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_battle_commands.gd
 godot --headless --path . --script tools/test_dex_catalog.gd
+godot --headless --fixed-fps 60 --path . --script tools/test_dex_sightings.gd
+godot --headless --fixed-fps 60 --path . --script tools/test_battle_hp.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_johto_passage.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_johto_league.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_hoenn_ferry.gd

@@ -2,11 +2,915 @@
  "region": "kanto",
  "events": [
   {
+   "id": "oak_escort",
+   "once": true,
+   "trigger": {
+    "type": "step",
+    "map": "kanto_main",
+    "area": [
+     72,
+     261,
+     74,
+     262
+    ]
+   },
+   "require": {
+    "flags_none": [
+     "got_starter",
+     "oak_in_lab"
+    ]
+   },
+   "steps": [
+    {
+     "who": "大木博士",
+     "say": [
+      "等等！别一个人走进草丛！"
+     ]
+    },
+    {
+     "escort": "approach"
+    },
+    {
+     "who": "大木博士",
+     "say": [
+      "野生宝可梦就在高草里。跟我来，我给你找个伙伴。"
+     ]
+    },
+    {
+     "escort": "follow"
+    },
+    {
+     "flag": "oak_in_lab"
+    },
+    {
+     "warp": {
+      "region": "kanto",
+      "map": "pallettown_professoroakslab",
+      "at": [
+       6,
+       11
+      ],
+      "facing": "up"
+     }
+    }
+   ]
+  },
+  {
+   "id": "sign_lady_read",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "actor": "sign_lady",
+    "map": "kanto_main"
+   },
+   "require": {},
+   "steps": [
+    {
+     "who": "镇上的姐姐",
+     "say": [
+      "你也想读告示吗？我让开一点。"
+     ]
+    },
+    {
+     "flag": "read_sign_lady"
+    }
+   ]
+  },
+  {
+   "id": "lab_waiting",
+   "once": false,
+   "trigger": {
+    "type": "talk",
+    "actor": "lab_rival",
+    "map": "pallettown_professoroakslab"
+   },
+   "require": {
+    "flags_none": [
+     "oak_in_lab",
+     "got_starter"
+    ]
+   },
+   "steps": [
+    {
+     "who": "小茂",
+     "say": [
+      "爷爷不在这里。你去镇北的草丛边看看吧。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lab_pick_partner",
+   "once": false,
+   "trigger": {
+    "type": "talk",
+    "actor": "lab_rival",
+    "map": "pallettown_professoroakslab"
+   },
+   "require": {
+    "flags_all": [
+     "oak_in_lab"
+    ],
+    "flags_none": [
+     "got_starter"
+    ]
+   },
+   "steps": [
+    {
+     "who": "小茂",
+     "say": [
+      "爷爷在前面等你。先和他说话，领你的伙伴吧。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lab_dex_on_desk",
+   "once": false,
+   "trigger": {
+    "type": "talk",
+    "actor": "lab_dex",
+    "map": "pallettown_professoroakslab"
+   },
+   "require": {},
+   "steps": [
+    {
+     "who": "图鉴",
+     "say": [
+      "桌上摆着两本崭新的宝可梦图鉴。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oak_parcel",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "actor": "parcel_clerk",
+    "map": "viridiancity_mart"
+   },
+   "require": {
+    "flags_all": [
+     "got_starter"
+    ],
+    "flags_none": [
+     "got_dex"
+    ]
+   },
+   "steps": [
+    {
+     "who": "店员",
+     "say": [
+      "你从真新镇来？大木博士订的东西到了，能替我交给他吗？"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "大木的包裹",
+      "category": "key",
+      "count": 1
+     }
+    },
+    {
+     "flag": "carrying_oak_parcel"
+    }
+   ]
+  },
+  {
+   "id": "parcel_reminder",
+   "once": false,
+   "trigger": {
+    "type": "talk",
+    "actor": "parcel_clerk",
+    "map": "viridiancity_mart"
+   },
+   "require": {
+    "flags_all": [
+     "carrying_oak_parcel"
+    ],
+    "flags_none": [
+     "got_dex"
+    ]
+   },
+   "steps": [
+    {
+     "who": "店员",
+     "say": [
+      "请把包裹交给真新镇研究所的大木博士。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oak_dex",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "actor": "lab_oak",
+    "map": "pallettown_professoroakslab"
+   },
+   "require": {
+    "flags_all": [
+     "carrying_oak_parcel"
+    ],
+    "flags_none": [
+     "got_dex"
+    ]
+   },
+   "steps": [
+    {
+     "who": "大木博士",
+     "say": [
+      "送到啦！谢谢你。这是我订做的精灵球。",
+      "桌上的图鉴交给你。遇到的宝可梦会记在上面。"
+     ]
+    },
+    {
+     "remove_item": "大木的包裹"
+    },
+    {
+     "flag": "got_dex"
+    }
+   ]
+  },
+  {
+   "id": "old_man_road",
+   "once": false,
+   "trigger": {
+    "type": "step",
+    "map": "kanto_main",
+    "area": [
+     70,
+     191,
+     71,
+     192
+    ]
+   },
+   "require": {
+    "flags_none": [
+     "got_dex"
+    ]
+   },
+   "steps": [
+    {
+     "who": "老人",
+     "say": [
+      "我还没喝咖啡！小伙子，从这里过可不行。"
+     ]
+    },
+    {
+     "set_player_at": [
+      70,
+      192
+     ]
+    }
+   ]
+  },
+  {
+   "id": "old_man_block",
+   "once": false,
+   "trigger": {
+    "type": "talk",
+    "actor": "old_man",
+    "map": "kanto_main"
+   },
+   "require": {
+    "flags_none": [
+     "got_dex"
+    ]
+   },
+   "steps": [
+    {
+     "who": "老人",
+     "say": [
+      "还没喝到早晨的咖啡……先容我在这儿躺一会儿。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "old_man_up",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "actor": "old_man",
+    "map": "kanto_main"
+   },
+   "require": {
+    "flags_all": [
+     "got_dex"
+    ]
+   },
+   "steps": [
+    {
+     "who": "老人",
+     "say": [
+      "咖啡喝过了！要捕捉宝可梦，先让它消耗些体力，再投球。"
+     ]
+    },
+    {
+     "flag": "old_man_met"
+    }
+   ]
+  },
+  {
+   "id": "pewter_east_road",
+   "once": false,
+   "trigger": {
+    "type": "step",
+    "map": "kanto_main",
+    "area": [
+     90,
+     81,
+     91,
+     84
+    ]
+   },
+   "also": [
+    {
+     "type": "step",
+     "map": "kanto_main",
+     "area": [
+      91,
+      83,
+      92,
+      84
+     ]
+    }
+   ],
+   "require": {
+    "flags_none": [
+     "beat_brock"
+    ]
+   },
+   "steps": [
+    {
+     "who": "道馆向导",
+     "say": [
+      "你还没挑战小刚吗？我带你到道馆门前。"
+     ]
+    },
+    {
+     "set_player_at": [
+      63,
+      77
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pewter_guide",
+   "once": false,
+   "trigger": {
+    "type": "talk",
+    "actor": "gym_guide",
+    "map": "kanto_main"
+   },
+   "require": {
+    "flags_none": [
+     "beat_brock"
+    ]
+   },
+   "steps": [
+    {
+     "who": "道馆向导",
+     "say": [
+      "想去下一条路？小刚的道馆在镇子西北，去挑战他吧。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pewter_shoes",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "actor": "shoes_aide",
+    "map": "kanto_main"
+   },
+   "also": [
+    {
+     "type": "step",
+     "map": "kanto_main",
+     "area": [
+      94,
+      81,
+      95,
+      84
+     ]
+    }
+   ],
+   "require": {
+    "flags_all": [
+     "beat_brock"
+    ]
+   },
+   "steps": [
+    {
+     "who": "大木的助手",
+     "say": [
+      "这是你妈妈托我带来的跑步鞋。按住 B 就能跑。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "跑步鞋",
+      "category": "key",
+      "count": 1
+     }
+    },
+    {
+     "flag": "received_running_shoes"
+    }
+   ]
+  },
+  {
+   "id": "bill_enter_machine",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "actor": "bill_clefairy",
+    "map": "route25_sea_cottage"
+   },
+   "require": {
+    "flags_none": [
+     "helped_bill"
+    ]
+   },
+   "steps": [
+    {
+     "who": "皮皮",
+     "say": [
+      "别被我的样子吓到，我是正辉！实验出了岔子。",
+      "我进去以后，请在左侧电脑上运行细胞分离程序。"
+     ]
+    },
+    {
+     "flag": "bill_in_machine"
+    }
+   ]
+  },
+  {
+   "id": "bill_separate",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "actor": "bill_pc",
+    "map": "route25_sea_cottage"
+   },
+   "require": {
+    "flags_all": [
+     "bill_in_machine"
+    ]
+   },
+   "steps": [
+    {
+     "who": "电脑",
+     "say": [
+      "细胞分离程序已启动。",
+      "右舱的灯熄灭了，正辉从左舱走了出来。"
+     ]
+    },
+    {
+     "flag": "helped_bill"
+    }
+   ]
+  },
+  {
+   "id": "bill_give_ticket",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "actor": "bill",
+    "map": "route25_sea_cottage"
+   },
+   "require": {
+    "flags_all": [
+     "helped_bill"
+    ]
+   },
+   "steps": [
+    {
+     "who": "正辉",
+     "say": [
+      "恢复原样了！枯叶市的圣安奴号船票，就送给你作谢礼。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "船票",
+      "category": "key",
+      "count": 1
+     }
+    },
+    {
+     "flag": "ss_ticket"
+    }
+   ]
+  },
+  {
+   "id": "police_block",
+   "once": false,
+   "trigger": {
+    "type": "talk",
+    "actor": "police",
+    "map": "kanto_main"
+   },
+   "require": {
+    "flags_none": [
+     "ss_ticket"
+    ]
+   },
+   "steps": [
+    {
+     "who": "警察",
+     "say": [
+      "这家被火箭队盗窃了。请暂时绕行。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "police_clear",
+   "once": false,
+   "trigger": {
+    "type": "talk",
+    "actor": "police",
+    "map": "kanto_main"
+   },
+   "require": {
+    "flags_all": [
+     "ss_ticket"
+    ]
+   },
+   "steps": [
+    {
+     "who": "警察",
+     "say": [
+      "门口已经让开了。线索可能就在屋子后面。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cerulean_rocket",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "actor": "cerulean_grunt",
+    "map": "kanto_main"
+   },
+   "require": {
+    "flags_none": [
+     "beat_cerulean_rocket"
+    ]
+   },
+   "steps": [
+    {
+     "who": "火箭队手下",
+     "say": [
+      "挖洞的招式学习器在我这里，你追上来了？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "火箭队手下",
+      "team": [
+       {
+        "species": 66,
+        "level": 17
+       },
+       {
+        "species": 96,
+        "level": 17
+       }
+      ],
+      "win_say": [
+       "我还给你就是了！"
+      ]
+     }
+    },
+    {
+     "give_item": {
+      "name": "招式学习器 28",
+      "category": "tm",
+      "count": 1
+     }
+    },
+    {
+     "flag": "beat_cerulean_rocket"
+    }
+   ]
+  },
+  {
+   "id": "tower_grunt_1",
+   "trigger": {
+    "type": "talk",
+    "actor": "tower_grunt_1",
+    "map": "pokemontower_7f"
+   },
+   "steps": [
+    {
+     "who": "火箭队手下",
+     "say": [
+      "这层楼归火箭队管！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "火箭队手下",
+      "team": [
+       {
+        "species": 41,
+        "level": 25
+       },
+       {
+        "species": 41,
+        "level": 25
+       },
+       {
+        "species": 42,
+        "level": 25
+       }
+      ]
+     }
+    },
+    {
+     "flag": "beat_tower_grunt_1"
+    }
+   ]
+  },
+  {
+   "id": "tower_grunt_2",
+   "trigger": {
+    "type": "talk",
+    "actor": "tower_grunt_2",
+    "map": "pokemontower_7f"
+   },
+   "steps": [
+    {
+     "who": "火箭队手下",
+     "say": [
+      "那位老人妨碍了我们的买卖。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "火箭队手下",
+      "team": [
+       {
+        "species": 109,
+        "level": 26
+       },
+       {
+        "species": 96,
+        "level": 26
+       }
+      ]
+     }
+    },
+    {
+     "flag": "beat_tower_grunt_2"
+    }
+   ]
+  },
+  {
+   "id": "tower_grunt_3",
+   "trigger": {
+    "type": "talk",
+    "actor": "tower_grunt_3",
+    "map": "pokemontower_7f"
+   },
+   "steps": [
+    {
+     "who": "火箭队手下",
+     "say": [
+      "你以为你能救走老人吗？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "火箭队手下",
+      "team": [
+       {
+        "species": 41,
+        "level": 23
+       },
+       {
+        "species": 19,
+        "level": 23
+       },
+       {
+        "species": 20,
+        "level": 23
+       },
+       {
+        "species": 41,
+        "level": 23
+       }
+      ]
+     }
+    },
+    {
+     "flag": "beat_tower_grunt_3"
+    }
+   ]
+  },
+  {
+   "id": "fuji_rescue",
+   "trigger": {
+    "type": "talk",
+    "actor": "tower_fuji",
+    "map": "pokemontower_7f"
+   },
+   "require": {
+    "flags_all": [
+     "beat_tower_grunt_1",
+     "beat_tower_grunt_2",
+     "beat_tower_grunt_3"
+    ]
+   },
+   "steps": [
+    {
+     "who": "富士老人",
+     "say": [
+      "谢谢你把火箭队赶走。我在这里为宝可梦们祈祷。和我一起回紫苑镇吧。"
+     ]
+    },
+    {
+     "flag": "rescued_fuji"
+    },
+    {
+     "warp": {
+      "region": "kanto",
+      "map": "lavender_town_volunteer_pokemon_house",
+      "at": [
+       4,
+       7
+      ],
+      "facing": "up"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fuji_wait",
+   "once": false,
+   "trigger": {
+    "type": "talk",
+    "actor": "tower_fuji",
+    "map": "pokemontower_7f"
+   },
+   "steps": [
+    {
+     "who": "富士老人",
+     "say": [
+      "火箭队的三个人还在这一层，请帮我让他们离开。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fuji_flute",
+   "trigger": {
+    "type": "talk",
+    "actor": "home_fuji",
+    "map": "lavender_town_volunteer_pokemon_house"
+   },
+   "steps": [
+    {
+     "who": "富士老人",
+     "say": [
+      "把这支宝可梦之笛带上吧。它的声音能唤醒熟睡的宝可梦。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "宝可梦之笛",
+      "category": "key",
+      "count": 1
+     }
+    },
+    {
+     "flag": "poke_flute"
+    }
+   ]
+  },
+  {
+   "id": "silph_door_guard",
+   "once": false,
+   "trigger": {
+    "type": "talk",
+    "actor": "silph_guard",
+    "map": "kanto_main"
+   },
+   "require": {
+    "flags_none": [
+     "rescued_fuji"
+    ]
+   },
+   "steps": [
+    {
+     "who": "火箭队守卫",
+     "say": [
+      "闲人免进！西尔佛公司现在由火箭队看管。"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "silph_sleeping_guard",
+   "once": false,
+   "trigger": {
+    "type": "talk",
+    "actor": "silph_guard",
+    "map": "kanto_main"
+   },
+   "require": {
+    "flags_all": [
+     "rescued_fuji"
+    ]
+   },
+   "steps": [
+    {
+     "who": "火箭队守卫",
+     "say": [
+      "呼……呼……（守卫靠在门边睡着了。）"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "silph_rocket",
+   "once": true,
+   "trigger": {
+    "type": "talk",
+    "actor": "silph_giovanni",
+    "map": "silph_co_11f"
+   },
+   "also": [
+    {
+     "type": "step",
+     "map": "silph_co_11f",
+     "area": [
+      5,
+      15,
+      7,
+      16
+     ]
+    }
+   ],
+   "require": {
+    "flags_none": [
+     "freed_silph"
+    ]
+   },
+   "steps": [
+    {
+     "who": "坂木",
+     "say": [
+      "西尔佛公司的技术，火箭队势在必得。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "坂木",
+      "team": [
+       {
+        "species": 33,
+        "level": 37
+       },
+       {
+        "species": 115,
+        "level": 35
+       },
+       {
+        "species": 111,
+        "level": 37
+       },
+       {
+        "species": 31,
+        "level": 41
+       }
+      ],
+      "win_say": [
+       "我们撤退。"
+      ]
+     }
+    },
+    {
+     "flag": "freed_silph"
+    }
+   ]
+  },
+  {
    "id": "pallet_intro",
    "once": true,
    "trigger": {
     "type": "map_enter",
-    "map": "kanto_main"
+    "map": "kanto_main",
+    "area_name": "真新镇"
    },
    "require": {
     "flags_none": [
@@ -18,7 +922,7 @@
      "say": [
       "……这里是真新镇。",
       "空气里有青草和海水混在一起的味道。",
-      "听说大木博士在找帮手——研究所就在镇子北边。"
+      "北边就是 1 号道路。走到草丛边时，小心野生宝可梦。"
      ],
      "who": "旁白"
     },
@@ -32,11 +936,15 @@
    "once": true,
    "trigger": {
     "type": "talk",
-    "npc": "大木博士"
+    "npc": "大木博士",
+    "map": "pallettown_professoroakslab"
    },
    "require": {
     "flags_none": [
      "got_starter"
+    ],
+    "flags_all": [
+     "oak_in_lab"
     ]
    },
    "steps": [
@@ -63,17 +971,13 @@
      }
     },
     {
+     "who": "大木博士",
      "say": [
-      "对了，还有这个。它叫宝可梦图鉴，见过的、抓到的都会记下来。",
-      "去把这个世界看一遍吧。"
-     ],
-     "who": "大木博士"
+      "这几颗精灵球也拿好。北边的常磐市有家商店，去那里看看吧。"
+     ]
     },
     {
      "flag": "got_starter"
-    },
-    {
-     "flag": "got_dex"
     }
    ]
   },
@@ -82,7 +986,8 @@
    "once": false,
    "trigger": {
     "type": "talk",
-    "npc": "大木博士"
+    "npc": "大木博士",
+    "map": "pallettown_professoroakslab"
    },
    "require": {
     "flags_all": [
@@ -186,7 +1091,8 @@
      "got_starter"
     ],
     "flags_none": [
-     "beat_rival"
+     "beat_rival",
+     "rival_left_lab"
     ]
    },
    "steps": [
@@ -217,8 +1123,27 @@
       "lose_say": [
        "就这点本事？",
        "连我都打不过，尼比市的道馆你别去了。"
-      ]
+      ],
+      "finish_on_loss": true
      }
+    },
+    {
+     "flag": "rival_left_lab"
+    },
+    {
+     "heal": true
+    }
+   ],
+   "also": [
+    {
+     "type": "step",
+     "map": "pallettown_professoroakslab",
+     "area": [
+      5,
+      8,
+      8,
+      9
+     ]
     }
    ]
   },
@@ -253,7 +1178,7 @@
      "who": "旁白",
      "say": [
       "常磐市。\n这里是关都最靠西的城市，去往联盟的路就从这儿往北。",
-      "道馆的门开着，但馆主很少在。\n门口的人说，他在等一个够格的人。"
+      "道馆还锁着。先去商店问问，这里和大木博士的研究所有往来。"
      ]
     }
    ]

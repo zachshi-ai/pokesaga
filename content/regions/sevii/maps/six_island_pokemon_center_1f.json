@@ -74,9 +74,15 @@
     "map": "six_island",
     "at": [
      11,
+     12
+    ],
+    "arrival_from": [
+     11,
      11
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -90,7 +96,8 @@
      1,
      6
     ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

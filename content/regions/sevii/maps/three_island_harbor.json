@@ -49,22 +49,26 @@
     "at": [
      12,
      13
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
-    8,
-    1
+    7,
+    5
    ],
    "to": {
     "region": "sevii",
     "map": "four_island_harbor",
     "at": [
      8,
-     2
-    ]
-   }
+     3
+    ],
+    "facing": "up"
+   },
+   "trigger": "left"
   },
   {
    "at": [

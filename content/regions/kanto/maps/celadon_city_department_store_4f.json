@@ -7,7 +7,7 @@
  ],
  "spawn": [
   6,
-  1
+  2
  ],
  "npcs": [
   {
@@ -50,6 +50,38 @@
  "warps": [
   {
    "at": [
+    6,
+    1
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_department_store_elevator",
+    "at": [
+     2,
+     5
+    ],
+    "facing": "up",
+    "remember_passage": {
+     "key": "celadon_city_department_store_elevator",
+     "destination": {
+      "region": "kanto",
+      "map": "celadon_city_department_store_4f",
+      "at": [
+       6,
+       2
+      ],
+      "arrival_from": [
+       6,
+       1
+      ],
+      "facing": "down"
+     }
+    }
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
     3,
     2
    ],
@@ -59,8 +91,10 @@
     "at": [
      3,
      2
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "left"
   },
   {
    "at": [
@@ -73,22 +107,10 @@
     "at": [
      9,
      2
-    ]
-   }
-  },
-  {
-   "at": [
-    3,
-    1
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_department_store_elevator",
-    "at": [
-     3,
-     3
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "right"
   }
  ],
  "encounters": [],

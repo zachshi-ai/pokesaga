@@ -26,20 +26,6 @@
  "warps": [
   {
    "at": [
-    5,
-    8
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     66,
-     267
-    ]
-   }
-  },
-  {
-   "at": [
     4,
     8
    ],
@@ -48,23 +34,15 @@
     "map": "kanto_main",
     "at": [
      66,
-     267
-    ]
-   }
-  },
-  {
-   "at": [
-    3,
-    9
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
+     268
+    ],
+    "arrival_from": [
      66,
      267
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -76,9 +54,11 @@
     "map": "pallet_town_players_house_2f",
     "at": [
      10,
-     3
-    ]
-   }
+     2
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   }
  ],
  "encounters": [],

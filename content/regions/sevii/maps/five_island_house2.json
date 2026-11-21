@@ -35,9 +35,15 @@
     "map": "five_island",
     "at": [
      22,
+     10
+    ],
+    "arrival_from": [
+     22,
      9
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

@@ -35,8 +35,10 @@
     "at": [
      16,
      8
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   },
   {
    "at": [
@@ -49,22 +51,10 @@
     "at": [
      3,
      12
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    5
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "s_s_anne_deck",
-    "at": [
-     16,
-     8
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   }
  ],
  "encounters": [],

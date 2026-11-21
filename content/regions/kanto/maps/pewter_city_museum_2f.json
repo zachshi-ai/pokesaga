@@ -83,8 +83,10 @@
     "at": [
      8,
      8
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   }
  ],
  "encounters": [],

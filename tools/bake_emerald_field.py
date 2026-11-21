@@ -220,10 +220,10 @@ class Atlas:
         return self.ids[raw]
 
     def save(self):
-        rows=(len(self.images)+31)//32
-        out=Image.new('RGBA',(32*16,rows*16))
+        rows=(len(self.images)+63)//64
+        out=Image.new('RGBA',(64*16,rows*16))
         for n,img in enumerate(self.images):
-            out.paste(img,(n%32*16,n//32*16))
+            out.paste(img,(n%64*16,n//64*16))
         out.save(OUT/'tiles.png',optimize=True)
 
 
@@ -382,8 +382,88 @@ class Fields:
         paste((96,128,128,144),max(1,dx-1)*16,dy*16)
         return self.pixmap(img)
 
+    def original_image(self, meta, w, h):
+        path=ROOT/'content/emerald_maps'/meta['png']
+        with Image.open(path) as image:
+            plan=self.pixmap(image.convert('RGBA').resize((w*CELL,h*CELL),Image.Resampling.NEAREST))
+        fore=path.with_name(path.stem+'_fg.png')
+        if fore.exists():
+            with Image.open(fore) as image:
+                image=image.convert('RGBA')
+                if image.getbbox():
+                    plan['a']=self.pixmap(image.resize((w*CELL,h*CELL),Image.Resampling.NEAREST))['t']
+        plan['source']=meta.get('source','project_map')
+        return plan
+
+    def crystal_needs_original(self, data, plan, meta):
+        from field_layouts import doorway
+        water=np.asarray(meta.get('water',[]))
+        h,w=meta['size'][1],meta['size'][0]
+        if water.shape!=(h,w): water=np.zeros((h,w),bool)
+        if plan['b'] in ('interior','space','cave','ruins'):
+            return bool(water.any())
+        solid=np.asarray(meta['collision'])
+        doors=np.asarray(meta.get('door',[]))
+        for warp in data.get('warps',[]):
+            x,y=warp['at']
+            kind=doorway(warp.get('to',{}).get('map',''))
+            if not kind or warp.get('edge'): continue
+            if not (0<=x<w and 0<=y<h) or doors.shape!=(h,w) or not doors[y,x] or water[y,x]:
+                return True
+            art=kind+'_compact' if kind+'_compact' in self.props else kind
+            ax,ay=self.props[art]
+            with Image.open(OUT/(art+'.png')) as image:
+                # Compare the actual opaque footprint and its anchor to Crystal's dry
+                # impassable blocks. Never cover a route, shore, second door or pool.
+                ox,oy=x*CELL+CELL//2-ax,(y+1)*CELL-ay
+                visible=image.getchannel('A')
+                for ty in range(oy//CELL,(oy+image.height-1)//CELL+1):
+                    for tx in range(ox//CELL,(ox+image.width-1)//CELL+1):
+                        if (tx,ty)==(x,y): continue
+                        box=(tx*CELL-ox,ty*CELL-oy,(tx+1)*CELL-ox,(ty+1)*CELL-oy)
+                        if visible.crop(box).getbbox() and (tx<0 or ty<0 or tx>=w or ty>=h or water[ty,tx] or not solid[ty,tx] or doors[ty,tx]):
+                            return True
+        return False
+
+    def site_building(self, ids, raw, kind, site):
+        """Fit Emerald artwork to the exact bottom-centred footprint of an authored lot."""
+        w,h = site['size']
+        x,y = site['at']
+        x0,y0 = x-w//2,y-h+1
+        with Image.open(OUT/(kind+'.png')) as source:
+            # Art is door-anchored, sites are centre-anchored. Register the native door
+            # cell to the authored threshold, fitting left and right wings independently.
+            door_col = self.props[kind][0]//CELL
+            door, target = door_col*CELL,(w//2)*CELL
+            if raw[y,x] != 8:
+                # A decorative lot has no doorway. Continue the neighboring facade
+                # across the lowest tile so an unusable threshold is never painted.
+                neighbor=door+CELL if door+2*CELL<=source.width else door-CELL
+                wall=source.crop((neighbor,source.height-CELL,neighbor+CELL,source.height))
+                source=source.copy()
+                source.paste(wall,(door,source.height-CELL))
+            image = Image.new('RGBA',(w*CELL,h*CELL))
+            for a,b,c,d in [(0,door,0,target),(door,door+CELL,target,target+CELL),
+                             (door+CELL,source.width,target+CELL,image.width)]:
+                if b>a and d>c:
+                    strip=source.crop((a,0,b,source.height))
+                    image.paste(strip.resize((d-c,image.height),Image.Resampling.NEAREST),(c,0))
+        for j in range(h):
+            for i in range(w):
+                px,py=x0+i,y0+j
+                if not (0<=px<raw.shape[1] and 0<=py<raw.shape[0] and raw[py,px] in (6,7,8)):
+                    continue
+                tile=self.atlas.images[ids[py,px]].copy()
+                tile.alpha_composite(image.crop((i*CELL,j*CELL,(i+1)*CELL,(j+1)*CELL)))
+                ids[py,px]=self.atlas.add(tile)
+
     def draw(self,key,plan,data):
         w,h=plan['s'];region,name=key.split('/')
+        physical=data.get('emerald','')
+        if (region=='johto' and physical.startswith('johto_')) or physical=='demo_town':
+            meta=json.loads((ROOT/'content/emerald_maps'/(physical+'.json')).read_text())
+            if physical=='demo_town' or self.crystal_needs_original(data,plan,meta):
+                return self.original_image(meta,w,h)
         if key in ('kanto/pallet_town_players_house_2f','kanto/pallettown_playershouse_1f'):
             return self.bedrooms(w,h,name.endswith('2f'))
         if key=='kanto/pallettown_professoroakslab':
@@ -464,13 +544,18 @@ class Fields:
             self.indoor(ids,a,plan,key,compact)
         buildings={'home','lab','birch_lab','gym','mart','center','academy','ruin'}
         door_anchors=[p for p in plan['p'] if p[0] in buildings]
+        lots={tuple(row['at']):row for row in data.get('art_props',[]) if 'size' in row}
         props=[]
         for kind,x,y,_,_ in plan['p']:
             if kind=='birch_lab':kind='lab'
+            structure = kind in buildings
             if kind=='home':
                 variants=['home','home_red','home_green','home_blue','home_city']
                 kind=variants[(x*7+y*13)%len(variants)]
             if kind=='tree' and any(abs(x-p[1])<=2 and p[2]-4<=y<=p[2] for p in door_anchors):
+                continue
+            if structure and (x,y) in lots and raw.shape==a.shape:
+                self.site_building(ids,raw,kind,lots[x,y])
                 continue
             if compact and kind+'_compact' in self.props:kind+='_compact'
             if kind not in self.props: raise ValueError((key,kind))
@@ -531,26 +616,41 @@ def set_output(project):
 
 def main():
     from asset_paths import source_path
-    from field_layouts import compile_map
+    from field_layouts import compile_map, profile
+    from firered_fields import FireRedFields, align_saffron
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source',type=Path,default=Path(source_path('emerald_original')))
+    parser.add_argument('--firered',type=Path,default=Path(source_path('firered')))
     parser.add_argument('--project',type=Path,default=ROOT)
     args=parser.parse_args()
     set_output(args.project)
     OUT.mkdir(parents=True,exist_ok=True)
     art=Fields(Emerald(args.source))
+    align_saffron(ROOT,args.firered)
+    firered=FireRedFields(args.firered, ROOT, art.atlas)
     maps={}
     for path in sorted((ROOT/'content/regions').glob('*/maps/*.json')):
         data=json.loads(path.read_text());region=path.parents[1].name
         key=region+'/'+path.stem
+        native = firered.draw(region,path.stem,data)
+        if native is not None:
+            meta=json.loads((ROOT/"content/emerald_maps"/(data["emerald"]+".json")).read_text())
+            native["biome"]=profile(data,meta,path.stem)
+            native['source']='pokefirered'
+            maps[key]=native
+            continue
         plan=compile_map(path.stem,data,region)
         if not plan: raise ValueError('Could not resolve walk grid for '+key)
         maps[key]=art.draw(key,plan,data)
         maps[key]["biome"]=plan["b"]
+        default='authored_emerald'
+        if data.get('emerald') in ('littleroot_town','route101'): default='pokeemerald'
+        if region=='johto' and data.get('emerald','').startswith('johto_'): default='emerald_on_crystal'
+        maps[key].setdefault('source',default)
     art.atlas.save()
     index={'tiles':len(art.atlas.images),'anchors':art.props,'maps':maps}
     (ROOT/'content/emerald_fields.json').write_text(json.dumps(index,separators=(',',':'))+'\n')
-    print(len(maps),'fields;',len(art.atlas.images),'unique Emerald metatiles;',len(art.props),'props')
+    print(len(maps),'fields;',len(art.atlas.images),'unique GBA metatiles;',len(art.props),'props')
 
 
 if __name__=='__main__':

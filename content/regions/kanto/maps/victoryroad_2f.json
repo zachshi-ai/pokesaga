@@ -7,7 +7,7 @@
  ],
  "spawn": [
   49,
-  13
+  12
  ],
  "npcs": [
   {
@@ -96,7 +96,8 @@
      3,
      2
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -110,7 +111,8 @@
      5,
      2
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -124,7 +126,8 @@
      34,
      9
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -138,7 +141,8 @@
      37,
      10
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -152,21 +156,8 @@
      39,
      17
     ]
-   }
-  },
-  {
-   "at": [
-    49,
-    13
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     18,
-     58
-    ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -178,37 +169,15 @@
     "map": "kanto_main",
     "at": [
      18,
-     58
-    ]
-   }
-  },
-  {
-   "at": [
-    47,
-    13
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
+     59
+    ],
+    "arrival_from": [
      18,
      58
-    ]
-   }
-  },
-  {
-   "at": [
-    34,
-    19
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "victoryroad_3f",
-    "at": [
-     34,
-     18
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [

@@ -35,9 +35,15 @@
     "map": "three_island_port",
     "at": [
      16,
+     5
+    ],
+    "arrival_from": [
+     16,
      4
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -49,9 +55,15 @@
     "map": "three_island_port",
     "at": [
      38,
+     6
+    ],
+    "arrival_from": [
+     38,
      5
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

@@ -35,22 +35,10 @@
     "at": [
      249,
      321
-    ]
-   }
-  },
-  {
-   "at": [
-    1,
-    7
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     249,
-     321
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   },
   {
    "at": [
@@ -63,22 +51,10 @@
     "at": [
      256,
      321
-    ]
-   }
-  },
-  {
-   "at": [
-    11,
-    7
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     256,
-     321
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -91,8 +67,10 @@
     "at": [
      10,
      9
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   }
  ],
  "encounters": [],

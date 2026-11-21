@@ -13,92 +13,114 @@
  "warps": [
   {
    "at": [
-    0,
-    3
+    2,
+    5
    ],
    "to": {
     "region": "kanto",
     "map": "celadoncity_departmentstore_1f",
     "at": [
-     4,
+     6,
+     2
+    ],
+    "arrival_from": [
+     6,
      1
-    ]
-   }
-  },
-  {
-   "at": [
-    1,
-    3
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_department_store_2f",
-    "at": [
-     3,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    2,
-    3
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_department_store_3f",
-    "at": [
-     3,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    3,
-    3
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_department_store_4f",
-    "at": [
-     3,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    4,
-    3
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_department_store_5f",
-    "at": [
-     3,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    4
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_department_store_roof",
-    "at": [
-     1,
-     3
-    ]
-   }
+    ],
+    "facing": "down",
+    "recall_passage": "celadon_city_department_store_elevator"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],
  "encounter_rate": 0.0,
  "weather": "none",
  "weather_name": "",
- "cycling": false
+ "cycling": false,
+ "lift_stops": [
+  {
+   "region": "kanto",
+   "map": "celadoncity_departmentstore_1f",
+   "at": [
+    6,
+    2
+   ],
+   "arrival_from": [
+    6,
+    1
+   ],
+   "facing": "down"
+  },
+  {
+   "region": "kanto",
+   "map": "celadon_city_department_store_2f",
+   "at": [
+    6,
+    2
+   ],
+   "arrival_from": [
+    6,
+    1
+   ],
+   "facing": "down"
+  },
+  {
+   "region": "kanto",
+   "map": "celadon_city_department_store_3f",
+   "at": [
+    6,
+    2
+   ],
+   "arrival_from": [
+    6,
+    1
+   ],
+   "facing": "down"
+  },
+  {
+   "region": "kanto",
+   "map": "celadon_city_department_store_4f",
+   "at": [
+    6,
+    2
+   ],
+   "arrival_from": [
+    6,
+    1
+   ],
+   "facing": "down"
+  },
+  {
+   "region": "kanto",
+   "map": "celadon_city_department_store_5f",
+   "at": [
+    6,
+    2
+   ],
+   "arrival_from": [
+    6,
+    1
+   ],
+   "facing": "down"
+  }
+ ],
+ "objects": [
+  {
+   "at": [
+    0,
+    2
+   ],
+   "kind": "elevator",
+   "name": "电梯操作盘"
+  },
+  {
+   "at": [
+    4,
+    1
+   ],
+   "kind": "elevator",
+   "name": "电梯操作盘"
+  }
+ ]
 }

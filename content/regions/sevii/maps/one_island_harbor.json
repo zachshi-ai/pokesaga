@@ -59,36 +59,42 @@
     "at": [
      12,
      18
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
-    8,
-    1
+    7,
+    5
    ],
    "to": {
     "region": "sevii",
     "map": "two_island_harbor",
     "at": [
      8,
-     2
-    ]
-   }
+     3
+    ],
+    "facing": "up"
+   },
+   "trigger": "left"
   },
   {
    "at": [
-    16,
+    9,
     5
    ],
    "to": {
     "region": "kanto",
     "map": "kanto_main",
     "at": [
-     287,
-     234
-    ]
-   }
+     286,
+     231
+    ],
+    "facing": "up"
+   },
+   "trigger": "right"
   },
   {
    "at": [

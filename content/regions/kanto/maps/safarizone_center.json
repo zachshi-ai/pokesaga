@@ -21,9 +21,15 @@
     "map": "safarizone_entrance",
     "at": [
      4,
+     2
+    ],
+    "arrival_from": [
+     4,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -35,23 +41,15 @@
     "map": "safarizone_entrance",
     "at": [
      4,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    27,
-    30
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "safarizone_entrance",
-    "at": [
+     2
+    ],
+    "arrival_from": [
      4,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -64,8 +62,10 @@
     "at": [
      30,
      34
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "up"
   },
   {
    "at": [
@@ -78,22 +78,10 @@
     "at": [
      31,
      34
-    ]
-   }
-  },
-  {
-   "at": [
-    27,
-    5
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "safarizone_north",
-    "at": [
-     32,
-     34
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "up"
   },
   {
    "at": [
@@ -106,8 +94,10 @@
     "at": [
      40,
      26
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   },
   {
    "at": [
@@ -120,22 +110,10 @@
     "at": [
      40,
      27
-    ]
-   }
-  },
-  {
-   "at": [
-    8,
-    19
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "safarizone_west",
-    "at": [
-     40,
-     28
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   },
   {
    "at": [
@@ -148,8 +126,10 @@
     "at": [
      8,
      26
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -162,22 +142,10 @@
     "at": [
      8,
      27
-    ]
-   }
-  },
-  {
-   "at": [
-    43,
-    17
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "safarizone_east",
-    "at": [
-     8,
-     28
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -188,10 +156,12 @@
     "region": "kanto",
     "map": "safari_zone_center_rest_house",
     "at": [
-     3,
+     4,
      9
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   }
  ],
  "encounters": [

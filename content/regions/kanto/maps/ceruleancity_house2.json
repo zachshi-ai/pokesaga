@@ -40,20 +40,6 @@
  "warps": [
   {
    "at": [
-    2,
-    7
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     294,
-     51
-    ]
-   }
-  },
-  {
-   "at": [
     3,
     7
    ],
@@ -62,23 +48,15 @@
     "map": "kanto_main",
     "at": [
      294,
-     51
-    ]
-   }
-  },
-  {
-   "at": [
-    4,
-    7
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
+     52
+    ],
+    "arrival_from": [
      294,
      51
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -91,8 +69,10 @@
     "at": [
      295,
      48
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],
@@ -105,7 +85,7 @@
    ],
    "kind": "sign",
    "sprite": "sign",
-   "text": "宝可梦讲座\n用无线适配器游戏"
+   "text": "墙上被撞出了一个能钻过去的大洞。"
   }
  ],
  "weather": "none",

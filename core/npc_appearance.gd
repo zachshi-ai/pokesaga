@@ -17,6 +17,8 @@ const TRAINERS := {
 const NAMES := {"小镇少女":"lass", "开拓少女":"battle_girl", "对战塔前台":"clerk", "登记员":"clerk", "工地师傅":"man", "女士":"woman", "空手道师父":"old_expert"}
 
 static func texture_for(npc: Dictionary) -> Texture2D:
+	if npc.has("field_art"):
+		return load(DIRECTORY + str(npc.field_art) + ".png")
 	var name_text := str(npc.get("name", ""))
 	var role := str(npc.get("gfx", ""))
 	if npc.has("gives_mon") and name_text == "精灵球":

@@ -1,5 +1,5 @@
 """Drive the installed study APK on a disposable landscape Android emulator using adb.
-The fixture temporarily adds seen IDs to an existing debug save. The original is
+The fixture temporarily adds sightings to an existing debug save. The original is
 backed up in --output and restored when the run exits. Screenshots stay in --output.
 """
 import argparse
@@ -78,6 +78,12 @@ def run(adb_path, serial, out):
     save = json.loads(raw)
     seen = save.setdefault("dex",{}).setdefault("seen",[])
     seen.extend([990,666,869,201,493,1017])
+    samples = save.setdefault("dex_variants", {})
+    cake = "ALCREMIE_MATCHA_CREAM_RIBBON"
+    for sid, form, shine in [(990,"","none"),(666,"VIVILLON_ICY_SNOW","none"),(666,"SPEWPA_POLAR","none"),
+                             (493,"ARCEUS_FIRE","none"),(201,"UNOWN_F","none"),(869,"","none"),
+                             (869,cake,"none"),(869,cake,"star"),(869,cake,"square")]:
+        samples[f"{sid}|{form}|{shine}|"] = 1
     try:
         write_save(json.dumps(save,ensure_ascii=False).encode())
         arrival()
@@ -96,12 +102,7 @@ def run(adb_path, serial, out):
         portrait(201,"UNOWN_F",False,"05-unown-F")
         lookup("869")
         portrait(869,"ALCREMIE_VANILLA_CREAM_STRAWBERRY",False,"06-alcremie-vanilla")
-        tap(320,104)
-        tap(350,75)
-        tap(130,70)
-        adb("shell","input","text","MATCHA_CREAM_RIBBON")
-        adb("shell","input","keyevent","66")
-        tap(110,115)
+        lookup("alcremie-matcha-cream-ribbon-sweet")
         portrait(869,"ALCREMIE_MATCHA_CREAM_RIBBON",False,"07-alcremie-matcha-ribbon")
         tap(320,150)
         tap(350,75)

@@ -7,7 +7,7 @@
  ],
  "spawn": [
   2,
-  1
+  2
  ],
  "npcs": [
   {
@@ -35,8 +35,10 @@
     "at": [
      17,
      10
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   }
  ],
  "encounters": [],

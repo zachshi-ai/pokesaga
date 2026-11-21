@@ -34,7 +34,7 @@ func take(kind: String, ctx: Dictionary, flags: Dictionary, has_party: bool) -> 
 			continue
 		if _finished(ev, flags):
 			continue
-		if not _trigger_match(ev, kind, ctx):
+		if not _trigger_match(ev.get("trigger",{}), kind, ctx) and not ev.get("also",[]).any(func(tr): return _trigger_match(tr,kind,ctx)):
 			continue
 		if not _require_match(ev, flags, has_party):
 			continue
@@ -49,15 +49,17 @@ func _finished(ev: Dictionary, flags: Dictionary) -> bool:
 		return false
 	return bool(flags.get("story_" + id, false))
 
-func _trigger_match(ev: Dictionary, kind: String, ctx: Dictionary) -> bool:
-	var tr: Dictionary = ev.get("trigger", {})
+func _trigger_match(tr: Dictionary, kind: String, ctx: Dictionary) -> bool:
 	if String(tr.get("type", "")) != kind:
 		return false
 	match kind:
 		"map_enter":
+			if tr.has("area_name") and tr.area_name != ctx.get("area_name",""):
+				return false
 			var m := String(tr.get("map", ""))
 			return m == "" or m == String(ctx.get("map", ""))
 		"talk":
+			if tr.has("actor") and tr.actor != ctx.get("actor",""): return false
 			var who := String(tr.get("npc", ""))
 			if who != "" and who != String(ctx.get("npc", "")):
 				return false

@@ -46,9 +46,15 @@
     "map": "pokemon_league_lances_room",
     "at": [
      6,
+     6
+    ],
+    "arrival_from": [
+     6,
      5
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -62,7 +68,8 @@
      5,
      12
     ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

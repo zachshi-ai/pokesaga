@@ -6,8 +6,8 @@
   40
  ],
  "spawn": [
-  1,
-  1
+  6,
+  19
  ],
  "npcs": [
   {
@@ -77,13 +77,16 @@
     0,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island",
     "at": [
      0,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -91,13 +94,16 @@
     1,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island",
     "at": [
      1,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -105,13 +111,16 @@
     4,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island",
     "at": [
      4,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -119,13 +128,16 @@
     7,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island",
     "at": [
      7,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -133,13 +145,16 @@
     8,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island",
     "at": [
      8,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -147,13 +162,16 @@
     20,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island",
     "at": [
      20,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -161,13 +179,16 @@
     21,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island",
     "at": [
      21,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -175,13 +196,16 @@
     22,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "one_island",
     "at": [
      22,
      19
-    ]
+    ],
+    "connection": true
    }
   }
  ],

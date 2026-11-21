@@ -88,8 +88,10 @@
     "at": [
      4,
      6
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "left"
   },
   {
    "at": [
@@ -102,33 +104,10 @@
     "at": [
      15,
      6
-    ]
-   }
-  },
-  {
-   "at": [
-    13,
-    5
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "trainer_tower_elevator",
-    "at": [
-     2,
-     4
     ],
-    "remember_passage": {
-     "key": "sevii_lift",
-     "destination": {
-      "region": "sevii",
-      "map": "trainer_tower_8f",
-      "at": [
-       14,
-       5
-      ]
-     }
-    }
-   }
+    "facing": "right"
+   },
+   "trigger": "left"
   }
  ],
  "encounters": [],

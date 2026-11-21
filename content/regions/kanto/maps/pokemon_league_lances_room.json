@@ -34,9 +34,15 @@
     "map": "pokemon_league_agathas_room",
     "at": [
      6,
+     3
+    ],
+    "arrival_from": [
+     6,
      2
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -49,8 +55,10 @@
     "at": [
      6,
      19
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   }
  ],
  "encounters": [],

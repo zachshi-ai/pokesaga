@@ -46,8 +46,10 @@
     "at": [
      10,
      2
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   }
  ],
  "encounters": [],

@@ -34,9 +34,15 @@
     "map": "kanto_main",
     "at": [
      211,
+     332
+    ],
+    "arrival_from": [
+     211,
      331
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

@@ -5027,1081 +5027,19 @@
  "warps": [
   {
    "at": [
-    66,
-    267
+    214,
+    141
    ],
    "to": {
     "region": "kanto",
-    "map": "pallettown_playershouse_1f",
-    "at": [
-     5,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    66,
-    267
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pallettown_playershouse_1f",
-    "at": [
-     4,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    66,
-    267
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pallettown_playershouse_1f",
-    "at": [
-     3,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    75,
-    267
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pallettown_rivalshouse",
-    "at": [
-     4,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    75,
-    267
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pallettown_rivalshouse",
-    "at": [
-     5,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    75,
-    267
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pallettown_rivalshouse",
-    "at": [
-     3,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    76,
-    273
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pallettown_professoroakslab",
-    "at": [
-     6,
-     12
-    ]
-   }
-  },
-  {
-   "at": [
-    76,
-    273
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pallettown_professoroakslab",
-    "at": [
-     7,
-     12
-    ]
-   }
-  },
-  {
-   "at": [
-    76,
-    273
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pallettown_professoroakslab",
-    "at": [
-     5,
-     12
-    ]
-   }
-  },
-  {
-   "at": [
-    74,
-    206
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_pokemoncenter_1f",
-    "at": [
-     6,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    74,
-    206
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_pokemoncenter_1f",
-    "at": [
-     7,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    74,
-    206
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_pokemoncenter_1f",
-    "at": [
-     8,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    84,
-    199
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_mart",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    84,
-    199
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_mart",
-    "at": [
-     4,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    84,
-    199
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_mart",
-    "at": [
-     5,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    84,
-    190
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_gym",
-    "at": [
-     16,
-     22
-    ]
-   }
-  },
-  {
-   "at": [
-    84,
-    190
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_gym",
-    "at": [
-     17,
-     22
-    ]
-   }
-  },
-  {
-   "at": [
-    84,
-    190
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_gym",
-    "at": [
-     18,
-     22
-    ]
-   }
-  },
-  {
-   "at": [
-    73,
-    198
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_school",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    73,
-    198
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_school",
-    "at": [
-     4,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    73,
-    198
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_school",
-    "at": [
-     5,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    73,
-    191
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_house",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    73,
-    191
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_house",
-    "at": [
-     4,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    73,
-    191
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridiancity_house",
-    "at": [
-     5,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    65,
-    85
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_pokemoncenter_1f",
-    "at": [
-     6,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    65,
-    85
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_pokemoncenter_1f",
-    "at": [
-     7,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    65,
-    85
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_pokemoncenter_1f",
-    "at": [
-     8,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    76,
-    78
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_mart",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    76,
-    78
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_mart",
-    "at": [
-     4,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    76,
-    78
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_mart",
-    "at": [
-     5,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    63,
-    76
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_gym",
-    "at": [
-     5,
-     14
-    ]
-   }
-  },
-  {
-   "at": [
-    63,
-    76
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_gym",
-    "at": [
-     6,
-     14
-    ]
-   }
-  },
-  {
-   "at": [
-    63,
-    76
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_gym",
-    "at": [
-     7,
-     14
-    ]
-   }
-  },
-  {
-   "at": [
-    65,
-    66
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_museum1f",
-    "at": [
-     13,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    65,
-    66
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_museum1f",
-    "at": [
-     14,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    65,
-    66
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_museum1f",
-    "at": [
-     15,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    73,
-    64
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_museum1f",
-    "at": [
-     21,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    73,
-    64
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_museum1f",
-    "at": [
-     22,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    81,
-    71
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_house1",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    81,
-    71
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_house1",
-    "at": [
-     4,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    81,
-    71
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewtercity_house1",
-    "at": [
-     5,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    286,
-    59
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_pokemoncenter_1f",
-    "at": [
-     6,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    286,
-    59
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_pokemoncenter_1f",
-    "at": [
-     7,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    286,
-    59
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_pokemoncenter_1f",
-    "at": [
-     8,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    293,
-    68
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_mart",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    293,
-    68
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_mart",
-    "at": [
-     4,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    293,
-    68
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_mart",
-    "at": [
-     5,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    295,
-    61
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_gym",
-    "at": [
-     7,
-     18
-    ]
-   }
-  },
-  {
-   "at": [
-    295,
-    61
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_gym",
-    "at": [
-     8,
-     18
-    ]
-   }
-  },
-  {
-   "at": [
-    295,
-    61
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_gym",
+    "map": "celadon_city_game_corner",
     "at": [
      9,
-     18
-    ]
-   }
-  },
-  {
-   "at": [
-    277,
-    68
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_bikeshop",
-    "at": [
-     4,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    277,
-    68
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_bikeshop",
-    "at": [
-     5,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    277,
-    68
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_bikeshop",
-    "at": [
-     6,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    274,
-    51
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_house1",
-    "at": [
-     2,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    274,
-    51
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_house1",
-    "at": [
-     3,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    274,
-    51
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_house1",
-    "at": [
-     4,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    274,
-    48
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_house1",
-    "at": [
-     3,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    294,
-    51
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_house2",
-    "at": [
-     2,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    294,
-    51
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_house2",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    294,
-    51
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_house2",
-    "at": [
-     4,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    295,
-    48
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_house2",
-    "at": [
-     4,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    279,
-    206
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "vermilioncity_pokemoncenter_1f",
-    "at": [
-     6,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    279,
-    206
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "vermilioncity_pokemoncenter_1f",
-    "at": [
-     7,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    279,
-    206
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "vermilioncity_pokemoncenter_1f",
-    "at": [
-     8,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    293,
-    217
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "vermilioncity_mart",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    293,
-    217
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "vermilioncity_mart",
-    "at": [
-     4,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    293,
-    217
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "vermilioncity_mart",
-    "at": [
-     5,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    278,
-    225
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "vermilioncity_gym",
-    "at": [
-     4,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    278,
-    225
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "vermilioncity_gym",
-    "at": [
-     5,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    278,
-    225
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "vermilioncity_gym",
-    "at": [
-     6,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    228,
-    131
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadoncity_pokemoncenter_1f",
-    "at": [
-     6,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    228,
-    131
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadoncity_pokemoncenter_1f",
-    "at": [
-     7,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    228,
-    131
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadoncity_pokemoncenter_1f",
-    "at": [
-     8,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    191,
-    150
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadoncity_gym",
-    "at": [
-     5,
-     18
-    ]
-   }
-  },
-  {
-   "at": [
-    191,
-    150
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadoncity_gym",
-    "at": [
-     6,
-     18
-    ]
-   }
-  },
-  {
-   "at": [
-    191,
-    150
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadoncity_gym",
-    "at": [
-     7,
-     18
-    ]
-   }
-  },
-  {
-   "at": [
-    191,
-    134
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadoncity_departmentstore_1f",
-    "at": [
-     1,
-     15
-    ]
-   }
+     13
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -6114,36 +5052,10 @@
     "at": [
      2,
      14
-    ]
-   }
-  },
-  {
-   "at": [
-    191,
-    134
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadoncity_departmentstore_1f",
-    "at": [
-     3,
-     15
-    ]
-   }
-  },
-  {
-   "at": [
-    195,
-    134
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadoncity_departmentstore_1f",
-    "at": [
-     9,
-     15
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -6156,456 +5068,374 @@
     "at": [
      10,
      14
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
-    195,
-    134
+    210,
+    131
    ],
    "to": {
     "region": "kanto",
-    "map": "celadoncity_departmentstore_1f",
+    "map": "celadon_city_condominiums_1f",
     "at": [
-     11,
-     15
-    ]
-   }
+     12,
+     18
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
-    288,
-    158
+    228,
+    131
    ],
    "to": {
     "region": "kanto",
-    "map": "saffroncity_pokemoncenter_1f",
-    "at": [
-     6,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    288,
-    158
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "saffroncity_pokemoncenter_1f",
+    "map": "celadoncity_pokemoncenter_1f",
     "at": [
      7,
      8
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
-    288,
-    158
+    219,
+    140
    ],
    "to": {
     "region": "kanto",
-    "map": "saffroncity_pokemoncenter_1f",
-    "at": [
-     8,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    304,
-    141
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "saffroncity_mart",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    304,
-    141
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "saffroncity_mart",
+    "map": "celadon_city_game_corner_prize_room",
     "at": [
      4,
-     7
-    ]
-   }
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
-    304,
-    141
+    191,
+    150
    ],
    "to": {
     "region": "kanto",
-    "map": "saffroncity_mart",
-    "at": [
-     5,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    310,
-    132
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "saffroncity_gym",
-    "at": [
-     13,
-     23
-    ]
-   }
-  },
-  {
-   "at": [
-    310,
-    132
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "saffroncity_gym",
-    "at": [
-     14,
-     23
-    ]
-   }
-  },
-  {
-   "at": [
-    310,
-    132
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "saffroncity_gym",
-    "at": [
-     15,
-     23
-    ]
-   }
-  },
-  {
-   "at": [
-    390,
-    135
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "lavendertown_pokemoncenter_1f",
+    "map": "celadoncity_gym",
     "at": [
      6,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    390,
-    135
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "lavendertown_pokemoncenter_1f",
-    "at": [
-     7,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    390,
-    135
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "lavendertown_pokemoncenter_1f",
-    "at": [
-     8,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    404,
-    145
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "lavendertown_mart",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    404,
-    145
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "lavendertown_mart",
-    "at": [
-     4,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    404,
-    145
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "lavendertown_mart",
-    "at": [
-     5,
-     7
-    ]
-   }
+     18
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
     217,
-    331
+    149
    ],
    "to": {
     "region": "kanto",
-    "map": "fuchsiacity_pokemoncenter_1f",
+    "map": "celadon_city_restaurant",
     "at": [
      6,
-     8
-    ]
-   }
+     9
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
-    217,
-    331
+    221,
+    149
    ],
    "to": {
     "region": "kanto",
-    "map": "fuchsiacity_pokemoncenter_1f",
-    "at": [
-     7,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    217,
-    331
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "fuchsiacity_pokemoncenter_1f",
-    "at": [
-     8,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    203,
-    315
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "fuchsiacity_mart",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    203,
-    315
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "fuchsiacity_mart",
+    "map": "celadon_city_house1",
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
-    203,
-    315
+    229,
+    149
    ],
    "to": {
     "region": "kanto",
-    "map": "fuchsiacity_mart",
+    "map": "celadon_city_hotel",
     "at": [
-     5,
-     7
-    ]
-   }
+     4,
+     9
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
-    201,
-    332
+    210,
+    124
    ],
    "to": {
     "region": "kanto",
-    "map": "fuchsiacity_gym",
+    "map": "celadon_city_condominiums_1f",
     "at": [
-     6,
-     21
-    ]
-   }
+     2,
+     2
+    ],
+    "arrival_from": [
+     2,
+     1
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
-    201,
-    332
+    274,
+    51
    ],
    "to": {
     "region": "kanto",
-    "map": "fuchsiacity_gym",
+    "map": "ceruleancity_house1",
     "at": [
-     7,
-     21
-    ]
-   }
-  },
-  {
-   "at": [
-    201,
-    332
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "fuchsiacity_gym",
-    "at": [
-     8,
-     21
-    ]
-   }
-  },
-  {
-   "at": [
-    74,
-    391
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "cinnabarisland_pokemoncenter_1f",
-    "at": [
-     7,
+     3,
      8
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
-    74,
-    391
+    294,
+    51
    ],
    "to": {
     "region": "kanto",
-    "map": "cinnabarisland_pokemoncenter_1f",
-    "at": [
-     6,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    74,
-    391
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "cinnabarisland_pokemoncenter_1f",
-    "at": [
-     8,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    79,
-    391
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "cinnabarisland_mart",
+    "map": "ceruleancity_house2",
     "at": [
      3,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
-    79,
-    391
+    279,
+    57
    ],
    "to": {
     "region": "kanto",
-    "map": "cinnabarisland_mart",
+    "map": "cerulean_city_house3",
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
-    79,
-    391
+    286,
+    59
    ],
    "to": {
     "region": "kanto",
-    "map": "cinnabarisland_mart",
+    "map": "ceruleancity_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    295,
+    61
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_gym",
+    "at": [
+     8,
+     18
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    277,
+    68
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_bikeshop",
     "at": [
      5,
-     7
-    ]
-   }
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
-    80,
-    384
+    293,
+    68
    ],
    "to": {
     "region": "kanto",
-    "map": "cinnabarisland_gym",
+    "map": "ceruleancity_mart",
     "at": [
-     24,
-     23
-    ]
-   }
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    265,
+    52
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancave_1f",
+    "at": [
+     33,
+     21
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    274,
+    48
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_house1",
+    "at": [
+     3,
+     2
+    ],
+    "arrival_from": [
+     3,
+     1
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
+    295,
+    48
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_house2",
+    "at": [
+     4,
+     2
+    ],
+    "arrival_from": [
+     4,
+     1
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
+    278,
+    68
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "ceruleancity_bikeshop",
+    "at": [
+     5,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    287,
+    68
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cerulean_city_house4",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    281,
+    51
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cerulean_city_house5",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    68,
+    383
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemon_mansion_1f",
+    "at": [
+     8,
+     33
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -6618,78 +5448,494 @@
     "at": [
      25,
      23
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
-    80,
-    384
+    68,
+    389
    ],
    "to": {
     "region": "kanto",
-    "map": "cinnabarisland_gym",
+    "map": "cinnabar_island_pokemon_lab_entrance",
     "at": [
-     26,
-     23
-    ]
-   }
+     4,
+     9
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
-    188,
-    55
+    74,
+    391
    ],
    "to": {
     "region": "kanto",
-    "map": "mt_moon_b1f",
-    "at": [
-     45,
-     4
-    ]
-   }
-  },
-  {
-   "at": [
-    175,
-    55
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "mt_moon_1f",
-    "at": [
-     18,
-     37
-    ]
-   }
-  },
-  {
-   "at": [
-    65,
-    151
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route2_viridianforest_southentrance",
-    "at": [
-     6,
-     10
-    ]
-   }
-  },
-  {
-   "at": [
-    65,
-    113
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route2_viridianforest_northentrance",
+    "map": "cinnabarisland_pokemoncenter_1f",
     "at": [
      7,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    79,
+    391
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "cinnabarisland_mart",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    216,
+    305
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safarizone_entrance",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    225,
+    331
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsia_city_wardens_house",
+    "at": [
+     6,
+     9
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    203,
+    315
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsiacity_mart",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    220,
+    316
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsia_city_safari_zone_office",
+    "at": [
+     6,
+     9
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    201,
+    332
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsiacity_gym",
+    "at": [
+     7,
+     21
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    206,
+    331
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsia_city_house1",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    217,
+    331
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsiacity_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    230,
+    331
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsia_city_house2",
+    "at": [
+     3,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    231,
+    328
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsia_city_house2",
+    "at": [
+     3,
+     2
+    ],
+    "arrival_from": [
+     3,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
+    211,
+    331
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "fuchsia_city_house3",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    11,
+    16
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "indigo_plateau_pokemon_center_1f",
+    "at": [
+     11,
+     16
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    402,
+    136
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pokemontower_1f",
+    "at": [
+     11,
+     18
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    390,
+    135
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavendertown_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    394,
+    141
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavender_town_volunteer_pokemon_house",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    389,
+    146
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavender_town_house1",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    394,
+    146
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavender_town_house2",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    404,
+    145
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "lavendertown_mart",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    66,
+    267
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pallettown_playershouse_1f",
+    "at": [
+     4,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    75,
+    267
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pallettown_rivalshouse",
+    "at": [
+     4,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    76,
+    273
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pallettown_professoroakslab",
+    "at": [
+     6,
+     12
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    65,
+    66
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_museum1f",
+    "at": [
+     14,
+     9
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    73,
+    64
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_museum1f",
+    "at": [
+     21,
+     9
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    63,
+    76
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_gym",
+    "at": [
+     6,
+     14
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    76,
+    78
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_mart",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    81,
+    71
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_house1",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    65,
+    85
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewtercity_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    57,
+    90
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "pewter_city_house2",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -6703,7 +5949,8 @@
      17,
      2
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -6716,64 +5963,10 @@
     "at": [
      18,
      37
-    ]
-   }
-  },
-  {
-   "at": [
-    5,
-    58
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "victoryroad_1f",
-    "at": [
-     11,
-     20
-    ]
-   }
-  },
-  {
-   "at": [
-    18,
-    58
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "victoryroad_2f",
-    "at": [
-     49,
-     13
-    ]
-   }
-  },
-  {
-   "at": [
-    144,
-    388
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "seafoam_1f",
-    "at": [
-     6,
-     21
-    ]
-   }
-  },
-  {
-   "at": [
-    156,
-    394
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "seafoam_1f",
-    "at": [
-     32,
-     21
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -6784,10 +5977,28 @@
     "region": "kanto",
     "map": "powerplant",
     "at": [
-     4,
-     39
-    ]
-   }
+     5,
+     38
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    397,
+    70
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route10_pokemon_center_1f",
+    "at": [
+     7,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -6800,260 +6011,10 @@
     "at": [
      1,
      11
-    ]
-   }
-  },
-  {
-   "at": [
-    402,
-    136
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pokemontower_1f",
-    "at": [
-     10,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    265,
-    52
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancave_1f",
-    "at": [
-     33,
-     21
-    ]
-   }
-  },
-  {
-   "at": [
-    216,
-    305
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "safarizone_entrance",
-    "at": [
-     5,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    304,
-    132
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "saffroncity_dojo",
-    "at": [
-     5,
-     14
-    ]
-   }
-  },
-  {
-   "at": [
-    311,
-    141
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "saffroncity_fan_club",
-    "at": [
-     5,
-     15
-    ]
-   }
-  },
-  {
-   "at": [
-    286,
-    134
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "saffroncity_copycats_house_1f",
-    "at": [
-     3,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    210,
-    131
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_condominiums_1f",
-    "at": [
-     11,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    210,
-    124
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_condominiums_1f",
-    "at": [
-     2,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    214,
-    141
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_game_corner",
-    "at": [
-     9,
-     13
-    ]
-   }
-  },
-  {
-   "at": [
-    219,
-    140
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_game_corner_prize_room",
-    "at": [
-     3,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    229,
-    149
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_hotel",
-    "at": [
-     3,
-     10
-    ]
-   }
-  },
-  {
-   "at": [
-    221,
-    149
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_house1",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    217,
-    149
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_restaurant",
-    "at": [
-     5,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    279,
-    57
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "cerulean_city_house3",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    287,
-    68
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "cerulean_city_house4",
-    "at": [
-     4,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    281,
-    51
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "cerulean_city_house5",
-    "at": [
-     4,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    68,
-    389
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "cinnabar_island_pokemon_lab_entrance",
-    "at": [
-     3,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    77,
-    111
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "digletts_cave_north_entrance",
-    "at": [
-     4,
-     6
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -7066,820 +6027,10 @@
     "at": [
      4,
      6
-    ]
-   }
-  },
-  {
-   "at": [
-    206,
-    331
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "fuchsia_city_house1",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    230,
-    331
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "fuchsia_city_house2",
-    "at": [
-     2,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    231,
-    328
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "fuchsia_city_house2",
-    "at": [
-     3,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    211,
-    331
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "fuchsia_city_house3",
-    "at": [
-     4,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    220,
-    316
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "fuchsia_city_safari_zone_office",
-    "at": [
-     5,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    225,
-    331
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "fuchsia_city_wardens_house",
-    "at": [
-     5,
-     10
-    ]
-   }
-  },
-  {
-   "at": [
-    11,
-    16
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "indigo_plateau_pokemon_center_1f",
-    "at": [
-     11,
-     16
-    ]
-   }
-  },
-  {
-   "at": [
-    389,
-    146
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "lavender_town_house1",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    394,
-    146
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "lavender_town_house2",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    394,
-    141
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "lavender_town_volunteer_pokemon_house",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    68,
-    383
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pokemon_mansion_1f",
-    "at": [
-     7,
-     33
-    ]
-   }
-  },
-  {
-   "at": [
-    396,
-    236
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route12_fishing_house",
-    "at": [
-     2,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    398,
-    165
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route12_north_entrance_1f",
-    "at": [
-     5,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    399,
-    165
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route12_north_entrance_1f",
-    "at": [
-     6,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    398,
-    171
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route12_north_entrance_1f",
-    "at": [
-     5,
-     11
-    ]
-   }
-  },
-  {
-   "at": [
-    249,
-    321
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route15_west_entrance_1f",
-    "at": [
-     1,
-     6
-    ]
-   }
-  },
-  {
-   "at": [
-    256,
-    321
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route15_west_entrance_1f",
-    "at": [
-     11,
-     6
-    ]
-   }
-  },
-  {
-   "at": [
-    142,
-    135
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route16_house",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    152,
-    136
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route16_north_entrance_1f",
-    "at": [
-     1,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    159,
-    136
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route16_north_entrance_1f",
-    "at": [
-     11,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    152,
-    143
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route16_north_entrance_1f",
-    "at": [
-     1,
-     12
-    ]
-   }
-  },
-  {
-   "at": [
-    159,
-    143
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route16_north_entrance_1f",
-    "at": [
-     11,
-     12
-    ]
-   }
-  },
-  {
-   "at": [
-    173,
-    319
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route18_east_entrance_1f",
-    "at": [
-     1,
-     6
-    ]
-   }
-  },
-  {
-   "at": [
-    180,
-    319
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route18_east_entrance_1f",
-    "at": [
-     11,
-     6
-    ]
-   }
-  },
-  {
-   "at": [
-    8,
-    183
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route22_north_entrance",
-    "at": [
-     7,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    8,
-    195
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route22_north_entrance",
-    "at": [
-     6,
-     10
-    ]
-   }
-  },
-  {
-   "at": [
-    351,
-    4
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route25_sea_cottage",
-    "at": [
-     6,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    287,
-    105
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route5_pokemon_day_care",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    298,
-    125
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route5_south_entrance",
-    "at": [
-     3,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    288,
-    112
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route5_south_entrance",
-    "at": [
-     4,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    289,
-    112
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route5_south_entrance",
-    "at": [
-     5,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    298,
-    166
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route6_north_entrance",
-    "at": [
-     4,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    288,
-    165
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route6_north_entrance",
-    "at": [
-     4,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    255,
-    140
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route7_east_entrance",
-    "at": [
-     1,
-     5
-    ]
-   }
-  },
-  {
-   "at": [
-    272,
-    147
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route7_east_entrance",
-    "at": [
-     11,
-     5
-    ]
-   }
-  },
-  {
-   "at": [
-    322,
-    147
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route8_west_entrance",
-    "at": [
-     1,
-     4
-    ]
-   }
-  },
-  {
-   "at": [
-    319,
-    140
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route8_west_entrance",
-    "at": [
-     11,
-     5
-    ]
-   }
-  },
-  {
-   "at": [
-    291,
-    141
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "saffron_city_house",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    307,
-    158
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "saffron_city_mr_psychics_house",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    286,
-    234
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "s_s_anne_exterior",
-    "at": [
-     31,
-     5
-    ]
-   }
-  },
-  {
-   "at": [
-    287,
-    234
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "s_s_anne_exterior",
-    "at": [
-     32,
-     5
-    ]
-   }
-  },
-  {
-   "at": [
-    288,
-    234
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "s_s_anne_exterior",
-    "at": [
-     33,
-     5
-    ]
-   }
-  },
-  {
-   "at": [
-    325,
-    134
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "underground_path_east_entrance",
-    "at": [
-     5,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    295,
-    111
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "underground_path_north_entrance",
-    "at": [
-     5,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    295,
-    173
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "underground_path_south_entrance",
-    "at": [
-     5,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    247,
-    144
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "underground_path_west_entrance",
-    "at": [
-     5,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    273,
-    206
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "vermilion_city_house1",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    283,
-    217
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "vermilion_city_house2",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    292,
-    224
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "vermilion_city_house3",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    276,
-    217
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "vermilion_city_pokemon_fan_club",
-    "at": [
-     4,
-     10
-    ]
-   }
-  },
-  {
-   "at": [
-    57,
-    90
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pewter_city_house2",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    397,
-    70
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route10_pokemon_center_1f",
-    "at": [
-     6,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    78,
-    146
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route2_east_building",
-    "at": [
-     6,
-     10
-    ]
-   }
-  },
-  {
-   "at": [
-    78,
-    141
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route2_east_building",
-    "at": [
-     7,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    77,
-    122
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route2_house",
-    "at": [
-     3,
-     7
-    ]
-   }
-  },
-  {
-   "at": [
-    168,
-    55
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "route4_pokemon_center_1f",
-    "at": [
-     6,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    287,
-    235
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "one_island_harbor",
-    "at": [
-     8,
-     2
-    ]
-   }
-  },
-  {
-   "at": [
-    297,
-    150
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "silph_co_1f",
-    "at": [
-     7,
-     21
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -7892,8 +6043,10 @@
     "at": [
      1,
      6
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -7906,106 +6059,226 @@
     "at": [
      11,
      6
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   },
   {
    "at": [
-    209,
-    125
+    396,
+    236
    ],
    "to": {
     "region": "kanto",
-    "map": "celadon_city_condominiums_1f",
-    "at": [
-     2,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    211,
-    125
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_condominiums_1f",
-    "at": [
-     2,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    295,
-    49
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_house2",
-    "at": [
-     4,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    278,
-    68
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "ceruleancity_bikeshop",
-    "at": [
-     5,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    231,
-    329
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "fuchsia_city_house2",
+    "map": "route12_fishing_house",
     "at": [
      3,
-     1
-    ]
-   }
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
-    9,
-    195
+    398,
+    165
    ],
    "to": {
     "region": "kanto",
-    "map": "route22_north_entrance",
+    "map": "route12_north_entrance_1f",
     "at": [
-     7,
-     10
-    ]
-   }
+     5,
+     2
+    ],
+    "arrival_from": [
+     5,
+     1
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
-    9,
-    184
+    398,
+    171
    ],
    "to": {
     "region": "kanto",
-    "map": "route22_north_entrance",
+    "map": "route12_north_entrance_1f",
+    "at": [
+     5,
+     11
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    249,
+    321
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route15_west_entrance_1f",
+    "at": [
+     1,
+     6
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
+  },
+  {
+   "at": [
+    256,
+    321
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route15_west_entrance_1f",
+    "at": [
+     11,
+     6
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
+  },
+  {
+   "at": [
+    142,
+    135
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route16_house",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    152,
+    136
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route16_north_entrance_1f",
+    "at": [
+     1,
+     3
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
+  },
+  {
+   "at": [
+    159,
+    136
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route16_north_entrance_1f",
+    "at": [
+     11,
+     3
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
+  },
+  {
+   "at": [
+    152,
+    143
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route16_north_entrance_1f",
+    "at": [
+     1,
+     12
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
+  },
+  {
+   "at": [
+    159,
+    143
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route16_north_entrance_1f",
+    "at": [
+     11,
+     12
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
+  },
+  {
+   "at": [
+    173,
+    319
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route18_east_entrance_1f",
+    "at": [
+     1,
+     6
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
+  },
+  {
+   "at": [
+    180,
+    319
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route18_east_entrance_1f",
+    "at": [
+     11,
+     6
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
+  },
+  {
+   "at": [
+    65,
+    113
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_viridianforest_northentrance",
     "at": [
      7,
+     2
+    ],
+    "arrival_from": [
+     7,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -8017,9 +6290,99 @@
     "map": "route2_viridianforest_northentrance",
     "at": [
      7,
+     2
+    ],
+    "arrival_from": [
+     7,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
+    65,
+    151
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_viridianforest_southentrance",
+    "at": [
+     7,
+     10
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    77,
+    111
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "digletts_cave_north_entrance",
+    "at": [
+     4,
+     6
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    77,
+    122
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_house",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    78,
+    146
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_east_building",
+    "at": [
+     7,
+     10
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    78,
+    141
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_east_building",
+    "at": [
+     7,
+     2
+    ],
+    "arrival_from": [
+     7,
+     1
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -8031,9 +6394,15 @@
     "map": "route2_east_building",
     "at": [
      7,
+     2
+    ],
+    "arrival_from": [
+     7,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -8046,8 +6415,10 @@
     "at": [
      7,
      10
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -8060,8 +6431,277 @@
     "at": [
      7,
      10
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    144,
+    388
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_1f",
+    "at": [
+     6,
+     21
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    156,
+    394
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_1f",
+    "at": [
+     32,
+     21
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    8,
+    195
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route22_north_entrance",
+    "at": [
+     7,
+     10
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    5,
+    58
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_1f",
+    "at": [
+     11,
+     20
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    18,
+    58
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "victoryroad_2f",
+    "at": [
+     48,
+     12
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    8,
+    183
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route22_north_entrance",
+    "at": [
+     7,
+     2
+    ],
+    "arrival_from": [
+     7,
+     1
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
+    351,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route25_sea_cottage",
+    "at": [
+     7,
+     9
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    175,
+    55
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_1f",
+    "at": [
+     18,
+     37
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    188,
+    55
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "mt_moon_b1f",
+    "at": [
+     45,
+     4
     ]
-   }
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    168,
+    55
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route4_pokemon_center_1f",
+    "at": [
+     7,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    295,
+    111
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "underground_path_north_entrance",
+    "at": [
+     6,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    287,
+    105
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route5_pokemon_day_care",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    288,
+    112
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route5_south_entrance",
+    "at": [
+     4,
+     2
+    ],
+    "arrival_from": [
+     4,
+     1
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
+    289,
+    112
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route5_south_entrance",
+    "at": [
+     4,
+     2
+    ],
+    "arrival_from": [
+     4,
+     1
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
+    295,
+    173
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "underground_path_south_entrance",
+    "at": [
+     6,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    288,
+    165
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route6_north_entrance",
+    "at": [
+     4,
+     9
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -8074,27 +6714,223 @@
     "at": [
      4,
      9
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
-    299,
-    166
+    247,
+    144
    ],
    "to": {
     "region": "kanto",
-    "map": "route6_north_entrance",
+    "map": "underground_path_west_entrance",
     "at": [
-     4,
-     1
-    ]
-   }
+     6,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
-    299,
-    125
+    255,
+    140
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route7_east_entrance",
+    "at": [
+     1,
+     5
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
+  },
+  {
+   "at": [
+    325,
+    134
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "underground_path_east_entrance",
+    "at": [
+     6,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    319,
+    140
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route8_west_entrance",
+    "at": [
+     11,
+     5
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
+  },
+  {
+   "at": [
+    345,
+    180
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "silph_co_1f",
+    "at": [
+     8,
+     20
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    334,
+    164
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_copycats_house_1f",
+    "at": [
+     4,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    352,
+    162
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_dojo",
+    "at": [
+     6,
+     14
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    358,
+    162
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     14,
+     23
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    339,
+    171
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffron_city_house",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    352,
+    171
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_mart",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    336,
+    188
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    355,
+    188
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffron_city_mr_psychics_house",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    320,
+    177
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route7_east_entrance",
+    "at": [
+     11,
+     5
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
+  },
+  {
+   "at": [
+    346,
+    155
    ],
    "to": {
     "region": "kanto",
@@ -8102,13 +6938,359 @@
     "at": [
      4,
      9
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    370,
+    177
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route8_west_entrance",
+    "at": [
+     1,
+     5
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
+  },
+  {
+   "at": [
+    346,
+    196
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route6_north_entrance",
+    "at": [
+     4,
+     2
+    ],
+    "arrival_from": [
+     4,
+     1
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
+    347,
+    196
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route6_north_entrance",
+    "at": [
+     4,
+     2
+    ],
+    "arrival_from": [
+     4,
+     1
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
+    347,
+    155
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route5_south_entrance",
+    "at": [
+     4,
+     9
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    359,
+    171
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_fan_club",
+    "at": [
+     5,
+     15
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
     286,
-    235
+    234
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_exterior",
+    "at": [
+     32,
+     5
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
+    287,
+    234
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_exterior",
+    "at": [
+     32,
+     5
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
+    288,
+    234
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "s_s_anne_exterior",
+    "at": [
+     32,
+     5
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
+    273,
+    206
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilion_city_house1",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    279,
+    206
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilioncity_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    276,
+    217
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilion_city_pokemon_fan_club",
+    "at": [
+     5,
+     10
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    283,
+    217
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilion_city_house2",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    293,
+    217
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilioncity_mart",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    292,
+    224
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilion_city_house3",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    278,
+    225
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "vermilioncity_gym",
+    "at": [
+     5,
+     19
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    74,
+    206
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_pokemoncenter_1f",
+    "at": [
+     7,
+     8
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    73,
+    191
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_house",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    84,
+    190
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_gym",
+    "at": [
+     17,
+     22
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    73,
+    198
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_school",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    84,
+    199
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "viridiancity_mart",
+    "at": [
+     4,
+     7
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    286,
+    231
+   ],
+   "to": {
+    "region": "sevii",
+    "map": "one_island_harbor",
+    "at": [
+     8,
+     3
+    ],
+    "facing": "up"
+   },
+   "trigger": "left"
+  },
+  {
+   "at": [
+    286,
+    232
    ],
    "to": {
     "region": "johto",
@@ -8117,12 +7299,13 @@
      7,
      7
     ]
-   }
+   },
+   "trigger": "left"
   },
   {
    "at": [
     288,
-    235
+    232
    ],
    "to": {
     "region": "frontier",
@@ -8131,7 +7314,8 @@
      13,
      4
     ]
-   }
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -10826,10 +10010,10 @@
    "name": "ROUTE11"
   },
   {
-   "x0": 264,
-   "x1": 330,
-   "y0": 120,
-   "y1": 175,
+   "x0": 312,
+   "x1": 378,
+   "y0": 150,
+   "y1": 205,
    "name": "SAFFRON_CITY"
   }
  ],
@@ -12301,8 +11485,8 @@
   },
   {
    "at": [
-    293,
-    134
+    341,
+    164
    ],
    "kind": "sign",
    "sprite": "sign",
@@ -12310,8 +11494,8 @@
   },
   {
    "at": [
-    306,
-    134
+    354,
+    164
    ],
    "kind": "sign",
    "sprite": "sign",
@@ -12319,8 +11503,8 @@
   },
   {
    "at": [
-    277,
-    145
+    325,
+    175
    ],
    "kind": "sign",
    "sprite": "sign",
@@ -12328,8 +11512,8 @@
   },
   {
    "at": [
-    282,
-    150
+    330,
+    180
    ],
    "kind": "sign",
    "sprite": "sign",
@@ -12337,8 +11521,8 @@
   },
   {
    "at": [
-    293,
-    151
+    341,
+    181
    ],
    "kind": "sign",
    "sprite": "sign",
@@ -12346,8 +11530,8 @@
   },
   {
    "at": [
-    318,
-    145
+    366,
+    175
    ],
    "kind": "sign",
    "sprite": "sign",
@@ -12355,8 +11539,8 @@
   },
   {
    "at": [
-    314,
-    134
+    362,
+    164
    ],
    "kind": "sign",
    "sprite": "sign",
@@ -12364,8 +11548,8 @@
   },
   {
    "at": [
-    304,
-    158
+    352,
+    188
    ],
    "kind": "sign",
    "sprite": "sign",
@@ -12373,8 +11557,8 @@
   },
   {
    "at": [
-    313,
-    142
+    361,
+    172
    ],
    "kind": "sign",
    "sprite": "sign",
@@ -12772,10 +11956,11 @@
    ],
    "kind": "sign",
    "lines": [
-    "枯叶海港",
-    "← 城都 浅葱市",
-    "→ 对战开拓区"
-   ]
+    "枯叶港乘船处",
+    "栈桥左舷：北侧前往七岛，南侧前往城都。右舷前往对战开拓区。",
+    "从栈桥尽头向南登上圣安奴号。"
+   ],
+   "text": "枯叶港乘船处\n栈桥左舷：北侧前往七岛，南侧前往城都。右舷前往对战开拓区。\n从栈桥尽头向南登上圣安奴号。"
   }
  ],
  "weather": "",

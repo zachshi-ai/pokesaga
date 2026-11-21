@@ -88,8 +88,10 @@
     "at": [
      4,
      6
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -101,9 +103,15 @@
     "map": "seven_island_trainer_tower",
     "at": [
      58,
+     8
+    ],
+    "arrival_from": [
+     58,
      7
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -115,8 +123,9 @@
     "map": "trainer_tower_elevator",
     "at": [
      2,
-     4
+     5
     ],
+    "facing": "up",
     "remember_passage": {
      "key": "sevii_lift",
      "destination": {
@@ -125,10 +134,16 @@
       "at": [
        17,
        9
-      ]
+      ],
+      "arrival_from": [
+       17,
+       8
+      ],
+      "facing": "down"
      }
     }
-   }
+   },
+   "trigger": "door"
   }
  ],
  "encounters": [],

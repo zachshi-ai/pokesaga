@@ -140,8 +140,10 @@
     "at": [
      14,
      2
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "left"
   },
   {
    "at": [
@@ -155,7 +157,8 @@
      2,
      5
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -169,7 +172,8 @@
      33,
      5
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -182,8 +186,10 @@
     "at": [
      28,
      2
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -197,7 +203,8 @@
      13,
      14
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -208,10 +215,28 @@
     "region": "kanto",
     "map": "silph_co_elevator",
     "at": [
-     1,
-     4
-    ]
-   }
+     2,
+     5
+    ],
+    "facing": "up",
+    "remember_passage": {
+     "key": "silph_co_elevator",
+     "destination": {
+      "region": "kanto",
+      "map": "silph_co_7f",
+      "at": [
+       23,
+       4
+      ],
+      "arrival_from": [
+       23,
+       3
+      ],
+      "facing": "down"
+     }
+    }
+   },
+   "trigger": "door"
   }
  ],
  "encounters": [],

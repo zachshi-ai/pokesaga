@@ -154,42 +154,20 @@
     "map": "kanto_main",
     "at": [
      214,
-     141
-    ]
-   }
-  },
-  {
-   "at": [
-    10,
-    13
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
+     142
+    ],
+    "arrival_from": [
      214,
      141
-    ]
-   }
-  },
-  {
-   "at": [
-    11,
-    13
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     214,
-     141
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
     15,
-    1
+    2
    ],
    "to": {
     "region": "kanto",
@@ -197,8 +175,10 @@
     "at": [
      12,
      2
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   }
  ],
  "encounters": [],

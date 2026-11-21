@@ -6,8 +6,8 @@
   40
  ],
  "spawn": [
-  24,
-  24
+  23,
+  25
  ],
  "npcs": [
   {
@@ -247,21 +247,26 @@
     "at": [
      6,
      9
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
     47,
     9
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_water_path",
     "at": [
      0,
      89
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -269,13 +274,16 @@
     47,
     10
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_water_path",
     "at": [
      0,
      90
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -283,13 +291,16 @@
     47,
     11
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_water_path",
     "at": [
      0,
      91
-    ]
+    ],
+    "connection": true
    }
   }
  ],

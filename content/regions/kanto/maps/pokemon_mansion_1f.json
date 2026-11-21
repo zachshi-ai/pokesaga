@@ -38,20 +38,6 @@
  "warps": [
   {
    "at": [
-    7,
-    33
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     68,
-     383
-    ]
-   }
-  },
-  {
-   "at": [
     8,
     33
    ],
@@ -60,23 +46,15 @@
     "map": "kanto_main",
     "at": [
      68,
-     383
-    ]
-   }
-  },
-  {
-   "at": [
-    9,
-    33
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
+     384
+    ],
+    "arrival_from": [
      68,
      383
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -89,8 +67,10 @@
     "at": [
      6,
      14
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -103,50 +83,30 @@
     "at": [
      34,
      29
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   },
   {
    "at": [
-    19,
-    22
+    34,
+    33
    ],
    "to": {
     "region": "kanto",
-    "map": "pokemon_mansion_3f",
+    "map": "kanto_main",
     "at": [
-     18,
-     18
-    ]
-   }
-  },
-  {
-   "at": [
-    20,
-    22
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pokemon_mansion_3f",
-    "at": [
-     19,
-     18
-    ]
-   }
-  },
-  {
-   "at": [
-    11,
-    13
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "pokemon_mansion_2f",
-    "at": [
-     6,
-     14
-    ]
-   }
+     68,
+     384
+    ],
+    "arrival_from": [
+     68,
+     383
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

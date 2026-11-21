@@ -21,9 +21,15 @@
     "map": "five_island_resort_gorgeous",
     "at": [
      64,
+     14
+    ],
+    "arrival_from": [
+     64,
      13
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -37,7 +43,8 @@
      8,
      2
     ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

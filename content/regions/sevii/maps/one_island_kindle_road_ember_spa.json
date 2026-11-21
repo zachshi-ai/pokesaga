@@ -100,9 +100,15 @@
     "map": "one_island_kindle_road",
     "at": [
      15,
+     59
+    ],
+    "arrival_from": [
+     15,
      58
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

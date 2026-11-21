@@ -36,7 +36,8 @@
      12,
      9
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -50,35 +51,8 @@
      29,
      5
     ]
-   }
-  },
-  {
-   "at": [
-    8,
-    17
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "seafoam_islands_b3f",
-    "at": [
-     6,
-     18
-    ]
-   }
-  },
-  {
-   "at": [
-    9,
-    17
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "seafoam_islands_b3f",
-    "at": [
-     9,
-     18
-    ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

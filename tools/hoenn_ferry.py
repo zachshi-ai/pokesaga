@@ -29,22 +29,37 @@ def apply_transfer():
 
 
 def apply_kanto_landings():
-    # The tile south of the boarding line is enclosed by water. Land on the north side.
-    for room in ("johto/maps/johto_olivine_port", "sevii/maps/one_island_harbor", "frontier/maps/harbor"):
-        path = Path(project_path("content/regions/" + room + ".json"))
-        if not path.exists():
-            continue
-        raw = path.read_text()
-        data = json.loads(raw)
-        changed = False
+    # Keep all three original south arrows to the S.S. Anne. Board the extra
+    # ferries deliberately from the side of the pier, on its walkable planks.
+    piers = {("johto","johto_olivine_port"):([286,232],"left"),
+             ("sevii","one_island_harbor"):([286,231],"left"),
+             ("frontier","harbor"):([288,232],"right")}
+    def write_map(path, data):
+        original = path.read_text()
+        if json.loads(original) != data:
+            style = {"indent":1} if original.startswith("{\n") else {"separators":(",",":")}
+            path.write_text(json.dumps(data,ensure_ascii=False,**style)+("\n" if original.endswith("\n") else ""))
+
+    main = Path(project_path("content/regions/kanto/maps/kanto_main.json"))
+    port = json.loads(main.read_text())
+    for warp in port["warps"]:
+        to = warp["to"]
+        if (pier := piers.get((to["region"],to["map"]))) and not warp.get("atlas"):
+            warp["at"], warp["trigger"] = pier
+            if to["region"]=="sevii": to.update(at=[8,3],facing="up")
+    for sign in port.get("objects",[]):
+        if sign["at"] == [285,234] and sign.get("kind") == "sign":
+            sign["lines"] = ["枯叶港乘船处", "栈桥左舷：北侧前往七岛，南侧前往城都。右舷前往对战开拓区。", "从栈桥尽头向南登上圣安奴号。"]
+            sign["text"] = "\n".join(sign["lines"])
+    write_map(main,port)
+    for (region, room), (at, facing) in piers.items():
+        path = Path(project_path(f"content/regions/{region}/maps/{room}.json"))
+        data = json.loads(path.read_text())
         for warp in data["warps"]:
-            dest = warp["to"]
-            if dest["region"] == "kanto" and dest["map"] == "kanto_main" and dest["at"] != [287,234]:
-                dest["at"] = [287,234]
-                changed = True
-        if changed:
-            layout = {"indent":1} if raw.startswith("{\n") else {"separators":(",",":")}
-            path.write_text(json.dumps(data, ensure_ascii=False, **layout))
+            to = warp["to"]
+            if (to["region"],to["map"]) == ("kanto","kanto_main") and not warp.get("atlas"):
+                to.update(at=at,facing="up")
+        write_map(path,data)
 
 
 if __name__ == "__main__":

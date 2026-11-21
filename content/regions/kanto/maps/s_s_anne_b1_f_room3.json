@@ -34,9 +34,15 @@
     "map": "s_s_anne_b1_f_corridor",
     "at": [
      10,
+     3
+    ],
+    "arrival_from": [
+     10,
      2
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

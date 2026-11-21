@@ -36,7 +36,8 @@
      3,
      3
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -48,9 +49,15 @@
     "map": "kanto_main",
     "at": [
      77,
+     112
+    ],
+    "arrival_from": [
+     77,
      111
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

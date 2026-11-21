@@ -34,9 +34,15 @@
     "map": "kanto_main",
     "at": [
      318,
+     218
+    ],
+    "arrival_from": [
+     318,
      217
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -50,7 +56,8 @@
      82,
      71
     ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

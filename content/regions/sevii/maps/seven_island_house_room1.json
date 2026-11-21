@@ -35,9 +35,15 @@
     "map": "seven_island",
     "at": [
      11,
+     10
+    ],
+    "arrival_from": [
+     11,
      9
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -49,9 +55,15 @@
     "map": "seven_island_house_room2",
     "at": [
      3,
+     2
+    ],
+    "arrival_from": [
+     3,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "door"
   }
  ],
  "encounters": [],

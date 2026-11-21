@@ -22,8 +22,10 @@
     "at": [
      8,
      23
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -35,9 +37,15 @@
     "map": "navel_rock_harbor",
     "at": [
      8,
+     3
+    ],
+    "arrival_from": [
+     8,
      2
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

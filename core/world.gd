@@ -8,6 +8,8 @@ const EmeraldField := preload("res://core/emerald_field.gd")
 const TILE := 16
 const ATLAS_PATH := "res://assets/tiles_emerald.png"
 const PLAYER_PATH := "res://assets/player_emerald.png"
+const PLAYER_WALK := preload(PLAYER_PATH)
+const PLAYER_SURF := preload("res://assets/player_surf.png")
 const SHADOW_PATH := "res://assets/shadow.png"
 
 const PATH_BASE := 32
@@ -69,6 +71,10 @@ var anim_from := Vector2.ZERO
 # 上一格没走完的时间余量：不留着的话，每格的节拍会一点点往后漂，
 # 走起来像踩在棉花上
 var walk_carry := 0.0
+# Warp events are keyed by their exact source tile in the current map.
+const WARP_DIR := {"up":Vector2i.UP, "down":Vector2i.DOWN, "left":Vector2i.LEFT, "right":Vector2i.RIGHT}
+var _passages: Dictionary = {}
+var _step_duration := 16.0 / 60.0
 var pending_warp: Dictionary = {}
 signal warp_ready(to: Dictionary)
 
@@ -105,7 +111,6 @@ func _ready() -> void:
 		at.region = Rect2((i % cols) * TILE, (i / cols) * TILE, TILE, TILE)
 		_frames.append(at)
 
-	var sheet: Texture2D = load(PLAYER_PATH)
 	for i in 6:
 		var path := "res://assets/npc_%d.png" % i
 		if ResourceLoader.exists(path):
@@ -129,7 +134,7 @@ func _ready() -> void:
 	_player_shadow.z_index = 8
 	add_child(_player_shadow)
 	_player_sprite = Sprite2D.new()
-	_player_sprite.texture = sheet
+	_player_sprite.texture = PLAYER_WALK
 	_player_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	_player_sprite.hframes = 9
 	_player_sprite.vframes = 1
@@ -162,6 +167,8 @@ const Z_ACTOR := 100
 const Z_FG := 1500
 const Z_DARK := 1600
 const Z_FX := 1700
+var emerald_elevation: Array = []  # Native FRLG height: 1 water, 3 land, 15 layered crossing.
+var last_elevation := 0
 var emerald_water: Array = []
 ## 冲浪：站在水上时才算
 var surfing := false
@@ -180,6 +187,18 @@ var _prev_facing := ""
 func load_map(data: Dictionary) -> void:
 	_prev_facing = facing
 	map_data = data
+	_passages.clear()
+	for w in data.get("warps", []):
+		var p := Vector2i(int(w.at[0]), int(w.at[1]))
+		if not _passages.has(p):
+			_passages[p] = w
+	pending_warp = {}
+	last_event = ""
+	jumping = false
+	jump_lift = 0.0
+	walk_carry = 0.0
+	walk_timer = 0.0
+	frame_col = 0
 	var em: String = String(data.get("emerald", ""))
 	if em != "":
 		_load_emerald_map(em)
@@ -187,6 +206,8 @@ func load_map(data: Dictionary) -> void:
 	# 切到自建图（开拓区这类）必须把原版地图的几张表清掉，
 	# 否则 is_emerald() 还是 true，碰撞会去读上一张图的表
 	emerald_collision = []
+	emerald_elevation = []
+	last_elevation = 0
 	emerald_grass = []
 	emerald_counter = []
 	emerald_ledge = []
@@ -208,7 +229,7 @@ func load_map(data: Dictionary) -> void:
 	var size_arr: Array = data.get("size", [20, 15])
 	tile_size = Vector2i(int(size_arr[0]), int(size_arr[1]))
 	tiles = data.get("tiles", [])
-	npcs = data.get("npcs", []).duplicate(true)
+	npcs = preload("res://core/frlg_actors.gd").roster(data, taken)
 	objects = (data.get("objects", []) as Array).duplicate(true)
 	weather = String(data.get("weather", ""))
 	var sp: Array = data.get("spawn", [1, 1])
@@ -226,6 +247,8 @@ func _load_emerald_map(name: String) -> void:
 	if FileAccess.file_exists(meta_path):
 		meta = JSON.parse_string(FileAccess.get_file_as_string(meta_path))
 	emerald_collision = meta.get("collision", [])
+	emerald_elevation = meta.get("elevation", [])
+	last_elevation = 0
 	emerald_grass = meta.get("grass", [])
 	emerald_wild_any = bool(meta.get("wild_any", false))
 	emerald_counter = meta.get("counter", [])
@@ -255,7 +278,7 @@ func _load_emerald_map(name: String) -> void:
 	# 渲染位置必须跟上，否则相机停在原点，画面会偏到角落
 	render_pos = Vector2(player_pos)
 	walking = false
-	npcs = map_data.get("npcs", []).duplicate(true)
+	npcs = preload("res://core/frlg_actors.gd").roster(map_data, taken)
 	objects = (map_data.get("objects", []) as Array).duplicate(true)
 	weather = String(map_data.get("weather", ""))
 	dark = bool(map_data.get("dark", false))
@@ -372,7 +395,7 @@ func can_enter(p: Vector2i, dir: Vector2i, ignore_mask: bool = false) -> bool:
 		if p.x < 0 or p.x >= trow.size():
 			return false
 		var tv := int(trow[p.x])
-		if tv == 1 or tv == 2 or tv == 6 or tv == 7:
+		if tv in [1, 6, 7] or (tv == 2 and not surfing):
 			return false
 		for n in npcs:
 			var nat: Array = n.get("at", [0, 0])
@@ -387,7 +410,7 @@ func can_enter(p: Vector2i, dir: Vector2i, ignore_mask: bool = false) -> bool:
 	var has_cleared := _is_cleared(p)
 	if not has_cleared:
 		# 城都碰撞层把水面标为步行障碍；学会冲浪后只放行真正的水格。
-		if int(row[p.x]) != 0 and not (surfing and is_water(p)):
+		if int(row[p.x]) != 0 and not (emerald_elevation.is_empty() and surfing and is_water(p)):
 			return false
 		# 水面：只有冲浪时能进；上了岸就自动结束冲浪
 		if is_water(p) and not surfing:
@@ -402,6 +425,10 @@ func can_enter(p: Vector2i, dir: Vector2i, ignore_mask: bool = false) -> bool:
 		# 坑洞挡人，但原版那种「跳下去到下一层」的坑本身就是传送门，不能挡
 		if is_hole(p) and not hole_filled(p) and not _warp_cells.has(p):
 			return false
+		if not ignore_mask and not emerald_elevation.is_empty():
+			var origin := p - dir
+			if _mask_blocks(origin, -dir) or not _heights_connect(origin, p):
+				return false
 		if not ignore_mask and _mask_blocks(p, dir):
 			return false
 	if _blocked_by_object(p):
@@ -430,6 +457,10 @@ func _is_cleared(p: Vector2i) -> bool:
 func _blocked_by_object(p: Vector2i) -> bool:
 	for o in objects:
 		var k := String(o.get("kind", ""))
+		# FRLG bg_events mark text on existing map blocks (even walk-through holes).
+		# Solid signposts already have collision in their native layout.
+		if k == "sign" and not emerald_elevation.is_empty():
+			continue
 		# 树果树 / 道具球 / 告示牌在原版里都占一格，人不该踩过去
 		# 道具球不再挡路：踩上去就自动捡（以前把球也当墙，人永远走不到它那格，
 		# 看着有球、碰不到，就是这个原因）
@@ -445,6 +476,21 @@ func _blocked_by_object(p: Vector2i) -> bool:
 	return false
 
 
+func elevation_at(p: Vector2i) -> int:
+	if p.y < 0 or p.y >= emerald_elevation.size():
+		return 0
+	var row: Array = emerald_elevation[p.y]
+	return int(row[p.x]) if p.x >= 0 and p.x < row.size() else 0
+
+func _heights_connect(origin: Vector2i, target: Vector2i) -> bool:
+	var src := elevation_at(origin)
+	var dest := elevation_at(target)
+	if src == 15:
+		src = last_elevation
+	if src == 0 or dest in [0, 15] or src == dest:
+		return true
+	return surfing and ((src == 3 and dest == 1 and is_water(target)) or (src == 1 and dest == 3 and not is_water(target)))
+
 ## 土坡：位掩码 1 上 / 2 下 / 4 右 / 8 左 / 16 右上 / 32 左上 / 64 右下 / 128 左下
 func ledge_bits(p: Vector2i) -> int:
 	if p.y < 0 or p.y >= emerald_ledge.size():
@@ -456,6 +502,8 @@ func ledge_bits(p: Vector2i) -> int:
 
 ## 这一格是不是水面（没有 water 表就当作不是）
 func is_water(p: Vector2i) -> bool:
+	if not is_emerald():
+		return tile_at(p) == 2
 	if emerald_water.is_empty():
 		return false
 	if p.y < 0 or p.y >= emerald_water.size():
@@ -593,6 +641,11 @@ func auto_step_dir() -> Vector2i:
 func jump_landing(dir: Vector2i) -> Vector2i:
 	var here := player_pos
 	var target := here + dir
+	if not emerald_elevation.is_empty():
+		var land := here + dir * 2
+		if _ledge_allows(target, dir) and can_enter(land, dir, true):
+			return land
+		return Vector2i(-1, -1)
 	var ok := false
 	# 坡有两种画法：坡沿在脚下（关都），或坡沿在前面一格（丰缘）
 	if ledge_bits(target) != 0 and _ledge_allows(target, dir):
@@ -618,12 +671,14 @@ func hop_wanted(dir: Vector2i) -> bool:
 	var target := player_pos + dir
 	if ledge_bits(target) != 0 and _ledge_allows(target, dir):
 		return true
-	if ledge_bits(player_pos) != 0 and _ledge_allows(player_pos, dir):
+	if emerald_elevation.is_empty() and ledge_bits(player_pos) != 0 and _ledge_allows(player_pos, dir):
 		return not can_enter(target, dir)
 	return false
 
 
 func can_step(dir: Vector2i) -> bool:
+	if not _warp_from(player_pos, dir).is_empty():
+		return true
 	var target := player_pos + dir
 	if target.x < 0 or target.y < 0 or target.x >= tile_size.x or target.y >= tile_size.y:
 		return false
@@ -642,6 +697,23 @@ func can_step(dir: Vector2i) -> bool:
 	return jump_landing(dir).x >= 0
 
 
+func warp_at(cell: Vector2i) -> Dictionary:
+	return _passages.get(cell, {})
+
+# FRLG checks arrows and lateral stairs underfoot on a direction press,
+# animated house doors ahead when facing north, and other warps on arrival.
+func _warp_from(cell: Vector2i, dir: Vector2i) -> Dictionary:
+	var here: Dictionary = _passages.get(cell, {})
+	if WARP_DIR.get(here.get("trigger", ""), Vector2i.ZERO) == dir and dir != Vector2i.ZERO:
+		return here
+	if dir == Vector2i.UP:
+		if cell + dir == quest_door_tile and not quest_door_open:
+			return {}
+		var front: Dictionary = _passages.get(cell + dir, {})
+		if front.get("trigger", "") == "door":
+			return front
+	return {}
+
 func step(dir: Vector2i) -> bool:
 	if walking:
 		return false
@@ -650,15 +722,20 @@ func step(dir: Vector2i) -> bool:
 		Vector2i(0, -1): facing = "up"
 		Vector2i(-1, 0): facing = "left"
 		Vector2i(1, 0): facing = "right"
-	if not can_step(dir):
+	var passage := _warp_from(player_pos, dir)
+	if passage.is_empty() and not can_step(dir):
 		# 撞墙也要转身：原版顶着墙走，人是会转过脸来的
 		_sync_player()
 		return false
+	if not emerald_elevation.is_empty() and elevation_at(player_pos) != 15:
+		last_elevation = elevation_at(player_pos)
 	last_dir = dir
 	anim_from = Vector2(player_pos)
 	var target := player_pos + dir
 	var is_jump := false
-	if hop_wanted(dir):
+	if not passage.is_empty():
+		player_pos = Vector2i(int(passage.at[0]), int(passage.at[1]))
+	elif hop_wanted(dir):
 		# 土坡：跨过坡沿落到坡下的可行格
 		player_pos = jump_landing(dir)
 		is_jump = true
@@ -668,6 +745,7 @@ func step(dir: Vector2i) -> bool:
 	if surfing and not is_water(player_pos):
 		surfing = false
 	jumping = is_jump
+	_step_duration = jump_dur if jumping else (run_dur if running and passage.is_empty() else walk_dur)
 	walking = true
 	walk_timer = walk_carry
 	walk_carry = 0.0
@@ -675,7 +753,10 @@ func step(dir: Vector2i) -> bool:
 	render_pos = anim_from
 	_sync_player()
 	# 走路时只认门；对话必须按 A，否则贴着 NPC 走过去会自动开口
-	_check_warp()
+	if not passage.is_empty():
+		_queue_passage(passage)
+	else:
+		_check_warp()
 	return true
 
 ## 潜水：对着深水按 A 下潜 / 上浮
@@ -718,7 +799,13 @@ func toggle_surf() -> String:
 		if not is_water(face):
 			return ""
 		surfing = true
+		if not can_enter(face, _dir_vec()) or not step(_dir_vec()):
+			surfing = false
+			return "这里不能下水。"
 		return "用冲浪下水了。"
+	if is_water(player_pos):
+		if is_water(face) or not can_enter(face, _dir_vec()) or not step(_dir_vec()):
+			return "靠近能站立的岸边才能上岸。"
 	surfing = false
 	return "回到岸上。"
 
@@ -737,19 +824,27 @@ func finish_walk() -> void:
 ## 原地按 A：不移动，只检查正前方有没有可交互对象
 func step_interact() -> void:
 	last_event = ""
-	# 站在门格上按 A 也能进门（原版就是这样，不用走过去）
-	_check_warp()
-	if last_event.begins_with("warp:"):
+	if walking:
+		return
+	var panel := warp_at(player_pos + _dir_vec())
+	if panel.get("trigger", "") == "panel":
+		_queue_passage(panel)
+		return
+	# Older authored maps also allow A on a standing warp.
+	var row := warp_at(player_pos)
+	if not row.is_empty() and not row.has("trigger"):
+		_queue_passage(row)
 		return
 	_check_talk()
 
+func _queue_passage(row: Dictionary) -> void:
+	pending_warp = row.to
+	last_event = "warp:" + JSON.stringify(row.to)
+
 func _check_warp() -> void:
-	for w in map_data.get("warps", []):
-		var at: Array = w.get("at", [0, 0])
-		if Vector2i(int(at[0]), int(at[1])) == player_pos:
-			last_event = "warp:" + JSON.stringify(w.get("to", {}))
-			pending_warp = w.get("to", {})
-			return
+	var row := warp_at(player_pos)
+	if not row.is_empty() and row.get("trigger", "step") == "step":
+		_queue_passage(row)
 
 ## 只有按下 A 才检查对话目标，走路不会自动触发
 var last_obj: Dictionary = {}
@@ -866,9 +961,14 @@ func _sync_player() -> void:
 	if _player_sprite == null:
 		return
 	var f: int = int(FACE_FRAME.get(facing, 0))
-	if frame_col == 1:
+	var afloat := surfing and is_water(player_pos)
+	var sheet := PLAYER_SURF if afloat else PLAYER_WALK
+	if _player_sprite.texture != sheet:
+		_player_sprite.texture = sheet
+		_player_sprite.hframes = 3 if afloat else 9
+	if not afloat and frame_col == 1:
 		f = int(WALK_A.get(facing, 0))
-	elif frame_col == 2:
+	elif not afloat and frame_col == 2:
 		f = int(WALK_B.get(facing, 0))
 	_player_sprite.frame = f
 	_player_sprite.flip_h = facing == "right"
@@ -880,7 +980,8 @@ func _sync_player() -> void:
 	# 16x32 的人物图要「脚踩格子下沿」，不是「身子居中」：
 	# 居中会让脚多踩下半格，看起来就像站在下面那张桌子上
 	_player_sprite.position = Vector2(px + TILE / 2, py - lift)
-	_player_sprite.offset = Vector2.ZERO
+	_player_sprite.offset = Vector2(0, 4 if afloat else 0)
+	_player_shadow.visible = not afloat
 	_player_sprite.z_index = Z_ACTOR + int(render_pos.y) * 2
 	_player_shadow.position = Vector2(px + TILE / 2, py + TILE - 2)
 	_player_shadow.z_index = Z_ACTOR + int(render_pos.y) * 2 - 1
@@ -945,23 +1046,76 @@ func _texture_for(p: Vector2i, t: int) -> Texture2D:
 	h = absi(h)
 	return _frames[int(list[h % list.size()])]
 
-func _rebuild() -> void:
+const MANSION_FLAG := "mansion_secret_switch"
+var mansion_switches: Array[Vector2i] = []
+var quest_door_open := false
+var quest_door_tile := Vector2i(-2,-2)
+var quest_door_flag := ""
+
+func _quest_passage_open(flags: Dictionary) -> bool:
+	if flags.get(quest_door_flag,false):
+		return true
+	if quest_door_flag == "ember_ruby_requested":
+		return flags.get("got_ember_ruby",false) or flags.get("delivered_ember_ruby",false) or (flags.get("beat_ember_grunt_1",false) and flags.get("beat_ember_grunt_2",false))
+	return false
+
+func set_mansion_switch(active: bool) -> void:
+	if mansion_switches.is_empty():
+		return
+	taken[MANSION_FLAG] = active
+	_rebuild()
+
+func _rebuild(story_flags: Variant = null) -> void:
 	for n in _tile_nodes:
 		n.queue_free()
 	_tile_nodes.clear()
-	for n in _npc_nodes:
-		n.queue_free()
-	_npc_nodes.clear()
 
 	var plan := EmeraldField.plan_for(map_data)
+	var mansion: Dictionary = plan.get("mansion",{})
+	mansion_switches.clear()
+	for xy in mansion.get("statues",[]):
+		mansion_switches.append(Vector2i(int(xy[0]),int(xy[1])))
+	var overrides: Array = []
+	if not mansion_switches.is_empty() and taken.has(MANSION_FLAG):
+		overrides = mansion.on if taken[MANSION_FLAG] else mansion.off
+	var quest_door: Dictionary = plan.get("quest_door",{})
+	quest_door_flag = quest_door.get("flag","")
+	quest_door_tile = Vector2i(-2,-2)
+	quest_door_open = false
+	if not quest_door.is_empty():
+		quest_door_open = _quest_passage_open(taken if story_flags == null else story_flags)
+		var state: Array = quest_door.open if quest_door_open else quest_door.closed
+		quest_door_tile = Vector2i(int(state[0]),int(state[1]))
+		overrides.append(state)
+	for row in overrides:
+		emerald_collision[int(row[1])][int(row[0])] = int(row[4])
 	if not plan.is_empty():
 		var field := EmeraldField.new()
 		add_child(field)
-		field.setup(self, plan)
+		field.setup(self, plan, overrides)
 		_tile_nodes.append(field)
 	else:
 		_build_legacy_ground()
 
+	_draw_npcs()
+	_draw_objects()
+	apply_light()
+
+func refresh_story_actors(flags: Dictionary) -> void:
+	var updated := preload("res://core/frlg_actors.gd").roster(map_data,flags)
+	for row in npcs:
+		if row.get("form_items",false): updated.append(row)
+	npcs = updated
+	if not quest_door_flag.is_empty() and _quest_passage_open(flags) != quest_door_open:
+		_rebuild(flags)
+	else:
+		_draw_npcs()
+
+func _draw_npcs() -> void:
+	for node in _npc_nodes:
+		node.hide()
+		node.queue_free()
+	_npc_nodes.clear()
 	for n in npcs:
 		var at: Array = n.get("at", [0, 0])
 		var s := Sprite2D.new()
@@ -974,6 +1128,7 @@ func _rebuild() -> void:
 		s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		var sh := Sprite2D.new()
 		sh.texture = _shadow_tex
+		sh.visible = not n.get("in_water_pose",false)
 		var nz: int = Z_ACTOR + int(at[1]) * 2
 		sh.z_index = nz - 1
 		sh.position = Vector2(int(at[0]) * TILE + TILE / 2, int(at[1]) * TILE + TILE - 2)
@@ -985,8 +1140,46 @@ func _rebuild() -> void:
 		s.z_index = nz
 		add_child(s)
 		_npc_nodes.append(s)
-	_draw_objects()
-	apply_light()
+
+## NPC and player move on the same clock so the following player stays one step behind.
+func play_actor_paths(role: String, npc_path: String, player_path: String) -> void:
+	var index := npcs.find_custom(func(n): return n.get("role","") == role)
+	if index < 0: return
+	var row: Dictionary = npcs[index]
+	var sprite: Sprite2D = _npc_nodes[index*2+1]
+	var shadow: Sprite2D = _npc_nodes[index*2]
+	var npc_position := Vector2i(int(row.at[0]),int(row.at[1]))
+	sprite.texture = preload("res://assets/npc/fr_oak_walk.png")
+	sprite.hframes = 9
+	var actor_face := "down"
+	var directions := {"L":Vector2i.LEFT,"R":Vector2i.RIGHT,"U":Vector2i.UP,"D":Vector2i.DOWN}
+	var faces := {"L":"left","R":"right","U":"up","D":"down"}
+	for i in maxi(npc_path.length(),player_path.length()):
+		var tween := create_tween().set_parallel()
+		if i<npc_path.length():
+			var delta: Vector2i = directions[npc_path[i]]
+			npc_position+=delta
+			actor_face = faces[npc_path[i]]
+			sprite.flip_h = actor_face == "right"
+			sprite.frame = (WALK_A if i%2 == 0 else WALK_B)[actor_face]
+			row.at=[npc_position.x,npc_position.y]
+			sprite.z_index=Z_ACTOR+npc_position.y*2
+			shadow.z_index=sprite.z_index-1
+			tween.tween_property(sprite,"position",sprite.position+Vector2(delta)*TILE,0.11)
+			tween.tween_property(shadow,"position",shadow.position+Vector2(delta)*TILE,0.11)
+		if i<player_path.length():
+			facing=faces[player_path[i]]
+			frame_col=1+i%2
+			player_pos+=Vector2i(directions[player_path[i]])
+			tween.tween_method(_render_story_step,render_pos,Vector2(player_pos),0.11)
+		await tween.finished
+		sprite.frame = FACE_FRAME[actor_face]
+	frame_col=0
+	_sync_player()
+
+func _render_story_step(position_tiles: Vector2) -> void:
+	render_pos=position_tiles
+	_sync_player()
 
 func _build_legacy_ground() -> void:
 	if is_emerald():
@@ -1099,6 +1292,8 @@ func _object_key(o: Dictionary) -> String:
 
 ## 这一格上有没有能按 A 的东西
 func object_at(p: Vector2i) -> Dictionary:
+	if p in mansion_switches:
+		return {"kind":"mansion_switch","at":[p.x,p.y]}
 	for o in objects:
 		var at: Array = o.get("at", [0, 0])
 		if Vector2i(int(at[0]), int(at[1])) == p:
@@ -1172,7 +1367,8 @@ func apply_light() -> void:
 		_night_tint = CanvasModulate.new()
 		add_child(_night_tint)
 	var base := Color(1, 1, 1)
-	if night > 0.01:
+	# FireRed maps use the palette assigned to their tileset throughout the day.
+	if night > 0.01 and EmeraldField.plan_for(map_data).get("source","") != "pokefirered":
 		var t: float = clampf(night, 0.0, 1.0)
 		base = Color(1.0 - 0.30 * t, 1.0 - 0.28 * t, 1.0 - 0.12 * t)
 	match weather:
@@ -1396,7 +1592,7 @@ func _is_tree(x: int, y: int) -> bool:
 func tick_walk(delta: float) -> void:
 	if not walking:
 		return
-	var dur: float = jump_dur if jumping else (run_dur if running else walk_dur)
+	var dur := _step_duration
 	walk_timer += delta
 	if walk_timer >= dur:
 		walk_carry = 0.0 if jumping else minf(walk_timer - dur, dur * 0.5)
@@ -1439,15 +1635,35 @@ func tick_walk(delta: float) -> void:
 
 ## 传送落点：先把渲染位置和状态一起对齐，否则会先看到人在旧位置闪一下
 func warp_to(pos: Vector2i) -> void:
+	if elevation_at(pos) not in [0, 15]:
+		last_elevation = elevation_at(pos)
 	player_pos = pos
 	render_pos = Vector2(pos)
 	anim_from = Vector2(pos)
+	jumping = false
+	jump_lift = 0.0
+	last_dir = Vector2i.ZERO
+	last_event = ""
 	walking = false
 	walk_timer = 0.0
 	walk_carry = 0.0
 	frame_col = 0
 	pending_warp = {}
 	_sync_player()
+
+func arrive(target: Dictionary) -> void:
+	var pos := Vector2i(int(target.at[0]), int(target.at[1]))
+	facing = str(target.get("facing", facing))
+	if not is_water(pos):
+		surfing = false
+		diving = false
+	warp_to(pos)
+	if target.has("arrival_from"):
+		anim_from = Vector2(target.arrival_from[0], target.arrival_from[1])
+		render_pos = anim_from
+		_step_duration = walk_dur * maxf(1.0, anim_from.distance_to(Vector2(pos)))
+		walking = true
+		_sync_player()
 
 func _process(_delta: float) -> void:
 	# 这个 HUD 只在调试时用，正常游戏里是空的；避免每帧拼字符串

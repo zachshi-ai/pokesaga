@@ -22,8 +22,10 @@
     "at": [
      10,
      34
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "up"
   },
   {
    "at": [
@@ -36,22 +38,10 @@
     "at": [
      11,
      34
-    ]
-   }
-  },
-  {
-   "at": [
-    32,
-    5
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "safarizone_north",
-    "at": [
-     12,
-     34
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "up"
   },
   {
    "at": [
@@ -64,8 +54,10 @@
     "at": [
      20,
      34
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "up"
   },
   {
    "at": [
@@ -78,22 +70,10 @@
     "at": [
      21,
      34
-    ]
-   }
-  },
-  {
-   "at": [
-    39,
-    5
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "safarizone_north",
-    "at": [
-     22,
-     34
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "up"
   },
   {
    "at": [
@@ -106,8 +86,10 @@
     "at": [
      8,
      17
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -120,36 +102,10 @@
     "at": [
      8,
      18
-    ]
-   }
-  },
-  {
-   "at": [
-    40,
-    28
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "safarizone_center",
-    "at": [
-     8,
-     19
-    ]
-   }
-  },
-  {
-   "at": [
-    19,
-    18
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "safari_zone_west_rest_house",
-    "at": [
-     3,
-     9
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -160,10 +116,28 @@
     "region": "kanto",
     "map": "safari_zone_secret_house",
     "at": [
-     3,
+     4,
      9
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
+  },
+  {
+   "at": [
+    19,
+    18
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "safari_zone_west_rest_house",
+    "at": [
+     4,
+     9
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   }
  ],
  "encounters": [

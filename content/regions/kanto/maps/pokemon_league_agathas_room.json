@@ -7,7 +7,7 @@
  ],
  "spawn": [
   6,
-  12
+  9
  ],
  "npcs": [
   {
@@ -27,16 +27,22 @@
   {
    "at": [
     6,
-    12
+    10
    ],
    "to": {
     "region": "kanto",
     "map": "pokemon_league_brunos_room",
     "at": [
      6,
+     3
+    ],
+    "arrival_from": [
+     6,
      2
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -49,8 +55,10 @@
     "at": [
      23,
      13
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   }
  ],
  "encounters": [],

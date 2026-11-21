@@ -21,9 +21,15 @@
     "map": "six_island_outcast_island",
     "at": [
      7,
+     22
+    ],
+    "arrival_from": [
+     7,
      21
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [

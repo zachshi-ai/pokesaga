@@ -5,6 +5,7 @@ extends RefCounted
 ## 接新地区、新世代规则时只改这里的一方，不牵动界面。
 
 signal variant_seen(side: String, mon: Dictionary)
+signal health_changed(line: int, side: String, slot: int, mon: Dictionary)
 
 const STAGE_MULT := [0.33, 0.4, 0.5, 0.66, 1.0, 1.5, 2.0, 2.5, 3.0]
 const FieldScript := preload("res://core/field.gd")
@@ -175,6 +176,17 @@ func start(a_team: Array, b_team: Array) -> void:
 ## Mega 进化、极巨化都是同一只宝可梦在战斗里换形态：图鉴号不变，
 ## 只换属性、种族值、立绘。极巨化额外把血量翻倍。一场战斗每种变化一次。
 
+## Direct hits begin at the move announcement. Other effects describe HP on the next line.
+## Consumers copy the value
+## before another combatant acts or the same move deals a second hit.
+func _set_hp(mon: Dictionary, value: int, at_line := -1) -> void:
+	mon.hp = value
+	if at_line < 0: at_line = log.size()
+	if not team_a.is_empty() and is_same(mon, cur_a()):
+		health_changed.emit(at_line, "a", active_a, mon)
+	elif not team_b.is_empty() and is_same(mon, cur_b()):
+		health_changed.emit(at_line, "b", active_b, mon)
+
 func available_forms(side: String) -> Array:
 	var c: Dictionary = cur_a() if side == "a" else cur_b()
 	if c["fainted"] or int(c.get("forms_used", 0)) > 0:
@@ -232,7 +244,7 @@ func transform(side: String, form_key: String) -> Dictionary:
 	c["name"] = "%s（%s）" % [sp_name, String(f.get("label", ""))]
 	c["types"] = f.get("types", c["types"])
 	c["max_hp"] = new_max
-	c["hp"] = clampi(int(round(ratio * new_max)), 1, new_max)
+	_set_hp(c, clampi(int(round(ratio * new_max)), 1, new_max))
 	c["stats"] = {
 		"atk": int((2 * int(base.get("atk", 1)) + 31) * lv / 100.0) + 5,
 		"def": int((2 * int(base.get("def", 1)) + 31) * lv / 100.0) + 5,
@@ -277,7 +289,7 @@ func switch_form(side: String, form_key: String, reason: String = "") -> bool:
 	var new_base: Dictionary = (Data.stats_of(sid, form_key) as Dictionary).get("base", {})
 	c["max_hp"] = int(round(float(int(c["max_hp"])) * float(int(new_base.get("hp", 1))) \
 		/ maxf(1.0, float(int(old_base.get("hp", 1))))))
-	c["hp"] = clampi(int(round(ratio * float(int(c["max_hp"])))), 0, int(c["max_hp"]))
+	_set_hp(c, clampi(int(round(ratio * float(int(c["max_hp"])))), 0, int(c["max_hp"])))
 	var lv := int(c.get("level", 1))
 	c["stats"] = {
 		"atk": int((2 * int(new_base.get("atk", 1)) + 31) * lv / 100.0) + 5,
@@ -535,7 +547,7 @@ func _apply_hazards(side: String, mon: Dictionary) -> void:
 	var res: Dictionary = field.on_switch_in(side, mon, rock_eff)
 	var dmg := int(res.get("damage", 0))
 	if dmg > 0:
-		mon["hp"] = maxi(0, int(mon["hp"]) - dmg)
+		_set_hp(mon, maxi(0, int(mon["hp"]) - dmg))
 		if int(mon["hp"]) <= 0:
 			mon["fainted"] = true
 	for line in res.get("text", []):
@@ -1126,7 +1138,7 @@ func damage(attacker: Dictionary, defender: Dictionary, move: Dictionary) -> int
 		var heal_amt: int = int(int(defender["max_hp"]) * float(absorb.get("heal", 0.0)))
 		if heal_amt > 0 and int(defender["hp"]) < int(defender["max_hp"]):
 			var before_hp := int(defender["hp"])
-			defender["hp"] = mini(int(defender["max_hp"]), int(defender["hp"]) + heal_amt)
+			_set_hp(defender, mini(int(defender["max_hp"]), int(defender["hp"]) + heal_amt))
 			log.append("%s 的%s吸收了招式，回复了 %d 点体力。" % [defender["name"], _ab(defender), int(defender["hp"]) - before_hp])
 		else:
 			log.append("%s 的%s让招式失效了！" % [defender["name"], _ab(defender)])
@@ -1226,7 +1238,7 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 	# 反伤
 	if effect == "RECOIL" and dealt > 0 and not bool(Data.ability_effect(_ab(attacker)).get("no_recoil", false)):
 		var back: int = maxi(1, int(dealt / 3.0))
-		attacker["hp"] = maxi(0, int(attacker["hp"]) - back)
+		_set_hp(attacker, maxi(0, int(attacker["hp"]) - back))
 		out.append("%s 受到了 %d 点反作用力伤害。" % [attacker["name"], back])
 
 	# 回复类
@@ -1238,7 +1250,7 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 		else:
 			var heal: int = int(attacker["max_hp"] / 2)
 			var before: int = attacker["hp"]
-			attacker["hp"] = mini(attacker["max_hp"], int(attacker["hp"]) + heal)
+			_set_hp(attacker, mini(attacker["max_hp"], int(attacker["hp"]) + heal))
 			out.append("%s 回复了 %d 点体力。" % [attacker["name"], int(attacker["hp"]) - before])
 
 	# 强行：带了附加效果的招式虽然更痛，但附加效果不再发动
@@ -1318,7 +1330,7 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 	# 一击必杀
 	if effect == "OHKO":
 		if int(defender["level"]) <= int(attacker["level"]):
-			defender["hp"] = 0
+			_set_hp(defender, 0)
 			defender["fainted"] = true
 			out.append("一击命中！%s 倒下了！" % defender["name"])
 		else:
@@ -1327,14 +1339,14 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 	# 固定伤害（地球上投/龙之怒这类）
 	if effect == "LEVEL_DAMAGE":
 		var dmg: int = int(attacker["level"])
-		defender["hp"] = maxi(0, int(defender["hp"]) - dmg)
+		_set_hp(defender, maxi(0, int(defender["hp"]) - dmg))
 		out.append("对 %s 造成了 %d 点伤害。" % [defender["name"], dmg])
 		if int(defender["hp"]) <= 0:
 			defender["fainted"] = true
 			out.append("%s 倒下了！" % defender["name"])
 	if effect in ["FIXED_PERCENT_DAMAGE", "SUPER_FANG"]:
 		var half: int = maxi(1, int(int(defender["hp"]) / 2.0))
-		defender["hp"] = maxi(0, int(defender["hp"]) - half)
+		_set_hp(defender, maxi(0, int(defender["hp"]) - half))
 		out.append("对 %s 造成了 %d 点伤害。" % [defender["name"], half])
 		if int(defender["hp"]) <= 0:
 			defender["fainted"] = true
@@ -1396,7 +1408,7 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 	# 猛撞 / 舍身冲撞这类：反伤一半
 	if effect == "MAX_HP_50_RECOIL" and dealt > 0:
 		var half2: int = maxi(1, int(int(attacker["max_hp"]) / 2.0))
-		attacker["hp"] = maxi(0, int(attacker["hp"]) - half2)
+		_set_hp(attacker, maxi(0, int(attacker["hp"]) - half2))
 		out.append("%s 受到了 %d 点反作用力伤害。" % [attacker["name"], half2])
 		if int(attacker["hp"]) <= 0:
 			attacker["fainted"] = true
@@ -1405,7 +1417,7 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 	# 羽栖：回一半体力并暂时失去飞行属性
 	if effect == "ROOST":
 		var rh: int = maxi(1, int(int(attacker["max_hp"]) / 2.0))
-		attacker["hp"] = mini(int(attacker["max_hp"]), int(attacker["hp"]) + rh)
+		_set_hp(attacker, mini(int(attacker["max_hp"]), int(attacker["hp"]) + rh))
 		attacker["roosting"] = true
 		out.append("%s 落在地上休息，回复了体力。" % attacker["name"])
 
@@ -1414,7 +1426,7 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 		var heal3: int = maxi(1, int(int(attacker["max_hp"]) / 2.0))
 		if effect == "SHORE_UP" and String(field.weather) == "sandstorm":
 			heal3 = int(int(attacker["max_hp"]) * 0.66)
-		attacker["hp"] = mini(int(attacker["max_hp"]), int(attacker["hp"]) + heal3)
+		_set_hp(attacker, mini(int(attacker["max_hp"]), int(attacker["hp"]) + heal3))
 		out.append("%s 回复了体力。" % attacker["name"])
 
 	# 花粉团：对对手造成伤害，对自己人回血（这里按对手处理）
@@ -1432,7 +1444,7 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 
 	# 点到为止：留 1 点体力
 	if effect == "FALSE_SWIPE" and int(defender["hp"]) <= 0:
-		defender["hp"] = 1
+		_set_hp(defender, 1)
 		defender["fainted"] = false
 		out.append("%s 撑住了，还剩 1 点体力！" % defender["name"])
 
@@ -1606,7 +1618,7 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 		if int(attacker["hp"]) <= cost2:
 			out.append("体力不够，腹鼓失败了。")
 		else:
-			attacker["hp"] = int(attacker["hp"]) - cost2
+			_set_hp(attacker, int(attacker["hp"]) - cost2)
 			attacker["stages"]["atk"] = 6
 			out.append("%s 敲响腹鼓，攻击提升到最大！" % attacker["name"])
 
@@ -1630,8 +1642,8 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 	if effect == "PAIN_SPLIT":
 		var total := int(attacker["hp"]) + int(defender["hp"])
 		var avg := int(total / 2)
-		attacker["hp"] = mini(int(attacker["max_hp"]), avg)
-		defender["hp"] = mini(int(defender["max_hp"]), avg)
+		_set_hp(attacker, mini(int(attacker["max_hp"]), avg))
+		_set_hp(defender, mini(int(defender["max_hp"]), avg))
 		out.append("双方的体力被平分了。")
 
 	# 击退类（龙尾）：打完把对手换下去
@@ -1668,14 +1680,14 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 	if effect == "STRENGTH_SAP" and not bool(defender["fainted"]):
 		var sap: int = maxi(1, int(defender["stats"].get("atk", 20)))
 		var gain: int = mini(int(attacker["max_hp"]) - int(attacker["hp"]), sap)
-		attacker["hp"] = mini(int(attacker["max_hp"]), int(attacker["hp"]) + gain)
+		_set_hp(attacker, mini(int(attacker["max_hp"]), int(attacker["hp"]) + gain))
 		_apply_stage(defender, "atk", -1, out)
 		out.append("%s 吸取了 %d 点力量。" % [attacker["name"], gain])
 
 	# 丛林治疗：回复自己并铺开青草场地
 	if effect == "JUNGLE_HEALING":
 		var jh: int = maxi(1, int(int(attacker["max_hp"]) / 2.0))
-		attacker["hp"] = mini(int(attacker["max_hp"]), int(attacker["hp"]) + jh)
+		_set_hp(attacker, mini(int(attacker["max_hp"]), int(attacker["hp"]) + jh))
 		out.append(field.set_terrain("grassy"))
 		out.append("%s 借助丛林的治疗回复了体力。" % attacker["name"])
 
@@ -1723,7 +1735,7 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 		elif String(field.weather) in ["rain", "sandstorm", "snow"]:
 			ratio2 = 0.25
 		var sh2: int = maxi(1, int(int(attacker["max_hp"]) * ratio2))
-		attacker["hp"] = mini(int(attacker["max_hp"]), int(attacker["hp"]) + sh2)
+		_set_hp(attacker, mini(int(attacker["max_hp"]), int(attacker["hp"]) + sh2))
 		out.append("%s 回复了 %d 点体力。" % [attacker["name"], sh2])
 
 	# 蓄力 / 喷出 / 吞下
@@ -1744,7 +1756,7 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 			out.append("但是没有蓄力，什么也没发生。")
 		else:
 			var heal2: int = int(int(attacker["max_hp"]) * (0.25 * layers2))
-			attacker["hp"] = mini(int(attacker["max_hp"]), int(attacker["hp"]) + heal2)
+			_set_hp(attacker, mini(int(attacker["max_hp"]), int(attacker["hp"]) + heal2))
 			attacker["stockpile"] = 0
 			out.append("%s 吞了下去，回复了 %d 点体力。" % [attacker["name"], heal2])
 
@@ -1808,7 +1820,7 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 	# 反作用力只在没打中时生效（飞踢、飞膝踢）
 	if effect == "RECOIL_IF_MISS" and dealt <= 0:
 		var miss_dmg: int = maxi(1, int(int(attacker["max_hp"]) / 2))
-		attacker["hp"] = maxi(0, int(attacker["hp"]) - miss_dmg)
+		_set_hp(attacker, maxi(0, int(attacker["hp"]) - miss_dmg))
 		out.append("%s 摔了一跤，损失了 %d 点体力。" % [attacker["name"], miss_dmg])
 		if int(attacker["hp"]) <= 0:
 			attacker["fainted"] = true
@@ -1954,7 +1966,7 @@ func _contact_ability_effect(attacker: Dictionary, defender: Dictionary, move: D
 	var abe: Dictionary = Data.ability_effect(ab)
 	if abe.has("contact_recoil"):
 		var back: int = maxi(1, int(int(attacker["max_hp"]) * float(abe["contact_recoil"])))
-		attacker["hp"] = maxi(0, int(attacker["hp"]) - back)
+		_set_hp(attacker, maxi(0, int(attacker["hp"]) - back))
 		log.append("%s 的粗糙皮肤让 %s 损失了 %d 点体力。" % [defender["name"], attacker["name"], back])
 		if int(attacker["hp"]) <= 0:
 			attacker["fainted"] = true
@@ -2027,7 +2039,7 @@ func _after_hit_passive(attacker: Dictionary, defender: Dictionary, move: Dictio
 	if String(dabe.get("gulp_missile", "")) != "" or _ab(defender) == "一口导弹":
 		if int(defender.get("species_id", 0)) == 845 and String(defender.get("form", "")) != "":
 			var bite: int = maxi(1, int(int(attacker["max_hp"]) / 4.0))
-			attacker["hp"] = maxi(0, int(attacker["hp"]) - bite)
+			_set_hp(attacker, maxi(0, int(attacker["hp"]) - bite))
 			log.append("%s 嘴里的猎物反击，%s 损失了 %d 点体力！" % [defender["name"], attacker["name"], bite])
 			if int(attacker["hp"]) <= 0:
 				attacker["fainted"] = true
@@ -2095,7 +2107,7 @@ func _after_hit_passive(attacker: Dictionary, defender: Dictionary, move: Dictio
 		var ofd := float(dabe.get("on_faint_damage", 0.0))
 		if ofd > 0.0 and not bool(attacker["fainted"]):
 			var dmg3: int = maxi(1, int(int(attacker["max_hp"]) * ofd))
-			attacker["hp"] = maxi(0, int(attacker["hp"]) - dmg3)
+			_set_hp(attacker, maxi(0, int(attacker["hp"]) - dmg3))
 			log.append("%s 的%s让 %s 损失了 %d 点体力。" % [defender["name"], _ab(defender), attacker["name"], dmg3])
 			if int(attacker["hp"]) <= 0:
 				attacker["fainted"] = true
@@ -2111,14 +2123,14 @@ func _extra_effect(effect: String, attacker: Dictionary, defender: Dictionary, m
 			out.append("%s 的体力已经满了。" % who["name"])
 		else:
 			var h: int = maxi(1, int(int(who["max_hp"]) / 2.0))
-			who["hp"] = mini(int(who["max_hp"]), int(who["hp"]) + h)
+			_set_hp(who, mini(int(who["max_hp"]), int(who["hp"]) + h))
 			out.append("%s 回复了 %d 点体力。" % [who["name"], h])
 	match effect:
 		# ---------------- 回复类 ----------------
 		"REST":
 			attacker["status"] = "slp"
 			attacker["status_turns"] = 2
-			attacker["hp"] = int(attacker["max_hp"])
+			_set_hp(attacker, int(attacker["max_hp"]))
 			out.append("%s 睡着了，体力完全恢复了。" % attacker["name"])
 		"MORNING_SUN", "MOONLIGHT":
 			var r := 0.5
@@ -2127,7 +2139,7 @@ func _extra_effect(effect: String, attacker: Dictionary, defender: Dictionary, m
 			elif String(field.weather) in ["rain", "sandstorm", "snow"]:
 				r = 0.25
 			var hh: int = maxi(1, int(int(attacker["max_hp"]) * r))
-			attacker["hp"] = mini(int(attacker["max_hp"]), int(attacker["hp"]) + hh)
+			_set_hp(attacker, mini(int(attacker["max_hp"]), int(attacker["hp"]) + hh))
 			out.append("%s 回复了 %d 点体力。" % [attacker["name"], hh])
 		"REVIVAL_BLESSING", "HEALING_WISH", "LUNAR_DANCE":
 			var my_team: Array = team_a if _side_of(attacker) == "a" else team_b
@@ -2142,7 +2154,7 @@ func _extra_effect(effect: String, attacker: Dictionary, defender: Dictionary, m
 			if not revived:
 				out.append("但是没有需要复活的同伴。")
 			if effect == "HEALING_WISH" or effect == "LUNAR_DANCE":
-				attacker["hp"] = 0
+				_set_hp(attacker, 0)
 				attacker["fainted"] = true
 				out.append("%s 用尽了自己。" % attacker["name"])
 		"PURIFY":
@@ -2196,7 +2208,7 @@ func _extra_effect(effect: String, attacker: Dictionary, defender: Dictionary, m
 			for st8 in ["atk", "def", "spa", "spd", "spe"]:
 				_apply_stage(attacker, String(st8), 1, out)
 			var cost8: int = maxi(1, int(int(attacker["max_hp"]) / 3.0))
-			attacker["hp"] = maxi(1, int(attacker["hp"]) - cost8)
+			_set_hp(attacker, maxi(1, int(attacker["hp"]) - cost8))
 		"FLOWER_SHIELD":
 			_apply_stage(attacker, "def", 1, out)
 		"ACUPRESSURE":
@@ -2338,13 +2350,13 @@ func _extra_effect(effect: String, attacker: Dictionary, defender: Dictionary, m
 		"MEMENTO":
 			_apply_stage(defender, "atk", -2, out)
 			_apply_stage(defender, "spa", -2, out)
-			attacker["hp"] = 0
+			_set_hp(attacker, 0)
 			attacker["fainted"] = true
 			out.append("%s 倒下了，%s 的能力大幅下降！" % [attacker["name"], defender["name"]])
 		"FINAL_GAMBIT":
 			var my_hp := int(attacker["hp"])
-			defender["hp"] = maxi(0, int(defender["hp"]) - my_hp)
-			attacker["hp"] = 0
+			_set_hp(defender, maxi(0, int(defender["hp"]) - my_hp))
+			_set_hp(attacker, 0)
 			attacker["fainted"] = true
 			if int(defender["hp"]) <= 0:
 				defender["fainted"] = true
@@ -2375,11 +2387,11 @@ func _extra_effect(effect: String, attacker: Dictionary, defender: Dictionary, m
 		"ENDEAVOR":
 			# 舍身冲撞：把对手体力拉到和自己一样
 			if int(defender["hp"]) > int(attacker["hp"]):
-				defender["hp"] = int(attacker["hp"])
+				_set_hp(defender, int(attacker["hp"]))
 				out.append("%s 的体力被拉平了！" % defender["name"])
 		"FIXED_HP_DAMAGE":
 			var fixed := int((move.get("extra", {}) as Dictionary).get("value", 20))
-			defender["hp"] = maxi(0, int(defender["hp"]) - fixed)
+			_set_hp(defender, maxi(0, int(defender["hp"]) - fixed))
 			out.append("对 %s 造成了 %d 点伤害。" % [defender["name"], fixed])
 			if int(defender["hp"]) <= 0:
 				defender["fainted"] = true
@@ -2387,7 +2399,7 @@ func _extra_effect(effect: String, attacker: Dictionary, defender: Dictionary, m
 		"DREAM_EATER":
 			if String(defender.get("status", "")) == "slp" and dealt > 0:
 				var dh: int = maxi(1, int(dealt / 2))
-				attacker["hp"] = mini(int(attacker["max_hp"]), int(attacker["hp"]) + dh)
+				_set_hp(attacker, mini(int(attacker["max_hp"]), int(attacker["hp"]) + dh))
 				out.append("%s 吃掉了对手的梦，回复了 %d 点体力。" % [attacker["name"], dh])
 			elif String(defender.get("status", "")) != "slp":
 				out.append("但是没有效果……对手没有睡着。")
@@ -2570,7 +2582,7 @@ func _end_of_turn() -> void:
 			var foe3: Dictionary = cur_b() if c == cur_a() else cur_a()
 			if String(foe3.get("status", "")) == "slp" and not bool(foe3["fainted"]):
 				var nd3: int = maxi(1, int(int(foe3["max_hp"]) / 8.0))
-				foe3["hp"] = maxi(0, int(foe3["hp"]) - nd3)
+				_set_hp(foe3, maxi(0, int(foe3["hp"]) - nd3))
 				log.append("%s 的%s让睡着的 %s 损失了 %d 点体力。" % [c["name"], _ab(c), foe3["name"], nd3])
 				if int(foe3["hp"]) <= 0:
 					foe3["fainted"] = true
@@ -2580,11 +2592,11 @@ func _end_of_turn() -> void:
 		var st := String(c.get("status", ""))
 		if bool(Data.ability_effect(_ab(c)).get("poison_heal", false)) and (st == "psn" or st == "tox"):
 			var ph: int = maxi(1, int(int(c["max_hp"]) / 8.0))
-			c["hp"] = mini(int(c["max_hp"]), int(c["hp"]) + ph)
+			_set_hp(c, mini(int(c["max_hp"]), int(c["hp"]) + ph))
 			log.append("%s 靠%s回复了 %d 点体力。" % [c["name"], _ab(c), ph])
 		elif st == "psn" or st == "tox" or st == "brn":
 			var dmg: int = maxi(1, int(int(c["max_hp"]) / 8.0))
-			c["hp"] = maxi(0, int(c["hp"]) - dmg)
+			_set_hp(c, maxi(0, int(c["hp"]) - dmg))
 			log.append("%s 受到了%s的伤害。" % [c["name"], "剧毒" if st == "tox" else ("灼伤" if st == "brn" else "中毒")])
 			if int(c["hp"]) <= 0:
 				c["fainted"] = true
@@ -2600,7 +2612,7 @@ func _end_of_turn_gmax() -> void:
 			var rd: Dictionary = r
 			var frac := maxi(1, int(rd.get("frac", 6)))
 			var dmg2: int = maxi(1, int(int(c["max_hp"]) / frac))
-			c["hp"] = maxi(0, int(c["hp"]) - dmg2)
+			_set_hp(c, maxi(0, int(c["hp"]) - dmg2))
 			log.append("%s 受到了持续伤害 %d 点。" % [c["name"], dmg2])
 			rd["turns"] = int(rd.get("turns", 0)) - 1
 			if int(rd["turns"]) <= 0:
@@ -2623,15 +2635,15 @@ func _end_of_turn_volatile() -> void:
 		# 寄生种子：掉 1/8，给对面
 		if bool(c.get("leech_seed", false)):
 			var stolen: int = maxi(1, int(int(c["max_hp"]) / 8.0))
-			c["hp"] = maxi(0, int(c["hp"]) - stolen)
+			_set_hp(c, maxi(0, int(c["hp"]) - stolen))
 			log.append("%s 的体力被寄生种子吸走了 %d 点。" % [who, stolen])
 			var other: Dictionary = cur_b() if c == cur_a() else cur_a()
 			if not bool(other["fainted"]):
-				other["hp"] = mini(int(other["max_hp"]), int(other["hp"]) + stolen)
+				_set_hp(other, mini(int(other["max_hp"]), int(other["hp"]) + stolen))
 		# 诅咒
 		if bool(c.get("cursed", false)):
 			var cd: int = maxi(1, int(int(c["max_hp"]) / 4.0))
-			c["hp"] = maxi(0, int(c["hp"]) - cd)
+			_set_hp(c, maxi(0, int(c["hp"]) - cd))
 			log.append("%s 被诅咒折磨，损失了 %d 点体力。" % [who, cd])
 		# 恶梦：睡着才掉
 		if bool(c.get("nightmare", false)):
@@ -2639,13 +2651,13 @@ func _end_of_turn_volatile() -> void:
 				c["nightmare"] = false
 			else:
 				var nd: int = maxi(1, int(int(c["max_hp"]) / 4.0))
-				c["hp"] = maxi(0, int(c["hp"]) - nd)
+				_set_hp(c, maxi(0, int(c["hp"]) - nd))
 				log.append("%s 做了恶梦，损失了 %d 点体力。" % [who, nd])
 		# 灭亡之歌倒数
 		if int(c.get("perish", 0)) > 0:
 			c["perish"] = int(c["perish"]) - 1
 			if int(c["perish"]) <= 0:
-				c["hp"] = 0
+				_set_hp(c, 0)
 				log.append("%s 随着灭亡之歌倒下了！" % who)
 			else:
 				log.append("%s 的灭亡倒计时还剩 %d。" % [who, int(c["perish"])])
@@ -2658,7 +2670,7 @@ func _end_of_turn_volatile() -> void:
 				var fd := int(fut.get("damage", 0))
 				var foe2: Dictionary = cur_b() if c == cur_a() else cur_a()
 				if not bool(foe2["fainted"]) and fd > 0:
-					foe2["hp"] = maxi(0, int(foe2["hp"]) - fd)
+					_set_hp(foe2, maxi(0, int(foe2["hp"]) - fd))
 					log.append("预知未来的攻击命中了 %s，造成 %d 点伤害！" % [foe2["name"], fd])
 				c["future"] = {}
 		# 哈欠：倒数到 0 就睡着
@@ -2681,7 +2693,7 @@ func _end_of_turn_volatile() -> void:
 			if int(dis["turns"]) <= 0:
 				c["disabled"] = {}
 		if int(c["hp"]) <= 0:
-			c["hp"] = 0
+			_set_hp(c, 0)
 			c["fainted"] = true
 			log.append("%s 倒下了！" % who)
 
@@ -2698,7 +2710,7 @@ func _end_of_turn_field() -> void:
 		if bool(c.get("aqua_ring", false)) and not c["fainted"]:
 			if int(c["hp"]) < int(c["max_hp"]):
 				var h: int = maxi(1, int(int(c["max_hp"]) / 16.0))
-				c["hp"] = mini(int(c["max_hp"]), int(c["hp"]) + h)
+				_set_hp(c, mini(int(c["max_hp"]), int(c["hp"]) + h))
 				log.append("%s 借水环回复了体力。" % c["name"])
 	# 许愿
 	for line in field.tick_wish([cur_a(), cur_b()]):
@@ -2751,7 +2763,7 @@ func _try_berry(c: Dictionary, cat: String = "") -> Array:
 			var bonus := float(Data.ability_effect(_ab(c)).get("berry_bonus", 0.0))
 			if bonus > 0.0:
 				heal += maxi(1, int(mx * bonus))
-			c["hp"] = mini(mx, hp + heal)
+			_set_hp(c, mini(mx, hp + heal))
 			out.append("%s 吃掉了%s，回复了 %d 点体力。" % [c["name"], nam, int(c["hp"]) - hp])
 		"pp":
 			var idx := -1
@@ -2830,12 +2842,12 @@ func _weather_ability_end_turn(mon: Dictionary) -> Array:
 	if heal_map.has(String(field.weather)):
 		var h: int = maxi(1, int(int(mon["max_hp"]) * float(heal_map[String(field.weather)])))
 		if int(mon["hp"]) < int(mon["max_hp"]):
-			mon["hp"] = mini(int(mon["max_hp"]), int(mon["hp"]) + h)
+			_set_hp(mon, mini(int(mon["max_hp"]), int(mon["hp"]) + h))
 			out.append("%s 的%s回复了 %d 点体力。" % [mon["name"], _ab(mon), h])
 	var rec_map: Dictionary = abe.get("weather_recoil", {})
 	if rec_map.has(String(field.weather)):
 		var r: int = maxi(1, int(int(mon["max_hp"]) * float(rec_map[String(field.weather)])))
-		mon["hp"] = maxi(0, int(mon["hp"]) - r)
+		_set_hp(mon, maxi(0, int(mon["hp"]) - r))
 		out.append("%s 被%s反噬，损失了 %d 点体力。" % [mon["name"], _ab(mon), r])
 		if int(mon["hp"]) <= 0:
 			mon["fainted"] = true
@@ -2854,23 +2866,23 @@ func held_end_turn(mon: Dictionary) -> Array:
 		"LEFTOVERS":
 			if int(mon["hp"]) < int(mon["max_hp"]):
 				var h: int = maxi(1, int(int(mon["max_hp"]) / 16.0))
-				mon["hp"] = mini(int(mon["max_hp"]), int(mon["hp"]) + h)
+				_set_hp(mon, mini(int(mon["max_hp"]), int(mon["hp"]) + h))
 				out.append("%s 靠吃剩的东西回复了 %d 点体力。" % [mon["name"], h])
 	return out
 
 ## 结实：满血时被一击打倒会留下 1 点体力
-func _sturdy_save(mon: Dictionary, dealt: int) -> bool:
+func _sturdy_save(mon: Dictionary, dealt: int, move_line: int) -> bool:
 	if not bool(Data.ability_effect(_ab(mon)).get("survive_full", false)):
 		return false
 	if int(mon["hp"]) < int(mon["max_hp"]):
 		return false
 	if int(mon["hp"]) - dealt > 0:
 		return false
-	mon["hp"] = 1
+	_set_hp(mon, 1, move_line)
 	return true
 
 ## 气势披带：满血被一击打倒时留 1 点
-func _focus_sash_save(mon: Dictionary, dealt: int) -> bool:
+func _focus_sash_save(mon: Dictionary, dealt: int, move_line: int) -> bool:
 	if String(mon.get("held", "")) != "FOCUS_SASH":
 		return false
 	if int(mon["hp"]) - dealt > 0:
@@ -2878,7 +2890,7 @@ func _focus_sash_save(mon: Dictionary, dealt: int) -> bool:
 	if int(mon["hp"]) < int(mon["max_hp"]):
 		return false
 	mon["held"] = ""
-	mon["hp"] = 1
+	_set_hp(mon, 1, move_line)
 	return true
 
 ## 天气带来的速度加成与免疫
@@ -3019,7 +3031,7 @@ func _blocked_by_status(c: Dictionary) -> bool:
 			c["status_turns"] = left2 - 1
 			if rng.randf() < 0.33:
 				var self_dmg: int = maxi(1, int(int(c["max_hp"]) / 8.0))
-				c["hp"] = maxi(0, int(c["hp"]) - self_dmg)
+				_set_hp(c, maxi(0, int(c["hp"]) - self_dmg))
 				log.append("%s 混乱了，打了自己 %d 点伤害！" % [c["name"], self_dmg])
 				if int(c["hp"]) <= 0:
 					c["fainted"] = true
@@ -3171,6 +3183,7 @@ func _take_action(side: String, choice: String) -> void:
 			var spa_v := float(attacker["stats"].get("spa", 0))
 			mv["category"] = "physical" if atk_v >= spa_v else "special"
 
+	var move_line := log.size()
 	log.append("%s 使用了 %s！" % [attacker["name"], mv.get("name", "?")])
 	# 一口导弹：用完冲浪/潜水就吞了猎物，进入吞形态
 	if _ab(attacker) == "一口导弹" and int(attacker.get("species_id", 0)) == 845 \
@@ -3206,7 +3219,7 @@ func _take_action(side: String, choice: String) -> void:
 		if int(attacker["hp"]) <= cost:
 			log.append("体力不够，替身没有做出来。")
 			return
-		attacker["hp"] = int(attacker["hp"]) - cost
+		_set_hp(attacker, int(attacker["hp"]) - cost)
 		attacker["sub_hp"] = cost
 		log.append("%s 做出了替身！" % attacker["name"])
 		return
@@ -3317,7 +3330,7 @@ func _take_action(side: String, choice: String) -> void:
 		if int(defender.get("species_id", 0)) == 778:
 			switch_form(_side_of(defender), "MIMIKYU_BUSTED", "%s 的画皮破掉了！" % defender["name"])
 		else:
-			defender["hp"] = maxi(0, int(defender["hp"]) - maxi(1, int(int(defender["max_hp"]) / 8.0)))
+			_set_hp(defender, maxi(0, int(defender["hp"]) - maxi(1, int(int(defender["max_hp"]) / 8.0))))
 		return
 
 	# 半无敌：蓄力消失的那一回合打不到
@@ -3368,17 +3381,17 @@ func _take_action(side: String, choice: String) -> void:
 		defender["last_damage"] = dealt
 		# 挺住：这一回合不会被打倒
 		if bool(defender.get("endure", false)) and int(defender["hp"]) - dealt <= 0:
-			defender["hp"] = 1
+			_set_hp(defender, 1, move_line)
 			defender["endure"] = false
 			log.append("%s 靠挺住撑了下来！" % defender["name"])
 			return
-		if _sturdy_save(defender, dealt):
+		if _sturdy_save(defender, dealt, move_line):
 			log.append("%s 靠结实撑住了！" % defender["name"])
-		elif not _focus_sash_save(defender, dealt):
+		elif not _focus_sash_save(defender, dealt, move_line):
 			var before_hp := int(defender["hp"])
-			defender["hp"] = maxi(0, before_hp - dealt)
+			_set_hp(defender, maxi(0, before_hp - dealt), move_line)
 			if eff_fs == "FALSE_SWIPE" and int(defender["hp"]) <= 0:
-				defender["hp"] = 1
+				_set_hp(defender, 1, move_line)
 				defender["fainted"] = false
 				log.append("%s 撑住了，还剩 1 点体力！" % defender["name"])
 		else:
@@ -3394,7 +3407,7 @@ func _take_action(side: String, choice: String) -> void:
 		log.append("对 %s 造成了 %d 点伤害。" % [defender["name"], dealt])
 		if String(attacker.get("held", "")) == "LIFE_ORB":
 			var rec: int = maxi(1, int(int(attacker["max_hp"]) / 10.0))
-			attacker["hp"] = maxi(0, int(attacker["hp"]) - rec)
+			_set_hp(attacker, maxi(0, int(attacker["hp"]) - rec))
 			log.append("%s 被生命宝珠反噬，损失了 %d 点体力。" % [attacker["name"], rec])
 			if int(attacker["hp"]) <= 0:
 				attacker["fainted"] = true
@@ -3402,7 +3415,7 @@ func _take_action(side: String, choice: String) -> void:
 			log.append(String(bmsg))
 		if String(mv.get("effect", "")) == "DRAIN":
 			var back: int = maxi(1, int(dealt / 2))
-			attacker["hp"] = mini(int(attacker["max_hp"]), int(attacker["hp"]) + back)
+			_set_hp(attacker, mini(int(attacker["max_hp"]), int(attacker["hp"]) + back))
 			log.append("%s 吸取了体力。" % attacker["name"])
 		_type_on_item(attacker, mv)
 		if int(defender["hp"]) <= 0:
@@ -3445,7 +3458,7 @@ func _take_action(side: String, choice: String) -> void:
 			var extra_hit := damage(attacker, defender, mv)
 			if extra_hit <= 0:
 				break
-			defender["hp"] = maxi(0, int(defender["hp"]) - extra_hit)
+			_set_hp(defender, maxi(0, int(defender["hp"]) - extra_hit))
 			log.append("第 %d 下，对 %s 造成了 %d 点伤害。" % [i + 2, defender["name"], extra_hit])
 			if int(defender["hp"]) <= 0:
 				defender["fainted"] = true
@@ -3511,7 +3524,7 @@ func _gmax_effect(attacker: Dictionary, defender: Dictionary, ge: Dictionary, de
 			if int(attacker["hp"]) >= int(attacker["max_hp"]):
 				return "%s 的体力已经是满的。" % attacker["name"]
 			var before2: int = attacker["hp"]
-			attacker["hp"] = mini(int(attacker["max_hp"]), int(attacker["hp"]) + int(int(attacker["max_hp"]) / frac))
+			_set_hp(attacker, mini(int(attacker["max_hp"]), int(attacker["hp"]) + int(int(attacker["max_hp"]) / frac)))
 			return "%s 回复了 %d 点体力。" % [attacker["name"], int(attacker["hp"]) - before2]
 		"heal_status":
 			if String(attacker.get("status", "")) == "":
@@ -3625,10 +3638,10 @@ func _struggle(side: String) -> void:
 	var a := float(attacker["stats"]["atk"])
 	var d := maxf(1.0, float(defender["stats"]["def"]))
 	var dmg: int = maxi(1, int(((2.0 * lvl / 5.0 + 2.0) * 50.0 * a / d) / 50.0 + 2.0))
-	defender["hp"] = maxi(0, int(defender["hp"]) - dmg)
+	_set_hp(defender, maxi(0, int(defender["hp"]) - dmg))
 	log.append("对 %s 造成了 %d 点伤害。" % [defender["name"], dmg])
 	var back: int = maxi(1, int(int(attacker["max_hp"]) / 4.0))
-	attacker["hp"] = maxi(0, int(attacker["hp"]) - back)
+	_set_hp(attacker, maxi(0, int(attacker["hp"]) - back))
 	log.append("%s 受到了反作用力伤害。" % attacker["name"])
 	if int(defender["hp"]) <= 0:
 		defender["fainted"] = true
@@ -3667,7 +3680,7 @@ func _do_switch(side: String, index: int, forced: bool = false) -> void:
 		if sh > 0.0 and int(old["hp"]) < int(old["max_hp"]):
 			var hl: int = maxi(1, int(int(old["max_hp"]) * sh))
 			var b0 := int(old["hp"])
-			old["hp"] = mini(int(old["max_hp"]), int(old["hp"]) + hl)
+			_set_hp(old, mini(int(old["max_hp"]), int(old["hp"]) + hl))
 			log.append("%s 靠%s回复了 %d 点体力。" % [old["name"], _ab(old), int(old["hp"]) - b0])
 		# 全能变身：换下场时变成全能形态，再上场就是英雄姿态
 		if bool(oe.get("form_on_switch_out", false)) and int(old.get("species_id", 0)) == 964 \
@@ -3678,6 +3691,7 @@ func _do_switch(side: String, index: int, forced: bool = false) -> void:
 		active_a = index
 	else:
 		active_b = index
+	health_changed.emit(log.size(), side, index, team[index])
 	log.append("%s 上场了！" % team[index]["name"])
 	_apply_hazards(side, team[index])
 	_on_send_out(side)
@@ -3697,9 +3711,13 @@ func _check_end() -> void:
 
 	if cur_a()["fainted"]:
 		active_a = _first_alive(team_a)
+		health_changed.emit(log.size(), "a", active_a, cur_a())
+		log.append("%s 上场了！" % cur_a().name)
 		_on_send_out("a")
 	if cur_b()["fainted"]:
 		active_b = _first_alive(team_b)
+		health_changed.emit(log.size(), "b", active_b, cur_b())
+		log.append("%s 上场了！" % cur_b().name)
 		_on_send_out("b")
 
 func _any_alive(team: Array) -> bool:

@@ -48,9 +48,15 @@
     "map": "birth_island_harbor",
     "at": [
      8,
+     3
+    ],
+    "arrival_from": [
+     8,
      2
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

@@ -46,9 +46,15 @@
     "map": "cinnabar_island_pokemon_lab_entrance",
     "at": [
      19,
+     6
+    ],
+    "arrival_from": [
+     19,
      5
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

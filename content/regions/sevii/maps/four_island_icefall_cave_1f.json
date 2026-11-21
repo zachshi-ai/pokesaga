@@ -21,9 +21,15 @@
     "map": "four_island_icefall_cave_entrance",
     "at": [
      10,
+     22
+    ],
+    "arrival_from": [
+     10,
      21
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -37,7 +43,8 @@
      9,
      7
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -51,7 +58,8 @@
      12,
      12
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -65,7 +73,8 @@
      12,
      3
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -79,7 +88,8 @@
      15,
      16
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -92,8 +102,10 @@
     "at": [
      12,
      23
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [

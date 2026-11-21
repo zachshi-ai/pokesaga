@@ -50,20 +50,6 @@
  "warps": [
   {
    "at": [
-    3,
-    9
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "safarizone_east",
-    "at": [
-     40,
-     14
-    ]
-   }
-  },
-  {
-   "at": [
     4,
     9
    ],
@@ -72,23 +58,15 @@
     "map": "safarizone_east",
     "at": [
      40,
-     14
-    ]
-   }
-  },
-  {
-   "at": [
-    5,
-    9
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "safarizone_east",
-    "at": [
+     15
+    ],
+    "arrival_from": [
      40,
      14
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

@@ -109,7 +109,7 @@ func probe(entry: Array, slot: String) -> bool:
 		"johto_center":back=Vector2i(0,3)
 		"johto_ship":back=Vector2i(12,0)
 		"johto_lift":back=Vector2i(1,1)
-		"sevii_lift":back=Vector2i(2,5)
+		"sevii_lift", "rocket_hideout_elevator", "silph_co_elevator", "celadon_city_department_store_elevator":back=Vector2i(2,5)
 	if not walk(back):return false
 	if current!=str(expected.region)+"/"+str(expected.map) or world.player_pos!=vec(expected.at):
 		return fail("wrong remembered destination from "+r+"/"+mid)
@@ -124,7 +124,7 @@ func run() -> void:
 	var count := check_graph()
 	var probes := 0
 	if not failed:
-		for slot in ["johto_center","johto_lift","johto_ship","sevii_lift"]:
+		for slot in ["johto_center","johto_lift","johto_ship","sevii_lift","rocket_hideout_elevator","silph_co_elevator","celadon_city_department_store_elevator"]:
 			if not originals.has(slot):
 				fail("unregistered shared passage "+slot)
 				break
@@ -135,7 +135,11 @@ func run() -> void:
 	if not failed:
 		journal.clear()
 		load_at({"region":"sevii","map":"trainer_tower_elevator","at":[2,4]})
-		if not walk(Vector2i(0,2)) or current!="sevii/trainer_tower_lobby":
+		walk(Vector2i(0,3))
+		world.facing = "up"
+		world.step_interact()
+		if not world.pending_warp.is_empty(): load_at(world.pending_warp)
+		if current!="sevii/trainer_tower_lobby":
 			fail("trainer tower control panel cannot recall lobby")
 	if not failed:
 		journal.clear()

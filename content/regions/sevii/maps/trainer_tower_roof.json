@@ -35,8 +35,9 @@
     "map": "trainer_tower_elevator",
     "at": [
      2,
-     4
+     5
     ],
+    "facing": "up",
     "remember_passage": {
      "key": "sevii_lift",
      "destination": {
@@ -45,10 +46,16 @@
       "at": [
        13,
        6
-      ]
+      ],
+      "arrival_from": [
+       13,
+       5
+      ],
+      "facing": "down"
      }
     }
-   }
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -61,8 +68,10 @@
     "at": [
      15,
      6
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "left"
   }
  ],
  "encounters": [],

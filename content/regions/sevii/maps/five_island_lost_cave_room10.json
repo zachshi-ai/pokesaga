@@ -35,9 +35,15 @@
     "map": "five_island_lost_cave_room1",
     "at": [
      5,
+     2
+    ],
+    "arrival_from": [
+     5,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [

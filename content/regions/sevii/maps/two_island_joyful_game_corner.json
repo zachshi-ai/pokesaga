@@ -74,9 +74,15 @@
     "map": "two_island",
     "at": [
      39,
+     10
+    ],
+    "arrival_from": [
+     39,
      9
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

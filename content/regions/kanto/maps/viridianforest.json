@@ -113,9 +113,35 @@
     "map": "route2_viridianforest_southentrance",
     "at": [
      7,
+     2
+    ],
+    "arrival_from": [
+     7,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
+    28,
+    62
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_viridianforest_southentrance",
+    "at": [
+     7,
+     2
+    ],
+    "arrival_from": [
+     7,
+     1
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -128,22 +154,26 @@
     "at": [
      7,
      10
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
-    28,
-    62
+    6,
+    9
    ],
    "to": {
     "region": "kanto",
-    "map": "route2_viridianforest_southentrance",
+    "map": "route2_viridianforest_northentrance",
     "at": [
      7,
-     1
-    ]
-   }
+     10
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -155,9 +185,31 @@
     "map": "route2_viridianforest_southentrance",
     "at": [
      7,
+     2
+    ],
+    "arrival_from": [
+     7,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
+  },
+  {
+   "at": [
+    4,
+    9
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "route2_viridianforest_northentrance",
+    "at": [
+     7,
+     10
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [

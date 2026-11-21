@@ -48,6 +48,34 @@ func choose(label: String) -> bool:
 			return true
 	return expect(false,"missing row " + label)
 
+func choose_option(prefix: String) -> bool:
+	var page := game.menu_layer.get_child(-1) as Control
+	for button in page.find_children("*","Button",true,false):
+		if button.text.begins_with(prefix):
+			button.pressed.emit()
+			return true
+	return expect(false, "missing field option " + prefix)
+
+func check_field_moves() -> void:
+	game.save_data.party = [{"species_id":149,"name":"快龙","moves":[19,148]}]
+	game.world.dark = true
+	for move_name in ["闪光","飞翔"]:
+		pad(JOY_BUTTON_START)
+		choose("工具")
+		choose("秘传")
+		if not choose_option(move_name + "（快龙 已会）"): return
+		if not choose_option("使用" + move_name): return
+		await frames()
+		if move_name == "闪光":
+			expect(not game.world.dark and game.panel_open == 0, "Flash lights the map and closes START")
+			game._flags()["fly_尼比市"] = true
+		else:
+			if not choose_option("尼比市"): return
+			await frames()
+			expect(game.world.player_pos == Vector2i(65,86) and game.world.area_name() == "尼比市",
+				"Fly lands at Pewter's original Pokémon Center")
+			expect(game.panel_open == 0, "Fly closes destination picker and START")
+
 func finish() -> void:
 	Save.clear_test_slot()
 	print("START MENU ", "FAIL" if failed else "PASS")
@@ -79,7 +107,7 @@ func run() -> void:
 		await frames()
 		expect(menu.visible and game.panel_open == 1 and menu.rows[menu.selected].text == label, "return " + label)
 	choose("工具")
-	expect(menu.rows.size() == 6 and menu.rows[0].text == "骑行", "outside tools")
+	expect(menu.rows.map(func(b): return b.text) == ["骑行","秘传","修改器","返回"], "outside tools")
 	choose("修改器")
 	game._on_back()
 	await frames()
@@ -94,7 +122,7 @@ func run() -> void:
 	game.world.load_map(root.get_node("Data").load_map("kanto","viridiancity_pokemoncenter_1f"))
 	pad(JOY_BUTTON_START)
 	choose("工具")
-	expect(game.start_menu.rows.size() == 7 and game.start_menu.rows[5].text == "融合", "centre fusion")
+	expect(game.start_menu.rows.size() == 5 and game.start_menu.rows[3].text == "融合", "centre fusion")
 	choose("融合")
 	game._on_back()
 	await frames()
@@ -134,4 +162,5 @@ func run() -> void:
 	await frames()
 	expect(game.panel_open == 0 and game.touch_layer.visible and game.world.player_pos == start_pos,
 		"map tap over direction key dismisses without movement")
+	await check_field_moves()
 	finish()

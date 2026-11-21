@@ -179,8 +179,10 @@
     "at": [
      63,
      10
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -193,8 +195,10 @@
     "at": [
      63,
      10
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -207,8 +211,10 @@
     "at": [
      64,
      10
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -221,8 +227,10 @@
     "at": [
      45,
      10
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -235,8 +243,10 @@
     "at": [
      45,
      10
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -249,8 +259,10 @@
     "at": [
      46,
      10
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [

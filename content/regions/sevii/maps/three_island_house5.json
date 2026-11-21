@@ -35,9 +35,15 @@
     "map": "three_island",
     "at": [
      13,
+     20
+    ],
+    "arrival_from": [
+     13,
      19
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

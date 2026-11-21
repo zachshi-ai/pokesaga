@@ -15,8 +15,8 @@ var seen: Array = []
 var caught: Array = []
 var ids: Array = []
 var page := 0
-var gen := 1
-var status := 0
+var gen := 0
+var status := 1
 var query := ""
 var grid: GridContainer
 var region_button: Button
@@ -28,7 +28,7 @@ var empty_label: Label
 var detail: Control
 var chooser: Control
 
-var records: Dictionary = {}
+var entries: Dictionary = {}
 var seen_species: Array = []
 var entry := 0
 var options: Array = []
@@ -40,13 +40,26 @@ var form_subcategory := ""
 
 func setup(p_seen: Array, p_caught: Array, p_records: Dictionary={}) -> void:
 	UI.clear(self)
-	records = p_records
+	entries.clear()
+	var states_by_form := Records.index_by_form(p_records)
 	seen_species.clear()
 	for id in p_seen+p_caught:
 		if not seen_species.has(int(id)): seen_species.append(int(id))
 	caught = Catalog.aggregate(p_caught)
 	seen = Catalog.aggregate(seen_species)
 	ids = Catalog.entry_ids()
+	for id in seen:
+		var collected: Array = []
+		for form in Catalog.variants(id):
+			var states: Array = []
+			for alias in Catalog.record_forms(form):
+				for observation in states_by_form.get("%d|%s" % [int(form.species_id), alias], []):
+					if observation not in states:
+						states.append(observation)
+			if not states.is_empty():
+				form["observations"] = states
+				collected.append(form)
+		entries[id] = collected
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var p := UI.sheet(self)
 	UI.header(p,"精灵图鉴","见过 %d  ·  已捕获 %d"%[seen.size(),caught.size()],handle_back)
@@ -121,7 +134,7 @@ func _refresh() -> void:
 		var id:=int(raw)
 		if gen>0 and query.is_empty() and not _in_region(id): continue
 		if (status==1 and not seen.has(id)) or (status==2 and not caught.has(id)): continue
-		if not query.is_empty() and not Catalog.matches(id,query):
+		if not query.is_empty() and not _matches_record(id,query):
 			continue
 		pool.append(id)
 	var pages := maxi(1,ceili(float(pool.size())/PER_PAGE))
@@ -139,8 +152,11 @@ func _refresh() -> void:
 		var b:=UI.button("",_open_result.bind(id))
 		b.custom_minimum_size=Vector2(cw,ch)
 		grid.add_child(b)
-		if met:
-			UI.place(b,UI.portrait(id),2,4,61,ch-7)
+		var found: Array = entries.get(id, [])
+		if not found.is_empty():
+			var variant: Dictionary = found[0]
+			var sample: Dictionary = variant.observations[0]
+			UI.place(b, UI.member_portrait({"species_id":variant.species_id, "form":variant.art_key, "shiny_kind":sample.shine}),2,4,61,ch-7)
 		else:
 			var hidden:=UI.label("?",27,UI.MUTED)
 			hidden.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
@@ -154,36 +170,48 @@ func _refresh() -> void:
 func _in_region(id: int) -> bool:
 	var limits: Array = GEN_RANGE[gen-1]
 	if id>=int(limits[0]) and id<=int(limits[1]): return true
-	for v in Catalog.variants(id):
-		if int(v.species_id)>=int(limits[0]) and int(v.species_id)<=int(limits[1]): return true
+	for v in entries.get(id, []):
+		if int(v.species_id) >= int(limits[0]) and int(v.species_id) <= int(limits[1]): return true
+	return false
+
+func _matches_record(id: int, text: String) -> bool:
+	var term := text.trim_prefix("#").strip_edges()
+	if term.is_valid_int():
+		return int(term) == id or (int(term) in seen_species and Catalog.entry_id(int(term)) == id)
+	if not seen.has(id):
+		return false
+	if Catalog.entry_name(id).containsn(term):
+		return true
+	for option in entries.get(id, []):
+		if Catalog.matches_variant(option, term):
+			return true
 	return false
 
 func _open_result(id: int) -> void:
-	_show_detail(id)
-	if query.is_empty() or not seen.has(id): return
-	current = Catalog.preferred_variant(id,query)
+	_show_detail(id, query)
+
+func _show_detail(id: int, term := "") -> void:
+	entry = Catalog.entry_id(id)
+	options = entries.get(entry, [])
+	current = {}
+	if not options.is_empty():
+		var chosen: Dictionary = options[0]
+		for option in options:
+			if (not term.is_empty() and Catalog.matches_variant(option, term)) or (term.is_empty() and int(option.species_id) == id):
+				chosen = option
+				break
+		_set_form(chosen)
 	_draw_detail()
 
-func _show_detail(id: int) -> void:
-	entry = Catalog.entry_id(id)
-	options = Catalog.variants(entry)
-	if options.is_empty():
-		return
-	current = options[0]
-	var wanted := id
-	if not seen_species.has(id):
-		for option in options:
-			if seen_species.has(int(option.species_id)):
-				wanted = int(option.species_id)
-				break
-	for option in options:
-		if int(option.species_id)==wanted:
-			current = option
-			break
-	shiny_kind = "none"
-	tera = ""
-	giant = false
-	_draw_detail()
+func _set_form(option: Dictionary) -> void:
+	current = option
+	var sample: Dictionary = option.observations[0]
+	_set_state(sample)
+
+func _set_state(sample: Dictionary) -> void:
+	shiny_kind = sample.shine
+	giant = sample.battle == "giant"
+	tera = "" if giant else str(sample.battle)
 
 func _draw_detail() -> void:
 	if is_instance_valid(detail):
@@ -192,9 +220,9 @@ func _draw_detail() -> void:
 	detail = UI.sheet(self)
 	var known := seen.has(entry)
 	UI.header(detail,Catalog.entry_name(entry) if known else "未发现","图鉴 No.%04d"%entry,handle_back)
-	if not known:
+	if not known or current.is_empty():
 		UI.place(detail,UI.label("?",48,UI.MUTED),48,90,90,95)
-		UI.place(detail,UI.wrapped("在野外遇见或捕获后，可以在这里查看形态。",16),158,85,290,96)
+		UI.place(detail,UI.wrapped("旧存档只记录了编号。再次遇见后，这里会收录当时的外观。" if known else "遇见后，这里会收录当时的外观。",16),158,85,290,96)
 		return
 	var side := Panel.new()
 	side.add_theme_stylebox_override("panel",UI.box(UI.PALE))
@@ -214,10 +242,10 @@ func _draw_detail() -> void:
 	scope.clip_text = true
 	UI.place(side,scope,4,181,167,25)
 	var state := 0
-	if not giant:
-		for alias in Catalog.record_forms(current):
-			state = maxi(state,Records.status(records,int(current.species_id),str(alias),shiny_kind,tera))
-	var observed := UI.label(["外观预览","已见过此外观","已拥有此外观"][state],12,UI.GREEN)
+	for sample in current.observations:
+		if sample.shine == shiny_kind and sample.battle == ("giant" if giant else tera):
+			state = maxi(state, int(sample.rank))
+	var observed := UI.label("已拥有此外观" if state == 2 else "已见过此外观",12,UI.GREEN)
 	observed.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	UI.place(side,observed,4,209,167,26)
 	var x := 191.0
@@ -237,7 +265,7 @@ func _draw_detail() -> void:
 	elif current.kind in ["mega","gmax"]: battle_label = Catalog.category(current)
 	UI.place(detail,UI.button("战斗状态    "+battle_label+"   ▾",_pick_battle),x,177,w,40)
 	UI.place(detail,UI.button("查看种族值与特性   ›",_pick_stats),x,223,w,40)
-	var hint := UI.label("%d 种形态   ·   %s" % [options.size(), "该编号已捕获" if caught.has(entry) else "该编号已见"],11,UI.MUTED)
+	var hint := UI.label("已记录 %d 种形态   ·   %s" % [options.size(), "该编号已捕获" if caught.has(entry) else "该编号已见"],11,UI.MUTED)
 	UI.place(detail,hint,x+4,270,w-8,28)
 
 func _type_name(value: String) -> String:
@@ -309,38 +337,50 @@ func _form_list(category: String) -> void:
 	form_subcategory = category
 
 func _select_form(option: Dictionary) -> void:
-	current = option
-	tera = ""
-	giant = false
+	if option not in options: return
+	_set_form(option)
 	_finish_pick()
 
 func _pick_shine() -> void:
 	_modal("选择闪光")
 	var g := _choices()
 	for key in SHINE_LABEL:
-		_choice(g,SHINE_LABEL[key],_select_shine.bind(key),key==shiny_kind)
+		if current.observations.any(func(sample): return sample.shine == key):
+			_choice(g,SHINE_LABEL[key],_select_shine.bind(key),key==shiny_kind)
 
 func _select_shine(key: String) -> void:
-	shiny_kind = key
+	var matching: Array = current.observations.filter(func(sample): return sample.shine == key)
+	if matching.is_empty(): return
+	var battle_state := "giant" if giant else tera
+	var next: Dictionary = matching[0]
+	for sample in matching:
+		if sample.battle == battle_state:
+			next = sample
+			break
+	_set_state(next)
 	_finish_pick()
 
 func _pick_battle() -> void:
 	_modal("选择战斗状态")
 	var g := _choices()
-	if current.kind in ["mega","gmax"]:
-		_choice(g,Catalog.category(current),_finish_pick,true)
-		_choice(g,"返回基础形态",_select_form.bind(options[0]))
-		return
-	_choice(g,"常态",_select_battle.bind(""),tera.is_empty() and not giant)
-	if not int(current.species_id) in [888,889,890] and Catalog.tera_types(current).size()>1:
-		_choice(g,"极巨化展示",_select_battle.bind("giant"),giant)
-	for key in Catalog.tera_types(current):
-		_choice(g,"太晶 · "+_type_name(key),_select_battle.bind(key),key==tera)
+	var active := "giant" if giant else tera
+	var displayed := {}
+	for sample in current.observations:
+		var value := str(sample.battle)
+		if sample.shine != shiny_kind or displayed.has(value): continue
+		displayed[value] = true
+		var caption := "常态"
+		if value == "giant": caption = "极巨化"
+		elif not value.is_empty(): caption = "太晶 · " + _type_name(value)
+		elif current.kind in ["mega","gmax"]: caption = Catalog.category(current)
+		_choice(g,caption,_select_battle.bind(value),active == value)
 
 func _select_battle(value: String) -> void:
-	giant = value=="giant"
-	tera = "" if giant else value
-	_finish_pick()
+	for sample in current.observations:
+		if sample.shine == shiny_kind and sample.battle == value:
+			_set_state(sample)
+			_finish_pick()
+			return
 
 func _pick_stats() -> void:
 	_modal("种族值与特性")

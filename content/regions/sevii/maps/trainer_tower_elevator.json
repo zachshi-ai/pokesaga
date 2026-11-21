@@ -23,8 +23,14 @@
      17,
      9
     ],
+    "arrival_from": [
+     17,
+     8
+    ],
+    "facing": "down",
     "recall_passage": "sevii_lift"
-   }
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -38,7 +44,8 @@
      17,
      9
     ]
-   }
+   },
+   "trigger": "panel"
   }
  ],
  "encounters": [],
@@ -46,14 +53,5 @@
  "weather": "none",
  "weather_name": "",
  "cycling": false,
- "objects": [
-  {
-   "kind": "sign",
-   "at": [
-    1,
-    2
-   ],
-   "text": "电梯操作盘　左侧操作盘通往大厅，南侧门返回进入电梯时的楼层。"
-  }
- ]
+ "objects": []
 }

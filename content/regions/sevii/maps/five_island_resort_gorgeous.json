@@ -269,8 +269,10 @@
     "at": [
      5,
      8
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -283,21 +285,26 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
     0,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      48,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -305,13 +312,16 @@
     1,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      49,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -319,13 +329,16 @@
     2,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      50,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -333,13 +346,16 @@
     7,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      55,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -347,13 +363,16 @@
     8,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      56,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -361,13 +380,16 @@
     9,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      57,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -375,13 +397,16 @@
     10,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      58,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -389,13 +414,16 @@
     11,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      59,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -403,13 +431,16 @@
     12,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      60,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -417,13 +448,16 @@
     15,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      63,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -431,13 +465,16 @@
     16,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      64,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -445,13 +482,16 @@
     17,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      65,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -459,13 +499,16 @@
     20,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      68,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -473,13 +516,16 @@
     21,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      69,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -487,13 +533,16 @@
     22,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      70,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -501,13 +550,16 @@
     23,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_water_labyrinth",
     "at": [
      71,
      0
-    ]
+    ],
+    "connection": true
    }
   }
  ],

@@ -37,7 +37,8 @@
      4,
      4
     ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

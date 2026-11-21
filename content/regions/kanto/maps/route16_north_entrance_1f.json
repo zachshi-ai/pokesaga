@@ -47,8 +47,10 @@
     "at": [
      152,
      136
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   },
   {
    "at": [
@@ -61,8 +63,10 @@
     "at": [
      159,
      136
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -75,8 +79,10 @@
     "at": [
      152,
      143
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   },
   {
    "at": [
@@ -89,8 +95,10 @@
     "at": [
      159,
      143
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -103,8 +111,10 @@
     "at": [
      10,
      9
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   }
  ],
  "encounters": [],

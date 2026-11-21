@@ -35,9 +35,15 @@
     "map": "six_island_water_path",
     "at": [
      11,
+     20
+    ],
+    "arrival_from": [
+     11,
      19
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

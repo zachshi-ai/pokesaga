@@ -21,9 +21,15 @@
     "map": "mt_ember_summit_path_2f",
     "at": [
      39,
+     7
+    ],
+    "arrival_from": [
+     39,
      6
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -35,9 +41,15 @@
     "map": "mt_ember_exterior",
     "at": [
      39,
+     20
+    ],
+    "arrival_from": [
+     39,
      19
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [

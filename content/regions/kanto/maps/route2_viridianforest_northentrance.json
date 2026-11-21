@@ -53,7 +53,7 @@
  "warps": [
   {
    "at": [
-    6,
+    7,
     10
    ],
    "to": {
@@ -61,9 +61,15 @@
     "map": "viridianforest",
     "at": [
      5,
+     10
+    ],
+    "arrival_from": [
+     5,
      9
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -76,36 +82,10 @@
     "at": [
      65,
      113
-    ]
-   }
-  },
-  {
-   "at": [
-    7,
-    10
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridianforest",
-    "at": [
-     5,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    8,
-    10
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "viridianforest",
-    "at": [
-     5,
-     9
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

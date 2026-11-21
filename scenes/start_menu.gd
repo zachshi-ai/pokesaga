@@ -6,7 +6,7 @@ signal closed
 const UI := preload("res://core/field_ui.gd")
 const FRAME := preload("res://assets/emerald/ui/menu_frame.png")
 const MAIN := ["图鉴", "队伍", "背包", "电脑", "工具", "存档", "退出菜单"]
-const TOOLS := ["骑行", "闪光", "飞行", "秘传", "修改器"]
+const TOOLS := ["骑行", "秘传", "修改器"]
 const INK := Color("#30483e")
 const PAPER := Color("#fffee9")
 const ROW_HEIGHT := 34

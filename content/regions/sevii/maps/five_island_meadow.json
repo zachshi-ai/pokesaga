@@ -62,21 +62,26 @@
     "at": [
      24,
      25
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
     0,
     0
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      23,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -84,13 +89,16 @@
     0,
     1
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      23,
      1
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -98,69 +106,16 @@
     0,
     2
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      23,
      2
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    3
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island",
-    "at": [
-     23,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    4
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island",
-    "at": [
-     23,
-     4
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    10
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island",
-    "at": [
-     23,
-     10
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    11
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island",
-    "at": [
-     23,
-     11
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -168,13 +123,16 @@
     0,
     12
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      23,
      12
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -182,55 +140,16 @@
     0,
     13
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      23,
      13
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    14
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island",
-    "at": [
-     23,
-     14
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    15
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island",
-    "at": [
-     23,
-     15
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    16
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island",
-    "at": [
-     23,
-     16
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -238,13 +157,16 @@
     0,
     17
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      23,
      17
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -252,13 +174,16 @@
     0,
     18
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      23,
      18
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -266,13 +191,16 @@
     0,
     19
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      23,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -280,13 +208,16 @@
     23,
     20
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_memorial_pillar",
     "at": [
      0,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -294,69 +225,16 @@
     23,
     21
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_memorial_pillar",
     "at": [
      0,
      1
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    22
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_memorial_pillar",
-    "at": [
-     0,
-     2
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    23
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_memorial_pillar",
-    "at": [
-     0,
-     3
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    24
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_memorial_pillar",
-    "at": [
-     0,
-     4
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    25
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_memorial_pillar",
-    "at": [
-     0,
-     5
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -364,13 +242,16 @@
     23,
     26
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_memorial_pillar",
     "at": [
      0,
      6
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -378,13 +259,16 @@
     23,
     27
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_memorial_pillar",
     "at": [
      0,
      7
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -392,13 +276,16 @@
     23,
     28
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_memorial_pillar",
     "at": [
      0,
      8
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -406,13 +293,16 @@
     23,
     29
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_memorial_pillar",
     "at": [
      0,
      9
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -420,13 +310,16 @@
     23,
     30
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_memorial_pillar",
     "at": [
      0,
      10
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -434,13 +327,16 @@
     23,
     31
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_memorial_pillar",
     "at": [
      0,
      11
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -448,41 +344,16 @@
     23,
     32
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_memorial_pillar",
     "at": [
      0,
      12
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    33
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_memorial_pillar",
-    "at": [
-     0,
-     13
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    34
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_memorial_pillar",
-    "at": [
-     0,
-     14
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -490,41 +361,16 @@
     23,
     35
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_memorial_pillar",
     "at": [
      0,
      15
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    36
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_memorial_pillar",
-    "at": [
-     0,
-     16
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
-    37
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_memorial_pillar",
-    "at": [
-     0,
-     17
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -532,13 +378,16 @@
     23,
     38
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_memorial_pillar",
     "at": [
      0,
      18
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -546,13 +395,16 @@
     23,
     39
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_memorial_pillar",
     "at": [
      0,
      19
-    ]
+    ],
+    "connection": true
    }
   }
  ],

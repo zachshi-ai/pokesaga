@@ -50,7 +50,8 @@
      1,
      5
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -64,7 +65,8 @@
      24,
      5
     ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [

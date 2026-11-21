@@ -276,8 +276,10 @@
     "at": [
      43,
      41
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "up"
   },
   {
    "at": [
@@ -290,49 +292,26 @@
     "at": [
      43,
      41
-    ]
-   }
-  },
-  {
-   "at": [
-    95,
-    5
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "three_island",
-    "at": [
-     0,
-     5
-    ]
-   }
-  },
-  {
-   "at": [
-    95,
-    6
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "three_island",
-    "at": [
-     0,
-     6
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "up"
   },
   {
    "at": [
     95,
     7
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island",
     "at": [
      0,
      7
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -340,13 +319,16 @@
     95,
     8
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island",
     "at": [
      0,
      8
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -354,13 +336,16 @@
     95,
     9
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island",
     "at": [
      0,
      9
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -368,13 +353,16 @@
     95,
     10
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island",
     "at": [
      0,
      10
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -382,27 +370,16 @@
     95,
     11
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island",
     "at": [
      0,
      11
-    ]
-   }
-  },
-  {
-   "at": [
-    95,
-    12
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "three_island",
-    "at": [
-     0,
-     12
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -410,41 +387,16 @@
     95,
     13
    ],
+   "trigger": "right",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island",
     "at": [
      0,
      13
-    ]
-   }
-  },
-  {
-   "at": [
-    95,
-    14
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "three_island",
-    "at": [
-     0,
-     14
-    ]
-   }
-  },
-  {
-   "at": [
-    95,
-    15
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "three_island",
-    "at": [
-     0,
-     15
-    ]
+    ],
+    "connection": true
    }
   }
  ],

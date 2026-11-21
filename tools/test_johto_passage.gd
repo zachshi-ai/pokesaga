@@ -65,8 +65,8 @@ func run() -> void:
 	root.add_child(world)
 	await process_frame
 	db = root.get_node("Data")
-	enter("kanto", "kanto_main", Vector2i(286, 236))
-	if not world.step(Vector2i.UP) or world.pending_warp.get("map") != start[0]:
+	enter("kanto", "kanto_main", Vector2i(286, 232))
+	if not world.step(Vector2i.LEFT) or world.pending_warp.get("map") != start[0]:
 		fail("missing Kanto ferry")
 		return
 	start[1] = tile(world.pending_warp.at)
@@ -103,11 +103,12 @@ func replay(prev: Dictionary, last: Array) -> void:
 		for dir in leg[1]:
 			if not world.surfing and world.is_water(world.player_pos + dir):
 				world.facing = {Vector2i.DOWN:"down", Vector2i.UP:"up", Vector2i.RIGHT:"right", Vector2i.LEFT:"left"}[dir]
-				if world.toggle_surf().is_empty():
+				var water: Vector2i = world.player_pos + dir
+				if world.toggle_surf().is_empty() or not world.surfing or world.player_pos != water:
 					fail("cannot surf from %s" % world.player_pos)
 					return
 				surf_entries += 1
-			if not world.step(dir):
+			elif not world.step(dir):
 				fail("blocked in %s at %s" % [world.map_data.id, world.player_pos])
 				return
 			var to: Dictionary = world.pending_warp

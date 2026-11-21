@@ -47,8 +47,10 @@
     "at": [
      2,
      2
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   },
   {
    "at": [
@@ -60,9 +62,15 @@
     "map": "s_s_anne_kitchen",
     "at": [
      7,
+     2
+    ],
+    "arrival_from": [
+     7,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -75,36 +83,10 @@
     "at": [
      32,
      14
-    ]
-   }
-  },
-  {
-   "at": [
-    20,
-    0
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "s_s_anne_exterior",
-    "at": [
-     33,
-     15
-    ]
-   }
-  },
-  {
-   "at": [
-    3,
-    20
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "s_s_anne_kitchen",
-    "at": [
-     7,
-     1
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -117,8 +99,10 @@
     "at": [
      19,
      3
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   },
   {
    "at": [
@@ -130,9 +114,15 @@
     "map": "s_s_anne_1_f_room1",
     "at": [
      2,
+     2
+    ],
+    "arrival_from": [
+     2,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -144,9 +134,15 @@
     "map": "s_s_anne_1_f_room2",
     "at": [
      2,
+     2
+    ],
+    "arrival_from": [
+     2,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -158,9 +154,15 @@
     "map": "s_s_anne_1_f_room3",
     "at": [
      2,
+     2
+    ],
+    "arrival_from": [
+     2,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -172,9 +174,15 @@
     "map": "s_s_anne_1_f_room4",
     "at": [
      2,
+     2
+    ],
+    "arrival_from": [
+     2,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -186,9 +194,15 @@
     "map": "s_s_anne_1_f_room5",
     "at": [
      2,
+     2
+    ],
+    "arrival_from": [
+     2,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -200,9 +214,15 @@
     "map": "s_s_anne_1_f_room7",
     "at": [
      2,
+     2
+    ],
+    "arrival_from": [
+     2,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -214,9 +234,15 @@
     "map": "s_s_anne_1_f_room6",
     "at": [
      2,
+     2
+    ],
+    "arrival_from": [
+     2,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

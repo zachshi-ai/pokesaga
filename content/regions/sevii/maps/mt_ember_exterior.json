@@ -7,7 +7,7 @@
  ],
  "spawn": [
   42,
-  39
+  41
  ],
  "npcs": [
   {
@@ -179,8 +179,10 @@
     "at": [
      11,
      6
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -193,8 +195,10 @@
     "at": [
      12,
      6
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -207,8 +211,10 @@
     "at": [
      2,
      15
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -221,8 +227,10 @@
     "at": [
      11,
      8
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -235,8 +243,10 @@
     "at": [
      9,
      15
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "up"
   },
   {
    "at": [
@@ -249,8 +259,10 @@
     "at": [
      22,
      17
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   }
  ],
  "encounters": [

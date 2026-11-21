@@ -23,7 +23,8 @@
      8,
      14
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -37,7 +38,8 @@
      31,
      4
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -51,35 +53,8 @@
      31,
      16
     ]
-   }
-  },
-  {
-   "at": [
-    24,
-    8
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "seafoam_islands_b3f",
-    "at": [
-     23,
-     9
-    ]
-   }
-  },
-  {
-   "at": [
-    27,
-    8
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "seafoam_islands_b3f",
-    "at": [
-     24,
-     9
-    ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -93,7 +68,8 @@
      7,
      3
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -107,7 +83,8 @@
      17,
      9
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -121,7 +98,8 @@
      25,
      19
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -135,35 +113,38 @@
      32,
      14
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
-    22,
-    7
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "seafoam_b1f",
-    "at": [
-     23,
-     8
-    ]
-   }
-  },
-  {
-   "at": [
-    29,
+    24,
     8
    ],
    "to": {
     "region": "kanto",
-    "map": "seafoam_b1f",
+    "map": "seafoam_islands_b3f",
     "at": [
-     28,
-     8
+     23,
+     9
     ]
-   }
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    27,
+    8
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "seafoam_islands_b3f",
+    "at": [
+     24,
+     9
+    ]
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

@@ -159,20 +159,6 @@
  "warps": [
   {
    "at": [
-    13,
-    23
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     310,
-     132
-    ]
-   }
-  },
-  {
-   "at": [
     14,
     23
    ],
@@ -180,24 +166,466 @@
     "region": "kanto",
     "map": "kanto_main",
     "at": [
-     310,
-     132
-    ]
-   }
+     358,
+     163
+    ],
+    "arrival_from": [
+     358,
+     162
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
-    15,
+    18,
+    20
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     28,
+     23
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    0,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     20,
+     7
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    0,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     18,
+     15
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    0,
+    12
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     28,
+     15
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    0,
+    15
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     8,
+     7
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    0,
+    20
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     28,
+     7
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    0,
     23
    ],
    "to": {
     "region": "kanto",
-    "map": "kanto_main",
+    "map": "saffroncity_gym",
     "at": [
-     310,
-     132
+     16,
+     7
     ]
-   }
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    8,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     16,
+     4
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    8,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     0,
+     15
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    8,
+    12
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     12,
+     7
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    8,
+    15
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     8,
+     23
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    8,
+    20
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     20,
+     23
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    8,
+    23
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     8,
+     15
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    12,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     20,
+     15
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    12,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     8,
+     12
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    16,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     8,
+     4
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    16,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     0,
+     23
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    18,
+    15
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     0,
+     7
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    20,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     20,
+     12
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    20,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     0,
+     4
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    20,
+    12
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     20,
+     4
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    20,
+    15
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     12,
+     4
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    20,
+    20
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     28,
+     4
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    20,
+    23
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     8,
+     20
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    28,
+    4
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     20,
+     20
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    28,
+    7
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     0,
+     20
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    28,
+    12
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     28,
+     20
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    28,
+    15
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     0,
+     12
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    28,
+    20
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     28,
+     12
+    ]
+   },
+   "trigger": "step"
+  },
+  {
+   "at": [
+    28,
+    23
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "saffroncity_gym",
+    "at": [
+     18,
+     20
+    ]
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

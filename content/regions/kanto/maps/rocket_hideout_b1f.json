@@ -79,6 +79,22 @@
  "warps": [
   {
    "at": [
+    12,
+    2
+   ],
+   "to": {
+    "region": "kanto",
+    "map": "celadon_city_game_corner",
+    "at": [
+     15,
+     2
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
+  },
+  {
+   "at": [
     17,
     2
    ],
@@ -88,8 +104,10 @@
     "at": [
      28,
      2
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -102,36 +120,42 @@
     "at": [
      23,
      12
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "right"
   },
   {
    "at": [
-    12,
-    2
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_game_corner",
-    "at": [
-     15,
-     1
-    ]
-   }
-  },
-  {
-   "at": [
-    23,
+    24,
     25
    ],
    "to": {
     "region": "kanto",
     "map": "rocket_hideout_elevator",
     "at": [
-     0,
-     3
-    ]
-   }
+     2,
+     5
+    ],
+    "facing": "up",
+    "remember_passage": {
+     "key": "rocket_hideout_elevator",
+     "destination": {
+      "region": "kanto",
+      "map": "rocket_hideout_b1f",
+      "at": [
+       24,
+       26
+      ],
+      "arrival_from": [
+       24,
+       25
+      ],
+      "facing": "down"
+     }
+    }
+   },
+   "trigger": "door"
   }
  ],
  "encounters": [],

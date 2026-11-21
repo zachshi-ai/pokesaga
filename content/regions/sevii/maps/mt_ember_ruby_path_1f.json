@@ -87,9 +87,15 @@
     "map": "mt_ember_exterior",
     "at": [
      42,
+     40
+    ],
+    "arrival_from": [
+     42,
      39
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -103,7 +109,8 @@
      9,
      21
     ]
-   }
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -117,7 +124,8 @@
      1,
      4
     ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [

@@ -75,8 +75,10 @@
     "at": [
      15,
      18
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -87,10 +89,28 @@
     "region": "kanto",
     "map": "rocket_hideout_elevator",
     "at": [
-     3,
-     3
-    ]
-   }
+     2,
+     5
+    ],
+    "facing": "up",
+    "remember_passage": {
+     "key": "rocket_hideout_elevator",
+     "destination": {
+      "region": "kanto",
+      "map": "rocket_hideout_b4f",
+      "at": [
+       20,
+       24
+      ],
+      "arrival_from": [
+       20,
+       23
+      ],
+      "facing": "down"
+     }
+    }
+   },
+   "trigger": "door"
   }
  ],
  "encounters": [],

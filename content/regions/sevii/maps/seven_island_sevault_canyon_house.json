@@ -48,9 +48,15 @@
     "map": "seven_island_sevault_canyon",
     "at": [
      14,
+     62
+    ],
+    "arrival_from": [
+     14,
      61
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   }
  ],
  "encounters": [],

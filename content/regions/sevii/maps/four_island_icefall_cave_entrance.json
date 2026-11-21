@@ -21,9 +21,15 @@
     "map": "four_island",
     "at": [
      38,
+     13
+    ],
+    "arrival_from": [
+     38,
      12
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -36,8 +42,10 @@
     "at": [
      3,
      17
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -51,7 +59,8 @@
      2,
      8
     ]
-   }
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [

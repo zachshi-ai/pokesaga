@@ -7,7 +7,7 @@
  ],
  "spawn": [
   11,
-  19
+  18
  ],
  "npcs": [
   {
@@ -62,20 +62,6 @@
  "warps": [
   {
    "at": [
-    11,
-    19
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     210,
-     131
-    ]
-   }
-  },
-  {
-   "at": [
     12,
     18
    ],
@@ -84,23 +70,15 @@
     "map": "kanto_main",
     "at": [
      210,
-     131
-    ]
-   }
-  },
-  {
-   "at": [
-    13,
-    19
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
+     132
+    ],
+    "arrival_from": [
      210,
      131
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -113,8 +91,10 @@
     "at": [
      4,
      2
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -127,8 +107,10 @@
     "at": [
      12,
      2
-    ]
-   }
+    ],
+    "facing": "left"
+   },
+   "trigger": "right"
   },
   {
    "at": [
@@ -141,8 +123,10 @@
     "at": [
      210,
      124
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [],

@@ -6,8 +6,8 @@
   60
  ],
  "spawn": [
-  1,
-  1
+  7,
+  5
  ],
  "npcs": [
   {
@@ -159,13 +159,16 @@
     0,
     0
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
      20
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -173,69 +176,16 @@
     0,
     1
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
      21
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    2
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     22
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    3
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     23
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    4
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     24
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    5
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     25
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -243,13 +193,16 @@
     0,
     6
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
      26
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -257,13 +210,16 @@
     0,
     7
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
      27
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -271,13 +227,16 @@
     0,
     8
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
      28
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -285,13 +244,16 @@
     0,
     9
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
      29
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -299,13 +261,16 @@
     0,
     10
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
      30
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -313,13 +278,16 @@
     0,
     11
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
      31
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -327,41 +295,16 @@
     0,
     12
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
      32
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    13
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     33
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    14
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     34
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -369,41 +312,16 @@
     0,
     15
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
      35
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    16
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     36
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    17
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "five_island_meadow",
-    "at": [
-     23,
-     37
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -411,13 +329,16 @@
     0,
     18
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
      38
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -425,13 +346,16 @@
     0,
     19
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_meadow",
     "at": [
      23,
      39
-    ]
+    ],
+    "connection": true
    }
   }
  ],

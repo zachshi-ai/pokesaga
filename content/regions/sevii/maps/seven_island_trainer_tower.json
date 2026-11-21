@@ -109,21 +109,26 @@
     "at": [
      9,
      15
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
     55,
     39
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island",
     "at": [
      7,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -131,13 +136,16 @@
     56,
     39
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island",
     "at": [
      8,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -145,13 +153,16 @@
     57,
     39
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island",
     "at": [
      9,
      0
-    ]
+    ],
+    "connection": true
    }
   }
  ],

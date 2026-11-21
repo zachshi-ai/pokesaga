@@ -187,21 +187,26 @@
     "at": [
      18,
      22
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
     2,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      2,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -209,13 +214,16 @@
     3,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      3,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -223,13 +231,16 @@
     4,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      4,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -237,13 +248,16 @@
     5,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      5,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -251,13 +265,16 @@
     6,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      6,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -265,13 +282,16 @@
     9,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      9,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -279,13 +299,16 @@
     10,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      10,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -293,13 +316,16 @@
     11,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      11,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -307,13 +333,16 @@
     17,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      17,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -321,13 +350,16 @@
     20,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      20,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -335,13 +367,16 @@
     21,
     79
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "six_island_green_path",
     "at": [
      21,
      0
-    ]
+    ],
+    "connection": true
    }
   }
  ],

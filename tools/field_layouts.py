@@ -82,7 +82,6 @@ def old_ground(m, meta, key, biome, w, h):
         if biome in ("grass","forest","coast","city"):
             floor[warm]=N["trail"];floor[green]=N["grass" if biome!="forest" else "woodland"]
             floor[grey&~solid]=N["pave"]
-            if "water" not in meta: water |= blue&solid
         if biome=="interior":
             floor[warm&~solid&(r>g*1.32)]=N["rug"]
             floor[blue&~solid]=N["gym"]
@@ -184,6 +183,8 @@ def compile_map(key, m, region=""):
                 continue
             building=doorway(dest)
             if not building or warp.get("edge"):continue
+            # A target name supplies the facade only after the original map confirms a door.
+            if meta.get("source")=="pokecrystal" and not layer(meta,"door",(h,w))[y,x]:continue
             if min(x,w-1-x,y,h-1-y)<1:continue
             if any(abs(x-ox)<=1 and y==oy for _,ox,oy,_,_ in props):continue
             # A small Crystal logical map uses an entire 32px block as one cell.

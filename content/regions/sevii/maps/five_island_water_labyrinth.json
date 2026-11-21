@@ -6,8 +6,8 @@
   20
  ],
  "spawn": [
-  1,
-  0
+  7,
+  6
  ],
  "npcs": [
   {
@@ -77,13 +77,16 @@
     48,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      0,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -91,13 +94,16 @@
     51,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      3,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -105,13 +111,16 @@
     55,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      7,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -119,13 +128,16 @@
     56,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      8,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -133,13 +145,16 @@
     57,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      9,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -147,13 +162,16 @@
     58,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      10,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -161,13 +179,16 @@
     62,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      14,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -175,13 +196,16 @@
     63,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      15,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -189,13 +213,16 @@
     64,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      16,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -203,13 +230,16 @@
     67,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      19,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -217,13 +247,16 @@
     70,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island",
     "at": [
      22,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -231,13 +264,16 @@
     48,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      0,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -245,13 +281,16 @@
     49,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      1,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -259,13 +298,16 @@
     50,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      2,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -273,13 +315,16 @@
     55,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      7,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -287,13 +332,16 @@
     56,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      8,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -301,13 +349,16 @@
     57,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      9,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -315,13 +366,16 @@
     58,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      10,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -329,13 +383,16 @@
     59,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      11,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -343,13 +400,16 @@
     60,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      12,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -357,13 +417,16 @@
     63,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      15,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -371,13 +434,16 @@
     64,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      16,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -385,13 +451,16 @@
     65,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      17,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -399,13 +468,16 @@
     68,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      20,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -413,13 +485,16 @@
     69,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      21,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -427,13 +502,16 @@
     70,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      22,
      19
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -441,13 +519,16 @@
     71,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "five_island_resort_gorgeous",
     "at": [
      23,
      19
-    ]
+    ],
+    "connection": true
    }
   }
  ],

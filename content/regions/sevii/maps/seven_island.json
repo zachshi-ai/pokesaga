@@ -7,7 +7,7 @@
  ],
  "spawn": [
   11,
-  9
+  10
  ],
  "npcs": [
   {
@@ -62,8 +62,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -76,8 +78,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -90,8 +94,10 @@
     "at": [
      7,
      8
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -103,22 +109,31 @@
     "map": "seven_island_harbor",
     "at": [
      8,
+     3
+    ],
+    "arrival_from": [
+     8,
      2
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
     7,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_sevault_canyon_entrance",
     "at": [
      7,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -126,13 +141,16 @@
     8,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_sevault_canyon_entrance",
     "at": [
      8,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -140,13 +158,16 @@
     9,
     19
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_sevault_canyon_entrance",
     "at": [
      9,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -154,13 +175,16 @@
     7,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_trainer_tower",
     "at": [
      55,
      39
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -168,13 +192,16 @@
     8,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_trainer_tower",
     "at": [
      56,
      39
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -182,13 +209,16 @@
     9,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_trainer_tower",
     "at": [
      57,
      39
-    ]
+    ],
+    "connection": true
    }
   }
  ],

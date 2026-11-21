@@ -7,7 +7,7 @@
  ],
  "spawn": [
   21,
-  7
+  8
  ],
  "npcs": [
   {
@@ -114,8 +114,10 @@
     "at": [
      5,
      8
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -128,8 +130,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -142,8 +146,10 @@
     "at": [
      7,
      8
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -155,22 +161,31 @@
     "map": "two_island_harbor",
     "at": [
      8,
+     3
+    ],
+    "arrival_from": [
+     8,
      2
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
     36,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "two_island_cape_brink",
     "at": [
      12,
      39
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -178,13 +193,16 @@
     37,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "two_island_cape_brink",
     "at": [
      13,
      39
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -192,13 +210,16 @@
     38,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "two_island_cape_brink",
     "at": [
      14,
      39
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -206,13 +227,16 @@
     39,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "two_island_cape_brink",
     "at": [
      15,
      39
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -220,13 +244,16 @@
     40,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "two_island_cape_brink",
     "at": [
      16,
      39
-    ]
+    ],
+    "connection": true
    }
   }
  ],

@@ -47,8 +47,10 @@
     "at": [
      3,
      2
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "right"
   },
   {
    "at": [

@@ -7,7 +7,7 @@
  ],
  "spawn": [
   13,
-  19
+  20
  ],
  "npcs": [
   {
@@ -179,8 +179,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -193,8 +195,10 @@
     "at": [
      7,
      8
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -207,8 +211,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -221,8 +227,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -235,8 +243,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -249,8 +259,10 @@
     "at": [
      4,
      7
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -263,49 +275,26 @@
     "at": [
      4,
      7
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    5
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "three_island_bond_bridge",
-    "at": [
-     95,
-     5
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    6
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "three_island_bond_bridge",
-    "at": [
-     95,
-     6
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "door"
   },
   {
    "at": [
     0,
     7
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island_bond_bridge",
     "at": [
      95,
      7
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -313,13 +302,16 @@
     0,
     8
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island_bond_bridge",
     "at": [
      95,
      8
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -327,13 +319,16 @@
     0,
     9
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island_bond_bridge",
     "at": [
      95,
      9
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -341,13 +336,16 @@
     0,
     10
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island_bond_bridge",
     "at": [
      95,
      10
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -355,27 +353,16 @@
     0,
     11
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island_bond_bridge",
     "at": [
      95,
      11
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    12
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "three_island_bond_bridge",
-    "at": [
-     95,
-     12
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -383,41 +370,16 @@
     0,
     13
    ],
+   "trigger": "left",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island_bond_bridge",
     "at": [
      95,
      13
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    14
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "three_island_bond_bridge",
-    "at": [
-     95,
-     14
-    ]
-   }
-  },
-  {
-   "at": [
-    0,
-    15
-   ],
-   "to": {
-    "region": "sevii",
-    "map": "three_island_bond_bridge",
-    "at": [
-     95,
-     15
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -425,13 +387,16 @@
     10,
     39
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island_port",
     "at": [
      10,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -439,13 +404,16 @@
     11,
     39
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island_port",
     "at": [
      11,
      0
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -453,13 +421,16 @@
     12,
     39
    ],
+   "trigger": "down",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island_port",
     "at": [
      12,
      0
-    ]
+    ],
+    "connection": true
    }
   }
  ],

@@ -27,20 +27,6 @@
  "warps": [
   {
    "at": [
-    1,
-    15
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     191,
-     134
-    ]
-   }
-  },
-  {
-   "at": [
     2,
     14
    ],
@@ -49,37 +35,15 @@
     "map": "kanto_main",
     "at": [
      191,
-     134
-    ]
-   }
-  },
-  {
-   "at": [
-    3,
-    15
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
+     135
+    ],
+    "arrival_from": [
      191,
      134
-    ]
-   }
-  },
-  {
-   "at": [
-    9,
-    15
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "kanto_main",
-    "at": [
-     195,
-     134
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -91,23 +55,47 @@
     "map": "kanto_main",
     "at": [
      195,
+     135
+    ],
+    "arrival_from": [
+     195,
      134
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
-    11,
-    15
+    6,
+    1
    ],
    "to": {
     "region": "kanto",
-    "map": "kanto_main",
+    "map": "celadon_city_department_store_elevator",
     "at": [
-     195,
-     134
-    ]
-   }
+     2,
+     5
+    ],
+    "facing": "up",
+    "remember_passage": {
+     "key": "celadon_city_department_store_elevator",
+     "destination": {
+      "region": "kanto",
+      "map": "celadoncity_departmentstore_1f",
+      "at": [
+       6,
+       2
+      ],
+      "arrival_from": [
+       6,
+       1
+      ],
+      "facing": "down"
+     }
+    }
+   },
+   "trigger": "door"
   },
   {
    "at": [
@@ -120,22 +108,10 @@
     "at": [
      3,
      2
-    ]
-   }
-  },
-  {
-   "at": [
-    4,
-    1
-   ],
-   "to": {
-    "region": "kanto",
-    "map": "celadon_city_department_store_elevator",
-    "at": [
-     0,
-     3
-    ]
-   }
+    ],
+    "facing": "right"
+   },
+   "trigger": "left"
   }
  ],
  "encounters": [],

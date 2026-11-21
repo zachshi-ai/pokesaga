@@ -21,9 +21,11 @@
     "map": "pallettown_playershouse_1f",
     "at": [
      10,
-     3
-    ]
-   }
+     2
+    ],
+    "facing": "left"
+   },
+   "trigger": "left"
   }
  ],
  "encounters": [],

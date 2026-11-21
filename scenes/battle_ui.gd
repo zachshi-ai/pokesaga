@@ -34,7 +34,10 @@ var msg: Label
 var menu: Control
 var move_menu: Control
 var sheet: Control
-var flash_t := 0.0
+var health_cues := {}
+var health_motion := {}
+var line_offset := 0
+var spoken_lines := 0
 var trainer_name := ""
 var backdrop := "grass"
 var backdrop_texture: Texture2D
@@ -53,6 +56,7 @@ func setup(p_team: Array, e_team: Array, seed_value: int = 0, p_bag: Array = [],
 	if observe_variant.is_valid():
 		battle.variant_seen.connect(observe_variant)
 	battle.start(player_team, enemy_team)
+	battle.health_changed.connect(_queue_health)
 	_build()
 	var opponent := _display_name(battle.cur_b())
 	_say("野生的 %s 出现了！" % opponent if trainer_name == "" else "%s 派出了 %s！" % [trainer_name, opponent])
@@ -78,6 +82,8 @@ func _build() -> void:
 
 	enemy_hp = _make_hpbox(Vector2(8, 8), battle.cur_b(), false)
 	player_hp = _make_hpbox(Vector2(267, 146), battle.cur_a(), true)
+	enemy_hp.set_meta("slot", battle.active_b)
+	player_hp.set_meta("slot", battle.active_a)
 	enemy_hp.name = "EnemyHP"
 	player_hp.name = "PlayerHP"
 
@@ -410,10 +416,7 @@ func _process(delta: float) -> void:
 		player_sprite.position.y = float(player_sprite.get_meta("ground_y")) + roundf(sin(t * 2.4)) * 2
 	if enemy_sprite:
 		enemy_sprite.position.y = float(enemy_sprite.get_meta("ground_y")) + roundf(sin(t * 2.0 + 1.2)) * 2
-	if flash_t > 0:
-		flash_t -= delta
-		var f: float = 0.55 + 0.45 * abs(sin(flash_t * 40))
-		enemy_sprite.modulate = Color(f, f, f)
+	_advance_health(delta)
 
 	match state:
 		"intro":
@@ -426,6 +429,8 @@ func _process(delta: float) -> void:
 				wait -= delta
 				if wait <= 0:
 					msg.text = pending.pop_front()
+					_play_health(spoken_lines)
+					spoken_lines += 1
 					wait = _dur(0.85)
 			else:
 				wait -= delta
@@ -492,6 +497,9 @@ func _open_z_moves() -> void:
 		_row(list,"%s → %s" % [base.get("name","?"), zname],_do_z.bind(i),zid<=0 or int(c.pp[i])<=0)
 
 func _begin_resolve() -> void:
+	health_cues.clear()
+	spoken_lines = 0
+	line_offset = 0
 	_close_sheet()
 	menu.hide()
 	move_menu.hide()
@@ -507,42 +515,30 @@ func _do_z(idx: int) -> void:
 	_begin_resolve()
 	pending.clear()
 	pending.append(String(r.get("text", "")))
-	battle.run_turn("z:%d" % idx, "move:0")
-	for line in battle.log:
-		pending.append(String(line))
-	battle.log.clear()
-	_sync_sprites()
-	_refresh_hp()
+	_queue_turn("z:%d" % idx, "move:0")
 	msg.text = ""
 	wait = _dur(0.1)
-	flash_t = 0.3
 
 func _do_tera() -> void:
-	var r: Dictionary = battle.use_tera("a")
 	_begin_resolve()
+	var r: Dictionary = battle.use_tera("a")
+	_apply_appearance(player_sprite, battle.cur_a())
+	_queue_health(0, "a", battle.active_a, battle.cur_a())
 	pending.clear()
 	pending.append(String(r.get("text", "")))
-	battle.run_turn("item", "move:0")
-	for line in battle.log:
-		pending.append(String(line))
-	battle.log.clear()
-	_sync_sprites()
-	_refresh_hp()
+	_queue_turn("item", "move:0")
 	msg.text = ""
 	wait = _dur(0.1)
 
 func _do_transform(form_key: String) -> void:
-	var r: Dictionary = battle.transform("a", form_key)
 	_begin_resolve()
+	var r: Dictionary = battle.transform("a", form_key)
+	_apply_appearance(player_sprite, battle.cur_a())
+	_queue_health(0, "a", battle.active_a, battle.cur_a())
 	pending.clear()
 	pending.append(String(r.get("text", "")))
 	# 变形算这一回合的行动，对手照样出手
-	battle.run_turn("item", "move:0")
-	for line in battle.log:
-		pending.append(String(line))
-	battle.log.clear()
-	_sync_sprites()
-	_refresh_hp()
+	_queue_turn("item", "move:0")
 	msg.text = ""
 	wait = _dur(0.1)
 
@@ -579,10 +575,7 @@ func _throw(ball_name: String) -> void:
 	wait = _dur(0.1)
 	if not bool(res.get("ok", false)):
 		# 没抓到就轮对手出招，接在一句话后面播
-		battle.run_turn("item", "move:0")
-		for line in battle.log:
-			pending.append(String(line))
-		battle.log.clear()
+		_queue_turn("item", "move:0")
 
 ## 换人面板：只列没倒下的、且不是当前上场的那只，避免出现两个自己
 func _open_switch() -> void:
@@ -615,19 +608,14 @@ func _try_flee() -> void:
 	var res: Dictionary = battle.try_flee()
 	pending.append(String(res.get("text", "")))
 	if not bool(res.get("ok", false)):
-		battle.run_turn("item", "move:0")
-		for line in battle.log:
-			pending.append(String(line))
-		battle.log.clear()
+		_queue_turn("item", "move:0")
 	msg.text = ""
 	wait = _dur(0.1)
 
 func _do_switch(index: int) -> void:
 	_begin_resolve()
 	pending.clear()
-	battle.run_turn("switch:%d" % index, "move:0")
-	pending = battle.log.duplicate()
-	battle.log.clear()
+	_queue_turn("switch:%d" % index, "move:0")
 	msg.text = ""
 	wait = _dur(0.1)
 
@@ -637,13 +625,59 @@ func _on_move(i: int) -> void:
 	move_menu.visible = false
 	_begin_resolve()
 	pending.clear()
-	battle.run_turn("move:%d" % i, "move:0")
-	pending = battle.log.duplicate()
-	battle.log.clear()
+	_queue_turn("move:%d" % i, "move:0")
 	msg.text = ""
 	wait = _dur(0.1)
-	# 受击闪烁
-	flash_t = 0.35
+
+func _queue_turn(player: String, opponent: String) -> void:
+	line_offset = pending.size()
+	battle.run_turn(player, opponent)
+	pending.append_array(battle.log)
+	battle.log.clear()
+	# Some passive effects change HP without adding a line of their own.
+	if health_cues.has(pending.size()):
+		pending.append("")
+
+func _queue_health(line: int, side: String, slot: int, mon: Dictionary) -> void:
+	if state != "resolve": return
+	var index := line_offset + line
+	if not health_cues.has(index): health_cues[index] = {}
+	var sample := mon.duplicate()
+	sample["slot"] = slot
+	health_cues[index][side] = sample
+
+func _play_health(index: int) -> void:
+	for side in health_cues.get(index, {}):
+		var sample: Dictionary = health_cues[index][side]
+		var box := player_hp if side == "a" else enemy_hp
+		var sprite := player_sprite if side == "a" else enemy_sprite
+		var before := int(box.get_meta("shown_hp", sample.hp))
+		var same := int(box.get_meta("slot")) == int(sample.slot) and int(box.get_meta("max_hp")) == int(sample.max_hp)
+		box.set_meta("slot", sample.slot)
+		_apply_appearance(sprite, sample)
+		_update_hpbox(box, sample)
+		if same and before != int(sample.hp):
+			_draw_hp(box, before, int(sample.max_hp))
+			var fraction := absf(float(before - int(sample.hp)) / maxi(1, int(sample.max_hp)))
+			health_motion[side] = {"from":before, "to":int(sample.hp), "max":int(sample.max_hp),
+				"time":0.0, "duration":_dur(clampf(0.20 + fraction * 0.48, 0.20, 0.68))}
+		else:
+			health_motion.erase(side)
+			sprite.modulate = Color.WHITE
+
+func _advance_health(delta: float) -> void:
+	for side in health_motion.keys():
+		var anim: Dictionary = health_motion[side]
+		anim.time = minf(float(anim.duration), float(anim.time) + delta)
+		var t := float(anim.time) / float(anim.duration)
+		var box := player_hp if side == "a" else enemy_hp
+		var sprite := player_sprite if side == "a" else enemy_sprite
+		_draw_hp(box, roundi(lerpf(float(anim.from), float(anim.to), t)), int(anim.max))
+		if int(anim.to) < int(anim.from):
+			sprite.modulate = Color.WHITE.darkened(0.38 if t < 0.65 and int(t * 9) % 2 == 0 else 0.0)
+		if t >= 1.0:
+			sprite.modulate = Color.WHITE
+			health_motion.erase(side)
 
 func _after_resolve() -> void:
 	_refresh_hp()
@@ -740,14 +774,19 @@ func _apply_appearance(sprite: TextureRect, mon: Dictionary) -> void:
 	effect.queue_redraw()
 	if bg: bg.queue_redraw()
 
-func _update_hpbox(box: Control, c: Dictionary) -> void:
+func _draw_hp(box: Control, hp: int, maximum: int) -> void:
 	var track: ColorRect = box.get_node("Track")
 	var fill: ColorRect = box.get_node("Fill")
 	var hp_l: Label = box.get_node("HP")
-	var ratio := clampf(float(c["hp"]) / float(max(1, c["max_hp"])), 0.0, 1.0)
-	fill.size = Vector2(track.size.x * ratio, track.size.y)
+	var ratio := clampf(float(hp) / maxi(1, maximum), 0.0, 1.0)
+	fill.size = Vector2(roundf(track.size.x * ratio), track.size.y)
 	fill.color = HP_HI if ratio > 0.5 else (HP_MID if ratio > 0.2 else HP_LO)
-	hp_l.text = "%d/%d" % [int(c["hp"]), int(c["max_hp"])]
+	hp_l.text = "%d/%d" % [hp, maximum]
+	box.set_meta("shown_hp", hp)
+	box.set_meta("max_hp", maximum)
+
+func _update_hpbox(box: Control, c: Dictionary) -> void:
+	_draw_hp(box, int(c.hp), int(c.max_hp))
 	var exp_fill := box.get_node_or_null("ExpFill") as ColorRect
 	if exp_fill:
 		var species := Data.species_of(int(c.species_id))

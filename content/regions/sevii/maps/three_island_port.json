@@ -62,8 +62,10 @@
     "at": [
      3,
      4
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -76,8 +78,10 @@
     "at": [
      25,
      5
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -89,22 +93,31 @@
     "map": "three_island_harbor",
     "at": [
      8,
+     3
+    ],
+    "arrival_from": [
+     8,
      2
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
     10,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island",
     "at": [
      10,
      39
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -112,13 +125,16 @@
     11,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island",
     "at": [
      11,
      39
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -126,13 +142,16 @@
     12,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "three_island",
     "at": [
      12,
      39
-    ]
+    ],
+    "connection": true
    }
   }
  ],

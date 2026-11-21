@@ -191,8 +191,10 @@
     "at": [
      11,
      15
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -205,8 +207,10 @@
     "at": [
      11,
      15
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -219,8 +223,10 @@
     "at": [
      11,
      15
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -233,8 +239,10 @@
     "at": [
      11,
      15
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -247,8 +255,10 @@
     "at": [
      11,
      15
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -261,8 +271,10 @@
     "at": [
      11,
      15
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
@@ -275,21 +287,26 @@
     "at": [
      11,
      15
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   },
   {
    "at": [
     48,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_sevault_canyon",
     "at": [
      0,
      79
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -297,13 +314,16 @@
     49,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_sevault_canyon",
     "at": [
      1,
      79
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -311,13 +331,16 @@
     53,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_sevault_canyon",
     "at": [
      5,
      79
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -325,13 +348,16 @@
     54,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_sevault_canyon",
     "at": [
      6,
      79
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -339,13 +365,16 @@
     63,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_sevault_canyon",
     "at": [
      15,
      79
-    ]
+    ],
+    "connection": true
    }
   },
   {
@@ -353,13 +382,16 @@
     64,
     0
    ],
+   "trigger": "up",
+   "edge": true,
    "to": {
     "region": "sevii",
     "map": "seven_island_sevault_canyon",
     "at": [
      16,
      79
-    ]
+    ],
+    "connection": true
    }
   }
  ],

@@ -139,9 +139,15 @@
     "map": "mt_ember_summit_path_1f",
     "at": [
      11,
+     2
+    ],
+    "arrival_from": [
+     11,
      1
-    ]
-   }
+    ],
+    "facing": "down"
+   },
+   "trigger": "down"
   },
   {
    "at": [
@@ -154,8 +160,10 @@
     "at": [
      2,
      4
-    ]
-   }
+    ],
+    "facing": "up"
+   },
+   "trigger": "step"
   }
  ],
  "encounters": [
