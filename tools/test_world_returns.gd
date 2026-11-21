@@ -1,4 +1,4 @@
-extends "res://tools/test_world_walks.gd"
+extends "test_world_walks.gd"
 ## Verify the entire directed map registry from the new-game bedroom and replay
 ## dynamic centre stairs, ferry voyages and elevators through World.step.
 
