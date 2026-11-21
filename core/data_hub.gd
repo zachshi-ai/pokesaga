@@ -2,6 +2,8 @@ extends Node
 ## 数据中枢：所有内容都从 content/ 下的 JSON 读，代码里不写死任何地区、物种、招式。
 ## 加一个地区 = 加一个目录 + 一份 region.json，内核不需要改动。
 
+const REGION_TRANSFER_ITEM := "地区转移器"
+
 var species: Dictionary = {}          # id:int -> 种族数据
 var moves: Dictionary = {}            # id:int -> 招式数据
 var tm_map: Dictionary = {}           # "招式学习器 01" -> 招式 id

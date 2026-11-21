@@ -74,7 +74,7 @@ def main():
                     "PP 多项小补剂":"ELIXIR","PP 多项全补剂":"MAX_ELIXIR","PP 单项":"ETHER",
                     "PP 多项":"ELIXIR","PP 全满":"MAX_ELIXIR","力量强化":"X_ATTACK","圣灰":"SACRED_ASH",
                     "自行车":"MACH_BIKE","其他":"TM_CASE","携带":"LEFTOVERS","太晶":"NORMAL_TERA_SHARD",
-                    "钓竿":"OLD_ROD","PP 提升剂":"PP_UP","优质伤药":"SUPER_POTION"})
+                    "钓竿":"OLD_ROD","PP 提升剂":"PP_UP","优质伤药":"SUPER_POTION","地区转移器":"SCANNER"})
     for name, ident in aliases.items():
         if ident in pairs:
             register(name, *pairs[ident])

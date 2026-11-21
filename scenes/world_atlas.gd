@@ -191,15 +191,18 @@ func _locate() -> void:
 		_select_place(current)
 
 func _depart() -> void:
-	if not travel or not regions.has(region_id):
+	if is_queued_for_deletion() or not travel or not regions.has(region_id):
 		return
 	var destination := region_id
 	_finish()
 	trip_requested.emit(destination)
 
 func _finish() -> void:
-	closed.emit()
+	if is_queued_for_deletion():
+		return
+	hide()
 	queue_free()
+	closed.emit()
 
 func handle_back() -> void:
 	if viewing_art:

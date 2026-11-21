@@ -67,6 +67,7 @@ func setup(p_party: Array, p_bag: Array, p_overrides: Dictionary) -> void:
 		goods[str(entry.name)] = {"name":entry.name, "category":"held", "held":key}
 	for entry in bag:
 		goods[str(entry.name)] = entry.duplicate(true)
+	goods.erase(Data.REGION_TRANSFER_ITEM)
 	_shell()
 	_switch("party")
 
@@ -373,6 +374,9 @@ func _bag_page() -> void:
 	for i in bag.size():
 		var it: Dictionary = bag[i]
 		var row := _row(body)
+		if it.get("name","") == Data.REGION_TRANSFER_ITEM:
+			row.add_child(UI.label(Data.REGION_TRANSFER_ITEM + "　×1",15))
+			continue
 		_number(row, str(it.get("name","道具")), int(it.get("count",0)), 0, maxi(9999,int(it.get("count",0))), func(v): it.count = v; _mark_dirty())
 		row.get_child(0).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		_button(row, "移除", _remove_item.bind(i))

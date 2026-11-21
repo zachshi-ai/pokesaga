@@ -1,8 +1,10 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.51.0-study`，versionCode 为 84，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.52.0-study`，versionCode 为 85，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
 
-[下载 4.51 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.51.0-study/PokeSaga-4.51.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.51.0-study)
+[下载 4.52 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.52.0-study/PokeSaga-4.52.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.52.0-study)
+
+**地区转移器**随新档发放，旧档选择「继续冒险」后也会出现在背包里。探索时点 **START → 背包 → 重要道具 → 地区转移器**，选地区，再点「出发前往」。可以从屋内、洞窟、水上或异空间直接抵达任一地区的领航员旁。21 个目的地从开局就能选择，道具可重复使用，到达后自动保存。 [查看背包实拍](.github/preview/v4.52-region-transfer.png)
 
 ![安卓同位置实拍对比。左列为 4.50，右列为 4.51。上排是常磐商店门前，下排是华蓝道馆的木桥和水池。](.github/preview/v4.51-field.png)
 
@@ -39,10 +41,10 @@
 ```bash
 godot --headless --path . --import
 godot --path .
-tools/build_android.sh ../交付/PokeSaga-4.51.0-study.apk
+tools/build_android.sh ../交付/PokeSaga-4.52.0-study.apk
 ```
 
-构建 Android 需要匹配的 Godot 导出模板、JDK 17、Android SDK、platform-tools、build-tools 和 Godot 可访问的本机调试签名。已配置的机器可用 `GODOT_BIN`、`JAVA_HOME`、`ANDROID_HOME` 选择工具路径。本机脚本也识别 `~/Library/Application Support/PokeSagaBuild`。学习版使用 `Android Study` 导出预设，目标架构为 ARM64，输出为签名调试 APK。安装可用 `adb install -r ../交付/PokeSaga-4.51.0-study.apk`。
+构建 Android 需要匹配的 Godot 导出模板、JDK 17、Android SDK、platform-tools、build-tools 和 Godot 可访问的本机调试签名。已配置的机器可用 `GODOT_BIN`、`JAVA_HOME`、`ANDROID_HOME` 选择工具路径。本机脚本也识别 `~/Library/Application Support/PokeSagaBuild`。学习版使用 `Android Study` 导出预设，目标架构为 ARM64，输出为签名调试 APK。安装可用 `adb install -r ../交付/PokeSaga-4.52.0-study.apk`。
 
 ## 验证改动
 
@@ -54,6 +56,7 @@ godot --headless --fixed-fps 60 --path . --script tools/test_field_mapping.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_firered_passages.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_frlg_story.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_world_atlas.gd
+godot --headless --fixed-fps 60 --path . --script tools/test_region_transfer.gd
 godot --headless --path . --script tools/test_npc_appearances.gd
 python3 tools/test_first_chapter.py --godot /path/to/godot
 godot --headless --fixed-fps 60 --path . --script tools/test_collection.gd

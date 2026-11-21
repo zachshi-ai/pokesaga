@@ -3,9 +3,10 @@ extends Control
 const UI := preload("res://core/field_ui.gd")
 const ATLAS := preload("res://assets/ui/field/bag_icons.png")
 const CATEGORIES := [
-	["ball","精灵球","精灵球"],["heal","回复药","伤药"],["battle","战斗","力量强化"],
+	["ball","精灵球","精灵球"],["heal","回复药","伤药"],["key","重要道具","其他"],
+	["battle","战斗","力量强化"],
 	["berry","树果","橙橙果"],["held","携带物","携带"],["evo","进化石","火之石"],
-	["tera","太晶","太晶"],["tm","学习器","TM"],["key","重要道具","其他"],["other","其他","其他"]
+	["tera","太晶","太晶"],["tm","学习器","TM"],["other","其他","其他"]
 ]
 signal closed
 
@@ -100,8 +101,13 @@ func refresh() -> void:
 		UI.place(b,_icon(key),6,4,38,38)
 		var name_label := UI.label(nm,15)
 		name_label.clip_text = true
-		UI.place(b,name_label,53,5,scroller.size.x-147,36)
+		var transfer := nm == Data.REGION_TRANSFER_ITEM
+		UI.place(b,name_label,53,5,scroller.size.x-147,20 if transfer else 36)
 		var qty := UI.label("×%d   ›" % int(obj.count),14,UI.GREEN)
+		if transfer:
+			UI.place(b,UI.label("前往各地区和异空间",11,UI.MUTED),53,25,scroller.size.x-147,17)
+			qty.text = "选地区  ›"
+			b.accessibility_name = nm + "，选择目的地"
 		qty.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		UI.place(b,qty,scroller.size.x-91,5,65,36)
 	totals.text = "%d 种道具" % count

@@ -7360,7 +7360,10 @@ func _restore_from_save() -> void:
 		bag_items = saved_bag
 	else:
 		bag_items = _default_items()
-		save_data["bag"] = bag_items
+	# Keep one permanent device at the top of the key pocket, including in older saves.
+	bag_items = bag_items.filter(func(item): return item.get("name","") != Data.REGION_TRANSFER_ITEM)
+	bag_items.push_front({"id":0, "name":Data.REGION_TRANSFER_ITEM, "category":"key", "count":1})
+	save_data["bag"] = bag_items
 	_grant_hms()
 
 	# 出生地：地区表里写死的起点。没有存档 / 存档地图没了，都回到这里，
@@ -7958,18 +7961,26 @@ func _change_tera(slot: int, tera_type: String, ui) -> void:
 		_set_hud_visible(true)
 		_open_party()
 
-func _open_world_atlas(travel: bool) -> void:
+func _open_world_atlas(travel: bool, from_bag: BagUI = null) -> void:
 	var atlas := preload("res://scenes/world_atlas.gd").new()
+	if is_instance_valid(from_bag):
+		from_bag.hide()
 	menu_layer.add_child(atlas)
 	panel_open += 1
 	held_dir = ""
 	_set_hud_visible(false)
 	atlas.closed.connect(func() -> void:
 		panel_open = maxi(0, panel_open - 1)
+		if is_instance_valid(from_bag):
+			from_bag.show()
 		_set_hud_visible(panel_open == 0))
 	atlas.trip_requested.connect(func(region_id: String) -> void:
 		var hub: Dictionary = Data.travel_regions().get(region_id, {}).get("hub", {})
 		if travel and not hub.is_empty():
+			if is_instance_valid(from_bag):
+				from_bag.handle_back()
+				_close_start_menu()
+				world.bike = false
 			world.surfing = false
 			world.diving = false
 			_do_warp(hub)
@@ -8069,6 +8080,9 @@ func _pick(title: String, options: Array, cb: Callable) -> void:
 
 ## 背包里点中一件东西：能用的都真的用掉，不能用的说清为什么
 func _use_bag_item(nm: String) -> void:
+	if nm == Data.REGION_TRANSFER_ITEM:
+		_open_world_atlas(true, _bag_ui)
+		return
 	if Data.tm_map.has(nm):
 		_offer_tm_teach(nm)
 		return
