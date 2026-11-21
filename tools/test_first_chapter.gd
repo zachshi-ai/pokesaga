@@ -227,6 +227,7 @@ func play() -> void:
 	dialogs()
 	await walk(Vector2i(76,273))
 	if not check(world.map_data.id == "pallettown_professoroakslab", "lab door"): return
+	if not check(game._battle_backdrop() == "building", "lab battles use Emerald interior art"): return
 	await walk(Vector2i(6,4))
 	await talk("up")
 	if not check(game.save_data.party[0].get("species_id") == 25, "Oak starter"): return

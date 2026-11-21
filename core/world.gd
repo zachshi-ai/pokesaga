@@ -263,6 +263,9 @@ func _load_emerald_map(name: String) -> void:
 	_apply_cam_limits()
 	_sync_player()
 
+func field_biome() -> String:
+	return str(EmeraldField.plan_for(map_data).get("biome", map_data.get("biome", "")))
+
 func is_emerald() -> bool:
 	return emerald_collision.size() > 0
 

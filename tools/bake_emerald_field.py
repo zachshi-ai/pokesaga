@@ -546,6 +546,7 @@ def main():
         plan=compile_map(path.stem,data,region)
         if not plan: raise ValueError('Could not resolve walk grid for '+key)
         maps[key]=art.draw(key,plan,data)
+        maps[key]["biome"]=plan["b"]
     art.atlas.save()
     index={'tiles':len(art.atlas.images),'anchors':art.props,'maps':maps}
     (ROOT/'content/emerald_fields.json').write_text(json.dumps(index,separators=(',',':'))+'\n')

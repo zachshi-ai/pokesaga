@@ -1962,7 +1962,7 @@ func _tm_teach_menu(mv: int, slots: Array, names: Array) -> void:
 func _battle_backdrop() -> String:
 	var m: Dictionary = world.map_data
 	var id := String(m.get("id",""))
-	var biome := String(m.get("biome",""))
+	var biome: String = world.field_biome()
 	if world.diving:
 		return "underwater"
 	if world.surfing or biome=="coast" or id.contains("harbor"):
@@ -1979,7 +1979,7 @@ func _battle_backdrop() -> String:
 		return "league"
 	if id.contains("gym"):
 		return "gym"
-	if biome=="city":
+	if biome in ["city", "interior"]:
 		return "building"
 	if biome in ["forest","marsh"] or id.contains("forest"):
 		return "forest"
