@@ -1,6 +1,7 @@
 extends Node2D
 ## 启动场景：自检 + 场景装配 + 输入（键盘 / 触摸）。
 
+const StartMenu := preload("res://scenes/start_menu.gd")
 const TitleScreen := preload("res://scenes/title_screen.gd")
 const WorldScript := preload("res://core/world.gd")
 const BattleScript := preload("res://core/battle.gd")
@@ -36,7 +37,8 @@ var hint_label: Label
 var toast: Label
 var save_data: Dictionary = {}
 var menu_layer: CanvasLayer
-var menu_buttons: Array = []
+var start_menu: StartMenu
+var _start_after_step := false
 var team_slots: Array = []
 var rng := RandomNumberGenerator.new()
 var appearance_rng := RandomNumberGenerator.new()
@@ -635,6 +637,7 @@ func _has_debug_start(args: Array) -> bool:
 	return false
 
 func _show_title() -> void:
+	_start_after_step = false
 	held_dir = ""
 	set_process(false)
 	world.visible = false
@@ -671,7 +674,7 @@ func _enter_game(fresh: bool) -> void:
 	world.visible = true
 	ui_layer.visible = true
 	menu_layer.visible = true
-	touch_layer.visible = true
+	_set_hud_visible(true)
 	set_process(true)
 	_restore_from_save()
 
@@ -682,12 +685,6 @@ func _refresh_hud() -> void:
 		hint_label.text = "位置 %d,%d   方向 %s%s" % [world.player_pos.x, world.player_pos.y, world.facing, _ledge_tip()]
 	if money_label and save_data.has("money"):
 		money_label.text = "¥%d" % int(save_data.get("money", 0))
-	if not menu_buttons.is_empty():
-		var in_center := String(world.map_data.get("id", "")).contains("pokemoncenter")
-		for b in menu_buttons:
-			if is_instance_valid(b) and String((b as Button).get_meta("key", "")) == "融合":
-				(b as Button).visible = in_center
-		_layout_menu()
 	if badges_label:
 		var bs: Array = save_data.get("badges", [])
 		badges_label.text = ("徽章 %d" % bs.size()) if not bs.is_empty() else ""
@@ -938,12 +935,7 @@ func _dialog(lines: Array, speaker := "") -> Node:
 			_dialogs.erase(dlg)
 			panel_open = maxi(0, panel_open - 1)
 			if panel_open == 0:
-				_set_hud_visible(true)
-				if touch_layer:
-					touch_layer.visible = true)
-	# 对话时把虚拟按键收起来：这时候要的是读字和点选项，留着只会误触
-	if touch_layer:
-		touch_layer.visible = false
+				_set_hud_visible(true))
 	dlg.call("setup", lines, speaker)
 	return dlg
 
@@ -1105,6 +1097,7 @@ func _notification(what: int) -> void:
 
 func _on_back() -> void:
 	if is_instance_valid(active_battle) and not active_battle.is_queued_for_deletion():
+		active_battle.handle_back()
 		return
 	# 对话框开着时，B 直接关掉当前这句
 	if not _dialogs.is_empty():
@@ -1179,7 +1172,7 @@ func _build_ui() -> void:
 	ui_layer.add_child(badges_label)
 
 	toast = Label.new()
-	# 提示条放在顶部菜单条下面：底部是十字键的地盘，压上去看不清
+	# 提示条位于 START 和虚拟方向键之间。
 	toast.position = Vector2(0, 44)
 	toast.size = Vector2(480, 24)
 	toast.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -1189,7 +1182,7 @@ func _build_ui() -> void:
 	toast.visible = false
 	ui_layer.add_child(toast)
 
-	_build_menu_buttons()
+	_build_start_menu()
 	_build_touch_controls()
 	_layout_hud()
 	get_viewport().size_changed.connect(_layout_hud)
@@ -1235,7 +1228,6 @@ func _layout_hud() -> void:
 		_btn_a.position = Vector2(w - 78, bottom - 118)
 	if _btn_b != null:
 		_btn_b.position = Vector2(w - 138, bottom - 86)
-	_layout_menu()
 
 func _move(key: String) -> void:
 	if is_instance_valid(active_battle) and not active_battle.is_queued_for_deletion():
@@ -2454,13 +2446,21 @@ func _store_mon(mon: Dictionary) -> String:
 	return "box"
 
 func _set_hud_visible(on: bool) -> void:
-	for n in [name_label, hint_label, toast]:
+	# A battle can start from the bag (for example, by using a fishing rod).
+	if is_instance_valid(active_battle) and is_instance_valid(start_menu):
+		_remove_start_menu()
+	var field_visible := on and panel_open == 0 and not is_instance_valid(active_battle) and not is_instance_valid(title_screen)
+	for n in [_bar, name_label, hint_label, money_label, badges_label]:
 		if n:
-			n.visible = on
+			n.visible = field_visible
+	if not field_visible and toast:
+		toast.hide()
 	if ui_layer:
 		for c in ui_layer.get_children():
 			if c is Button:
-				c.visible = on
+				c.visible = field_visible
+	if touch_layer:
+		touch_layer.visible = field_visible
 
 func _show_toast(text: String) -> void:
 	toast.text = text
@@ -2480,6 +2480,10 @@ func _process(delta: float) -> void:
 	world.running = (run_held or world.bike) and panel_open == 0
 	world.tick_walk(delta)
 	if world.walking:
+		return
+	if _start_after_step:
+		_start_after_step = false
+		_toggle_start_menu()
 		return
 	# 冰面 / 洋流：站定之后被地形带着继续滑一格，原版就是这么走的
 	if panel_open == 0:
@@ -7406,63 +7410,83 @@ func _persist() -> bool:
 	save_data["bag"] = bag_items
 	return SaveScript.save(save_data)
 
-func _build_menu_buttons() -> void:
+func _build_start_menu() -> void:
 	menu_layer = CanvasLayer.new()
 	menu_layer.layer = 4
 	add_child(menu_layer)
+	menu_layer.child_exiting_tree.connect(func(_child: Node): _resume_start_menu.call_deferred())
+	ui_layer.add_child(StartMenu.start_key(_toggle_start_menu))
 
-	var specs := [["图鉴", _open_dex], ["队伍", _open_party], ["背包", _open_bag],
-		["电脑", _open_pc], ["骑行", _toggle_bike], ["修改器", _open_editor],
-		["融合", _open_fusion], ["闪光", _toggle_flash], ["飞行", _open_fly],
-		["秘传", _open_hm], ["存档", _persist]]
-	for i in specs.size():
-		var spec = specs[i]
-		var b := Button.new()
-		b.text = String(spec[0])
-		b.custom_minimum_size = Vector2(40, 32)
-		b.add_theme_font_size_override("font_size", 11)
-		var sb := StyleBoxFlat.new()
-		sb.bg_color = Color(0.09, 0.13, 0.18, 0.86)
-		sb.set_corner_radius_all(6)
-		sb.border_width_left = 1
-		sb.border_width_top = 1
-		sb.border_width_right = 1
-		sb.border_width_bottom = 1
-		sb.border_color = Color(0.42, 0.78, 0.72, 0.45)
-		var sbh: StyleBoxFlat = sb.duplicate()
-		sbh.bg_color = Color(0.14, 0.20, 0.26, 0.92)
-		var sbp: StyleBoxFlat = sb.duplicate()
-		sbp.bg_color = Color(0.42, 0.80, 0.72, 0.92)
-		sbp.content_margin_top = 2
-		b.add_theme_stylebox_override("normal", sb)
-		b.add_theme_stylebox_override("hover", sbh)
-		b.add_theme_stylebox_override("pressed", sbp)
-		b.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
-		b.add_theme_color_override("font_color", Color(0.92, 0.97, 0.95))
-		b.add_theme_color_override("font_hover_color", Color(1, 1, 1))
-		b.add_theme_color_override("font_pressed_color", Color(0.04, 0.10, 0.10))
-		b.pressed.connect(Callable(self, String(spec[1].get_method())))
-		b.set_meta("key", String(spec[0]))
-		menu_layer.add_child(b)
-		menu_buttons.append(b)
-	_layout_menu()
+func _input(event: InputEvent) -> void:
+	if not (event is InputEventKey or event is InputEventJoypadButton) or not event.is_pressed() or event.is_echo():
+		return
+	if is_instance_valid(title_screen) or not is_instance_valid(world) or not world.visible:
+		return
+	var start: bool = (event is InputEventKey and event.keycode in [KEY_ENTER, KEY_KP_ENTER]) or (event is InputEventJoypadButton and event.button_index == JOY_BUTTON_START)
+	if start and panel_open == 0 and not is_instance_valid(active_battle):
+		get_viewport().set_input_as_handled()
+		_toggle_start_menu()
+	elif panel_open > 0 and not is_instance_valid(active_battle) and (event.is_action_pressed("ui_cancel") or (event is InputEventJoypadButton and event.button_index == JOY_BUTTON_B)):
+		if get_viewport().gui_get_focus_owner() is LineEdit:
+			get_viewport().gui_release_focus()
+			DisplayServer.virtual_keyboard_hide()
+		else:
+			_on_back()
+		get_viewport().set_input_as_handled()
 
-## 按钮右对齐排开：融合只在宝可梦中心出现，出现时其余按钮整体左移
-func _layout_menu() -> void:
-	var shown: Array = []
-	for b in menu_buttons:
-		if is_instance_valid(b) and (b as Button).visible:
-			shown.append(b)
-	var width := get_viewport().get_visible_rect().size.x
-	var total := 0.0
-	for button: Button in shown:
-		button.reset_size()
-		total += button.size.x
-	var gap := clampf((width - 8 - total) / maxi(1, shown.size()-1), 0, 4)
-	var x := width - 4 - total - gap * maxi(0,shown.size()-1)
-	for button: Button in shown:
-		button.position = Vector2(x,4)
-		x += button.size.x + gap
+func _toggle_start_menu() -> void:
+	if is_instance_valid(start_menu):
+		if start_menu.visible:
+			_close_start_menu()
+		return
+	if panel_open != 0 or is_instance_valid(active_battle) or is_instance_valid(title_screen) or not world.visible:
+		return
+	held_dir = ""
+	run_held = false
+	if world.walking:
+		_start_after_step = true
+		return
+	start_menu = StartMenu.new()
+	menu_layer.add_child(start_menu)
+	panel_open += 1
+	_set_hud_visible(false)
+	start_menu.closed.connect(_close_start_menu)
+	start_menu.chosen.connect(_start_selected)
+	start_menu.setup(_fusion_btn_visible())
+	snd.play_sfx("select")
+
+func _remove_start_menu() -> void:
+	var menu := start_menu
+	start_menu = null
+	menu.hide()
+	menu.queue_free()
+	panel_open = maxi(0, panel_open - 1)
+
+func _close_start_menu() -> void:
+	if is_instance_valid(start_menu):
+		_remove_start_menu()
+		_set_hud_visible(panel_open == 0)
+
+func _resume_start_menu() -> void:
+	if is_instance_valid(start_menu) and not start_menu.visible and panel_open == 1 and not is_instance_valid(active_battle):
+		start_menu.resume()
+
+func _start_selected(command: String) -> void:
+	snd.play_sfx("select")
+	# Keep the selected row underneath a child page. Field actions return to the map.
+	var pages := {"图鉴": _open_dex, "队伍": _open_party, "背包": _open_bag, "电脑": _open_pc,
+		"修改器": _open_editor, "融合": _open_fusion, "秘传": _open_hm, "飞行": _open_fly}
+	if pages.has(command):
+		start_menu.hide()
+		pages[command].call()
+		if panel_open == 1:
+			_close_start_menu()
+		return
+	_close_start_menu()
+	match command:
+		"骑行": _toggle_bike()
+		"闪光": _toggle_flash()
+		"存档": _show_toast("进度已保存。" if _persist() else "存档写入失败，请检查设备空间。")
 
 
 ## 融合系统：合体、分离、洛托姆换家电
@@ -7620,11 +7644,8 @@ func _floor_ok(p: Vector2i, w: int, h: int, taken: Dictionary) -> bool:
 	return not world.blocked_by_terrain(up)
 
 func _fusion_btn_visible() -> bool:
-	_refresh_hud()
-	for b in menu_buttons:
-		if is_instance_valid(b) and String((b as Button).get_meta("key", "")) == "融合":
-			return (b as Button).visible
-	return false
+	var map_id := String(world.map_data.get("id", "")).replace("_", "")
+	return map_id.contains("pokemoncenter") or map_id.contains("pokecenter")
 
 ## 融合工坊：只对宝可梦中心开放
 func _open_fusion() -> void:

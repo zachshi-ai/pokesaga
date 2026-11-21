@@ -57,8 +57,8 @@ func run() -> void:
 	check(status(19) == 0 and status(19, "RATTATA_ALOLA", "star") == 0, "unseen combinations")
 	ui._process(2.0)
 	ui._on_command_kind("bag")
-	for b in ui.get_node("BallPanel").get_children():
-		if b is Button and b.text.begins_with("大师球"):
+	for b in ui.get_node("BallPanel").find_children("*", "Button", true, false):
+		if b.is_visible_in_tree() and not b.disabled and b.text.begins_with("大师球"):
 			b.pressed.emit()
 			break
 	for i in 30:

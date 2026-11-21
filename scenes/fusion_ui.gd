@@ -26,11 +26,7 @@ func setup(p_party: Array) -> void:
 	_build()
 
 func _build() -> void:
-	set_anchors_preset(Control.PRESET_FULL_RECT)
-	var vp := get_viewport_rect().size
-	if vp.x < 10:
-		vp = Vector2(480, 320)
-	size = vp
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 	var veil := ColorRect.new()
 	veil.set_anchors_preset(Control.PRESET_FULL_RECT)

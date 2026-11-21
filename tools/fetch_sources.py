@@ -15,7 +15,7 @@ PATHS = {
     "emerald_original": ["data/maps","data/layouts","data/tilesets","graphics/pokemon",
                          "graphics/battle_environment","graphics/battle_interface","graphics/object_events/pics",
                          "graphics/title_screen","graphics/pokenav/region_map","graphics/bag",
-                         "graphics/party_menu","graphics/items"],
+                         "graphics/party_menu","graphics/text_window","graphics/items"],
     "pokeapi": ["data/v2/csv"],
     "sprites": ["sprites/pokemon/back/female","sprites/pokemon/back/shiny/female",
                 "sprites/pokemon/versions/generation-ix/scarlet-violet"],

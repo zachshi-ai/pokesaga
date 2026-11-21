@@ -1883,10 +1883,10 @@ func _priority(side: String, choice: String) -> int:
 		return 0
 	var c: Dictionary = cur_a() if side == "a" else cur_b()
 	var idx := int(choice.split(":")[1]) if choice.contains(":") else 0
-	if idx < 0 or idx >= (c["moves"] as Array).size():
-		return 0
-	# Z 招式按原招式的优先度走
-	var mv: Dictionary = Data.move_of(int(c["moves"][idx]))
+	var mv: Dictionary = {}
+	# 挣扎的基础优先度为零，不继承耗尽招式的先制效果。
+	if idx >= 0 and idx < c.moves.size() and int(c.pp[idx]) > 0:
+		mv = Data.move_of(int(c.moves[idx]))
 	var pr := int(mv.get("priority", 0))
 	var ae: Dictionary = Data.ability_effect(_ab(c))
 	if bool(ae.get("triage_priority", false)) and String(mv.get("effect", "")) in ["RESTORE_HP", "SOFTBOILED", "HEAL_HALF", "DRAIN"]:
@@ -3055,9 +3055,19 @@ func _take_action(side: String, choice: String) -> void:
 		_do_switch(side, int(choice.split(":")[1]))
 		return
 
+	# 畏缩：上一位出手的招式让这只缩了一下，这回合动不了
+	if bool(attacker.get("flinch", false)):
+		attacker["flinch"] = false
+		if not bool(Data.ability_effect(_ab(attacker)).get("flinch_immune", false)):
+			log.append("%s 畏缩了，无法行动！" % attacker["name"])
+			return
+
 	var idx := int(choice.split(":")[1]) if choice.contains(":") else 0
 	if idx < 0 or idx >= (attacker["moves"] as Array).size():
 		idx = 0
+	if attacker.moves.is_empty() or int(attacker.pp[idx]) <= 0:
+		_struggle(side)
+		return
 	# 精神场地：先制招式在这边打不出来
 	var mprio := int((Data.move_of(int(attacker["moves"][idx])) as Dictionary).get("priority", 0))
 	var foe_side_ab: Dictionary = cur_b() if side == "a" else cur_a()
@@ -3067,17 +3077,6 @@ func _take_action(side: String, choice: String) -> void:
 	if field.blocks_priority(mprio, true):
 		log.append("%s 的先制招式被精神场地挡下了！" % attacker["name"])
 		return
-	if int(attacker["pp"][idx]) <= 0:
-		# 招式全用完就用「挣扎」：固定 50 威力，自己吃 1/4 反伤，不会打不完
-		_struggle(side)
-		return
-
-	# 畏缩：上一位出手的招式让这只缩了一下，这回合动不了
-	if bool(attacker.get("flinch", false)):
-		attacker["flinch"] = false
-		if not bool(Data.ability_effect(_ab(attacker)).get("flinch_immune", false)):
-			log.append("%s 畏缩了，无法行动！" % attacker["name"])
-			return
 
 	# 状态挡住行动：睡/冻/麻，扣不扣 PP 按原版是不扣的
 	if _blocked_by_status(attacker):

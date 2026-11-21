@@ -1,4 +1,4 @@
-"""Drive the installed study APK on a disposable 3:2 Android emulator using adb.
+"""Drive the installed study APK on a disposable landscape Android emulator using adb.
 The fixture temporarily adds seen IDs to an existing debug save. The original is
 backed up in --output and restored when the run exits. Screenshots stay in --output.
 """
@@ -26,11 +26,19 @@ def run(adb_path, serial, out):
     def capture():
         return Image.open(io.BytesIO(adb("exec-out","screencap","-p"))).convert("RGB")
 
-    w,h = capture().size
-    if abs(w / h - 1.5) > 0.02:
-        raise ValueError("Test uses the game's landscape 3:2 viewport")
+    width, height = capture().size
+    if width < height:
+        raise ValueError("Open the game in landscape before running this test")
+    scale = min(width / 480, height / 320)
+    left = (width - 480 * scale) / 2
+    top = (height - 320 * scale) / 2
+
+    def pixel(x, y):
+        return round(left + x * scale), round(top + y * scale)
+
     def tap(x,y):
-        adb("shell","input","tap",str(round(x*w/480)),str(round(y*h/320)))
+        sx, sy = pixel(x, y)
+        adb("shell","input","tap",str(sx),str(sy))
         time.sleep(.36)
 
     def arrival():
@@ -50,7 +58,7 @@ def run(adb_path, serial, out):
         x, y = slot%16*64, slot%256//16*64
         chip = page.crop((x,y,x+64,y+64))
         colors = {px[:3] for px in chip.getdata() if px[3] > 200}
-        box = (round(16*w/480),round(72*h/320),round(180*w/480),round(225*h/320))
+        box = (*pixel(16, 72), *pixel(180, 225))
         shown = set(im.crop(box).getdata())
         matched = len(colors & shown) / len(colors)
         if matched < .76:
@@ -74,7 +82,8 @@ def run(adb_path, serial, out):
         write_save(json.dumps(save,ensure_ascii=False).encode())
         arrival()
         tap(102,219)  # Continue from the title into the prepared save.
-        tap(60,19)
+        tap(435,22)  # Open the field START menu.
+        tap(393,72)  # Select Pokédex, its first row.
         lookup("990",True)
         portrait(990,"",False,"01-paradox-990-under-0232")
         lookup("vivillon-icy-snow")

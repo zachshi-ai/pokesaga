@@ -1,6 +1,6 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.49.0-study`，versionCode 为 82，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.50.0-study`，versionCode 为 83，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
 
 ## 从真新镇开始
 
@@ -11,6 +11,10 @@
 场景以 GBA《绿宝石》的 16 像素地图块搭建。真新镇使用丰缘的房屋和家具；大木、小刚等关都专属人物使用同世代《火红》的像素角色。标题页、背包、丰缘导航图和战斗场地采用原游戏图块与配色。前三世代宝可梦优先采用《绿宝石》正背面及异色，后来登场的宝可梦和形态使用与之相配的像素图。各地图的通行、剧情和存档继续使用本作的坐标。[地图与素材说明](doc/素材重建.md)
 
 ## 队伍与触屏菜单
+
+探索时点右上角 **START**，右侧会弹出图鉴、队伍、背包、电脑、工具和存档。点「工具」可以骑行、使用闪光、飞行、秘传或打开修改器，在宝可梦中心还能进入融合工坊。关掉图鉴等页面后，光标会回到刚才那一行。点地图空白处可直接收起菜单。键盘 Enter 开菜单，上下键选择、Enter 确认、Esc 返回。手柄可用 START、方向键及 A/B。
+
+战斗时，右下角固定显示「战斗」「背包」「宝可梦」「逃跑」四项。点「战斗」查看每招的属性、威力和剩余 PP。当场可用的变身、Z 招式和太晶化在「特殊行动」里。点「宝可梦」可以滑动查看最多 12 名队员并换人。
 
 - 同行队伍可带 12 只。满员后捕获的成员进电脑；在电脑中点选具体成员存入或取回，最后一只留在队伍中。旧存档的单箱收藏会迁入电脑。
 - 队伍、背包、图鉴、修改器共用触屏控件。可以在卡片上直接滑动，松手后再点选。修改器支持按名字或编号查找、选招式和道具，保存后同时写入队伍与背包；取消会放弃本次草稿。
@@ -25,10 +29,10 @@
 ```bash
 godot --headless --path . --import
 godot --path .
-tools/build_android.sh ../交付/PokeSaga-4.49.0-study.apk
+tools/build_android.sh ../交付/PokeSaga-4.50.0-study.apk
 ```
 
-构建 Android 需要匹配的 Godot 导出模板、JDK 17、Android SDK、platform-tools、build-tools 和 Godot 可访问的本机调试签名。已配置的机器可用 `GODOT_BIN`、`JAVA_HOME`、`ANDROID_HOME` 选择工具路径。本机脚本也识别 `~/Library/Application Support/PokeSagaBuild`。学习版使用 `Android Study` 导出预设，目标架构为 ARM64，输出为签名调试 APK。安装可用 `adb install -r ../交付/PokeSaga-4.49.0-study.apk`。
+构建 Android 需要匹配的 Godot 导出模板、JDK 17、Android SDK、platform-tools、build-tools 和 Godot 可访问的本机调试签名。已配置的机器可用 `GODOT_BIN`、`JAVA_HOME`、`ANDROID_HOME` 选择工具路径。本机脚本也识别 `~/Library/Application Support/PokeSagaBuild`。学习版使用 `Android Study` 导出预设，目标架构为 ARM64，输出为签名调试 APK。安装可用 `adb install -r ../交付/PokeSaga-4.50.0-study.apk`。
 
 ## 验证改动
 
@@ -40,13 +44,15 @@ godot --headless --fixed-fps 60 --path . --script tools/test_world_atlas.gd
 godot --headless --path . --script tools/test_npc_appearances.gd
 python3 tools/test_first_chapter.py --godot /path/to/godot
 godot --headless --fixed-fps 60 --path . --script tools/test_collection.gd
+godot --headless --fixed-fps 60 --path . --script tools/test_start_menu.gd
+godot --headless --fixed-fps 60 --path . --script tools/test_battle_commands.gd
 godot --headless --path . --script tools/test_dex_catalog.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_johto_passage.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_johto_league.gd
 godot --headless --fixed-fps 60 --path . --script tools/test_hoenn_ferry.gd
 ```
 
-首章测试用独立新档实际走路、遇敌、投球、治疗、打馆，再启动第二个进程读回徽章。联盟测试会检查门禁、战败治疗、五连战及名人堂快照。手机图鉴专项 `tools/test_android_dex.py --help` 列出设备序列号、ADB 与截图目录参数；它在已安装学习版的 3:2 横屏模拟器上运行。
+首章测试用独立新档实际走路、遇敌、投球、治疗、打馆，再启动第二个进程读回徽章。联盟测试会检查门禁、战败治疗、五连战及名人堂快照。手机图鉴专项 `tools/test_android_dex.py --help` 列出设备序列号、ADB 与截图目录参数；它在已安装学习版的横屏模拟器上按游戏画面坐标点击。
 
 ## 从素材开始学习
 

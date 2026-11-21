@@ -9,10 +9,7 @@ const Growth := preload("res://core/growth.gd")
 const DexArt := preload("res://core/dex_art.gd")
 const DexEffect := preload("res://core/dex_effect.gd")
 
-const INK := Color(0.06, 0.09, 0.13, 0.94)
-const MINT := Color(0.42, 0.80, 0.72)
-const CREAM := Color(0.95, 0.96, 0.93)
-const DIM := Color(0.62, 0.68, 0.70)
+const UI := preload("res://core/field_ui.gd")
 const HUD_INK := Color("#374a45")
 const HP_HI := Color(0.42, 0.82, 0.52)
 const HP_MID := Color(0.94, 0.78, 0.34)
@@ -36,6 +33,7 @@ var player_hp: Control
 var msg: Label
 var menu: Control
 var move_menu: Control
+var sheet: Control
 var flash_t := 0.0
 var trainer_name := ""
 var backdrop := "grass"
@@ -85,8 +83,8 @@ func _build() -> void:
 
 	# 天气与场地：放在底部文字框上方那一行，右侧留给指令，不压血条也不压文字
 	field_label = Label.new()
-	field_label.position = Vector2(22, 233)
-	field_label.size = Vector2(276, 13)
+	field_label.position = Vector2(16, 233)
+	field_label.size = Vector2(212, 14)
 	field_label.clip_text = true
 	field_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	field_label.add_theme_font_size_override("font_size", 10)
@@ -96,10 +94,10 @@ func _build() -> void:
 	add_child(field_label)
 
 	msg = Label.new()
-	msg.position = Vector2(24, 246)
-	msg.size = Vector2(258, 56)
+	msg.position = Vector2(16, 242)
+	msg.size = Vector2(437, 64)
 	msg.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	msg.vertical_alignment = VERTICAL_ALIGNMENT_TOP
+	msg.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	msg.add_theme_font_size_override("font_size", 15)
 	msg.add_theme_color_override("font_color", Color.WHITE)
 	msg.add_theme_color_override("font_shadow_color", HUD_INK)
@@ -108,23 +106,9 @@ func _build() -> void:
 	add_child(msg)
 
 	menu = _make_menu()
-	move_menu = _make_move_menu()
+	move_menu = _frame(self,Rect2(0,224,480,96))
+	move_menu.name = "Moves"
 	move_menu.visible = false
-
-func _panel(pos: Vector2, size: Vector2, radius := 8) -> Panel:
-	var p := Panel.new()
-	p.position = pos
-	p.size = size
-	var sb := StyleBoxFlat.new()
-	sb.bg_color = INK
-	sb.set_corner_radius_all(radius)
-	sb.border_width_left = 1
-	sb.border_width_top = 1
-	sb.border_width_right = 1
-	sb.border_width_bottom = 1
-	sb.border_color = Color(MINT.r, MINT.g, MINT.b, 0.35)
-	p.add_theme_stylebox_override("panel", sb)
-	return p
 
 func _make_sprite(c: Dictionary, pos: Vector2, scale_f: float, rear := false) -> TextureRect:
 	var t := TextureRect.new()
@@ -203,90 +187,213 @@ func _make_hpbox(pos: Vector2, c: Dictionary, player: bool) -> Control:
 	_update_hpbox(box, c)
 	return box
 
-func _make_menu() -> Control:
-	# 底板收窄后右侧整列归指令：上排三个变化类指令，下面 2×2 常规四格
-	var extra: Array = []
-	if not battle.available_forms("a").is_empty():
-		extra.append(["变身", "form"])
-	if battle.can_use_z("a"):
-		extra.append(["Z招式", "z"])
-	if battle.can_use_tera("a"):
-		extra.append(["太晶化", "tera"])
+func _frame(parent: Control, rect: Rect2) -> NinePatchRect:
+	var frame := NinePatchRect.new()
+	frame.texture = preload("res://assets/emerald/ui/menu_frame.png")
+	frame.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	for side in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]:
+		frame.set_patch_margin(side, 8)
+	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	UI.place(parent,frame,rect.position.x,rect.position.y,rect.size.x,rect.size.y)
+	return frame
 
-	var h := 2 * 32 + 2
-	if not extra.is_empty():
-		h += 30
-	var wrap := Control.new()
-	wrap.size = Vector2(156, h)
-	wrap.position = Vector2(312, 318 - h)
-	add_child(wrap)
+func _rule(parent: Control, rect: Rect2) -> void:
+	var line := ColorRect.new()
+	line.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	line.color = Color("#d8dfd8")
+	UI.place(parent,line,rect.position.x,rect.position.y,rect.size.x,rect.size.y)
 
-	var base_y := 0
-	if not extra.is_empty():
-		var w := 50.0
-		for i in extra.size():
-			wrap.add_child(_cmd_button(String(extra[i][0]), String(extra[i][1]),
-				Vector2(i * (w + 3), 0), Vector2(w, 26)))
-		base_y = 30
-
-	var items: Array = [["战斗", "fight"], ["背包", "bag"], ["宝可梦", "switch"], ["逃跑", "flee"]]
-	for i in items.size():
-		wrap.add_child(_cmd_button(String(items[i][0]), String(items[i][1]),
-			Vector2((i % 2) * 76, base_y + (i / 2) * 32)))
-	return wrap
-
-func _cmd_button(text: String, kind: String, pos: Vector2, sz := Vector2(72, 28)) -> Button:
+func _choice(caption: String, action: Callable, font_size := 16) -> Button:
 	var b := Button.new()
-	b.text = text
-	b.position = pos
-	b.size = sz
-	b.add_theme_font_size_override("font_size", 14)
-	_style_button(b)
-	b.pressed.connect(_on_command_kind.bind(kind))
+	b.text = caption
+	b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	b.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	b.action_mode = BaseButton.ACTION_MODE_BUTTON_RELEASE
+	b.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	b.add_theme_font_size_override("font_size",font_size)
+	for style in ["normal","focus","hover","pressed","disabled","hover_pressed"]:
+		var bg_style := StyleBoxFlat.new()
+		bg_style.bg_color = Color.TRANSPARENT
+		if style == "pressed" or style == "hover_pressed":
+			bg_style.bg_color = Color("#d0e4d1")
+		elif style == "hover":
+			bg_style.bg_color = Color("#eaf2e4")
+		bg_style.content_margin_left = 18
+		bg_style.content_margin_right = 3
+		bg_style.content_margin_top = 0
+		bg_style.content_margin_bottom = 0
+		b.add_theme_stylebox_override(style,bg_style)
+	for key in ["font_color","font_hover_color","font_focus_color","font_pressed_color","font_hover_pressed_color"]:
+		b.add_theme_color_override(key,HUD_INK)
+	b.add_theme_color_override("font_disabled_color", Color("#7b887f"))
+	var arrow := Polygon2D.new()
+	arrow.polygon = PackedVector2Array([Vector2(0,0),Vector2(2,0),Vector2(2,2),Vector2(4,2),
+		Vector2(4,4),Vector2(6,4),Vector2(6,6),Vector2(4,6),Vector2(4,8),Vector2(2,8),
+		Vector2(2,10),Vector2(0,10)])
+	arrow.color = HUD_INK
+	arrow.visible = false
+	b.add_child(arrow)
+	b.resized.connect(func(): arrow.position = Vector2(6, floorf((b.size.y-10)*0.5)))
+	b.focus_entered.connect(func(): arrow.show())
+	b.focus_exited.connect(func(): arrow.hide())
+	if action.is_valid():
+		b.pressed.connect(action)
 	return b
 
-func _style_button(b: Button) -> void:
-	for st in ["normal", "hover", "pressed", "focus", "disabled"]:
-		var sb := StyleBoxFlat.new()
-		sb.bg_color = Color("#fffbdc") if st == "normal" else Color("#cedace")
-		sb.set_corner_radius_all(3)
-		sb.border_width_left = 1
-		sb.border_width_top = 1
-		sb.border_width_right = 1
-		sb.border_width_bottom = 1
-		sb.border_color = Color("#45594e")
-		b.add_theme_stylebox_override(st, sb)
-	for state_color in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color"]:
-		b.add_theme_color_override(state_color, HUD_INK)
+func _make_menu() -> Control:
+	var panel := _frame(self, Rect2(244,224,236,96))
+	panel.name = "Commands"
+	panel.hide()
+	_rule(panel,Rect2(118,13,1,70))
+	_rule(panel,Rect2(15,47,207,1))
+	var options := [["战斗","fight"],["背包","bag"],["宝可梦","switch"],["逃跑","flee"]]
+	for i in options.size():
+		var entry: Array = options[i]
+		var button := _choice(entry[0],_on_command_kind.bind(entry[1]),17)
+		button.name = entry[1]
+		UI.place(panel,button,8 + (i%2)*111,6 + floori(i/2.0)*42,111,41)
+	return panel
 
-func _make_move_menu() -> Control:
-	var wrap := Control.new()
-	wrap.position = Vector2(312, 242)
-	wrap.size = Vector2(156, 72)
-	add_child(wrap)
+func _open_commands(focus_key := "fight", prompt := "") -> void:
+	_close_sheet()
+	move_menu.hide()
+	menu.show()
+	field_label.show()
+	msg.show()
+	msg.size.x = 208
+	msg.text = "%s\n要怎么做？" % _display_name(battle.cur_a()) if prompt.is_empty() else prompt
+	menu.get_node(focus_key).grab_focus()
+	bg.queue_redraw()
 
+func _open_moves() -> void:
+	_close_sheet()
+	menu.hide()
+	msg.hide()
+	field_label.hide()
+	UI.clear(move_menu)
+	move_menu.show()
+	_rule(move_menu, Rect2(331,10,1,76))
 	var c: Dictionary = battle.cur_a()
-	var moves: Array = c.get("moves", [])
-	for i in 4:
-		var b := Button.new()
-		b.position = Vector2((i % 2) * 76, (i / 2) * 32)
-		b.size = Vector2(74, 28)
-		b.add_theme_font_size_override("font_size", 12)
-		_style_button(b)
-		if i < moves.size():
-			var mv: Dictionary = Data.move_of(int(moves[i]))
-			b.text = "%s" % String(mv.get("name", "?"))
-			b.tooltip_text = "威力 %d  PP %d" % [int(mv.get("power", 0)), int(c["pp"][i])]
-			b.pressed.connect(_on_move.bind(i))
-		else:
-			b.disabled = true
-			b.text = "—"
-		wrap.add_child(b)
-	return wrap
+	var moves: Array = c.moves
+	var first: Button
+	var exhausted := not (c.pp as Array).slice(0, moves.size()).any(func(v): return int(v)>0)
+	if exhausted:
+		first = _choice("挣扎",_on_move.bind(0))
+		first.name = "Struggle"
+		UI.place(move_menu,first,8,26,311,42)
+	for i in (0 if exhausted else mini(moves.size(),4)):
+		var mv: Dictionary = Data.move_of(int(moves[i]))
+		var b := _choice("",_on_move.bind(i))
+		b.name = "Move%d" % i
+		b.accessibility_name = str(mv.get("name","招式"))
+		UI.place(move_menu,b,8 + (i%2)*160,6 + floori(i/2.0)*42,159,42)
+		var name_text := UI.label(str(mv.get("name","?")),15,HUD_INK)
+		name_text.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		UI.place(b,name_text,18,1,138,23)
+		var uses := int(c.pp[i])
+		b.disabled = uses <= 0
+		var power := int(mv.get("power",0))
+		var effect := "变化" if str(mv.get("category","")) == "status" else ("威力%d" % power if power > 0 else "威力—")
+		var max_pp := int(mv.get("pp",uses)) + int(c.get("pp_bonus",{}).get(str(moves[i]),0))
+		var details := UI.label("%s · %s · PP %d/%d" % [Data.type_name(str(mv.get("type","normal"))),effect,uses,max_pp],
+			10,Color("#5c7369") if uses > 0 else Color("#a05340"))
+		UI.place(b,details,18,23,138,15)
+		if first == null and not b.disabled:
+			first = b
+	if not exhausted and moves.size() > 2:
+		_rule(move_menu,Rect2(20,47,295,1))
+	var special: bool = not battle.available_forms("a").is_empty() or _has_z_move() or battle.can_use_tera("a")
+	if special:
+		var more := _choice("特殊行动",_open_special,14)
+		more.name = "Special"
+		UI.place(move_menu,more,338,6,133,41)
+		_rule(move_menu,Rect2(349,47,113,1))
+	var back := _choice("返回",_open_commands,14)
+	UI.place(move_menu,back,338,48 if special else 27,133,42)
+	if first: first.grab_focus()
+	bg.queue_redraw()
+
+func _close_sheet() -> void:
+	if is_instance_valid(sheet):
+		remove_child(sheet)
+		sheet.queue_free()
+		sheet = null
+		menu.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_INHERITED
+		move_menu.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_INHERITED
+
+func _list_sheet(id: String, title: String, count: int, columns := 1) -> GridContainer:
+	_close_sheet()
+	var overlay := ColorRect.new()
+	overlay.name = id
+	overlay.color = Color("#14242a99")
+	add_child(overlay)
+	overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+	sheet = overlay
+	menu.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_DISABLED
+	move_menu.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_DISABLED
+	var width := 436 if columns == 2 else 328
+	var height := mini(276, 67 + maxi(1,ceili(float(count)/columns))*41)
+	var panel := _frame(overlay,Rect2((480-width)/2.0,(320-height)/2.0,width,height))
+	UI.place(panel,UI.label(title,18,HUD_INK),20,9,width-112,34)
+	var back := _choice("返回",handle_back,14)
+	back.name = "Return"
+	UI.place(panel,back,width-82,7,72,38)
+	back.grab_focus()
+	_rule(panel,Rect2(16,46,width-32,1))
+	var sc := UI.scroll(panel,Vector2(12,49),Vector2(width-24,height-59))
+	var list := GridContainer.new()
+	list.columns = columns
+	list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	list.add_theme_constant_override("h_separation",4)
+	list.add_theme_constant_override("v_separation",1)
+	sc.add_child(list)
+	return list
+
+func _row(list: GridContainer, caption: String, action: Callable, disabled := false) -> Button:
+	var b := _choice(caption,action,14)
+	b.disabled = disabled
+	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	b.custom_minimum_size.y = 40
+	list.add_child(b)
+	if not disabled and not list.has_meta("initial_focus"):
+		list.set_meta("initial_focus",true)
+		b.grab_focus()
+	return b
+
+func _empty(list: GridContainer, caption: String) -> void:
+	var info := UI.label(caption,14,HUD_INK)
+	info.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	info.custom_minimum_size = Vector2(0,40)
+	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	list.add_child(info)
+
+func handle_back() -> void:
+	if state != "menu":
+		return
+	if is_instance_valid(sheet):
+		match str(sheet.name):
+			"ZPanel":
+				_open_special()
+			"SpecialPanel", "FormPanel":
+				_open_moves()
+				if move_menu.has_node("Special"): move_menu.get_node("Special").grab_focus()
+			"BallPanel":
+				_open_commands("bag")
+			"SwitchPanel":
+				_open_commands("switch")
+	elif move_menu.visible:
+		_open_commands()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and state == "menu":
+		get_viewport().set_input_as_handled()
+		handle_back()
 
 func _draw_bg() -> void:
-	bg.draw_texture_rect(backdrop_texture, Rect2(0, 0, size.x, 224), false)
-	bg.draw_texture_rect(dialogue_texture, Rect2(0, 224, size.x, maxf(0, size.y - 224)), false)
+	bg.draw_texture_rect(backdrop_texture,Rect2(0,0,size.x,224),false)
+	var width := 250.0 if is_instance_valid(menu) and menu.visible else size.x
+	bg.draw_texture_rect(dialogue_texture,Rect2(0,224,width,size.y-224),false)
 
 func _dur(x: float) -> float:
 	return 0.02 if fast else x
@@ -312,8 +419,7 @@ func _process(delta: float) -> void:
 			wait -= delta
 			if wait <= 0:
 				state = "menu"
-				menu.visible = true
-				move_menu.visible = false
+				_open_commands()
 		"resolve":
 			if pending.size() > 0:
 				wait -= delta
@@ -331,139 +437,73 @@ func _process(delta: float) -> void:
 				finished.emit(battle.winner)
 				queue_free()
 
-func _on_command(i: int) -> void:
-	match i:
-		0:
-			menu.visible = false
-			move_menu.visible = true
-		1:
-			menu.visible = false
-			_open_balls()
-		2:
-			menu.visible = false
-			_open_switch()
-		3:
-			_try_flee()
-		4:
-			menu.visible = false
-			_open_transform()
-
 func _on_command_kind(kind: String) -> void:
+	if state != "menu":
+		return
 	match kind:
-		"fight":
-			menu.visible = false
-			move_menu.visible = true
-		"bag":
-			menu.visible = false
-			_open_balls()
-		"switch":
-			menu.visible = false
-			_open_switch()
-		"flee":
-			_try_flee()
-		"form":
-			menu.visible = false
-			_open_transform()
-		"z":
-			menu.visible = false
-			_open_z_moves()
-		"tera":
-			_do_tera()
+		"fight": _open_moves()
+		"bag": _open_balls()
+		"switch": _open_switch()
+		"flee": _try_flee()
+		"form": _open_transform()
+		"z": _open_z_moves()
+		"tera": _do_tera()
 
-## 按钮上写「Mega 进化」还是「极巨化」，看这只本来能变什么
 func transform_label() -> String:
 	return battle.form_action_label("a")
 
-## 形态面板：一只可能有 Mega X / Mega Y 两种，让玩家自己选
-func _open_transform() -> void:
-	if state != "menu":
-		return
-	var forms: Array = battle.available_forms("a")
-	if forms.is_empty():
-		menu.visible = true
-		return
-	var panel := Control.new()
-	panel.name = "FormPanel"
-	panel.position = Vector2(140, 60)
-	panel.size = Vector2(200, 120)
-	add_child(panel)
-	var bg := _panel(Vector2.ZERO, Vector2(200, 40 + forms.size() * 34), 10)
-	panel.add_child(bg)
-	var title := Label.new()
-	title.text = "选择变化"
-	title.position = Vector2(12, 8)
-	title.add_theme_font_size_override("font_size", 13)
-	title.add_theme_color_override("font_color", MINT)
-	panel.add_child(title)
-	for i in forms.size():
-		var f: Dictionary = forms[i]
-		var b := Button.new()
-		b.text = String(f.get("label", "形态"))
-		b.position = Vector2(12, 32 + i * 34)
-		b.size = Vector2(176, 28)
-		_style_button(b)
-		b.pressed.connect(func() -> void:
-			panel.queue_free()
-			_do_transform(String(f.get("key", ""))))
-		panel.add_child(b)
-	var back := Button.new()
-	back.text = "返回"
-	back.position = Vector2(12, 32 + forms.size() * 34)
-	back.size = Vector2(176, 26)
-	_style_button(back)
-	back.pressed.connect(func() -> void:
-		panel.queue_free()
-		menu.visible = true)
-	panel.add_child(back)
-
-## Z 招式面板：把这一招换成它的 Z 版本打出去
-func _open_z_moves() -> void:
-	if state != "menu":
-		return
+func _has_z_move() -> bool:
+	if not battle.can_use_z("a"):
+		return false
 	var c: Dictionary = battle.cur_a()
-	var moves: Array = c.get("moves", [])
-	var panel := Control.new()
-	panel.name = "ZPanel"
-	panel.position = Vector2(120, 60)
-	add_child(panel)
-	var h := 44 + moves.size() * 30 + 30
-	panel.add_child(_panel(Vector2.ZERO, Vector2(240, h), 10))
-	var title := Label.new()
-	title.text = "用哪一招发动 Z 力量"
-	title.position = Vector2(12, 8)
-	title.add_theme_font_size_override("font_size", 13)
-	title.add_theme_color_override("font_color", MINT)
-	panel.add_child(title)
-	for i in moves.size():
-		var mid := int(moves[i])
-		if mid <= 0:
-			continue
+	for i in c.moves.size():
+		if int(c.pp[i]) > 0 and battle.z_move_of(c,int(c.moves[i])) > 0:
+			return true
+	return false
+
+func _open_special() -> void:
+	var forms: Array = battle.available_forms("a")
+	var z := _has_z_move()
+	var tera: bool = battle.can_use_tera("a")
+	var list := _list_sheet("SpecialPanel","特殊行动",forms.size()+int(z)+int(tera))
+	for f in forms:
+		_row(list,str(f.label),_do_transform.bind(str(f.key)))
+	if z:
+		_row(list,"Z 招式",_open_z_moves)
+	if tera:
+		_row(list,"太晶化  ·  " + Data.type_name(str(battle.cur_a().tera_type)),_do_tera)
+
+func _open_transform() -> void:
+	var forms: Array = battle.available_forms("a")
+	if forms.is_empty(): return
+	var list := _list_sheet("FormPanel","选择变化",forms.size())
+	for f in forms:
+		_row(list,str(f.label),_do_transform.bind(str(f.key)))
+
+func _open_z_moves() -> void:
+	var c: Dictionary = battle.cur_a()
+	var list := _list_sheet("ZPanel","选择 Z 招式",c.moves.size())
+	for i in c.moves.size():
+		var mid := int(c.moves[i])
 		var base: Dictionary = Data.move_of(mid)
-		var zid: int = battle.z_move_of(c, mid)
-		var zname := String((Data.move_of(zid) as Dictionary).get("name", ""))
-		var b := Button.new()
-		b.text = "%s  →  %s" % [String(base.get("name", "?")), zname]
-		b.position = Vector2(12, 30 + i * 30)
-		b.size = Vector2(216, 26)
-		b.add_theme_font_size_override("font_size", 11)
-		_style_button(b)
-		b.pressed.connect(func() -> void:
-			panel.queue_free()
-			_do_z(i))
-		panel.add_child(b)
-	var back := Button.new()
-	back.text = "返回"
-	back.position = Vector2(12, 34 + moves.size() * 30)
-	back.size = Vector2(216, 24)
-	_style_button(back)
-	back.pressed.connect(func() -> void:
-		panel.queue_free()
-		menu.visible = true)
-	panel.add_child(back)
+		var zid: int = battle.z_move_of(c,mid)
+		var zname := str(Data.move_of(zid).get("name","暂无 Z 形态"))
+		_row(list,"%s → %s" % [base.get("name","?"), zname],_do_z.bind(i),zid<=0 or int(c.pp[i])<=0)
+
+func _begin_resolve() -> void:
+	_close_sheet()
+	menu.hide()
+	move_menu.hide()
+	state = "resolve"
+	field_label.show()
+	msg.show()
+	msg.size.x = 437
+	bg.queue_redraw()
+
 
 func _do_z(idx: int) -> void:
 	var r: Dictionary = battle.use_z("a", idx)
-	state = "resolve"
+	_begin_resolve()
 	pending.clear()
 	pending.append(String(r.get("text", "")))
 	battle.run_turn("z:%d" % idx, "move:0")
@@ -478,7 +518,7 @@ func _do_z(idx: int) -> void:
 
 func _do_tera() -> void:
 	var r: Dictionary = battle.use_tera("a")
-	state = "resolve"
+	_begin_resolve()
 	pending.clear()
 	pending.append(String(r.get("text", "")))
 	battle.run_turn("item", "move:0")
@@ -492,7 +532,7 @@ func _do_tera() -> void:
 
 func _do_transform(form_key: String) -> void:
 	var r: Dictionary = battle.transform("a", form_key)
-	state = "resolve"
+	_begin_resolve()
 	pending.clear()
 	pending.append(String(r.get("text", "")))
 	# 变形算这一回合的行动，对手照样出手
@@ -509,76 +549,21 @@ const BALL_BONUS := {"精灵球": 1.0, "超级球": 1.5, "高级球": 2.0, "大�
 
 ## 投球面板：只列背包里数量>0 的球，别的道具战斗中不给用
 func _open_balls() -> void:
-	if state != "menu":
-		return
+	if state != "menu": return
 	if trainer_name != "":
-		menu.visible = true
-		msg.text = "训练家对战不能投球。"
+		_open_commands("bag","训练家对战不能投球。")
 		return
-	var ball_rows: Array = []
-	for it in bag:
-		if not (it is Dictionary):
-			continue
-		if String((it as Dictionary).get("category", "")) != "ball":
-			continue
-		if int((it as Dictionary).get("count", 0)) <= 0:
-			continue
-		ball_rows.append(it)
+	var balls: Array = bag.filter(func(it): return it is Dictionary and it.get("category","") == "ball" and int(it.get("count",0)) > 0)
+	var list := _list_sheet("BallPanel","选择精灵球",balls.size())
+	if balls.is_empty():
+		_empty(list,"背包里没有精灵球。")
+	for it in balls:
+		var ball_name := str(it.get("name","精灵球"))
+		_row(list,"%s    ×%d" % [ball_name,it.get("count",0)],_throw.bind(ball_name))
 
-	var panel := Control.new()
-	panel.name = "BallPanel"
-	panel.position = Vector2(140, 40)
-	add_child(panel)
-	var h := 96 + ball_rows.size() * 30
-	var bg := ColorRect.new()
-	bg.color = Color(0.04, 0.07, 0.10, 1.0)
-	bg.size = Vector2(320, h)
-	panel.add_child(bg)
-	var frame := ReferenceRect.new()
-	frame.size = Vector2(320, h)
-	frame.border_color = Color(0.55, 0.86, 0.78, 0.9)
-	frame.border_width = 1.0
-	panel.add_child(frame)
 
-	var title := Label.new()
-	title.position = Vector2(12, 8)
-	title.text = "用哪个球？"
-	title.add_theme_font_size_override("font_size", 13)
-	title.add_theme_color_override("font_color", MINT)
-	panel.add_child(title)
-
-	if ball_rows.is_empty():
-		var t := Label.new()
-		t.position = Vector2(12, 40)
-		t.text = "背包里没有精灵球。"
-		t.add_theme_font_size_override("font_size", 12)
-		t.add_theme_color_override("font_color", CREAM)
-		panel.add_child(t)
-
-	for i in ball_rows.size():
-		var it: Dictionary = ball_rows[i]
-		var b := Button.new()
-		b.position = Vector2(12, 34 + i * 30)
-		b.size = Vector2(296, 26)
-		b.add_theme_font_size_override("font_size", 12)
-		b.text = "%s  ×%d" % [String(it.get("name", "?")), int(it.get("count", 0))]
-		_style_button(b)
-		b.pressed.connect(_throw.bind(String(it.get("name", "精灵球")), panel))
-		panel.add_child(b)
-
-	var back := Button.new()
-	back.text = "返回"
-	back.position = Vector2(12, h - 34)
-	back.size = Vector2(296, 26)
-	_style_button(back)
-	back.pressed.connect(func() -> void:
-		panel.queue_free()
-		menu.visible = true)
-	panel.add_child(back)
-
-func _throw(ball_name: String, panel: Control) -> void:
-	panel.queue_free()
-	state = "resolve"
+func _throw(ball_name: String) -> void:
+	_begin_resolve()
 	pending.clear()
 	item_used.emit(ball_name)
 	var res: Dictionary = battle.throw_ball(float(BALL_BONUS.get(ball_name, 1.0)), ball_name)
@@ -600,69 +585,31 @@ func _throw(ball_name: String, panel: Control) -> void:
 
 ## 换人面板：只列没倒下的、且不是当前上场的那只，避免出现两个自己
 func _open_switch() -> void:
-	if state != "menu":
-		return
-	var panel := Control.new()
-	panel.name = "SwitchPanel"
-	panel.position = Vector2(20, 30)
-	add_child(panel)
-	var bg := ColorRect.new()
-	bg.color = Color(0.05, 0.08, 0.11, 0.97)
-	bg.size = Vector2(440, 90 + ceili(player_team.size() / 2.0) * 28)
-	panel.add_child(bg)
-
-	var title := Label.new()
-	title.position = Vector2(12, 8)
-	title.text = "换哪一只上场？"
-	title.add_theme_font_size_override("font_size", 13)
-	title.add_theme_color_override("font_color", MINT)
-	panel.add_child(title)
-
-	var alive_other := 0
+	if state != "menu": return
+	var list := _list_sheet("SwitchPanel","选择上场的宝可梦",player_team.size(),2)
 	for i in player_team.size():
-		var c: Dictionary = player_team[i]
-		var b := Button.new()
-		b.position = Vector2(12 + (i % 2) * 211, 32 + floori(i / 2.0) * 28)
-		b.size = Vector2(207, 26)
-		b.add_theme_font_size_override("font_size", 12)
-		_style_button(b)
-		var is_active: bool = i == int(battle.active_a)
-		if bool(c.get("fainted", false)) or is_active:
-			b.disabled = true
-			b.text = "%s  Lv%d  %s%s" % [String(c.get("name", "?")), int(c.get("level", 1)),
-				String(c.get("hp_text", "")), "  （已倒下）" if bool(c.get("fainted", false)) else "  （场上）"]
-		else:
-			alive_other += 1
-			b.text = "%s  Lv%d  %d/%d" % [String(c.get("name", "?")), int(c.get("level", 1)),
-				int(c.get("hp", 0)), int(c.get("max_hp", 1))]
-			b.pressed.connect(_do_switch.bind(i, panel))
-		panel.add_child(b)
-
-	if alive_other == 0:
-		var t := Label.new()
-		t.position = Vector2(12, bg.size.y - 55)
-		t.text = "没有可以换上场的宝可梦。"
-		t.add_theme_font_size_override("font_size", 12)
-		t.add_theme_color_override("font_color", CREAM)
-		panel.add_child(t)
-
-	var back := Button.new()
-	back.text = "返回"
-	back.position = Vector2(12, bg.size.y - 34)
-	back.size = Vector2(416, 26)
-	_style_button(back)
-	back.pressed.connect(func() -> void:
-		panel.queue_free()
-		menu.visible = true)
-	panel.add_child(back)
+		var mon: Dictionary = player_team[i]
+		var active := i == int(battle.active_a)
+		var fainted := bool(mon.get("fainted",false))
+		var b := _row(list,"",_do_switch.bind(i),active or fainted)
+		b.accessibility_name = "%s  Lv.%d  %d/%d" % [mon.name,mon.level,mon.hp,mon.max_hp]
+		var image := UI.member_portrait(mon)
+		UI.place(b,image,14,0,40,40)
+		var title := UI.label(str(mon.name),14,HUD_INK)
+		title.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		UI.place(b,title,56,0,140,22)
+		var stats := "Lv.%d   %d/%d" % [mon.level,mon.hp,mon.max_hp]
+		if active: stats += "   场上"
+		elif fainted: stats += "   已倒下"
+		UI.place(b,UI.label(stats,10,Color("#5c7369")),56,21,140,17)
 
 func _try_flee() -> void:
 	if state != "menu":
 		return
 	if trainer_name != "":
-		msg.text = "训练家对战不能逃跑。"
+		_open_commands("flee","训练家对战不能逃跑。")
 		return
-	state = "resolve"
+	_begin_resolve()
 	pending.clear()
 	var res: Dictionary = battle.try_flee()
 	pending.append(String(res.get("text", "")))
@@ -674,9 +621,8 @@ func _try_flee() -> void:
 	msg.text = ""
 	wait = _dur(0.1)
 
-func _do_switch(index: int, panel: Control) -> void:
-	panel.queue_free()
-	state = "resolve"
+func _do_switch(index: int) -> void:
+	_begin_resolve()
 	pending.clear()
 	battle.run_turn("switch:%d" % index, "move:0")
 	pending = battle.log.duplicate()
@@ -688,7 +634,7 @@ func _on_move(i: int) -> void:
 	if state != "menu":
 		return
 	move_menu.visible = false
-	state = "resolve"
+	_begin_resolve()
 	pending.clear()
 	battle.run_turn("move:%d" % i, "move:0")
 	pending = battle.log.duplicate()
@@ -716,7 +662,7 @@ func _after_resolve() -> void:
 				msg.text = "平局。"
 	else:
 		state = "menu"
-		menu.visible = true
+		_open_commands()
 	_refresh_field_label()
 
 func _refresh_hp() -> void:

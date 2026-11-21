@@ -51,6 +51,12 @@ def sprite(pixels, colors):
 
 def build(graphics, dest):
     dest.mkdir(parents=True, exist_ok=True)
+    # DrawStdWindowFrame uses the nine 8px tiles of the selected window frame.
+    # Index 0 lets the map show through outside the corners and outer lip.
+    with Image.open(graphics / "text_window/1.png") as frame:
+        frame.info["transparency"] = 0
+        frame.convert("RGBA").save(dest / "menu_frame.png", optimize=True)
+
     title = graphics / "title_screen"
     colors = palette(title / "rayquaza_and_clouds.pal")
     # The original title animates palette entry 15. Use its bright gold-green frame.
