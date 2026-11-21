@@ -342,6 +342,7 @@ func _list_sheet(id: String, title: String, count: int, columns := 1) -> GridCon
 	back.grab_focus()
 	_rule(panel,Rect2(16,46,width-32,1))
 	var sc := UI.scroll(panel,Vector2(12,49),Vector2(width-24,height-59))
+	sc.follow_focus = true
 	var list := GridContainer.new()
 	list.columns = columns
 	list.size_flags_horizontal = Control.SIZE_EXPAND_FILL

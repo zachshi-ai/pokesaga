@@ -90,7 +90,7 @@ func run() -> void:
 	var choices := scroll.find_children("*","Button",true,false)
 	expect(choices.size()==12 and choices[0].disabled,"12 teammates")
 	var last: Button = choices.back()
-	scroll.ensure_control_visible(last)
+	last.grab_focus()
 	await process_frame
 	expect(scroll.scroll_vertical>0 and scroll.get_global_rect().has_point(last.get_global_rect().get_center()),"twelfth teammate reachable")
 	last.pressed.emit()
