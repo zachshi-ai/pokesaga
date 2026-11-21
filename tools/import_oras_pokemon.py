@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 import subprocess
+import tempfile
 from pathlib import Path
 
 from PIL import Image
@@ -99,7 +100,14 @@ def build(sprites, project):
                     forms.setdefault(key,slots)
         if forms: index[number] = forms
     for page, picture in enumerate(pages):
-        picture.save(target/f'{page}.webp',lossless=True,method=4)
+        # Replace the completed page in one rename. A live Godot editor watches this directory.
+        with tempfile.NamedTemporaryFile(dir=target,suffix='.tmp',delete=False) as temp:
+            temp_path = Path(temp.name)
+        try:
+            picture.save(temp_path,format='WEBP',lossless=True,method=4)
+            temp_path.replace(target/f'{page}.webp')
+        finally:
+            temp_path.unlink(missing_ok=True)
     (project/'content/oras_pokemon.json').write_text(json.dumps({"forms": index,"feet": feet},sort_keys=True,separators=(',',':'))+'\n')
     print(source_counts, len(index),'species;',len(digests),'unique views')
 
