@@ -35,7 +35,7 @@ func _build() -> void:
 	var side := Panel.new()
 	side.add_theme_stylebox_override("panel",UI.box(UI.GREEN,UI.GREEN,7))
 	UI.place(base,side,8,54,left,base.size.y-62)
-	UI.landscape(side,1,1,left-2,86)
+	UI.party_panel(side,1,1,left-2,86)
 	var lead: Dictionary = {}
 	for entry in party:
 		if entry is Dictionary and not entry.is_empty():

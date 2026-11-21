@@ -2,6 +2,7 @@ extends "test_world_walks.gd"
 ## Verify the entire directed map registry from the new-game bedroom and replay
 ## dynamic centre stairs, ferry voyages and elevators through World.step.
 
+const Field := preload("res://core/emerald_field.gd")
 const Passage := preload("res://core/passage_memory.gd")
 var journal := {}
 var originals := {}
@@ -45,6 +46,16 @@ func check_graph() -> int:
 			if not reverse.has(key):reverse[key]=[]
 			graph[key]=[]
 			var map: Dictionary=db.load_map(str(r),str(mid))
+			var field := Field.plan_for(map)
+			if field.is_empty():
+				fail("missing Emerald scenery for "+key)
+				return 0
+			var bytes := int(field.s[0]) * int(field.s[1]) * 2
+			for layer in ["t","a"]:
+				if layer=="a" and not field.has(layer):continue
+				if Marshalls.base64_to_raw(field[layer]).decompress(bytes, FileAccess.COMPRESSION_DEFLATE).size()!=bytes:
+					fail("invalid Emerald tile layer "+key+" "+layer)
+					return 0
 			var cells := {}
 			for w in map.warps:
 				var at:=vec(w.at)

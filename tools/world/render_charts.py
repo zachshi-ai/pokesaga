@@ -1,4 +1,4 @@
-"""Render bathymetry and shaded relief around the game's registered map coordinates."""
+"""Draw PokéNav-style pixel charts around the game's registered map coordinates."""
 import argparse
 import hashlib
 import json
@@ -8,7 +8,7 @@ import numpy as np
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
-SIZE = (750, 570)
+SIZE = (240, 168)
 W, H = SIZE
 Y, X = np.mgrid[0:H, 0:W]
 X = X / W
@@ -22,32 +22,30 @@ def noise(rng, nx, ny):
 
 def chart(key, hills):
     rng = np.random.default_rng(int(hashlib.sha256(key.encode()).hexdigest()[:8], 16))
-    coast = noise(rng, 17, 13) * .24 + noise(rng, 55, 40) * .075
-    fine = noise(rng, 127, 89)
-    elevation = np.full((H, W), -2.)
+    coast = noise(rng, 21, 16) * .30 + noise(rng, 52, 37) * .10
+    heights = np.full((H, W), -2.)
     for x, y, rx, ry in hills:
         angle = rng.uniform(-1.1, 1.1)
-        dx, dy = X-x, Y-y
-        u = (dx*np.cos(angle)+dy*np.sin(angle))/rx
-        v = (dy*np.cos(angle)-dx*np.sin(angle))/ry
-        elevation = np.maximum(elevation, 1 - np.sqrt(u*u + v*v))
-    elevation += coast + fine*.035
-    peaks = np.maximum(0, elevation + noise(rng, 25, 19)*.62)
-    colors = np.array([[18,76,113],[30,110,147],[66,162,179],[131,204,202],
-                       [226,223,173],[171,198,135],[109,165,116],[79,135,108],
-                       [145,157,127],[209,201,168],[237,234,210]])
-    levels = [-1.1,-.55,-.23,-.05,0,.06,.22,.42,.61,.80,.99]
-    height = np.where(elevation > .045, np.maximum(.046, .68*elevation+.32*peaks),elevation)
-    image = np.stack([np.interp(height, levels, colors[:, i]) for i in range(3)], axis=-1)
-    dy, dx = np.gradient(height)
-    shade = np.where(elevation>0, np.clip(-(dx*1700+dy*2100),-24,24), 0)
-    image += (shade + fine * 4)[:,:,None]
-    for depth in (-.12,-.34,-.59):
-        image[np.abs(elevation-depth)<.006] += 9
-    grid = ((np.mod(np.arange(W), W/12)<1)[None,:] | (np.mod(np.arange(H), H/9)<1)[:,None])
-    image[grid & (elevation<-.07)] += 7
-    output = ROOT/'assets/atlas'/f'{key}.webp'
-    Image.fromarray(np.uint8(np.clip(image,0,255))).save(output, quality=87, method=6)
+        u = ((X-x)*np.cos(angle) + (Y-y)*np.sin(angle)) / rx
+        v = ((Y-y)*np.cos(angle) - (X-x)*np.sin(angle)) / ry
+        heights = np.maximum(heights, 1 - np.sqrt(u*u + v*v))
+    heights += coast
+    # Keep the GBA chart's alternating sea scanlines, stepped coast and flat
+    # elevation bands. The overlays in atlas_chart.gd share these coordinates.
+    levels = np.zeros((H, W), dtype=np.uint8)
+    levels[1::2] = 1
+    relief = heights + noise(rng, 13, 10)*.70
+    levels[heights > -.18] = 2
+    levels[heights > -.08] = 3
+    land = heights > 0
+    levels[land] = 4
+    for threshold, index in [(0.07,5),(.26,6),(.44,7),(.62,8),(.78,9),(.91,10)]:
+        levels[land & (relief > threshold)] = index
+    colors = [(95,157,218),(115,181,225),(137,203,228),(183,224,226),
+              (41,122,79),(75,163,77),(113,183,78),(155,201,80),
+              (187,208,101),(213,180,90),(232,202,125)]
+    image = Image.fromarray(np.array(colors, dtype=np.uint8)[levels])
+    image.save(ROOT/'assets/atlas'/f'{key}.webp', lossless=True, method=6)
 
 
 def main():

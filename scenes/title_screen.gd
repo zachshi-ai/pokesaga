@@ -1,12 +1,11 @@
 extends Control
-## Cover illustration: PokeAPI/sprites c0542f7c51215d9672439012838c99f520596cbd,
-## sprites/pokemon/other/official-artwork/10077.png (Primal Kyogre).
+## Rayquaza is assembled from Emerald’s original 240 × 160 title tilemap.
 const UI := preload("res://core/field_ui.gd")
-const KYOGRE := preload("res://assets/ui/title/primal_kyogre.png")
-const OCEAN := preload("res://scenes/title_ocean.gdshader")
-const ICE := Color("#e8fbff")
-const AQUA := Color("#8ce8e0")
-const MIDNIGHT := Color("#092a51")
+const COVER := preload("res://assets/emerald/ui/rayquaza_title.png")
+const MARKINGS := preload("res://scenes/title_markings.gdshader")
+const ICE := Color("#fff8d6")
+const AQUA := Color("#f9e780")
+const MIDNIGHT := Color("#155048")
 
 signal start_requested(fresh: bool)
 signal quit_requested
@@ -17,42 +16,31 @@ var cancel_button: Button
 var confirm_button: Button
 var confirmation: Control
 var status_line: Label
-var illustration: TextureRect
 var has_file := false
-var time := 0.0
 
 func setup(saved: Dictionary, file_exists: bool) -> void:
 	has_file = file_exists
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var sea := ColorRect.new()
-	var shader_material := ShaderMaterial.new()
-	shader_material.shader = OCEAN
-	sea.material = shader_material
-	add_child(sea)
-	sea.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-
-	illustration = UI.art("")
-	illustration.texture = KYOGRE
-	illustration.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
-	UI.place(self, illustration, 187, -6, 286, 289)
+	var cover := UI.art("")
+	cover.texture = COVER
+	cover.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	cover.stretch_mode = TextureRect.STRETCH_SCALE
+	var palette := ShaderMaterial.new()
+	palette.shader = MARKINGS
+	cover.material = palette
+	UI.place(self,cover,0,0,480,320)
 
 	var wordmark := UI.label("P O K É S A G A", 13, AQUA)
-	UI.place(self, wordmark, 24, 47, 150, 26)
-	var title := UI.label("宝可梦", 40, ICE)
-	UI.place(self, title, 21, 69, 180, 54)
-	var saga := UI.label("传说", 40, ICE)
-	UI.place(self, saga, 21, 111, 146, 54)
+	UI.place(self,wordmark,24,12,180,24)
+	var title := UI.label("宝可梦传说", 36, ICE)
+	UI.place(self,title,21,31,275,55)
 	var title_font := FontVariation.new()
 	title_font.base_font = get_theme_default_font()
 	title_font.variation_embolden = 0.38
-	for text in [title, saga]:
-		text.add_theme_font_override("font", title_font)
-		text.add_theme_constant_override("shadow_offset_x", 2)
-		text.add_theme_constant_override("shadow_offset_y", 2)
-		text.add_theme_color_override("font_shadow_color", Color("#07355a"))
-	var rule := ColorRect.new()
-	rule.color = AQUA
-	UI.place(self, rule, 25, 170, 46, 2)
+	title.add_theme_font_override("font", title_font)
+	title.add_theme_constant_override("shadow_offset_x", 2)
+	title.add_theme_constant_override("shadow_offset_y", 2)
+	title.add_theme_color_override("font_shadow_color", MIDNIGHT)
 
 	if not saved.is_empty():
 		continue_button = _button("继续冒险    ›", func(): start_requested.emit(false), true)
@@ -67,22 +55,18 @@ func setup(saved: Dictionary, file_exists: bool) -> void:
 	if has_file and saved.is_empty():
 		status_line = UI.label("原存档暂时无法读取。", 11, ICE)
 		UI.place(self, status_line, 24, 248, 183, 22)
-	set_process(true)
 
 func _button(caption: String, action: Callable, primary: bool) -> Button:
 	var b := UI.button(caption, action)
-	var normal := Color("#92e7df") if primary else Color("#103859")
+	var normal := Color("#FAE186") if primary else Color("#155048")
 	var ink := MIDNIGHT if primary else ICE
 	for key in ["normal", "hover", "pressed"]:
 		var fill := normal if key == "normal" else normal.lightened(0.12)
-		b.add_theme_stylebox_override(key, UI.box(fill, Color("#7ec4d7"), 5))
+		b.add_theme_stylebox_override(key, UI.box(fill, Color("#afc694"), 3))
 		b.add_theme_color_override("font_color" if key == "normal" else "font_" + key + "_color", ink)
+	b.add_theme_color_override("font_focus_color", ink)
 	b.add_theme_font_size_override("font_size", 16)
 	return b
-
-func _process(delta: float) -> void:
-	time += delta
-	illustration.position.y = -6 + sin(time*0.72)*2.5
 
 func _on_new() -> void:
 	if is_instance_valid(confirmation):
@@ -95,10 +79,10 @@ func _on_new() -> void:
 	add_child(confirmation)
 	confirmation.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var card := Panel.new()
-	card.add_theme_stylebox_override("panel", UI.box(MIDNIGHT, AQUA, 8))
+	card.add_theme_stylebox_override("panel", UI.box(MIDNIGHT, AQUA, 4))
 	UI.place(confirmation, card, 68, 72, 344, 174)
 	UI.place(card, UI.label("开始新的冒险？", 23, ICE), 17, 17, 309, 32)
-	UI.place(card, UI.wrapped("现有进度会替换为新档。", 15, AQUA), 18, 63, 300, 36)
+	UI.place(card, UI.label("现有进度会替换为新档。", 15, AQUA), 18, 63, 300, 36)
 	cancel_button = _button("保留原存档", _cancel, true)
 	confirm_button = _button("重新开始", func(): start_requested.emit(true), false)
 	UI.place(card, cancel_button, 17, 112, 147, 42)

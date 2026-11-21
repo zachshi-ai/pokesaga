@@ -10,12 +10,15 @@ from asset_paths import REPO, source_path
 # Restrict large upstream repositories to files used by the production stages.
 PATHS = {
     "crystal": ["constants","data","gfx/tilesets","maps"],
-    "firered": ["data/layouts","data/maps","data/tilesets","include/constants"],
+    "firered": ["data/layouts","data/maps","data/tilesets","include/constants","graphics/object_events/pics/people"],
     "emerald": ["graphics/items","graphics/pokemon","src/data/graphics","src/data/pokemon","sound/songs/midi"],
+    "emerald_original": ["data/maps","data/layouts","data/tilesets","graphics/pokemon",
+                         "graphics/battle_environment","graphics/battle_interface","graphics/object_events/pics",
+                         "graphics/title_screen","graphics/pokenav/region_map","graphics/bag",
+                         "graphics/party_menu","graphics/items"],
     "pokeapi": ["data/v2/csv"],
     "sprites": ["sprites/pokemon/back/female","sprites/pokemon/back/shiny/female",
-                "sprites/pokemon/versions/generation-ix/scarlet-violet",
-                "sprites/pokemon/versions/generation-vi/omega-ruby-alpha-sapphire","sprites/pokemon/other/home"],
+                "sprites/pokemon/versions/generation-ix/scarlet-violet"],
     "noto": ["Sans/OTF/SimplifiedChinese"],
 }
 
@@ -26,7 +29,7 @@ def fetch(name, pin):
         head = subprocess.check_output(["git","-C",str(destination),"rev-parse","HEAD"],text=True).strip()
         if head != pin["revision"]:
             raise SystemExit(f"{destination} is at {head}; expected {pin['revision']}. Select another input directory.")
-        if name == "sprites" and not all((destination/p).is_dir() for p in PATHS[name]):
+        if not all((destination/p).is_dir() for p in PATHS[name]):
             subprocess.run(["git","-C",str(destination),"sparse-checkout","add",*PATHS[name]],check=True)
         print(f"{name} {head} ({destination})", flush=True)
         return

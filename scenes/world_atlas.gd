@@ -4,8 +4,8 @@ signal trip_requested(region_id: String)
 
 const UI := preload("res://core/field_ui.gd")
 const Chart := preload("res://scenes/atlas_chart.gd")
-const NAVY := Color("#133c56")
-const TEAL := Color("#167c84")
+const NAVY := Color("#224e4d")
+const TEAL := Color("#347c64")
 const PAPER := Color("#f4f2e5")
 const KIND := {"city":"城市","town":"城镇","route":"道路","landmark":"地标","crossing":"通道","facility":"设施"}
 
@@ -127,7 +127,7 @@ func _render(preserve_scroll := 0) -> void:
 		info.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 		UI.place(self,info,91,277,128 if region_id=="hoenn" else 213,34)
 		if region_id=="hoenn":
-			UI.place(self,_btn("丰缘原画",_show_hoenn_art),222,276,88,36)
+			UI.place(self,_btn("丰缘地图",_show_hoenn_art),222,276,88,36)
 	if travel and not world_view:
 		UI.place(self,_btn("出发前往"+str(region.name),_depart,true),314,274,161,40)
 	else:
@@ -144,14 +144,14 @@ func _render_hoenn_art() -> void:
 	band.color = NAVY
 	UI.place(self,band,0,0,480,42)
 	UI.place(band,_btn("‹ 返回",handle_back),6,5,52,32)
-	UI.place(band,UI.label("丰缘全景原画",18,Color.WHITE),68,2,177,36)
-	UI.place(band,UI.label("始源蓝宝石 · 终极红宝石",11,Color("#bce8e8")),271,5,202,30)
+	UI.place(band,UI.label("丰缘地区地图",18,Color.WHITE),68,2,177,36)
+	UI.place(band,UI.label("宝可导航 · 绿宝石",11,Color("#bce8e8")),271,5,202,30)
 	var sea := ColorRect.new()
 	sea.color = NAVY
 	UI.place(self,sea,0,42,480,278)
 	chart = Chart.new()
-	UI.place(self,chart,49,42,382,270)
-	chart.setup("hoenn_art",{},[],"","")
+	UI.place(self,chart,46,57,388,238)
+	chart.setup("hoenn_map",{},[],"","")
 	UI.place(self,_btn("−",func(): chart.magnify(-.5)),4,275,38,36)
 	UI.place(self,_btn("＋",func(): chart.magnify(.5)),438,275,38,36)
 

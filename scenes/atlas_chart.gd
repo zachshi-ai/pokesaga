@@ -1,5 +1,5 @@
 extends Control
-## Interactive paper chart. Positions share the coordinate system used to paint the relief.
+## Pixel map. Markers and route links follow the same coordinates as the generated coastlines.
 signal picked(id: String)
 
 var art: Texture2D
@@ -17,13 +17,15 @@ var moved := false
 
 func setup(chart_id: String, markers: Dictionary, links: Array, current: String, focus: String) -> void:
 	var path := "res://assets/atlas/%s.webp" % chart_id
+	if chart_id == "hoenn_map":
+		path = "res://assets/emerald/ui/hoenn_map.png"
 	art = load(path) if ResourceLoader.exists(path) else null
 	points = markers
 	edges = links
 	here = current
 	selected = focus
 	overview = chart_id == "world"
-	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	clip_contents = true
 	queue_redraw()
 
@@ -43,7 +45,7 @@ func _limit_pan() -> void:
 
 func _draw() -> void:
 	var area := Rect2(pan, size*zoom)
-	draw_rect(Rect2(Vector2.ZERO,size), Color("#196487"))
+	draw_rect(Rect2(Vector2.ZERO,size), Color("#73b5e1"))
 	if art:
 		draw_texture_rect(art, area, false)
 	for edge in edges:
@@ -51,19 +53,20 @@ func _draw() -> void:
 			continue
 		var a := _pos(str(edge[0]))
 		var b := _pos(str(edge[1]))
-		draw_line(a,b,Color("#264c66ad"),2.9 if overview else 2.0,true)
-		draw_dashed_line(a,b,Color("#ffebbf"),1.25 if overview else 1.0,4,true,true)
+		draw_line(a,b,Color("#645c45"),2.5 if overview else 2.0,false)
+		draw_dashed_line(a,b,Color("#ffdf82"),1.0,4,true,false)
 	for key in points:
 		var pos := _pos(key)
 		var minor: bool = points[key].get("minor",false)
 		var primary: bool = (overview and (not minor or zoom>=1.9)) or key == selected or key == here
 		var town: bool = points[key].get("town",false)
-		var r := 4.4 if primary else (2.9 if town or overview else 1.55)
+		var r := 4 if primary else (3 if town or overview else 2)
+		var marker_rect := Rect2(pos.round()-Vector2(r,r),Vector2(2*r,2*r))
 		if key == here:
-			draw_arc(pos,r+3,0,TAU,24,Color("#fff5d6"),1.5,true)
-		draw_circle(pos,r+1.3,Color("#143851"),true,-1,true)
-		var marker := Color("#c4bcea") if points[key].get("layer",false) else (Color("#a7e8de") if minor else Color("#e1f8e9"))
-		draw_circle(pos,r,Color("#ffbc69") if key==here or key==selected else marker,true,-1,true)
+			draw_rect(marker_rect.grow(3), Color("#fff6bd"),false,1.0)
+		draw_rect(marker_rect, Color("#344f57"))
+		var marker := Color("#baafd8") if points[key].get("layer",false) else (Color("#9ddad1") if minor else Color("#e6f6ce"))
+		draw_rect(marker_rect.grow(-1),Color("#ff8e54") if key==here or key==selected else marker)
 		if primary or (town and zoom>=1.9):
 			var title := str(points[key].name)
 			var font := get_theme_default_font()

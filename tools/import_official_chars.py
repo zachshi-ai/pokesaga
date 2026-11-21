@@ -1,91 +1,49 @@
-#!/usr/bin/env python3
-"""导出绿宝石原版角色图：玩家用 brendan 九帧行走图，NPC 用各职业的第一帧。
+"""Build Emerald overworld sprites. Kanto-only characters use their GBA FireRed art."""
+from pathlib import Path
 
-原图是 P 模式索引色，索引 0 需要转成透明，否则会带一块底色。
-"""
-from asset_paths import project_path, source_path
-
-import os
 from PIL import Image
 
-SRC = source_path("emerald", "graphics/object_events/pics/people")
-OUT = project_path("assets")
+from asset_paths import project_path, source_path
 
 
-def to_rgba(path):
-    im = Image.open(path).convert("P")
-    pal = im.getpalette()
-    out = Image.new("RGBA", im.size, (0, 0, 0, 0))
-    px = im.load()
-    op = out.load()
-    for y in range(im.height):
-        for x in range(im.width):
-            v = px[x, y]
-            if v == 0:
-                continue
-            r = pal[v * 3] if pal else 0
-            g = pal[v * 3 + 1] if pal else 0
-            b = pal[v * 3 + 2] if pal else 0
-            op[x, y] = (r, g, b, 255)
-    return out
+EMERALD = {
+    "aroma_lady":"woman_4", "battle_girl":"running_triathlete_f", "beauty":"beauty",
+    "bird_keeper":"boy_2", "blackbelt":"black_belt", "breeder":"woman_3",
+    "bug_catcher":"bug_catcher", "camper":"camper", "clerk":"mart_employee",
+    "expert_m":"expert_m", "fisherman":"fisherman", "gentleman":"gentleman",
+    "hiker":"hiker", "kindler":"man_3", "lass":"lass", "man":"man_1",
+    "mom":"mom", "navigator":"frontier_brains/brandon", "nurse":"nurse",
+    "old_expert":"expert_m", "old_man":"old_man", "old_woman":"old_woman",
+    "picnicker":"picnicker", "pokefan_f":"pokefan_f", "pokefan_m":"pokefan_m",
+    "pokemaniac":"maniac", "ranger":"boy_3", "ruin_maniac":"man_5",
+    "sailor":"sailor", "schoolkid":"school_kid_m", "scientist":"scientist_1",
+    "swimmer_f":"swimmer_f", "swimmer_m":"swimmer_m", "teala":"teala",
+    "tuber":"tuber_f", "woman":"woman_1", "youngster":"youngster",
+}
+FIRERED = {
+    "blaine":"blaine", "brock":"brock", "cooltrainer_m":"cooltrainer_m",
+    "erika":"erika", "giovanni":"giovanni", "koga":"koga", "misty":"misty",
+    "oak":"prof_oak", "rocker":"rocker", "sabrina":"sabrina", "surge":"lt_surge",
+    "team_rocket_f":"rocket_f", "team_rocket_m":"rocket_m",
+}
 
 
-# NPC 名字关键词 -> 原版人物图
-ROLES = [
-    ("护士", "nurse"),
-    ("馆主", "brock"),
-    ("博士", "professor_birch"),
-    ("水手", "sailor"),
-    ("港口", "sailor"),
-    ("商人", "man"),
-    ("老板", "man"),
-    ("老伯", "old_man"),
-    ("老人", "old_man"),
-    ("爷爷", "old_man"),
-    ("少女", "lass"),
-    ("女孩", "lass"),
-    ("少年", "youngster"),
-    ("小子", "youngster"),
-    ("捕虫", "bug_catcher"),
-    ("登山", "hiker"),
-    ("训练家", "cooltrainer_m"),
-    ("导游", "camper"),
-    ("游客", "camper"),
-    ("旅人", "backpacker"),
-    ("登记员", "clerk"),
-    ("前台", "teala"),
-]
-
-
-def main():
-    os.makedirs(os.path.join(OUT, "npc"), exist_ok=True)
-    # 玩家：走路九帧
-    walk = to_rgba(os.path.join(SRC, "brendan", "walking.png"))
-    walk.save(os.path.join(OUT, "player_emerald.png"))
-    print("player", walk.size)
-
-    made, miss = [], []
-    for _, key in ROLES:
-        p = os.path.join(SRC, key + ".png")
-        if not os.path.exists(p):
-            # 有些人物在子目录里
-            hit = None
-            for root, _, files in os.walk(SRC):
-                if key + ".png" in files:
-                    hit = os.path.join(root, key + ".png")
-                    break
-            if hit is None:
-                miss.append(key)
-                continue
-            p = hit
-        im = to_rgba(p)
-        # 取第一帧（16x32）
-        frame = im.crop((0, 0, 16, 32))
-        frame.save(os.path.join(OUT, "npc", key + ".png"))
-        made.append(key)
-    print("npcs", len(made), made)
-    print("missing", miss)
+def indexed_sprite(path):
+    with Image.open(path) as image:
+        if image.mode != "P":
+            raise ValueError(f"Expected indexed GBA artwork in {path}")
+        image.info["transparency"] = 0
+        return image.convert("RGBA")
 
 
 if __name__ == "__main__":
-    main()
+    people = "graphics/object_events/pics/people"
+    output = Path(project_path("assets"))
+    (output/"npc").mkdir(parents=True, exist_ok=True)
+    emerald = Path(source_path("emerald_original", people))
+    firered = Path(source_path("firered", people))
+    indexed_sprite(emerald/"brendan"/"walking.png").save(output/"player_emerald.png")
+    for root, mappings in [(emerald, EMERALD), (firered, FIRERED)]:
+        for role, source in mappings.items():
+            image = indexed_sprite(root / (source + ".png"))
+            image.crop((0, 0, 16, 32)).save(output / "npc" / (role + ".png"))

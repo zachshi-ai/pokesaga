@@ -4,10 +4,10 @@ extends Node2D
 ##   0-15 独立瓦片；16-31 土路 autotile；32-47 水域 autotile
 ## 地图数据只用地形编号：0 草 1 树 2 水 3 路 4 花 5 石 6 墙 7 屋顶 8 门 9 栅栏 10 沙
 
-const OrasField := preload("res://core/oras_field.gd")
+const EmeraldField := preload("res://core/emerald_field.gd")
 const TILE := 16
 const ATLAS_PATH := "res://assets/tiles_emerald.png"
-const PLAYER_PATH := "res://assets/oras/actors/brendan_walk.png"
+const PLAYER_PATH := "res://assets/player_emerald.png"
 const SHADOW_PATH := "res://assets/shadow.png"
 
 const PATH_BASE := 32
@@ -130,8 +130,7 @@ func _ready() -> void:
 	add_child(_player_shadow)
 	_player_sprite = Sprite2D.new()
 	_player_sprite.texture = sheet
-	_player_sprite.scale = Vector2.ONE * (32.0 / sheet.get_height())
-	_player_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	_player_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	_player_sprite.hframes = 9
 	_player_sprite.vframes = 1
 	_player_sprite.frame = 0
@@ -951,9 +950,9 @@ func _rebuild() -> void:
 		n.queue_free()
 	_npc_nodes.clear()
 
-	var plan := OrasField.plan_for(map_data)
+	var plan := EmeraldField.plan_for(map_data)
 	if not plan.is_empty():
-		var field := OrasField.new()
+		var field := EmeraldField.new()
 		add_child(field)
 		field.setup(self, plan)
 		_tile_nodes.append(field)
@@ -964,20 +963,14 @@ func _rebuild() -> void:
 		var at: Array = n.get("at", [0, 0])
 		var s := Sprite2D.new()
 		var tex: Texture2D = NpcAppearance.texture_for(n)
-		var is_model := tex != null and tex.resource_path.begins_with("res://assets/oras_npc/")
 		if tex == null:
 			var gfx := String(n.get("gfx", ""))
 			var legacy := "res://assets/npc/%s.png" % gfx
 			tex = load(legacy) if gfx != "" and ResourceLoader.exists(legacy) else _npc_texture(str(n.get("name", "")))
 		s.texture = tex
-		if is_model:
-			s.scale = Vector2.ONE * 0.30
-			s.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+		s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		var sh := Sprite2D.new()
-		sh.texture = NpcAppearance.foot_shadow() if is_model else _shadow_tex
-		if is_model:
-			sh.scale = Vector2.ONE * 0.3
-			sh.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+		sh.texture = _shadow_tex
 		var nz: int = Z_ACTOR + int(at[1]) * 2
 		sh.z_index = nz - 1
 		sh.position = Vector2(int(at[0]) * TILE + TILE / 2, int(at[1]) * TILE + TILE - 2)
@@ -1056,19 +1049,15 @@ func _object_texture(o: Dictionary) -> Texture2D:
 
 # Coordinates are the object's footprint. Taller shrubs extend upward from that cell.
 const FIELD_INTERACTIVE := {
-	"item": ["pickup", 10, 10],
-	"cut": ["cut_tree", 15, 23],
-	"rock": ["rock", 14, 13],
-	"boulder": ["boulder", 17, 19],
-	"berry_tree": ["berry_tree", 19, 25],
-	"soil": ["soil", 15, 8]
+	"item": "pickup", "cut": "cut_tree", "rock": "rock", "boulder": "boulder",
+	"berry_tree": "berry_tree", "soil": "soil"
 }
 
 func _draw_objects() -> void:
 	for n in _obj_nodes:
 		n.queue_free()
 	_obj_nodes.clear()
-	var has_oras := not OrasField.plan_for(map_data).is_empty()
+	var has_emerald := not EmeraldField.plan_for(map_data).is_empty()
 	for o in objects:
 		var flag := String(o.get("flag", ""))
 		var key := _object_key(o)
@@ -1080,17 +1069,17 @@ func _draw_objects() -> void:
 			continue
 		var at: Array = o.get("at", [0, 0])
 		var base := Vector2(int(at[0]) * TILE, int(at[1]) * TILE)
-		var field_art: Array = FIELD_INTERACTIVE.get(kind, []) if has_oras else []
-		var texture := OrasField.prop_texture(field_art[0]) if not field_art.is_empty() else _object_texture(o)
+		var art_kind := str(FIELD_INTERACTIVE.get(kind, "")) if has_emerald else ""
+		var texture := EmeraldField.prop_texture(art_kind) if not art_kind.is_empty() else _object_texture(o)
 		if texture == null:
 			continue
 		var sprite := Sprite2D.new()
 		sprite.texture = texture
 		sprite.centered = false
 		sprite.position = base
-		if not field_art.is_empty():
-			var size := Vector2(field_art[1],field_art[2])
-			sprite.scale = size / texture.get_size()
+		if not art_kind.is_empty():
+			var size := texture.get_size()
+			sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 			sprite.position += Vector2((TILE-size.x)/2, TILE-size.y)
 		elif texture.get_height() > TILE:
 			sprite.region_enabled = true

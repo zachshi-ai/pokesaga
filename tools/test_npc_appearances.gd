@@ -23,6 +23,9 @@ func audit() -> void:
 					push_error("Unresolved map character %s/%s %s" % [region,file,person])
 					failures += 1
 					continue
+				if texture.get_width() != 16 or texture.get_height() not in [16, 32]:
+					push_error("Unexpected overworld pixel size %s for %s" % [texture.get_size(), person.name])
+					failures += 1
 				var key := texture.resource_path.get_file().get_basename()
 				counts[key] = counts.get(key, 0) + 1
 				var expected := ""
@@ -42,6 +45,6 @@ func audit() -> void:
 		failures += 1
 	if Art.texture_for({"name":"研究员", "gfx":"expert_m", "form_items":true}).resource_path != Art.DIRECTORY + "scientist.png":
 		failures += 1
-	print("NPC models ", "PASS" if failures == 0 else "FAIL", ": ",total," map NPCs, ",counts.size()," distinct pictures, ",navigators," navigators, failures=",failures)
-	print("NPC model counts ",counts)
+	print("Emerald NPC sprites ", "PASS" if failures == 0 else "FAIL", ": ",total," map NPCs, ",counts.size()," distinct pictures, ",navigators," navigators, failures=",failures)
+	print("NPC sprite counts ",counts)
 	quit(0 if failures == 0 else 1)

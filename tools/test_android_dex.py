@@ -73,6 +73,7 @@ def run(adb_path, serial, out):
     try:
         write_save(json.dumps(save,ensure_ascii=False).encode())
         arrival()
+        tap(102,219)  # Continue from the title into the prepared save.
         tap(60,19)
         lookup("990",True)
         portrait(990,"",False,"01-paradox-990-under-0232")

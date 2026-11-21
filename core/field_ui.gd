@@ -13,7 +13,7 @@ const GREEN := Color("#216c60")
 const PALE := Color("#dcebd9")
 const ORANGE := Color("#e87a49")
 const SUN := Color("#f6ce76")
-const MEADOW := preload("res://assets/ui/field/meadow.webp")
+const PARTY_PANEL := preload("res://assets/emerald/ui/party_panel.png")
 
 static func box(fill: Color, border: Color = LINE, radius: int = 6) -> StyleBoxFlat:
 	var bg := StyleBoxFlat.new()
@@ -84,10 +84,11 @@ static func art(path: String) -> TextureRect:
 	return t
 
 static func portrait(id: int, form := "") -> TextureRect:
-	var texture := DexArt.model_view(id,form,false)
 	var t := art("")
-	t.texture = texture if texture != null else load(Data.party_hd_path(id) if form.is_empty() else Data.sprite_path(id,form))
-	t.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	t.texture = DexArt.texture(id, form, false)
+	if t.texture == null:
+		t.texture = load(Data.sprite_path(id, form))
+	t.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	return t
 
 static func member_portrait(mon: Dictionary) -> TextureRect:
@@ -132,12 +133,12 @@ static func wrapped(value: String, fs := 13, color := INK) -> Label:
 	l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	return l
 
-static func landscape(parent: Control, x: float, y: float, w: float, h: float) -> TextureRect:
+static func party_panel(parent: Control, x: float, y: float, w: float, h: float) -> TextureRect:
 	var t := TextureRect.new()
-	t.texture = MEADOW
+	t.texture = PARTY_PANEL
 	t.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	t.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	t.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	t.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	t.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	place(parent,t,x,y,w,h)
 	return t

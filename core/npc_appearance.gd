@@ -1,6 +1,6 @@
 extends RefCounted
 ## Map data keeps gameplay roles and trainer classes; the pictures can be updated independently.
-const DIRECTORY := "res://assets/oras_npc/"
+const DIRECTORY := "res://assets/npc/"
 const LEADERS := {"小刚":"brock", "小霞":"misty", "马志士":"surge", "莉佳":"erika", "阿桔":"koga", "娜姿":"sabrina", "夏伯":"blaine", "坂木":"giovanni"}
 const TRAINERS := {
 	"Bird Keeper":"bird_keeper", "Picnicker":"picnicker", "Swimmer M":"swimmer_m",
@@ -15,22 +15,6 @@ const TRAINERS := {
 	"绅士":"gentleman", "喷火者":"kindler", "学生":"schoolkid"
 }
 const NAMES := {"小镇少女":"lass", "开拓少女":"battle_girl", "对战塔前台":"clerk", "登记员":"clerk", "工地师傅":"man", "女士":"woman", "空手道师父":"old_expert"}
-
-static var _shadow: GradientTexture2D
-
-static func foot_shadow() -> GradientTexture2D:
-	if _shadow == null:
-		var falloff := Gradient.new()
-		falloff.offsets = PackedFloat32Array([0.0, 0.45, 1.0])
-		falloff.colors = PackedColorArray([Color(0.06,0.11,0.16,0.4), Color(0.06,0.11,0.16,0.26), Color(0.06,0.11,0.16,0)])
-		_shadow = GradientTexture2D.new()
-		_shadow.width = 48
-		_shadow.height = 16
-		_shadow.fill = GradientTexture2D.FILL_RADIAL
-		_shadow.fill_from = Vector2(0.5,0.5)
-		_shadow.fill_to = Vector2(1,0.5)
-		_shadow.gradient = falloff
-	return _shadow
 
 static func texture_for(npc: Dictionary) -> Texture2D:
 	var name_text := str(npc.get("name", ""))

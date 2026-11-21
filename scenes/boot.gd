@@ -1963,23 +1963,27 @@ func _battle_backdrop() -> String:
 	var m: Dictionary = world.map_data
 	var id := String(m.get("id",""))
 	var biome := String(m.get("biome",""))
-	if world.surfing or world.diving or biome=="coast" or id.contains("harbor"):
-		return "orassea"
+	if world.diving:
+		return "underwater"
+	if world.surfing or biome=="coast" or id.contains("harbor"):
+		return "water"
 	if biome in ["sand","desert"] or id.contains("desert"):
-		return "orasdesert"
+		return "sand"
 	if biome=="snow" or id.contains("ice_path"):
-		return "icecave"
+		return "ice"
 	if biome in ["ruins","space"] or id.contains("sky_pillar"):
-		return "skypillar"
+		return "sky"
 	if biome in ["cave","volcano"] or id.contains("cave") or id.contains("tunnel"):
-		return "earthycave"
-	if id.contains("gym") or johto_league.stage(id)>0:
-		return "elite4drake"
+		return "cave"
+	if johto_league.stage(id)>0:
+		return "league"
+	if id.contains("gym"):
+		return "gym"
 	if biome=="city":
-		return "city"
+		return "building"
 	if biome in ["forest","marsh"] or id.contains("forest"):
 		return "forest"
-	return "meadow"
+	return "grass"
 
 func _talk_to_npc(npc: Dictionary) -> void:
 	if npc.is_empty():
@@ -2622,9 +2626,7 @@ func _battle_art_key(texture: Texture2D) -> String:
 
 func _expected_battle_art(sid: int, form: String, rear: bool) -> String:
 	const Art := preload("res://core/dex_art.gd")
-	var texture := Art.model_view(sid, form, false, true) if rear else null
-	if texture == null:
-		texture = Art.texture(sid, form, false)
+	var texture := Art.battle_texture(sid, form, false, rear)
 	return _battle_art_key(texture) if texture != null else Data.sprite_path(sid, form)
 
 func _test_battle_ui() -> bool:

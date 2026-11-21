@@ -5,14 +5,15 @@ signal finished(result: String)
 signal item_used(item_name: String)
 
 const Party := preload("res://core/party.gd")
+const Growth := preload("res://core/growth.gd")
 const DexArt := preload("res://core/dex_art.gd")
 const DexEffect := preload("res://core/dex_effect.gd")
 
 const INK := Color(0.06, 0.09, 0.13, 0.94)
-const INK_SOFT := Color(0.10, 0.14, 0.20, 0.96)
 const MINT := Color(0.42, 0.80, 0.72)
 const CREAM := Color(0.95, 0.96, 0.93)
 const DIM := Color(0.62, 0.68, 0.70)
+const HUD_INK := Color("#374a45")
 const HP_HI := Color(0.42, 0.82, 0.52)
 const HP_MID := Color(0.94, 0.78, 0.34)
 
@@ -37,8 +38,9 @@ var menu: Control
 var move_menu: Control
 var flash_t := 0.0
 var trainer_name := ""
-var backdrop := "meadow"
+var backdrop := "grass"
 var backdrop_texture: Texture2D
+var dialogue_texture: Texture2D
 var fast := false   # 自检时压缩等待
 var shake_t := 0.0
 var bag: Array = []          # 只读引用，投球时弹窗列出来
@@ -64,18 +66,20 @@ func _build() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	position = Vector2.ZERO
 
-	backdrop_texture = load("res://assets/oras/battle/%s.jpg" % backdrop)
+	backdrop_texture = load("res://assets/emerald/battle/%s.png" % backdrop)
+	dialogue_texture = load("res://assets/emerald/battle/dialogue.png")
 	bg = Control.new()
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	bg.draw.connect(_draw_bg)
 	add_child(bg)
 
 	# 站位：敌右上方、我左下方，都留出与血条框、底栏的空隙
-	enemy_sprite = _make_sprite(battle.cur_b(), Vector2(318, 44), 2.0)
-	player_sprite = _make_sprite(battle.cur_a(), Vector2(70, 92), 2.0, true)
+	enemy_sprite = _make_sprite(battle.cur_b(), Vector2(288, 0), 2.0)
+	player_sprite = _make_sprite(battle.cur_a(), Vector2(40, 0), 2.0, true)
 
-	enemy_hp = _make_hpbox(Vector2(12, 12), battle.cur_b())
-	player_hp = _make_hpbox(Vector2(274, 158), battle.cur_a())
+	enemy_hp = _make_hpbox(Vector2(8, 8), battle.cur_b(), false)
+	player_hp = _make_hpbox(Vector2(267, 146), battle.cur_a(), true)
 	enemy_hp.name = "EnemyHP"
 	player_hp.name = "PlayerHP"
 
@@ -86,12 +90,10 @@ func _build() -> void:
 	field_label.clip_text = true
 	field_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	field_label.add_theme_font_size_override("font_size", 10)
-	field_label.add_theme_color_override("font_color", MINT)
+	field_label.add_theme_color_override("font_color", Color.WHITE)
+	field_label.add_theme_color_override("font_shadow_color", HUD_INK)
+	field_label.add_theme_constant_override("shadow_offset_y", 1)
 	add_child(field_label)
-
-	# 底部整条底板：左文右令，避免文字直接压在地图上
-	var bottom := _panel(Vector2(6, 232), Vector2(300, 82), 14)
-	add_child(bottom)
 
 	msg = Label.new()
 	msg.position = Vector2(24, 246)
@@ -99,7 +101,10 @@ func _build() -> void:
 	msg.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	msg.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 	msg.add_theme_font_size_override("font_size", 15)
-	msg.add_theme_color_override("font_color", CREAM)
+	msg.add_theme_color_override("font_color", Color.WHITE)
+	msg.add_theme_color_override("font_shadow_color", HUD_INK)
+	msg.add_theme_constant_override("shadow_offset_x", 1)
+	msg.add_theme_constant_override("shadow_offset_y", 1)
 	add_child(msg)
 
 	menu = _make_menu()
@@ -130,58 +135,72 @@ func _make_sprite(c: Dictionary, pos: Vector2, scale_f: float, rear := false) ->
 	effect.name = "Appearance"
 	t.add_child(effect)
 	effect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	_apply_appearance(t, c)
 	t.position = pos
+	_apply_appearance(t, c)
 	t.custom_minimum_size = Vector2(64, 64)
 	t.size = Vector2(64, 64)
 	t.scale = Vector2(scale_f, scale_f)
-	t.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	t.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	add_child(t)
 	return t
 
-func _make_hpbox(pos: Vector2, c: Dictionary) -> Control:
-	var box := _panel(pos, Vector2(194, 62), 10)
+func _make_hpbox(pos: Vector2, c: Dictionary, player: bool) -> Control:
+	var box := TextureRect.new()
+	box.position = pos
+	box.texture = load("res://assets/emerald/battle/hp_%s.png" % ("player" if player else "opponent"))
+	box.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	box.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	box.size = box.texture.get_size() * 2.0
+	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var left := 24 if player else 12
 	add_child(box)
 
 	var name_l := Label.new()
 	name_l.name = "Name"
-	name_l.position = Vector2(12, 5)
+	name_l.position = Vector2(left, 1)
 	name_l.clip_text = true
 	name_l.size = Vector2(126, 20)
 	name_l.text = _display_name(c)
 	name_l.add_theme_font_size_override("font_size", 15)
-	name_l.add_theme_color_override("font_color", CREAM)
+	name_l.add_theme_color_override("font_color", HUD_INK)
 	box.add_child(name_l)
 
 	var lv := Label.new()
 	lv.name = "Lv"
-	lv.position = Vector2(146, 8)
+	lv.position = Vector2(left+126, 5)
 	lv.text = "Lv %d" % int(c.get("level", 1))
 	lv.add_theme_font_size_override("font_size", 12)
-	lv.add_theme_color_override("font_color", DIM)
+	lv.add_theme_color_override("font_color", HUD_INK)
 	box.add_child(lv)
 
 	var track := ColorRect.new()
 	track.name = "Track"
-	track.position = Vector2(12, 34)
-	track.size = Vector2(168, 8)
-	track.color = Color(1, 1, 1, 0.14)
+	track.position = Vector2(left, 24)
+	track.size = Vector2(160, 6)
+	track.color = Color("#53665c")
 	box.add_child(track)
 
 	var fill := ColorRect.new()
 	fill.name = "Fill"
-	fill.position = Vector2(12, 34)
-	fill.size = Vector2(168, 8)
+	fill.position = Vector2(left, 24)
+	fill.size = Vector2(160, 6)
 	fill.color = HP_HI
 	box.add_child(fill)
 
 	var hp_l := Label.new()
 	hp_l.name = "HP"
-	hp_l.position = Vector2(12, 44)
+	hp_l.position = Vector2(left, 30)
 	hp_l.text = "%d/%d" % [int(c.get("hp", 0)), int(c.get("max_hp", 1))]
 	hp_l.add_theme_font_size_override("font_size", 11)
-	hp_l.add_theme_color_override("font_color", DIM)
+	hp_l.add_theme_color_override("font_color", HUD_INK)
 	box.add_child(hp_l)
+	if player:
+		var exp_fill := ColorRect.new()
+		exp_fill.name = "ExpFill"
+		exp_fill.position = Vector2(62, 66)
+		exp_fill.color = Color("#48acce")
+		box.add_child(exp_fill)
+	_update_hpbox(box, c)
 	return box
 
 func _make_menu() -> Control:
@@ -229,16 +248,16 @@ func _cmd_button(text: String, kind: String, pos: Vector2, sz := Vector2(72, 28)
 func _style_button(b: Button) -> void:
 	for st in ["normal", "hover", "pressed", "focus", "disabled"]:
 		var sb := StyleBoxFlat.new()
-		sb.bg_color = INK_SOFT if st == "normal" else Color(0.16, 0.24, 0.30, 0.98)
-		sb.set_corner_radius_all(7)
+		sb.bg_color = Color("#fffbdc") if st == "normal" else Color("#cedace")
+		sb.set_corner_radius_all(3)
 		sb.border_width_left = 1
 		sb.border_width_top = 1
 		sb.border_width_right = 1
 		sb.border_width_bottom = 1
-		sb.border_color = Color(MINT.r, MINT.g, MINT.b, 0.5)
+		sb.border_color = Color("#45594e")
 		b.add_theme_stylebox_override(st, sb)
-	b.add_theme_color_override("font_color", CREAM)
-	b.add_theme_color_override("font_hover_color", Color(1, 1, 1))
+	for state_color in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color"]:
+		b.add_theme_color_override(state_color, HUD_INK)
 
 func _make_move_menu() -> Control:
 	var wrap := Control.new()
@@ -266,15 +285,8 @@ func _make_move_menu() -> Control:
 	return wrap
 
 func _draw_bg() -> void:
-	bg.draw_texture_rect(backdrop_texture, Rect2(0,-10,size.x,250), false)
-	bg.draw_rect(Rect2(0,239,size.x,maxf(0,size.y-239)),INK)
-	for sprite in [enemy_sprite, player_sprite]:
-		if not is_instance_valid(sprite) or sprite.texture == null: continue
-		var baseline := float(sprite.texture.get_meta("footline",.90))
-		var foot := Vector2(sprite.position.x+64, sprite.position.y+128*baseline+1)
-		bg.draw_set_transform(foot,0,Vector2(1,.16))
-		bg.draw_circle(Vector2.ZERO,24,Color("#233b4240"),true,-1,true)
-	bg.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+	bg.draw_texture_rect(backdrop_texture, Rect2(0, 0, size.x, 224), false)
+	bg.draw_texture_rect(dialogue_texture, Rect2(0, 224, size.x, maxf(0, size.y - 224)), false)
 
 func _dur(x: float) -> float:
 	return 0.02 if fast else x
@@ -287,9 +299,9 @@ func _process(delta: float) -> void:
 	# 走动式呼吸动画
 	var t := Time.get_ticks_msec() / 1000.0
 	if player_sprite:
-		player_sprite.position.y = 92 + sin(t * 2.4) * 2.0
+		player_sprite.position.y = float(player_sprite.get_meta("ground_y")) + roundf(sin(t * 2.4)) * 2
 	if enemy_sprite:
-		enemy_sprite.position.y = 44 + sin(t * 2.0 + 1.2) * 2.0
+		enemy_sprite.position.y = float(enemy_sprite.get_meta("ground_y")) + roundf(sin(t * 2.0 + 1.2)) * 2
 	if flash_t > 0:
 		flash_t -= delta
 		var f: float = 0.55 + 0.45 * abs(sin(flash_t * 40))
@@ -760,18 +772,22 @@ func _apply_appearance(sprite: TextureRect, mon: Dictionary) -> void:
 	var form := str(mon.get("form", ""))
 	var shine := Party.shiny_kind(mon)
 	var tera := str(mon.get("tera_type", "")) if mon.get("tera_active", false) else ""
-	var identity := "%d|%s|%s|%s" % [sid, form, shine, tera]
+	var giant := bool(mon.get("gmax_active", false))
+	var identity := "%d|%s|%s|%s|%s" % [sid, form, shine, tera, giant]
 	if sprite.get_meta("identity", "") == identity:
 		return
 	sprite.set_meta("identity", identity)
-	var texture := DexArt.model_view(sid, form, shine != "none", true) if sprite.get_meta("rear",false) else null
-	if texture == null:
-		texture = DexArt.texture(sid, form, shine != "none")
+	var rear := bool(sprite.get_meta("rear", false))
+	var texture := DexArt.battle_texture(sid, form, shine != "none", rear)
 	sprite.texture = texture if texture != null else load(Data.sprite_path(sid, form))
+	var feet := float(sprite.texture.get_meta("feet", 56))
+	var ground_y := (222.0 if rear else 134.0) - feet * 2.0
+	sprite.set_meta("ground_y", ground_y)
+	sprite.position.y = ground_y
 	var effect = sprite.get_node("Appearance")
 	effect.shine = shine
 	effect.tera = tera
-	effect.giant = bool(mon.get("gmax_active", false))
+	effect.giant = giant
 	effect.visible = shine != "none" or tera != "" or effect.giant
 	effect.set_process(effect.visible)
 	effect.queue_redraw()
@@ -785,6 +801,11 @@ func _update_hpbox(box: Control, c: Dictionary) -> void:
 	fill.size = Vector2(track.size.x * ratio, track.size.y)
 	fill.color = HP_HI if ratio > 0.5 else (HP_MID if ratio > 0.2 else HP_LO)
 	hp_l.text = "%d/%d" % [int(c["hp"]), int(c["max_hp"])]
+	var exp_fill := box.get_node_or_null("ExpFill") as ColorRect
+	if exp_fill:
+		var species := Data.species_of(int(c.species_id))
+		var ratio_exp := Growth.progress(int(c.get("exp", 0)), int(c.level), str(species.get("growth", "medium_fast")))
+		exp_fill.size = Vector2(roundf(ratio_exp * 64) * 2, 4)
 	var nm: Label = box.get_node_or_null("Name")
 	if nm:
 		nm.text = _display_name(c)

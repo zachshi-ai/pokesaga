@@ -90,13 +90,13 @@ func run() -> void:
 	expect(atlas.chart.art != null,"world chart")
 	for id in catalog:
 		if not click(atlas,catalog[id].name): break
-		expect(atlas.chart.art != null,"regional relief "+id)
+		expect(atlas.chart.art != null,"regional chart "+id)
 		expect(atlas.chart.points.size()==catalog[id].locations.size(),"places "+id)
 		atlas.chart.magnify(.5)
 		expect(atlas.chart.zoom==1.5,"zoom")
 		if id=="hoenn":
-			click(atlas,"丰缘原画")
-			expect(atlas.viewing_art and atlas.chart.art!=null,"ORAS painted panorama")
+			click(atlas,"丰缘地图")
+			expect(atlas.viewing_art and atlas.chart.art!=null and atlas.chart.art.resource_path=="res://assets/emerald/ui/hoenn_map.png","Emerald PokéNav map")
 			atlas.handle_back()
 		atlas.handle_back()
 	atlas.handle_back()

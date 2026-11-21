@@ -40,10 +40,9 @@ func setup(p_items: Array) -> void:
 	var banner := Panel.new()
 	banner.add_theme_stylebox_override("panel",UI.box(UI.GREEN,UI.GREEN))
 	UI.place(p,banner,sx,55,size.x-sx-8,60)
-	var art_width := 120.0
-	var art := UI.landscape(banner,banner.size.x-art_width,1,art_width-1,58)
-	# Keep the satchel visible within the wide, shallow crop.
-	art.stretch_mode = TextureRect.STRETCH_SCALE
+	var satchel := UI.art("res://assets/emerald/ui/bag.png")
+	satchel.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	UI.place(banner,satchel,banner.size.x-78,4,66,52)
 	hero_title = UI.label("",19,UI.CARD)
 	UI.place(banner,hero_title,12,4,170,29)
 	totals = UI.label("",11,UI.SUN)

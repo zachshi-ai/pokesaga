@@ -60,23 +60,28 @@ func run() -> void:
 		for row in catalog.variants(species_id):
 			frames[artwork[str(species_id)].get(row.art_key, -1)] = true
 		expect(frames.size() == catalog.variants(species_id).size() and not frames.has(-1), "visually distinct atlas slots " + str(species_id))
+	var backs: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://content/dex_back_art.json"))
 	var visited := {}
 	for id in ids:
 		for form in catalog.variants(id):
 			visited[form.species_id] = true
 			expect(artwork[str(int(form.species_id))].has(form.art_key), "missing atlas art " + form.key)
+			expect(backs[str(int(form.species_id))].has(form.art_key), "missing rear art " + form.key)
 			expect(not catalog.stats(form).get("base",{}).is_empty(), "stats missing " + form.key)
 			expect(not String(form.label).is_empty(), "label missing " + form.key)
 	expect(visited.size() == 1025, "incomplete battle species coverage")
-	var models = load("res://core/dex_art.gd")
-	var front = models.model_view(25,"",false)
-	var back = models.model_view(25,"",false,true)
-	var shiny = models.model_view(25,"",true)
-	expect(front is AtlasTexture and back is AtlasTexture and shiny is AtlasTexture,"ORAS Pikachu views")
-	expect(front.region!=back.region and front.region!=shiny.region,"different front, back and shiny art")
-	expect(models.model_view(990,"",false)!=null and models.model_view(990,"",false,true)==null,"later species artwork")
-	var apple = models.model_view(585,"DEERLING_WINTER",false)
-	var summer = models.model_view(585,"DEERLING_SUMMER",false)
+	var art = load("res://core/dex_art.gd")
+	var front = art.texture(25,"",false)
+	var back = art.texture(25,"",false,true)
+	var shiny = art.texture(25,"",true)
+	expect(front is AtlasTexture and back is AtlasTexture and shiny is AtlasTexture,"Emerald Pikachu views")
+	expect(front.atlas.resource_path != back.atlas.resource_path and front.atlas.resource_path != shiny.atlas.resource_path,"different front, back and shiny art")
+	expect(art.texture(990,"",false)!=null and art.texture(990,"",false,true)!=null,"later species front and back artwork")
+	var inspection = art.texture(255, "TORCHIC_FEMALE", false)
+	var opposing = art.battle_texture(255, "TORCHIC_FEMALE", false, false)
+	expect(opposing.region == art.texture(255, "", false).region and inspection.region != opposing.region, "Torchic rear-only gender mark")
+	var apple = art.texture(585,"DEERLING_WINTER",false)
+	var summer = art.texture(585,"DEERLING_SUMMER",false)
 	expect(apple.region!=summer.region,"Deerling seasons")
 	print("DEX CATALOG ", "FAIL" if failed else "PASS", " entries=",ids.size()," species=",visited.size())
 	quit(1 if failed else 0)

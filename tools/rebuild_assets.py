@@ -35,13 +35,15 @@ def main():
         run("hoenn_ferry.py")
         run("build_world_routes.py","--project",root)
         run("world/render_charts.py","--project",root)
-        run("bake_oras_maps.py")
+        run("bake_emerald_field.py")
+        run("import_emerald_ui.py")
+        run("import_official_chars.py")
+        run("import_emerald_battle.py")
     if "icons" in stages:
         run("import_bag_icons.py")
     if "dex" in stages:
         run("build_dex_catalog.py", "--csv-dir", source_path("pokeapi","data/v2/csv"))
         run("import_dex_art.py")
-        run("import_oras_pokemon.py")
     if "font" in stages:
         run("subset_ui_font.py", source_path("noto","Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf"))
     if "audio" in stages:
