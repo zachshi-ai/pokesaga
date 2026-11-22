@@ -78,6 +78,11 @@ func _select_action(choice: String) -> void:
 func _queue_turn(player: String,_opponent: String) -> void:
 	if not orders.has(selection): orders[selection]={"move":player,"target":target}
 	line_offset=pending.size()
+	if frontier_rules!=null and frontier_rules.kind=="palace":
+		for lane in orders:
+			if str(orders[lane].move).begins_with("move:"):
+				battle.focus(lane,battle.choose_lane("b",int(orders[lane].target)))
+				orders[lane].move=frontier_rules.choose(battle,"a",true)
 	battle.round_actions(orders)
 	pending.append_array(battle.log)
 	battle.log.clear()

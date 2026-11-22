@@ -90,6 +90,7 @@ static func tiles(mid: String, flags: Dictionary) -> Array:
 	for rule: Dictionary in field_rules(mid):
 		var changes: Array = rule.base.duplicate()
 		for variant: Dictionary in rule.variants:
+			if variant.has("tower_modes") and not str(flags.get("fr_tower",{}).get("mode","")) in variant.tower_modes:continue
 			if variant.flags.all(func(f): return flags.get(attempt_flag(flags,f) if str(f).begins_with("kanto_") else f,false)):
 				changes.append_array(variant.cells)
 		for row: Array in changes:

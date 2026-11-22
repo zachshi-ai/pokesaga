@@ -74,8 +74,7 @@ def fortree(p,target=None):
     mid=p.pos[0];f=p.routes.fields[mid];m=f.data["mechanisms"]
     other={tuple(a[0]) for a in p.state["actors"]}
     doors={tuple(w["at"]) for w in f.data['warps']}
-    leader=next(n for n in f.data["npcs"] if 'Winona' in n["source_script"])
-    lx,ly=leader['at']
+    if target is None:lx,ly=next(n['at'] for n in f.data['npcs'] if 'Winona' in n['source_script'])
     def edges(s):
         x,y,state=s
         for k,(dx,dy) in DIRS.items():
@@ -105,7 +104,7 @@ def mossdeep(p,target=None):
     offsets=((1,0),(0,1),(-1,0),(0,-1))
     start=tuple(tuple(a[0]) for a in p.state['actors'])
     warps={tuple(w['at']):w for w in f.data['warps']}
-    lx,ly=next(tuple(n['at']) for n in f.data['npcs'] if 'TateAndLiza' in n['source_script'])
+    if target is None:lx,ly=next(n['at'] for n in f.data['npcs'] if 'TateAndLiza' in n['source_script'])
     def edges(s):
         x,y,positions=s
         for k,(dx,dy) in DIRS.items():

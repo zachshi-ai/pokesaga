@@ -1,4 +1,736 @@
 {
+ "rematches": {
+  "TRAINER_ROSE_1": {
+   "contact": "ROSE",
+   "map": "MAP_ROUTE118",
+   "teams": [
+    "ROSE_2",
+    "ROSE_3",
+    "ROSE_4",
+    "ROSE_5"
+   ]
+  },
+  "TRAINER_ANDRES_1": {
+   "contact": "ANDRES",
+   "map": "MAP_ROUTE105",
+   "teams": [
+    "ANDRES_2",
+    "ANDRES_3",
+    "ANDRES_4",
+    "ANDRES_5"
+   ]
+  },
+  "TRAINER_DUSTY_1": {
+   "contact": "DUSTY",
+   "map": "MAP_ROUTE111",
+   "teams": [
+    "DUSTY_2",
+    "DUSTY_3",
+    "DUSTY_4",
+    "DUSTY_5"
+   ]
+  },
+  "TRAINER_LOLA_1": {
+   "contact": "LOLA",
+   "map": "MAP_ROUTE109",
+   "teams": [
+    "LOLA_2",
+    "LOLA_3",
+    "LOLA_4",
+    "LOLA_5"
+   ]
+  },
+  "TRAINER_RICKY_1": {
+   "contact": "RICKY",
+   "map": "MAP_ROUTE109",
+   "teams": [
+    "RICKY_2",
+    "RICKY_3",
+    "RICKY_4",
+    "RICKY_5"
+   ]
+  },
+  "TRAINER_LILA_AND_ROY_1": {
+   "contact": "LILA_AND_ROY",
+   "map": "MAP_ROUTE124",
+   "teams": [
+    "LILA_AND_ROY_2",
+    "LILA_AND_ROY_3",
+    "LILA_AND_ROY_4",
+    "LILA_AND_ROY_5"
+   ]
+  },
+  "TRAINER_CRISTIN_1": {
+   "contact": "CRISTIN",
+   "map": "MAP_ROUTE121",
+   "teams": [
+    "CRISTIN_2",
+    "CRISTIN_3",
+    "CRISTIN_4",
+    "CRISTIN_5"
+   ]
+  },
+  "TRAINER_BROOKE_1": {
+   "contact": "BROOKE",
+   "map": "MAP_ROUTE111",
+   "teams": [
+    "BROOKE_2",
+    "BROOKE_3",
+    "BROOKE_4",
+    "BROOKE_5"
+   ]
+  },
+  "TRAINER_WILTON_1": {
+   "contact": "WILTON",
+   "map": "MAP_ROUTE111",
+   "teams": [
+    "WILTON_2",
+    "WILTON_3",
+    "WILTON_4",
+    "WILTON_5"
+   ]
+  },
+  "TRAINER_VALERIE_1": {
+   "contact": "VALERIE",
+   "map": "MAP_MT_PYRE_6F",
+   "teams": [
+    "VALERIE_2",
+    "VALERIE_3",
+    "VALERIE_4",
+    "VALERIE_5"
+   ]
+  },
+  "TRAINER_CINDY_1": {
+   "contact": "CINDY",
+   "map": "MAP_ROUTE104",
+   "teams": [
+    "CINDY_3",
+    "CINDY_4",
+    "CINDY_5",
+    "CINDY_6"
+   ]
+  },
+  "TRAINER_THALIA_1": {
+   "contact": "THALIA",
+   "map": "MAP_ABANDONED_SHIP_ROOMS_1F",
+   "teams": [
+    "THALIA_2",
+    "THALIA_3",
+    "THALIA_4",
+    "THALIA_5"
+   ]
+  },
+  "TRAINER_JESSICA_1": {
+   "contact": "JESSICA",
+   "map": "MAP_ROUTE121",
+   "teams": [
+    "JESSICA_2",
+    "JESSICA_3",
+    "JESSICA_4",
+    "JESSICA_5"
+   ]
+  },
+  "TRAINER_WINSTON_1": {
+   "contact": "WINSTON",
+   "map": "MAP_ROUTE104",
+   "teams": [
+    "WINSTON_2",
+    "WINSTON_3",
+    "WINSTON_4",
+    "WINSTON_5"
+   ]
+  },
+  "TRAINER_STEVE_1": {
+   "contact": "STEVE",
+   "map": "MAP_ROUTE114",
+   "teams": [
+    "STEVE_2",
+    "STEVE_3",
+    "STEVE_4",
+    "STEVE_5"
+   ]
+  },
+  "TRAINER_TONY_1": {
+   "contact": "TONY",
+   "map": "MAP_ROUTE107",
+   "teams": [
+    "TONY_2",
+    "TONY_3",
+    "TONY_4",
+    "TONY_5"
+   ]
+  },
+  "TRAINER_NOB_1": {
+   "contact": "NOB",
+   "map": "MAP_ROUTE115",
+   "teams": [
+    "NOB_2",
+    "NOB_3",
+    "NOB_4",
+    "NOB_5"
+   ]
+  },
+  "TRAINER_KOJI_1": {
+   "contact": "KOJI",
+   "map": "MAP_ROUTE127",
+   "teams": [
+    "KOJI_2",
+    "KOJI_3",
+    "KOJI_4",
+    "KOJI_5"
+   ]
+  },
+  "TRAINER_FERNANDO_1": {
+   "contact": "FERNANDO",
+   "map": "MAP_ROUTE123",
+   "teams": [
+    "FERNANDO_2",
+    "FERNANDO_3",
+    "FERNANDO_4",
+    "FERNANDO_5"
+   ]
+  },
+  "TRAINER_DALTON_1": {
+   "contact": "DALTON",
+   "map": "MAP_ROUTE118",
+   "teams": [
+    "DALTON_2",
+    "DALTON_3",
+    "DALTON_4",
+    "DALTON_5"
+   ]
+  },
+  "TRAINER_BERNIE_1": {
+   "contact": "BERNIE",
+   "map": "MAP_ROUTE114",
+   "teams": [
+    "BERNIE_2",
+    "BERNIE_3",
+    "BERNIE_4",
+    "BERNIE_5"
+   ]
+  },
+  "TRAINER_ETHAN_1": {
+   "contact": "ETHAN",
+   "map": "MAP_JAGGED_PASS",
+   "teams": [
+    "ETHAN_2",
+    "ETHAN_3",
+    "ETHAN_4",
+    "ETHAN_5"
+   ]
+  },
+  "TRAINER_JOHN_AND_JAY_1": {
+   "contact": "JOHN_AND_JAY",
+   "map": "MAP_METEOR_FALLS_1F_2R",
+   "teams": [
+    "JOHN_AND_JAY_2",
+    "JOHN_AND_JAY_3",
+    "JOHN_AND_JAY_4",
+    "JOHN_AND_JAY_5"
+   ]
+  },
+  "TRAINER_JEFFREY_1": {
+   "contact": "JEFFREY",
+   "map": "MAP_ROUTE120",
+   "teams": [
+    "JEFFREY_2",
+    "JEFFREY_3",
+    "JEFFREY_4",
+    "JEFFREY_5"
+   ]
+  },
+  "TRAINER_CAMERON_1": {
+   "contact": "CAMERON",
+   "map": "MAP_ROUTE123",
+   "teams": [
+    "CAMERON_2",
+    "CAMERON_3",
+    "CAMERON_4",
+    "CAMERON_5"
+   ]
+  },
+  "TRAINER_JACKI_1": {
+   "contact": "JACKI",
+   "map": "MAP_ROUTE123",
+   "teams": [
+    "JACKI_2",
+    "JACKI_3",
+    "JACKI_4",
+    "JACKI_5"
+   ]
+  },
+  "TRAINER_WALTER_1": {
+   "contact": "WALTER",
+   "map": "MAP_ROUTE121",
+   "teams": [
+    "WALTER_2",
+    "WALTER_3",
+    "WALTER_4",
+    "WALTER_5"
+   ]
+  },
+  "TRAINER_KAREN_1": {
+   "contact": "KAREN",
+   "map": "MAP_ROUTE116",
+   "teams": [
+    "KAREN_2",
+    "KAREN_3",
+    "KAREN_4",
+    "KAREN_5"
+   ]
+  },
+  "TRAINER_JERRY_1": {
+   "contact": "JERRY",
+   "map": "MAP_ROUTE116",
+   "teams": [
+    "JERRY_2",
+    "JERRY_3",
+    "JERRY_4",
+    "JERRY_5"
+   ]
+  },
+  "TRAINER_ANNA_AND_MEG_1": {
+   "contact": "ANNA_AND_MEG",
+   "map": "MAP_ROUTE117",
+   "teams": [
+    "ANNA_AND_MEG_2",
+    "ANNA_AND_MEG_3",
+    "ANNA_AND_MEG_4",
+    "ANNA_AND_MEG_5"
+   ]
+  },
+  "TRAINER_ISABEL_1": {
+   "contact": "ISABEL",
+   "map": "MAP_ROUTE110",
+   "teams": [
+    "ISABEL_2",
+    "ISABEL_3",
+    "ISABEL_4",
+    "ISABEL_5"
+   ]
+  },
+  "TRAINER_MIGUEL_1": {
+   "contact": "MIGUEL",
+   "map": "MAP_ROUTE103",
+   "teams": [
+    "MIGUEL_2",
+    "MIGUEL_3",
+    "MIGUEL_4",
+    "MIGUEL_5"
+   ]
+  },
+  "TRAINER_TIMOTHY_1": {
+   "contact": "TIMOTHY",
+   "map": "MAP_ROUTE115",
+   "teams": [
+    "TIMOTHY_2",
+    "TIMOTHY_3",
+    "TIMOTHY_4",
+    "TIMOTHY_5"
+   ]
+  },
+  "TRAINER_SHELBY_1": {
+   "contact": "SHELBY",
+   "map": "MAP_MT_CHIMNEY",
+   "teams": [
+    "SHELBY_2",
+    "SHELBY_3",
+    "SHELBY_4",
+    "SHELBY_5"
+   ]
+  },
+  "TRAINER_CALVIN_1": {
+   "contact": "CALVIN",
+   "map": "MAP_ROUTE102",
+   "teams": [
+    "CALVIN_2",
+    "CALVIN_3",
+    "CALVIN_4",
+    "CALVIN_5"
+   ]
+  },
+  "TRAINER_ELLIOT_1": {
+   "contact": "ELLIOT",
+   "map": "MAP_ROUTE106",
+   "teams": [
+    "ELLIOT_2",
+    "ELLIOT_3",
+    "ELLIOT_4",
+    "ELLIOT_5"
+   ]
+  },
+  "TRAINER_ISAIAH_1": {
+   "contact": "ISAIAH",
+   "map": "MAP_ROUTE128",
+   "teams": [
+    "ISAIAH_2",
+    "ISAIAH_3",
+    "ISAIAH_4",
+    "ISAIAH_5"
+   ]
+  },
+  "TRAINER_MARIA_1": {
+   "contact": "MARIA",
+   "map": "MAP_ROUTE117",
+   "teams": [
+    "MARIA_2",
+    "MARIA_3",
+    "MARIA_4",
+    "MARIA_5"
+   ]
+  },
+  "TRAINER_ABIGAIL_1": {
+   "contact": "ABIGAIL",
+   "map": "MAP_ROUTE110",
+   "teams": [
+    "ABIGAIL_2",
+    "ABIGAIL_3",
+    "ABIGAIL_4",
+    "ABIGAIL_5"
+   ]
+  },
+  "TRAINER_DYLAN_1": {
+   "contact": "DYLAN",
+   "map": "MAP_ROUTE117",
+   "teams": [
+    "DYLAN_2",
+    "DYLAN_3",
+    "DYLAN_4",
+    "DYLAN_5"
+   ]
+  },
+  "TRAINER_KATELYN_1": {
+   "contact": "KATELYN",
+   "map": "MAP_ROUTE128",
+   "teams": [
+    "KATELYN_2",
+    "KATELYN_3",
+    "KATELYN_4",
+    "KATELYN_5"
+   ]
+  },
+  "TRAINER_BENJAMIN_1": {
+   "contact": "BENJAMIN",
+   "map": "MAP_ROUTE110",
+   "teams": [
+    "BENJAMIN_2",
+    "BENJAMIN_3",
+    "BENJAMIN_4",
+    "BENJAMIN_5"
+   ]
+  },
+  "TRAINER_PABLO_1": {
+   "contact": "PABLO",
+   "map": "MAP_ROUTE126",
+   "teams": [
+    "PABLO_2",
+    "PABLO_3",
+    "PABLO_4",
+    "PABLO_5"
+   ]
+  },
+  "TRAINER_NICOLAS_1": {
+   "contact": "NICOLAS",
+   "map": "MAP_METEOR_FALLS_1F_2R",
+   "teams": [
+    "NICOLAS_2",
+    "NICOLAS_3",
+    "NICOLAS_4",
+    "NICOLAS_5"
+   ]
+  },
+  "TRAINER_ROBERT_1": {
+   "contact": "ROBERT",
+   "map": "MAP_ROUTE120",
+   "teams": [
+    "ROBERT_2",
+    "ROBERT_3",
+    "ROBERT_4",
+    "ROBERT_5"
+   ]
+  },
+  "TRAINER_LAO_1": {
+   "contact": "LAO",
+   "map": "MAP_ROUTE113",
+   "teams": [
+    "LAO_2",
+    "LAO_3",
+    "LAO_4",
+    "LAO_5"
+   ]
+  },
+  "TRAINER_CYNDY_1": {
+   "contact": "CYNDY",
+   "map": "MAP_ROUTE115",
+   "teams": [
+    "CYNDY_2",
+    "CYNDY_3",
+    "CYNDY_4",
+    "CYNDY_5"
+   ]
+  },
+  "TRAINER_MADELINE_1": {
+   "contact": "MADELINE",
+   "map": "MAP_ROUTE113",
+   "teams": [
+    "MADELINE_2",
+    "MADELINE_3",
+    "MADELINE_4",
+    "MADELINE_5"
+   ]
+  },
+  "TRAINER_JENNY_1": {
+   "contact": "JENNY",
+   "map": "MAP_ROUTE124",
+   "teams": [
+    "JENNY_2",
+    "JENNY_3",
+    "JENNY_4",
+    "JENNY_5"
+   ]
+  },
+  "TRAINER_DIANA_1": {
+   "contact": "DIANA",
+   "map": "MAP_JAGGED_PASS",
+   "teams": [
+    "DIANA_2",
+    "DIANA_3",
+    "DIANA_4",
+    "DIANA_5"
+   ]
+  },
+  "TRAINER_AMY_AND_LIV_1": {
+   "contact": "AMY_AND_LIV",
+   "map": "MAP_ROUTE103",
+   "teams": [
+    "AMY_AND_LIV_2",
+    "AMY_AND_LIV_4",
+    "AMY_AND_LIV_5",
+    "AMY_AND_LIV_6"
+   ]
+  },
+  "TRAINER_ERNEST_1": {
+   "contact": "ERNEST",
+   "map": "MAP_ROUTE125",
+   "teams": [
+    "ERNEST_2",
+    "ERNEST_3",
+    "ERNEST_4",
+    "ERNEST_5"
+   ]
+  },
+  "TRAINER_CORY_1": {
+   "contact": "CORY",
+   "map": "MAP_ROUTE108",
+   "teams": [
+    "CORY_2",
+    "CORY_3",
+    "CORY_4",
+    "CORY_5"
+   ]
+  },
+  "TRAINER_EDWIN_1": {
+   "contact": "EDWIN",
+   "map": "MAP_ROUTE110",
+   "teams": [
+    "EDWIN_2",
+    "EDWIN_3",
+    "EDWIN_4",
+    "EDWIN_5"
+   ]
+  },
+  "TRAINER_LYDIA_1": {
+   "contact": "LYDIA",
+   "map": "MAP_ROUTE117",
+   "teams": [
+    "LYDIA_2",
+    "LYDIA_3",
+    "LYDIA_4",
+    "LYDIA_5"
+   ]
+  },
+  "TRAINER_ISAAC_1": {
+   "contact": "ISAAC",
+   "map": "MAP_ROUTE117",
+   "teams": [
+    "ISAAC_2",
+    "ISAAC_3",
+    "ISAAC_4",
+    "ISAAC_5"
+   ]
+  },
+  "TRAINER_GABRIELLE_1": {
+   "contact": "GABRIELLE",
+   "map": "MAP_MT_PYRE_3F",
+   "teams": [
+    "GABRIELLE_2",
+    "GABRIELLE_3",
+    "GABRIELLE_4",
+    "GABRIELLE_5"
+   ]
+  },
+  "TRAINER_CATHERINE_1": {
+   "contact": "CATHERINE",
+   "map": "MAP_ROUTE119",
+   "teams": [
+    "CATHERINE_2",
+    "CATHERINE_3",
+    "CATHERINE_4",
+    "CATHERINE_5"
+   ]
+  },
+  "TRAINER_JACKSON_1": {
+   "contact": "JACKSON",
+   "map": "MAP_ROUTE119",
+   "teams": [
+    "JACKSON_2",
+    "JACKSON_3",
+    "JACKSON_4",
+    "JACKSON_5"
+   ]
+  },
+  "TRAINER_HALEY_1": {
+   "contact": "HALEY",
+   "map": "MAP_ROUTE104",
+   "teams": [
+    "HALEY_2",
+    "HALEY_3",
+    "HALEY_4",
+    "HALEY_5"
+   ]
+  },
+  "TRAINER_JAMES_1": {
+   "contact": "JAMES",
+   "map": "MAP_PETALBURG_WOODS",
+   "teams": [
+    "JAMES_2",
+    "JAMES_3",
+    "JAMES_4",
+    "JAMES_5"
+   ]
+  },
+  "TRAINER_TRENT_1": {
+   "contact": "TRENT",
+   "map": "MAP_ROUTE112",
+   "teams": [
+    "TRENT_2",
+    "TRENT_3",
+    "TRENT_4",
+    "TRENT_5"
+   ]
+  },
+  "TRAINER_SAWYER_1": {
+   "contact": "SAWYER",
+   "map": "MAP_MT_CHIMNEY",
+   "teams": [
+    "SAWYER_2",
+    "SAWYER_3",
+    "SAWYER_4",
+    "SAWYER_5"
+   ]
+  },
+  "TRAINER_KIRA_AND_DAN_1": {
+   "contact": "KIRA_AND_DAN",
+   "map": "MAP_ABANDONED_SHIP_ROOMS2_1F",
+   "teams": [
+    "KIRA_AND_DAN_2",
+    "KIRA_AND_DAN_3",
+    "KIRA_AND_DAN_4",
+    "KIRA_AND_DAN_5"
+   ]
+  },
+  "TRAINER_WALLY_VR_2": {
+   "contact": "WALLY_VR",
+   "map": "MAP_VICTORY_ROAD_1F",
+   "teams": [
+    "WALLY_VR_3",
+    "WALLY_VR_4",
+    "WALLY_VR_5",
+    "WALLY_VR_5"
+   ]
+  },
+  "TRAINER_ROXANNE_1": {
+   "contact": "ROXANNE",
+   "map": "MAP_RUSTBORO_CITY",
+   "teams": [
+    "ROXANNE_2",
+    "ROXANNE_3",
+    "ROXANNE_4",
+    "ROXANNE_5"
+   ]
+  },
+  "TRAINER_BRAWLY_1": {
+   "contact": "BRAWLY",
+   "map": "MAP_DEWFORD_TOWN",
+   "teams": [
+    "BRAWLY_2",
+    "BRAWLY_3",
+    "BRAWLY_4",
+    "BRAWLY_5"
+   ]
+  },
+  "TRAINER_WATTSON_1": {
+   "contact": "WATTSON",
+   "map": "MAP_MAUVILLE_CITY",
+   "teams": [
+    "WATTSON_2",
+    "WATTSON_3",
+    "WATTSON_4",
+    "WATTSON_5"
+   ]
+  },
+  "TRAINER_FLANNERY_1": {
+   "contact": "FLANNERY",
+   "map": "MAP_LAVARIDGE_TOWN",
+   "teams": [
+    "FLANNERY_2",
+    "FLANNERY_3",
+    "FLANNERY_4",
+    "FLANNERY_5"
+   ]
+  },
+  "TRAINER_NORMAN_1": {
+   "contact": "NORMAN",
+   "map": "MAP_PETALBURG_CITY",
+   "teams": [
+    "NORMAN_2",
+    "NORMAN_3",
+    "NORMAN_4",
+    "NORMAN_5"
+   ]
+  },
+  "TRAINER_WINONA_1": {
+   "contact": "WINONA",
+   "map": "MAP_FORTREE_CITY",
+   "teams": [
+    "WINONA_2",
+    "WINONA_3",
+    "WINONA_4",
+    "WINONA_5"
+   ]
+  },
+  "TRAINER_TATE_AND_LIZA_1": {
+   "contact": "TATE_AND_LIZA",
+   "map": "MAP_MOSSDEEP_CITY",
+   "teams": [
+    "TATE_AND_LIZA_2",
+    "TATE_AND_LIZA_3",
+    "TATE_AND_LIZA_4",
+    "TATE_AND_LIZA_5"
+   ]
+  },
+  "TRAINER_JUAN_1": {
+   "contact": "JUAN",
+   "map": "MAP_SOOTOPOLIS_CITY",
+   "teams": [
+    "JUAN_2",
+    "JUAN_3",
+    "JUAN_4",
+    "JUAN_5"
+   ]
+  }
+ },
  "league_back": {
   "em_ever_grande_city_sidneys_room": "em_ever_grande_city_hall5",
   "em_ever_grande_city_phoebes_room": "em_ever_grande_city_hall1",
@@ -3770,6 +4502,114 @@
      ]
     }
    ]
+  },
+  {
+   "id": "h_winstrates",
+   "map": "Route111",
+   "map_id": "hoenn_111",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     13,
+     114
+    ]
+   },
+   "require": [],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "连胜爸爸",
+     "say": [
+      "我们一家四口轮流出战。中间可没有休息时间哦！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "连胜爸爸",
+      "emerald_team": "VICTOR"
+     }
+    },
+    {
+     "who": "连胜妈妈",
+     "say": [
+      "刚刚就是你击败了我丈夫？让我来！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "连胜妈妈",
+      "emerald_team": "VICTORIA"
+     }
+    },
+    {
+     "who": "连胜女儿",
+     "say": [
+      "轮到我一个人上场了！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "连胜女儿",
+      "emerald_team": "VIVI"
+     }
+    },
+    {
+     "who": "连胜奶奶",
+     "say": [
+      "你很有本事。老婆子也要领教一下！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "连胜奶奶",
+      "emerald_team": "VICKY"
+     }
+    },
+    {
+     "flag": "h_winstrates"
+    }
+   ]
+  },
+  {
+   "id": "h_steven_duel",
+   "map": "MeteorFalls_StevensCave",
+   "map_id": "em_meteor_falls_stevens_cave",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     19,
+     3
+    ]
+   },
+   "require": [
+    "h_champion"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "大吾",
+     "say": [
+      "能够在这里再见到你，我很高兴。让我们用全部实力交手吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "大吾",
+      "emerald_team": "STEVEN"
+     }
+    },
+    {
+     "who": "大吾",
+     "say": [
+      "我很庆幸能遇见你这样的训练家。"
+     ]
+    },
+    {
+     "flag": "h_steven_duel"
+    }
+   ]
   }
  ],
  "actors": {
@@ -6407,6 +7247,90 @@
      ]
     }
    ]
+  },
+  "Route111": {
+   "1": [
+    {
+     "require": [],
+     "until": [
+      "h_winstrates"
+     ],
+     "name": "连胜爸爸",
+     "at": [
+      13,
+      114
+     ]
+    }
+   ]
+  },
+  "Route111_WinstrateFamilysHouse": {
+   "1": [
+    {
+     "require": [
+      "h_winstrates"
+     ],
+     "until": [],
+     "name": "连胜女儿",
+     "at": [
+      7,
+      5
+     ]
+    }
+   ],
+   "2": [
+    {
+     "require": [
+      "h_winstrates"
+     ],
+     "until": [],
+     "name": "连胜爸爸",
+     "at": [
+      4,
+      5
+     ]
+    }
+   ],
+   "3": [
+    {
+     "require": [
+      "h_winstrates"
+     ],
+     "until": [],
+     "name": "连胜妈妈",
+     "at": [
+      7,
+      4
+     ]
+    }
+   ],
+   "4": [
+    {
+     "require": [
+      "h_winstrates"
+     ],
+     "until": [],
+     "name": "连胜奶奶",
+     "at": [
+      4,
+      4
+     ]
+    }
+   ]
+  },
+  "MeteorFalls_StevensCave": {
+   "1": [
+    {
+     "require": [
+      "h_champion"
+     ],
+     "until": [],
+     "name": "大吾",
+     "at": [
+      19,
+      3
+     ]
+    }
+   ]
   }
  },
  "gates": {
@@ -6659,6 +7583,24 @@
     "h_wallace"
    ],
    "message": "请先通过丰缘联盟的徽章检查，并按顺序战胜前一位训练家。"
+  },
+  "em_route111_winstrate_familys_house": {
+   "require": [
+    "h_winstrates"
+   ],
+   "message": "一家人正准备四连战。先与门口的爸爸交谈。"
+  },
+  "em_altering_cave": {
+   "require": [
+    "h_champion"
+   ],
+   "message": "洞口被岩石封住了。"
+  },
+  "em_meteor_falls_stevens_cave": {
+   "require": [
+    "h_champion"
+   ],
+   "message": "前方是一面岩壁。"
   }
  },
  "teams": {
@@ -6936,7 +7878,8 @@
      241,
      34,
      213
-    ]
+    ],
+    "held": "WHITE_HERB"
    }
   ],
   "NORMAN_1": [
@@ -7679,6 +8622,5477 @@
      92
     ],
     "berry": "sitrus"
+   }
+  ],
+  "VICTOR": [
+   {
+    "species": 276,
+    "level": 16,
+    "berry": "oran"
+   },
+   {
+    "species": 263,
+    "level": 16,
+    "berry": "oran"
+   }
+  ],
+  "VICTORIA": [
+   {
+    "species": 315,
+    "level": 17,
+    "berry": "oran"
+   }
+  ],
+  "VIVI": [
+   {
+    "species": 183,
+    "level": 15
+   },
+   {
+    "species": 285,
+    "level": 15
+   },
+   {
+    "species": 322,
+    "level": 15
+   }
+  ],
+  "VICKY": [
+   {
+    "species": 307,
+    "level": 18,
+    "moves": [
+     136,
+     96,
+     93,
+     197
+    ]
+   }
+  ],
+  "STEVEN": [
+   {
+    "species": 227,
+    "level": 77,
+    "moves": [
+     92,
+     332,
+     191,
+     211
+    ]
+   },
+   {
+    "species": 344,
+    "level": 75,
+    "moves": [
+     115,
+     113,
+     246,
+     89
+    ]
+   },
+   {
+    "species": 306,
+    "level": 76,
+    "moves": [
+     87,
+     89,
+     76,
+     337
+    ]
+   },
+   {
+    "species": 346,
+    "level": 76,
+    "moves": [
+     202,
+     246,
+     275,
+     109
+    ]
+   },
+   {
+    "species": 348,
+    "level": 76,
+    "moves": [
+     352,
+     246,
+     332,
+     163
+    ]
+   },
+   {
+    "species": 376,
+    "level": 78,
+    "moves": [
+     89,
+     94,
+     309,
+     247
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "GABBY_AND_TY_1": [
+   {
+    "species": 81,
+    "level": 17
+   },
+   {
+    "species": 293,
+    "level": 17
+   }
+  ],
+  "GABBY_AND_TY_2": [
+   {
+    "species": 81,
+    "level": 27
+   },
+   {
+    "species": 294,
+    "level": 27
+   }
+  ],
+  "GABBY_AND_TY_3": [
+   {
+    "species": 82,
+    "level": 30
+   },
+   {
+    "species": 294,
+    "level": 30
+   }
+  ],
+  "GABBY_AND_TY_4": [
+   {
+    "species": 82,
+    "level": 33
+   },
+   {
+    "species": 294,
+    "level": 33
+   }
+  ],
+  "GABBY_AND_TY_5": [
+   {
+    "species": 82,
+    "level": 36
+   },
+   {
+    "species": 294,
+    "level": 36
+   }
+  ],
+  "GABBY_AND_TY_6": [
+   {
+    "species": 82,
+    "level": 39,
+    "moves": [
+     49,
+     86,
+     319,
+     85
+    ]
+   },
+   {
+    "species": 295,
+    "level": 39,
+    "moves": [
+     310,
+     23,
+     48,
+     304
+    ]
+   }
+  ],
+  "ROSE_2": [
+   {
+    "species": 285,
+    "level": 26
+   },
+   {
+    "species": 315,
+    "level": 26
+   }
+  ],
+  "ROSE_3": [
+   {
+    "species": 285,
+    "level": 28
+   },
+   {
+    "species": 44,
+    "level": 28
+   },
+   {
+    "species": 315,
+    "level": 28
+   }
+  ],
+  "ROSE_4": [
+   {
+    "species": 285,
+    "level": 31
+   },
+   {
+    "species": 44,
+    "level": 31
+   },
+   {
+    "species": 315,
+    "level": 31
+   }
+  ],
+  "ROSE_5": [
+   {
+    "species": 286,
+    "level": 34
+   },
+   {
+    "species": 44,
+    "level": 34
+   },
+   {
+    "species": 315,
+    "level": 34
+   }
+  ],
+  "ANDRES_2": [
+   {
+    "species": 27,
+    "level": 31
+   },
+   {
+    "species": 27,
+    "level": 31
+   }
+  ],
+  "ANDRES_3": [
+   {
+    "species": 299,
+    "level": 33
+   },
+   {
+    "species": 27,
+    "level": 33
+   },
+   {
+    "species": 27,
+    "level": 33
+   }
+  ],
+  "ANDRES_4": [
+   {
+    "species": 299,
+    "level": 35
+   },
+   {
+    "species": 27,
+    "level": 35
+   },
+   {
+    "species": 27,
+    "level": 35
+   }
+  ],
+  "ANDRES_5": [
+   {
+    "species": 299,
+    "level": 37
+   },
+   {
+    "species": 28,
+    "level": 37
+   },
+   {
+    "species": 28,
+    "level": 37
+   }
+  ],
+  "DUSTY_2": [
+   {
+    "species": 28,
+    "level": 27,
+    "moves": [
+     91,
+     163,
+     28,
+     40
+    ]
+   }
+  ],
+  "DUSTY_3": [
+   {
+    "species": 28,
+    "level": 30,
+    "moves": [
+     91,
+     163,
+     28,
+     40
+    ]
+   }
+  ],
+  "DUSTY_4": [
+   {
+    "species": 28,
+    "level": 33,
+    "moves": [
+     91,
+     163,
+     28,
+     40
+    ]
+   }
+  ],
+  "DUSTY_5": [
+   {
+    "species": 28,
+    "level": 36,
+    "moves": [
+     91,
+     163,
+     28,
+     40
+    ]
+   }
+  ],
+  "LOLA_2": [
+   {
+    "species": 183,
+    "level": 26
+   },
+   {
+    "species": 183,
+    "level": 26
+   }
+  ],
+  "LOLA_3": [
+   {
+    "species": 183,
+    "level": 29
+   },
+   {
+    "species": 183,
+    "level": 29
+   }
+  ],
+  "LOLA_4": [
+   {
+    "species": 183,
+    "level": 32
+   },
+   {
+    "species": 183,
+    "level": 32
+   }
+  ],
+  "LOLA_5": [
+   {
+    "species": 184,
+    "level": 35
+   },
+   {
+    "species": 184,
+    "level": 35
+   }
+  ],
+  "RICKY_2": [
+   {
+    "species": 264,
+    "level": 27,
+    "moves": [
+     28,
+     42,
+     39,
+     57
+    ]
+   }
+  ],
+  "RICKY_3": [
+   {
+    "species": 264,
+    "level": 30,
+    "moves": [
+     28,
+     42,
+     39,
+     57
+    ]
+   }
+  ],
+  "RICKY_4": [
+   {
+    "species": 264,
+    "level": 33,
+    "moves": [
+     28,
+     42,
+     39,
+     57
+    ]
+   }
+  ],
+  "RICKY_5": [
+   {
+    "species": 264,
+    "level": 36,
+    "moves": [
+     28,
+     42,
+     39,
+     57
+    ]
+   }
+  ],
+  "LILA_AND_ROY_2": [
+   {
+    "species": 170,
+    "level": 42
+   },
+   {
+    "species": 318,
+    "level": 40
+   }
+  ],
+  "LILA_AND_ROY_3": [
+   {
+    "species": 171,
+    "level": 45
+   },
+   {
+    "species": 318,
+    "level": 43
+   }
+  ],
+  "LILA_AND_ROY_4": [
+   {
+    "species": 171,
+    "level": 48
+   },
+   {
+    "species": 319,
+    "level": 46
+   }
+  ],
+  "LILA_AND_ROY_5": [
+   {
+    "species": 171,
+    "level": 51
+   },
+   {
+    "species": 319,
+    "level": 49
+   }
+  ],
+  "CRISTIN_2": [
+   {
+    "species": 294,
+    "level": 35
+   },
+   {
+    "species": 288,
+    "level": 35
+   }
+  ],
+  "CRISTIN_3": [
+   {
+    "species": 327,
+    "level": 37
+   },
+   {
+    "species": 294,
+    "level": 37
+   },
+   {
+    "species": 288,
+    "level": 37
+   }
+  ],
+  "CRISTIN_4": [
+   {
+    "species": 327,
+    "level": 39
+   },
+   {
+    "species": 294,
+    "level": 39
+   },
+   {
+    "species": 288,
+    "level": 39
+   }
+  ],
+  "CRISTIN_5": [
+   {
+    "species": 327,
+    "level": 41
+   },
+   {
+    "species": 295,
+    "level": 41
+   },
+   {
+    "species": 289,
+    "level": 41
+   }
+  ],
+  "BROOKE_2": [
+   {
+    "species": 278,
+    "level": 26
+   },
+   {
+    "species": 322,
+    "level": 26
+   },
+   {
+    "species": 315,
+    "level": 26
+   }
+  ],
+  "BROOKE_3": [
+   {
+    "species": 279,
+    "level": 29
+   },
+   {
+    "species": 322,
+    "level": 29
+   },
+   {
+    "species": 315,
+    "level": 29
+   }
+  ],
+  "BROOKE_4": [
+   {
+    "species": 279,
+    "level": 32
+   },
+   {
+    "species": 322,
+    "level": 32
+   },
+   {
+    "species": 315,
+    "level": 32
+   }
+  ],
+  "BROOKE_5": [
+   {
+    "species": 279,
+    "level": 34
+   },
+   {
+    "species": 323,
+    "level": 34
+   },
+   {
+    "species": 315,
+    "level": 34
+   }
+  ],
+  "WILTON_2": [
+   {
+    "species": 309,
+    "level": 26
+   },
+   {
+    "species": 320,
+    "level": 26
+   },
+   {
+    "species": 296,
+    "level": 26
+   }
+  ],
+  "WILTON_3": [
+   {
+    "species": 310,
+    "level": 29
+   },
+   {
+    "species": 320,
+    "level": 29
+   },
+   {
+    "species": 296,
+    "level": 29
+   }
+  ],
+  "WILTON_4": [
+   {
+    "species": 310,
+    "level": 32
+   },
+   {
+    "species": 320,
+    "level": 32
+   },
+   {
+    "species": 296,
+    "level": 32
+   }
+  ],
+  "WILTON_5": [
+   {
+    "species": 310,
+    "level": 35
+   },
+   {
+    "species": 320,
+    "level": 35
+   },
+   {
+    "species": 297,
+    "level": 35
+   }
+  ],
+  "VALERIE_2": [
+   {
+    "species": 302,
+    "level": 31
+   },
+   {
+    "species": 325,
+    "level": 31
+   }
+  ],
+  "VALERIE_3": [
+   {
+    "species": 325,
+    "level": 35
+   },
+   {
+    "species": 302,
+    "level": 35
+   }
+  ],
+  "VALERIE_4": [
+   {
+    "species": 325,
+    "level": 40
+   },
+   {
+    "species": 302,
+    "level": 40
+   }
+  ],
+  "VALERIE_5": [
+   {
+    "species": 355,
+    "level": 42
+   },
+   {
+    "species": 302,
+    "level": 42
+   },
+   {
+    "species": 326,
+    "level": 42
+   }
+  ],
+  "CINDY_3": [
+   {
+    "species": 264,
+    "level": 27,
+    "held": "NUGGET"
+   }
+  ],
+  "CINDY_4": [
+   {
+    "species": 264,
+    "level": 30,
+    "held": "NUGGET"
+   }
+  ],
+  "CINDY_5": [
+   {
+    "species": 264,
+    "level": 33,
+    "held": "NUGGET"
+   }
+  ],
+  "CINDY_6": [
+   {
+    "species": 264,
+    "level": 36,
+    "moves": [
+     154,
+     300,
+     316,
+     28
+    ],
+    "held": "NUGGET"
+   }
+  ],
+  "THALIA_2": [
+   {
+    "species": 320,
+    "level": 34
+   },
+   {
+    "species": 116,
+    "level": 34
+   }
+  ],
+  "THALIA_3": [
+   {
+    "species": 370,
+    "level": 36
+   },
+   {
+    "species": 320,
+    "level": 36
+   },
+   {
+    "species": 117,
+    "level": 36
+   }
+  ],
+  "THALIA_4": [
+   {
+    "species": 370,
+    "level": 38
+   },
+   {
+    "species": 320,
+    "level": 38
+   },
+   {
+    "species": 117,
+    "level": 38
+   }
+  ],
+  "THALIA_5": [
+   {
+    "species": 370,
+    "level": 40
+   },
+   {
+    "species": 321,
+    "level": 40
+   },
+   {
+    "species": 230,
+    "level": 40
+   }
+  ],
+  "JESSICA_2": [
+   {
+    "species": 352,
+    "level": 35,
+    "moves": [
+     20,
+     122,
+     154,
+     185
+    ]
+   },
+   {
+    "species": 336,
+    "level": 35,
+    "moves": [
+     342,
+     103,
+     137,
+     242
+    ]
+   }
+  ],
+  "JESSICA_3": [
+   {
+    "species": 352,
+    "level": 38,
+    "moves": [
+     20,
+     122,
+     154,
+     185
+    ]
+   },
+   {
+    "species": 336,
+    "level": 38,
+    "moves": [
+     342,
+     103,
+     137,
+     242
+    ]
+   }
+  ],
+  "JESSICA_4": [
+   {
+    "species": 352,
+    "level": 41,
+    "moves": [
+     20,
+     122,
+     154,
+     185
+    ]
+   },
+   {
+    "species": 336,
+    "level": 41,
+    "moves": [
+     342,
+     103,
+     137,
+     242
+    ]
+   }
+  ],
+  "JESSICA_5": [
+   {
+    "species": 352,
+    "level": 44,
+    "moves": [
+     20,
+     122,
+     154,
+     185
+    ]
+   },
+   {
+    "species": 336,
+    "level": 44,
+    "moves": [
+     342,
+     103,
+     137,
+     242
+    ]
+   }
+  ],
+  "WINSTON_2": [
+   {
+    "species": 264,
+    "level": 27,
+    "held": "NUGGET"
+   }
+  ],
+  "WINSTON_3": [
+   {
+    "species": 264,
+    "level": 30,
+    "held": "NUGGET"
+   }
+  ],
+  "WINSTON_4": [
+   {
+    "species": 264,
+    "level": 33,
+    "held": "NUGGET"
+   }
+  ],
+  "WINSTON_5": [
+   {
+    "species": 264,
+    "level": 36,
+    "moves": [
+     154,
+     300,
+     316,
+     28
+    ],
+    "held": "NUGGET"
+   }
+  ],
+  "STEVE_2": [
+   {
+    "species": 305,
+    "level": 27
+   }
+  ],
+  "STEVE_3": [
+   {
+    "species": 305,
+    "level": 29
+   },
+   {
+    "species": 111,
+    "level": 29
+   }
+  ],
+  "STEVE_4": [
+   {
+    "species": 305,
+    "level": 32
+   },
+   {
+    "species": 111,
+    "level": 32
+   }
+  ],
+  "STEVE_5": [
+   {
+    "species": 306,
+    "level": 35
+   },
+   {
+    "species": 112,
+    "level": 35
+   }
+  ],
+  "TONY_2": [
+   {
+    "species": 319,
+    "level": 30
+   }
+  ],
+  "TONY_3": [
+   {
+    "species": 319,
+    "level": 33
+   }
+  ],
+  "TONY_4": [
+   {
+    "species": 120,
+    "level": 34
+   },
+   {
+    "species": 319,
+    "level": 36
+   }
+  ],
+  "TONY_5": [
+   {
+    "species": 121,
+    "level": 37
+   },
+   {
+    "species": 319,
+    "level": 39
+   }
+  ],
+  "NOB_2": [
+   {
+    "species": 67,
+    "level": 27
+   }
+  ],
+  "NOB_3": [
+   {
+    "species": 66,
+    "level": 29
+   },
+   {
+    "species": 67,
+    "level": 29
+   }
+  ],
+  "NOB_4": [
+   {
+    "species": 66,
+    "level": 31
+   },
+   {
+    "species": 67,
+    "level": 31
+   },
+   {
+    "species": 67,
+    "level": 31
+   }
+  ],
+  "NOB_5": [
+   {
+    "species": 66,
+    "level": 33
+   },
+   {
+    "species": 67,
+    "level": 33
+   },
+   {
+    "species": 67,
+    "level": 33
+   },
+   {
+    "species": 68,
+    "level": 33,
+    "held": "BLACK_BELT"
+   }
+  ],
+  "KOJI_2": [
+   {
+    "species": 67,
+    "level": 37
+   },
+   {
+    "species": 67,
+    "level": 37
+   }
+  ],
+  "KOJI_3": [
+   {
+    "species": 296,
+    "level": 39
+   },
+   {
+    "species": 67,
+    "level": 39
+   },
+   {
+    "species": 67,
+    "level": 39
+   }
+  ],
+  "KOJI_4": [
+   {
+    "species": 297,
+    "level": 41
+   },
+   {
+    "species": 67,
+    "level": 41
+   },
+   {
+    "species": 67,
+    "level": 41
+   }
+  ],
+  "KOJI_5": [
+   {
+    "species": 297,
+    "level": 43
+   },
+   {
+    "species": 68,
+    "level": 43
+   },
+   {
+    "species": 68,
+    "level": 43
+   }
+  ],
+  "FERNANDO_2": [
+   {
+    "species": 309,
+    "level": 35
+   },
+   {
+    "species": 309,
+    "level": 35
+   },
+   {
+    "species": 294,
+    "level": 35
+   }
+  ],
+  "FERNANDO_3": [
+   {
+    "species": 309,
+    "level": 37
+   },
+   {
+    "species": 310,
+    "level": 37
+   },
+   {
+    "species": 294,
+    "level": 37
+   }
+  ],
+  "FERNANDO_4": [
+   {
+    "species": 310,
+    "level": 39
+   },
+   {
+    "species": 310,
+    "level": 39
+   },
+   {
+    "species": 294,
+    "level": 39
+   }
+  ],
+  "FERNANDO_5": [
+   {
+    "species": 310,
+    "level": 41
+   },
+   {
+    "species": 310,
+    "level": 41
+   },
+   {
+    "species": 295,
+    "level": 41
+   }
+  ],
+  "DALTON_2": [
+   {
+    "species": 81,
+    "level": 25
+   },
+   {
+    "species": 293,
+    "level": 25
+   },
+   {
+    "species": 81,
+    "level": 25
+   }
+  ],
+  "DALTON_3": [
+   {
+    "species": 81,
+    "level": 28
+   },
+   {
+    "species": 294,
+    "level": 28
+   },
+   {
+    "species": 81,
+    "level": 28
+   }
+  ],
+  "DALTON_4": [
+   {
+    "species": 82,
+    "level": 31
+   },
+   {
+    "species": 294,
+    "level": 31
+   },
+   {
+    "species": 82,
+    "level": 31
+   }
+  ],
+  "DALTON_5": [
+   {
+    "species": 82,
+    "level": 34
+   },
+   {
+    "species": 295,
+    "level": 34
+   },
+   {
+    "species": 82,
+    "level": 34
+   }
+  ],
+  "BERNIE_2": [
+   {
+    "species": 218,
+    "level": 26
+   },
+   {
+    "species": 278,
+    "level": 26
+   }
+  ],
+  "BERNIE_3": [
+   {
+    "species": 218,
+    "level": 29
+   },
+   {
+    "species": 279,
+    "level": 29
+   }
+  ],
+  "BERNIE_4": [
+   {
+    "species": 218,
+    "level": 32
+   },
+   {
+    "species": 279,
+    "level": 32
+   }
+  ],
+  "BERNIE_5": [
+   {
+    "species": 219,
+    "level": 35
+   },
+   {
+    "species": 279,
+    "level": 35
+   }
+  ],
+  "ETHAN_2": [
+   {
+    "species": 263,
+    "level": 26
+   },
+   {
+    "species": 276,
+    "level": 26
+   }
+  ],
+  "ETHAN_3": [
+   {
+    "species": 264,
+    "level": 29
+   },
+   {
+    "species": 277,
+    "level": 29
+   }
+  ],
+  "ETHAN_4": [
+   {
+    "species": 27,
+    "level": 31
+   },
+   {
+    "species": 277,
+    "level": 31
+   },
+   {
+    "species": 264,
+    "level": 31
+   }
+  ],
+  "ETHAN_5": [
+   {
+    "species": 277,
+    "level": 34
+   },
+   {
+    "species": 28,
+    "level": 34
+   },
+   {
+    "species": 264,
+    "level": 34
+   }
+  ],
+  "JOHN_AND_JAY_2": [
+   {
+    "species": 308,
+    "level": 43,
+    "moves": [
+     94,
+     7,
+     244,
+     182
+    ]
+   },
+   {
+    "species": 297,
+    "level": 43,
+    "moves": [
+     264,
+     317,
+     156,
+     187
+    ]
+   }
+  ],
+  "JOHN_AND_JAY_3": [
+   {
+    "species": 308,
+    "level": 46,
+    "moves": [
+     94,
+     7,
+     244,
+     182
+    ]
+   },
+   {
+    "species": 297,
+    "level": 46,
+    "moves": [
+     264,
+     317,
+     156,
+     187
+    ]
+   }
+  ],
+  "JOHN_AND_JAY_4": [
+   {
+    "species": 308,
+    "level": 49,
+    "moves": [
+     94,
+     7,
+     244,
+     182
+    ]
+   },
+   {
+    "species": 297,
+    "level": 49,
+    "moves": [
+     264,
+     317,
+     156,
+     187
+    ]
+   }
+  ],
+  "JOHN_AND_JAY_5": [
+   {
+    "species": 308,
+    "level": 52,
+    "moves": [
+     94,
+     7,
+     244,
+     182
+    ]
+   },
+   {
+    "species": 297,
+    "level": 52,
+    "moves": [
+     264,
+     317,
+     156,
+     187
+    ]
+   }
+  ],
+  "JEFFREY_2": [
+   {
+    "species": 283,
+    "level": 31
+   },
+   {
+    "species": 283,
+    "level": 31
+   },
+   {
+    "species": 283,
+    "level": 31
+   }
+  ],
+  "JEFFREY_3": [
+   {
+    "species": 283,
+    "level": 34
+   },
+   {
+    "species": 283,
+    "level": 34
+   },
+   {
+    "species": 284,
+    "level": 34
+   }
+  ],
+  "JEFFREY_4": [
+   {
+    "species": 283,
+    "level": 36
+   },
+   {
+    "species": 265,
+    "level": 36
+   },
+   {
+    "species": 283,
+    "level": 36
+   },
+   {
+    "species": 284,
+    "level": 36
+   }
+  ],
+  "JEFFREY_5": [
+   {
+    "species": 283,
+    "level": 38
+   },
+   {
+    "species": 269,
+    "level": 38
+   },
+   {
+    "species": 283,
+    "level": 38
+   },
+   {
+    "species": 284,
+    "level": 38,
+    "held": "SILVER_POWDER"
+   },
+   {
+    "species": 267,
+    "level": 38
+   }
+  ],
+  "CAMERON_2": [
+   {
+    "species": 64,
+    "level": 33
+   },
+   {
+    "species": 338,
+    "level": 33
+   }
+  ],
+  "CAMERON_3": [
+   {
+    "species": 64,
+    "level": 38
+   },
+   {
+    "species": 338,
+    "level": 38
+   }
+  ],
+  "CAMERON_4": [
+   {
+    "species": 64,
+    "level": 41
+   },
+   {
+    "species": 338,
+    "level": 41
+   }
+  ],
+  "CAMERON_5": [
+   {
+    "species": 338,
+    "level": 45
+   },
+   {
+    "species": 65,
+    "level": 45
+   }
+  ],
+  "JACKI_2": [
+   {
+    "species": 64,
+    "level": 34
+   },
+   {
+    "species": 337,
+    "level": 34
+   }
+  ],
+  "JACKI_3": [
+   {
+    "species": 64,
+    "level": 37
+   },
+   {
+    "species": 337,
+    "level": 37
+   }
+  ],
+  "JACKI_4": [
+   {
+    "species": 64,
+    "level": 40
+   },
+   {
+    "species": 337,
+    "level": 40
+   }
+  ],
+  "JACKI_5": [
+   {
+    "species": 337,
+    "level": 43
+   },
+   {
+    "species": 65,
+    "level": 43
+   }
+  ],
+  "WALTER_2": [
+   {
+    "species": 310,
+    "level": 34
+   }
+  ],
+  "WALTER_3": [
+   {
+    "species": 264,
+    "level": 36,
+    "moves": [
+     29,
+     28,
+     316,
+     154
+    ]
+   },
+   {
+    "species": 310,
+    "level": 36,
+    "moves": [
+     98,
+     209,
+     316,
+     46
+    ]
+   }
+  ],
+  "WALTER_4": [
+   {
+    "species": 264,
+    "level": 39,
+    "moves": [
+     29,
+     28,
+     316,
+     154
+    ]
+   },
+   {
+    "species": 310,
+    "level": 39,
+    "moves": [
+     98,
+     209,
+     316
+    ]
+   }
+  ],
+  "WALTER_5": [
+   {
+    "species": 264,
+    "level": 41,
+    "moves": [
+     29,
+     28,
+     316,
+     154
+    ]
+   },
+   {
+    "species": 55,
+    "level": 41,
+    "moves": [
+     154,
+     50,
+     93,
+     244
+    ]
+   },
+   {
+    "species": 310,
+    "level": 41,
+    "moves": [
+     98,
+     209,
+     316,
+     46
+    ]
+   }
+  ],
+  "KAREN_2": [
+   {
+    "species": 285,
+    "level": 26
+   },
+   {
+    "species": 293,
+    "level": 26
+   }
+  ],
+  "KAREN_3": [
+   {
+    "species": 285,
+    "level": 29
+   },
+   {
+    "species": 294,
+    "level": 29
+   }
+  ],
+  "KAREN_4": [
+   {
+    "species": 286,
+    "level": 32
+   },
+   {
+    "species": 294,
+    "level": 32
+   }
+  ],
+  "KAREN_5": [
+   {
+    "species": 286,
+    "level": 35
+   },
+   {
+    "species": 295,
+    "level": 35
+   }
+  ],
+  "JERRY_2": [
+   {
+    "species": 280,
+    "level": 26
+   },
+   {
+    "species": 307,
+    "level": 26
+   }
+  ],
+  "JERRY_3": [
+   {
+    "species": 281,
+    "level": 29
+   },
+   {
+    "species": 307,
+    "level": 29
+   }
+  ],
+  "JERRY_4": [
+   {
+    "species": 281,
+    "level": 32
+   },
+   {
+    "species": 308,
+    "level": 32
+   }
+  ],
+  "JERRY_5": [
+   {
+    "species": 281,
+    "level": 34
+   },
+   {
+    "species": 354,
+    "level": 34
+   },
+   {
+    "species": 308,
+    "level": 34
+   }
+  ],
+  "ANNA_AND_MEG_2": [
+   {
+    "species": 263,
+    "level": 28,
+    "moves": [
+     45,
+     39,
+     29,
+     316
+    ]
+   },
+   {
+    "species": 296,
+    "level": 30,
+    "moves": [
+     33,
+     116,
+     292
+    ]
+   }
+  ],
+  "ANNA_AND_MEG_3": [
+   {
+    "species": 263,
+    "level": 31,
+    "moves": [
+     45,
+     39,
+     29,
+     316
+    ]
+   },
+   {
+    "species": 296,
+    "level": 33,
+    "moves": [
+     33,
+     116,
+     292
+    ]
+   }
+  ],
+  "ANNA_AND_MEG_4": [
+   {
+    "species": 264,
+    "level": 34,
+    "moves": [
+     45,
+     39,
+     29,
+     316
+    ]
+   },
+   {
+    "species": 296,
+    "level": 36,
+    "moves": [
+     33,
+     116,
+     292
+    ]
+   }
+  ],
+  "ANNA_AND_MEG_5": [
+   {
+    "species": 264,
+    "level": 36,
+    "moves": [
+     45,
+     39,
+     29,
+     316
+    ]
+   },
+   {
+    "species": 297,
+    "level": 38,
+    "moves": [
+     33,
+     116,
+     292
+    ]
+   }
+  ],
+  "ISABEL_2": [
+   {
+    "species": 311,
+    "level": 26,
+    "berry": "oran"
+   },
+   {
+    "species": 312,
+    "level": 26,
+    "berry": "oran"
+   }
+  ],
+  "ISABEL_3": [
+   {
+    "species": 311,
+    "level": 29,
+    "berry": "oran"
+   },
+   {
+    "species": 312,
+    "level": 29,
+    "berry": "oran"
+   }
+  ],
+  "ISABEL_4": [
+   {
+    "species": 311,
+    "level": 32,
+    "berry": "oran"
+   },
+   {
+    "species": 312,
+    "level": 32,
+    "berry": "oran"
+   }
+  ],
+  "ISABEL_5": [
+   {
+    "species": 311,
+    "level": 35,
+    "berry": "sitrus"
+   },
+   {
+    "species": 312,
+    "level": 35,
+    "berry": "sitrus"
+   }
+  ],
+  "MIGUEL_2": [
+   {
+    "species": 300,
+    "level": 29,
+    "berry": "oran"
+   }
+  ],
+  "MIGUEL_3": [
+   {
+    "species": 300,
+    "level": 32,
+    "berry": "oran"
+   }
+  ],
+  "MIGUEL_4": [
+   {
+    "species": 301,
+    "level": 35,
+    "berry": "oran"
+   }
+  ],
+  "MIGUEL_5": [
+   {
+    "species": 301,
+    "level": 38,
+    "berry": "sitrus"
+   }
+  ],
+  "TIMOTHY_2": [
+   {
+    "species": 297,
+    "level": 33,
+    "moves": [
+     292,
+     282,
+     28,
+     91
+    ]
+   }
+  ],
+  "TIMOTHY_3": [
+   {
+    "species": 297,
+    "level": 36,
+    "moves": [
+     292,
+     282,
+     28,
+     91
+    ]
+   }
+  ],
+  "TIMOTHY_4": [
+   {
+    "species": 297,
+    "level": 39,
+    "moves": [
+     292,
+     187,
+     28,
+     91
+    ]
+   }
+  ],
+  "TIMOTHY_5": [
+   {
+    "species": 297,
+    "level": 42,
+    "moves": [
+     292,
+     187,
+     28,
+     91
+    ]
+   }
+  ],
+  "SHELBY_2": [
+   {
+    "species": 307,
+    "level": 30
+   },
+   {
+    "species": 296,
+    "level": 30
+   }
+  ],
+  "SHELBY_3": [
+   {
+    "species": 308,
+    "level": 33
+   },
+   {
+    "species": 297,
+    "level": 33
+   }
+  ],
+  "SHELBY_4": [
+   {
+    "species": 308,
+    "level": 36
+   },
+   {
+    "species": 297,
+    "level": 36
+   }
+  ],
+  "SHELBY_5": [
+   {
+    "species": 308,
+    "level": 39
+   },
+   {
+    "species": 297,
+    "level": 39
+   }
+  ],
+  "CALVIN_2": [
+   {
+    "species": 262,
+    "level": 27
+   }
+  ],
+  "CALVIN_3": [
+   {
+    "species": 277,
+    "level": 28
+   },
+   {
+    "species": 262,
+    "level": 30
+   }
+  ],
+  "CALVIN_4": [
+   {
+    "species": 277,
+    "level": 31
+   },
+   {
+    "species": 264,
+    "level": 29
+   },
+   {
+    "species": 262,
+    "level": 33
+   }
+  ],
+  "CALVIN_5": [
+   {
+    "species": 277,
+    "level": 34
+   },
+   {
+    "species": 264,
+    "level": 32
+   },
+   {
+    "species": 262,
+    "level": 36
+   }
+  ],
+  "ELLIOT_2": [
+   {
+    "species": 72,
+    "level": 24
+   },
+   {
+    "species": 130,
+    "level": 27
+   },
+   {
+    "species": 130,
+    "level": 27
+   }
+  ],
+  "ELLIOT_3": [
+   {
+    "species": 130,
+    "level": 29
+   },
+   {
+    "species": 318,
+    "level": 26
+   },
+   {
+    "species": 72,
+    "level": 26
+   },
+   {
+    "species": 130,
+    "level": 29
+   }
+  ],
+  "ELLIOT_4": [
+   {
+    "species": 130,
+    "level": 31
+   },
+   {
+    "species": 318,
+    "level": 30
+   },
+   {
+    "species": 73,
+    "level": 30
+   },
+   {
+    "species": 130,
+    "level": 31
+   }
+  ],
+  "ELLIOT_5": [
+   {
+    "species": 130,
+    "level": 33
+   },
+   {
+    "species": 319,
+    "level": 33
+   },
+   {
+    "species": 130,
+    "level": 33
+   },
+   {
+    "species": 73,
+    "level": 35
+   }
+  ],
+  "ISAIAH_2": [
+   {
+    "species": 120,
+    "level": 39
+   }
+  ],
+  "ISAIAH_3": [
+   {
+    "species": 120,
+    "level": 42
+   }
+  ],
+  "ISAIAH_4": [
+   {
+    "species": 121,
+    "level": 45
+   }
+  ],
+  "ISAIAH_5": [
+   {
+    "species": 121,
+    "level": 48
+   }
+  ],
+  "MARIA_2": [
+   {
+    "species": 84,
+    "level": 28
+   }
+  ],
+  "MARIA_3": [
+   {
+    "species": 84,
+    "level": 31
+   }
+  ],
+  "MARIA_4": [
+   {
+    "species": 85,
+    "level": 34
+   }
+  ],
+  "MARIA_5": [
+   {
+    "species": 85,
+    "level": 37
+   }
+  ],
+  "ABIGAIL_2": [
+   {
+    "species": 81,
+    "level": 28
+   }
+  ],
+  "ABIGAIL_3": [
+   {
+    "species": 81,
+    "level": 31
+   }
+  ],
+  "ABIGAIL_4": [
+   {
+    "species": 82,
+    "level": 34
+   }
+  ],
+  "ABIGAIL_5": [
+   {
+    "species": 82,
+    "level": 37
+   }
+  ],
+  "DYLAN_2": [
+   {
+    "species": 84,
+    "level": 28
+   }
+  ],
+  "DYLAN_3": [
+   {
+    "species": 84,
+    "level": 31
+   }
+  ],
+  "DYLAN_4": [
+   {
+    "species": 85,
+    "level": 34
+   }
+  ],
+  "DYLAN_5": [
+   {
+    "species": 85,
+    "level": 37
+   }
+  ],
+  "KATELYN_2": [
+   {
+    "species": 120,
+    "level": 39
+   }
+  ],
+  "KATELYN_3": [
+   {
+    "species": 120,
+    "level": 42
+   }
+  ],
+  "KATELYN_4": [
+   {
+    "species": 121,
+    "level": 45
+   }
+  ],
+  "KATELYN_5": [
+   {
+    "species": 121,
+    "level": 48
+   }
+  ],
+  "BENJAMIN_2": [
+   {
+    "species": 81,
+    "level": 30
+   }
+  ],
+  "BENJAMIN_3": [
+   {
+    "species": 81,
+    "level": 33
+   }
+  ],
+  "BENJAMIN_4": [
+   {
+    "species": 82,
+    "level": 36
+   }
+  ],
+  "BENJAMIN_5": [
+   {
+    "species": 82,
+    "level": 39
+   }
+  ],
+  "PABLO_2": [
+   {
+    "species": 120,
+    "level": 37
+   },
+   {
+    "species": 120,
+    "level": 37
+   }
+  ],
+  "PABLO_3": [
+   {
+    "species": 278,
+    "level": 39
+   },
+   {
+    "species": 120,
+    "level": 39
+   },
+   {
+    "species": 120,
+    "level": 39
+   }
+  ],
+  "PABLO_4": [
+   {
+    "species": 279,
+    "level": 41
+   },
+   {
+    "species": 120,
+    "level": 41
+   },
+   {
+    "species": 120,
+    "level": 41
+   }
+  ],
+  "PABLO_5": [
+   {
+    "species": 279,
+    "level": 43
+   },
+   {
+    "species": 121,
+    "level": 43
+   },
+   {
+    "species": 121,
+    "level": 43
+   }
+  ],
+  "NICOLAS_2": [
+   {
+    "species": 334,
+    "level": 41
+   },
+   {
+    "species": 334,
+    "level": 41
+   }
+  ],
+  "NICOLAS_3": [
+   {
+    "species": 334,
+    "level": 44
+   },
+   {
+    "species": 334,
+    "level": 44
+   }
+  ],
+  "NICOLAS_4": [
+   {
+    "species": 371,
+    "level": 46
+   },
+   {
+    "species": 334,
+    "level": 46
+   },
+   {
+    "species": 334,
+    "level": 46
+   }
+  ],
+  "NICOLAS_5": [
+   {
+    "species": 334,
+    "level": 49
+   },
+   {
+    "species": 334,
+    "level": 49
+   },
+   {
+    "species": 372,
+    "level": 49,
+    "held": "DRAGON_FANG"
+   }
+  ],
+  "ROBERT_2": [
+   {
+    "species": 177,
+    "level": 32
+   },
+   {
+    "species": 333,
+    "level": 32
+   }
+  ],
+  "ROBERT_3": [
+   {
+    "species": 177,
+    "level": 35
+   },
+   {
+    "species": 334,
+    "level": 35
+   }
+  ],
+  "ROBERT_4": [
+   {
+    "species": 177,
+    "level": 38
+   },
+   {
+    "species": 334,
+    "level": 38
+   }
+  ],
+  "ROBERT_5": [
+   {
+    "species": 334,
+    "level": 41
+   },
+   {
+    "species": 178,
+    "level": 41
+   }
+  ],
+  "LAO_2": [
+   {
+    "species": 109,
+    "level": 24,
+    "moves": [
+     139,
+     33,
+     124,
+     120
+    ]
+   },
+   {
+    "species": 109,
+    "level": 24,
+    "moves": [
+     139,
+     33,
+     124
+    ]
+   },
+   {
+    "species": 109,
+    "level": 24,
+    "moves": [
+     139,
+     33,
+     124,
+     120
+    ]
+   },
+   {
+    "species": 109,
+    "level": 26,
+    "moves": [
+     33,
+     124
+    ]
+   }
+  ],
+  "LAO_3": [
+   {
+    "species": 109,
+    "level": 27,
+    "moves": [
+     139,
+     33,
+     124,
+     120
+    ]
+   },
+   {
+    "species": 109,
+    "level": 27,
+    "moves": [
+     139,
+     33,
+     124,
+     120
+    ]
+   },
+   {
+    "species": 109,
+    "level": 27,
+    "moves": [
+     139,
+     33,
+     124
+    ]
+   },
+   {
+    "species": 109,
+    "level": 29,
+    "moves": [
+     33,
+     124
+    ]
+   }
+  ],
+  "LAO_4": [
+   {
+    "species": 109,
+    "level": 30,
+    "moves": [
+     139,
+     33,
+     124
+    ]
+   },
+   {
+    "species": 109,
+    "level": 30,
+    "moves": [
+     139,
+     33,
+     124
+    ]
+   },
+   {
+    "species": 109,
+    "level": 30,
+    "moves": [
+     139,
+     33,
+     124
+    ]
+   },
+   {
+    "species": 109,
+    "level": 32,
+    "moves": [
+     33,
+     124
+    ]
+   }
+  ],
+  "LAO_5": [
+   {
+    "species": 109,
+    "level": 33,
+    "moves": [
+     139,
+     33,
+     124
+    ]
+   },
+   {
+    "species": 109,
+    "level": 33,
+    "moves": [
+     139,
+     33,
+     124,
+     120
+    ]
+   },
+   {
+    "species": 109,
+    "level": 33,
+    "moves": [
+     139,
+     33,
+     124,
+     120
+    ]
+   },
+   {
+    "species": 110,
+    "level": 35,
+    "moves": [
+     33,
+     124
+    ],
+    "held": "SMOKE_BALL"
+   }
+  ],
+  "CYNDY_2": [
+   {
+    "species": 307,
+    "level": 26
+   },
+   {
+    "species": 296,
+    "level": 26
+   }
+  ],
+  "CYNDY_3": [
+   {
+    "species": 307,
+    "level": 29
+   },
+   {
+    "species": 296,
+    "level": 29
+   }
+  ],
+  "CYNDY_4": [
+   {
+    "species": 308,
+    "level": 32
+   },
+   {
+    "species": 297,
+    "level": 32
+   }
+  ],
+  "CYNDY_5": [
+   {
+    "species": 308,
+    "level": 35
+   },
+   {
+    "species": 297,
+    "level": 35
+   }
+  ],
+  "MADELINE_2": [
+   {
+    "species": 322,
+    "level": 29,
+    "moves": [
+     52,
+     33,
+     222,
+     241
+    ]
+   }
+  ],
+  "MADELINE_3": [
+   {
+    "species": 322,
+    "level": 32,
+    "moves": [
+     52,
+     36,
+     222,
+     241
+    ]
+   }
+  ],
+  "MADELINE_4": [
+   {
+    "species": 315,
+    "level": 34,
+    "moves": [
+     73,
+     72,
+     320,
+     241
+    ]
+   },
+   {
+    "species": 322,
+    "level": 34,
+    "moves": [
+     53,
+     36,
+     222,
+     241
+    ]
+   }
+  ],
+  "MADELINE_5": [
+   {
+    "species": 315,
+    "level": 37,
+    "moves": [
+     73,
+     202,
+     76,
+     241
+    ]
+   },
+   {
+    "species": 323,
+    "level": 37,
+    "moves": [
+     53,
+     36,
+     89,
+     241
+    ]
+   }
+  ],
+  "JENNY_2": [
+   {
+    "species": 320,
+    "level": 38
+   }
+  ],
+  "JENNY_3": [
+   {
+    "species": 320,
+    "level": 41
+   }
+  ],
+  "JENNY_4": [
+   {
+    "species": 120,
+    "level": 43
+   },
+   {
+    "species": 320,
+    "level": 43
+   }
+  ],
+  "JENNY_5": [
+   {
+    "species": 370,
+    "level": 45
+   },
+   {
+    "species": 320,
+    "level": 45
+   },
+   {
+    "species": 121,
+    "level": 45
+   }
+  ],
+  "DIANA_2": [
+   {
+    "species": 285,
+    "level": 25
+   },
+   {
+    "species": 44,
+    "level": 25
+   },
+   {
+    "species": 333,
+    "level": 25
+   }
+  ],
+  "DIANA_3": [
+   {
+    "species": 286,
+    "level": 28
+   },
+   {
+    "species": 44,
+    "level": 28
+   },
+   {
+    "species": 333,
+    "level": 28
+   }
+  ],
+  "DIANA_4": [
+   {
+    "species": 286,
+    "level": 31
+   },
+   {
+    "species": 44,
+    "level": 31
+   },
+   {
+    "species": 333,
+    "level": 31
+   }
+  ],
+  "DIANA_5": [
+   {
+    "species": 286,
+    "level": 40
+   },
+   {
+    "species": 45,
+    "level": 40
+   },
+   {
+    "species": 334,
+    "level": 40
+   }
+  ],
+  "AMY_AND_LIV_2": [
+   {
+    "species": 311,
+    "level": 27
+   },
+   {
+    "species": 312,
+    "level": 27
+   }
+  ],
+  "AMY_AND_LIV_4": [
+   {
+    "species": 311,
+    "level": 30
+   },
+   {
+    "species": 312,
+    "level": 30
+   }
+  ],
+  "AMY_AND_LIV_5": [
+   {
+    "species": 311,
+    "level": 33,
+    "moves": [
+     209,
+     268,
+     313,
+     270
+    ]
+   },
+   {
+    "species": 312,
+    "level": 33,
+    "moves": [
+     209,
+     268,
+     204,
+     270
+    ]
+   }
+  ],
+  "AMY_AND_LIV_6": [
+   {
+    "species": 311,
+    "level": 36,
+    "moves": [
+     87,
+     268,
+     313,
+     270
+    ]
+   },
+   {
+    "species": 312,
+    "level": 36,
+    "moves": [
+     87,
+     268,
+     204,
+     270
+    ]
+   }
+  ],
+  "ERNEST_2": [
+   {
+    "species": 278,
+    "level": 36
+   },
+   {
+    "species": 72,
+    "level": 36
+   },
+   {
+    "species": 67,
+    "level": 36
+   }
+  ],
+  "ERNEST_3": [
+   {
+    "species": 279,
+    "level": 39
+   },
+   {
+    "species": 72,
+    "level": 39
+   },
+   {
+    "species": 67,
+    "level": 39
+   }
+  ],
+  "ERNEST_4": [
+   {
+    "species": 279,
+    "level": 42
+   },
+   {
+    "species": 72,
+    "level": 42
+   },
+   {
+    "species": 67,
+    "level": 42
+   }
+  ],
+  "ERNEST_5": [
+   {
+    "species": 279,
+    "level": 45
+   },
+   {
+    "species": 67,
+    "level": 45
+   },
+   {
+    "species": 73,
+    "level": 45
+   }
+  ],
+  "CORY_2": [
+   {
+    "species": 278,
+    "level": 30
+   },
+   {
+    "species": 66,
+    "level": 30
+   },
+   {
+    "species": 72,
+    "level": 30
+   }
+  ],
+  "CORY_3": [
+   {
+    "species": 279,
+    "level": 32
+   },
+   {
+    "species": 66,
+    "level": 32
+   },
+   {
+    "species": 72,
+    "level": 32
+   }
+  ],
+  "CORY_4": [
+   {
+    "species": 279,
+    "level": 34
+   },
+   {
+    "species": 66,
+    "level": 34
+   },
+   {
+    "species": 73,
+    "level": 34
+   }
+  ],
+  "CORY_5": [
+   {
+    "species": 279,
+    "level": 36
+   },
+   {
+    "species": 67,
+    "level": 36
+   },
+   {
+    "species": 73,
+    "level": 36
+   }
+  ],
+  "EDWIN_2": [
+   {
+    "species": 271,
+    "level": 26
+   },
+   {
+    "species": 274,
+    "level": 26
+   }
+  ],
+  "EDWIN_3": [
+   {
+    "species": 271,
+    "level": 29
+   },
+   {
+    "species": 274,
+    "level": 29
+   }
+  ],
+  "EDWIN_4": [
+   {
+    "species": 271,
+    "level": 32
+   },
+   {
+    "species": 274,
+    "level": 32
+   }
+  ],
+  "EDWIN_5": [
+   {
+    "species": 272,
+    "level": 35
+   },
+   {
+    "species": 275,
+    "level": 35
+   }
+  ],
+  "LYDIA_2": [
+   {
+    "species": 278,
+    "level": 22
+   },
+   {
+    "species": 285,
+    "level": 22
+   },
+   {
+    "species": 183,
+    "level": 22
+   },
+   {
+    "species": 315,
+    "level": 22
+   },
+   {
+    "species": 300,
+    "level": 22
+   },
+   {
+    "species": 118,
+    "level": 22
+   }
+  ],
+  "LYDIA_3": [
+   {
+    "species": 279,
+    "level": 25
+   },
+   {
+    "species": 286,
+    "level": 25
+   },
+   {
+    "species": 183,
+    "level": 25
+   },
+   {
+    "species": 315,
+    "level": 25
+   },
+   {
+    "species": 301,
+    "level": 25
+   },
+   {
+    "species": 118,
+    "level": 25
+   }
+  ],
+  "LYDIA_4": [
+   {
+    "species": 279,
+    "level": 28
+   },
+   {
+    "species": 286,
+    "level": 28
+   },
+   {
+    "species": 183,
+    "level": 28
+   },
+   {
+    "species": 315,
+    "level": 28
+   },
+   {
+    "species": 301,
+    "level": 28
+   },
+   {
+    "species": 118,
+    "level": 28
+   }
+  ],
+  "LYDIA_5": [
+   {
+    "species": 279,
+    "level": 31
+   },
+   {
+    "species": 286,
+    "level": 31
+   },
+   {
+    "species": 184,
+    "level": 31
+   },
+   {
+    "species": 315,
+    "level": 31
+   },
+   {
+    "species": 301,
+    "level": 31
+   },
+   {
+    "species": 119,
+    "level": 31
+   }
+  ],
+  "ISAAC_2": [
+   {
+    "species": 294,
+    "level": 22
+   },
+   {
+    "species": 264,
+    "level": 22
+   },
+   {
+    "species": 304,
+    "level": 22
+   },
+   {
+    "species": 262,
+    "level": 22
+   },
+   {
+    "species": 277,
+    "level": 22
+   },
+   {
+    "species": 296,
+    "level": 22
+   }
+  ],
+  "ISAAC_3": [
+   {
+    "species": 294,
+    "level": 25
+   },
+   {
+    "species": 264,
+    "level": 25
+   },
+   {
+    "species": 304,
+    "level": 25
+   },
+   {
+    "species": 262,
+    "level": 25
+   },
+   {
+    "species": 277,
+    "level": 25
+   },
+   {
+    "species": 297,
+    "level": 25
+   }
+  ],
+  "ISAAC_4": [
+   {
+    "species": 294,
+    "level": 28
+   },
+   {
+    "species": 264,
+    "level": 28
+   },
+   {
+    "species": 304,
+    "level": 28
+   },
+   {
+    "species": 262,
+    "level": 28
+   },
+   {
+    "species": 277,
+    "level": 28
+   },
+   {
+    "species": 297,
+    "level": 28
+   }
+  ],
+  "ISAAC_5": [
+   {
+    "species": 294,
+    "level": 31
+   },
+   {
+    "species": 264,
+    "level": 31
+   },
+   {
+    "species": 305,
+    "level": 31
+   },
+   {
+    "species": 262,
+    "level": 31
+   },
+   {
+    "species": 277,
+    "level": 31
+   },
+   {
+    "species": 297,
+    "level": 31
+   }
+  ],
+  "GABRIELLE_2": [
+   {
+    "species": 300,
+    "level": 31
+   },
+   {
+    "species": 262,
+    "level": 31
+   },
+   {
+    "species": 263,
+    "level": 31
+   },
+   {
+    "species": 270,
+    "level": 31
+   },
+   {
+    "species": 273,
+    "level": 31
+   },
+   {
+    "species": 276,
+    "level": 31
+   }
+  ],
+  "GABRIELLE_3": [
+   {
+    "species": 300,
+    "level": 33
+   },
+   {
+    "species": 262,
+    "level": 33
+   },
+   {
+    "species": 264,
+    "level": 33
+   },
+   {
+    "species": 271,
+    "level": 33
+   },
+   {
+    "species": 274,
+    "level": 33
+   },
+   {
+    "species": 276,
+    "level": 33
+   }
+  ],
+  "GABRIELLE_4": [
+   {
+    "species": 301,
+    "level": 35
+   },
+   {
+    "species": 262,
+    "level": 35
+   },
+   {
+    "species": 264,
+    "level": 35
+   },
+   {
+    "species": 271,
+    "level": 35
+   },
+   {
+    "species": 274,
+    "level": 35
+   },
+   {
+    "species": 277,
+    "level": 35
+   }
+  ],
+  "GABRIELLE_5": [
+   {
+    "species": 301,
+    "level": 37
+   },
+   {
+    "species": 262,
+    "level": 37
+   },
+   {
+    "species": 264,
+    "level": 37
+   },
+   {
+    "species": 272,
+    "level": 37
+   },
+   {
+    "species": 275,
+    "level": 37
+   },
+   {
+    "species": 277,
+    "level": 37
+   }
+  ],
+  "CATHERINE_2": [
+   {
+    "species": 44,
+    "level": 30
+   },
+   {
+    "species": 315,
+    "level": 30
+   }
+  ],
+  "CATHERINE_3": [
+   {
+    "species": 44,
+    "level": 33
+   },
+   {
+    "species": 315,
+    "level": 33
+   }
+  ],
+  "CATHERINE_4": [
+   {
+    "species": 44,
+    "level": 36
+   },
+   {
+    "species": 315,
+    "level": 36
+   }
+  ],
+  "CATHERINE_5": [
+   {
+    "species": 182,
+    "level": 39
+   },
+   {
+    "species": 315,
+    "level": 39
+   }
+  ],
+  "JACKSON_2": [
+   {
+    "species": 286,
+    "level": 31
+   }
+  ],
+  "JACKSON_3": [
+   {
+    "species": 286,
+    "level": 34
+   }
+  ],
+  "JACKSON_4": [
+   {
+    "species": 286,
+    "level": 37
+   }
+  ],
+  "JACKSON_5": [
+   {
+    "species": 352,
+    "level": 39
+   },
+   {
+    "species": 286,
+    "level": 39
+   }
+  ],
+  "HALEY_2": [
+   {
+    "species": 271,
+    "level": 26
+   },
+   {
+    "species": 285,
+    "level": 26
+   }
+  ],
+  "HALEY_3": [
+   {
+    "species": 271,
+    "level": 29
+   },
+   {
+    "species": 286,
+    "level": 29
+   }
+  ],
+  "HALEY_4": [
+   {
+    "species": 271,
+    "level": 32
+   },
+   {
+    "species": 286,
+    "level": 32
+   }
+  ],
+  "HALEY_5": [
+   {
+    "species": 277,
+    "level": 34
+   },
+   {
+    "species": 271,
+    "level": 34
+   },
+   {
+    "species": 286,
+    "level": 34
+   }
+  ],
+  "JAMES_2": [
+   {
+    "species": 291,
+    "level": 27
+   }
+  ],
+  "JAMES_3": [
+   {
+    "species": 269,
+    "level": 29
+   },
+   {
+    "species": 291,
+    "level": 29
+   }
+  ],
+  "JAMES_4": [
+   {
+    "species": 283,
+    "level": 31
+   },
+   {
+    "species": 269,
+    "level": 31
+   },
+   {
+    "species": 291,
+    "level": 31
+   }
+  ],
+  "JAMES_5": [
+   {
+    "species": 283,
+    "level": 33
+   },
+   {
+    "species": 291,
+    "level": 33
+   },
+   {
+    "species": 269,
+    "level": 33
+   },
+   {
+    "species": 291,
+    "level": 33
+   }
+  ],
+  "TRENT_2": [
+   {
+    "species": 74,
+    "level": 24
+   },
+   {
+    "species": 74,
+    "level": 24
+   },
+   {
+    "species": 74,
+    "level": 24
+   },
+   {
+    "species": 75,
+    "level": 24
+   }
+  ],
+  "TRENT_3": [
+   {
+    "species": 74,
+    "level": 27
+   },
+   {
+    "species": 74,
+    "level": 27
+   },
+   {
+    "species": 75,
+    "level": 27
+   },
+   {
+    "species": 75,
+    "level": 27
+   }
+  ],
+  "TRENT_4": [
+   {
+    "species": 74,
+    "level": 30
+   },
+   {
+    "species": 75,
+    "level": 30
+   },
+   {
+    "species": 75,
+    "level": 30
+   },
+   {
+    "species": 75,
+    "level": 30
+   }
+  ],
+  "TRENT_5": [
+   {
+    "species": 75,
+    "level": 33
+   },
+   {
+    "species": 75,
+    "level": 33
+   },
+   {
+    "species": 75,
+    "level": 33
+   },
+   {
+    "species": 76,
+    "level": 33
+   }
+  ],
+  "SAWYER_2": [
+   {
+    "species": 74,
+    "level": 26
+   },
+   {
+    "species": 322,
+    "level": 26
+   }
+  ],
+  "SAWYER_3": [
+   {
+    "species": 66,
+    "level": 28
+   },
+   {
+    "species": 322,
+    "level": 28
+   },
+   {
+    "species": 75,
+    "level": 28
+   }
+  ],
+  "SAWYER_4": [
+   {
+    "species": 66,
+    "level": 30
+   },
+   {
+    "species": 322,
+    "level": 30
+   },
+   {
+    "species": 75,
+    "level": 30
+   }
+  ],
+  "SAWYER_5": [
+   {
+    "species": 67,
+    "level": 33
+   },
+   {
+    "species": 323,
+    "level": 33
+   },
+   {
+    "species": 76,
+    "level": 33
+   }
+  ],
+  "KIRA_AND_DAN_2": [
+   {
+    "species": 313,
+    "level": 30
+   },
+   {
+    "species": 314,
+    "level": 30
+   }
+  ],
+  "KIRA_AND_DAN_3": [
+   {
+    "species": 313,
+    "level": 33
+   },
+   {
+    "species": 314,
+    "level": 33
+   }
+  ],
+  "KIRA_AND_DAN_4": [
+   {
+    "species": 313,
+    "level": 36
+   },
+   {
+    "species": 314,
+    "level": 36
+   }
+  ],
+  "KIRA_AND_DAN_5": [
+   {
+    "species": 313,
+    "level": 39
+   },
+   {
+    "species": 314,
+    "level": 39
+   }
+  ],
+  "WALLY_VR_3": [
+   {
+    "species": 334,
+    "level": 50,
+    "moves": [
+     332,
+     219,
+     225,
+     349
+    ]
+   },
+   {
+    "species": 301,
+    "level": 49,
+    "moves": [
+     47,
+     274,
+     204,
+     185
+    ]
+   },
+   {
+    "species": 315,
+    "level": 50,
+    "moves": [
+     345,
+     73,
+     202,
+     92
+    ]
+   },
+   {
+    "species": 82,
+    "level": 47,
+    "moves": [
+     48,
+     85,
+     161,
+     103
+    ]
+   },
+   {
+    "species": 282,
+    "level": 51,
+    "moves": [
+     104,
+     347,
+     94,
+     248
+    ]
+   }
+  ],
+  "WALLY_VR_4": [
+   {
+    "species": 334,
+    "level": 53,
+    "moves": [
+     332,
+     219,
+     225,
+     349
+    ]
+   },
+   {
+    "species": 301,
+    "level": 52,
+    "moves": [
+     47,
+     274,
+     204,
+     185
+    ]
+   },
+   {
+    "species": 315,
+    "level": 53,
+    "moves": [
+     345,
+     73,
+     202,
+     92
+    ]
+   },
+   {
+    "species": 82,
+    "level": 50,
+    "moves": [
+     48,
+     85,
+     161,
+     103
+    ]
+   },
+   {
+    "species": 282,
+    "level": 54,
+    "moves": [
+     104,
+     347,
+     94,
+     248
+    ]
+   }
+  ],
+  "WALLY_VR_5": [
+   {
+    "species": 334,
+    "level": 56,
+    "moves": [
+     332,
+     219,
+     225,
+     349
+    ]
+   },
+   {
+    "species": 301,
+    "level": 55,
+    "moves": [
+     47,
+     274,
+     204,
+     185
+    ]
+   },
+   {
+    "species": 315,
+    "level": 56,
+    "moves": [
+     345,
+     73,
+     202,
+     92
+    ]
+   },
+   {
+    "species": 82,
+    "level": 53,
+    "moves": [
+     48,
+     85,
+     161,
+     103
+    ]
+   },
+   {
+    "species": 282,
+    "level": 57,
+    "moves": [
+     104,
+     347,
+     94,
+     248
+    ]
+   }
+  ],
+  "ROXANNE_2": [
+   {
+    "species": 76,
+    "level": 32,
+    "moves": [
+     182,
+     205,
+     222,
+     153
+    ]
+   },
+   {
+    "species": 140,
+    "level": 35,
+    "moves": [
+     14,
+     58,
+     57,
+     157
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 95,
+    "level": 35,
+    "moves": [
+     231,
+     153,
+     46,
+     157
+    ]
+   },
+   {
+    "species": 299,
+    "level": 37,
+    "moves": [
+     104,
+     153,
+     182,
+     157
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "ROXANNE_3": [
+   {
+    "species": 138,
+    "level": 37,
+    "moves": [
+     182,
+     58,
+     157,
+     57
+    ]
+   },
+   {
+    "species": 76,
+    "level": 37,
+    "moves": [
+     182,
+     205,
+     222,
+     153
+    ]
+   },
+   {
+    "species": 141,
+    "level": 40,
+    "moves": [
+     14,
+     58,
+     57,
+     157
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 95,
+    "level": 40,
+    "moves": [
+     231,
+     153,
+     46,
+     157
+    ]
+   },
+   {
+    "species": 299,
+    "level": 42,
+    "moves": [
+     104,
+     153,
+     182,
+     157
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "ROXANNE_4": [
+   {
+    "species": 139,
+    "level": 42,
+    "moves": [
+     182,
+     58,
+     157,
+     57
+    ]
+   },
+   {
+    "species": 76,
+    "level": 42,
+    "moves": [
+     182,
+     205,
+     89,
+     153
+    ]
+   },
+   {
+    "species": 141,
+    "level": 45,
+    "moves": [
+     14,
+     58,
+     57,
+     157
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 95,
+    "level": 45,
+    "moves": [
+     231,
+     153,
+     46,
+     157
+    ]
+   },
+   {
+    "species": 299,
+    "level": 47,
+    "moves": [
+     104,
+     153,
+     182,
+     157
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "ROXANNE_5": [
+   {
+    "species": 142,
+    "level": 47,
+    "moves": [
+     157,
+     63,
+     48,
+     182
+    ]
+   },
+   {
+    "species": 76,
+    "level": 47,
+    "moves": [
+     264,
+     205,
+     89,
+     153
+    ]
+   },
+   {
+    "species": 139,
+    "level": 47,
+    "moves": [
+     182,
+     58,
+     157,
+     57
+    ]
+   },
+   {
+    "species": 141,
+    "level": 50,
+    "moves": [
+     14,
+     58,
+     57,
+     157
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 208,
+    "level": 50,
+    "moves": [
+     231,
+     153,
+     46,
+     157
+    ]
+   },
+   {
+    "species": 299,
+    "level": 52,
+    "moves": [
+     104,
+     153,
+     182,
+     157
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "BRAWLY_2": [
+   {
+    "species": 68,
+    "level": 33,
+    "moves": [
+     2,
+     157,
+     264,
+     339
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 307,
+    "level": 33,
+    "moves": [
+     94,
+     113,
+     115,
+     264
+    ]
+   },
+   {
+    "species": 237,
+    "level": 35,
+    "moves": [
+     228,
+     68,
+     182,
+     167
+    ]
+   },
+   {
+    "species": 297,
+    "level": 37,
+    "moves": [
+     252,
+     264,
+     187,
+     89
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "BRAWLY_3": [
+   {
+    "species": 68,
+    "level": 38,
+    "moves": [
+     2,
+     157,
+     264,
+     339
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 308,
+    "level": 38,
+    "moves": [
+     94,
+     113,
+     115,
+     264
+    ]
+   },
+   {
+    "species": 237,
+    "level": 40,
+    "moves": [
+     228,
+     68,
+     182,
+     167
+    ]
+   },
+   {
+    "species": 297,
+    "level": 42,
+    "moves": [
+     252,
+     264,
+     187,
+     89
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "BRAWLY_4": [
+   {
+    "species": 107,
+    "level": 40,
+    "moves": [
+     327,
+     182,
+     7,
+     8
+    ]
+   },
+   {
+    "species": 68,
+    "level": 43,
+    "moves": [
+     2,
+     157,
+     264,
+     339
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 308,
+    "level": 43,
+    "moves": [
+     264,
+     113,
+     115,
+     94
+    ]
+   },
+   {
+    "species": 237,
+    "level": 45,
+    "moves": [
+     228,
+     68,
+     182,
+     167
+    ]
+   },
+   {
+    "species": 297,
+    "level": 47,
+    "moves": [
+     252,
+     264,
+     187,
+     89
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "BRAWLY_5": [
+   {
+    "species": 106,
+    "level": 46,
+    "moves": [
+     25,
+     264,
+     89,
+     339
+    ]
+   },
+   {
+    "species": 107,
+    "level": 46,
+    "moves": [
+     327,
+     182,
+     7,
+     8
+    ]
+   },
+   {
+    "species": 68,
+    "level": 48,
+    "moves": [
+     238,
+     157,
+     264,
+     339
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 308,
+    "level": 48,
+    "moves": [
+     264,
+     113,
+     115,
+     94
+    ]
+   },
+   {
+    "species": 237,
+    "level": 50,
+    "moves": [
+     228,
+     68,
+     182,
+     167
+    ]
+   },
+   {
+    "species": 297,
+    "level": 52,
+    "moves": [
+     252,
+     264,
+     187,
+     89
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "WATTSON_2": [
+   {
+    "species": 179,
+    "level": 36,
+    "moves": [
+     87,
+     182,
+     86,
+     113
+    ]
+   },
+   {
+    "species": 101,
+    "level": 36,
+    "moves": [
+     205,
+     87,
+     153,
+     240
+    ]
+   },
+   {
+    "species": 82,
+    "level": 38,
+    "moves": [
+     48,
+     182,
+     87,
+     240
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 310,
+    "level": 40,
+    "moves": [
+     44,
+     86,
+     87,
+     182
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "WATTSON_3": [
+   {
+    "species": 25,
+    "level": 39,
+    "moves": [
+     87,
+     21,
+     240,
+     351
+    ]
+   },
+   {
+    "species": 180,
+    "level": 41,
+    "moves": [
+     87,
+     182,
+     86,
+     113
+    ]
+   },
+   {
+    "species": 101,
+    "level": 41,
+    "moves": [
+     205,
+     87,
+     153,
+     240
+    ]
+   },
+   {
+    "species": 82,
+    "level": 43,
+    "moves": [
+     48,
+     182,
+     87,
+     240
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 310,
+    "level": 45,
+    "moves": [
+     44,
+     86,
+     87,
+     182
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "WATTSON_4": [
+   {
+    "species": 26,
+    "level": 44,
+    "moves": [
+     87,
+     21,
+     240,
+     182
+    ]
+   },
+   {
+    "species": 181,
+    "level": 46,
+    "moves": [
+     87,
+     182,
+     86,
+     113
+    ]
+   },
+   {
+    "species": 101,
+    "level": 46,
+    "moves": [
+     205,
+     87,
+     153,
+     240
+    ]
+   },
+   {
+    "species": 82,
+    "level": 48,
+    "moves": [
+     48,
+     182,
+     87,
+     240
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 310,
+    "level": 50,
+    "moves": [
+     44,
+     86,
+     87,
+     182
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "WATTSON_5": [
+   {
+    "species": 125,
+    "level": 50,
+    "moves": [
+     129,
+     264,
+     9,
+     113
+    ]
+   },
+   {
+    "species": 26,
+    "level": 51,
+    "moves": [
+     87,
+     21,
+     240,
+     182
+    ]
+   },
+   {
+    "species": 181,
+    "level": 51,
+    "moves": [
+     87,
+     182,
+     86,
+     113
+    ]
+   },
+   {
+    "species": 101,
+    "level": 53,
+    "moves": [
+     205,
+     87,
+     153,
+     240
+    ]
+   },
+   {
+    "species": 82,
+    "level": 53,
+    "moves": [
+     48,
+     182,
+     87,
+     240
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 310,
+    "level": 55,
+    "moves": [
+     44,
+     86,
+     87,
+     182
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "FLANNERY_2": [
+   {
+    "species": 219,
+    "level": 38,
+    "moves": [
+     315,
+     213,
+     113,
+     157
+    ],
+    "held": "WHITE_HERB"
+   },
+   {
+    "species": 77,
+    "level": 36,
+    "moves": [
+     53,
+     213,
+     76,
+     340
+    ]
+   },
+   {
+    "species": 323,
+    "level": 38,
+    "moves": [
+     315,
+     241,
+     89,
+     213
+    ],
+    "held": "WHITE_HERB"
+   },
+   {
+    "species": 324,
+    "level": 40,
+    "moves": [
+     315,
+     241,
+     153,
+     213
+    ],
+    "held": "WHITE_HERB"
+   }
+  ],
+  "FLANNERY_3": [
+   {
+    "species": 58,
+    "level": 41,
+    "moves": [
+     270,
+     53,
+     46,
+     241
+    ]
+   },
+   {
+    "species": 219,
+    "level": 43,
+    "moves": [
+     315,
+     213,
+     113,
+     157
+    ],
+    "held": "WHITE_HERB"
+   },
+   {
+    "species": 77,
+    "level": 41,
+    "moves": [
+     53,
+     213,
+     76,
+     340
+    ]
+   },
+   {
+    "species": 323,
+    "level": 43,
+    "moves": [
+     315,
+     241,
+     89,
+     213
+    ],
+    "held": "WHITE_HERB"
+   },
+   {
+    "species": 324,
+    "level": 45,
+    "moves": [
+     315,
+     241,
+     153,
+     213
+    ],
+    "held": "WHITE_HERB"
+   }
+  ],
+  "FLANNERY_4": [
+   {
+    "species": 228,
+    "level": 46,
+    "moves": [
+     46,
+     76,
+     269,
+     241
+    ]
+   },
+   {
+    "species": 58,
+    "level": 46,
+    "moves": [
+     270,
+     53,
+     241,
+     46
+    ]
+   },
+   {
+    "species": 219,
+    "level": 48,
+    "moves": [
+     315,
+     213,
+     113,
+     157
+    ],
+    "held": "WHITE_HERB"
+   },
+   {
+    "species": 78,
+    "level": 46,
+    "moves": [
+     53,
+     213,
+     76,
+     340
+    ]
+   },
+   {
+    "species": 323,
+    "level": 48,
+    "moves": [
+     315,
+     241,
+     89,
+     213
+    ],
+    "held": "WHITE_HERB"
+   },
+   {
+    "species": 324,
+    "level": 50,
+    "moves": [
+     315,
+     241,
+     153,
+     213
+    ],
+    "held": "WHITE_HERB"
+   }
+  ],
+  "FLANNERY_5": [
+   {
+    "species": 59,
+    "level": 51,
+    "moves": [
+     270,
+     53,
+     241,
+     46
+    ]
+   },
+   {
+    "species": 219,
+    "level": 53,
+    "moves": [
+     315,
+     213,
+     113,
+     157
+    ],
+    "held": "WHITE_HERB"
+   },
+   {
+    "species": 229,
+    "level": 51,
+    "moves": [
+     46,
+     76,
+     269,
+     241
+    ]
+   },
+   {
+    "species": 78,
+    "level": 51,
+    "moves": [
+     53,
+     213,
+     76,
+     340
+    ]
+   },
+   {
+    "species": 323,
+    "level": 53,
+    "moves": [
+     315,
+     241,
+     89,
+     213
+    ],
+    "held": "WHITE_HERB"
+   },
+   {
+    "species": 324,
+    "level": 55,
+    "moves": [
+     315,
+     241,
+     153,
+     213
+    ],
+    "held": "WHITE_HERB"
+   }
+  ],
+  "NORMAN_2": [
+   {
+    "species": 113,
+    "level": 42,
+    "moves": [
+     113,
+     47,
+     285,
+     264
+    ]
+   },
+   {
+    "species": 289,
+    "level": 42,
+    "moves": [
+     59,
+     247,
+     38,
+     126
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 327,
+    "level": 43,
+    "moves": [
+     298,
+     285,
+     263,
+     95
+    ]
+   },
+   {
+    "species": 289,
+    "level": 45,
+    "moves": [
+     63,
+     53,
+     85,
+     247
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "NORMAN_3": [
+   {
+    "species": 289,
+    "level": 47,
+    "moves": [
+     59,
+     247,
+     38,
+     126
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 113,
+    "level": 47,
+    "moves": [
+     113,
+     47,
+     285,
+     264
+    ]
+   },
+   {
+    "species": 115,
+    "level": 45,
+    "moves": [
+     252,
+     146,
+     203,
+     179
+    ]
+   },
+   {
+    "species": 327,
+    "level": 48,
+    "moves": [
+     298,
+     285,
+     263,
+     95
+    ]
+   },
+   {
+    "species": 289,
+    "level": 50,
+    "moves": [
+     63,
+     53,
+     85,
+     247
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "NORMAN_4": [
+   {
+    "species": 289,
+    "level": 52,
+    "moves": [
+     59,
+     247,
+     38,
+     126
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 242,
+    "level": 52,
+    "moves": [
+     113,
+     47,
+     285,
+     264
+    ]
+   },
+   {
+    "species": 115,
+    "level": 50,
+    "moves": [
+     252,
+     146,
+     203,
+     179
+    ]
+   },
+   {
+    "species": 327,
+    "level": 53,
+    "moves": [
+     298,
+     285,
+     263,
+     95
+    ]
+   },
+   {
+    "species": 289,
+    "level": 55,
+    "moves": [
+     63,
+     53,
+     85,
+     247
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "NORMAN_5": [
+   {
+    "species": 289,
+    "level": 57,
+    "moves": [
+     59,
+     247,
+     38,
+     126
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 242,
+    "level": 57,
+    "moves": [
+     182,
+     47,
+     285,
+     264
+    ]
+   },
+   {
+    "species": 115,
+    "level": 55,
+    "moves": [
+     252,
+     146,
+     203,
+     179
+    ]
+   },
+   {
+    "species": 128,
+    "level": 57,
+    "moves": [
+     36,
+     182,
+     126,
+     89
+    ]
+   },
+   {
+    "species": 327,
+    "level": 58,
+    "moves": [
+     298,
+     285,
+     263,
+     95
+    ]
+   },
+   {
+    "species": 289,
+    "level": 60,
+    "moves": [
+     63,
+     53,
+     85,
+     247
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "WINONA_2": [
+   {
+    "species": 147,
+    "level": 40,
+    "moves": [
+     86,
+     85,
+     182,
+     58
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 357,
+    "level": 38,
+    "moves": [
+     241,
+     332,
+     76,
+     89
+    ]
+   },
+   {
+    "species": 279,
+    "level": 41,
+    "moves": [
+     57,
+     48,
+     182,
+     332
+    ]
+   },
+   {
+    "species": 227,
+    "level": 43,
+    "moves": [
+     18,
+     191,
+     211,
+     332
+    ]
+   },
+   {
+    "species": 334,
+    "level": 45,
+    "moves": [
+     332,
+     156,
+     349,
+     89
+    ],
+    "berry": "chesto"
+   }
+  ],
+  "WINONA_3": [
+   {
+    "species": 163,
+    "level": 43,
+    "moves": [
+     95,
+     94,
+     115,
+     138
+    ]
+   },
+   {
+    "species": 357,
+    "level": 43,
+    "moves": [
+     241,
+     332,
+     76,
+     89
+    ]
+   },
+   {
+    "species": 148,
+    "level": 45,
+    "moves": [
+     86,
+     85,
+     182,
+     58
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 279,
+    "level": 46,
+    "moves": [
+     57,
+     48,
+     182,
+     332
+    ]
+   },
+   {
+    "species": 227,
+    "level": 48,
+    "moves": [
+     18,
+     191,
+     211,
+     332
+    ]
+   },
+   {
+    "species": 334,
+    "level": 50,
+    "moves": [
+     332,
+     156,
+     349,
+     89
+    ],
+    "berry": "chesto"
+   }
+  ],
+  "WINONA_4": [
+   {
+    "species": 164,
+    "level": 48,
+    "moves": [
+     95,
+     94,
+     115,
+     138
+    ]
+   },
+   {
+    "species": 357,
+    "level": 49,
+    "moves": [
+     241,
+     332,
+     76,
+     89
+    ]
+   },
+   {
+    "species": 148,
+    "level": 50,
+    "moves": [
+     86,
+     85,
+     182,
+     58
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 279,
+    "level": 51,
+    "moves": [
+     57,
+     48,
+     182,
+     332
+    ]
+   },
+   {
+    "species": 227,
+    "level": 53,
+    "moves": [
+     18,
+     191,
+     211,
+     332
+    ]
+   },
+   {
+    "species": 334,
+    "level": 55,
+    "moves": [
+     332,
+     156,
+     349,
+     89
+    ],
+    "berry": "chesto"
+   }
+  ],
+  "WINONA_5": [
+   {
+    "species": 164,
+    "level": 53,
+    "moves": [
+     95,
+     94,
+     115,
+     138
+    ]
+   },
+   {
+    "species": 357,
+    "level": 54,
+    "moves": [
+     241,
+     332,
+     76,
+     89
+    ]
+   },
+   {
+    "species": 279,
+    "level": 55,
+    "moves": [
+     57,
+     48,
+     182,
+     332
+    ]
+   },
+   {
+    "species": 149,
+    "level": 55,
+    "moves": [
+     63,
+     85,
+     89,
+     58
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 227,
+    "level": 58,
+    "moves": [
+     18,
+     191,
+     211,
+     332
+    ]
+   },
+   {
+    "species": 334,
+    "level": 60,
+    "moves": [
+     143,
+     156,
+     349,
+     89
+    ],
+    "berry": "chesto"
+   }
+  ],
+  "TATE_AND_LIZA_2": [
+   {
+    "species": 79,
+    "level": 48,
+    "moves": [
+     281,
+     94,
+     347,
+     182
+    ]
+   },
+   {
+    "species": 344,
+    "level": 49,
+    "moves": [
+     89,
+     246,
+     94,
+     113
+    ]
+   },
+   {
+    "species": 178,
+    "level": 49,
+    "moves": [
+     94,
+     156,
+     109,
+     347
+    ],
+    "berry": "chesto"
+   },
+   {
+    "species": 337,
+    "level": 50,
+    "moves": [
+     89,
+     94,
+     156,
+     347
+    ],
+    "berry": "chesto"
+   },
+   {
+    "species": 338,
+    "level": 50,
+    "moves": [
+     241,
+     76,
+     94,
+     53
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "TATE_AND_LIZA_3": [
+   {
+    "species": 96,
+    "level": 53,
+    "moves": [
+     95,
+     138,
+     29,
+     182
+    ]
+   },
+   {
+    "species": 79,
+    "level": 53,
+    "moves": [
+     281,
+     94,
+     347,
+     182
+    ]
+   },
+   {
+    "species": 344,
+    "level": 54,
+    "moves": [
+     89,
+     153,
+     94,
+     113
+    ]
+   },
+   {
+    "species": 178,
+    "level": 54,
+    "moves": [
+     94,
+     156,
+     109,
+     347
+    ],
+    "berry": "chesto"
+   },
+   {
+    "species": 337,
+    "level": 55,
+    "moves": [
+     89,
+     94,
+     156,
+     347
+    ],
+    "berry": "chesto"
+   },
+   {
+    "species": 338,
+    "level": 55,
+    "moves": [
+     241,
+     76,
+     94,
+     53
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "TATE_AND_LIZA_4": [
+   {
+    "species": 97,
+    "level": 58,
+    "moves": [
+     95,
+     138,
+     29,
+     182
+    ]
+   },
+   {
+    "species": 344,
+    "level": 59,
+    "moves": [
+     89,
+     153,
+     94,
+     113
+    ]
+   },
+   {
+    "species": 79,
+    "level": 58,
+    "moves": [
+     281,
+     94,
+     347,
+     182
+    ]
+   },
+   {
+    "species": 178,
+    "level": 59,
+    "moves": [
+     94,
+     156,
+     109,
+     347
+    ],
+    "berry": "chesto"
+   },
+   {
+    "species": 337,
+    "level": 60,
+    "moves": [
+     89,
+     94,
+     156,
+     347
+    ],
+    "berry": "chesto"
+   },
+   {
+    "species": 338,
+    "level": 60,
+    "moves": [
+     241,
+     76,
+     94,
+     53
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "TATE_AND_LIZA_5": [
+   {
+    "species": 97,
+    "level": 63,
+    "moves": [
+     95,
+     138,
+     29,
+     182
+    ]
+   },
+   {
+    "species": 344,
+    "level": 64,
+    "moves": [
+     89,
+     153,
+     94,
+     113
+    ]
+   },
+   {
+    "species": 199,
+    "level": 63,
+    "moves": [
+     281,
+     94,
+     347,
+     182
+    ]
+   },
+   {
+    "species": 178,
+    "level": 64,
+    "moves": [
+     94,
+     156,
+     109,
+     347
+    ],
+    "berry": "chesto"
+   },
+   {
+    "species": 337,
+    "level": 65,
+    "moves": [
+     89,
+     94,
+     156,
+     347
+    ],
+    "berry": "chesto"
+   },
+   {
+    "species": 338,
+    "level": 65,
+    "moves": [
+     241,
+     76,
+     94,
+     53
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "JUAN_2": [
+   {
+    "species": 60,
+    "level": 46,
+    "moves": [
+     95,
+     240,
+     182,
+     56
+    ]
+   },
+   {
+    "species": 340,
+    "level": 46,
+    "moves": [
+     240,
+     352,
+     104,
+     90
+    ]
+   },
+   {
+    "species": 365,
+    "level": 48,
+    "moves": [
+     352,
+     34,
+     182,
+     58
+    ]
+   },
+   {
+    "species": 342,
+    "level": 48,
+    "moves": [
+     156,
+     152,
+     269,
+     104
+    ],
+    "berry": "chesto"
+   },
+   {
+    "species": 230,
+    "level": 51,
+    "moves": [
+     352,
+     104,
+     58,
+     156
+    ],
+    "berry": "chesto"
+   }
+  ],
+  "JUAN_3": [
+   {
+    "species": 61,
+    "level": 50,
+    "moves": [
+     95,
+     240,
+     182,
+     56
+    ]
+   },
+   {
+    "species": 340,
+    "level": 51,
+    "moves": [
+     240,
+     352,
+     104,
+     90
+    ]
+   },
+   {
+    "species": 365,
+    "level": 53,
+    "moves": [
+     352,
+     34,
+     182,
+     58
+    ]
+   },
+   {
+    "species": 342,
+    "level": 53,
+    "moves": [
+     156,
+     12,
+     269,
+     104
+    ],
+    "berry": "chesto"
+   },
+   {
+    "species": 230,
+    "level": 56,
+    "moves": [
+     352,
+     104,
+     58,
+     156
+    ],
+    "berry": "chesto"
+   }
+  ],
+  "JUAN_4": [
+   {
+    "species": 131,
+    "level": 56,
+    "moves": [
+     56,
+     195,
+     58,
+     109
+    ]
+   },
+   {
+    "species": 340,
+    "level": 58,
+    "moves": [
+     240,
+     352,
+     104,
+     90
+    ]
+   },
+   {
+    "species": 61,
+    "level": 56,
+    "moves": [
+     95,
+     240,
+     182,
+     56
+    ]
+   },
+   {
+    "species": 365,
+    "level": 58,
+    "moves": [
+     352,
+     34,
+     182,
+     58
+    ]
+   },
+   {
+    "species": 342,
+    "level": 58,
+    "moves": [
+     156,
+     12,
+     269,
+     104
+    ],
+    "berry": "chesto"
+   },
+   {
+    "species": 230,
+    "level": 61,
+    "moves": [
+     352,
+     104,
+     58,
+     156
+    ],
+    "berry": "chesto"
+   }
+  ],
+  "JUAN_5": [
+   {
+    "species": 131,
+    "level": 61,
+    "moves": [
+     56,
+     195,
+     58,
+     109
+    ]
+   },
+   {
+    "species": 340,
+    "level": 63,
+    "moves": [
+     240,
+     352,
+     104,
+     90
+    ]
+   },
+   {
+    "species": 186,
+    "level": 61,
+    "moves": [
+     95,
+     240,
+     56,
+     195
+    ]
+   },
+   {
+    "species": 365,
+    "level": 63,
+    "moves": [
+     352,
+     34,
+     182,
+     329
+    ]
+   },
+   {
+    "species": 342,
+    "level": 63,
+    "moves": [
+     156,
+     12,
+     269,
+     104
+    ],
+    "berry": "chesto"
+   },
+   {
+    "species": 230,
+    "level": 66,
+    "moves": [
+     352,
+     104,
+     58,
+     156
+    ],
+    "berry": "chesto"
    }
   ]
  }

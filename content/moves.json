@@ -285,7 +285,7 @@
 "power": 0,
 "accuracy": 0,
 "pp": 20,
-"priority": 6,
+"priority": -6,
 "effect": "ROAR",
 "desc": "吹飞对手使后备宝可梦上场。若是野生宝可梦将结束战斗。"
 },
@@ -757,7 +757,7 @@
 "power": 0,
 "accuracy": 0,
 "pp": 20,
-"priority": 6,
+"priority": -6,
 "effect": "ROAR",
 "desc": "强制后备宝可梦上场。若为野生宝可梦结束战斗。"
 },
@@ -1083,7 +1083,7 @@
 "power": 1,
 "accuracy": 100,
 "pp": 20,
-"priority": 5,
+"priority": -5,
 "effect": "REFLECT_DAMAGE",
 "desc": "从对手那里受到物理攻击的伤害将以2倍返还。",
 "flags": {
@@ -1570,7 +1570,7 @@
 "power": 0,
 "accuracy": 0,
 "pp": 20,
-"priority": 6,
+"priority": -6,
 "effect": "TELEPORT",
 "desc": ""
 },
@@ -3592,7 +3592,7 @@
 "power": 70,
 "accuracy": 0,
 "pp": 10,
-"priority": 1,
+"priority": -1,
 "effect": "HIT",
 "desc": "会在对手之后攻击。但是自己的攻击必定会命中。",
 "flags": {
@@ -3743,7 +3743,7 @@
 "power": 1,
 "accuracy": 100,
 "pp": 20,
-"priority": 5,
+"priority": -5,
 "effect": "REFLECT_DAMAGE",
 "desc": "从对手那里受到特殊攻击的伤害将以2倍返还对手。"
 },
@@ -4051,7 +4051,7 @@
 "power": 150,
 "accuracy": 100,
 "pp": 20,
-"priority": 3,
+"priority": -3,
 "effect": "FOCUS_PUNCH",
 "desc": "集中精神出拳。在招式使出前若受到攻击则会失败。",
 "flags": {
@@ -4255,7 +4255,7 @@
 "power": 60,
 "accuracy": 100,
 "pp": 10,
-"priority": 4,
+"priority": -4,
 "effect": "REVENGE",
 "desc": "An attack that gains powerif injured by the foe.",
 "flags": {
@@ -6329,7 +6329,7 @@
 "power": 60,
 "accuracy": 100,
 "pp": 10,
-"priority": 4,
+"priority": -4,
 "effect": "REVENGE",
 "desc": "An attack that gains powerif injured by the foe.",
 "flags": {
@@ -6560,7 +6560,7 @@
 "power": 0,
 "accuracy": 0,
 "pp": 5,
-"priority": 7,
+"priority": -7,
 "effect": "TRICK_ROOM",
 "desc": "制造出离奇空间。5回合内速度慢的宝可梦可以先行动。"
 },
@@ -7677,7 +7677,7 @@
 "power": 60,
 "accuracy": 90,
 "pp": 10,
-"priority": 6,
+"priority": -6,
 "effect": "HIT_SWITCH_TARGET",
 "desc": "The foe is thrown to switchit out or end wild battles.",
 "flags": {
@@ -7898,7 +7898,7 @@
 "power": 60,
 "accuracy": 90,
 "pp": 10,
-"priority": 6,
+"priority": -6,
 "effect": "HIT_SWITCH_TARGET",
 "desc": "Knocks away foe to switchit out or end wild battles.",
 "flags": {
@@ -9810,7 +9810,7 @@
 "power": 120,
 "accuracy": 100,
 "pp": 5,
-"priority": 3,
+"priority": -3,
 "effect": "BEAK_BLAST",
 "desc": "先加热鸟嘴后再攻击。鸟嘴在加热时对手触碰会灼伤。"
 },
@@ -9885,7 +9885,7 @@
 "power": 150,
 "accuracy": 100,
 "pp": 10,
-"priority": 3,
+"priority": -3,
 "effect": "SHELL_TRAP",
 "desc": "设下甲壳陷阱。若对手使出物理招式，陷阱就会爆炸攻击。"
 },

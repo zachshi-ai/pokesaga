@@ -20,6 +20,7 @@ var rng := RandomNumberGenerator.new()
 var over := false
 var winner := ""
 var caught := false          # 是否抓到（抓到即结束，不算打赢也不算打输）
+var completed_turns := 0
 var caught_species := 0
 var guard_turns := {"a":0, "b":0}
 var acting_side := ""
@@ -161,6 +162,7 @@ static func normalize_team(team: Array) -> Array:
 	return team
 
 func start(a_team: Array, b_team: Array) -> void:
+	completed_turns=0
 	guard_turns = {"a":0, "b":0}
 	acting_side = ""
 	field.reset()
@@ -683,6 +685,7 @@ func _on_send_out(side: String) -> void:
 ## 投球。纯概率，不改血量以外的状态：血越少、捕获率越高、球越好，越容易成。
 ## 返回值给界面拿去播报：{ok: bool, shakes: int, text: String}
 func throw_ball(ball_bonus: float = 1.0, ball_name: String = "精灵球") -> Dictionary:
+	if ball_name=="计时球":ball_bonus=minf(4.0,1.0+float(completed_turns)*0.1)
 	var target: Dictionary = cur_b()
 	var mx := maxi(1, int(target.get("max_hp", 1)))
 	var hp := clampi(int(target.get("hp", 0)), 0, mx)
@@ -696,6 +699,7 @@ func throw_ball(ball_bonus: float = 1.0, ball_name: String = "精灵球") -> Dic
 	if ball_name == "大师球" or rng.randf() < p:
 		shakes = 3
 		caught = true
+		target.capture_ball = ball_name
 		if ball_name=="友友球": target.friendship=200
 		caught_species = int(target.get("species_id", 0))
 		over = true
@@ -715,7 +719,7 @@ func try_flee() -> Dictionary:
 	var my_spe := float(maxi(1, int(cur_a().get("stats", {}).get("spe", 1))))
 	var foe_spe := float(maxi(1, int(cur_b().get("stats", {}).get("spe", 1))))
 	var chance := my_spe * 128.0 / foe_spe + 30.0 * escape_tries
-	if my_spe >= foe_spe or rng.randi_range(0, 255) < chance:
+	if str(cur_a().get("held",""))=="SMOKE_BALL" or my_spe >= foe_spe or rng.randi_range(0, 255) < chance:
 		fled = true
 		over = true
 		winner = "fled"
@@ -1227,16 +1231,20 @@ func damage(attacker: Dictionary, defender: Dictionary, move: Dictionary) -> int
 		"CHOICE_BAND":
 			if cat == "physical":
 				base *= 1.5
+		"SOUL_DEW":
+			if cat=="special" and int(attacker.species_id) in [380,381]:base*=1.5
 		"CHOICE_SPECS":
 			if cat == "special":
 				base *= 1.5
 		"LIFE_ORB":
 			base *= 1.3
+	if defender.get("held","")=="SOUL_DEW" and int(defender.species_id) in [380,381] and cat=="special" and not def_eff.get("ignore_own_item",false):base/=1.5
 	if String(defender.get("held", "")) == "ASSAULT_VEST" and cat == "special":
 		base *= 0.667
 
 	var held := str(attacker.get("held", ""))
-	var type_bonus := 1.0
+	var held_info: Dictionary = Data.held_items.get(held,{})
+	var type_bonus := 1.1 if not klutz and held_info.get("type_boost","") == mtype else 1.0
 	if (held == "NEVER_MELT_ICE" and mtype == "ice") or (held == "SILK_SCARF" and mtype == "normal") or (held == "BLACK_GLASSES" and mtype == "dark"):
 		type_bonus = 1.1
 	elif held == "SEA_INCENSE" and mtype == "water":
@@ -1958,10 +1966,15 @@ func use_battle_item(side: String, key: String) -> bool:
 		return false
 	return true
 
+func _clear_round_hits() -> void:
+	for mon in team_a + team_b:
+		mon["hit_this_turn"] = 0
+
 func run_turn(a_choice: String, b_choice: String) -> void:
 	if over:
 		return
 
+	_clear_round_hits()
 	var pa := _speed(cur_a())
 	var pb := _speed(cur_b())
 	var prio_a := _priority("a", a_choice)
@@ -2090,8 +2103,6 @@ func _after_hit_passive(attacker: Dictionary, defender: Dictionary, move: Dictio
 		return
 	var dabe: Dictionary = Data.ability_effect(_ab(defender))
 	var mtype := String(move.get("type", "normal"))
-	# 记下本回合挨过打（用于「突袭」这类招式）
-	defender["hit_this_turn"] = int(defender.get("hit_this_turn", 0)) + 1
 	# 一口导弹：吞着猎物时被打，反咬对手一口
 	if String(dabe.get("gulp_missile", "")) != "" or _ab(defender) == "一口导弹":
 		if int(defender.get("species_id", 0)) == 845 and String(defender.get("form", "")) != "":
@@ -2556,7 +2567,7 @@ func _extra_effect(effect: String, attacker: Dictionary, defender: Dictionary, m
 			out.append("这是双打招式，单人战斗里帮不上忙。")
 		"HAPPY_HOUR", "CELEBRATE", "DO_NOTHING", "SPECIES_POWER_OVERRIDE", "DYNAMAX_DOUBLE_DMG":
 			pass
-		"CHLOROBLAST", "BEAK_BLAST", "FOCUS_PUNCH":
+		"CHLOROBLAST", "BEAK_BLAST":
 			pass
 		"CAPTIVATE":
 			_apply_stage(defender, "spa", -2, out)
@@ -2590,6 +2601,7 @@ func _extra_effect(effect: String, attacker: Dictionary, defender: Dictionary, m
 
 ## 回合末结算：中毒/灼伤扣血 + 特性带来的回合末效果
 func _end_of_turn() -> void:
+	completed_turns+=1
 	for c in [cur_a(), cur_b()]:
 		if c["fainted"] or int(c["hp"]) <= 0:
 			continue
@@ -2760,7 +2772,6 @@ func _end_of_turn_field(tick_field := true) -> void:
 	for c in [cur_a(), cur_b()]:
 		c["protected"] = false
 		c["flinch"] = false
-		c["hit_this_turn"] = 0
 		c["roosting"] = false
 	# 水流环
 	for c in [cur_a(), cur_b()]:
@@ -3118,12 +3129,21 @@ func _blocked_by_status(c: Dictionary) -> bool:
 	return false
 
 func _take_action(side: String, choice: String) -> void:
+	if choice=="palace_wait":
+		log.append("这只宝可梦没能使出合适的招式。")
+		return
 	acting_side = side
 	var attacker: Dictionary = cur_a() if side == "a" else cur_b()
 	var defender: Dictionary = cur_b() if side == "a" else cur_a()
 	if attacker["fainted"]:
 		return
 
+	if side=="b" and attacker.get("fr_roaming",false) and not attacker.get("trapped",false) and attacker.get("status","") not in ["slp","frz"] and _ab(defender) not in ["踩影","沙穴"]:
+		fled=true
+		over=true
+		winner="fled"
+		log.append("%s逃走了！"%attacker.name)
+		return
 	if choice == "item" or choice == "none" or choice == "":
 		# 用药、投球这类不消耗行动的攻击段：只留给对手打
 		return
@@ -3225,6 +3245,9 @@ func _take_action(side: String, choice: String) -> void:
 		mv = _max_move_data(attacker, mv)
 	# 两回合招式：第一回合只是蓄力，第二回合才打出来
 	var eff0 := String(mv.get("effect", ""))
+	if eff0 == "FOCUS_PUNCH" and int(attacker.get("hit_this_turn", 0)) > 0:
+		log.append("%s 受到攻击，无法集中精神！" % attacker.name)
+		return
 	if not releasing and eff0 in ["TWO_TURNS_ATTACK", "SEMI_INVULNERABLE", "SOLAR_BEAM", "FLY", "DIG", "DIVE"]:
 		attacker["charging"] = {"move": base_id}
 		# 半无敌：蓄力这一回合打不到它（飞翔、挖洞、潜水、潜灵奇袭这些）
@@ -3443,6 +3466,9 @@ func _take_action(side: String, choice: String) -> void:
 	if dealt > 0:
 		if last_crit:
 			log.append("击中了要害！")
+		var hp_before_hit := int(defender["hp"])
+		if hp_before_hit > 1 or not bool(defender.get("endure", false)):
+			defender["hit_this_turn"] = int(defender.get("hit_this_turn", 0)) + 1
 		defender["last_damage"] = dealt
 		# 挺住：这一回合不会被打倒
 		if bool(defender.get("endure", false)) and int(defender["hp"]) - dealt <= 0:
@@ -3470,6 +3496,11 @@ func _take_action(side: String, choice: String) -> void:
 			log.append("%s 吃掉了%s，伤害减弱了！" % [defender["name"], last_berry])
 			last_berry = ""
 		log.append("对 %s 造成了 %d 点伤害。" % [defender["name"], dealt])
+		if str(attacker.get("held",""))=="SHELL_BELL" and int(attacker.hp)>0 and int(attacker.hp)<int(attacker.max_hp):
+			var lost_hp:=hp_before_hit-int(defender.hp)
+			if lost_hp>0:
+				_set_hp(attacker,mini(int(attacker.max_hp),int(attacker.hp)+maxi(1,lost_hp/8)))
+				log.append("%s的贝壳之铃恢复了体力。" % attacker.name)
 		if String(attacker.get("held", "")) == "LIFE_ORB":
 			var rec: int = maxi(1, int(int(attacker["max_hp"]) / 10.0))
 			_set_hp(attacker, maxi(0, int(attacker["hp"]) - rec))

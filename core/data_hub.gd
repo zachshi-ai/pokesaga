@@ -314,7 +314,7 @@ func ability_effect(name: String) -> Dictionary:
 	return d if d is Dictionary else {}
 
 func berry_def(key: String) -> Dictionary:
-	var d = berries.get(key, {})
+	var d = berries.get(key.to_lower(), {})
 	return d if d is Dictionary else {}
 
 func berry_name(key: String) -> String:

@@ -1,0 +1,936 @@
+{
+ "maps": {
+  "johto_trainer_house_b1_f": [
+   {
+    "at": [
+     3,
+     0
+    ],
+    "actor": "cal_desk",
+    "name": "训练大厅接待员"
+   },
+   {
+    "at": [
+     3,
+     5
+    ],
+    "actor": "cal",
+    "name": "卡尔"
+   }
+  ],
+  "johto_goldenrod_underground": [
+   {
+    "at": [
+     3,
+     5
+    ],
+    "actor": "bargain",
+    "name": "廉价店老板"
+   },
+   {
+    "at": [
+     3,
+     10
+    ],
+    "actor": "herbal",
+    "name": "草药婆婆"
+   },
+   {
+    "at": [
+     3,
+     7
+    ],
+    "actor": "older",
+    "name": "理发师哥哥"
+   },
+   {
+    "at": [
+     2,
+     6
+    ],
+    "actor": "younger",
+    "name": "理发师弟弟"
+   }
+  ],
+  "johto_goldenrod_dept_store_2f": [
+   {
+    "at": [
+     6,
+     2
+    ],
+    "actor": "resale",
+    "name": "百货店员"
+   }
+  ],
+  "johto_lake_of_rage": [
+   {
+    "at": [
+     10,
+     13
+    ],
+    "actor": "lake_elder",
+    "name": "湖边的老人"
+   },
+   {
+    "at": [
+     18,
+     6
+    ],
+    "actor": "lake_scholar",
+    "name": "湖边的研究者"
+   },
+   {
+    "at": [
+     12,
+     14
+    ],
+    "actor": "lake_visitor",
+    "name": "湖边的旅行者"
+   },
+   {
+    "at": [
+     3,
+     2
+    ],
+    "actor": "sibling_3",
+    "name": "水曜日三哥"
+   }
+  ],
+  "johto_lake_of_rage_magikarp_house": [
+   {
+    "at": [
+     1,
+     1
+    ],
+    "actor": "karp",
+    "name": "鲤鱼王测量大师"
+   }
+  ],
+  "johto_dragons_den_b1_f": [
+   {
+    "at": [
+     10,
+     11
+    ],
+    "actor": "den_rival",
+    "name": "阿银"
+   }
+  ],
+  "johto_bills_familys_house": [
+   {
+    "at": [
+     2,
+     2
+    ],
+    "actor": "bill_sister",
+    "name": "正辉的妹妹"
+   },
+   {
+    "at": [
+     1,
+     1
+    ],
+    "actor": "bill_home",
+    "name": "正辉"
+   }
+  ],
+  "johto_goldenrod_game_corner": [
+   {
+    "at": [
+     8,
+     1
+    ],
+    "actor": "game_tm",
+    "name": "招式奖品柜台"
+   },
+   {
+    "at": [
+     9,
+     1
+    ],
+    "actor": "game_mon",
+    "name": "宝可梦奖品柜台"
+   }
+  ],
+  "johto_celadon_game_corner": [
+   {
+    "at": [
+     2,
+     1
+    ],
+    "actor": "celadon_coins",
+    "name": "代币柜台"
+   }
+  ],
+  "johto_radio_tower_1f": [
+   {
+    "at": [
+     4,
+     3
+    ],
+    "actor": "lottery",
+    "name": "幸运号码主持人"
+   }
+  ],
+  "johto_goldenrod_dept_store_roof": [
+   {
+    "at": [
+     1,
+     1
+    ],
+    "actor": "roof_sale",
+    "name": "特卖会店员"
+   }
+  ],
+  "johto_ecruteak_pokecenter_1f": [
+   {
+    "at": [
+     1,
+     2
+    ],
+    "actor": "bill_visit",
+    "name": "正辉"
+   }
+  ],
+  "johto_manias_house": [
+   {
+    "at": [
+     1,
+     2
+    ],
+    "actor": "shuckie",
+    "name": "壶壶的主人"
+   }
+  ],
+  "johto_route_35_goldenrod_gate": [
+   {
+    "at": [
+     0,
+     2
+    ],
+    "actor": "kenya",
+    "name": "送信的警卫"
+   }
+  ],
+  "johto_route_31": [
+   {
+    "at": [
+     8,
+     3
+    ],
+    "actor": "letter",
+    "name": "等信的男子"
+   }
+  ],
+  "johto_mount_mortar_b1_f": [
+   {
+    "at": [
+     8,
+     2
+    ],
+    "actor": "kiyo",
+    "name": "空手道王信彦"
+   }
+  ],
+  "johto_union_cave_b2_f": [
+   {
+    "at": [
+     3,
+     13
+    ],
+    "actor": "lapras",
+    "name": "拉普拉斯"
+   }
+  ],
+  "johto_bills_house": [
+   {
+    "at": [
+     1,
+     1
+    ],
+    "actor": "grandpa",
+    "name": "正辉的爷爷"
+   }
+  ],
+  "johto_blues_house": [
+   {
+    "at": [
+     1,
+     1
+    ],
+    "actor": "daisy",
+    "name": "娜娜美"
+   }
+  ],
+  "johto_goldenrod_dept_store_5f": [
+   {
+    "at": [
+     3,
+     2
+    ],
+    "actor": "week_tm",
+    "name": "招式学习器接待员"
+   },
+   {
+    "at": [
+     3,
+     1
+    ],
+    "actor": "trade_mike",
+    "name": "MIKE"
+   }
+  ],
+  "johto_route_39_barn": [
+   {
+    "at": [
+     0,
+     0
+    ],
+    "actor": "moomoo",
+    "name": "生病的大奶罐"
+   }
+  ],
+  "johto_route_39_farmhouse": [
+   {
+    "at": [
+     1,
+     1
+    ],
+    "actor": "dairy",
+    "name": "牧场主人"
+   },
+   {
+    "at": [
+     2,
+     2
+    ],
+    "actor": "snore",
+    "name": "牧场主的妻子"
+   }
+  ],
+  "johto_national_park": [
+   {
+    "at": [
+     13,
+     20
+    ],
+    "actor": "claw",
+    "name": "长椅旁的老师"
+   }
+  ],
+  "johto_slowpoke_well_b2_f": [
+   {
+    "at": [
+     2,
+     2
+    ],
+    "actor": "king",
+    "name": "地下的研究员"
+   }
+  ],
+  "johto_dark_cave_blackthorn_entrance": [
+   {
+    "at": [
+     3,
+     1
+    ],
+    "actor": "glasses",
+    "name": "洞窟中的男子"
+   }
+  ],
+  "johto_celadon_mansion_roof_house": [
+   {
+    "at": [
+     1,
+     1
+    ],
+    "actor": "curse",
+    "name": "屋顶的说书人"
+   }
+  ],
+  "johto_route_28_steel_wing_house": [
+   {
+    "at": [
+     1,
+     1
+    ],
+    "actor": "steel_wing",
+    "name": "隐居的艺人"
+   }
+  ],
+  "johto_route_32": [
+   {
+    "at": [
+     7,
+     6
+    ],
+    "actor": "roar",
+    "name": "练习吼叫的男子"
+   },
+   {
+    "at": [
+     9,
+     4
+    ],
+    "actor": "seed",
+    "name": "32号道路的训练家"
+   },
+   {
+    "at": [
+     5,
+     33
+    ],
+    "actor": "sibling_5",
+    "name": "金曜日五妹"
+   }
+  ],
+  "johto_ilex_forest": [
+   {
+    "at": [
+     7,
+     7
+    ],
+    "actor": "headbutt",
+    "name": "撞树的男子"
+   }
+  ],
+  "johto_goldenrod_city": [
+   {
+    "at": [
+     6,
+     11
+    ],
+    "actor": "tutor",
+    "name": "招式教学者"
+   }
+  ],
+  "johto_route_37": [
+   {
+    "at": [
+     8,
+     4
+    ],
+    "actor": "sibling_0",
+    "name": "日曜日七弟"
+   }
+  ],
+  "johto_route_40": [
+   {
+    "at": [
+     4,
+     4
+    ],
+    "actor": "sibling_1",
+    "name": "月曜日长女"
+   }
+  ],
+  "johto_route_29": [
+   {
+    "at": [
+     14,
+     6
+    ],
+    "actor": "sibling_2",
+    "name": "火曜日次女"
+   }
+  ],
+  "johto_route_36": [
+   {
+    "at": [
+     23,
+     3
+    ],
+    "actor": "sibling_4",
+    "name": "木曜日四弟"
+   }
+  ],
+  "johto_blackthorn_city": [
+   {
+    "at": [
+     11,
+     10
+    ],
+    "actor": "sibling_6",
+    "name": "土曜日六弟"
+   }
+  ],
+  "johto_violet_kyles_house": [
+   {
+    "at": [
+     3,
+     2
+    ],
+    "actor": "trade_kyle",
+    "name": "KYLE"
+   }
+  ],
+  "johto_olivine_tims_house": [
+   {
+    "at": [
+     1,
+     1
+    ],
+    "actor": "trade_tim",
+    "name": "TIM"
+   }
+  ],
+  "johto_blackthorn_emys_house": [
+   {
+    "at": [
+     1,
+     1
+    ],
+    "actor": "trade_emy",
+    "name": "EMY"
+   }
+  ],
+  "johto_pewter_pokecenter_1f": [
+   {
+    "at": [
+     3,
+     1
+    ],
+    "actor": "trade_chris",
+    "name": "CHRIS"
+   }
+  ],
+  "johto_route_14": [
+   {
+    "at": [
+     3,
+     2
+    ],
+    "actor": "trade_kim",
+    "name": "KIM"
+   }
+  ],
+  "johto_power_plant": [
+   {
+    "at": [
+     2,
+     2
+    ],
+    "actor": "trade_forest",
+    "name": "FOREST"
+   }
+  ]
+ },
+ "trades": {
+  "trade_mike": [
+   63,
+   66,
+   "MUSCLE",
+   "GOLD_BERRY",
+   37460,
+   "MIKE",
+   false,
+   55,
+   102
+  ],
+  "trade_kyle": [
+   69,
+   95,
+   "ROCKY",
+   "BITTER_BERRY",
+   48926,
+   "KYLE",
+   false,
+   150,
+   102
+  ],
+  "trade_tim": [
+   98,
+   100,
+   "VOLTY",
+   "PRZCUREBERRY",
+   29189,
+   "TIM",
+   false,
+   152,
+   136
+  ],
+  "trade_emy": [
+   148,
+   85,
+   "DORIS",
+   "SMOKE_BALL",
+   283,
+   "EMY",
+   true,
+   119,
+   102
+  ],
+  "trade_chris": [
+   93,
+   178,
+   "PAUL",
+   "MYSTERYBERRY",
+   15616,
+   "CHRIS",
+   false,
+   150,
+   134
+  ],
+  "trade_kim": [
+   113,
+   142,
+   "AEROY",
+   "GOLD_BERRY",
+   26491,
+   "KIM",
+   false,
+   150,
+   102
+  ],
+  "trade_forest": [
+   51,
+   82,
+   "MAGGIE",
+   "METAL_COAT",
+   50082,
+   "FOREST",
+   false,
+   150,
+   102
+  ]
+ },
+ "siblings": [
+  "磁铁",
+  "锐利鸟嘴",
+  "粉红丝带",
+  "黑带",
+  "硬石头",
+  "毒针",
+  "诅咒之符"
+ ],
+ "tree_maps": {
+  "route_26": "kanto",
+  "route_27": "kanto",
+  "route_28": "none",
+  "route_29": "route",
+  "route_30": "route",
+  "route_31": "route",
+  "route_32": "kanto",
+  "route_33": "town",
+  "route_34": "route",
+  "route_35": "route",
+  "route_36": "route",
+  "route_37": "route",
+  "route_38": "route",
+  "route_39": "route",
+  "route_40": "rock",
+  "route_41": "none",
+  "route_42": "town",
+  "route_43": "lake",
+  "route_44": "canyon",
+  "route_45": "canyon",
+  "route_46": "canyon",
+  "new_bark_town": "none",
+  "cherrygrove_city": "none",
+  "violet_city": "none",
+  "azalea_town": "town",
+  "cianwood_city": "rock",
+  "goldenrod_city": "none",
+  "olivine_city": "none",
+  "ecruteak_city": "none",
+  "mahogany_town": "none",
+  "lake_of_rage": "lake",
+  "blackthorn_city": "none",
+  "silver_cave_outside": "none",
+  "ilex_forest": "forest",
+  "dark_cave_violet_entrance": "rock",
+  "slowpoke_well_b1f": "rock"
+ },
+ "tree_sets": {
+  "canyon": [
+   [
+    [
+     50,
+     21,
+     10
+    ],
+    [
+     15,
+     21,
+     10
+    ],
+    [
+     15,
+     21,
+     10
+    ],
+    [
+     10,
+     190,
+     10
+    ]
+   ],
+   [
+    [
+     50,
+     21,
+     10
+    ],
+    [
+     15,
+     214,
+     10
+    ],
+    [
+     15,
+     214,
+     10
+    ],
+    [
+     10,
+     190,
+     10
+    ]
+   ]
+  ],
+  "town": [
+   [
+    [
+     50,
+     21,
+     10
+    ],
+    [
+     15,
+     23,
+     10
+    ],
+    [
+     15,
+     21,
+     10
+    ],
+    [
+     10,
+     190,
+     10
+    ]
+   ],
+   [
+    [
+     50,
+     21,
+     10
+    ],
+    [
+     15,
+     214,
+     10
+    ],
+    [
+     15,
+     214,
+     10
+    ],
+    [
+     10,
+     190,
+     10
+    ]
+   ]
+  ],
+  "route": [
+   [
+    [
+     50,
+     163,
+     10
+    ],
+    [
+     15,
+     167,
+     10
+    ],
+    [
+     15,
+     165,
+     10
+    ],
+    [
+     10,
+     102,
+     10
+    ]
+   ],
+   [
+    [
+     50,
+     163,
+     10
+    ],
+    [
+     15,
+     204,
+     10
+    ],
+    [
+     15,
+     204,
+     10
+    ],
+    [
+     10,
+     102,
+     10
+    ]
+   ]
+  ],
+  "kanto": [
+   [
+    [
+     50,
+     163,
+     10
+    ],
+    [
+     15,
+     23,
+     10
+    ],
+    [
+     15,
+     163,
+     10
+    ],
+    [
+     10,
+     102,
+     10
+    ]
+   ],
+   [
+    [
+     50,
+     163,
+     10
+    ],
+    [
+     15,
+     204,
+     10
+    ],
+    [
+     15,
+     204,
+     10
+    ],
+    [
+     10,
+     102,
+     10
+    ]
+   ]
+  ],
+  "lake": [
+   [
+    [
+     50,
+     163,
+     10
+    ],
+    [
+     15,
+     48,
+     10
+    ],
+    [
+     15,
+     163,
+     10
+    ],
+    [
+     10,
+     102,
+     10
+    ]
+   ],
+   [
+    [
+     50,
+     163,
+     10
+    ],
+    [
+     15,
+     204,
+     10
+    ],
+    [
+     15,
+     204,
+     10
+    ],
+    [
+     10,
+     102,
+     10
+    ]
+   ]
+  ],
+  "forest": [
+   [
+    [
+     50,
+     163,
+     10
+    ],
+    [
+     15,
+     204,
+     10
+    ],
+    [
+     15,
+     204,
+     10
+    ],
+    [
+     10,
+     164,
+     10
+    ]
+   ],
+   [
+    [
+     50,
+     163,
+     10
+    ],
+    [
+     15,
+     10,
+     10
+    ],
+    [
+     15,
+     13,
+     10
+    ],
+    [
+     10,
+     163,
+     10
+    ]
+   ]
+  ],
+  "rock": [
+   [
+    [
+     90,
+     98,
+     15
+    ],
+    [
+     10,
+     213,
+     15
+    ]
+   ]
+  ]
+ }
+}

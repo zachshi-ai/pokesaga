@@ -18,7 +18,13 @@ const NAMES := {"小镇少女":"lass", "开拓少女":"battle_girl", "对战塔�
 
 static func texture_for(npc: Dictionary) -> Texture2D:
 	if npc.has("field_art"):
-		return load(DIRECTORY + str(npc.field_art) + ".png")
+		var sheet: Texture2D=load(DIRECTORY + str(npc.field_art) + ".png")
+		if not npc.has("field_pose"):return sheet
+		var tex:=AtlasTexture.new()
+		tex.atlas=sheet
+		var width:=sheet.get_width()/3
+		tex.region=Rect2(int(npc.field_pose)*width,0,width,sheet.get_height())
+		return tex
 	var name_text := str(npc.get("name", ""))
 	var role := str(npc.get("gfx", ""))
 	if npc.has("gives_mon") and name_text == "精灵球":

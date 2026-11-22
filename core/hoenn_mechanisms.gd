@@ -17,6 +17,34 @@ static func open_door(flags: Dictionary, gate: String) -> bool:
 static func overrides(w, flags: Dictionary) -> Array:
 	var m: Dictionary=w.map_data.get("mechanisms",{})
 	var out: Array=m.get("always",[]).duplicate()
+	if m.has("mirage"):
+		w.emerald_water=w.map_data.physics.water.duplicate(true)
+		w.emerald_elevation=w.map_data.physics.elevation.duplicate(true)
+		w.emerald_grass=w.map_data.physics.get("grass",[]).duplicate(true)
+		if w.emerald_grass.is_empty():
+			for y in w.tile_size.y:
+				var line:=[];line.resize(w.tile_size.x);line.fill(0);w.emerald_grass.append(line)
+		if flags.get("h_mirage_today",false):
+			out.append_array(m.mirage.tiles)
+			for cell in m.mirage.ground:
+				w.emerald_water[cell[1]][cell[0]]=cell[2]
+				w.emerald_elevation[cell[1]][cell[0]]=cell[3]
+				w.emerald_grass[cell[1]][cell[0]]=cell[4]
+	if m.has("hill"):
+		out.append_array(preload("res://core/hoenn_hill.gd").course(w).get("tiles",[]))
+		w.emerald_elevation=w.map_data.physics.elevation.duplicate(true)
+		for y in range(5,21):w.emerald_elevation[y].fill(3)
+	out.append_array(preload("res://core/hoenn_base.gd").tiles(w,flags))
+	if m.has("sealed") and not flags.get(m.sealed.flag,false):out.append_array(m.sealed.closed)
+	if m.has("weather_sites"):
+		var site: Dictionary=m.weather_sites.get(flags.get("h_weather_site",""),{})
+		out.append_array(site.get("tiles",[]))
+	if flags.get("h_champion",false): out.append_array(m.get("champion_cave",[]))
+	if m.has("trick_buttons"):
+		var pressed: Dictionary=w.hoenn_local.get("trick_buttons",{})
+		if m.has("trick_shutters"):
+			out.append_array(m.trick_shutters[int(w.hoenn_local.get("shutter",0))])
+		for i in pressed:out.append_array(m.button_tiles[i])
 	if m.has("legends"):
 		var fighting: bool=flags.get("h_kyogre",false) and not flags.get("h_peace",false)
 		w.emerald_water=w.map_data.physics.water.duplicate(true)
@@ -82,6 +110,7 @@ static func gate(w, p: Vector2i, d: Vector2i, commit: bool) -> bool:
 	return true
 
 static func draw(layer: Node2D,w) -> void:
+	preload("res://core/hoenn_base.gd").draw(layer,w)
 	var m: Dictionary=w.map_data.get("mechanisms",{})
 	for i in m.get("gates",[]).size():
 		var g: Array=m.gates[i]
@@ -93,6 +122,9 @@ static func draw(layer: Node2D,w) -> void:
 		layer.add_child(sprite)
 
 static func adjust_actors(w, actors: Array) -> void:
+	if w.map_data.get("mechanisms",{}).has("hill") and w.taken.has("h_hill"):
+		actors.append_array(preload("res://core/hoenn_hill.gd").course(w).get("actors",[]).duplicate(true))
+	preload("res://core/emerald_legends.gd").positions(w,actors)
 	var positions: Dictionary=w.hoenn_local.get("positions",{})
 	for n in actors:
 		if positions.has(str(n.get("local_id",0))):
@@ -101,9 +133,19 @@ static func adjust_actors(w, actors: Array) -> void:
 			n.facing=saved[1]
 
 static func landed(w) -> void:
+	if w.map_data.mechanisms.has("base"):preload("res://core/hoenn_base_effects.gd").landed(w)
 	var m: Dictionary=w.map_data.get("mechanisms",{})
 	var p: Vector2i=w.player_pos
 	var point:=key(p)
+	if m.get("trick_buttons",{}).has(point):
+		var button:=str(int(m.trick_buttons[point]))
+		var pressed: Dictionary=w.hoenn_local.get_or_add("trick_buttons",{})
+		if not pressed.has(button):
+			if m.has("trick_shutters"):
+				pressed.clear()
+				w.hoenn_local.shutter=1-int(w.hoenn_local.get("shutter",0))
+			pressed[button]=true
+			w._rebuild()
 	var power_switch: String=m.get("power_switches",{}).get(point,"")
 	if power_switch in ["Blue","Green"] and w.hoenn_local.get("power_color","")!=power_switch:
 		w.hoenn_local.power_color=power_switch

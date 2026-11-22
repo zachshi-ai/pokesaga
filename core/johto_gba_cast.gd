@@ -20,11 +20,11 @@ const CHARACTER := {
 	"crystal_misty":"misty","crystal_blue":"blue","crystal_surge":"surge","crystal_sabrina":"sabrina","crystal_erika":"erika",
 	"crystal_janine":"janine","crystal_brock":"brock","crystal_blaine":"blaine","crystal_red":"red_normal",
 	"crystal_teacher":"girl_1","crystal_raikou":"raikou","crystal_entei":"entei","crystal_suicune":"suicune","crystal_lugia":"lugia",
-	"crystal_ho_oh":"ho_oh","fr_snorlax":"snorlax","team_rocket_m":"rocket_m"
+	"crystal_clefairy":"clefairy","crystal_moon_rock":"moon_rock","crystal_doll_charmander":"doll_charmander","crystal_doll_clefairy":"doll_clefairy","crystal_doll_pikachu":"doll_pikachu","crystal_doll_big_snorlax":"doll_big_snorlax","crystal_lapras":"lapras","crystal_moomoo":"miltank","crystal_ho_oh":"ho_oh","fr_snorlax":"snorlax","team_rocket_m":"rocket_m"
 }
 const NAMES := {
 	"妈妈":"mom","阿银":"silver","劲敌":"silver","红发少年":"silver","米那君":"eusine","小葵":"beauty","胡桃":"girl_1",
-	"龙之长老":"old_man","正辉":"bill","赤红":"red_normal","四天王 一树":"will","四天王 阿桔":"koga","四天王 希巴":"bruno",
+	"卡尔":"cal","龙之长老":"old_man","正辉":"bill","赤红":"red_normal","四天王 一树":"will","四天王 阿桔":"koga","四天王 希巴":"bruno",
 	"四天王 梨花":"karen","冠军 阿渡":"lance","龙使者 阿渡":"lance","阿渡":"lance"
 }
 static var frames: Dictionary = {}

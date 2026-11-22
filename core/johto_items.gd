@@ -1,7 +1,22 @@
 extends RefCounted
 ## Crystal optional encounters and field gifts. Coordinates refer to the playable map grid.
 const BADGES := {"FLASH":"飞翼徽章","CUT":"昆虫徽章","STRENGTH":"标准徽章","SURF":"魅影徽章","FLY":"打击徽章","WHIRLPOOL":"冰川徽章","WATERFALL":"升龙徽章","ROCK_CLIMB":"绿色徽章"}
-const QUEST_HELD := {"CHARCOAL":["j_charcoal","木炭"],"EXP_SHARE":["j_exp_share","学习装置"],"EVERSTONE":["j_everstone","不变之石"]}
+const QUEST_HELD := {
+	"CHARCOAL": ["j_charcoal","木炭"],
+	"EXP_SHARE": ["j_exp_share","学习装置"],
+	"EVERSTONE": ["j_everstone","不变之石"],
+	"MAGNET": ["js_sibling_0","磁铁"],
+	"SHARP_BEAK": ["js_sibling_1","锐利鸟嘴"],
+	"PINK_BOW": ["js_sibling_2","粉红丝带"],
+	"BLACK_BELT": ["js_sibling_3","黑带"],
+	"HARD_STONE": ["js_sibling_4","硬石头"],
+	"POISON_BARB": ["js_sibling_5","毒针"],
+	"SPELL_TAG": ["js_sibling_6","诅咒之符"],
+	"MIRACLE_SEED": ["js_seed","奇迹种子"],
+	"SOFT_SAND": ["js_soft_sand","柔软沙子"],
+	"SMOKE_BALL": ["js_trade_emy","烟雾球"],
+	"FLOWER_MAIL": ["js_kenya","鲜花邮件"]
+}
 const RODS := ["破旧钓竿","好钓竿","厉害钓竿"]
 const HM_WHIRL := "城都秘传学习器 06"
 const HM_CLIMB := "城都秘传学习器 08"
@@ -53,7 +68,6 @@ const TIP := {
 	"银色之羽":"带着羽毛前往漩涡列岛最深处，洛奇亚会现身。",
 	"虹色之羽":"铃铛塔的楼梯已经开放，登顶寻找凤王吧。",
 }
-const PASSWORDS := ["树果","鲤鱼王","月亮球","菊草叶","收音机","肯泰罗"]
 static var water: Dictionary
 
 static func tables() -> Dictionary:
@@ -61,9 +75,9 @@ static func tables() -> Dictionary:
 		water = JSON.parse_string(FileAccess.get_file_as_string("res://content/regions/johto/items_water.json"))
 	return water
 
-static func fish_pool(room: String, rod: String, night: bool) -> Array:
+static func fish_pool(room: String, rod: String, night: bool, qwilfish_swarm:=false) -> Array:
 	var data := tables()
-	var group: String = data.maps.get(room.trim_prefix("johto_"),"")
+	var group: String = "QWILFISH_SWARM" if qwilfish_swarm else data.maps.get(room.trim_prefix("johto_"),"")
 	if group.is_empty(): return []
 	var index := RODS.find(rod) if rod != "钓竿" else 1
 	if index < 0: return []
@@ -90,6 +104,7 @@ static func same_tile(a: Array, b: Array) -> bool:
 
 static func roster(map: Dictionary, flags: Dictionary, rows: Array) -> Array:
 	var mid: String = map.get("id","")
+	rows=preload("res://core/crystal_sidequests.gd").roster(mid,rows,flags,Time.get_datetime_dict_from_system())
 	rows=preload("res://core/johto_apricorns.gd").roster(mid,rows,flags)
 	if mid=="johto_day_care":
 		for npc in rows:
@@ -127,7 +142,6 @@ static func roster(map: Dictionary, flags: Dictionary, rows: Array) -> Array:
 				row["name"]="积分兑奖员"
 			if mid=="johto_goldenrod_game_corner":
 				if same_tile(row.at,[1,1]): row.merge({"johto_service":"coins","name":"代币柜台"},true)
-				if same_tile(row.at,[8,1]): row.merge({"johto_service":"prizes","name":"奖品柜台"},true)
 	if gift.is_empty() and special.is_empty(): return rows
 	var out := []
 	var added := false
@@ -219,6 +233,9 @@ static func sync_beasts(g):
 		g._flags().j_three_beasts=true
 
 static func enter(g):
+	preload("res://core/crystal_ruins.gd").automatic_walls(g)
+	if g.world.map_data.id=="johto_ecruteak_pokecenter_1f" and not g._flags().get("js_bill_met",false):
+		preload("res://core/crystal_sidequests.gd").talk(g,{"crystal_quest":"bill_visit","name":"正辉"},Time.get_datetime_dict_from_system())
 	var gs_day: String=g.save_data.get("j_gs_date","")
 	if not gs_day.is_empty() and gs_day!=Time.get_date_string_from_system() and not g._flags().get("j_gs_ready",false):
 		g._flags().j_gs_ready=true
@@ -230,6 +247,8 @@ static func enter(g):
 		if visible("suicune",g._flags()) and g._has_party(): legendary(g,"suicune",245,40)
 
 static func talk(g, npc: Dictionary) -> bool:
+	if preload("res://core/crystal_phone.gd").talk(g,npc,Time.get_datetime_dict_from_system()):return true
+	if preload("res://core/crystal_sidequests.gd").talk(g,npc,Time.get_datetime_dict_from_system()):return true
 	var map: String = g.world.map_data.id
 	if npc.get("role","") in ["j_odd_egg_man","j_daycare_lady"]:
 		if npc.role=="j_odd_egg_man" and not g._flags().get("j_odd_egg_received",false):
@@ -302,7 +321,7 @@ static func talk(g, npc: Dictionary) -> bool:
 	var item: String = gift[3]
 	if g._flags().get(flag,false):
 		if flag=="j_blue_card": buena(g)
-		elif flag=="j_gear": g._dialog(["路上累了就回来看看。记得用宝可装置确认时间和地图。"],npc.name)
+		elif flag=="j_gear": preload("res://core/crystal_home.gd").management(g)
 		else: g._dialog(["%s已经交给你了，好好使用吧。" % item],npc.name)
 		return true
 	match flag:
@@ -333,6 +352,12 @@ static func sight(g, role: String):
 	g._dialog(["水君踏着风跃走了。" if role=="suicune36" else "水君穿过果树林，朝西边跑去了。"],"水君")
 
 static func field_step(g):
+	if g.world.map_data.id=="johto_trainer_house_b1_f" and g.world.player_pos==Vector2i(7,4):
+		preload("res://core/crystal_daily.gd").cal(g,Time.get_datetime_dict_from_system())
+		return
+	preload("res://core/crystal_home.gd").field_step(g,Time.get_datetime_dict_from_system())
+	preload("res://core/crystal_phone.gd").field_step(g)
+	preload("res://core/crystal_bug_contest.gd").field_step(g)
 	var map: String = g.world.map_data.id
 	var sites: Array
 	var event: String
@@ -366,6 +391,7 @@ static func tick_egg(g):
 			var location: String=g._store_mon(baby)
 			g._consume_item("奇异蛋")
 			g.save_data.erase("j_odd_egg")
+			g._record_hatch()
 			g._flags().j_odd_egg_hatched=true
 			g._persist()
 			g._dialog(["奇异蛋的蛋壳裂开了！%s孵出来了，还会迷昏拳。"%baby.name,"队伍满了，已送往电脑。" if location=="box" else "%s加入了队伍。"%baby.name])
@@ -375,11 +401,13 @@ static func tick_egg(g):
 	if steps>0: return
 	g._consume_item("波克比的蛋")
 	var target: String = g._add_to_team(175,5)
+	g._record_hatch()
 	g._flags().j_togepi_hatched=true
 	g._persist()
 	g._dialog(["蛋壳裂开了……波克比孵出来了！","已经把它送去电脑寄存。" if target=="box" else "波克比加入了队伍。"])
 
 static func center_departure(g, dest: Dictionary) -> bool:
+	if preload("res://core/crystal_bug_contest.gd").departure(g,dest):return true
 	if g.world.map_data.get("id","")!="johto_goldenrod_pokecenter_1f" or dest.get("map","")!="johto_goldenrod_city": return false
 	if not g._flags().get("johto_champion",false) or g._flags().get("j_gs_received",false): return false
 	grant(g,"j_gs_received","GS球","接待员",["请等一等！研究员托我把这颗特别的球交给你。桧皮镇的钢铁也许认识它。"])
@@ -396,6 +424,8 @@ static func shrine(g, obj: Dictionary) -> bool:
 	return true
 
 static func passage(g, dest: Dictionary) -> String:
+	var ruin_gate:=preload("res://core/crystal_ruins.gd").passage(g,dest)
+	if ruin_gate!="":return ruin_gate
 	if dest.get("region","")!="johto": return ""
 	if dest.get("map","")=="johto_tin_tower_2f" and g.world.map_data.id=="johto_tin_tower_1f" and not g._flags().get("j_rainbow",false):
 		return "通往铃铛塔二层的楼梯尚未显现。"
@@ -421,6 +451,14 @@ static func roamer(g, night_grass: bool) -> int:
 	return 0
 
 static func use(g,item: String) -> bool:
+	if item in ["除虫喷雾","黄金喷雾"]:
+		var steps:=250 if item=="黄金喷雾" else 100
+		if int(g.save_data.get("js_repel",0))>0:g._dialog(["已使用的喷雾仍在生效。"])
+		elif g._bag_count(item)>0:
+			g._consume_item(item);g.save_data.js_repel=steps;g._persist()
+			g._dialog(["%s开始生效了。接下来%d步，低于首位伙伴等级的普通野生宝可梦会避开你。"%[item,steps]])
+		return true
+	if preload("res://core/crystal_ruins.gd").use_rope(g,item):return true
 	if preload("res://core/johto_apricorns.gd").BALLS.has(item):
 		g._dialog(["把%s带给桧皮镇的钢铁，可以制成%s。" % [item,preload("res://core/johto_apricorns.gd").BALLS[item]]])
 		return true
@@ -457,33 +495,22 @@ static func gear(g):
 			"时钟":
 				var clock := Time.get_time_dict_from_system()
 				g._dialog(["%02d:%02d　%s" % [int(clock.hour),int(clock.minute),g.world.area_name()]],"时钟")
-			"电话":
-				var contacts := ["妈妈"]
-				if g._flags().get("johto_elm_told",false): contacts.append("空木博士")
-				g._pick("电话簿",contacts,func(n):
-					var line := "路上累了就回若叶镇休息。看到可爱的宝可梦，也记得告诉我。"
-					if contacts[n]=="空木博士":
-						line = "从蛋里孵出了宝可梦吗？带回来让我看看吧。" if g._flags().get("j_egg_aide",false) else "宝可梦爷爷住在吉花市以北的30号道路。"
-					g._dialog([line],contacts[n]))
+			"电话": preload("res://core/crystal_phone.gd").book(g)
 			"地区地图": g._open_world_atlas(false,g._bag_ui)
 			"收音机": radio(g)
 	)
 
 static func radio(g):
-	var labels := ["城都电台","小葵的口令"]
-	if g._bag_count("收音机扩充卡")>0: labels.append("宝可梦之笛")
-	labels.append("关闭")
-	g._pick("选择频段",labels,func(i):
-		match labels[i]:
-			"城都电台": g._dialog(["广播塔传来了火箭队的占领宣言……" if g._flags().get("j_radio_takeover",false) and not g._flags().get("j_radio_free",false) else "这里是满金广播塔，正在为你播报城都地区的宝可梦新闻。"],"城都电台")
-			"小葵的口令": g._dialog(["今晚的口令是「%s」。来广播塔二楼告诉我吧。" % password() if int(Time.get_time_dict_from_system().hour)>=18 else "节目在每天18点到午夜播出。"],"小葵")
-			"宝可梦之笛": preload("res://core/johto_postgame.gd").radio(g)
-	)
+	preload("res://core/crystal_radio.gd").radio(g)
 
 static func password() -> String:
-	return PASSWORDS[absi(Time.get_date_string_from_system().hash())%PASSWORDS.size()]
+	return preload("res://core/crystal_radio.gd").passwords(Time.get_datetime_dict_from_system())[1]
 
 static func buena(g):
+	if int(g.save_data.get("j_blue_points",0))>=30 or g._flags().get("js_buena_offered",false):
+		g._flags().js_buena_offered=true
+		if "buena" not in preload("res://core/crystal_phone.gd").state(g).book:
+			preload("res://core/crystal_phone.gd").special_number(g,"buena");return
 	if int(Time.get_time_dict_from_system().hour)<18:
 		g._dialog(["晚上六点开播，记得听我的节目。"],"小葵")
 		return
@@ -491,8 +518,10 @@ static func buena(g):
 	if g.save_data.get("j_blue_date","")==today:
 		g._dialog(["今天的积分已经记在卡上啦。"],"小葵")
 		return
-	g._pick("今晚的口令是什么？",PASSWORDS,func(i):
-		if PASSWORDS[i]!=password():
+	var choices:Array=preload("res://core/crystal_radio.gd").passwords(Time.get_datetime_dict_from_system())[0]
+	g._pick("今晚的口令是什么？",choices,func(i):
+		if i<0 or i>=choices.size():return
+		if choices[i]!=password():
 			g._dialog(["答错啦，调到我的频道再听一次。"],"小葵")
 			return
 		g.save_data.j_blue_points=mini(30,int(g.save_data.get("j_blue_points",0))+1)

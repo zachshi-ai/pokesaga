@@ -178,10 +178,18 @@ func test_optional_tools() -> void:
 	check(game.save_data.party.any(func(m):return int(m.get("species_id",0))==345 and int(m.level)==20),"revive Lileep at level 20")
 	visit("em_lilycove_city_contest_lobby")
 	game._give_bag_item("橙橙果","berry","","ORAN")
-	var blender: Dictionary = game.world.objects.filter(func(o):return o.source_script.begins_with("BerryBlender_EventScript_BerryBlender"))[0]
+	var blender: Dictionary = game.world.objects.filter(func(o):return o.source_script=="BerryBlender_EventScript_BerryBlender1")[0]
 	face(blender.at)
 	game._on_action()
 	choose("橙橙果")
+	var machine=game.menu_layer.get_child(-1)
+	if machine.has_method("make_block"):
+		for frame in 1200:
+			if machine.done:break
+			machine._process(1.0/60)
+			if absf(wrapf(machine.angle-PI/2,-PI,PI))<0.17:machine.action.pressed.emit()
+		check(machine.done and machine.precise>0,"touch timing speeds up the berry blender")
+		machine.action.pressed.emit()
 	dismiss()
 	check(game._flags().get("h_blocks",[]).size()==1,"blending fruit makes a Pokeblock")
 	game._use_bag_item("宝可方块盒")

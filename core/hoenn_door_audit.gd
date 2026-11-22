@@ -6,7 +6,7 @@ const Campaign := preload("res://core/hoenn_campaign.gd")
 const DIRS := [Vector2i.DOWN,Vector2i.UP,Vector2i.LEFT,Vector2i.RIGHT]
 
 static func completed_field() -> Dictionary:
-	var flags := {"h_started":true,"h_rusturf_open":true}
+	var flags := {"h_started":true,"h_rusturf_open":true,"h_regi_doors":true,"h_regi_dig":true,"h_regirock_open":true,"h_registeel_open":true,"h_regice_open":true}
 	for event in Campaign.data().events:
 		if event.repeat: continue
 		flags[event.id]=true
@@ -90,6 +90,9 @@ static func unavailable(w,warp: Dictionary,seen: Dictionary) -> String:
 	var at:=Vector2i(warp.at[0],warp.at[1])
 	var source: int=warp.get("source_warp",-1)
 	var occupancy: Dictionary=w._npc_at(at)
+	# The route driver walks both legs after manipulating the specific room mechanism.
+	if site in ["Route110_TrickHousePuzzle2","Route110_TrickHousePuzzle3","Route110_TrickHousePuzzle4","Route110_TrickHousePuzzle6"] and at==Vector2i(13,1) and warp.to.map=="em_route110_trick_house_end":
+		return "机关屋动态机关 · 由 test_emerald_side_journey 实走验证"
 	if site.begins_with("LavaridgeTown_Gym_"):
 		if not occupancy.is_empty() and str(occupancy.get("source_script","")).begins_with(site+"_EventScript_") and DIRS.any(func(d):return seen.has(at+d)):
 			return "原版保留 · 釜炎道馆训练家占据的沙坑"
@@ -97,17 +100,9 @@ static func unavailable(w,warp: Dictionary,seen: Dictionary) -> String:
 			return "原版保留 · 釜炎道馆墙内的对层坐标"
 	if site=="MossdeepCity_GameCorner_1F" and source==2 and at==Vector2i(2,0) and w.blocked_by_terrain(at):
 		return "原版保留 · 已停用的混合记录之家地下入口"
-	if site.begins_with("Route110_TrickHousePuzzle") and warp.to.map=="em_route110_trick_house_end" and at==Vector2i(13,1):
-		return "支线待补 · 机关屋的卷轴、谜题和密码门"
 	match site:
 		"BattleFrontier_BattlePalaceBattleRoom":
-			if source==1 and occupancy.get("source_local","")=="LOCALID_PALACE_BATTLE_PLAYER": return "支线待补 · 对战宫殿比赛结束退场"
+			if source==1 and occupancy.get("source_local","")=="LOCALID_PALACE_BATTLE_PLAYER": return "原版脚本退场 · 对战结束送回报名柜台"
 		"BattleFrontier_OutsideEast":
 			if warp.to.map=="em_battle_frontier_lounge9" and at==Vector2i(21,45):return "支线待核 · 对战开拓区第九休息室的墙内坐标"
-		"Route103":
-			if warp.to.map=="em_altering_cave":return "支线待补 · 登录名人堂后开启变化洞"
-		"MeteorFalls_1F_1R":
-			if warp.to.map=="em_meteor_falls_stevens_cave":return "支线待补 · 登记名人堂后开启大吾的洞穴"
-		"Route111":
-			if warp.to.map=="em_route111_winstrate_familys_house" and w._npc_at(at+Vector2i.DOWN).get("source_script","")=="Route111_EventScript_Victor":return "支线待补 · 连胜家族四连战后让开家门"
 	return ""

@@ -61,6 +61,30 @@ func soften_move(ui, enemy: Dictionary) -> int:
 			highest = damage
 	return choice
 
+func matchup_move(ui,paired: bool) -> Array:
+	var best: Array=[-1,0]
+	var highest:=-1.0
+	for lane in (2 if paired else 1):
+		if paired:
+			if not ui.battle.viable("b",lane):continue
+			ui.target_buttons[lane].pressed.emit()
+		var mon: Dictionary=ui.battle.cur_a()
+		var foe: Dictionary=ui.battle.cur_b()
+		for index in mon.moves.size():
+			if mon.pp[index]<=0:continue
+			var move: Dictionary=db.move_of(mon.moves[index])
+			var power:=float(move.get("power",0))
+			if move.get("key","") in ["EXPLOSION","SELF_DESTRUCT","MISTY_EXPLOSION"]:continue
+			var special: bool=move.get("category","")=="special"
+			var atk:=float(mon.stats.get("spa" if special else "atk",1))
+			var defense:=maxf(1,float(foe.stats.get("spd" if special else "def",1)))
+			var effectiveness: float=ui.battle.effectiveness_on(move.type,foe)
+			var score:=power*atk/defense*effectiveness*(1.5 if move.type in mon.types else 1.0)*minf(1.0,float(move.get("accuracy",100))/100.0)
+			if move.get("key","") in ["SUCKER_PUNCH","FUTURE_SIGHT"]:score*=0.65
+			score*=float(foe.max_hp)/maxi(1,int(foe.hp))
+			if score>highest:highest=score;best=[index,lane]
+	return best
+
 func battle() -> void:
 	var ui = game.active_battle
 	var wild: bool = str(ui.trainer_name).is_empty()
@@ -110,6 +134,10 @@ func battle() -> void:
 					if power > high:
 						best = i
 						high = power
+				if game.world.map_data.get("mechanisms",{}).has("hill") or str(ui.trainer_name) in ["花月","芙蓉","波妮","源治","米可利"]:
+					var selected:=matchup_move(ui,paired)
+					best=int(selected[0])
+					if paired:ui.target_buttons[selected[1]].pressed.emit()
 				ui.menu.get_node("fight").pressed.emit()
 				var move_button: Button = ui.move_menu.get_node("Move%d"%best if best>=0 else "Struggle")
 				move_button.pressed.emit()
@@ -126,6 +154,19 @@ func settle() -> void:
 		if problem: return
 		if is_instance_valid(game.active_battle):
 			await battle()
+		elif game.menu_layer.has_node("SafariEncounter"):
+			var safari=game.menu_layer.get_node("SafariEncounter")
+			if not safari.is_queued_for_deletion():safari.moves["ball" if mode=="collect" else "run"].pressed.emit()
+			await process_frame
+		elif game.menu_layer.get_child_count()>0 and game.menu_layer.get_child(-1).has_method("make_block"):
+			var blender=game.menu_layer.get_child(-1)
+			if not blender.is_queued_for_deletion():
+				for frame in 1200:
+					if blender.done:break
+					blender._process(1.0/60.0)
+					if absf(wrapf(blender.angle-PI/2,-PI,PI))<0.17:blender.action.pressed.emit()
+				blender.action.pressed.emit()
+			await process_frame
 		elif not game._dialogs.is_empty():
 			var dlg = game._dialogs.back()
 			var line = dlg.lines[clampi(dlg.index - 1,0,dlg.lines.size()-1)] if not dlg.lines.is_empty() else ""
@@ -133,6 +174,9 @@ func settle() -> void:
 				lines.append(line)
 			if dlg.is_waiting_answer(): dlg.btn_yes.pressed.emit()
 			else: game._on_action()
+		elif world.map_data.id=="four_island_icefall_cave_b1f" and world.auto_step_dir()!=Vector2i.ZERO:
+			world.tick_walk(1.0)
+			game._process(1.0/60.0)
 		elif game._escort_active or (world.map_data.id == "johto_azalea_gym" and game.panel_open > 0 and preload("res://core/hgss_azalea.gd").data().pads.any(func(at): return world.player_pos==Vector2i(int(at[0]),int(at[1])))):
 			await process_frame
 		else:
@@ -151,7 +195,7 @@ func status() -> Dictionary:
 	if game.panel_open > 0 and game.menu_layer.get_child_count() > 0:
 		for b in game.menu_layer.get_child(-1).find_children("*","Button",true,false):
 			if b.is_visible_in_tree() and not b.disabled: panels.append(b.text)
-	return {"pos":current(),"elevation":world.last_elevation,"party":mons,"bag":items,"flags":game._flags().keys().filter(func(k): return game._flags()[k]),
+	return {"pos":current(),"elevation":world.last_elevation,"tower_mode":str(game._flags().get("fr_tower",{}).get("mode","")),"party":mons,"bag":items,"flags":game._flags().keys().filter(func(k): return game._flags()[k]),
 		"gym_button":int(game._flags().get("h_wattson_switch",0)),"gym_local":world.hoenn_local,"badges":game.save_data.badges,"money":game.save_data.money,"dex":game.save_data.dex.caught,"defeated":game.save_data.get("defeated",{}),
 		"actors":world.npcs.map(func(n):return [n.at,n.get("role",""),n.get("name",""),n.get("shop",false),n.get("legacy_at",n.at),n.get("story_map",world.map_data.id),n.get("heal",false),n.get("hgss_source",""),int(n.get("local_id",-1))]),
 		"bins":[game._flags().get("surge_bin",-1),game._flags().get("surge_second_bin",-1)],"history":game.save_data.get("return_passages",{}),"buttons":panels,"panels":game.panel_open,"held":game.save_data.party.map(func(m):return m.get("held","")),"problem":problem,"fights":fights,

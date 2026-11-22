@@ -191,6 +191,12 @@ var emerald_chunks: Array = []
 var _prev_facing := ""
 
 func load_map(data: Dictionary) -> void:
+	if data.get("id","")==preload("res://core/emerald_lilycove_lady.gd").MAP and get_parent() and get_parent().has_method("_flags"):
+		data=data.duplicate()
+		data.npcs=data.npcs.duplicate(true)
+		preload("res://core/emerald_lilycove_lady.gd").prepare(get_parent(),data)
+	if data.get("id","")==preload("res://core/frontier_maze.gd").FLOOR:
+		data=preload("res://core/frontier_maze.gd").apply(data,taken.get("h_frontier_run",{}))
 	_prev_facing = facing
 	var puzzle: Dictionary=data.get("mechanisms",{})
 	var local_save: Dictionary=taken.get("hoenn_room_state",{})
@@ -304,6 +310,7 @@ func _load_emerald_map(name: String) -> void:
 	npcs = preload("res://core/frlg_actors.gd").roster(map_data, taken)
 	if map_data.has("mechanisms"):HoennMechanisms.adjust_actors(self,npcs)
 	objects = (map_data.get("objects", []) as Array).duplicate(true)
+	if map_data.id=="hoenn_130" and not taken.get("h_mirage_today",false):objects=objects.filter(func(o):return o.get("kind","")!="berry_tree")
 	if map_data.has("hgss") and map_data.hgss.header in ["MAP_ICE_PATH_B1F","MAP_ICE_PATH_B2F"]:
 		objects=objects.filter(func(o):return (not o.has("ice_rock") or not taken.get("ice:rock:"+str(o.ice_rock),false)) and (not o.has("ice_rest") or taken.get("ice:pit:%d"%int(o.ice_rest),false)))
 	if map_data.get("region","")=="kanto":
@@ -415,6 +422,7 @@ func _dir_bit(dir: Vector2i) -> int:
 
 ## 从 dir 方向走进 p 这一格行不行（方向性阻挡只挡对应方向）
 func can_enter(p: Vector2i, dir: Vector2i, ignore_mask: bool = false) -> bool:
+	if not preload("res://core/hoenn_base_effects.gd").allows(self,p,dir):return false
 	if map_data.has("emerald_original") and not preload("res://core/hoenn_items.gd").can_enter(self,p,dir): return false
 	if map_data.get("hgss",{}).get("header","")=="MAP_OLIVINE_LIGHTHOUSE_LIGHT_ROOM" and p==Vector2i(8,12) and not taken.get("j_sick_amphy",false): return false
 	# 非原版地图（开拓区这类自建图）只有 tiles 网格，没有方向阻挡
@@ -677,6 +685,7 @@ func clear_whirl(p: Vector2i) -> void:
 
 ## 站定之后要不要被地形带着再走一步（冰面打滑 / 洋流）
 func auto_step_dir() -> Vector2i:
+	if map_data.get("mechanisms",{}).has("base") and preload("res://core/hoenn_base_effects.gd").at(self,player_pos).get("surface")==71 and can_step(Vector2i.DOWN):return Vector2i.DOWN
 	if is_ice(player_pos):
 		return last_dir if last_dir != Vector2i.ZERO and can_step(last_dir) else Vector2i.ZERO
 	var d := _push_dir_of(emerald_slide, player_pos)
@@ -767,7 +776,7 @@ func _warp_from(cell: Vector2i, dir: Vector2i) -> Dictionary:
 	return {}
 
 func step(dir: Vector2i) -> bool:
-	if walking:
+	if walking or hoenn_local.get("decor_busy",false):
 		return false
 	if map_data.has("emerald_original") and not emerald_current.is_empty():
 		var current := _push_dir_of(emerald_current,player_pos)
@@ -1185,6 +1194,10 @@ func _rebuild(story_flags: Variant = null) -> void:
 		emerald_collision=map_data.physics.collision.duplicate(true)
 		overrides=HoennMechanisms.overrides(self,taken if story_flags==null else story_flags)
 		emerald_slide=map_data.physics.get("slide",[]).duplicate(true)
+		if map_data.mechanisms.has("hill"):
+			var course: Dictionary=preload("res://core/hoenn_hill.gd").course(self)
+			emerald_ledge=course.ledge
+			emerald_slide=course.slide
 		if map_data.mechanisms.has("stairs") and not emerald_slide.is_empty():
 			for tile in overrides: emerald_slide[int(tile[1])][int(tile[0])]=0
 	if not mansion_switches.is_empty() and taken.has(MANSION_FLAG):

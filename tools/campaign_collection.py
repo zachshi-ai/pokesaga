@@ -144,6 +144,8 @@ def pace(p, patch, purpose, steps=48):
             continue
         legs = [[key, neighbor], [reverse, start]] * (steps // 2)
         p.do("walk", legs=legs)
+        if p.pos[0] == "safarizone_entrance" and patch.mid.startswith("safarizone_"):
+            return  # Admission ends immediately at zero Safari Balls or steps.
         if p.pos != start:
             break
         return

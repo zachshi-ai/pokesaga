@@ -251,6 +251,14 @@ def noise(dur=0.15, amp=0.5):
     return x * env * amp
 
 
+def base_sounds():
+    names = ["balloon_red","balloon_blue","balloon_yellow","mud_ball","breakable_door","ledge"]
+    names += ["note_" + note for note in ("c","d","e","f","g","a","b","c_high")]
+    for name in names:
+        notes = parse_midi(os.path.join(ROOT,"se_" + name + ".mid"))
+        write_wav(os.path.join(OUT,"sfx",name + ".wav"),render(notes))
+
+
 def main():
     missing = [name for name in BGM.values() if not os.path.isfile(os.path.join(ROOT, name + ".mid"))]
     if missing:
@@ -304,6 +312,7 @@ def main():
         write_wav(p, buf.astype(np.float32))
         made.append((key, "sfx", round(len(buf) / SR, 2), os.path.getsize(p) // 1024))
 
+    base_sounds()
     print("生成 %d 个音频" % len(made))
     for m in made:
         print("   ", m)

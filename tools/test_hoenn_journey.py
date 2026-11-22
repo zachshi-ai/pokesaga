@@ -94,6 +94,7 @@ class EmeraldPlayer(Player):
 
     def play(self, folder, stop):
         for event in self.events:
+            if stop in self.state["flags"]: break
             if event.get("repeat") or event["id"] in self.state["flags"]: continue
             print("TARGET", event["id"], self.pos, flush=True)
             if event["id"] == "h_rescued": self.do("mode",value="train")
@@ -123,6 +124,8 @@ class EmeraldPlayer(Player):
             if event["id"] in ("h_chimney_tabitha","h_badge_4","h_magma_gate"):
                 self.use_at("em_route112_cable_car_station",(6,6))
                 assert self.select("烟囱山"), self.state["buttons"]
+            from hoenn_league_route import prepare as prepare_league
+            prepare_league(self,event)
             self.scene(event)
             self.milestone(event["id"])
             if self.checkpoint:
@@ -131,7 +134,7 @@ class EmeraldPlayer(Player):
                 archive = Path(os.environ["POKESAGA_CHECKPOINT_DIR"])
                 archive.mkdir(exist_ok=True,parents=True)
                 (archive/(event["id"]+".json")).write_bytes((folder/"save.json").read_bytes())
-            if event["id"] == stop: break
+            if event["id"] == stop or stop in self.state["flags"]: break
 
 
 def main():

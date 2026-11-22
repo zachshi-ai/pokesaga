@@ -18,6 +18,7 @@ index = json.loads((ROOT / "content/hoenn_native/index.json").read_text())
 species = {row["key"]: row["id"] for row in json.loads((ROOT / "content/species.json").read_text())}
 moves = {row["key"].replace("_",""): row["id"] for row in json.loads((ROOT / "content/moves.json").read_text())}
 moves["FAINTATTACK"] = moves["FEINTATTACK"]
+moves["HIJUMPKICK"] = moves["HIGHJUMPKICK"]
 trainers = dict(re.findall(r'\[TRAINER_(\w+)\]\s*=\s*\{(?:(?!\[TRAINER_).)*?\.party = \w+\((sParty_\w+)\)', (source/"src/data/trainers.h").read_text(), re.S))
 party_source = dict(re.findall(r'(sParty_\w+)\[\] = \{(.*?)\n\};', (source / "src/data/trainer_parties.h").read_text(), re.S))
 teams = {}
@@ -36,6 +37,9 @@ def team(key):
             berry = re.search(r'ITEM_(\w+)_BERRY', mon)
             if berry:
                 row["berry"] = berry[1].lower()
+            held = re.search(r'\.heldItem = ITEM_(\w+)', mon)
+            if held and not berry and held[1] != "NONE":
+                row["held"] = held[1]
             roster.append(row)
         assert roster, key
         teams[key] = roster
@@ -390,6 +394,27 @@ for room in ("SidneysRoom","PhoebesRoom","GlaciasRoom","DrakesRoom","ChampionsRo
     name="EverGrandeCity_"+room
     mid=index[maps[name]["id"]]
     league_back[mid]=index[maps[name]["warp_events"][0]["dest_map"]]
-out={"league_back":league_back,"source_visibility":visibility,"tutorial_wally":wally,"steven":steven,"jagged":wall,"events":events,"actors":cast,"gates":gates,"teams":teams}
+# Optional battles use the same ordered event queue, defeat callback and original teams.
+family="Route111_WinstrateFamilysHouse"
+st("winstrates","Route111",1,"",say("连胜爸爸","我们一家四口轮流出战。中间可没有休息时间哦！"),
+   battle("VICTOR","连胜爸爸"),say("连胜妈妈","刚刚就是你击败了我丈夫？让我来！"),battle("VICTORIA","连胜妈妈"),
+   say("连胜女儿","轮到我一个人上场了！"),battle("VIVI","连胜女儿"),say("连胜奶奶","你很有本事。老婆子也要领教一下！"),battle("VICKY","连胜奶奶"))
+actors("Route111",[1],"","winstrates","连胜爸爸")
+for i,n in enumerate(["连胜女儿","连胜爸爸","连胜妈妈","连胜奶奶"],1):actors(family,[i],"winstrates","",n)
+gate(family,"winstrates","一家人正准备四连战。先与门口的爸爸交谈。")
+gate("AlteringCave","champion","洞口被岩石封住了。")
+gate("MeteorFalls_StevensCave","champion","前方是一面岩壁。")
+st("steven_duel","MeteorFalls_StevensCave",1,"champion",say("大吾","能够在这里再见到你，我很高兴。让我们用全部实力交手吧！"),
+   battle("STEVEN","大吾"),say("大吾","我很庆幸能遇见你这样的训练家。"))
+actors("MeteorFalls_StevensCave",[1],"champion","","大吾")
+for n in range(1,7):team("GABBY_AND_TY_"+str(n))
+rematches = {}
+source_rows = (source/"src/battle_setup.c").read_text()
+for contact, body in re.findall(r"\[REMATCH_(\w+)\] = REMATCH\((.*?)\)",source_rows):
+    if contact=="SIDNEY": break  # League rematches are handled by the League.
+    forms = re.findall(r"TRAINER_(\w+)",body)
+    if len(forms)!=5: continue
+    rematches["TRAINER_"+forms[0]] = {"contact":contact,"map":body.split(", ")[-1],"teams":[team(trainer) for trainer in forms[1:]]}
+out={"rematches":rematches,"league_back":league_back,"source_visibility":visibility,"tutorial_wally":wally,"steven":steven,"jagged":wall,"events":events,"actors":cast,"gates":gates,"teams":teams}
 (ROOT/"content/hoenn_campaign.json").write_text(json.dumps(out,ensure_ascii=False,indent=1)+"\n")
 print(f"Compiled {len(events)} events, {len(teams)} trainer parties and {len(gates)} map gates")

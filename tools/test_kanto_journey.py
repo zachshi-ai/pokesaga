@@ -47,6 +47,8 @@ class Player:
                 for mid, rules in self.puzzles.items():
                     for rule in rules:
                         for variant in rule["variants"]:
+                            if variant.get("tower_modes") and self.state.get("tower_mode","") not in variant["tower_modes"]:
+                                continue
                             if set(variant["flags"]) <= flags:
                                 for x,y,_,_,blocked in variant["cells"]:
                                     self.routes.fields[mid].grid["collision"][y*self.routes.fields[mid].w+x] = int(blocked)
@@ -342,7 +344,7 @@ def safari_training(p):
     safari=next(h for h in habitats() if h.name=="safarizone_center")
     enter_patch(p,safari)
     pace(p,safari,"collect",60)
-    wild_training(p,"safarizone_center",42,"fuchsiacity")
+    wild_training(p,"ROUTE15",42,"fuchsiacity")
 
 
 def saffron(p):

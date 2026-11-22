@@ -14,6 +14,7 @@ const EditorUI := preload("res://scenes/editor_ui.gd")
 const TouchScroll := preload("res://core/touch_scroll.gd")
 const EncounterScript := preload("res://core/encounter.gd")
 const GrowthScript := preload("res://core/growth.gd")
+const TravelStories := preload("res://core/emerald_fan_club.gd")
 const ShopUI := preload("res://scenes/shop_ui.gd")
 const FacilityScript := preload("res://core/facility.gd")
 const PartyUI := preload("res://scenes/party_ui.gd")
@@ -359,15 +360,15 @@ func _ready() -> void:
 		return
 	if "--fusionvis" in argv:
 		await get_tree().create_timer(0.4).timeout
-		print("vis: 首图 ", String(world.map_data.get("id", "")), " 融合按钮=", _fusion_btn_visible())
+		print("vis: 首图 ", String(world.map_data.get("id", "")), " 融合按钮=", _in_pokemon_center())
 		world.load_map(Data.load_map("kanto", "kanto_main"))
 		world.warp_to(Vector2i(24, 217))
 		await get_tree().create_timer(0.4).timeout
-		print("vis: 大地图 融合按钮=", _fusion_btn_visible())
+		print("vis: 大地图 融合按钮=", _in_pokemon_center())
 		world.load_map(Data.load_map("kanto", "pewtercity_pokemoncenter_1f"))
 		world.warp_to(Vector2i(7, 4))
 		await get_tree().create_timer(0.4).timeout
-		print("vis: 宝可梦中心 融合按钮=", _fusion_btn_visible())
+		print("vis: 宝可梦中心 融合按钮=", _in_pokemon_center())
 		_ensure_form_npc()
 		for n in world.npcs:
 			if bool((n as Dictionary).get("form_items", false)):
@@ -408,16 +409,16 @@ func _ready() -> void:
 		var n0: Array = []
 		for n in world.npcs:
 			n0.append(String((n as Dictionary).get("name", "")))
-		print("vis: 首图 ", String(world.map_data.get("id", "")), " -> ", _fusion_btn_visible(), " NPC=", str(n0))
+		print("vis: 首图 ", String(world.map_data.get("id", "")), " -> ", _in_pokemon_center(), " NPC=", str(n0))
 		world.load_map(Data.load_map("kanto", "kanto_main"))
 		world.warp_to(Vector2i(24, 217))
 		await get_tree().create_timer(0.4).timeout
-		print("vis: 大地图 -> ", _fusion_btn_visible())
+		print("vis: 大地图 -> ", _in_pokemon_center())
 		var mp: Dictionary = Data.load_map("kanto", "pewtercity_pokemoncenter_1f")
 		world.load_map(mp)
 		world.warp_to(Vector2i(7, 4))
 		await get_tree().create_timer(0.4).timeout
-		print("vis: 宝可梦中心 -> ", _fusion_btn_visible(), " 图=", String(world.map_data.get("id", "")))
+		print("vis: 宝可梦中心 -> ", _in_pokemon_center(), " 图=", String(world.map_data.get("id", "")))
 		var names: Array = []
 		for n in world.npcs:
 			names.append("%s@%s" % [String((n as Dictionary).get("name", "")), str((n as Dictionary).get("at", []))])
@@ -899,6 +900,8 @@ func _story_step() -> void:
 ## 队列跑完：写完成标记、存档，回头补一次区域触发
 func _story_done() -> void:
 	preload("res://core/sevii_campaign.gd").reconcile_pass(_flags(),bag_items)
+	if _flags().get("old_man_met",false) and _bag_count("教学电视")==0:_give_item("教学电视",1,"key")
+	if _flags().get("rival_bridge",false) and _bag_count("名人传言器")==0:_give_item("名人传言器",1,"key")
 	_persist()
 	if story_abort:
 		if world.map_data.get("region","") in ["kanto","johto"]: world.refresh_story_actors(_flags())
@@ -993,9 +996,12 @@ func _story_do(act: Dictionary) -> void:
 		var temporary := {"sevii_" + str(act.scene_cast):true}
 		world.refresh_story_actors(flags.merged(temporary,true))
 	if act.get("hall_of_fame") in ["johto","kanto","hoenn"]:
+		if act.hall_of_fame=="kanto" and not flags.get("kanto_champion",false):flags.fr_hof_count=1
 		johto_league.register_team(save_data,act.hall_of_fame)
 		_persist()
 	if act.has("flag"):
+		if str(act.flag) in ["kanto_lances_win","repeat_kanto_lances_win"] and not flags.get(act.flag,false):preload("res://core/frlg_sidequests.gd").lance_fans(self)
+		if str(act.flag)=="kanto_rematch_complete" and not flags.get(act.flag,false):flags.fr_hof_count=int(flags.get("fr_hof_count",0))+1
 		flags[String(act["flag"])] = true
 		save_data["flags"] = flags
 	if act.has("remove_item"):
@@ -1075,6 +1081,7 @@ func _dialog_heal(npc: Dictionary) -> void:
 	dlg.call("ask", "恢复", "不用")
 	dlg.connect("answered", func(yes: bool) -> void:
 			if yes:
+				if _has_party() and _in_pokemon_center():TravelStories.record(self,"USED_POKECENTER")
 				_heal_party()
 				_dialog(["你的宝可梦都恢复精神了。", "我们会等你再次光临。"], who)
 			else:
@@ -1097,6 +1104,10 @@ func _on_action() -> void:
 		if hk == "item" or hk == "hidden":
 			_handle_object(here)
 			return
+	if world.map_data.has("emerald_original") and preload("res://core/hoenn_safari.gd").feeder_field(self):return
+	if world.map_data.has("emerald_original") and preload("res://core/hoenn_base.gd").place(self): return
+	if preload("res://core/hoenn_base_effects.gd").interact(self):return
+	if preload("res://core/frlg_sidequests.gd").field(self): return
 	if preload("res://core/hgss_azalea.gd").flip(self): return
 	if preload("res://core/johto_postgame.gd").field_action(self): return
 	if world.map_data.get("region","") == "johto" and preload("res://core/johto_campaign.gd").interact_field(self):
@@ -1426,6 +1437,7 @@ func _move(key: String) -> void:
 	else:
 		if not world.walking and Time.get_ticks_msec() - _last_bump > 220:
 			_last_bump = Time.get_ticks_msec()
+			preload("res://core/emerald_cycling.gd").bump(self)
 			snd.play_sfx("bump")
 
 ## 走到门口、这一步动画走完才切场景，不会半路就闪进去
@@ -1479,6 +1491,9 @@ func _is_night() -> bool:
 func _update_music() -> void:
 	if snd == null:
 		return
+	var radio_track:=preload("res://core/crystal_radio.gd").playing(self)
+	if radio_track!="":
+		snd.play_music("crystal_"+radio_track);return
 	var mid := String(world.map_data.get("id", ""))
 	var area := String(world.map_data.get("name", ""))
 	var indoor: bool = not mid.contains("main") and not area.contains("道路")
@@ -1504,6 +1519,11 @@ func _do_warp(target: Dictionary) -> void:
 		if world.map_data.id=="em_inside_of_truck":
 			save_data.hoenn_truck=ride
 		_persist()
+		return
+	if preload("res://core/frlg_safari.gd").passage(self,target):return
+	var tower_gate:=preload("res://core/frlg_tower.gd").gate(self,target)
+	if not tower_gate.is_empty():
+		_dialog([tower_gate],"训练家之塔")
 		return
 	var item_gate := preload("res://core/hoenn_items.gd").passage(self,target)
 	if not item_gate.is_empty():
@@ -1587,9 +1607,11 @@ func _do_warp(target: Dictionary) -> void:
 	if world.map_data.get("id","") == "four_island_icefall_cave_1f" and next_map.id != world.map_data.id:
 		for rule in preload("res://core/kanto_campaign.gd").field_rules(world.map_data.id):
 			_flags().erase(rule.variants[0].flags[0])
+	preload("res://core/emerald_cycling.gd").transfer(self,next_map,target)
 	preload("res://core/hoenn_items.gd").leave(self,next_map)
 	preload("res://core/hoenn_campaign.gd").leave_league(world.map_data,next_map,_flags())
 	world.load_map(next_map)
+	preload("res://core/hoenn_match_call.gd").arrive(self)
 	world.arrive(target)
 	if target.get("sea_connection",false):
 		world.surfing=world.is_water(world.player_pos)
@@ -1611,9 +1633,19 @@ func _do_warp(target: Dictionary) -> void:
 	preload("res://core/johto_items.gd").enter(self)
 
 func _after_step() -> void:
+	if preload("res://core/emerald_cycling.gd").field_step(self):return
+	if preload("res://core/frontier_challenge.gd").field_step(self):return
+	if preload("res://core/frlg_safari.gd").step(self):return
+	if world.map_data.id.begins_with("trainer_tower_") and preload("res://core/frlg_tower.gd").step(self,preload("res://core/frlg_sidequests.gd").data().tower):return
+	preload("res://core/frlg_sidequests.gd").arrive_step(self)
+	if world.map_data.region=="kanto":preload("res://core/frlg_roamer.gd").observe(self)
 	if preload("res://core/hoenn_items.gd").fall_through(self): return
+	preload("res://core/hoenn_match_call.gd").after_steps(self)
 	preload("res://core/hoenn_items.gd").field_step(self)
 	if preload("res://core/hgss_azalea.gd").board(self): return
+	if int(save_data.get("js_repel",0))>0:
+		save_data.js_repel-=1
+		if save_data.js_repel==0:_show_toast("除虫喷雾的效果消失了。")
 	preload("res://core/johto_items.gd").field_step(self)
 	preload("res://core/sevii_campaign.gd").request_step(save_data)
 	if _flags().get("got_vs_seeker",false) and int(save_data.get("vs_charge",100)) < 100:
@@ -1674,6 +1706,13 @@ func _try_encounter() -> void:
 		return
 	# 踩草遇敌；在海上冲浪也算「有东西会冒出来」
 	var on_grass: bool = world.wild_tile_here()
+	if world.map_data.id==preload("res://core/crystal_ruins.gd").HALL:
+		var letters:=preload("res://core/crystal_ruins.gd").letters(_flags())
+		if not letters.is_empty() and EncounterScript.should_encounter(rng,0.12*preload("res://core/crystal_radio.gd").factor(self),grass_streak+1):
+			grass_streak=0
+			_start_wild_battle(201,5,"UNOWN_"+letters[rng.randi_range(0,letters.length()-1)])
+		else:grass_streak+=1
+		return
 	var on_sea: bool = world.surfing and world.is_water(world.player_pos)
 	if not on_grass and not on_sea:
 		grass_streak = 0
@@ -1690,7 +1729,7 @@ func _try_encounter() -> void:
 		var hour := int(Time.get_time_dict_from_system().hour)
 		var period := "morn" if hour >= 4 and hour < 10 else ("day" if hour >= 10 and hour < 18 else "nite")
 		var slot: Dictionary = world.map_data.get("encounters_by_time", {}).get(period, {})
-		pool = slot.get("pool", pool)
+		pool = preload("res://core/crystal_phone.gd").swarm_pool(self,slot.get("pool", pool),period)
 		rate = float(slot.get("rate", rate))
 	if on_sea:
 		var wp: Array = world.map_data.get("water_encounters", [])
@@ -1731,9 +1770,13 @@ func _try_encounter() -> void:
 		var flute: String = _flags().get("h_encounter_flute","")
 		if flute=="白色玻璃哨": rate*=1.5
 		if flute=="黑色玻璃哨": rate*=0.5
+	rate*=preload("res://core/crystal_radio.gd").factor(self)
 	if not EncounterScript.should_encounter(rng, rate, grass_streak):
 		return
 	if world.map_data.get("region","")=="johto":
+		if preload("res://core/crystal_bug_contest.gd").encounter(self):
+			grass_streak=0
+			return
 		var beast := preload("res://core/johto_items.gd").roamer(self,on_grass and not on_sea)
 		if beast>0:
 			grass_streak=0
@@ -1744,12 +1787,25 @@ func _try_encounter() -> void:
 					_persist()
 				elif result=="b" and _party_fainted(): _blackout())
 			return
+	if world.map_data.has("emerald_original"):
+		var eon:=preload("res://core/emerald_legends.gd").roam(self)
+		if eon>0:
+			grass_streak=0
+			preload("res://core/emerald_legends.gd").encounter(self,eon,40)
+			return
+	if on_grass and world.map_data.region=="kanto" and preload("res://core/frlg_roamer.gd").roll(self):return
 	var wild: Dictionary = EncounterScript.roll(pool, rng)
 	if wild.is_empty():
 		return
 	grass_streak = 0
+	if int(save_data.get("js_repel",0))>0:
+		for partner in save_data.party:
+			if partner is Dictionary and not partner.is_empty():
+				if int(wild.level)<int(partner.level):return
+				break
 	var sid := int(wild["species"])
-	var form := _roll_regional(sid)
+	var form := preload("res://core/frlg_sidequests.gd").unown(self) if sid==201 and world.map_data.region=="sevii" else _roll_regional(sid)
+	if form=="locked":return
 	_start_wild_battle(sid, int(wild["level"]), form)
 
 ## 地区形态不是独立图鉴号，就是这只宝可梦换了个样子。
@@ -1768,6 +1824,17 @@ func _roll_regional(species_id: int) -> String:
 ## 商店：读货架，买完改背包和钱
 func _open_shop() -> void:
 	var goods := Data.load_shop(str(world.map_data.get("region", "kanto")))
+	if world.map_data.get("source_id","")=="MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F":
+		goods = [
+			{"name":"高级球","category":"ball","price":1200},
+			{"name":"厉害伤药","category":"heal","price":1200},
+			{"name":"全满药","category":"heal","price":2500},
+			{"name":"全复药","category":"heal","price":3000},
+			{"name":"万灵药","category":"heal","price":600},
+			{"name":"活力碎片","category":"heal","price":1500},
+			{"name":"黄金喷雾","category":"other","price":700}]
+	if world.map_data.id=="em_trainer_hill_entrance":goods=preload("res://core/hoenn_hill.gd").shop(self)
+	if world.map_data.id=="celadon_city_department_store_4f":goods.append({"name":"皮皮玩偶","category":"other","price":1000})
 	if world.map_data.get("source_id","")=="MAP_SLATEPORT_CITY_MART": goods.append({"name":"港口邮件","category":"other","price":50})
 	if world.map_data.id in ["indigo_plateau_pokemon_center_1f", "johto_indigo_plateau_pokecenter_1f"]:
 		goods.append_array([{"name":"活力碎片","category":"heal","price":1500},{"name":"厉害伤药","category":"heal","price":1200}])
@@ -1788,6 +1855,7 @@ func _open_shop() -> void:
 				_show_toast("钱不够")
 				return
 			save_data["money"] = money - price
+			TravelStories.record(self,"SHOPPED")
 			for g in goods:
 				if str(g.name) == item_name:
 					_give_bag_item(item_name, category, str(g.get("held", "")), str(g.get("berry", "")), str(g.get("tera", "")))
@@ -1798,6 +1866,7 @@ func _open_shop() -> void:
 
 ## 告示牌 / 道具球 / 树果树 / 土：按 A 之后的分流
 func _handle_object(o: Dictionary) -> void:
+	if preload("res://core/crystal_arcade.gd").machine(self,o):return
 	if preload("res://core/hoenn_items.gd").object_action(self,o): return
 	if preload("res://core/johto_items.gd").shrine(self,o): return
 	if o.get("kind","")=="kanto_puzzle":
@@ -1938,6 +2007,13 @@ func _daycare(npc: Dictionary) -> void:
 
 
 ## 每走一步看一眼蛋
+func _record_hatch() -> void:
+	var counts: Dictionary=save_data.get_or_add("h_fan_club",{}).get_or_add("stats",{})
+	var prior: int=_flags().get("fr_egg_count",0)
+	if not counts.has("HATCHED_EGGS"):counts.HATCHED_EGGS=prior
+	_flags().fr_egg_count=prior+1
+	TravelStories.record(self,"HATCHED_EGGS")
+
 func _tick_egg() -> void:
 	preload("res://core/johto_items.gd").tick_egg(self)
 	var egg: Dictionary = save_data.get("egg", {})
@@ -1948,6 +2024,7 @@ func _tick_egg() -> void:
 		save_data["egg"] = egg
 		return
 	var sp := int(egg.get("species", 133))
+	_record_hatch()
 	save_data.erase("egg")
 	var destination := _add_to_team(sp, 5, "", PartyScript.roll_shiny(appearance_rng))
 	snd.play_sfx("levelup")
@@ -1973,7 +2050,9 @@ func _use_field_move(o: Dictionary, key: String, cname: String, msg: String) -> 
 	snd.play_sfx("hit")
 	world.mark_taken(o)
 	save_data["flags"] = world.taken
+	if key in ["CUT","ROCK_SMASH"]:TravelStories.record(self,"USED_"+key)
 	_persist()
+	if key=="ROCK_SMASH" and preload("res://core/crystal_wild_events.gd").rock(self):return
 	_dialog([msg], "")
 
 
@@ -2052,6 +2131,7 @@ func _push_boulder(o: Dictionary) -> void:
 	var at: Array = o.get("at", [0, 0])
 	var real: Dictionary = world.object_ref(Vector2i(int(at[0]), int(at[1])))
 	if world.push_object(real, dir):
+		preload("res://core/frlg_sidequests.gd").after_push(self)
 		save_data["flags"] = world.taken
 		_persist()
 		snd.play_sfx("hit")
@@ -2196,6 +2276,8 @@ func _fish(rod: String = "") -> void:
 		var pools: Array = preload("res://core/hoenn_items.gd").data().fishing.get(world.map_data.source_id,[])
 		var rank := RODS.find(rod) if rod!="钓竿" else 1
 		pool=pools[rank] if rank>=0 and rank<pools.size() else []
+		var special:=preload("res://core/emerald_fan_club.gd").feebas(self,world.player_pos+world._dir_vec())
+		if not special.is_empty():pool=[special]
 	elif world.map_data.get("region","") in ["kanto","sevii"]:
 		var area: Dictionary = world.map_data
 		if area.get("id","") == "kanto_main":
@@ -2205,7 +2287,7 @@ func _fish(rod: String = "") -> void:
 		var rank: int = 1 if rod == "钓竿" else RODS.find(rod)
 		pool = tables[rank] if rank >= 0 and rank < tables.size() else []
 	elif world.map_data.get("region","")=="johto":
-		pool = preload("res://core/johto_items.gd").fish_pool(world.map_data.id,rod,_is_night())
+		pool = preload("res://core/johto_items.gd").fish_pool(world.map_data.id,rod,_is_night(),preload("res://core/crystal_phone.gd").fish_swarm(self))
 	elif rod == "破旧钓竿":
 		pool = [{"species":129,"min":5,"max":5}]
 	var pick: Dictionary = EncounterScript.roll(pool,rng)
@@ -2215,7 +2297,9 @@ func _fish(rod: String = "") -> void:
 	snd.play_sfx("water")
 	_dialog(["……","钓到了什么东西！"],"")
 	_start_wild_battle(int(pick.species),int(pick.level))
-	if is_instance_valid(active_battle): active_battle.battle.fishing_encounter=true
+	if is_instance_valid(active_battle):active_battle.battle.fishing_encounter=true
+	if is_instance_valid(active_battle) or menu_layer.has_node("SafariEncounter") or menu_layer.has_node("HoennSafariEncounter"):
+		TravelStories.record(self,"FISHING_ENCOUNTERS")
 
 
 ## ---------- 招式学习器 ----------
@@ -2241,12 +2325,12 @@ func _offer_tm_teach(nm: String) -> void:
 		func(idx: int) -> void: _tm_teach_one(mv, int(can[idx]), mv_name))
 
 
-func _tm_teach_one(mv: int, slot: int, mv_name: String) -> void:
+func _tm_teach_one(mv: int, slot: int, mv_name: String, verified := false, on_learned := Callable()) -> void:
 	var party: Array = save_data.get("party", [])
 	if slot < 0 or slot >= party.size():
 		return
 	var m: Dictionary = party[slot]
-	if not _can_learn_move(int(m.get("species_id", 0)), mv):
+	if not verified and not _can_learn_move(int(m.get("species_id", 0)), mv):
 		_dialog(["%s 学不会「%s」。" % [String(m.get("name", "宝可梦")), mv_name]], "")
 		return
 	var mvs: Array = m.get("moves", [])
@@ -2263,6 +2347,7 @@ func _tm_teach_one(mv: int, slot: int, mv_name: String) -> void:
 		pp.append(move_pp)
 		m["moves"] = mvs
 		save_data["party"] = party
+		if on_learned.is_valid():on_learned.call()
 		_persist()
 		snd.play_sfx("levelup")
 		_dialog(["%s 学会了「%s」！" % [String(m.get("name", "宝可梦")), mv_name]], "")
@@ -2281,6 +2366,7 @@ func _tm_teach_one(mv: int, slot: int, mv_name: String) -> void:
 			pp[idx] = move_pp
 			m["moves"] = mvs
 			save_data["party"] = party
+			if on_learned.is_valid():on_learned.call()
 			_persist()
 			snd.play_sfx("levelup")
 			_dialog(["忘掉了「%s」。" % old_name,
@@ -2409,6 +2495,7 @@ func _receive_field_machine(npc: Dictionary) -> void:
 	_dialog([reward.say,"获得了%s（%s）。" % [item,Data.move_of(int(Data.tm_map[item])).name]],npc.name)
 
 func _talk_to_npc(npc: Dictionary) -> void:
+	if preload("res://core/frlg_sidequests.gd").interact(self,npc):return
 	if world.map_data.has("emerald_original") and preload("res://core/hoenn_field.gd").trick_master(self,npc):return
 	var rid := str(world.map_data.region)
 	if story_on and rid in Journey.HOMES and not save_data.get("chapters",{}).has(rid) and not npc.get("transit",false) and (npc.has("gives_mon") or npc.has("badge") or (rid=="hoenn" and npc.has("source_script") and not npc.get("heal",false) and not npc.get("shop",false))):
@@ -2791,6 +2878,8 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 				mvs = EncounterScript.moves_for(sid, lv)
 			var opponent := BattleScript.make_combatant(sid, lv, mvs)
 			opponent["berry"] = e.get("berry", "")
+			if e.has("held"):opponent.held=e.held
+			if cfg.has("crystal_party"):preload("res://core/crystal_tower.gd").fixed_mon(opponent,e)
 			if e.has("trainer_group"): opponent.trainer_group=e.trainer_group
 			enemy.append(opponent)
 	else:
@@ -2800,7 +2889,7 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 		if not (mvs2 is Array) or (mvs2 as Array).is_empty():
 			mvs2 = EncounterScript.moves_for(sid2, lv2)
 		enemy.append(BattleScript.make_combatant(sid2, lv2, mvs2))
-	var mine: Array = _make_team()
+	var mine: Array = cfg.crystal_party.duplicate(true) if cfg.has("crystal_party") else _make_team()
 	if cfg.get("ally","")=="steven":
 		# The allied trainers bring three each. Keep the player's party/PC slots intact.
 		mine = mine.slice(0,3)
@@ -2821,7 +2910,8 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 	active_battle = ui
 	held_dir = ""
 	layer.add_child(ui)
-	ui.setup(mine, enemy, rng.randi(), bag_items, String(npc.get("name", "训练家")))
+	ui.setup(mine, enemy, rng.randi(), [] if cfg.has("crystal_party") else bag_items, String(npc.get("name", "训练家")))
+	if _has_party():TravelStories.record(self,"TRAINER_BATTLES")
 	ui.item_used.connect(func(nm: String) -> void:
 		for it in bag_items:
 			if it is Dictionary and String((it as Dictionary).get("name", "")) == nm:
@@ -2829,12 +2919,15 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 	_set_hud_visible(false)
 	ui.finished.connect(func(result: String) -> void:
 		active_battle = null
-		_writeback_team(ui.player_team)
+		if not cfg.has("crystal_party"):_writeback_team(ui.player_team)
+		if result=="a" and not cfg.get("tower",false):preload("res://core/hoenn_match_call.gd").after_battle(self,false)
 		snd.play_sfx("confirm")
 		snd.stop_music()
 		_update_music()
 		npc["defeated"] = result == "a"
-		if result == "a":
+		if cfg.get("tower",false):
+			_persist()
+		elif result == "a":
 			var npc_name := String(npc.get("name", ""))
 			if npc.has("league_flag"):
 				_flags()[npc.league_flag] = true
@@ -2843,7 +2936,8 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 			if lv == 0 and not enemy.is_empty():
 				lv = int((enemy[0] as Dictionary).get("level", 10))
 			var prize := int(cfg.get("prize", 120 + lv * 22))
-			save_data["money"] = int(save_data.get("money", 0)) + prize
+			if not mine.is_empty() and str(mine[0].get("held",""))=="AMULET_COIN":prize*=2
+			save_data["money"] = int(save_data.get("money", 0)) + preload("res://core/crystal_home.gd").share_prize(self,prize)
 			var is_leader := npc_name.contains("馆主")
 			var badge := String(npc.get("badge", ""))
 			if is_leader and badge != "":
@@ -2871,11 +2965,24 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 	)
 
 ## 野外一只，打或抓都行。抓到就入队，队伍满了记进 box。
-func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_done := Callable(), shiny_kind := "", borrowed: int = 0) -> void:
+func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_done := Callable(), shiny_kind := "", borrowed: int = 0, roamer := {}) -> void:
+	if preload("res://core/hoenn_safari.gd").encounter(self,species_id,level,form_key):return
+	if preload("res://core/frlg_safari.gd").encounter(self,species_id,level,form_key):return
 	var mon := PartyScript.make(species_id, level, EncounterScript.moves_for(species_id, level), form_key)
 	PartyScript.set_shiny_kind(mon, shiny_kind if shiny_kind != "" else PartyScript.roll_shiny(appearance_rng))
+	if not roamer.is_empty():mon=roamer.duplicate(true)
 	var enemy := [mon.duplicate(true)]
 	var mine: Array = _make_team() if borrowed==0 else [BattleScript.make_combatant(borrowed,5,EncounterScript.moves_for(borrowed,5))]
+	var contest: bool=world.map_data.id==preload("res://core/crystal_bug_contest.gd").PARK and preload("res://core/crystal_bug_contest.gd").active(self)
+	var supplies: Array=bag_items if borrowed==0 else []
+	if contest:
+		var slot: int=preload("res://core/crystal_bug_contest.gd").partner_slot(self)
+		if slot<0 or int(save_data.party[slot].get("hp",0))<=0:
+			preload("res://core/crystal_bug_contest.gd").finish(self)
+			return
+		mine=[save_data.party[slot].duplicate(true)]
+		team_slots=[slot]
+		supplies=[{"name":"竞赛球","category":"ball","count":save_data.js_contest.balls}]
 	var layer := CanvasLayer.new()
 	layer.layer = 6
 	add_child(layer)
@@ -2885,37 +2992,56 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 	active_battle = ui
 	held_dir = ""
 	layer.add_child(ui)
-	ui.setup(mine, enemy, rng.randi(), bag_items if borrowed==0 else [])
+	ui.setup(mine, enemy, rng.randi(), supplies)
+	if not roamer.is_empty():ui.battle.cur_b().fr_roaming=true
 	ui.item_used.connect(func(nm: String) -> void:
+		if contest:
+			save_data.js_contest.balls= maxi(0,int(save_data.js_contest.balls)-1)
+			supplies[0].count=save_data.js_contest.balls
+			_persist()
+			return
 		for it in bag_items:
 			if it is Dictionary and String((it as Dictionary).get("name", "")) == nm:
 				it["count"] = maxi(0, int(it.get("count", 0)) - 1))
 	_set_hud_visible(false)
 	ui.finished.connect(func(result: String) -> void:
 		active_battle = null
+		if not roamer.is_empty():
+			var roaming: Dictionary=ui.battle.cur_b()
+			roamer.hp=clampi(roundi(float(roaming.hp)*int(mon.max_hp)/maxi(1,int(roaming.max_hp))),0,int(mon.max_hp))
+			roamer.status=roaming.get("status","")
+			roamer.pp=roaming.pp.duplicate()
 		if borrowed==0: _writeback_team(ui.player_team)
+		if borrowed==0:
+			preload("res://core/hoenn_match_call.gd").after_battle(self,true)
+			preload("res://core/hoenn_daily.gd").wild_news(self)
 		if result == "caught":
+			if borrowed==0:TravelStories.record(self,"POKEMON_CAPTURES")
 			var caught: Dictionary = ui.battle.cur_b()
 			mon["pp"] = caught.pp.duplicate()
 			if caught.has("friendship"): mon.friendship=caught.friendship
+			if caught.has("capture_ball"): mon.capture_ball=caught.capture_ball
 			mon["hp"] = clampi(roundi(float(caught.hp) * mon.max_hp / maxi(1, int(caught.max_hp))), 1, int(mon.max_hp))
 			mon["hp_text"] = "%d/%d" % [mon.hp, mon.max_hp]
 			mon["status"] = str(caught.get("status", ""))
 			mon["berry"] = str(caught.get("berry", ""))
-			var destination := _store_mon(mon)
+			var destination := "" if contest else _store_mon(mon)
 			var name_text := String(Data.species_of(species_id).get("name", "?"))
-			_show_toast("抓到了！%s%s" % [name_text, "加入队伍" if destination == "party" else "已送入电脑"])
+			if not contest:_show_toast("抓到了！%s%s" % [name_text, "加入队伍" if destination == "party" else "已送入电脑"])
 		elif result == "a":
-			if borrowed==0: _award_exp([mon])
+			if borrowed==0 and not contest: _award_exp([mon])
 		elif result == "fled":
 			_show_toast("成功逃走了！")
-		elif result == "b" and not on_done.is_valid() and _party_fainted():
+		elif result == "b" and not contest and not on_done.is_valid() and _party_fainted():
 			_blackout()
 		else:
 			_show_toast("被打退了…")
 		_persist()
 		_set_hud_visible(true)
 		layer.queue_free()
+		if contest:
+			if result=="caught":preload("res://core/crystal_bug_contest.gd").caught(self,mon)
+			elif result=="b" or preload("res://core/crystal_bug_contest.gd").expired(self):preload("res://core/crystal_bug_contest.gd").finish(self)
 		if on_done.is_valid(): on_done.call(result)
 	)
 
@@ -2958,6 +3084,7 @@ func _award_exp(enemies: Array, prize: int = 0, badge: String = "") -> void:
 				var old_name := String(mon.get("name", "?"))
 				if PartyScript.evolve(mon, int(evo.get("to", 0)), String(evo.get("form", ""))):
 					DexVariants.record(save_data, mon, true)
+					TravelStories.record(self,"EVOLVED_POKEMON")
 					evolved.append("%s 进化成了 %s！" % [old_name, String(mon.get("name", "?"))])
 	save_data["party"] = PartyScript.compact(party)
 	_persist()
@@ -3056,6 +3183,8 @@ func _show_toast(text: String) -> void:
 		toast.visible = false
 
 func _process(delta: float) -> void:
+	preload("res://core/frlg_tower.gd").clock(self,delta)
+	preload("res://core/frlg_sidequests.gd").fan_clock(self,delta)
 	# HUD 文字四分之一秒刷一次就够，每帧重排 Label 是手机上最贵的开销之一
 	ui_timer -= delta
 	if ui_timer <= 0.0:
@@ -4794,7 +4923,8 @@ func _test_held_items() -> bool:
 	for goods in Data.load_json("res://content/shop.json"):
 		if goods.get("category","")=="held":
 			shop_held[goods["held"]] = true
-	var quest_held: Dictionary = preload("res://core/johto_items.gd").QUEST_HELD
+	var quest_held: Dictionary = preload("res://core/johto_items.gd").QUEST_HELD.duplicate()
+	quest_held.merge(preload("res://core/hoenn_items.gd").QUEST_HELD)
 	for key in Data.held_items:
 		if Data.held_items[key].get("category","")=="tm": continue
 		if quest_held.has(key):
@@ -7818,6 +7948,8 @@ func _restore_from_save() -> void:
 	bag_items = bag_items.filter(func(item): return item.get("name","") != Data.REGION_TRANSFER_ITEM)
 	bag_items.push_front({"id":0, "name":Data.REGION_TRANSFER_ITEM, "category":"key", "count":1})
 	preload("res://core/sevii_campaign.gd").reconcile_pass(_flags(),bag_items)
+	if _flags().get("old_man_met",false) and _bag_count("教学电视")==0:_give_item("教学电视",1,"key")
+	if _flags().get("rival_bridge",false) and _bag_count("名人传言器")==0:_give_item("名人传言器",1,"key")
 	save_data["bag"] = bag_items
 
 	# 出生地：地区表里写死的起点。没有存档 / 存档地图没了，都回到这里，
@@ -7833,6 +7965,8 @@ func _restore_from_save() -> void:
 	var map_id := String(save_data.get("map", start_map))
 	var saved_pos: Array = save_data.get("pos", [])
 	var has_saved_spot := saved_pos.size() == 2
+	if map_id=="trainer_tower_lobby" and has_saved_spot and int(saved_pos[0])==17 and int(saved_pos[1]) in [8,9,10]:
+		_flags().fr_tower_lobby_exit=true
 	var merged_target := preload("res://core/hgss_field.gd").merged_destination({"region":region,"map":map_id,"at":saved_pos if has_saved_spot else [0,0]})
 	if merged_target.map!=map_id:
 		map_id=merged_target.map
@@ -7909,6 +8043,7 @@ func _restore_from_save() -> void:
 		if _offer_chapter(region): return
 	_story_fire("map_enter", {"map": String(map.get("id", map_id)), "region": region})
 	_ensure_form_npc()
+	preload("res://core/frontier_challenge.gd").resume.call_deferred(self)
 
 ## 加道具：同名的叠数量，不重复占格子
 func _give_item(name: String, count: int, category := "other") -> void:
@@ -7933,6 +8068,15 @@ func _default_items() -> Array:
 		{"id": 0, "name": "太晶碎块·水", "category": "tera", "count": 1, "tera": "water"},
 		{"id": 0, "name": "太晶碎块·妖精", "category": "tera", "count": 1, "tera": "fairy"},
 	]
+
+func _manual_save() -> bool:
+	var counts: Dictionary=save_data.get_or_add("h_fan_club",{}).get_or_add("stats",{})
+	var previous=counts.get("SAVED_GAME")
+	TravelStories.record(self,"SAVED_GAME")
+	if _persist():return true
+	if previous==null:counts.erase("SAVED_GAME")
+	else:counts.SAVED_GAME=previous
+	return false
 
 func _persist() -> bool:
 	save_data["region"] = String(world.map_data.get("region", "hoenn"))
@@ -8034,7 +8178,8 @@ func _toggle_start_menu() -> void:
 	_set_hud_visible(false)
 	start_menu.closed.connect(_close_start_menu)
 	start_menu.chosen.connect(_start_selected)
-	start_menu.setup(_fusion_btn_visible())
+	start_menu.registered=str(_flags().get("fr_registered_item",""))
+	start_menu.setup(_in_pokemon_center())
 	snd.play_sfx("select")
 
 func _remove_start_menu() -> void:
@@ -8066,8 +8211,11 @@ func _start_selected(command: String) -> void:
 		return
 	_close_start_menu()
 	match command:
+		"快捷道具":
+			var registered: String=_flags().get("fr_registered_item","")
+			if _bag_count(registered)>0:_use_bag_item(registered)
 		"骑行": _toggle_bike()
-		"存档": _show_toast("进度已保存。" if _persist() else "存档写入失败，请检查设备空间。")
+		"存档": _show_toast("进度已保存。" if _manual_save() else "存档写入失败，请检查设备空间。")
 
 
 ## 融合系统：合体、分离、洛托姆换家电
@@ -8224,7 +8372,7 @@ func _floor_ok(p: Vector2i, w: int, h: int, taken: Dictionary) -> bool:
 	var up := p + Vector2i(0, 1)
 	return not world.blocked_by_terrain(up)
 
-func _fusion_btn_visible() -> bool:
+func _in_pokemon_center() -> bool:
 	var map_id := String(world.map_data.get("id", "")).replace("_", "")
 	return map_id.contains("pokemoncenter") or map_id.contains("pokecenter")
 
@@ -8249,7 +8397,7 @@ func _open_fusion() -> void:
 func _open_party() -> void:
 	var ui := PartyUI.new()
 	menu_layer.add_child(ui)
-	ui.setup(save_data.get("party", []), bag_items)
+	ui.setup(save_data.get("party", []), bag_items, str(world.map_data.get("region", "")))
 	panel_open += 1
 	_set_hud_visible(false)
 	ui.closed.connect(func() -> void:
@@ -8343,7 +8491,7 @@ func _evolve_with_item(slot: int, item_name: String, ui) -> void:
 	if not (mon is Dictionary) or (mon as Dictionary).is_empty():
 		return
 	var item_key := Data.evo_item_key(item_name)
-	var target := GrowthScript.evolution_for_item(mon, item_key)
+	var target := GrowthScript.evolution_for_item(mon, item_key, str(world.map_data.get("region", "")))
 	if target.is_empty():
 		_show_toast("这只宝可梦无法用它进化。")
 		return
@@ -8362,6 +8510,7 @@ func _evolve_with_item(slot: int, item_name: String, ui) -> void:
 	if is_instance_valid(_bag_ui):
 		_bag_ui.refresh()
 	_show_toast("%s 进化成了 %s！" % [old_name, String(mon.get("name", "?"))])
+	TravelStories.record(self,"EVOLVED_POKEMON")
 	DexVariants.record(save_data, mon, true)
 	party[slot] = mon
 	save_data["party"] = PartyScript.compact(party)
@@ -8610,6 +8759,15 @@ func _pick(title: String, options: Array, cb: Callable, on_cancel := Callable())
 
 ## 背包里点中一件东西：能用的都真的用掉，不能用的说清为什么
 func _use_bag_item(nm: String) -> void:
+	if nm=="开拓通行证" and _bag_count(nm)>0:
+		var frontier: Dictionary=_flags().get("h_frontier_run",{})
+		if world.map_data.id==preload("res://core/frontier_maze.gd").FLOOR and not frontier.is_empty():preload("res://core/frontier_challenge.gd").manage(self,frontier)
+		else:preload("res://core/frontier_challenge.gd").passbook(self)
+		return
+	if nm=="粉末瓶" and _bag_count(nm)>0:
+		_dialog(["瓶内装着 %d 份树果粉末。" % int(save_data.get("berry_powder",0))])
+		return
+	if _bag_count(nm)>0 and preload("res://core/frlg_sidequests.gd").use_bag(self,nm):return
 	if _bag_count(nm)>0 and preload("res://core/hoenn_items.gd").use(self,nm): return
 	if _bag_count(nm)>0 and preload("res://core/johto_items.gd").use(self,nm): return
 	if _bag_count(nm)>0 and preload("res://core/johto_postgame.gd").use_item(self,nm): return
@@ -8631,8 +8789,8 @@ func _use_bag_item(nm: String) -> void:
 	if VITAMINS.has(nm):
 		_item_vitamin(nm)
 		return
-	if nm == "PP 提升剂":
-		_item_ppup()
+	if nm in ["PP 提升剂","PP极限提升剂"]:
+		_item_ppup(nm)
 		return
 	if nm.contains("提升剂") or nm.contains("增强剂"):
 		_show_toast("「%s」这版还没做，先留着。" % nm)
@@ -8670,7 +8828,8 @@ func _use_bag_item(nm: String) -> void:
 
 ## 常用回复道具：名字 → 效果（hp 回血、hp_mode 按上限比例、cure 解状态、pp 回 PP、revive 复活）
 const HEAL_TABLE := {
-	"伤药": {"hp": 20}, "好伤药": {"hp": 50}, "厉害伤药": {"hp": 200},
+	"元气粉":{"hp":50,"bitter":5},"元气根":{"hp":200,"bitter":10},"万能粉":{"cure":true,"bitter":5},"复活草":{"revive":99,"bitter":15},
+	"哞哞鲜奶": {"hp": 100}, "美味之水": {"hp": 50}, "劲爽汽水": {"hp": 60}, "柠檬汁": {"hp": 80}, "伤药": {"hp": 20}, "好伤药": {"hp": 50}, "厉害伤药": {"hp": 200},
 	"全满药": {"hp": 9999}, "全复药": {"hp": 9999, "cure": true},
 	"活力碎片": {"revive": 1}, "活力块": {"revive": 99}, "圣灰": {"revive": 99, "all": true},
 	"解毒药": {"cure": true}, "麻痹药": {"cure": true}, "解眠药": {"cure": true},
@@ -8776,6 +8935,8 @@ func _apply_heal(nm: String, slot: int, eff: Dictionary, free := false) -> void:
 		hp = mini(mx, hp + maxi(0, add))
 	m["hp"] = hp
 	m["hp_text"] = "%d/%d" % [hp, mx]
+	if eff.has("bitter"):
+		m["friendship"]=maxi(0,int(m.get("friendship",70))-int(eff.bitter))
 	if bool(eff.get("cure", false)):
 		m.erase("status")
 	party[slot] = m
@@ -8798,7 +8959,7 @@ func _item_evolve(nm: String) -> void:
 		var m: Dictionary = party[i]
 		if m.is_empty() or int(m.get("species_id", 0)) == 0:
 			continue
-		var ok := not GrowthScript.evolution_for_item(m, Data.evo_item_key(nm)).is_empty()
+		var ok := not GrowthScript.evolution_for_item(m, Data.evo_item_key(nm), str(world.map_data.get("region", ""))).is_empty()
 		names.append("%s%s" % [String(m.get("name", "?")), "" if ok else "（用不上）"])
 		slots.append(i)
 	if slots.is_empty():
@@ -8862,7 +9023,7 @@ func _apply_vitamin(nm: String, slot: int, stat: String) -> void:
 
 
 ## PP 提升剂：挑一招，上限提高这一招基础 PP 的两成，最多三次
-func _item_ppup() -> void:
+func _item_ppup(item := "PP 提升剂") -> void:
 	var names: Array = []
 	var slots: Array = []
 	for i in (save_data.get("party", []) as Array).size():
@@ -8874,12 +9035,12 @@ func _item_ppup() -> void:
 	if slots.is_empty():
 		_dialog(["队伍里还没有宝可梦。"], "")
 		return
-	_pick("「PP 提升剂」给谁用？", names, func(idx: int) -> void:
+	_pick("「%s」给谁用？"%item, names, func(idx: int) -> void:
 		if idx >= 0 and idx < slots.size():
-			_ppup_pick_move(int(slots[idx])))
+			_ppup_pick_move(int(slots[idx]),item))
 
 
-func _ppup_pick_move(slot: int) -> void:
+func _ppup_pick_move(slot: int,item := "PP 提升剂") -> void:
 	var party: Array = save_data.get("party", [])
 	if slot < 0 or slot >= party.size():
 		return
@@ -8897,11 +9058,11 @@ func _ppup_pick_move(slot: int) -> void:
 		labels.append("%s  %d/%d%s" % [String(mv.get("name", "?")), base + ext, base + int(base * 0.6),
 			"（已加满）" if ext >= int(base * 0.6) else ""])
 	_pick("提高哪一招的 PP 上限？", labels, func(idx: int) -> void:
-		_ppup_apply(slot, idx))
+		_ppup_apply(slot, idx,item))
 
 
 ## 真正把 PP 上限加上去（UI 与自检共用）
-func _ppup_apply(slot: int, idx: int) -> void:
+func _ppup_apply(slot: int, idx: int,item := "PP 提升剂") -> void:
 	var party: Array = save_data.get("party", [])
 	if slot < 0 or slot >= party.size():
 		return
@@ -8918,7 +9079,7 @@ func _ppup_apply(slot: int, idx: int) -> void:
 	if ext2 >= cap:
 		_show_toast("「%s」的 PP 已经加满了。" % String(mv2.get("name", "?")))
 		return
-	var add := maxi(1, int(base2 * 0.2))
+	var add := cap-ext2 if item=="PP极限提升剂" else maxi(1,int(base2*0.2))
 	bonus[str(mid)] = mini(cap, ext2 + add)
 	m["pp_bonus"] = bonus
 	var pps: Array = m.get("pp", [])
@@ -8926,7 +9087,7 @@ func _ppup_apply(slot: int, idx: int) -> void:
 		pps[idx] = int(pps[idx]) + (int(bonus[str(mid)]) - ext2)
 	party[slot] = m
 	save_data["party"] = party
-	_consume_item("PP 提升剂")
+	_consume_item(item)
 	_persist()
 	snd.play_sfx("confirm")
 	_show_toast("「%s」的 PP 上限提高到 %d。" % [String(mv2.get("name", "?")), base2 + int(bonus[str(mid)])])
@@ -8974,6 +9135,7 @@ func _candy_one(slot: int) -> void:
 	if not evo.is_empty():
 		var old_name := String(mon.get("name", "?"))
 		if PartyScript.evolve(mon, int(evo.get("to", 0)), String(evo.get("form", ""))):
+			TravelStories.record(self,"EVOLVED_POKEMON")
 			extra = "，进化成了 %s" % String(mon.get("name", "?"))
 			DexVariants.record(save_data, mon, true)
 			if old_name == "":
@@ -9039,6 +9201,7 @@ func _toggle_flash() -> void:
 	if not _party_can_move("FLASH"):
 		_show_toast(_field_move_hint("FLASH","闪光"))
 		return
+	if preload("res://core/crystal_ruins.gd").flash(self):return
 	if not world.dark:
 		_show_toast("这里本来就亮着，进洞窟再用。")
 		return
@@ -9133,6 +9296,7 @@ func _open_fly() -> void:
 
 ## 秘传：不用翻背包分类，直接在菜单里挑一招、挑一只队伍宝可梦来教
 func _open_hm() -> void:
+	if world.map_data.region=="hoenn" and preload("res://core/emerald_legends.gd").ritual(self):return
 	var labels: Array = []
 	var mvs: Array = []
 	var party: Array = save_data.get("party", [])
@@ -9210,7 +9374,12 @@ func _hm_pick_who(mv: int) -> void:
 		_tm_teach_one(mv, int(slots[idx]), mv_name))
 
 
-func _open_pc() -> void:
+func _open_pc(include_delivery:=true) -> void:
+	if include_delivery and not save_data.get("js_mom",{}).get("parcels",[]).is_empty():
+		_pick("电脑",["宝可梦寄存系统","妈妈买来的物品"],func(i):
+			if i==0:_open_pc(false)
+			elif i==1:preload("res://core/crystal_home.gd").parcels(self))
+		return
 	var ui = load("res://scenes/pc_ui.gd").new()
 	menu_layer.add_child(ui)
 	PartyScript.migrate_legacy_box(save_data)
@@ -9229,6 +9398,7 @@ func _open_pc() -> void:
 
 ## 骑车：队伍外也能用，速度翻倍，还能骑在路上
 func _toggle_bike() -> void:
+	if preload("res://core/emerald_cycling.gd").blocks_dismount(self):return
 	if world.map_data.has("emerald_original") and (not world.map_data.get("allow_cycling",false) or world.surfing or world.diving):
 		_show_toast("这里不能骑自行车。")
 		return
@@ -9270,6 +9440,7 @@ func _open_dex() -> void:
 	var ui := DexUI.new()
 	menu_layer.add_child(ui)
 	ui.setup(dex.get("seen", []), dex.get("caught", []), save_data.get("dex_variants", {}))
+	TravelStories.record(self,"CHECKED_POKEDEX")
 	panel_open += 1
 	_set_hud_visible(false)
 	ui.closed.connect(func() -> void:

@@ -1,8 +1,12 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.56.0-study`，versionCode 为 89，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.57.0-study`，versionCode 为 90，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
 
-[下载 4.56 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.56.0-study/PokeSaga-4.56.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.56.0-study)
+[下载 4.57 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.57.0-study/PokeSaga-4.57.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.57.0-study)
+
+关都可以带伙伴去两岛参加无线小游戏，城都可以按星期参加捕虫大会、拼阿露福遗迹石板，丰缘可以报名五种华丽大赛、挑战八间戏法屋或收集开拓象征。各地区共用主角、队伍、箱子和图鉴。[三作支线入口、奖励与验证范围](doc/三作支线.md)
+
+[水静市华丽大赛安卓实拍](.github/preview/v4.57-contest.png) · [五轮后的得分和排名](.github/preview/v4.57-contest-results.png) · [阿露福遗迹触屏拼图](.github/preview/v4.57-alph.png) · [石板打开后出现未知图腾](.github/preview/v4.57-alph-open.png)
 
 ![安卓实拍・搬家货车驶入丰缘](.github/preview/v4.56-truck.gif)
 
@@ -82,7 +86,7 @@
 ```bash
 godot --headless --path . --import
 godot --path .
-tools/build_android.sh ../交付/PokeSaga-4.56.0-study.apk
+tools/build_android.sh ../交付/PokeSaga-4.57.0-study.apk
 ```
 
 构建 Android 需要匹配的 Godot 导出模板、JDK 17、Android SDK、platform-tools、build-tools 和 Godot 可访问的本机调试签名。已配置的机器可用 `GODOT_BIN`、`JAVA_HOME`、`ANDROID_HOME` 选择工具路径。本机脚本也识别 `~/Library/Application Support/PokeSagaBuild`。学习版使用 `Android Study` 导出预设，目标架构为 ARM64，输出为签名调试 APK。安装可用 `adb install -r ../交付/PokeSaga-4.56.0-study.apk`。

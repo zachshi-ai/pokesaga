@@ -2558,7 +2558,14 @@
    9,
    31
   ],
-  "evolves": [],
+  "evolves": [
+   {
+    "to": 26,
+    "how": "item",
+    "item": "THUNDER_STONE",
+    "except_region": "alola"
+   }
+  ],
   "learnset": [
    [
     1,
@@ -11535,7 +11542,14 @@
    34,
    139
   ],
-  "evolves": [],
+  "evolves": [
+   {
+    "to": 103,
+    "how": "item",
+    "item": "LEAF_STONE",
+    "except_region": "alola"
+   }
+  ],
   "learnset": [
    [
     1,

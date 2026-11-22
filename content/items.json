@@ -490,5 +490,92 @@
   "name": "木炭",
   "desc": "携带时火属性招式的伤害提高一成。",
   "id": 82
+ },
+ {
+  "key": "SHARP_BEAK",
+  "name": "锐利鸟嘴",
+  "desc": "携带时，对应属性招式的威力提高10%。",
+  "id": 83,
+  "type_boost": "flying"
+ },
+ {
+  "key": "PINK_BOW",
+  "name": "粉红丝带",
+  "desc": "携带时，对应属性招式的威力提高10%。",
+  "id": 84,
+  "type_boost": "normal"
+ },
+ {
+  "key": "BLACK_BELT",
+  "name": "黑带",
+  "desc": "携带时，对应属性招式的威力提高10%。",
+  "id": 85,
+  "type_boost": "fighting"
+ },
+ {
+  "key": "HARD_STONE",
+  "name": "硬石头",
+  "desc": "携带时，对应属性招式的威力提高10%。",
+  "id": 86,
+  "type_boost": "rock"
+ },
+ {
+  "key": "POISON_BARB",
+  "name": "毒针",
+  "desc": "携带时，对应属性招式的威力提高10%。",
+  "id": 87,
+  "type_boost": "poison"
+ },
+ {
+  "key": "SPELL_TAG",
+  "name": "诅咒之符",
+  "desc": "携带时，对应属性招式的威力提高10%。",
+  "id": 88,
+  "type_boost": "ghost"
+ },
+ {
+  "key": "MAGNET",
+  "name": "磁铁",
+  "desc": "携带时，对应属性招式的威力提高10%。",
+  "id": 89,
+  "type_boost": "electric"
+ },
+ {
+  "key": "MIRACLE_SEED",
+  "name": "奇迹种子",
+  "desc": "携带时，对应属性招式的威力提高10%。",
+  "id": 90,
+  "type_boost": "grass"
+ },
+ {
+  "key": "SOFT_SAND",
+  "name": "柔软沙子",
+  "desc": "携带时，对应属性招式的威力提高10%。",
+  "id": 91,
+  "type_boost": "ground"
+ },
+ {
+  "key": "SMOKE_BALL",
+  "name": "烟雾球",
+  "desc": "携带时可以从野生宝可梦战斗中脱身。",
+  "id": 92
+ },
+ {
+  "key": "FLOWER_MAIL",
+  "name": "鲜花邮件",
+  "desc": "警卫写给31号道路朋友的信，随烈雀送达。",
+  "id": 93
+ },
+ {
+  "key": "SHELL_BELL",
+  "name": "贝壳之铃",
+  "desc": "造成伤害后回复实际伤害的 1/8 HP。",
+  "id": 94
+ },
+ {
+  "key": "SOUL_DEW",
+  "name": "心之水滴",
+  "desc": "拉帝亚斯和拉帝欧斯携带时提高特攻与特防。",
+  "id": 95
  }
 ]

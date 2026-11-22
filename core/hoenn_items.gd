@@ -1,6 +1,10 @@
 extends RefCounted
 ## Emerald field permissions are local to the journey. The bag and party stay shared.
 
+const QUEST_HELD := {"SHELL_BELL":["ShoalCave_ShellBellExpert","贝壳之铃"],"SOUL_DEW":["SouthernIsland_Interior_EventScript_TryLatiEncounter","心之水滴"]}
+const Legends := preload("res://core/emerald_legends.gd")
+const Side := preload("res://core/hoenn_side.gd")
+
 const MACHINES := {
 	"CUT":[1,1,"岩石徽章"], "FLY":[2,6,"白羽徽章"], "SURF":[3,5,"天秤徽章"],
 	"STRENGTH":[4,4,"烈焰徽章"], "FLASH":[5,2,"拳击徽章"], "ROCK_SMASH":[6,3,"电力徽章"],
@@ -87,6 +91,7 @@ static func underwater(map: Dictionary) -> bool:
 	return str(map.get("source_id","")).begins_with("MAP_UNDERWATER_") or str(map.get("source_id","")).begins_with("MAP_ABANDONED_SHIP_UNDERWATER")
 
 static func dive(g) -> bool:
+	if Legends.dive(g):return true
 	var map: Dictionary = g.world.map_data
 	var dest: Dictionary = map.get("dive_connection",{})
 	var pos: Vector2i = g.world.player_pos
@@ -123,8 +128,28 @@ static func can_enter(w, pos: Vector2i, dir: Vector2i) -> bool:
 
 static func talk(g, npc: Dictionary) -> bool:
 	if not g.world.map_data.has("emerald_original"): return false
+	if preload("res://core/emerald_cycling.gd").interact(g,npc):return true
+	if preload("res://core/emerald_lilycove_lady.gd").talk(g,npc):return true
+	if preload("res://core/emerald_fan_club.gd").interact(g,npc):return true
 	var script := str(npc.get("source_script",""))
+	if preload("res://core/hoenn_match_call.gd").talk(g,npc):return true
+	if preload("res://core/hoenn_daily.gd").talk(g,script):return true
+	if preload("res://core/hoenn_move_services.gd").talk(g,script):return true
+	if load("res://core/hoenn_reporters.gd").talk(g,npc):return true
+	if preload("res://core/hoenn_safari.gd").talk(g,npc):return true
+	if preload("res://core/hoenn_hill.gd").talk(g,npc):return true
+	if preload("res://core/hoenn_base.gd").talk(g,npc):return true
+	if Legends.talk(g,npc):return true
+	if Side.talk(g,npc): return true
 	var who := str(npc.get("name",""))
+	if script=="SlateportCity_EventScript_BerryPowderClerk":
+		preload("res://core/berry_powder.gd").vendor(g)
+		return true
+	if script=="Common_EventScript_WirelessClubAttendant":
+		preload("res://core/berry_powder.gd").club(g)
+		return true
+	if preload("res://core/frontier_challenge.gd").talk(g,npc):return true
+	if preload("res://core/contest_hall.gd").talk(g,script):return true
 	if script.begins_with("NewMauville_Inside_EventScript_Voltorb"):
 		g._start_wild_battle(100,25,"",func(result):
 			if result in ["a","caught","fled"]:
@@ -182,8 +207,11 @@ static func talk(g, npc: Dictionary) -> bool:
 	if script in ["MauvilleCity_GameCorner_EventScript_CoinsClerk","MauvilleCity_GameCorner_EventScript_PrizeCornerTMs"]:
 		coins(g,script.ends_with("CoinsClerk"))
 		return true
+	if script=="LilycoveCity_ContestLobby_EventScript_BlendMaster":
+		pokeblock(g,true,1)
+		return true
 	if script.begins_with("BerryBlender_EventScript_Blender"):
-		pokeblock(g,true)
+		pokeblock(g,true,0 if script.ends_with("Link") else (3 if "Blender3" in script else (2 if "Blender2" in script else 1)))
 		return true
 	if script=="BattleFrontier_OutsideEast_EventScript_Sudowoodo": return water_tree(g)
 	if GIFTS.has(script):
@@ -223,7 +251,18 @@ static func talk(g, npc: Dictionary) -> bool:
 
 static func object_action(g, o: Dictionary) -> bool:
 	if not g.world.map_data.has("emerald_original"): return false
+	if preload("res://core/emerald_cycling.gd").interact(g,o):return true
+	if preload("res://core/emerald_fan_club.gd").field(g,o):return true
 	var script := str(o.get("source_script",""))
+	if script.contains("PokeblockFeeder") and preload("res://core/hoenn_safari.gd").feeder(g,o.at):return true
+	if script=="TrainerHill_Entrance_EventScript_Records":
+		preload("res://core/hoenn_hill.gd").records(g)
+		return true
+	if preload("res://core/hoenn_base.gd").action(g,o):return true
+	if preload("res://core/hoenn_daily.gd").television(g,str(o.get("source_script",""))):return true
+	if Legends.object_action(g,o):return true
+	if Side.object_action(g,o): return true
+	if preload("res://core/contest_hall.gd").object_action(g,script):return true
 	var id := str(o.get("item",""))
 	if id in ["ITEM_STORAGE_KEY","ITEM_ROOM_1_KEY","ITEM_ROOM_2_KEY","ITEM_ROOM_4_KEY","ITEM_ROOM_6_KEY","ITEM_SCANNER"]:
 		g.world.mark_taken(o)
@@ -233,8 +272,12 @@ static func object_action(g, o: Dictionary) -> bool:
 		var key: String = SHIP_DOORS[script.get_slice("_EventScript_",1)]
 		g._dialog(["门锁已打开。"] if open_lock(g,key) else ["上了锁。需要%s。" % name_for(key)])
 		return true
+	if script.ends_with("BerryBlenderSpeedRecords"):
+		var records: Dictionary=g._flags().get("h_blender_rpm",{})
+		g._dialog([ "双人　%.1f RPM"%records.get("2",0), "三人　%.1f RPM"%records.get("3",0), "四人　%.1f RPM"%records.get("4",0)],"混合机最高转速")
+		return true
 	if script.begins_with("BerryBlender_EventScript_BerryBlender"):
-		pokeblock(g,true)
+		pokeblock(g,true,0 if script.ends_with("Link") else (3 if "Blender3" in script else (2 if "Blender2" in script else 1)))
 		return true
 	if g.world.map_data.source_id=="MAP_RUSTURF_TUNNEL" and o.get("kind")=="rock" and Vector2i(o.at[0],o.at[1]) in [Vector2i(24,4),Vector2i(24,5)]:
 		if not g._party_can_move("ROCK_SMASH"):
@@ -251,6 +294,7 @@ static func object_action(g, o: Dictionary) -> bool:
 	return false
 
 static func use(g, nm: String) -> bool:
+	if preload("res://core/emerald_lilycove_lady.gd").use(g,nm):return true
 	if not g.world.map_data.has("emerald_original"): return false
 	if nm in ["音速自行车","越野自行车"]:
 		if nm==name_for(g._flags().get("h_bike","")): g._toggle_bike()
@@ -269,7 +313,7 @@ static func use(g, nm: String) -> bool:
 		g._show_toast("在战斗背包中使用，解除睡眠、混乱或着迷。")
 		return true
 	if nm=="宝可导航":
-		g._open_world_atlas(false)
+		preload("res://core/hoenn_match_call.gd").menu(g)
 		return true
 	if nm=="探宝器":
 		var nearest := Vector2i(-1,-1)
@@ -304,7 +348,7 @@ static func use(g, nm: String) -> bool:
 			return true
 	return false
 
-const FLUTES := {"蓝色玻璃哨":250,"黄色玻璃哨":500,"红色玻璃哨":500,"白色玻璃哨":1000,"黑色玻璃哨":1000}
+const FLUTES := {"蓝色玻璃哨":250,"黄色玻璃哨":500,"红色玻璃哨":500,"白色玻璃哨":1000,"黑色玻璃哨":1000,"漂亮椅子":6000,"漂亮桌子":8000}
 static func make_flute(g) -> void:
 	var names := FLUTES.keys()
 	var labels := []
@@ -317,12 +361,20 @@ static func make_flute(g) -> void:
 			g._show_toast("还需要 %d 步火山灰。" % (FLUTES[n]-amount))
 			return
 		g._flags().h_ash=amount-int(FLUTES[n])
-		g._give_item(n,1,"key")
+		if n in ["漂亮椅子","漂亮桌子"]:preload("res://core/hoenn_base.gd").add_decoration(g,"PRETTY_CHAIR" if n=="漂亮椅子" else "PRETTY_DESK")
+		else:g._give_item(n,1,"key")
 		g._persist()
 		g._dialog(["烧制好了「%s」。" % n],"玻璃工匠"))
 
 static func field_step(g) -> void:
 	if not g.world.map_data.has("emerald_original"): return
+	if g.world.map_data.get("mechanisms",{}).has("base"):
+		var exit_at: Array=g.world.map_data.mechanisms.base.exit
+		if g.world.player_pos==Vector2i(exit_at[0],exit_at[1]) and preload("res://core/hoenn_base.gd").leave(g):return
+	if preload("res://core/hoenn_safari.gd").step(g):return
+	if preload("res://core/hoenn_hill.gd").step(g):return
+	Legends.step(g)
+	if Side.step(g):return
 	var point: Vector2i=g.world.player_pos
 	var switches: Dictionary=g.world.map_data.get("mechanisms",{}).get("power_switches",{})
 	if switches.get("%d,%d"%[point.x,point.y],"")=="Red" and received(g._flags(),"ITEM_BASEMENT_KEY") and not g._flags().get("h_generator_off",false):
@@ -341,6 +393,14 @@ static func passage(g, target: Dictionary) -> String:
 	if not g.world.map_data.has("emerald_original"): return ""
 	var source: String = g.world.map_data.source_id
 	var mid: String = target.get("map","")
+	if g.world.map_data.id=="em_trainer_hill_entrance" and mid=="em_trainer_hill_1f" and not g._flags().has("h_hill"):return "请先在一楼的接待处报名。"
+	if g.world.map_data.id=="em_trainer_hill_entrance" and mid=="hoenn_111":g._flags().erase("h_hill")
+	var safari_gate:=preload("res://core/hoenn_safari.gd").passage(g,target)
+	if safari_gate!="":return safari_gate
+	var legendary_gate:=Legends.passage(g,str(g.world.map_data.id),target)
+	if legendary_gate!="":return legendary_gate
+	var side_gate := Side.passage(g,mid)
+	if not side_gate.is_empty(): return side_gate
 	var key := ""
 	if source=="MAP_ABANDONED_SHIP_HIDDEN_FLOOR_CORRIDORS" and mid=="em_abandoned_ship_hidden_floor_rooms":
 		key=SHIP_ROOMS.get("%d,%d" % [target.at[0],target.at[1]],"")
@@ -357,7 +417,24 @@ static func passage(g, target: Dictionary) -> String:
 	return ""
 
 static func actor_visibility(row: Dictionary, flags: Dictionary, source_id: String) -> int:
+	var lady_visibility:=preload("res://core/emerald_lilycove_lady.gd").visible(row,flags)
+	if lady_visibility>=0:return lady_visibility
+	var master_flag:=str(row.get("source_flag",""))
+	if master_flag=="FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER":return int(preload("res://core/hoenn_daily.gd").blender_active(flags))
+	if master_flag=="FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER_REPLACEMENT":return int(not preload("res://core/hoenn_daily.gd").blender_active(flags))
 	var script := str(row.get("source_script",""))
+	if script=="DewfordTown_Hall_EventScript_SludgeBombMan":return int(flags.get("h_badge_5",false))
+	if script=="FallarborTown_PokemonCenter_1F_EventScript_Lanette":return int(not flags.get("h_lanette_met",false))
+	if script=="Route114_LanettesHouse_EventScript_Lanette":return int(flags.get("h_lanette_met",false))
+	if row.get("source_flag","")=="FLAG_HIDE_SAFARI_ZONE_SOUTH_CONSTRUCTION_WORKERS":return int(not flags.get("h_champion",false))
+	if row.get("source_flag","")=="FLAG_HIDE_SAFARI_ZONE_SOUTH_EAST_EXPANSION":return int(flags.get("h_champion",false))
+	if script=="LilycoveCity_DepartmentStoreRooftop_EventScript_SaleWoman":return int(flags.get("h_champion",false) and preload("res://core/hoenn_base.gd").sale_today())
+	var reporters:=preload("res://core/hoenn_reporters.gd").visible(row,flags)
+	if reporters>=0:return reporters
+	var legend_visible:=Legends.visibility(row,flags)
+	if legend_visible>=0:return legend_visible
+	var side_visible:=Side.actor_visibility(script,flags)
+	if side_visible>=0:return side_visible
 	if script.begins_with("NewMauville_Inside_EventScript_Voltorb"): return int(not flags.get("h_caught_"+script,false))
 	if script=="SlateportCity_Harbor_EventScript_CaptStern" and flags.get("h_sub_stolen",false): return 1
 	if script=="SeafloorCavern_Entrance_EventScript_Grunt": return int(not flags.get("h_dive",false))
@@ -444,8 +521,14 @@ static func ferry(g, leaving_ship: bool=false) -> void:
 	var slateport: bool = g.world.map_data.source_id=="MAP_SLATEPORT_CITY_HARBOR"
 	var frontier: bool = g.world.map_data.source_id=="MAP_BATTLE_FRONTIER_OUTSIDE_WEST"
 	var options: Array = ["凯那市","水静市"] if frontier else (["水静市","对战开拓区"] if slateport else ["凯那市","对战开拓区"])
+	if not frontier and not slateport:
+		for island in Legends.ISLANDS:
+			if g._bag_count(Legends.ISLANDS[island][0])>0:options.append(island)
 	g._pick("欢迎搭乘破浪号。您想去哪里？",options+["返回"],func(i):
-		if i not in [0,1]: return
+		if i<0 or i>=options.size():return
+		if options[i] in Legends.ISLANDS:
+			var port:Array=Legends.ISLANDS[options[i]]
+			Legends.warp(g,port[1],port[2]);return
 		if options[i]=="对战开拓区":
 			g._do_warp({"region":"hoenn","hoenn_native":true,"map":"em_battle_frontier_outside_west","at":[19,67],"facing":"up"})
 		else:
@@ -481,7 +564,7 @@ static func coins(g, buy: bool) -> void:
 		g._persist()
 		g._show_toast("兑换完成。"))
 
-static func pokeblock(g, blending: bool) -> void:
+static func pokeblock(g, blending: bool, partners:=1) -> void:
 	if not received(g._flags(),"ITEM_POKEBLOCK_CASE"):
 		g._dialog(["先到水静市华丽大赛柜台领一个宝可方块盒。"])
 		return
@@ -496,12 +579,29 @@ static func pokeblock(g, blending: bool) -> void:
 		g._pick("选择要混合的树果",berries+["返回"],func(i):
 			if i<0 or i>=berries.size(): return
 			var berry: String = berries[i]
-			g._consume_item(berry)
-			var blocks: Array = flags.get("h_blocks",[])
-			blocks.append(berry)
-			flags.h_blocks=blocks
-			g._persist()
-			g._dialog(["用%s做成了宝可方块，已装进盒里。" % berry]))
+			var berry_key:=""
+			for entry in g.bag_items:
+				if entry.name==berry:berry_key=str(entry.get("berry","")).to_lower()
+			if not preload("res://core/emerald_contest.gd").data().berries.has(berry_key):
+				g._dialog(["这台混合机需要丰缘可混合的树果。"]);return
+			var machine=preload("res://scenes/contest_blender_room.gd").new() if partners==0 else preload("res://scenes/contest_blender.gd").new()
+			g.menu_layer.add_child(machine)
+			g.panel_open+=1
+			g._set_hud_visible(false)
+			if partners==0:machine.setup(berry_key)
+			else:machine.setup(berry_key,partners,partners==1 and preload("res://core/hoenn_daily.gd").blender_active(flags))
+			machine.completed.connect(func(block):
+				g.panel_open=maxi(0,g.panel_open-1)
+				g._set_hud_visible(g.panel_open==0)
+				if block.is_empty():return
+				g._consume_item(berry)
+				block.name=berry
+				flags.get_or_add("h_blocks",[]).append(block)
+				var records: Dictionary=flags.get_or_add("h_blender_rpm",{})
+				var people:=str(int(block.get("people",partners+1)))
+				records[people]=maxf(float(records.get(people,0)),float(block.rpm))
+				g._persist()
+				g._dialog(["用%s做成了宝可方块，已装进盒里。" % berry])))
 		return
 	var blocks: Array = flags.get("h_blocks",[])
 	if blocks.is_empty():
@@ -514,14 +614,23 @@ static func pokeblock(g, blending: bool) -> void:
 		if mon.is_empty(): continue
 		slots.append(i)
 		options.append(str(mon.name))
-	g._pick("把%s方块喂给谁？" % blocks[0],options+["返回"],func(i):
+	var block=blocks[0]
+	var label: String=block.get("name","树果") if block is Dictionary else str(block)
+	g._pick("把%s方块喂给谁？" % label,options+["返回"],func(i):
 		if i<0 or i>=slots.size(): return
 		var mon: Dictionary=g.save_data.party[slots[i]]
 		if int(mon.get("sheen",0))>=255:
 			g._show_toast("它吃饱了。")
 			return
 		blocks.pop_front()
-		mon.sheen=mini(255,int(mon.get("sheen",0))+16)
+		var berry_key:=str(block.get("berry","")) if block is Dictionary else str(block).to_lower()
+		if not preload("res://core/emerald_contest.gd").data().berries.has(berry_key):
+			for key in g.get_node("/root/Data").berries:
+				if g.get_node("/root/Data").berry_name(key)==label:berry_key=key;break
+		var berry_data: Dictionary=block if block is Dictionary and block.has("flavor") else preload("res://core/emerald_contest.gd").data().berries.get(berry_key,{"flavor":[10,0,0,0,0],"smooth":20})
+		var stats: Array=mon.get_or_add("contest_condition",[0,0,0,0,0])
+		for c in 5:stats[c]=mini(255,int(stats[c])+int(berry_data.flavor[c]))
+		mon.sheen=mini(255,int(mon.get("sheen",0))+int(berry_data.smooth))
 		flags.h_blocks=blocks
 		g._persist()
 		g._dialog(["%s吃下了宝可方块，光泽提高了。" % mon.name]))

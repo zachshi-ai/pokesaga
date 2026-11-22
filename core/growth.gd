@@ -63,6 +63,8 @@ static func add_exp(mon: Dictionary, amount: int) -> int:
 static func level_friendship(mon: Dictionary) -> void:
 	var value := int(mon.get("friendship", 200))
 	var bonus := 5 if value < 100 else (3 if value < 200 else 2)
+	if mon.get("capture_ball", "") == "豪华球":
+		bonus += 1
 	if str(mon.get("held", "")) == "SOOTHE_BELL":
 		bonus = bonus * 3 / 2
 	mon["friendship"] = mini(255, value + bonus)
@@ -169,7 +171,7 @@ static func evolution_sex(mon: Dictionary) -> String:
 	return str(mon["sex"])
 
 ## 这只靠道具能进化成什么：返回 [{item, to, form}]，界面拿去提示「需要火之石」
-static func item_evolutions(mon: Dictionary) -> Array:
+static func item_evolutions(mon: Dictionary, region: String = "") -> Array:
 	var out: Array = []
 	if mon.is_empty():
 		return out
@@ -192,6 +194,8 @@ static func item_evolutions(mon: Dictionary) -> Array:
 		var row: Dictionary = e
 		if String(row.get("how", "")) != "item":
 			continue
+		if row.has("except_region") and str(row.except_region) == region:
+			continue
 		if row.has("sex") and str(row.sex) != evolution_sex(mon):
 			continue
 		var to := int(row.get("to", 0))
@@ -203,8 +207,8 @@ static func item_evolutions(mon: Dictionary) -> Array:
 		out.append({"item": String(row.get("item", "")), "to": to, "form": form})
 	return out
 
-static func evolution_for_item(mon: Dictionary, item_key: String) -> Dictionary:
-	for rule in item_evolutions(mon):
+static func evolution_for_item(mon: Dictionary, item_key: String, region: String = "") -> Dictionary:
+	for rule in item_evolutions(mon, region):
 		if str(rule.item) == item_key:
 			return rule
 	return {}

@@ -123,7 +123,9 @@ func test_trade_and_legend():
 		choose("50枚　¥1000")
 		game._close_all_dialogs()
 	expect(game.save_data.money==0 and game.save_data.j_coins==100,"two exact coin purchases")
-	game._talk_to_npc(local_actor([8,1]))
+	# The original left-hand prize counter at (16,2) offers TMs. The
+	# Pokémon vendor at (18,2) maps to legacy tile (9,1).
+	game._talk_to_npc(local_actor([9,1]))
 	choose("凯西　100枚")
 	expect(game.save_data.j_coins==0 and Items.has_partner(game,63,true),"buy Abra with the case's actual balance")
 	warp("pewter_city")

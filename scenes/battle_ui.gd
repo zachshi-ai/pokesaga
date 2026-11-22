@@ -38,6 +38,8 @@ var health_cues := {}
 var health_motion := {}
 var line_offset := 0
 var spoken_lines := 0
+var frontier_rules
+var frontier_kit := Callable()
 var trainer_name := ""
 var backdrop := "grass"
 var backdrop_texture: Texture2D
@@ -452,6 +454,16 @@ func _process(delta: float) -> void:
 				queue_free()
 
 func _on_command_kind(kind: String) -> void:
+	if frontier_rules!=null and state=="menu":
+		if kind=="bag" and frontier_kit.is_valid():
+			frontier_kit.call()
+			return
+		if kind=="bag" or kind=="switch" and frontier_rules.kind=="arena":
+			_open_commands("fight","本场禁止使用背包。" if kind=="bag" else "裁判赛按报名顺序出场。")
+			return
+		if kind=="fight" and frontier_rules.kind=="palace":
+			_on_move(0)
+			return
 	if state != "menu":
 		return
 	match kind:
@@ -550,14 +562,14 @@ func _do_transform(form_key: String) -> void:
 	msg.text = ""
 	wait = _dur(0.1)
 
-const BALL_BONUS := {"精灵球": 1.0, "超级球": 1.5, "高级球": 2.0, "大师球": 255.0, "等级球":1.0, "诱饵球":1.0, "月亮球":1.0, "友友球":1.0, "速度球":1.0, "沉重球":1.0, "甜蜜球":1.0}
+const BALL_BONUS := {"豪华球":1.0, "纪念球":1.0, "计时球":1.0, "竞赛球":1.5, "精灵球": 1.0, "超级球": 1.5, "高级球": 2.0, "大师球": 255.0, "等级球":1.0, "诱饵球":1.0, "月亮球":1.0, "友友球":1.0, "速度球":1.0, "沉重球":1.0, "甜蜜球":1.0}
 
 ## Share the field bag with battle. Trainer battles only allow battle supplies.
 func _open_balls() -> void:
 	if state != "menu": return
 	var choices: Array = bag.filter(func(it):
 		return it is Dictionary and int(it.get("count", 0)) > 0 and (
-			(trainer_name.is_empty() and BALL_BONUS.has(str(it.get("name", "")))) or
+			(trainer_name.is_empty() and (BALL_BONUS.has(str(it.get("name", ""))) or it.get("name","")=="向尾喵的尾巴")) or
 			str(it.get("name", "")) in Data.FIELD_BATTLE_ITEMS.values() or str(it.get("name","")) in ["蓝色玻璃哨","黄色玻璃哨","红色玻璃哨"]))
 	if not trainer_name.is_empty() and choices.is_empty():
 		_open_commands("bag", "训练家对战不能投球。")
@@ -572,6 +584,14 @@ func _open_balls() -> void:
 
 func _use_booster(item_name: String) -> void:
 	if not bag.any(func(it): return it is Dictionary and it.get("name", "") == item_name and int(it.get("count", 0)) > 0):
+		return
+	if item_name=="向尾喵的尾巴" and trainer_name.is_empty():
+		battle.over=true
+		battle.fled=true
+		battle.winner="fled"
+		item_used.emit(item_name)
+		_begin_resolve()
+		pending=["利用向尾喵的尾巴分散了野生宝可梦的注意，成功逃走了！"]
 		return
 	var reusable := item_name in ["蓝色玻璃哨","黄色玻璃哨","红色玻璃哨"]
 	var key := str(Data.FIELD_BATTLE_ITEMS.find_key(item_name))
@@ -603,7 +623,11 @@ func _throw(ball_name: String) -> void:
 	pending.append(String(res.get("text", "")))
 	msg.text = ""
 	wait = _dur(0.1)
-	if not bool(res.get("ok", false)):
+	if not bool(res.get("ok", false)) and ball_name=="竞赛球" and bag.all(func(it):return int(it.get("count",0))<=0):
+		pending.append("竞赛球已经用完。回到会场参加评选！")
+		battle.over=true
+		battle.winner="fled"
+	elif not bool(res.get("ok", false)):
 		# 没抓到就轮对手出招，接在一句话后面播
 		_queue_turn("item", "move:0")
 
@@ -661,7 +685,8 @@ func _on_move(i: int) -> void:
 
 func _queue_turn(player: String, opponent: String) -> void:
 	line_offset = pending.size()
-	battle.run_turn(player, opponent)
+	if frontier_rules!=null:frontier_rules.turn(battle,player)
+	else:battle.run_turn(player, opponent)
 	pending.append_array(battle.log)
 	battle.log.clear()
 	# Some passive effects change HP without adding a line of their own.

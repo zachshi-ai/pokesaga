@@ -117,10 +117,10 @@ def pick_num(expr):
     expr = expr.strip()
     if "?" in expr:
         tail = expr.split("?", 1)[1]
-        m = re.search(r"\b(\d+)\b", tail)
+        m = re.search(r"(?<!\w)(-?\d+)\b", tail)
         if m:
             return int(m.group(1))
-    nums = re.findall(r"\b(\d+)\b", expr)
+    nums = re.findall(r"(?<!\w)(-?\d+)\b", expr)
     return int(nums[0]) if nums else None
 
 
@@ -484,8 +484,13 @@ def import_species(move_ids, ability_ids):
         evos = []
         em = re.search(r"\.evolutions\s*=\s*EVOLUTION\((.*)\)", body, re.S)
         if em:
-            for one in re.finditer(r"\{\s*EVO_(\w+)\s*,\s*([^,]+),\s*SPECIES_(\w+)\s*\}", em.group(1)):
+            # Pikachu and Exeggcute use their original stone targets outside Alola.
+            rule_pattern = (r"\{\s*EVO_(\w+)\s*,\s*([^,]+),\s*SPECIES_(\w+)\s*"
+                            r"(?:,\s*CONDITIONS\(\{IF_NOT_REGION,\s*REGION_(ALOLA)\}\)\s*)?\}")
+            for one in re.finditer(rule_pattern, em.group(1)):
                 kind, arg, target = one.group(1), one.group(2).strip(), one.group(3)
+                if one.group(4) and kind != "ITEM":
+                    continue
                 tbody = rows.get(target, "")
                 tm2 = re.search(r"\.natDexNum\s*=\s*NATIONAL_DEX_(\w+)", tbody)
                 tdex = dex.get(tm2.group(1)) if tm2 else None
@@ -496,6 +501,8 @@ def import_species(move_ids, ability_ids):
                     item["at"] = int(re.findall(r"\d+", arg)[0]) if re.findall(r"\d+", arg) else 0
                 elif kind == "ITEM":
                     item["item"] = arg.replace("ITEM_", "")
+                    if one.group(4):
+                        item["except_region"] = one.group(4).lower()
                 evos.append(item)
 
         # 升级招式表

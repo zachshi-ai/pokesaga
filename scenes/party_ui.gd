@@ -12,6 +12,7 @@ signal held_change(slot: int, held_key: String, item_name: String)
 
 var party: Array = []
 var bag: Array = []
+var region: String = ""
 var detail: Control
 var list: Control
 var chooser: Control
@@ -19,9 +20,10 @@ var selected := -1
 var page_scroll := 0
 var scroll_list: ScrollContainer
 
-func setup(p_party: Array, p_bag: Array = []) -> void:
+func setup(p_party: Array, p_bag: Array = [], p_region: String = "") -> void:
 	party = p_party
 	bag = p_bag
+	region = p_region
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_build()
 
@@ -121,10 +123,19 @@ func _open_detail(i: int) -> void:
 		var move := Data.move_of(int(m.moves[k]))
 		move_names.append("%s  %d/%d" % [str(move.get("name","")),int(pp[k]) if k<pp.size() else 0,int(move.get("pp",0))])
 	rows.add_child(UI.wrapped("招式\n"+"    ".join(move_names)))
+	var awards: Array=[]
+	if m.get("effort_ribbon",false):awards.append("努力奖章")
+	if m.get("artist_ribbon",false):awards.append("美术奖章")
+	var contest=preload("res://core/emerald_contest.gd")
+	for category in m.get("contest_ribbons",{}):
+		var rank:=int(m.contest_ribbons[category])
+		if rank>0 and int(category)>=0 and int(category)<contest.CATEGORIES.size():
+			awards.append(str(contest.CATEGORIES[int(category)])+"·"+str(contest.RANKS[mini(rank-1,contest.RANKS.size()-1)])+"奖章")
+	if not awards.is_empty():rows.add_child(UI.wrapped("奖章　"+"　".join(awards)))
 	var held := Data.item_name(str(m.held)) if not str(m.get("held","")).is_empty() else Data.berry_name(str(m.get("berry","")))
 	rows.add_child(UI.button("携带物品 · "+(held if not held.is_empty() else "无"),_choose.bind("held")))
 	rows.add_child(UI.button("太晶属性 · "+Data.type_name(str(m.get("tera_type","normal"))),_choose.bind("tera")))
-	if not Growth.item_evolutions(m).is_empty():
+	if not Growth.item_evolutions(m, region).is_empty():
 		rows.add_child(UI.button("道具进化",_choose.bind("evo")))
 
 func _set_lead(i: int) -> void:
@@ -153,7 +164,7 @@ func _choose(kind: String) -> void:
 		elif kind=="tera" and cat=="tera":
 			key = str(obj.get("tera",""))
 		elif kind=="evo":
-			var evo := Growth.evolution_for_item(party[selected], Data.bag_evo_key(obj))
+			var evo := Growth.evolution_for_item(party[selected], Data.bag_evo_key(obj), region)
 			if not evo.is_empty():
 				key = str(evo.to)
 		if key.is_empty(): continue

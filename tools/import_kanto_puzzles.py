@@ -88,6 +88,48 @@ def build(source, project):
                       'variants':[{'flags':[f'icefall_crack_{x}_{y}'],'cells':[[x,y,bg,fg,0]]}]})
     assert len(rules) == 9
     maps['four_island_icefall_cave_1f'] = rules
+    lobby='TrainerTower_Lobby'
+    puzzle('trainer_tower_lobby',lobby,script(lobby),[(['fr_tower_lobby_exit'],'TrainerTower_Lobby_OpenCounterBarrier')])
+    tunnel = 'LAYOUT_THREE_ISLAND_DUNSPARCE_TUNNEL'
+    snapshots = []
+    for layout_id in [tunnel, tunnel+'_DUG_OUT']:
+        layout = field.layouts[layout_id]
+        blocks = np.fromfile(source/layout['blockdata_filepath'], '<u2').reshape(layout['height'], layout['width'])
+        snapshots.append(blocks)
+    before, after = snapshots
+    changed = np.argwhere(before != after)
+    def tunnel_cells(blocks):
+        cells = []
+        for y, x in changed:
+            value = int(blocks[y,x])
+            bg, fg, _ = field.metatile(layout['primary_tileset'],layout['secondary_tileset'],value & 1023)
+            cells.append([int(x),int(y),bg,fg,int(bool((value >> 10) & 3))])
+        return cells
+    maps['three_island_dunsparce_tunnel'] = [{'base':tunnel_cells(before), 'controls':[],
+        'variants':[{'flags':['national_dex'],'cells':tunnel_cells(after)}]}]
+    # The ROM defines 24 floor layouts. Mixed selects one of the same three
+    # floor plans per floor through the native challengeType table.
+    from frlg_tower_tables import compile_tower
+    species = {r['key']:r['id'] for r in json.loads((project/'content/species.json').read_text())}
+    moves = dict(re.findall(r'^#define MOVE_(\w+)\s+(\d+)\b',(source/'include/constants/moves.h').read_text(),re.M))
+    mixed = compile_tower(source,species,moves)['mixed']
+    for number in range(1,9):
+        tower = f'LAYOUT_TRAINER_TOWER_{number}F'
+        layouts = [field.layouts[tower+suffix] for suffix in ['', '_DOUBLES', '_KNOCKOUT']]
+        blocks = [np.fromfile(source/r['blockdata_filepath'],'<u2').reshape(r['height'],r['width']) for r in layouts]
+        diff = np.argwhere((blocks[0]!=blocks[1]) | (blocks[0]!=blocks[2]))
+        def floor_tiles(k):
+            cells = []
+            for y,x in diff:
+                val=int(blocks[k][y,x])
+                bg,fg,_=field.metatile(layouts[k]['primary_tileset'],layouts[k]['secondary_tileset'],val & 1023)
+                cells.append([int(x),int(y),bg,fg,int(bool((val >> 10) & 3))])
+            return cells
+        variants = []
+        for k,kind in [(1,'double'),(2,'knockout')]:
+            modes=[kind]+(['mixed'] if mixed[number-1]['kind']==kind else [])
+            variants.append({'flags':[], 'tower_modes':modes, 'cells':floor_tiles(k)})
+        maps[f'trainer_tower_{number}f']=[{'base':floor_tiles(0), 'controls':[], 'variants':variants}]
     output = Image.new('RGBA',(16*16, ((len(atlas.images)+15)//16)*16))
     for n,img in enumerate(atlas.images):
         output.paste(img,(n%16*16,n//16*16))

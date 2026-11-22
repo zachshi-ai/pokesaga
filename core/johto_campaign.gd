@@ -93,6 +93,9 @@ static func quiz(game, questions: Array, index: int) -> void:
 			prompt.closed.connect(func(): quiz(game,questions,index), CONNECT_ONE_SHOT))
 
 static func interact_field(game) -> bool:
+	if preload("res://core/crystal_home.gd").interact(game):return true
+	if preload("res://core/crystal_wild_events.gd").tree(game):return true
+	if preload("res://core/crystal_ruins.gd").interact(game):return true
 	var mid: String = game.world.map_data.id
 	var tile: Vector2i = game.world.player_pos + game.world._dir_vec()
 	var flags: Dictionary = game._flags()

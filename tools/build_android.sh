@@ -24,7 +24,14 @@ if [[ -z ${ANDROID_HOME:-} && -d "$toolchain/sdk" ]]; then
     export ANDROID_HOME="$toolchain/sdk"
 fi
 
-"$editor" --headless --path "$project" --import
-"$editor" --headless --path "$project" --export-debug "Android Study" "$staging/study.apk"
+# Godot can produce an APK and return zero after a GDScript parse error.
+run_editor() {
+    "$editor" --headless --path "$project" "$@" 2>&1 | tee "$staging/editor.log"
+    if grep -E '^(SCRIPT ERROR:|ERROR:)' "$staging/editor.log" >&2; then
+        return 1
+    fi
+}
+run_editor --import
+run_editor --export-debug "Android Study" "$staging/study.apk"
 mv -f "$staging/study.apk" "$destination"
 printf '%s\n' "$destination"

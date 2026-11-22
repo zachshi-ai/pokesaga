@@ -15,6 +15,7 @@ const WINDOW_Y := 47
 const WINDOW_WIDTH := 153
 
 var has_fusion := false
+var registered:=""
 var tools_open := false
 var selected := 0
 var rows: Array[Button] = []
@@ -76,6 +77,7 @@ func _populate(focus_row: int) -> void:
 	rows.clear()
 	var labels: Array = TOOLS.duplicate() if tools_open else MAIN
 	if tools_open:
+		if registered!="":labels.append("快捷道具")
 		if has_fusion:
 			labels.append("融合")
 		labels.append("返回")

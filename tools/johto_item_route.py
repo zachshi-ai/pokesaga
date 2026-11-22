@@ -62,7 +62,7 @@ def goldenrod(p):
     use(p,"自行车")
     use(p,"自行车")
     collect(p,"radio_tower_1f",(6,3),"j_radio_card","收音机卡",["参加","对","对","不对","对","不对"])
-    use(p,"收音机卡",["城都电台"])
+    use(p,"收音机卡",["8.5　幸运频道"])
     collect(p,"radio_tower_2f",(7,2),"j_blue_card","蓝卡")
     use(p,"蓝卡")
     collect(p,"goldenrod_underground",(3,12),"j_coin_case","代币盒")

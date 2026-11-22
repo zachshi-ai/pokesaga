@@ -14,7 +14,7 @@ ELITE = "will koga bruno karen lance"
 SPECIAL = "silver elm eusine kimono kurt prof_oak red_normal bill"
 ROCKETS = "proton petrel ariana archer rocket_f rocket_m"
 PEOPLE = "mom policeman sage old_man old_man_2 gentleman scientist_m youngster black_belt girl_1 beauty lass nurse woman_2 little_girl"
-POKEMON = "ampharos farfetchd sudowoodo electrode shiny_gyarados murkrow slowpoke dragonite raikou entei suicune lugia ho_oh celebi snorlax"
+POKEMON = "ampharos farfetchd sudowoodo electrode shiny_gyarados murkrow slowpoke dragonite raikou entei suicune lugia ho_oh celebi snorlax lapras miltank clefairy"
 TREE_FRUITS = {"red":"cheri","blue":"chesto","yellow":"aspear","green":"rawst","white":"lum","black":"wiki","pink":"pecha"}
 
 
@@ -35,6 +35,9 @@ def sheets(root):
             if h not in (16,32) or sheet.width < w*3:
                 raise ValueError((name,sheet.size))
             yield name, sheet.crop((0,0,min(w*9,sheet.width),h)), w
+    # HnS stores its Johto player, Ethan, in Emerald’s male-player graphics slot.
+    cal = transparent(root/"people/brendan/walking.png")
+    yield "cal", cal.crop((0,0,16*9,cal.height)), 16
     for name in POKEMON.split():
         source = transparent(root/"pokemon"/(name+".png"))
         w = source.height
@@ -49,6 +52,13 @@ def sheets(root):
             for dest,frame in enumerate((6,7,7),9):
                 sheet.paste(source.crop((w*frame,0,w*(frame+1),w)),(w*dest,0))
         yield name, sheet, w
+    for name in ("clefairy","pikachu","big_snorlax"):
+        tile=transparent(root/"dolls"/(name+"_doll.png"))
+        yield "doll_"+name,tile,tile.width
+    charmander=transparent(root/"pokemon/charmander.png").crop((0,0,32,32)).resize((16,16),Image.Resampling.NEAREST)
+    yield "doll_charmander",charmander,16
+    rock=transparent(root/"misc"/"breakable_rock.png")
+    yield "moon_rock",rock.crop((0,0,16,16)),16
     for name, berry in TREE_FRUITS.items():
         tree = transparent(root/"berry_trees"/(berry+".png"))
         # BERRY_STAGE_BERRIES is the fifth stage (the final pair in the sheet).

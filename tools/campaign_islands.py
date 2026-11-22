@@ -119,33 +119,66 @@ def boulder_passage(p, room, entrance, exit_tile):
         assert p.pos == dest, ("Mt Ember Strength step",p.pos,dest,key,push)
 
 
-def climb_icefall(p):
-    from campaign_mansion import TRAVERSALS
+def icefall_path(routes, puzzles, start, finish):
     main = "four_island_icefall_cave_1f"
     basement = "four_island_icefall_cave_b1f"
+    entry = "four_island_icefall_cave_entrance"
+    thin = {tuple(r["thin_ice"]) for r in puzzles[main]}
+    state = (start, frozenset())
+    queue = deque([state])
+    previous = {state: None}
+
+    def step(loc, key):
+        for direction, candidate in routes.edges(loc):
+            if direction == key:
+                return routes.projection(candidate) if isinstance(candidate, dict) else candidate
+
+    while queue:
+        state = queue.popleft()
+        loc, cracked = state
+        if loc == finish:
+            path = []
+            while previous[state]:
+                state, key, landing = previous[state]
+                path.append((key, landing))
+            return list(reversed(path))
+        for key in VECTORS:
+            end = step(loc, key)
+            if not end or end[0] not in (main, basement, entry):
+                continue
+            # The player cannot turn or stop before the end of a sheet of ice.
+            while end[0] == basement and routes.fields[basement].get("slide", *end[1:]) == 255:
+                following = step(end, key)
+                if not following or following == end:
+                    break
+                end = following
+            marked = cracked
+            if end[0] == main and loc[0] == main and end[1:] in thin:
+                if end[1:] in cracked:
+                    end = (basement, *end[1:])
+                    marked = frozenset()
+                else:
+                    marked = marked | {end[1:]}
+            if end[0] != main:
+                marked = frozenset()
+            candidate = (end, marked)
+            if candidate not in previous:
+                previous[candidate] = (state, key, end)
+                queue.append(candidate)
+    raise ValueError(("No route across Icefall Cave", start, finish))
+
+
+def climb_icefall(p):
+    main = "four_island_icefall_cave_1f"
     entrance = "four_island_icefall_cave_entrance"
     if not p.state["bag"].get("秘传学习器 07", 0):
         p.visit(main, (3,17))
-        cracked = set()
-        thin = {tuple(rule["thin_ice"]) for rule in p.puzzles[main]}
-        for command in " ".join(TRAVERSALS["icefall_cave"]).split():
-            key = command[0]
-            for _ in range(int(command[1:])):
+        for finish in [(main, 12, 16), (entrance, 10, 22)]:
+            for key, landing in icefall_path(p.routes, p.puzzles, p.pos, finish):
                 here = p.pos
-                dest = next(value for direction,value in p.routes.edges(here) if direction == key)
-                if isinstance(dest, dict):
-                    dest = p.routes.projection(dest)
-                if here[0] == main and dest[0] == main and dest[1:] in thin:
-                    if dest[1:] in cracked:
-                        dest = (basement, *dest[1:])
-                    else:
-                        cracked.add(dest[1:])
-                if here[0] == main and dest[0] != main:
-                    cracked.clear()
-                p.do("walk", legs=[[key,dest]])
-                assert p.pos == dest, ("Icefall Cave", here, key, dest, p.pos)
+                p.do("walk", legs=[[key, landing]])
+                assert p.pos == landing, ("Icefall Cave", here, key, landing, p.pos)
         assert p.state["bag"].get("秘传学习器 07", 0)
-        assert p.pos == (entrance,10,22)
     teach(p,"攀瀑",127)
     p.visit(entrance, (17,21), "u")
     assert p.pos == (entrance,17,13), ("Waterfall",p.pos,p.state["dialog"])

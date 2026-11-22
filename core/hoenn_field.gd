@@ -66,18 +66,9 @@ static func destination(map: Dictionary, target: Dictionary, flags: Dictionary, 
 		if stage>1:
 			dest.map="em_route110_trick_house_puzzle%d"%stage
 			dest.at=[0,21]
-	if map.id.begins_with("em_route110_trick_house_puzzle") and mid=="em_route110_trick_house_end":
-		flags.h_trick_finished=map.id.right(1).to_int()
 	return dest
 
 static func trick_master(g, n: Dictionary) -> bool:
 	if n.get("source_script","")!="Route110_TrickHouseEnd_EventScript_TrickMaster":return false
-	var flags: Dictionary=g._flags()
-	var finished:=int(flags.get("h_trick_finished",0))
-	if finished>int(flags.get("h_trick_cleared",0)):
-		flags.h_trick_cleared=finished
-		g._persist()
-		g._dialog(["这一关被你破解了！沿着背后的通道返回入口吧。"],"机关大王")
-	else:
-		g._dialog(["从入口挑战机关，穿过谜题后再来找我。"],"机关大王")
+	preload("res://core/hoenn_side.gd").reward_trick(g)
 	return true

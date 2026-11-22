@@ -13,6 +13,20 @@ def compile_mechanisms(art,m,row,scripts,source,asset_folder):
     def changes(label):
         body=scripts.get(name+'_'+label,'')
         return [[int(x),int(y),*tile(labels[k]),int(v=='TRUE')] for x,y,k,v in re.findall(r'setmetatile (\d+), (\d+), (METATILE_\w+), (TRUE|FALSE)',body)]
+    from hoenn_legends import compile_map
+    compile_map(name,row,puzzle,changes,tile,labels,source)
+    from hoenn_base import compile_base
+    compile_base(m,row,puzzle,tile,labels,blocks,attrs,source)
+    if name=='Route130':
+        variant,other,_,_,_=art.rows('LAYOUT_ROUTE130_MIRAGE_ISLAND')
+        cells=[];ground=[]
+        for y,x in zip(*np.where(other!=blocks)):
+            y,x=int(y),int(x)
+            cells.append([x,y,*tile(int(other[y][x])),variant['collision'][y][x]])
+            ground.append([x,y,variant['water'][y][x],variant['elevation'][y][x],variant['grass'][y][x],variant['behavior'][y][x]])
+        puzzle['mirage']={'tiles':cells,'ground':ground}
+    from hoenn_hill import compile_hill
+    compile_hill(name,puzzle,tile,source,attrs)
     elite={"EverGrandeCity_SidneysRoom":"h_sidney","EverGrandeCity_PhoebesRoom":"h_phoebe",
            "EverGrandeCity_GlaciasRoom":"h_glacia","EverGrandeCity_DrakesRoom":"h_drake"}
     if name in elite:
@@ -24,6 +38,23 @@ def compile_mechanisms(art,m,row,scripts,source,asset_folder):
             if x>=8: side="Left" if x%2==0 else "Right"
             cells.append([x,2,*tile(labels["METATILE_EliteFour_"+side+"SpotlightOff"]),1])
         puzzle["league_exit"]={"flag":elite[name],"open":cells}
+    if name in ('Route103','MeteorFalls_1F_1R'):
+        label='OpenAlteringCave' if name=='Route103' else 'OpenStevensCave'
+        puzzle['champion_cave']=changes('EventScript_'+label)
+    if name=='Route110_TrickHouseEntrance':
+        for n,(x,y) in enumerate(((6,3),(11,5),(9,1),(3,1),(0,5),(11,1),(8,1),(4,4)),1):
+            row['objects'].append(dict(at=[x,y],kind='sign',native_fixture=True,source_script='TrickHidingSpot'+str(n)))
+    if name.startswith('Route110_TrickHousePuzzle'):
+        n=int(name[-1])
+        for w in row['warps']:
+            if w['at']==[13,1]:w['trigger']='door'
+        if n in (2,3):
+            puzzle['trick_buttons']={f"{e['x']},{e['y']}":int(e['script'][-1]) for e in row['coord_events'] if 'Button' in e['script']}
+            puzzle['button_tiles']={str(i):changes(('EventScript_PressButton' if n==2 else 'EventScript_PressedButton')+str(i)+('' if n==2 else 'Metatile')) for i in range(1,5)}
+        if n==3:puzzle['trick_shutters']=[changes('EventScript_SetDoorsState'+str(i)) for i in (0,1)]
+        if n==8:row['physics']['slide']=[[255 if v==0x48 else 0 for v in line] for line in row['physics']['behavior']]
+        if n==5:
+            puzzle['quiz_triggers']={f"{e['x']},{e['y']}":int(re.search(r'Mechadoll(\d)',e['script'])[1]) for e in row['coord_events'] if 'Mechadoll' in e['script']}
     if name=='InsideOfTruck':
         puzzle['always']=changes('OnLoad')
         puzzle['closed']=[[4,y,*tile(labels['METATILE_InsideOfTruck_DoorClosedFloor_'+suffix]),0] for y,suffix in enumerate(('Top','Mid','Bottom'),1)]
@@ -81,13 +112,13 @@ def compile_mechanisms(art,m,row,scripts,source,asset_folder):
     if name=='SootopolisCity_Gym_1F':
         puzzle['stairs']=[[8,y,*tile(labels['METATILE_SootopolisGym_Stairs']),0] for y in (15,16,10,11,4,5)]
         puzzle['cracked']=tile(labels['METATILE_SootopolisGym_Ice_Cracked'])
-    if name=='MossdeepCity_Gym':
-        start=labels['METATILE_MossdeepGym_YellowArrow_Right']
+    if name in ('MossdeepCity_Gym','Route110_TrickHousePuzzle7'):
+        start=labels['METATILE_MossdeepGym_YellowArrow_Right' if name=='MossdeepCity_Gym' else 'METATILE_TrickHousePuzzle_Arrow_YellowOnWhite_Right']
         puzzle['arrows']={f'{x},{y}':int(blocks[y,x])-start for y,x in np.ndindex(blocks.shape) if start<=blocks[y,x]<start+40}
         colors=['Yellow','Blue','Green','Purple','Red']
         for q in row['coord_events']:
             for i,c in enumerate(colors):
-                if c+'FloorSwitch' in q['script']:puzzle.setdefault('switches',{})[f"{q['x']},{q['y']}"]=i
+                if c+'FloorSwitch' in q['script'] or q['script'].endswith(c+'Button'):puzzle.setdefault('switches',{})[f"{q['x']},{q['y']}"]=i
     if name in ('FortreeCity_Gym','Route110_TrickHousePuzzle6'):
         src=(source/'src/rotating_gate.c').read_text()
         label='Fortree' if name.startswith('Fortree') else 'TrickHouse'

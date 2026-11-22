@@ -56,6 +56,7 @@ static func roster(map: Dictionary, flags: Dictionary, rows: Array) -> Array:
 			# Only the campaign script may initiate these battles. Native scripts still
 			# contain their original unconditional trainerbattle command.
 			row.erase("battle")
+			if row.has("source_trainer"):row.rematch_trainer=row.source_trainer
 			row.erase("source_trainer")
 		if local:
 			row.role = role(local)

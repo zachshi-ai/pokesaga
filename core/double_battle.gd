@@ -1,6 +1,7 @@
 extends "res://core/battle.gd"
 ## Two positions per side. The paired Space Center trainers each replace their own
 ## fainted Pokémon. Move effects, accuracy, damage, PP and abilities use the shared battle engine.
+var palace := false
 var lanes := {"a":[-1,-1],"b":[-1,-1]}
 var groups := {"a":["",""],"b":["",""]}
 
@@ -47,6 +48,7 @@ func pair(side: String,pos: int,target: int) -> void:
 	else: focus(target,pos)
 
 func ai(side: String) -> String:
+	if palace:return preload("res://core/frontier_rules.gd").choose(self,side,true)
 	var attacker: Dictionary = cur_a() if side=="a" else cur_b()
 	var target: Dictionary = cur_b() if side=="a" else cur_a()
 	var best := "move:0"
@@ -64,6 +66,7 @@ func ai(side: String) -> String:
 
 func round_actions(player_orders: Dictionary) -> void:
 	if over: return
+	_clear_round_hits()
 	var order := []
 	for side in ["a","b"]:
 		for pos in 2:

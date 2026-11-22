@@ -5,6 +5,15 @@ var Growth: Script
 const Save := preload("res://core/save_game.gd")
 var Shop: Script
 var PartyUI: Script
+# Ordinary-form stone paths present in FireRed/LeafGreen and Emerald's evolution tables.
+const CLASSIC_STONES := {
+	"FIRE_STONE": [[37,38],[58,59],[133,136]],
+	"WATER_STONE": [[61,62],[90,91],[120,121],[133,134],[271,272]],
+	"THUNDER_STONE": [[25,26],[133,135]],
+	"LEAF_STONE": [[44,45],[70,71],[102,103],[274,275]],
+	"MOON_STONE": [[30,31],[33,34],[35,36],[39,40],[300,301]],
+	"SUN_STONE": [[44,182],[191,192]],
+}
 const MARKETS := {
 	"sinnoh":"sinnoh_canalave", "galar":"galar_hammerlocke", "hisui":"hisui_jubilife",
 	"paldea":"paldea_mesagoza", "kitakami":"kitakami_mossui", "hoenn":"em_oldale_town_mart",
@@ -57,7 +66,7 @@ func check_rules() -> void:
 				expect(Party.evolve(mon, int(rule.to), str(rule.get("form", ""))), "Invalid destination %s" % rule)
 				seen[rule.item] = true
 				count += 1
-	expect(seen.size() == 40 and seen.size() == db.evo_items.size() and count == 89, "Incomplete evolution coverage")
+	expect(seen.size() == 40 and seen.size() == db.evo_items.size() and count == 91, "Incomplete evolution coverage")
 	for key in db.evo_items:
 		expect(seen.has(key), "Unusable evolution item " + str(key))
 	for id in [281, 361]:
@@ -65,6 +74,30 @@ func check_rules() -> void:
 		mon.sex = "female" if id == 281 else "male"
 		expect(Growth.evolution_for_item(mon, "DAWN_STONE").is_empty(), "Wrong sex accepted for Dawn Stone")
 	print("Evolution catalog: ", count, " rules, ", seen.size(), " unique items")
+
+func check_classic_stones() -> void:
+	var count := 0
+	for stone in CLASSIC_STONES:
+		for pair in CLASSIC_STONES[stone]:
+			var mon: Dictionary = Party.make(pair[0], 20, [33])
+			for region in ["kanto", "sevii", "johto", "hoenn"]:
+				var target: Dictionary = Growth.evolution_for_item(mon, stone, region)
+				expect(int(target.get("to", 0)) == pair[1] and target.get("form", "") == "", "Wrong stone target %s %s in %s" % [pair, stone, region])
+			count += 1
+	for pair in [[25,26,"THUNDER_STONE"],[102,103,"LEAF_STONE"]]:
+		var mon: Dictionary = Party.make(pair[0], 20, [33])
+		var stone: String = db.evo_item_name(pair[2])
+		expect(Growth.evolution_for_item(mon, pair[2], "alola").is_empty(), "Mainland target unlocked in Alola")
+		for form in db.species_of(pair[0]).get("forms", []):
+			var special: Dictionary = Party.make(pair[0], 20, [33], form.key)
+			expect(Growth.evolution_for_item(special, pair[2], "kanto").is_empty(), "Special form stone-evolved " + str(form.key))
+		game.save_data.party = [mon]
+		game._give_bag_item(stone, "evo")
+		var amount: int = game._bag_count(stone)
+		game._evolve_with_item(0, stone, null)
+		expect(game.save_data.party[0].species_id == pair[1] and game.save_data.party[0].get("form", "") == "" and game._bag_count(stone) == amount - 1, "Stone or item consumption failed for %s" % pair[0])
+	expect(count == 21, "Classic stone path count differs")
+	print("Classic stones: ", count, " paths, four map regions and special-form restrictions verified")
 
 func check_markets() -> void:
 	var bought := {}
@@ -324,6 +357,7 @@ func run():
 	game._on_back()
 	await process_frame
 	check_battle_bag()
+	check_classic_stones()
 	Save.clear_test_slot()
 	print("EVOLUTION ITEMS ", "FAIL" if failed else "PASS")
 	quit(1 if failed else 0)

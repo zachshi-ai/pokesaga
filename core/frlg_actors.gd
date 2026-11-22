@@ -18,6 +18,7 @@ static func migrate_progress(save: Dictionary) -> void:
 	preload("res://core/sevii_campaign.gd").sync(save)
 	var flags: Dictionary = save.get("flags", {})
 	var badges: Array = preload("res://core/region_journey.gd").badges(save,"kanto")
+	if flags.get("kanto_champion",false) and not flags.has("fr_hof_count"):flags.fr_hof_count=2 if flags.get("kanto_rematch_complete",false) else 1
 	if "灰色徽章" in badges:
 		flags.beat_brock = true
 	if "绿色徽章" in badges:
@@ -32,6 +33,7 @@ static func hidden(flag: String, flags: Dictionary) -> bool:
 	var sevii_visibility = preload("res://core/sevii_campaign.gd").hidden(flag,flags)
 	if sevii_visibility != null: return sevii_visibility
 	match flag:
+		"FLAG_HIDE_POSTGAME_GOSSIPERS":return not flags.get("kanto_champion",false)
 		"FLAG_HIDE_MT_EMBER_EXTERIOR_ROCKETS":
 			return flags.get("beat_ember_grunt_1",false) and flags.get("beat_ember_grunt_2",false)
 		"FLAG_HIDE_RUIN_VALLEY_SCIENTIST","FLAG_HIDE_ICEFALL_CAVE_ROCKETS","FLAG_HIDE_ICEFALL_CAVE_LORELEI":
@@ -125,4 +127,4 @@ static func roster(map: Dictionary, flags: Dictionary) -> Array:
 		var xy := key.split(",")
 		var item := actor({"at":[int(xy[0]),int(xy[1])]},spec,flags)
 		if not item.is_empty(): result.append(item)
-	return result
+	return load("res://core/frlg_sidequests.gd").roster(map,flags,result)

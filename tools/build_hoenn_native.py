@@ -286,7 +286,7 @@ class Inhabitants:
             msg=source_text(script,self.scripts)
             if msg:row['lines']=[msg]
             match=re.search(r'\btrainerbattle_\w+\s+(TRAINER_\w+)',code)
-            if match and match[1] in self.trainers:
+            if match and match[1] in self.trainers and not match[1].startswith("TRAINER_GABBY_AND_TY_"):
                 name,team=self.trainers[match[1]]
                 row.update(name=name,source_trainer=match[1],battle=dict(team=team))
             npcs.append(row);self.gfx_used.add(gfx)
@@ -294,6 +294,9 @@ class Inhabitants:
             row=dict(at=xy(e),source_script=e.get('script',''),kind='sign',native_fixture=True)
             if e['type']=='hidden_item':
                 row.update(kind='hidden',flag=e.get('flag',''),**self.item(e['item']))
+            elif e['type']=='secret_base':
+                site=e['secret_base_id']
+                row.update(source_script='EmeraldBaseSite',secret_site=site,room='em_'+site.rsplit('_',1)[0].lower())
             elif e['type']=='sign':
                 row['text']=source_text(e.get('script',''),self.scripts) or ''
             else: continue
@@ -362,6 +365,8 @@ def native_name(m,legacy,region_names):
 def compile_maps(source,maps,ids):
     art=FieldArt(source)
     scripts=source_scripts(source)
+    from hoenn_base import side_tables
+    write(DEST/'side.json',side_tables(source,scripts))
     cast=Inhabitants(source,scripts)
     wild=native_wild(source)
     legacy_dir=ROOT/'content/regions/hoenn/maps'
@@ -478,11 +483,36 @@ def compile_maps(source,maps,ids):
         mid=ids[key]
         compile_mechanisms(art,maps[key],result[mid],scripts,source,ART)
         write(DEST/'maps'/f'{mid}.json',result[mid])
+    from hoenn_legends import MAPS as LEGEND_MAPS
+    extra=list(LEGEND_MAPS)+['MeteorFalls_1F_1R','Route110_TrickHouseEntrance']+['Route110_TrickHousePuzzle'+str(i) for i in (1,2,3,4,5,7,8)]
+    extra.extend(m['name'] for m in maps.values() if m['name'].startswith('SecretBase_') or any(e['type']=='secret_base' for e in (m.get('bg_events') or [])))
+    extra.extend('TrainerHill_'+str(i)+'F' for i in range(1,5))
+    for name in dict.fromkeys(extra):
+        k=next(key for key,m in maps.items() if m['name']==name)
+        mid=ids[k]
+        compile_mechanisms(art,maps[k],result[mid],scripts,source,ART)
+        write(DEST/'maps'/f'{mid}.json',result[mid])
     write(DEST/'travel.json',record(result,ids,read(ROOT/'content/hoenn_campaign.json')))
+    for d in result['em_secret_base_red_cave1']['mechanisms']['base']['furniture'].values():
+        if d.get('gfx'):cast.gfx_used.add(d['gfx'])
+    for n in range(1,5):
+        for course in result[f'em_trainer_hill_{n}f']['mechanisms']['hill'].values():
+            cast.gfx_used.update(a['source_gfx'] for a in course['actors'])
     catalog=actors(source,cast.gfx_used)
+    from hoenn_base import effect_tiles
+    write(DEST/'base_effects.json',effect_tiles(art,source,ART))
     atlas_img=Image.new('RGBA',(64*16,((len(art.atlas.images)+63)//64)*16))
     for i,im in enumerate(art.atlas.images):atlas_img.paste(im,(i%64*16,i//64*16))
-    ART.mkdir(parents=True,exist_ok=True);atlas_img.save(ART/'tiles.png',optimize=True)
+    ART.mkdir(parents=True,exist_ok=True)
+    # The editor may import while regions are being generated.
+    import tempfile
+    with tempfile.NamedTemporaryFile(dir=ART, suffix='.tmp', delete=False) as pending:
+        pending_path = Path(pending.name)
+    try:
+        atlas_img.save(pending_path, format='PNG', optimize=True)
+        pending_path.replace(ART/'tiles.png')
+    finally:
+        pending_path.unlink(missing_ok=True)
     art.animations.save(ART/'water.png')
     write(DEST/'atlas.json',dict(tiles=len(art.atlas.images),animated=len(art.animations.sequences)))
     print(f"{len(maps)} maps, {len(catalog)} actor identities, {len(art.atlas.images)} metatiles")

@@ -396,6 +396,8 @@
     {"who": "小茂", "say": ["我刚从正辉家回来。他把宝可梦寄存在电脑里，厉害吧？上桥之前先来一场！"]},
     {"battle": {"name": "小茂", "team": [{"species": 17, "level": 17, "moves": [33, 28, 16, 98]}, {"species": 63, "level": 16, "moves": [100]}, {"species": 19, "level": 15, "moves": [33, 39, 98]}, {"species": 133, "level": 18}]}},
     {"who": "小茂", "say": ["沿着桥走到海角，正辉的家就在那里。"]},
+    {"give_item":{"name":"名人传言器","count":1,"category":"key"}},
+    {"who":"小茂","say":["我顺手多拿了一台名人传言器，给你。访问训练家、阅读杂志或路牌，就能慢慢记下这些人的故事。"]},
     {"flag": "rival_bridge"}
    ],
    "require": {"flags_all": ["got_dex"]}
@@ -1008,6 +1010,9 @@
      "say": [
       "咖啡喝过了！要捕捉宝可梦，先让它消耗些体力，再投球。"
      ]
+    },
+    {
+     "give_item": {"name":"教学电视","count":1,"category":"key"}
     },
     {
      "flag": "old_man_met"
