@@ -1,5 +1,6 @@
 extends SceneTree
-## Walk all new regions from Pallet Town, then return. Only rendering is suppressed.
+## Walk outward and back over every international road. Platinum's domestic route
+## network is tested by the fresh-save campaign and the directed world graph.
 ## godot --headless --path . --script tools/test_world_walks.gd
 
 class Walker extends "res://core/world.gd":
@@ -137,6 +138,13 @@ func run() -> void:
 	world.warp_ready.connect(load_at)
 	load_at(atlas.regions.kanto.hub)
 	var home:=current
+	var tour:=home
+	var trips:=1
+	# The old atlas network assumed placeholder links between towns. Sinnoh now
+	# connects the four international termini through real routes, caves and story
+	# gates. Start a walking circuit at each independent atlas branch, and require
+	# its entire road network (including the new hub) to return to that same town.
+	var native_termini:=["sinnoh/sinnoh_twinleaf","sinnoh/sinnoh_canalave","sinnoh/sinnoh_celestic","sinnoh/sinnoh_spring"]
 	var seen: Dictionary={}
 	var done_edges: Dictionary={}
 	var stack: Array=[]
@@ -161,10 +169,19 @@ func run() -> void:
 			else:stack.append(source)
 		elif not stack.is_empty():
 			if not take_gate(stack.pop_back()):break
-		else:break
-	if not failed and (current!=home or seen.size()!=places.size() or checked_hubs.size()!=atlas.regions.size()):
+		else:
+			if current!=tour:
+				fail("road circuit did not return to "+tour)
+				break
+			var next: Array=native_termini.filter(func(t):return not seen.has(t))
+			if next.is_empty():break
+			tour=next[0]
+			var start: Dictionary=places[tour]
+			load_at({"region":start.region,"map":start.id,"at":start.spawn,"platinum_native":true})
+			trips+=1
+	if not failed and (current!=tour or seen.size()!=places.size() or checked_hubs.size()!=atlas.regions.size()):
 		fail("incomplete tour: %s maps %s navigators %s" % [current,seen.size(),checked_hubs.size()])
-	print("WORLD WALK ", "FAIL" if failed else "PASS", " regions=",checked_hubs.size()," maps=",seen.size()," pairs=",done_edges.size()," steps=",steps," crossings=",transitions-1)
+	print("WORLD WALK ", "FAIL" if failed else "PASS", " regions=",checked_hubs.size()," maps=",seen.size()," pairs=",done_edges.size()," steps=",steps," crossings=",transitions-trips," road_circuits=",trips)
 	quit(1 if failed else 0)
 
 func edge_key(a: String,b: String) -> String:

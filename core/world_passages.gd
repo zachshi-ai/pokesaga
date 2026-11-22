@@ -16,10 +16,18 @@ static func active(map: Dictionary) -> Array:
 		var p := Field.vec(warp.at)
 		var trigger: String=warp.get("trigger","")
 		# At Emerald map corners each outward direction connects to its own neighbor.
-		var slot: Variant=[p,trigger] if map.has("emerald_original") and trigger in ["up","down","left","right"] else p
+		var slot: Variant=[p,trigger] if (map.has("emerald_original") or map.has("platinum_native")) and trigger in ["up","down","left","right"] else p
 		if not cells.has(slot):
 			cells[slot]=warp
 	return cells.values()
+
+static func atlas_return(current: Dictionary, target: Dictionary, native:Dictionary) -> Dictionary:
+	if not native.has("platinum_native"):return target
+	for warp in native.warps:
+		if warp.get("atlas","")=="world" and warp.to.map==current.id and warp.to.region==current.region:
+			var facing: String={"up":"down","down":"up","left":"right","right":"left"}.get(warp.trigger,"down")
+			return target.merged({"at":warp.at,"facing":facing,"platinum_native":true},true)
+	return target
 
 static func key(target: Dictionary) -> String:
 	return "%s/%s" % [target.region,target.map]
@@ -30,6 +38,14 @@ static func graph(rooms: Array) -> Dictionary:
 	var entrances := {}
 	var recorded := {}
 	var arrivals := {}
+	var native_spawns := {}
+	var technical := {}
+	var native_maps := {}
+	for room in rooms:
+		if room.m.has("platinum_native"):
+			native_spawns[room.mid]=room.m.spawn
+			native_maps[room.mid]=room.m
+			if room.m.get("platinum_technical",false): technical["sinnoh/"+str(room.mid)]=true
 	for room in rooms:
 		var source := "%s/%s" % [room.rid,room.mid]
 		var targets: Array = room.m.get("lift_stops",[]).duplicate()
@@ -38,6 +54,7 @@ static func graph(rooms: Array) -> Dictionary:
 				targets.append(row.target)
 		for warp in active(room.m):
 			var t: Dictionary=warp.to
+			if warp.get("atlas","")=="world" and t.region=="sinnoh" and native_maps.has(t.map):t=atlas_return(room.m,t,native_maps[t.map])
 			if t.has("remember_passage"):
 				var slot: String=t.remember_passage.key
 				if not recorded.has(slot): recorded[slot]=[]
@@ -46,14 +63,19 @@ static func graph(rooms: Array) -> Dictionary:
 				var slot: String=t.recall_passage
 				if not entrances.has(slot): entrances[slot]=[]
 				entrances[slot].append(source)
+			for alternate in t.get("platinum_alternates",{}).values():targets.append(alternate)
 			targets.append(Postgame.destination(room.mid,t,{},{"weekday":Time.WEEKDAY_MONDAY,"hour":21}))
 			targets.append(Postgame.destination(room.mid,t,{"j2_westbound":true,"j2_power":true,"johto_champion":true},{"weekday":Time.WEEKDAY_SUNDAY,"hour":10}))
 		links[source]={}
+		for dest_id in room.m.get("platinum_script_links",[]): links[source]["sinnoh/"+str(dest_id)]=true
 		for target in targets:
 			var dest:=Field.merged_destination(target)
 			links[source][key(dest)]=true
 			if not arrivals.has(key(dest)): arrivals[key(dest)]={}
-			arrivals[key(dest)][[dest.at,dest.get("hgss",false)]]=true
+			var at: Array=dest.at
+			if dest.region=="sinnoh" and native_spawns.has(dest.map) and not dest.get("platinum_native",false):
+				at=native_spawns[dest.map]
+			arrivals[key(dest)][[at,dest.get("hgss",false)]]=true
 	for slot in entrances:
 		for source in entrances[slot]:
 			for entry in recorded.get(slot,[]):
@@ -66,7 +88,7 @@ static func graph(rooms: Array) -> Dictionary:
 		for target in links[source]:
 			if not inward.has(target): inward[target]={}
 			inward[target][source]=true
-	return {"forward":links,"reverse":inward,"records":recorded,"arrivals":arrivals}
+	return {"forward":links,"reverse":inward,"records":recorded,"arrivals":arrivals,"technical":technical}
 
 static func reachable(start: String, links: Dictionary) -> Dictionary:
 	var seen := {}

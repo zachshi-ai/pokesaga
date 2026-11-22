@@ -113,10 +113,11 @@ func run() -> void:
 			break
 		await process_frame
 		if id=="hoenn": click(game.menu_layer.get_child(-1),"直接抵达")
+		if id=="sinnoh" and not game.save_data.chapters.has(id): click(game.menu_layer.get_child(-1),"带现有队伍出发")
 		await process_frame
 		game._close_all_dialogs()
 		await process_frame
-		if id in ["hoenn","johto"] and (world.map_data.id!=catalog[id].hub.map or world.player_pos!=tile(catalog[id].hub.at)):
+		if id in ["hoenn","johto","sinnoh"] and (world.map_data.id!=catalog[id].hub.map or world.player_pos!=tile(catalog[id].hub.at)):
 			expect(game.save_data.chapters.has(id),"first visit began local story")
 			game._use_bag_item("地区转移器")
 			atlas = game.menu_layer.get_child(-1)

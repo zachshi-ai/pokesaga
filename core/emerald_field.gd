@@ -61,6 +61,12 @@ static func _tileset() -> TileSet:
 			water.set_tile_animation_columns(atlas,8)
 			water.set_tile_animation_frames_count(atlas,8)
 			water.set_tile_animation_speed(atlas,3.75)
+	var platinum := TileSetAtlasSource.new()
+	platinum.texture = load("res://assets/platinum_native/tiles.png")
+	platinum.texture_region_size = Vector2i(CELL,CELL)
+	_tiles.add_source(platinum,4)
+	for y in floori(platinum.texture.get_height()/float(CELL)):
+		for x in 16: platinum.create_tile(Vector2i(x,y))
 	return _tiles
 
 @warning_ignore("integer_division")
@@ -163,7 +169,9 @@ func _change(key: Vector2i,show_chunk: bool) -> void:
 		active.erase(key)
 
 func _set_tile(layer: TileMapLayer,pos: Vector2i,id: int) -> void:
-	if world.map_data.has("emerald_original"):
+	if world.map_data.has("platinum_native"):
+		if id: layer.set_cell(pos,4,Vector2i(id%16,floori(id/16.0)))
+	elif world.map_data.has("emerald_original"):
 		if id>=49152:
 			var index:=id-49152
 			layer.set_cell(pos,3,Vector2i((index%8)*8,floori(index/8.0)))

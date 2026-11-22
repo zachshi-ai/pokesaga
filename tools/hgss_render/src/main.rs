@@ -1,3 +1,4 @@
+mod platinum;
 mod semantic;
 
 use romkit::formats::{
@@ -80,6 +81,9 @@ fn meshes(bmd: &[u8], shared: Option<&Textures>) -> Result<Vec<Mesh>> {
 
 fn main() -> Result<()> {
     let mut args = env::args_os().skip(1);
+    if env::args().nth(1).as_deref() == Some("platinum") {
+        return platinum::run();
+    }
     let src = PathBuf::from(
         args.next()
             .ok_or("expected pokeheartgold source directory")?,

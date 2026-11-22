@@ -576,6 +576,9 @@ func _on_send_out(side: String) -> void:
 	var foe: Dictionary = cur_b() if side == "a" else cur_a()
 	if me.get("fainted", false):
 		return
+	me.erase("metronome_move")
+	me.erase("metronome_chain")
+	me.erase("acted_this_turn")
 	variant_seen.emit(side, me)
 	if str(me.get("held", "")) == "BERSERK_GENE":
 		me.held = ""
@@ -1512,12 +1515,13 @@ func _apply_effect(attacker: Dictionary, defender: Dictionary, move: Dictionary,
 			attacker["held"] = got
 			out.append("%s 抢走了 %s！" % [attacker["name"], Data.item_name(got)])
 
-	# 撤退类：打完就跑（野生对战里等于结束）
-	if effect == "HIT_ESCAPE":
-		fled = true
-		over = true
-		winner = "fled"
-		out.append("%s 趁机撤退了！" % attacker["name"])
+	# 急速折返、伏特替换和快速折返在命中后让同队伙伴上场。
+	if effect == "HIT_ESCAPE" and not attacker.get("fainted",false) and not over:
+		var own_side := _side_of(attacker)
+		var reserve := _next_alive(own_side,active_a if own_side=="a" else active_b)
+		if reserve>=0:
+			_do_switch(own_side,reserve,true)
+			out.append("%s 回到了训练家身边！" % attacker.name)
 
 	# 束缚：对手换不下去
 	if effect in ["MEAN_LOOK", "FAIRY_LOCK", "OCTOLOCK"] and not bool(defender["fainted"]):
@@ -1969,6 +1973,7 @@ func use_battle_item(side: String, key: String) -> bool:
 func _clear_round_hits() -> void:
 	for mon in team_a + team_b:
 		mon["hit_this_turn"] = 0
+		mon.erase("acted_this_turn")
 
 func run_turn(a_choice: String, b_choice: String) -> void:
 	if over:
@@ -3138,6 +3143,7 @@ func _take_action(side: String, choice: String) -> void:
 	if attacker["fainted"]:
 		return
 
+	attacker.acted_this_turn=true
 	if side=="b" and attacker.get("fr_roaming",false) and not attacker.get("trapped",false) and attacker.get("status","") not in ["slp","frz"] and _ab(defender) not in ["踩影","沙穴"]:
 		fled=true
 		over=true
@@ -3186,6 +3192,9 @@ func _take_action(side: String, choice: String) -> void:
 			return
 
 	var base_id := int(attacker["moves"][idx])
+	if int(attacker.get("metronome_move",0))!=base_id or attacker.get("held","")!="METRONOME":
+		attacker.erase("metronome_chain")
+		attacker.erase("metronome_move")
 	# 挑衅：不能用变化招式
 	var mv_pre: Dictionary = Data.move_of(base_id)
 	if int(attacker.get("taunt", 0)) > 0 and String(mv_pre.get("category", "")) == "status":
@@ -3380,6 +3389,9 @@ func _take_action(side: String, choice: String) -> void:
 		acc = 0.0
 	else:
 		if str(defender.get("held", "")) == "LAX_INCENSE": acc *= 0.95
+		if not aabe0.get("ignore_own_item",false):
+			if attacker.get("held","")=="WIDE_LENS":acc*=1.1
+			elif attacker.get("held","")=="ZOOM_LENS" and defender.get("acted_this_turn",false):acc*=1.2
 		acc *= float(aabe0.get("accuracy_mult", 1.0))
 		acc *= _acc_mult(int(attacker["stages"].get("acc", 0)))
 		acc /= _evasion_mult(defender)
@@ -3439,7 +3451,14 @@ func _take_action(side: String, choice: String) -> void:
 		log.append("%s 预见了未来的攻击！" % attacker["name"])
 		return
 
-	var dealt := damage(attacker, defender, mv)
+	# Gen IV increases Metronome by 10% after each consecutive successful hit.
+	var repeat_scale:=1.0
+	if attacker.get("held","")=="METRONOME" and not aabe0.get("ignore_own_item",false):
+		repeat_scale+=0.1*int(attacker.get("metronome_chain",0))
+	var dealt := int(damage(attacker, defender, mv)*repeat_scale)
+	if dealt>0 and attacker.get("held","")=="METRONOME" and not aabe0.get("ignore_own_item",false):
+		attacker.metronome_move=base_id
+		attacker.metronome_chain=mini(10,int(attacker.get("metronome_chain",0))+1)
 	# 镜面反射、返拳、金属爆破：还回去的是上一回合受到的伤害的两倍
 	if String(mv.get("effect", "")) == "REFLECT_DAMAGE":
 		var back2 := int(attacker.get("last_damage", 0))
@@ -3551,7 +3570,7 @@ func _take_action(side: String, choice: String) -> void:
 		hits = maxi(hits, 5)
 	if hits > 1 and not bool(defender["fainted"]):
 		for i in range(hits - 1):
-			var extra_hit := damage(attacker, defender, mv)
+			var extra_hit := int(damage(attacker, defender, mv)*repeat_scale)
 			if extra_hit <= 0:
 				break
 			_set_hp(defender, maxi(0, int(defender["hp"]) - extra_hit))

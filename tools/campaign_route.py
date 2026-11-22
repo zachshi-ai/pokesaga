@@ -19,7 +19,7 @@ class Field:
         self.w, self.h = meta.get("size", data["size"])
         self.crystal = data.get("emerald", "").startswith("johto_")
         self.grid = {k: [int(v) for row in arr for v in row] for k, arr in meta.items()
-                     if k in ("collision", "water", "elevation", "ledge", "dirblock", "counter", "grass", "whirl", "waterfall", "slide", "current") and arr}
+                     if k in ("collision", "water", "elevation", "ledge", "dirblock", "counter", "grass", "whirl", "waterfall", "slide", "current", "climb") and arr}
         self.doors = {}
         for door in data.get("warps", []):
             self.doors.setdefault(tuple(door["at"]), door)
@@ -36,8 +36,9 @@ class Routes:
         self.regions = regions
         self.fields = {}
         for region in regions:
-            if region == "hoenn":
-                for path in (ROOT / "content/hoenn_native/maps").glob("*.json"):
+            if region in ("hoenn","sinnoh"):
+                native = "hoenn_native" if region=="hoenn" else "platinum_native"
+                for path in (ROOT / "content" / native / "maps").glob("*.json"):
                     data = read(path)
                     self.fields[path.stem] = Field(data,data["physics"])
                 continue
@@ -85,7 +86,7 @@ class Routes:
                 if 0<=nx<f.w and 0<=ny<f.h and not f.get("collision",nx,ny):
                     edges.append((key,(mid,nx,ny)))
                 continue
-            if f.crystal or f.data.get("emerald_original"):
+            if f.crystal or f.data.get("emerald_original") or f.data.get("platinum_native"):
                 if f.get("whirl",nx,ny) and 250 not in self.field_moves and (mid,nx,ny) not in self.cleared:
                     continue
                 if key!="d" and (f.get("waterfall",nx,ny) or f.get("waterfall",x,y)):

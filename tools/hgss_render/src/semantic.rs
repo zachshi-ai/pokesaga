@@ -16,10 +16,36 @@ pub fn section(data: &NitroData, land: usize, area: usize) -> Result<Value> {
         &bytes[terrain..terrain + u32at(bytes, 8)],
         data.terrain_tex[tile_set].as_ref(),
     )?;
+    let (mats, samples, foliage) = terrain_cells(&geometry);
+    let mut props = vec![];
+    let bank = if attrib[6] != 0 {
+        &data.outdoors
+    } else {
+        &data.indoors
+    };
+    for row in bytes[start..terrain].chunks_exact(48) {
+        let id = u32at(row, 0);
+        let geom = meshes(&bank[id], data.prop_tex[prop_set].as_ref())?;
+        let model = geom.first().ok_or("prop no mesh")?;
+        let (lo, hi) = model.bounds().unwrap_or(([0.; 3], [0.; 3]));
+        props.push(json!([
+            id,
+            model.name,
+            [fixed(row, 4) + 256., fixed(row, 8), fixed(row, 12) + 256.],
+            lo,
+            hi
+        ]));
+    }
+    Ok(json!({"materials":mats,"surface":samples,"foliage":foliage,"props":props}))
+}
+
+pub fn terrain_cells(
+    geometry: &[Mesh],
+) -> (Vec<String>, Vec<[u32; 4]>, BTreeSet<(i32, i32, String)>) {
     let mut field = vec![(f32::NEG_INFINITY, 0usize, [0; 3]); 96 * 96];
     let mut mats = vec!["".to_owned()];
     let mut foliage = BTreeSet::new();
-    for group in &geometry {
+    for group in geometry {
         sample_mesh(group, &mut field, &mut mats, &mut foliage);
     }
     let mut samples = Vec::new();
@@ -41,26 +67,7 @@ pub fn section(data: &NitroData, land: usize, area: usize) -> Result<Value> {
             samples.push([id as u32, rgb[0], rgb[1], rgb[2]]);
         }
     }
-    let mut props = vec![];
-    let bank = if attrib[6] != 0 {
-        &data.outdoors
-    } else {
-        &data.indoors
-    };
-    for row in bytes[start..terrain].chunks_exact(48) {
-        let id = u32at(row, 0);
-        let geom = meshes(&bank[id], data.prop_tex[prop_set].as_ref())?;
-        let model = geom.first().ok_or("prop no mesh")?;
-        let (lo, hi) = model.bounds().unwrap_or(([0.; 3], [0.; 3]));
-        props.push(json!([
-            id,
-            model.name,
-            [fixed(row, 4) + 256., fixed(row, 8), fixed(row, 12) + 256.],
-            lo,
-            hi
-        ]));
-    }
-    Ok(json!({"materials":mats,"surface":samples,"foliage":foliage,"props":props}))
+    (mats, samples, foliage)
 }
 
 fn sample_mesh(

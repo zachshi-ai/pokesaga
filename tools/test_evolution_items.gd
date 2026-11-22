@@ -15,7 +15,7 @@ const CLASSIC_STONES := {
 	"SUN_STONE": [[44,182],[191,192]],
 }
 const MARKETS := {
-	"sinnoh":"sinnoh_canalave", "galar":"galar_hammerlocke", "hisui":"hisui_jubilife",
+	"sinnoh":"sinnoh_canalave_city_mart", "galar":"galar_hammerlocke", "hisui":"hisui_jubilife",
 	"paldea":"paldea_mesagoza", "kitakami":"kitakami_mossui", "hoenn":"em_oldale_town_mart",
 	"kalos":"kalos_ambrette"
 }
@@ -111,6 +111,13 @@ func check_markets() -> void:
 			await process_frame
 			game._close_all_dialogs()
 		var mid: String = MARKETS[region]
+		if region=="sinnoh":
+			# The shop interaction fixture starts after Canalave opens. The chapter test
+			# independently walks the route and checks all gate conditions.
+			expect(await preload("regional_start.gd").enter(game,"sinnoh"),"register the Platinum chapter")
+			game._close_all_dialogs()
+			for flag in load("res://core/sinnoh_campaign.gd").data().gates[mid].require:
+				game._flags()[flag]=true
 		game._do_warp({"region":region, "map":mid, "at":db.load_map(region, mid).spawn})
 		game._close_all_dialogs()
 		var clerk := {}
@@ -130,10 +137,12 @@ func check_markets() -> void:
 				approached = true
 				break
 		expect(approached, mid + " merchant is inaccessible")
+		if region=="sinnoh": tap(game.menu_layer,"进化材料产地")
 		var shop = panel(Shop)
 		if shop == null: continue
-		var tab := button(shop, "进化材料产地")
-		if tab != null: tab.button_pressed = true
+		if region!="sinnoh":
+			var tab := button(shop, "进化材料产地")
+			if tab != null: tab.button_pressed = true
 		expect(shop.evolution_catalog.size() == 40, "Incomplete in-game catalog")
 		var rejected := false
 		for b in shop.rows.get_children():

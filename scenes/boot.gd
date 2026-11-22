@@ -2,6 +2,9 @@ extends Node2D
 ## 启动场景：自检 + 场景装配 + 输入（键盘 / 触摸）。
 
 const StartMenu := preload("res://scenes/start_menu.gd")
+const Sinnoh := preload("res://core/sinnoh_campaign.gd")
+const SinnohField := preload("res://core/sinnoh_field.gd")
+const SinnohSide := preload("res://core/sinnoh_side.gd")
 const Journey := preload("res://core/region_journey.gd")
 const TitleScreen := preload("res://scenes/title_screen.gd")
 const WorldScript := preload("res://core/world.gd")
@@ -137,6 +140,9 @@ func _ready() -> void:
 			ok = _t("秘传开路与培育", _test_fieldwork()) and ok
 		elif want == "berry":
 			ok = _t("树果", _test_berries()) and ok
+		elif want == "platinum_maps":
+			ok = _t("神奥各剧情期的地图入口",_test_warp_reach("sinnoh")) and ok
+			ok = _t("跨地区走得通",_test_world_reach()) and ok
 		elif want == "reach":
 			ok = _t("已开放的地图入口可达", _test_warp_reach()) and ok
 			ok = _t("跨地区走得通", _test_world_reach()) and ok
@@ -831,6 +837,9 @@ func _story_use_region(rid: String) -> void:
 
 
 func _story_fire(kind: String, ctx: Dictionary) -> bool:
+	if kind=="map_enter" and world.map_data.get("id","")=="sinnoh_vista_lighthouse_elevator":
+		SinnohField.lighthouse_lift(self)
+		return true
 	if not story_on or story == null or not cur_story.is_empty():
 		return false
 	var chapter := str(world.map_data.get("region","kanto"))
@@ -848,7 +857,9 @@ func _story_fire(kind: String, ctx: Dictionary) -> bool:
 		preload("res://core/sevii_campaign.gd").sync(save_data)
 	var candidates := preload("res://core/johto_rival.gd").scene_flags(str(world.map_data.get("id","")),flags)
 	var ev: Dictionary
-	if world.map_data.has("emerald_original"):
+	if chapter=="sinnoh":
+		ev=Sinnoh.event(self,kind,ctx)
+	elif world.map_data.has("emerald_original"):
 		ev = preload("res://core/hoenn_campaign.gd").event(self,kind,ctx)
 	else:
 		ev = story.take(kind, ctx, candidates, _has_party())
@@ -872,6 +883,7 @@ func _play_story(ev: Dictionary) -> void:
 func _story_step() -> void:
 	while not story_queue.is_empty():
 		var act: Dictionary = story_queue.pop_front()
+		if Sinnoh.prompt(self,act): return
 		if preload("res://core/hoenn_campaign.gd").prompt(self,act): return
 		if act.has("johto_quiz"):
 			preload("res://core/johto_campaign.gd").quiz(self,act.johto_quiz,0)
@@ -904,14 +916,14 @@ func _story_done() -> void:
 	if _flags().get("rival_bridge",false) and _bag_count("名人传言器")==0:_give_item("名人传言器",1,"key")
 	_persist()
 	if story_abort:
-		if world.map_data.get("region","") in ["kanto","johto"]: world.refresh_story_actors(_flags())
+		if world.map_data.get("region","") in ["kanto","johto","sinnoh"]: world.refresh_story_actors(_flags())
 		story_abort = false
 		cur_story = {}
 		return
 	if not cur_story.is_empty() and story != null:
 		story.mark_finished(cur_story, _flags())
 		if cur_story.get("id","")=="h_magma_gate": world._rebuild(_flags())
-		if world.map_data.get("region","") in ["kanto","sevii","johto","hoenn"]:
+		if world.map_data.get("region","") in ["kanto","sevii","johto","hoenn","sinnoh"]:
 			world.refresh_story_actors(_flags())
 			_apply_defeated()
 		save_data["flags"] = _flags()
@@ -925,7 +937,7 @@ func _story_battle(cfg) -> void:
 	var conf: Dictionary = cfg if cfg is Dictionary else {}
 	if conf.has("johto_rival"):
 		conf = conf.merged({"team":preload("res://core/johto_campaign.gd").team(conf.johto_rival,_flags())},true)
-	conf = preload("res://core/hoenn_campaign.gd").team(conf,_flags())
+	conf = Sinnoh.team(conf,_flags()) if world.map_data.region=="sinnoh" else preload("res://core/hoenn_campaign.gd").team(conf,_flags())
 	if conf.get("double",false) and not conf.has("ally"):
 		if _make_team().filter(func(m):return int(m.hp)>0).size()<2:
 			preload("res://core/hoenn_campaign.gd").abort_event(self)
@@ -934,7 +946,8 @@ func _story_battle(cfg) -> void:
 	var nm := String(conf.get("name", "对手"))
 	var npc := {"name": nm, "battle": conf}
 	var after := func(result: String) -> void:
-		if result in ["a","caught"]:
+		if result in ["a","caught"] or (result=="fled" and conf.get("finish_on_escape",false)):
+			if result=="caught" and conf.has("capture_flag"): _flags()[conf.capture_flag]=true
 			var wf := String(conf.get("win_flag", ""))
 			if wf != "":
 				_flags()[wf] = true
@@ -948,6 +961,7 @@ func _story_battle(cfg) -> void:
 			story_abort = not conf.get("finish_on_loss",false)
 			if story_abort: story_queue.clear()
 			var stage: String = cur_story.get("id","")
+			if world.map_data.region=="sinnoh": Sinnoh.lost_league(self,stage)
 			preload("res://core/hoenn_campaign.gd").lost_league(self,stage)
 			if stage in ["kanto_loreleis_win","kanto_brunos_win","kanto_agathas_win","kanto_lances_win","kanto_champions_win"] or stage.begins_with("repeat_kanto_"):
 				preload("res://core/kanto_campaign.gd").lost_league(self)
@@ -969,6 +983,7 @@ func _story_battle(cfg) -> void:
 
 ## 单个剧情动作
 func _story_do(act: Dictionary) -> void:
+	Sinnoh.action(self,act)
 	preload("res://core/hoenn_campaign.gd").action(self,act)
 	var flags := _flags()
 	if act.has("johto_stage"):
@@ -995,7 +1010,7 @@ func _story_do(act: Dictionary) -> void:
 	if act.has("scene_cast"):
 		var temporary := {"sevii_" + str(act.scene_cast):true}
 		world.refresh_story_actors(flags.merged(temporary,true))
-	if act.get("hall_of_fame") in ["johto","kanto","hoenn"]:
+	if act.get("hall_of_fame") in ["johto","kanto","hoenn","sinnoh"]:
 		if act.hall_of_fame=="kanto" and not flags.get("kanto_champion",false):flags.fr_hof_count=1
 		johto_league.register_team(save_data,act.hall_of_fame)
 		_persist()
@@ -1095,7 +1110,7 @@ func _on_action() -> void:
 		return
 	if panel_open > 0 or world.walking:
 		return
-	if world.map_data.has("emerald_original") and _story_fire("field",{"at":world.player_pos+world._dir_vec()}): return
+	if (world.map_data.has("emerald_original") or world.map_data.has("platinum_native")) and _story_fire("field",{"at":world.player_pos+world._dir_vec()}): return
 	# 站在道具球上按 A 直接捡：球已经不挡路，人是踩着它站上去的，
 	# 这时候面前是空地，以前就永远捡不到（看着有球、按不到，就是这个原因）
 	var here: Dictionary = world.object_at(world.player_pos)
@@ -1138,7 +1153,7 @@ func _on_action() -> void:
 			var npc_row: Dictionary = world.last_npc
 			world.last_npc = {}
 			# 有剧情先播剧情，没有才走普通台词
-			if not _story_fire("talk", {"npc": String(npc_row.get("name", "")), "actor":npc_row.get("role",""),
+			if not _story_fire("talk", {"npc": String(npc_row.get("name", "")), "actor":npc_row.get("role",""),"local_id":npc_row.get("local_id",""),"source_script":npc_row.get("source_script",""),"row":npc_row,
 					"map": String(npc_row.get("story_map",world.map_data.get("id", "")))}):
 				_talk_to_npc(npc_row)
 		else:
@@ -1160,9 +1175,11 @@ func _required_field_badge(key: String) -> String:
 	return badge if badge not in Journey.badges(save_data,str(world.map_data.region)) else ""
 
 func _party_can_move(key: String) -> bool:
+	if world.map_data.region=="sinnoh": return SinnohSide.field_unlocked(self,key)
 	return _required_field_badge(key).is_empty() and _party_has_move(key)
 
 func _field_move_hint(key: String, move_name: String) -> String:
+	if world.map_data.region=="sinnoh": return "需要在神奥取得对应的秘传学习器和徽章，并让队员学会%s。" % move_name
 	var badge := _required_field_badge(key)
 	if not badge.is_empty(): return "获得%s后才能在场外使用%s。" % [badge,move_name]
 	return "队伍中需要有会%s的宝可梦。" % move_name
@@ -1508,6 +1525,17 @@ func _update_music() -> void:
 
 func _do_warp(target: Dictionary) -> void:
 	var destination_region := str(target.get("region",""))
+	if destination_region=="sinnoh":
+		if _offer_chapter("sinnoh"): return
+		target=Sinnoh.destination(target,_flags(),world.map_data)
+		target=SinnohSide.destination(self,target)
+		var message := Sinnoh.gate(target,_flags(),world.map_data)
+		if message.is_empty(): message=SinnohSide.gate(self,target)
+		if not message.is_empty():
+			held_dir=""
+			run_held=false
+			_dialog([message])
+			return
 	var ride: Dictionary = save_data.get("hoenn_truck",{})
 	var truck_exit: bool = target.get("map")=="littleroot_town" and target.get("at",[]).size()==2 and int(target.at[0])==3 and int(target.at[1])==10
 	if world.map_data.id == "em_inside_of_truck" and truck_exit and not ride.is_empty() and not target.get("regional_travel",false):
@@ -1595,6 +1623,8 @@ func _do_warp(target: Dictionary) -> void:
 		print("[warp] 目标地图缺失 ", target)
 		_dialog(["这扇门打不开。"], "")
 		return
+	if next_map.has("platinum_native") and not target.get("platinum_native",false) and not world.map_data.has("platinum_native"):
+		target=target.merged({"at":next_map.spawn,"platinum_native":true},true)
 	if story_on and destination_region == "hoenn" and not target.get("transport_selected",false) and (destination_region != str(world.map_data.region) or target.get("regional_travel",false)):
 		_offer_hoenn_transport(target)
 		return
@@ -1610,13 +1640,18 @@ func _do_warp(target: Dictionary) -> void:
 	preload("res://core/emerald_cycling.gd").transfer(self,next_map,target)
 	preload("res://core/hoenn_items.gd").leave(self,next_map)
 	preload("res://core/hoenn_campaign.gd").leave_league(world.map_data,next_map,_flags())
+	Sinnoh.leave_league(world.map_data,next_map,_flags())
+	if world.map_data.has("platinum_native") and world.map_data.id!=next_map.id:
+		for obstacle in world.objects:
+			if obstacle.get("platinum_obstacle",false): _flags().erase(world._object_key(obstacle))
 	world.load_map(next_map)
 	preload("res://core/hoenn_match_call.gd").arrive(self)
 	world.arrive(target)
+	if next_map.has("platinum_native") and not SinnohField.field(next_map.id).get("bike",false): world.bike=false
 	if target.get("sea_connection",false):
 		world.surfing=world.is_water(world.player_pos)
 		world._sync_player()
-	if next_map.region in ["kanto","sevii","johto","hoenn"] and next_map.get("npcs",[]).any(func(n):return n.get("heal",false) and n.get("name","")=="护士"):
+	if next_map.region in ["kanto","sevii","johto","hoenn","sinnoh"] and next_map.get("npcs",[]).any(func(n):return n.get("heal",false) and n.get("name","")=="护士"):
 		save_data["last_pokemon_center"] = {"region":next_map.region,"map":next_map.id,"at":next_map.spawn.duplicate()}
 		save_data.get_or_add("centers",{})[next_map.region] = save_data.last_pokemon_center
 	_start_after_step = false
@@ -1648,7 +1683,7 @@ func _after_step() -> void:
 		if save_data.js_repel==0:_show_toast("除虫喷雾的效果消失了。")
 	preload("res://core/johto_items.gd").field_step(self)
 	preload("res://core/sevii_campaign.gd").request_step(save_data)
-	if _flags().get("got_vs_seeker",false) and int(save_data.get("vs_charge",100)) < 100:
+	if (_flags().get("got_vs_seeker",false) or _flags().get("s_seeker",false)) and int(save_data.get("vs_charge",100)) < 100:
 		save_data["vs_charge"] += 1
 	# A door owns the entire step until the arrival animation finishes.
 	if not world.pending_warp.is_empty():
@@ -1693,6 +1728,7 @@ func _after_step() -> void:
 	if _story_fire("step", {"map": String(world.map_data.get("id", "")),
 			"x": world.player_pos.x, "y": world.player_pos.y}):
 		return
+	if world.map_data.region=="sinnoh" and (SinnohSide.step(self) or SinnohField.challenge(self)): return
 	_try_encounter()
 
 ## 踩进高草就摇一次骰子；需要判定「刚踩进去」，站在原地看着不算
@@ -1754,7 +1790,12 @@ func _try_encounter() -> void:
 					pool = z.get("encounters", [])
 					rate = float(z.get("rate", 0.0))
 				break
-	if pool.is_empty() and not crystal_map and not world.map_data.has("emerald_original"):
+	if world.map_data.has("platinum_native"):
+		var area := SinnohField.field(world.map_data.id)
+		pool=area.get("surf",[]) if on_sea else SinnohField.land(area,int(Time.get_time_dict_from_system().hour))
+		if not on_sea and world.map_data.id=="sinnoh_trophy_garden":pool=SinnohSide.Dailies.garden_pool(save_data,pool)
+		rate=float(area.get("surf_rate" if on_sea else "land_rate",0.0))
+	if pool.is_empty() and not crystal_map and not world.map_data.has("platinum_native") and not world.map_data.has("emerald_original"):
 		var reg: Dictionary = Data.load_region(String(world.map_data.get("region", "")))
 		pool = reg.get("encounters", [])
 		rate = float(reg.get("encounter_rate", 0.12))
@@ -1866,6 +1907,8 @@ func _open_shop() -> void:
 
 ## 告示牌 / 道具球 / 树果树 / 土：按 A 之后的分流
 func _handle_object(o: Dictionary) -> void:
+	if world.map_data.region=="sinnoh" and preload("res://core/sinnoh_contests.gd").photo(self,o): return
+	if world.map_data.region=="sinnoh" and SinnohSide.object_action(self,o): return
 	if preload("res://core/crystal_arcade.gd").machine(self,o):return
 	if preload("res://core/hoenn_items.gd").object_action(self,o): return
 	if preload("res://core/johto_items.gd").shrine(self,o): return
@@ -2015,6 +2058,7 @@ func _record_hatch() -> void:
 	TravelStories.record(self,"HATCHED_EGGS")
 
 func _tick_egg() -> void:
+	SinnohSide.tick_eggs(self)
 	preload("res://core/johto_items.gd").tick_egg(self)
 	var egg: Dictionary = save_data.get("egg", {})
 	if egg.is_empty():
@@ -2272,7 +2316,10 @@ func _fish(rod: String = "") -> void:
 			return
 		rod = str(owned[0])
 	var pool: Array = FISH_TABLE
-	if world.map_data.has("emerald_original"):
+	if world.map_data.has("platinum_native"):
+		var rank := 1 if rod=="钓竿" else RODS.find(rod)
+		pool=SinnohField.field(world.map_data.id).get(["old_rod","good_rod","super_rod"][rank],[]) if rank>=0 else []
+	elif world.map_data.has("emerald_original"):
 		var pools: Array = preload("res://core/hoenn_items.gd").data().fishing.get(world.map_data.source_id,[])
 		var rank := RODS.find(rod) if rod!="钓竿" else 1
 		pool=pools[rank] if rank>=0 and rank<pools.size() else []
@@ -2501,6 +2548,10 @@ func _talk_to_npc(npc: Dictionary) -> void:
 	if story_on and rid in Journey.HOMES and not save_data.get("chapters",{}).has(rid) and not npc.get("transit",false) and (npc.has("gives_mon") or npc.has("badge") or (rid=="hoenn" and npc.has("source_script") and not npc.get("heal",false) and not npc.get("shop",false))):
 		_offer_chapter(rid)
 		return
+	if rid=="sinnoh":
+		if preload("res://core/sinnoh_contests.gd").talk(self,npc): return
+		if preload("res://core/sinnoh_frontier.gd").talk(self,npc): return
+		if SinnohSide.talk(self,npc): return
 	if preload("res://core/hoenn_items.gd").talk(self,npc): return
 	if not npc.is_empty() and preload("res://core/johto_items.gd").talk(self,npc): return
 	if npc.is_empty():
@@ -2780,7 +2831,7 @@ func _party_fainted() -> bool:
 
 func _blackout() -> void:
 	var region := str(world.map_data.region)
-	if region not in ["kanto","sevii","johto","hoenn"]: return
+	if region not in ["kanto","sevii","johto","hoenn","sinnoh"]: return
 	var home: Dictionary = Journey.HOMES.get(region,Journey.HOMES.kanto).merged({"region":"kanto" if region=="sevii" else region})
 	if region == "hoenn" and _flags().get("h_started",false):
 		home = {"region":region,"map":"littleroot_town","at":[3,10]}
@@ -2829,7 +2880,7 @@ func _apply_defeated() -> void:
 	var key := "%s/%s" % [String(world.map_data.get("region", "")), String(world.map_data.get("id", ""))]
 	var arr: Array = (save_data.get("defeated", {}) as Dictionary).get(key, [])
 	for n in world.npcs:
-		if arr.has(String(n.get("name", ""))):
+		if _flags().get("s_trainer_"+str(n.get("platinum_trainer","")),false) or arr.has(String(n.get("name", ""))):
 			n["defeated"] = true
 
 func _use_vs_seeker() -> void:
@@ -2841,6 +2892,7 @@ func _use_vs_seeker() -> void:
 	var key := "%s/%s" % [world.map_data.region,world.map_data.id]
 	var defeated: Array = save_data.get("defeated",{}).get(key,[])
 	var outdoors: bool = world.map_data.get("id","") == "kanto_main" or (world.map_data.region == "sevii" and world.map_data.get("cycling",false))
+	if world.map_data.has("platinum_native"): outdoors=SinnohField.field(world.map_data.id).get("fly",false)
 	if outdoors:
 		for trainer in world.npcs:
 			if not trainer.has("battle") or trainer.has("role") or trainer.has("badge") or not defeated.has(trainer.name):
@@ -2868,7 +2920,9 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 	# 支持整队：道馆馆主不是一只，队伍按原版配置来
 	var enemy: Array = []
 	var team = cfg.get("team", cfg.get("party", []))
-	if team is Array and not (team as Array).is_empty():
+	if cfg.get("platinum_battle",false):
+		enemy=cfg.enemy.duplicate(true)
+	elif team is Array and not (team as Array).is_empty():
 		for e in team:
 			var sid := int(e.get("species", 143))
 			var lv := int(e.get("level", 10))
@@ -2890,12 +2944,22 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 			mvs2 = EncounterScript.moves_for(sid2, lv2)
 		enemy.append(BattleScript.make_combatant(sid2, lv2, mvs2))
 	var mine: Array = cfg.crystal_party.duplicate(true) if cfg.has("crystal_party") else _make_team()
-	if cfg.get("ally","")=="steven":
+	if cfg.get("platinum_battle",false): mine=cfg.player.duplicate(true)
+	var first_partner: Dictionary = {}
+	if cfg.get("sinnoh_starter_only",false):
+		first_partner=SinnohField.partner(save_data)
+		if first_partner.is_empty():
+			push_error("Platinum starter missing before first rival battle")
+			return
+		mine=[first_partner.duplicate(true)]
+		team_slots=[]
+	if cfg.get("ally","") in ["steven","sinnoh"]:
 		# The allied trainers bring three each. Keep the player's party/PC slots intact.
 		mine = mine.slice(0,3)
 		team_slots.resize(mini(3,team_slots.size()))
 		for mon in mine: mon.trainer_group="first"
-		for row in preload("res://core/hoenn_campaign.gd").data().steven:
+		var partners: Array = cfg.ally_team if cfg.ally=="sinnoh" else preload("res://core/hoenn_campaign.gd").data().steven
+		for row in partners:
 			var partner := BattleScript.make_combatant(int(row.species),int(row.level),row.moves)
 			partner.trainer_group="second"
 			mine.append(partner)
@@ -2904,13 +2968,14 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 	layer.layer = 6
 	add_child(layer)
 	var ui = preload("res://scenes/double_battle_ui.gd").new() if cfg.get("double",false) else BattleUI.new()
-	if cfg.get("double",false): ui.companion=cfg.get("ally","")=="steven"
+	if cfg.get("double",false): ui.companion=cfg.get("ally","") in ["steven","sinnoh"]
 	ui.backdrop = _battle_backdrop()
-	ui.observe_variant = _battle_variant_seen.bind(PartyScript.occupied(save_data.get("party", [])) > 0)
+	if not cfg.get("platinum_battle",false): ui.observe_variant = _battle_variant_seen.bind(PartyScript.occupied(save_data.get("party", [])) > 0)
 	active_battle = ui
 	held_dir = ""
 	layer.add_child(ui)
-	ui.setup(mine, enemy, rng.randi(), [] if cfg.has("crystal_party") else bag_items, String(npc.get("name", "训练家")))
+	ui.setup(mine, enemy, rng.randi(), [] if cfg.has("crystal_party") or cfg.get("platinum_battle",false) else bag_items, String(npc.get("name", "训练家")))
+	SinnohSide.capsule_effect(ui,mine)
 	if _has_party():TravelStories.record(self,"TRAINER_BATTLES")
 	ui.item_used.connect(func(nm: String) -> void:
 		for it in bag_items:
@@ -2919,7 +2984,14 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 	_set_hud_visible(false)
 	ui.finished.connect(func(result: String) -> void:
 		active_battle = null
-		if not cfg.has("crystal_party"):_writeback_team(ui.player_team)
+		if cfg.get("platinum_battle",false):
+			for i in mini(ui.player_team.size(),cfg.player.size()):
+				_writeback_mon(cfg.player[i],ui.player_team[i])
+				cfg.player[i].status=ui.player_team[i].get("status","")
+		elif not first_partner.is_empty():
+			_writeback_mon(first_partner,ui.player_team[0])
+		elif not cfg.has("crystal_party"): _writeback_team(ui.player_team)
+		if result=="a": SinnohSide.heal_companions(self)
 		if result=="a" and not cfg.get("tower",false):preload("res://core/hoenn_match_call.gd").after_battle(self,false)
 		snd.play_sfx("confirm")
 		snd.stop_music()
@@ -2929,9 +3001,14 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 			_persist()
 		elif result == "a":
 			var npc_name := String(npc.get("name", ""))
+			if npc.has("platinum_trainer"):
+				_flags()["s_trainer_"+str(npc.platinum_trainer)]=true
 			if npc.has("league_flag"):
 				_flags()[npc.league_flag] = true
 			_mark_defeated(npc_name)
+			if npc.has("platinum_trainer"):
+				world.refresh_story_actors(_flags())
+				_apply_defeated()
 			var lv := int(cfg.get("level", 0))
 			if lv == 0 and not enemy.is_empty():
 				lv = int((enemy[0] as Dictionary).get("level", 10))
@@ -2945,7 +3022,7 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 				_grant_badge(badge)
 				if not have:
 					_show_toast("获得 %s！" % badge)
-			_award_exp(enemy, prize, badge if is_leader else "")
+			_award_exp(enemy, prize, badge if is_leader else "", first_partner)
 		elif result=="b" and not on_done.is_valid() and not npc.has("league_flag") and _party_fainted():
 			_blackout()
 		elif npc.has("league_flag"):
@@ -2965,10 +3042,14 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 	)
 
 ## 野外一只，打或抓都行。抓到就入队，队伍满了记进 box。
+
 func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_done := Callable(), shiny_kind := "", borrowed: int = 0, roamer := {}) -> void:
+	if world.map_data.region=="sinnoh": form_key=SinnohSide.wild_form(self,species_id,form_key)
+	if world.map_data.region=="sinnoh" and SinnohSide.marsh_encounter(self,species_id,level,form_key): return
 	if preload("res://core/hoenn_safari.gd").encounter(self,species_id,level,form_key):return
 	if preload("res://core/frlg_safari.gd").encounter(self,species_id,level,form_key):return
-	var mon := PartyScript.make(species_id, level, EncounterScript.moves_for(species_id, level), form_key)
+	var roster_moves := SinnohSide.moves_for(species_id,level,form_key) if world.map_data.region=="sinnoh" else EncounterScript.moves_for(species_id,level)
+	var mon := PartyScript.make(species_id, level, roster_moves, form_key)
 	PartyScript.set_shiny_kind(mon, shiny_kind if shiny_kind != "" else PartyScript.roll_shiny(appearance_rng))
 	if not roamer.is_empty():mon=roamer.duplicate(true)
 	var enemy := [mon.duplicate(true)]
@@ -2993,6 +3074,7 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 	held_dir = ""
 	layer.add_child(ui)
 	ui.setup(mine, enemy, rng.randi(), supplies)
+	SinnohSide.capsule_effect(ui,mine)
 	if not roamer.is_empty():ui.battle.cur_b().fr_roaming=true
 	ui.item_used.connect(func(nm: String) -> void:
 		if contest:
@@ -3012,6 +3094,7 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 			roamer.status=roaming.get("status","")
 			roamer.pp=roaming.pp.duplicate()
 		if borrowed==0: _writeback_team(ui.player_team)
+		if borrowed==0 and result!="b": SinnohSide.heal_companions(self)
 		if borrowed==0:
 			preload("res://core/hoenn_match_call.gd").after_battle(self,true)
 			preload("res://core/hoenn_daily.gd").wild_news(self)
@@ -3046,14 +3129,15 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 	)
 
 ## 打赢后给队伍里没过劳的成员分经验；升满级的不再涨
+
 func _grant_badge(badge: String) -> void:
 	Journey.grant(save_data,str(world.map_data.region),badge)
 	preload("res://core/frlg_actors.gd").migrate_progress(save_data)
 	# 拿到徽章就触发对应的剧情台词
 	_story_fire("badge", {"badge": badge})
 
-func _award_exp(enemies: Array, prize: int = 0, badge: String = "") -> void:
-	var party: Array = save_data.get("party", [])
+func _award_exp(enemies: Array, prize: int = 0, badge: String = "", only: Dictionary = {}) -> void:
+	var party: Array = save_data.get("party", []) if only.is_empty() else [only]
 	var notes: Array = []
 	var evolved: Array = []
 	for i in party.size():
@@ -3086,7 +3170,7 @@ func _award_exp(enemies: Array, prize: int = 0, badge: String = "") -> void:
 					DexVariants.record(save_data, mon, true)
 					TravelStories.record(self,"EVOLVED_POKEMON")
 					evolved.append("%s 进化成了 %s！" % [old_name, String(mon.get("name", "?"))])
-	save_data["party"] = PartyScript.compact(party)
+	if only.is_empty(): save_data["party"] = PartyScript.compact(party)
 	_persist()
 	var text := ""
 	if not notes.is_empty():
@@ -3104,7 +3188,8 @@ func _award_exp(enemies: Array, prize: int = 0, badge: String = "") -> void:
 func _learn_new_moves(mon: Dictionary, from_lv: int = 0, to_lv: int = 0) -> void:
 	var moves: Array = mon.get("moves", [])
 	var pp: Array = mon.get("pp", [])
-	var got: Array = GrowthScript.moves_learned(mon, from_lv, to_lv)
+	var learnset := SinnohSide.learnset(int(mon.species_id),str(mon.get("form",""))) if world.map_data.get("region","")=="sinnoh" else []
+	var got: Array = GrowthScript.moves_learned(mon, from_lv, to_lv, learnset)
 	for id in got:
 		var mid := int(id)
 		if moves.any(func(id):return int(id)==mid) or not Data.moves.has(mid):
@@ -3120,6 +3205,7 @@ func _learn_new_moves(mon: Dictionary, from_lv: int = 0, to_lv: int = 0) -> void
 		var worst_power := 9999
 		for i in moves.size():
 			if world.map_data.has("emerald_original") and preload("res://core/hoenn_items.gd").data().learn.has(str(int(moves[i]))): continue
+			if world.map_data.get("region","")=="sinnoh" and int(moves[i]) in [15,19,57,70,432,249,127,431]: continue
 			var pw := int((Data.move_of(int(moves[i])) as Dictionary).get("power", 0))
 			if pw < worst_power:
 				worst_power = pw
@@ -3193,6 +3279,7 @@ func _process(delta: float) -> void:
 	# 先推进走路时间，再读输入：同一帧走完就能立刻迈下一步，不会每格顿一下
 	# 按住 B 跑步：和原版一致，8 帧一格（正好两倍速）
 	var can_run: bool = not world.map_data.has("emerald_original") or (world.map_data.get("allow_running",false) and preload("res://core/hoenn_items.gd").received(_flags(),"ITEM_RUNNING_SHOES"))
+	if world.map_data.has("platinum_native"): can_run=_flags().get("s_running",false) and SinnohField.field(world.map_data.id).get("run",false)
 	world.running = ((run_held and can_run) or world.bike) and panel_open == 0
 	var changing_map: bool = not world.pending_warp.is_empty()
 	world.tick_walk(delta)
@@ -4184,7 +4271,7 @@ func _test_map_graph() -> bool:
 
 func _tile_blocked(m: Dictionary, x: int, y: int, cache: Dictionary) -> bool:
 	var size: Array = m.get("size", [0, 0])
-	if m.has("emerald_original"):
+	if m.has("emerald_original") or m.has("platinum_native"):
 		if x<0 or y<0 or x>=int(size[0]) or y>=int(size[1]): return true
 		return bool(m.physics.collision[y][x])
 	if m.has("hgss"):
@@ -4925,6 +5012,11 @@ func _test_held_items() -> bool:
 			shop_held[goods["held"]] = true
 	var quest_held: Dictionary = preload("res://core/johto_items.gd").QUEST_HELD.duplicate()
 	quest_held.merge(preload("res://core/hoenn_items.gd").QUEST_HELD)
+	var sinnoh_prizes: Dictionary = SinnohSide.data()
+	for prize in sinnoh_prizes.game_prizes:
+		var prize_key := str(prize[0])
+		if sinnoh_prizes.items.has(prize_key) and sinnoh_prizes.items[prize_key][1] == "held" and int(prize[1]) > 0:
+			quest_held[prize_key] = ["sinnoh_veilstone_city_prize_exchange", sinnoh_prizes.items[prize_key][0]]
 	for key in Data.held_items:
 		if Data.held_items[key].get("category","")=="tm": continue
 		if quest_held.has(key):
@@ -6932,8 +7024,9 @@ func _test_world_reach() -> bool:
 	var start := "kanto/pallet_town_players_house_2f"
 	var seen: Dictionary=passages.reachable(start,maps)
 	var returns: Dictionary=passages.reachable(start,graph.reverse)
-	if returns.size()!=maps.size():
-		print("reach dbg: 无法返回起点 ", maps.keys().filter(func(k): return not returns.has(k)))
+	var unreachable: Array=maps.keys().filter(func(k): return not returns.has(k) and not graph.technical.has(k))
+	if not unreachable.is_empty():
+		print("reach dbg: 无法返回起点 ",unreachable)
 		return false
 	var must := [
 		"kanto/pallettown_professoroakslab", "kanto/pewtercity_gym", "kanto/indigo_plateau_pokemon_center_1f",
@@ -6967,12 +7060,9 @@ func _test_world_reach() -> bool:
 		ok = false
 	print("reach dbg: 关都 %d、城都 %d，共 %d 张可达" % [nk, nj, seen.size()])
 	# 不许有到不了的地图：剩下的每一张都必须能走到，不然就等于摆着骗人
-	if seen.size() != maps.size():
-		var lost: Array = []
-		for k in maps.keys():
-			if not seen.has(k):
-				lost.append(String(k))
-		print("reach dbg: 还有 %d 张地图走不到 %s" % [lost.size(), str(lost.slice(0, 8))])
+	var lost: Array = maps.keys().filter(func(k):return not seen.has(k) and not graph.technical.has(k))
+	if not lost.is_empty():
+		print("reach dbg: 还有 %d 张地图走不到 %s" % [lost.size(), str(lost)])
 		ok = false
 	return ok
 
@@ -7076,20 +7166,24 @@ func _test_gyms() -> bool:
 const HoennDoorAudit := preload("res://core/hoenn_door_audit.gd")
 
 ## Verify each original entrance from the published arrivals and field progression.
-func _test_warp_reach() -> bool:
+func _test_warp_reach(only_region: String="") -> bool:
 	var all_reached := true
 	var scoped := {}
 	var low_tide_reached := {}
 	var low_tide_only := []
 	var field_flags: Dictionary=HoennDoorAudit.completed_field()
+	var platinum_flags: Dictionary=preload("res://core/platinum_door_audit.gd").completed_field()
 	var previous_taken: Dictionary=world.taken
 	var maps := _all_maps()
 	var arrivals: Dictionary = preload("res://core/world_passages.gd").graph(maps).arrivals
 	for room in maps:
 		var rid := str(room.rid)
+		if not only_region.is_empty() and only_region!=rid: continue
+		if room.m.get("platinum_technical",false): continue
 		var mid := str(room.mid)
 		var native: bool=room.m.has("emerald_original")
-		world.taken=field_flags.duplicate(true) if native else previous_taken
+		var platinum: bool=room.m.has("platinum_native")
+		world.taken=platinum_flags.duplicate(true) if platinum else field_flags.duplicate(true) if native else previous_taken
 		world.load_map(room.m)
 		var sp: Array = room.m.get("spawn", [0, 0])
 		var seed := {}
@@ -7101,7 +7195,7 @@ func _test_warp_reach() -> bool:
 			seed[Vector2i(int(sp[0]), int(sp[1]))] = true
 		if mid in ["mt_ember_exterior","six_island_ruin_valley"]:
 			world.refresh_story_actors(OPEN_FIELD_FLAGS)
-		var seen := HoennDoorAudit.walk(world,seed) if native else _walkable_from(seed)
+		var seen := HoennDoorAudit.walk(world,seed) if native else preload("res://core/platinum_door_audit.gd").walk(world,seed) if platinum else _walkable_from(seed)
 		if mid.begins_with("victoryroad_"):
 			# The upper drop is physically reached after the third-floor Strength puzzle.
 			var solved := {"btn:victoryroad_1f:20,16":true,"btn:victoryroad_2f:2,19":true,
@@ -8630,7 +8724,7 @@ func _offer_chapter(region: String, truck := false) -> bool:
 	if not story_on or region not in Journey.HOMES or save_data.get("chapters",{}).has(region): return false
 	held_dir = ""
 	run_held = false
-	if not _has_party():
+	if region!="sinnoh" and not _has_party():
 		_begin_chapter(region,"carried",truck)
 		return true
 	_pick("初到%s · 现有队伍怎么安排？" % Journey.NAMES[region],["带现有队伍出发","寄存队伍，重新组队"],func(i: int) -> void:
@@ -8759,6 +8853,8 @@ func _pick(title: String, options: Array, cb: Callable, on_cancel := Callable())
 
 ## 背包里点中一件东西：能用的都真的用掉，不能用的说清为什么
 func _use_bag_item(nm: String) -> void:
+	if _bag_count(nm)>0 and preload("res://core/sinnoh_contests.gd").use_item(self,nm): return
+	if _bag_count(nm)>0 and SinnohSide.use(self,nm): return
 	if nm=="开拓通行证" and _bag_count(nm)>0:
 		var frontier: Dictionary=_flags().get("h_frontier_run",{})
 		if world.map_data.id==preload("res://core/frontier_maze.gd").FLOOR and not frontier.is_empty():preload("res://core/frontier_challenge.gd").manage(self,frontier)
@@ -9251,6 +9347,11 @@ func _mark_fly_visits() -> void:
 	var reg := String(world.map_data.get("region", ""))
 	var flags := _flags()
 	var dirty := false
+	if reg=="sinnoh":
+		if mid in SinnohField.TOWNS and not flags.get("s_visited_"+mid,false):
+			flags["s_visited_"+mid]=true
+			_persist()
+		return
 	var path := reg + "/" + mid
 	var town: String = world.area_name() if mid == "kanto_main" else ""
 	for sp in (preload("res://core/hoenn_items.gd").data().fly if world.map_data.has("emerald_original") else FLY_SPOTS):
@@ -9267,6 +9368,18 @@ func _mark_fly_visits() -> void:
 
 
 func _open_fly() -> void:
+	if world.map_data.region=="sinnoh":
+		if not SinnohField.field(world.map_data.id).get("fly",false) or not _party_can_move("FLY"):
+			_show_toast("需要在能起飞的户外，取得神奥飞翔许可并带上会飞翔的队员。")
+			return
+		var visited := SinnohField.fly(_flags())
+		if visited.is_empty(): return
+		_pick("要飞到哪里？",visited.map(func(s):return s.name),func(i: int) -> void:
+			var mid := str(visited[i].map).get_slice("/",1)
+			var map: Dictionary = Data.load_map("sinnoh",mid)
+			_do_warp({"region":"sinnoh","map":mid,"at":map.spawn,"platinum_native":true,"facing":"down"})
+			_persist())
+		return
 	if world.map_data.has("emerald_original") and world.map_data.get("map_type","") not in ["MAP_TYPE_ROUTE","MAP_TYPE_TOWN","MAP_TYPE_CITY","MAP_TYPE_OCEAN_ROUTE"]:
 		_show_toast("先走到户外再使用飞翔。")
 		return
@@ -9296,6 +9409,28 @@ func _open_fly() -> void:
 
 ## 秘传：不用翻背包分类，直接在菜单里挑一招、挑一只队伍宝可梦来教
 func _open_hm() -> void:
+	if world.map_data.region=="sinnoh":
+		var numbers := []
+		var labels: Array = []
+		var names := ["居合斩","飞翔","冲浪","怪力","清除浓雾","碎岩","攀瀑","攀岩"]
+		for i in 8:
+			if _flags().get("s_hm_"+str(i+1),false):
+				numbers.append(i+1)
+				labels.append(names[i])
+		if numbers.is_empty():
+			_dialog(["还没有神奥的秘传学习器。黑金关口的登山男会交给你碎岩。"])
+			return
+		_pick("神奥秘传",labels,func(i: int) -> void:
+			var n := int(numbers[i])
+			if n!=2 or not _party_can_move("FLY"):
+				SinnohSide.teach(self,n)
+				return
+			_pick("飞翔",["使用飞翔","教给队员"],func(op: int) -> void:
+				if op==0:
+					_close_start_menu()
+					_open_fly()
+				else: SinnohSide.teach(self,n)))
+		return
 	if world.map_data.region=="hoenn" and preload("res://core/emerald_legends.gd").ritual(self):return
 	var labels: Array = []
 	var mvs: Array = []
@@ -9398,6 +9533,13 @@ func _open_pc(include_delivery:=true) -> void:
 
 ## 骑车：队伍外也能用，速度翻倍，还能骑在路上
 func _toggle_bike() -> void:
+	if world.map_data.has("platinum_native") and not world.bike:
+		if not SinnohField.field(world.map_data.id).get("bike",false) or world.surfing:
+			_show_toast("这里不能骑自行车。")
+			return
+		if not _flags().get("s_bike",false):
+			_show_toast("请先到百代市的自行车店领车。")
+			return
 	if preload("res://core/emerald_cycling.gd").blocks_dismount(self):return
 	if world.map_data.has("emerald_original") and (not world.map_data.get("allow_cycling",false) or world.surfing or world.diving):
 		_show_toast("这里不能骑自行车。")
@@ -9478,17 +9620,20 @@ func _writeback_team(combatants: Array) -> void:
 		var dst = party[slot]
 		if not (dst is Dictionary) or (dst as Dictionary).is_empty():
 			continue
-		var mx := int(dst.get("max_hp", 1))
-		dst["hp"] = clampi(int(src.get("hp", mx)), 0, mx)
-		dst["hp_text"] = "%d/%d" % [int(dst["hp"]), mx]
-		if src.has("pp"):
-			dst["pp"] = (src["pp"] as Array).duplicate()
-		if src.has("moves"):
-			dst["moves"] = (src["moves"] as Array).duplicate()
-		if src.has("level"):
-			dst["level"] = int(src["level"])
-		if src.get("spent_gene", false) and dst.get("held", "") == "BERSERK_GENE":
-			dst["held"] = ""
+		_writeback_mon(dst,src)
+
+func _writeback_mon(dst: Dictionary, src: Dictionary) -> void:
+	var mx := int(dst.get("max_hp", 1))
+	dst["hp"] = clampi(int(src.get("hp", mx)), 0, mx)
+	dst["hp_text"] = "%d/%d" % [int(dst["hp"]), mx]
+	if src.has("pp"):
+		dst["pp"] = (src["pp"] as Array).duplicate()
+	if src.has("moves"):
+		dst["moves"] = (src["moves"] as Array).duplicate()
+	if src.has("level"):
+		dst["level"] = int(src["level"])
+	if src.get("spent_gene", false) and dst.get("held", "") == "BERSERK_GENE":
+		dst["held"] = ""
 
 ## 图鉴：见过 / 抓到分别记
 func _dex_mark(species_id: int, caught: bool) -> void:

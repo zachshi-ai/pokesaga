@@ -8,6 +8,7 @@ const HoennMechanisms := preload("res://core/hoenn_mechanisms.gd")
 var hoenn_local := {}
 
 const EmeraldField := preload("res://core/emerald_field.gd")
+const SinnohCast := preload("res://core/sinnoh_cast.gd")
 const JohtoCast := preload("res://core/johto_gba_cast.gd")
 const TILE := 16
 const ATLAS_PATH := "res://assets/tiles_emerald.png"
@@ -94,6 +95,7 @@ var _decor_nodes: Array = []
 var _decal_shade: Texture2D
 var _tile_nodes: Array = []
 var _player_sprite: Sprite2D
+var _ride_stone: Sprite2D
 var _player_shadow: Sprite2D
 var _shadow_tex: Texture2D
 var _npc_nodes: Array = []
@@ -191,6 +193,9 @@ var emerald_chunks: Array = []
 var _prev_facing := ""
 
 func load_map(data: Dictionary) -> void:
+	if data.get("platinum_flower","")=="closed" and taken.get("s_flower_path",false):
+		data=JSON.parse_string(FileAccess.get_file_as_string("res://content/platinum_native/flower/%s.json" % data.id))
+		preload("res://core/sinnoh_field.gd").populate(data)
 	if data.get("id","")==preload("res://core/emerald_lilycove_lady.gd").MAP and get_parent() and get_parent().has_method("_flags"):
 		data=data.duplicate()
 		data.npcs=data.npcs.duplicate(true)
@@ -213,7 +218,7 @@ func load_map(data: Dictionary) -> void:
 	_directional_passages.clear()
 	for w in preload("res://core/world_passages.gd").active(data):
 		var p := Vector2i(int(w.at[0]), int(w.at[1]))
-		if data.has("emerald_original") and WARP_DIR.has(w.get("trigger","")):
+		if (data.has("emerald_original") or data.has("platinum_native")) and WARP_DIR.has(w.get("trigger","")):
 			_directional_passages[[p,WARP_DIR[w.trigger]]]=w
 		if not _passages.has(p):
 			_passages[p] = w
@@ -225,7 +230,7 @@ func load_map(data: Dictionary) -> void:
 	walk_timer = 0.0
 	frame_col = 0
 	var em: String = String(data.get("emerald", ""))
-	if em != "":
+	if em != "" or data.has("platinum_native"):
 		_load_emerald_map(em)
 		return
 	# 切到自建图（开拓区这类）必须把原版地图的几张表清掉，
@@ -269,13 +274,14 @@ func load_map(data: Dictionary) -> void:
 func _load_emerald_map(name: String) -> void:
 	var meta_path := "res://content/emerald_maps/%s.json" % name
 	var meta: Dictionary = {}
-	if map_data.has("emerald_original"):
+	if map_data.has("emerald_original") or map_data.has("platinum_native"):
 		meta=map_data.physics
 	elif map_data.has("hgss"):
 		meta = preload("res://core/hgss_field.gd").grids(map_data.hgss)
 	elif FileAccess.file_exists(meta_path):
 		meta = JSON.parse_string(FileAccess.get_file_as_string(meta_path))
 	emerald_collision = meta.get("collision", [])
+	if map_data.has("platinum_cycling"):emerald_collision=map_data.platinum_cycling["deck" if taken.get("platinum_cycling_deck",false) else "ground"]
 	emerald_elevation = meta.get("elevation", [])
 	last_elevation = 0
 	emerald_grass = meta.get("grass", [])
@@ -498,7 +504,7 @@ func _blocked_by_object(p: Vector2i) -> bool:
 		var k := String(o.get("kind", ""))
 		# FRLG bg_events mark text on existing map blocks (even walk-through holes).
 		# Solid signposts already have collision in their native layout.
-		if k == "sign" and (not emerald_elevation.is_empty() or (map_data.get("region", "") == "johto" and o.has("source_script"))):
+		if k == "sign" and (map_data.has("platinum_native") or not emerald_elevation.is_empty() or (map_data.get("region", "") == "johto" and o.has("source_script"))):
 			continue
 		# 树果树 / 道具球 / 告示牌在原版里都占一格，人不该踩过去
 		# 道具球不再挡路：踩上去就自动捡（以前把球也当墙，人永远走不到它那格，
@@ -632,6 +638,8 @@ func is_whirl(p: Vector2i) -> bool:
 
 
 func is_climb(p: Vector2i) -> bool:
+	if map_data.has("platinum_native"):
+		return p.y>=0 and p.y<emerald_climb.size() and p.x>=0 and p.x<emerald_climb[p.y].size() and int(emerald_climb[p.y][p.x]) in [75,76]
 	return _flag_at(emerald_climb, p)
 
 
@@ -687,6 +695,7 @@ func clear_whirl(p: Vector2i) -> void:
 func auto_step_dir() -> Vector2i:
 	if map_data.get("mechanisms",{}).has("base") and preload("res://core/hoenn_base_effects.gd").at(self,player_pos).get("surface")==71 and can_step(Vector2i.DOWN):return Vector2i.DOWN
 	if is_ice(player_pos):
+		if map_data.has("platinum_gym"):preload("res://core/platinum_gym.gd").break_snow(self,last_dir)
 		return last_dir if last_dir != Vector2i.ZERO and can_step(last_dir) else Vector2i.ZERO
 	var d := _push_dir_of(emerald_slide, player_pos)
 	if d != Vector2i.ZERO and can_step(d):
@@ -764,6 +773,8 @@ func warp_at(cell: Vector2i) -> Dictionary:
 # animated house doors ahead when facing north, and other warps on arrival.
 func _warp_from(cell: Vector2i, dir: Vector2i) -> Dictionary:
 	var here: Dictionary = _directional_passages.get([cell,dir],_passages.get(cell, {}))
+	if map_data.has("platinum_cycling") and taken.get("platinum_cycling_deck",false) and str(here.get("source_warp","")).begins_with("WARP_WAYWARD_CAVE"): return {}
+	if here.get("mechanism","")=="reversed_waterfall" and not surfing:return {}
 	if WARP_DIR.get(here.get("trigger", ""), Vector2i.ZERO) == dir and dir != Vector2i.ZERO:
 		return here
 	if dir == Vector2i.UP:
@@ -778,6 +789,7 @@ func _warp_from(cell: Vector2i, dir: Vector2i) -> Dictionary:
 func step(dir: Vector2i) -> bool:
 	if walking or hoenn_local.get("decor_busy",false):
 		return false
+	if map_data.has("platinum_gym"): preload("res://core/platinum_gym.gd").break_snow(self,dir)
 	if map_data.has("emerald_original") and not emerald_current.is_empty():
 		var current := _push_dir_of(emerald_current,player_pos)
 		if current!=Vector2i.ZERO and dir!=current and can_step(current): return false
@@ -802,7 +814,11 @@ func step(dir: Vector2i) -> bool:
 	anim_from = Vector2(player_pos)
 	var target := player_pos + dir
 	var is_jump := false
-	if not passage.is_empty():
+	var rift_move: bool=passage.get("mechanism","") in ["distortion_jump","floating_jump","floating_ride"]
+	if rift_move:
+		player_pos=Vector2i(int(passage.to.at[0]),int(passage.to.at[1]))
+		is_jump=passage.mechanism!="floating_ride"
+	elif not passage.is_empty():
 		player_pos = Vector2i(int(passage.at[0]), int(passage.at[1]))
 	elif hop_wanted(dir):
 		# 土坡：跨过坡沿落到坡下的可行格
@@ -815,6 +831,18 @@ func step(dir: Vector2i) -> bool:
 		surfing = false
 	jumping = is_jump
 	_step_duration = jump_dur if jumping else (run_dur if running and passage.is_empty() else walk_dur)
+	if rift_move:
+		_step_duration=clampf(sqrt(anim_from.distance_to(Vector2(player_pos)))*0.16,0.24,0.95)
+		if not is_jump:
+			if not is_instance_valid(_ride_stone):
+				_ride_stone=Sprite2D.new()
+				var tile:=AtlasTexture.new()
+				tile.atlas=preload("res://assets/platinum_native/tiles.png")
+				var id:int=map_data.get("platinum_ride_tile",0)
+				tile.region=Rect2i(id%16*16,floori(float(id)/16.0)*16,16,16)
+				_ride_stone.texture=tile
+				add_child(_ride_stone)
+			_ride_stone.visible=true
 	walking = true
 	walk_timer = walk_carry
 	walk_carry = 0.0
@@ -823,7 +851,7 @@ func step(dir: Vector2i) -> bool:
 	_sync_player()
 	# 走路时只认门；对话必须按 A，否则贴着 NPC 走过去会自动开口
 	if not passage.is_empty():
-		_queue_passage(passage)
+		if not rift_move:_queue_passage(passage)
 	else:
 		_check_warp()
 	return true
@@ -840,11 +868,26 @@ func toggle_dive() -> String:
 	return "浮了上来。"
 
 
+## The Platinum field marks the entire length of each rock climb, including
+## horizontal climbs. Stop on the first legal landing beyond the marked run.
+func platinum_climb_landing(origin: Vector2i, direction: Vector2i) -> Vector2i:
+	var pos:=origin+direction
+	if not is_climb(pos):return origin
+	var behavior:int=emerald_climb[pos.y][pos.x]
+	if (behavior==75 and direction.x!=0) or (behavior==76 and direction.y!=0):return origin
+	while is_climb(pos) and int(emerald_climb[pos.y][pos.x])==behavior:pos+=direction
+	return pos if can_enter(pos,direction) else origin
+
 ## 攀岩：对着岩壁往上翻两格
 func climb_up() -> bool:
 	var face := player_pos + _dir_vec()
 	if not is_climb(face):
 		return false
+	if map_data.has("platinum_native"):
+		var stop:=platinum_climb_landing(player_pos,_dir_vec())
+		if stop==player_pos:return false
+		warp_to(stop)
+		return true
 	if map_data.has("hgss"):
 		var direction := _dir_vec()
 		var field: Dictionary = map_data.hgss
@@ -906,19 +949,24 @@ func step_interact() -> void:
 	last_event = ""
 	if walking:
 		return
+	if map_data.has("platinum_gym") and preload("res://core/platinum_gym.gd").interact(self): return
 	var panel := warp_at(player_pos + _dir_vec())
 	if panel.get("trigger", "") == "panel":
 		_queue_passage(panel)
 		return
 	# Older authored maps also allow A on a standing warp.
 	var row := warp_at(player_pos)
-	if not row.is_empty() and not row.has("trigger"):
+	if not row.is_empty() and (not row.has("trigger") or row.get("mechanism","")=="distortion_lift"):
 		_queue_passage(row)
 		return
 	_check_talk()
 
 func _queue_passage(row: Dictionary) -> void:
 	pending_warp = row.to
+	if row.get("atlas","")=="world" and pending_warp.region=="sinnoh":
+		pending_warp=preload("res://core/world_passages.gd").atlas_return(map_data,pending_warp,get_node("/root/Data").load_map("sinnoh",pending_warp.map))
+	if row.get("turnback_maze",false): pending_warp=preload("res://core/platinum_maze.gd").destination(self,row)
+	if map_data.has("platinum_gym"): pending_warp=preload("res://core/platinum_gym.gd").destination(self,row)
 	if map_data.has("emerald_original"):
 		pending_warp=preload("res://core/hoenn_field.gd").destination(map_data,pending_warp,taken,Time.get_time_dict_from_system().hour)
 	last_event = "warp:" + JSON.stringify(row.to)
@@ -943,6 +991,9 @@ func _check_talk() -> void:
 		var index := npcs.find(npc)
 		if index>=0 and index*2+1<_npc_nodes.size():
 			var sprite: Sprite2D = _npc_nodes[index*2+1]
+			var sinnoh_identity := str(sprite.get_meta("sinnoh_identity",""))
+			if not sinnoh_identity.is_empty():
+				SinnohCast.draw(sprite,sinnoh_identity,{"left":"right","right":"left","up":"down","down":"up"}[facing])
 			var identity := str(sprite.get_meta("johto_identity",""))
 			if not identity.is_empty() and not npc.has("apricorn"):
 				var turn: String = {"left":"right","right":"left","up":"down","down":"up"}[facing]
@@ -1089,6 +1140,9 @@ func _sync_player() -> void:
 	_player_sprite.offset = Vector2(0, 4 if afloat else 0)
 	_player_shadow.visible = not afloat
 	_player_sprite.z_index = Z_ACTOR + int(render_pos.y) * 2
+	if is_instance_valid(_ride_stone) and _ride_stone.visible:
+		_ride_stone.position=render_pos*TILE+Vector2(TILE/2.0,TILE/2.0)
+		_ride_stone.z_index=_player_sprite.z_index-2
 	_player_shadow.position = Vector2(px + TILE / 2, py + TILE - 2)
 	_player_shadow.z_index = Z_ACTOR + int(render_pos.y) * 2 - 1
 	if cam:
@@ -1190,6 +1244,9 @@ func _rebuild(story_flags: Variant = null) -> void:
 	for xy in mansion.get("statues",[]):
 		mansion_switches.append(Vector2i(int(xy[0]),int(xy[1])))
 	var overrides: Array = []
+	if map_data.has("platinum_gym"):
+		emerald_collision=map_data.physics.collision.duplicate(true)
+		overrides=preload("res://core/platinum_gym.gd").overrides(self)
 	if map_data.has("mechanisms"):
 		emerald_collision=map_data.physics.collision.duplicate(true)
 		overrides=HoennMechanisms.overrides(self,taken if story_flags==null else story_flags)
@@ -1245,10 +1302,17 @@ func _rebuild(story_flags: Variant = null) -> void:
 	apply_light()
 
 func refresh_story_actors(flags: Dictionary) -> void:
+	if map_data.get("platinum_flower","")=="closed" and flags.get("s_flower_path",false):
+		var here:=player_pos
+		load_map(map_data)
+		warp_to(here)
 	var updated := preload("res://core/frlg_actors.gd").roster(map_data,flags)
 	for row in npcs:
 		if row.get("form_items",false): updated.append(row)
 	npcs = updated
+	if map_data.has("platinum_gym"):
+		_rebuild(flags)
+		return
 	if map_data.has("mechanisms"):
 		HoennMechanisms.adjust_actors(self,npcs)
 		_rebuild(flags)
@@ -1271,7 +1335,12 @@ func _draw_npcs() -> void:
 		var johto: bool = map_data.get("region","")=="johto"
 		var identity := JohtoCast.character(n) if johto else ""
 		var tex: Texture2D
-		if n.has("source_gfx") and map_data.has("emerald_original"):
+		var sinnoh_identity := SinnohCast.character(n) if map_data.has("platinum_native") else ""
+		if not sinnoh_identity.is_empty():
+			s.set_meta("sinnoh_identity",sinnoh_identity)
+			SinnohCast.draw(s,sinnoh_identity,n.get("facing","down"))
+			tex=s.texture
+		elif n.has("source_gfx") and map_data.has("emerald_original"):
 			preload("res://core/hoenn_field.gd").draw(s,n,n.get("facing","down"))
 			tex=s.texture
 		elif not identity.is_empty():
@@ -1326,8 +1395,9 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 	var shadow: Sprite2D = _npc_nodes[index*2]
 	var npc_position := Vector2i(int(row.at[0]),int(row.at[1]))
 	var johto_identity := str(sprite.get_meta("johto_identity",""))
+	var sinnoh_identity := str(sprite.get_meta("sinnoh_identity",""))
 	var emerald: bool = map_data.has("emerald_original") and row.has("source_gfx")
-	if johto_identity.is_empty() and not emerald:
+	if johto_identity.is_empty() and sinnoh_identity.is_empty() and not emerald:
 		sprite.texture = preload("res://assets/npc/fr_oak_walk.png")
 		sprite.hframes = 9
 	var actor_face := "down"
@@ -1339,7 +1409,8 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 			var delta: Vector2i = directions[npc_path[i]]
 			npc_position+=delta
 			actor_face = faces[npc_path[i]]
-			if emerald: preload("res://core/hoenn_field.gd").draw(sprite,row,actor_face,1+i%2)
+			if not sinnoh_identity.is_empty(): SinnohCast.draw(sprite,sinnoh_identity,actor_face,1+i%2)
+			elif emerald: preload("res://core/hoenn_field.gd").draw(sprite,row,actor_face,1+i%2)
 			elif johto_identity.is_empty():
 				sprite.flip_h = actor_face == "right"
 				sprite.frame = (WALK_A if i%2 == 0 else WALK_B)[actor_face]
@@ -1355,7 +1426,8 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 			player_pos+=Vector2i(directions[player_path[i]])
 			tween.tween_method(_render_story_step,render_pos,Vector2(player_pos),0.11)
 		await tween.finished
-		if emerald: preload("res://core/hoenn_field.gd").draw(sprite,row,actor_face)
+		if not sinnoh_identity.is_empty(): SinnohCast.draw(sprite,sinnoh_identity,actor_face)
+		elif emerald: preload("res://core/hoenn_field.gd").draw(sprite,row,actor_face)
 		elif johto_identity.is_empty(): sprite.frame = FACE_FRAME[actor_face]
 		else: JohtoCast.draw(sprite,johto_identity,actor_face)
 	frame_col=0
@@ -1803,12 +1875,14 @@ func tick_walk(delta: float) -> void:
 	if walk_timer >= dur:
 		walk_carry = 0.0 if jumping else minf(walk_timer - dur, dur * 0.5)
 		walking = false
+		if is_instance_valid(_ride_stone):_ride_stone.visible=false
 		jumping = false
 		jump_lift = 0.0
 		walk_timer = 0.0
 		frame_col = 0
 		render_pos = Vector2(player_pos)
 		_sync_player()
+		if map_data.has("platinum_gym") and pending_warp.is_empty(): preload("res://core/platinum_gym.gd").landed(self)
 		if map_data.has("mechanisms") and pending_warp.is_empty():HoennMechanisms.landed(self)
 		if not pending_warp.is_empty():
 			var to: Dictionary = pending_warp
@@ -1859,12 +1933,20 @@ func warp_to(pos: Vector2i) -> void:
 	_sync_player()
 
 func arrive(target: Dictionary) -> void:
+	if map_data.has("platinum_cycling"):
+		taken.platinum_cycling_deck=target.get("cycling_deck",false)
+		emerald_collision=map_data.platinum_cycling["deck" if taken.platinum_cycling_deck else "ground"]
+		refresh_story_actors(taken)
+	if map_data.has("platinum_native"):preload("res://core/platinum_maze.gd").arrive(self,target)
 	var pos := Vector2i(int(target.at[0]), int(target.at[1]))
 	if map_data.has("emerald_original") and not target.get("hoenn_native",false) and map_data.has("legacy_size"):
 		pos=preload("res://core/hoenn_field.gd").saved_position(self,pos)
+	if map_data.has("platinum_native") and (target.get("regional_travel",false) or not target.get("platinum_native",false)):
+		pos=Vector2i(int(map_data.spawn[0]),int(map_data.spawn[1]))
 	if map_data.has("hgss") and not target.get("hgss",false):
 		pos=preload("res://core/hgss_field.gd").position(map_data,pos)
 	facing = str(target.get("facing", facing))
+	if target.get("surf_arrival",false) and is_water(pos): surfing=true
 	if not is_water(pos):
 		surfing = false
 		diving = false

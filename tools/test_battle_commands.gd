@@ -114,6 +114,15 @@ func run() -> void:
 	settle()
 	pick("战斗")
 	expect(not view.move_menu.has_node("Special"),"spent actions gone")
+	# A trainer's pivot move must keep the fight active with or without a reserve.
+	for has_reserve in [false,true]:
+		var pivot: Dictionary = combat.make_combatant(398,30,[369])
+		var friends: Array=[pivot]
+		if has_reserve: friends.append(combat.make_combatant(25,30,[84]))
+		var match_engine=combat.new(41)
+		match_engine.start([combat.make_combatant(9,60,[150])],friends)
+		match_engine.run_turn("move:0","move:0")
+		expect(not match_engine.over and match_engine.active_b==int(has_reserve),"trainer U-turn continues battle")
 	check_struggle([98,84])
 	check_struggle([98],true)
 	check_struggle([])

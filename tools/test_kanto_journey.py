@@ -30,14 +30,7 @@ class Player:
             self.routes.occupied[self.pos[0]] = {tuple(r[0]) for r in self.state["actors"]}
             self.routes.history = self.state["history"]
             self.routes.elevation = int(self.state.get("elevation",0))
-            badges = self.state["badges"]
-            field_badges = {15: "蓝色徽章", 57: "粉红徽章", 70: "彩虹徽章", 249: "金色徽章"}
-            if self.pos[0].startswith(("johto_","hgss_")):
-                field_badges = {15:"昆虫徽章", 57:"魅影徽章", 70:"标准徽章", 250:"冰川徽章", 127:"升龙徽章",431:"绿色徽章"}
-            if self.routes.regions == ("hoenn",):
-                field_badges = {15:"岩石徽章",19:"白羽徽章",57:"天秤徽章",70:"烈焰徽章",148:"拳击徽章",249:"电力徽章",127:"雨滴徽章",291:"心灵徽章"}
-            moves = frozenset(move for member in self.state["party"] for move in member[5]
-                              if field_badges.get(move) in badges)
+            moves = self.field_moves()
             if self.routes.field_moves != moves:
                 self.routes.field_moves = moves
                 self.routes.edges.cache_clear()
@@ -60,6 +53,16 @@ class Player:
                 raise RuntimeError(self.state["problem"])
             return self.state
         raise RuntimeError("Godot stopped before reporting state")
+
+    def field_moves(self):
+        badges = self.state["badges"]
+        field_badges = {15: "蓝色徽章", 57: "粉红徽章", 70: "彩虹徽章", 249: "金色徽章"}
+        if self.pos[0].startswith(("johto_","hgss_")):
+            field_badges = {15:"昆虫徽章", 57:"魅影徽章", 70:"标准徽章", 250:"冰川徽章", 127:"升龙徽章",431:"绿色徽章"}
+        if self.routes.regions == ("hoenn",):
+            field_badges = {15:"岩石徽章",19:"白羽徽章",57:"天秤徽章",70:"烈焰徽章",148:"拳击徽章",249:"电力徽章",127:"雨滴徽章",291:"心灵徽章"}
+        return frozenset(move for member in self.state["party"] for move in member[5]
+                          if field_badges.get(move) in badges)
 
     def do(self, action, **opts):
         self.process.stdin.write(json.dumps(dict(action=action, **opts), ensure_ascii=False) + "\n")

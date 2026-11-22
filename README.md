@@ -1,8 +1,8 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.57.0-study`，versionCode 为 90，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.58.0-study`，versionCode 为 91，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
 
-[下载 4.57 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.57.0-study/PokeSaga-4.57.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.57.0-study)
+[下载 4.58 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.58.0-study/PokeSaga-4.58.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.58.0-study)
 
 关都可以带伙伴去两岛参加无线小游戏，城都可以按星期参加捕虫大会、拼阿露福遗迹石板，丰缘可以报名五种华丽大赛、挑战八间戏法屋或收集开拓象征。各地区共用主角、队伍、箱子和图鉴。[三作支线入口、奖励与验证范围](doc/三作支线.md)
 
@@ -12,11 +12,31 @@
 
 全程操控《绿宝石》的小悠。阿银、空木博士、城都八位馆主、四天王、渡和赤红各自沿用剧情身份，并采用对应人物的 GBA 风格像素图。[城都人物对照与素材署名](doc/城都角色素材.md) · [在白银山与赤红同屏的安卓实拍](.github/preview/v4.55-red.png)
 
-**地区转移器**随新档发放，旧档选择「继续冒险」后也会出现在背包里。探索时点 **START → 背包 → 重要道具 → 地区转移器**，选地区，再点「出发前往」。可以从屋内、洞窟、水上或异空间出发。首次进入有开场剧情的地区，会先到剧情起点，之后再去会抵达领航员旁。21 个目的地从开局就能选择，道具可重复使用，到达后自动保存。首次进入城都、丰缘会接上当地的开场剧情。 [查看背包实拍](.github/preview/v4.52-region-transfer.png)
+**地区转移器**随新档发放，旧档选择「继续冒险」后也会出现在背包里。探索时点 **START → 背包 → 重要道具 → 地区转移器**，选地区，再点「出发前往」。可以从屋内、洞窟、水上或异空间出发。首次进入有开场剧情的地区，会先到剧情起点，之后再去会抵达领航员旁。21 个目的地从开局就能选择，道具可重复使用，到达后自动保存。首次进入城都、丰缘、神奥会接上当地的开场剧情。 [查看背包实拍](.github/preview/v4.52-region-transfer.png)
 
 ![安卓同位置实拍对比。左列为 4.50，右列为 4.51。上排是常磐商店门前，下排是华蓝道馆的木桥和水池。](.github/preview/v4.51-field.png)
 
 [查看战斗动图：皮卡丘使用十万伏特时，水伊布的 HP 从 132 降至 79](.github/preview/v4.51-battle-hp.gif)
+
+## 从双叶镇到神奥联盟
+
+从背包的地区转移器选神奥。第一次到访可以把队伍寄存到同一份存档的电脑，也可以带上现有伙伴。两种选择都从双叶镇小悠的卧室开始。到 201 号道路从山梨博士的手提箱里选草苗龟、小火焰猴或波加曼，第一次和阿驯交手时用自己刚选的伙伴。之后可以照常在宝可梦中心交换队员。再次前往神奥时会接着当地进度。
+
+神奥按《白金》的房间、道路、门和机关布局，用 GBA 图块重绘。按黑金、百代、家缘、帷幕、野原、水脉、雪峰、滨海的顺序挑战道馆。从银河队在谷间发电厂的行动、三座湖泊和银河总部，一路追到枪之柱。毁坏的世界保留由克希、艾姆利多、亚克诺姆引路的推石谜题。神奥单独记录徽章、道具和人物状态。携带外区冠军队伍也要完成本地剧情，队员学会秘传招式后仍需取得神奥对应的徽章才能在场地使用。
+
+| 支线 | 到哪里玩 |
+| --- | --- |
+| 宝芬与超级华丽大赛 | 在家缘市领宝芬盒、烹饪树果并喂给队员，到会场报名装扮、舞蹈和才艺比赛。奖章保存在参赛宝可梦身上。 |
+| 钢铁岛、大湿地和地下挖掘 | 在水脉码头乘船找亚玄领取怪力，到野原市购买大湿地入场券，或带探险套装到地下挖掘。 |
+| 每日活动 | 到祝庆电视台一楼核对队伍和电脑里的训练家 ID 参加抽奖。取得全国图鉴后，可以在宝可梦豪宅听主人公布自豪后院新出现的宝可梦。 |
+| 随意镇培育屋与七星餐厅 | 培育屋能寄放两只伙伴，走路后可查询培育情况、领蛋或付费领回。立志湖畔的七星餐厅在每天 9 点到 23 点营业，桌边的顾客可以双打。 |
+| 名人堂后的对战开拓区 | 从雪峰市搭船到对战区。五处设施可以报名挑战，获得的 BP 可在两处交换柜台兑换道具和招式学习器。 |
+
+在帷幕市东南的民房找小丑领取代币盒，再去游戏厅。全国图鉴开放后，可以从共享电脑挑六只伙伴参加伙伴公园的捕捉表演。名胜区的别墅可以订购 20 件家具。华丽大赛、挖掘和游戏厅采用触屏操作。原版的历史配信道具在本作内领取，伙伴公园的迁入来源为这份存档的电脑箱。
+
+在百代市找地下大叔领探险套装，可以下地挖矿。秘密钥匙可打开百代银河队大楼的隐藏房间，让洛托姆使用里面的家电；会员卡对应水脉市港口旅馆，大木的信对应 224 号道路的白色岩石。
+
+[首次进入神奥的队伍选择](.github/preview/v4.58-entry.png) · [毁坏的世界地下三层](.github/preview/v4.58-distortion.png) · [在冠军室与竹兰见面](.github/preview/v4.58-cynthia.png) · [神奥地图、人物和汉化来源](content/platinum_native/credits.txt)
 
 ## 从未白镇到丰缘联盟
 
@@ -42,7 +62,7 @@
 
 启动游戏先到《绿宝石》的烈空坐标题页。选择「新的冒险」从真新镇家中二楼的床边出发。走到右上方墙图前面朝上按 A，可翻看世界全景地图。在丰缘索引点「丰缘地图」，可以缩放《绿宝石》宝可导航的地区地图。下楼出门，走到真新镇北边的草丛，大木会带你去研究所领取初始伙伴。在研究所出口和小茂对战后，前往常磐商店领取包裹，交回大木后会同时收到图鉴和 5 个精灵球，常磐市北面的老人也会让路。草丛里可以遇敌、投球、练级，常磐市的宝可梦中心可以治疗队伍。经 2 号道路和常磐森林抵达尼比市，打赢小刚即可获得首枚徽章。本作沿用皮卡丘作为初始伙伴，小茂从伊布开始培养。
 
-目前地图目录登记 1,662 张可达地图。九个主地区与十二个附属区域均有地图、步行入口和领航员，墙图登记了 555 个地点。24 条跨区通道包括海堤、栈道、隧道及山口。第一次从真新镇出发，可以直接找家外的领航员，点目标地区，再点「出发前往」。地图室、道路、道馆与室内房间保留各自的碰撞和进出点。新建地区侧重探索与交通。关都可以挑战到名人堂和七岛后日谈，城都可以走到白银山挑战赤红，丰缘可以走到彩幽联盟挑战米可利。
+目前地图目录登记 2,203 张地图。九个主地区与十二个附属区域均有地图、步行入口和领航员，墙图登记了 555 个地点。24 条跨区通道包括海堤、栈道、隧道及山口。第一次从真新镇出发，可以直接找家外的领航员，点目标地区，再点「出发前往」。地图室、道路、道馆与室内房间保留各自的碰撞和进出点。新建地区侧重探索与交通。关都可以挑战到名人堂和七岛后日谈，城都可以走到白银山挑战赤红，丰缘可以走到彩幽联盟挑战米可利，神奥可以在《白金》的联盟挑战竹兰。
 
 关都与七岛的 375 张地图采用《火红／叶绿》的 16 像素图块、调色板、地形属性和出入口编号。华蓝道馆的木桥可以步行，面向池水按 A 并确认冲浪后才会下水。城都沿用《心金／魂银》的房间尺寸、地形和出入口，用《火红／叶绿》和《绿宝石》的图块绘制场景。其他自建地区主要使用《绿宝石》素材。[地图与素材说明](doc/素材重建.md)
 
@@ -86,19 +106,28 @@
 ```bash
 godot --headless --path . --import
 godot --path .
-tools/build_android.sh ../交付/PokeSaga-4.57.0-study.apk
+tools/build_android.sh ../交付/PokeSaga-4.58.0-study.apk
 ```
 
 构建 Android 需要匹配的 Godot 导出模板、JDK 17、Android SDK、platform-tools、build-tools 和 Godot 可访问的本机调试签名。已配置的机器可用 `GODOT_BIN`、`JAVA_HOME`、`ANDROID_HOME` 选择工具路径。本机脚本也识别 `~/Library/Application Support/PokeSagaBuild`。学习版使用 `Android Study` 导出预设，目标架构为 ARM64，输出为签名调试 APK。安装可用 `adb install -r ../交付/PokeSaga-4.56.0-study.apk`。
 
 ## 验证改动
 
-从空存档验证关都出发、首次前往丰缘、挑战米可利，并重启读取丰缘名人堂记录：
+以下命令分别从标题新建存档，验证首次进入丰缘或神奥、打赢当地冠军以及重启后的名人堂记录。
 
 ```sh
 python3 tools/test_hoenn_journey.py --godot godot --result-save /tmp/hoenn-champion.json
 godot --headless --path . --script tools/test_hoenn_travel.gd
 godot --headless --path . --script tools/test_region_journey.gd
+python3 tools/test_sinnoh_journey.py --godot godot
+godot --headless --path . --script tools/test_sinnoh_entry.gd
+godot --headless --path . --script tools/test_sinnoh_side.gd
+godot --headless --path . --script tools/test_sinnoh_contests.gd
+godot --headless --path . --script tools/test_sinnoh_frontier.gd
+godot --headless --path . --script tools/test_sinnoh_park_arcade.gd
+godot --headless --path . --script tools/test_sinnoh_villa.gd
+godot --headless --path . --script tools/test_sinnoh_dailies.gd
+godot --headless --path . --script tools/test_sinnoh_breeding_dining.gd
 ```
 
 

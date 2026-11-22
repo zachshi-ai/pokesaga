@@ -83,12 +83,12 @@ static func award_effort(mon: Dictionary, defeated_species: int) -> void:
 	mon["effort"] = effort
 
 ## 升级时新学会的招式：从 from_lv+1 到 to_lv 这一段的升级招式表
-static func moves_learned(mon: Dictionary, from_lv: int, to_lv: int) -> Array:
+static func moves_learned(mon: Dictionary, from_lv: int, to_lv: int, learnset: Array = []) -> Array:
 	var out: Array = []
 	if mon.is_empty():
 		return out
 	var sp: Dictionary = Data.species_of(int(mon.get("species_id", 0)))
-	var learn = sp.get("learnset", [])
+	var learn = sp.get("learnset", []) if learnset.is_empty() else learnset
 	if not (learn is Array):
 		return out
 	for row in learn:

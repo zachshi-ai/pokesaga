@@ -48,7 +48,7 @@ func record_lines(save: Dictionary, region := "johto") -> Array:
 	var team: Array = (save.get("hall_of_fame", {}) as Dictionary).get(region, [])
 	if team.is_empty():
 		return ["这里记录着战胜四天王和冠军的队伍。"]
-	var lines := [str({"kanto":"关都","johto":"城都","hoenn":"丰缘"}.get(region,region))+"联盟 · 首次冠军队伍"]
+	var lines := [str(preload("res://core/region_journey.gd").NAMES.get(region,region))+"联盟 · 首次冠军队伍"]
 	for mon in team:
 		lines.append("%s　Lv.%d" % [String(mon.name), int(mon.level)])
 	return lines

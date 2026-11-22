@@ -174,7 +174,7 @@ func settle() -> void:
 				lines.append(line)
 			if dlg.is_waiting_answer(): dlg.btn_yes.pressed.emit()
 			else: game._on_action()
-		elif world.map_data.id=="four_island_icefall_cave_b1f" and world.auto_step_dir()!=Vector2i.ZERO:
+		elif world.map_data.id in ["four_island_icefall_cave_b1f","sinnoh_snowpoint_city_gym"] and world.auto_step_dir()!=Vector2i.ZERO:
 			world.tick_walk(1.0)
 			game._process(1.0/60.0)
 		elif game._escort_active or (world.map_data.id == "johto_azalea_gym" and game.panel_open > 0 and preload("res://core/hgss_azalea.gd").data().pads.any(func(at): return world.player_pos==Vector2i(int(at[0]),int(at[1])))):
@@ -196,8 +196,10 @@ func status() -> Dictionary:
 		for b in game.menu_layer.get_child(-1).find_children("*","Button",true,false):
 			if b.is_visible_in_tree() and not b.disabled: panels.append(b.text)
 	return {"pos":current(),"elevation":world.last_elevation,"tower_mode":str(game._flags().get("fr_tower",{}).get("mode","")),"party":mons,"bag":items,"flags":game._flags().keys().filter(func(k): return game._flags()[k]),
+		"pl_obstacles":world.objects.filter(func(o):return o.get("kind","") in ["rock","cut","boulder"]).map(func(o):return [o.at,o.kind]) if world.map_data.has("platinum_native") else [],
+		"pl_gym_state":game._flags().get("pl_gym_"+str(world.map_data.id),{}),"pl_gym_collision":world.emerald_collision if world.map_data.has("platinum_gym") else [],
 		"gym_button":int(game._flags().get("h_wattson_switch",0)),"gym_local":world.hoenn_local,"badges":game.save_data.badges,"money":game.save_data.money,"dex":game.save_data.dex.caught,"defeated":game.save_data.get("defeated",{}),
-		"actors":world.npcs.map(func(n):return [n.at,n.get("role",""),n.get("name",""),n.get("shop",false),n.get("legacy_at",n.at),n.get("story_map",world.map_data.id),n.get("heal",false),n.get("hgss_source",""),int(n.get("local_id",-1))]),
+		"actors":world.npcs.map(func(n):return [n.at,n.get("role",""),n.get("name",""),n.get("shop",false),n.get("legacy_at",n.at),n.get("story_map",world.map_data.id),n.get("heal",false),n.get("hgss_source",""),n.get("local_id",-1),n.get("source_script","")]),
 		"bins":[game._flags().get("surge_bin",-1),game._flags().get("surge_second_bin",-1)],"history":game.save_data.get("return_passages",{}),"buttons":panels,"panels":game.panel_open,"held":game.save_data.party.map(func(m):return m.get("held","")),"problem":problem,"fights":fights,
 		"dialog":lines,"turns":turns,"steps":steps,"obstruction":obstruction,"hall":game.save_data.get("hall_of_fame",{})}
 
@@ -317,14 +319,15 @@ func run() -> void:
 	world = game.world
 	db = root.get_node("Data")
 	var args := OS.get_cmdline_user_args()
-	if "hoenn-boxed" in args or "hoenn-carried" in args or "new-hoenn" in args or "new-johto" in args:
+	if "hoenn-boxed" in args or "hoenn-carried" in args or "new-hoenn" in args or "new-johto" in args or "new-sinnoh" in args or "sinnoh-boxed" in args or "sinnoh-carried" in args:
 		var region := "johto" if "new-johto" in args else "hoenn"
-		var fresh := "new-hoenn" in args or "new-johto" in args
+		if "new-sinnoh" in args or "sinnoh-boxed" in args or "sinnoh-carried" in args: region="sinnoh"
+		var fresh := "new-hoenn" in args or "new-johto" in args or "new-sinnoh" in args
 		if fresh == is_instance_valid(game.title_screen.continue_button):
 			push_error("Unexpected save slot for regional journey")
 			quit(1)
 			return
-		if not await preload("regional_start.gd").enter(game,region,"boxed" if "hoenn-boxed" in args else "carried"):
+		if not await preload("regional_start.gd").enter(game,region,"boxed" if "hoenn-boxed" in args or "sinnoh-boxed" in args else "carried"):
 			quit(1)
 			return
 	elif game.title_screen.continue_button == null:

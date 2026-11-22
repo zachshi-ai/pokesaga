@@ -131,6 +131,11 @@ func _open_detail(i: int) -> void:
 		var rank:=int(m.contest_ribbons[category])
 		if rank>0 and int(category)>=0 and int(category)<contest.CATEGORIES.size():
 			awards.append(str(contest.CATEGORIES[int(category)])+"·"+str(contest.RANKS[mini(rank-1,contest.RANKS.size()-1)])+"奖章")
+	var sinnoh=preload("res://core/sinnoh_contests.gd")
+	for cat in m.get("sinnoh_ribbons",{}):
+		var earned := clampi(int(m.sinnoh_ribbons[cat]),0,4)
+		if int(cat)>=0 and int(cat)<5:
+			for rank_id in earned:awards.append("神奥"+str(sinnoh.CATS[int(cat)])+"·"+str(sinnoh.RANKS[rank_id])+"奖章")
 	if not awards.is_empty():rows.add_child(UI.wrapped("奖章　"+"　".join(awards)))
 	var held := Data.item_name(str(m.held)) if not str(m.get("held","")).is_empty() else Data.berry_name(str(m.get("berry","")))
 	rows.add_child(UI.button("携带物品 · "+(held if not held.is_empty() else "无"),_choose.bind("held")))

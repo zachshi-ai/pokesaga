@@ -1,7 +1,8 @@
 extends RefCounted
 
-const NAMES := {"kanto":"关都","johto":"城都","hoenn":"丰缘"}
+const NAMES := {"kanto":"关都","johto":"城都","hoenn":"丰缘","sinnoh":"神奥"}
 const HOMES := {
+	"sinnoh":{"map":"sinnoh_twinleaf_town_player_house_2f","at":[4,6]},
 	"kanto":{"map":"pallet_town_players_house_2f","at":[3,6]},
 	"johto":{"map":"johto_players_house_2f","at":[6,6]},
 	"hoenn":{"map":"em_inside_of_truck","at":[2,2]},
@@ -11,7 +12,9 @@ const JOHTO := ["飞翼徽章","昆虫徽章","标准徽章","魅影徽章","打
 const J2 := ["brock","misty","ltsurge","erika","janine","sabrina","blaine","blue"]
 
 static func migrate(data: Dictionary) -> void:
-	if data.has("chapters"): return
+	if data.has("chapters"):
+		data.get_or_add("regional_badges",{}).get_or_add("sinnoh",[])
+		return
 	var origin := str(data.get("origin","kanto"))
 	var flags: Dictionary = data.get("flags",{})
 	var chapters := {origin:"origin"}
@@ -21,7 +24,7 @@ static func migrate(data: Dictionary) -> void:
 	data.chapters = chapters
 	if chapters.has("kanto") and data.has("bag"):
 		data.import_kanto_items = true
-	var regional := {"kanto":[],"johto":[],"hoenn":[]}
+	var regional := {"kanto":[],"johto":[],"hoenn":[],"sinnoh":[]}
 	for badge in data.get("badges",[]):
 		if badge in JOHTO: regional.johto.append(badge)
 		elif badge in KANTO:
@@ -73,4 +76,5 @@ static func begin(data: Dictionary, region: String, mode: String) -> Dictionary:
 		staged.flags.h_started = true
 		staged.hoenn_field_revision = 1
 	if region == "johto": staged.johto_field_revision = 1
+	if region == "sinnoh": staged.flags.s_started = true
 	return staged

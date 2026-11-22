@@ -153,6 +153,9 @@ func load_region(region_id: String) -> Dictionary:
 		region["activity_map_ids"]=facilities.keys()
 		for mid in registry.values():
 			if not facilities.has(mid) and not map_ids.has(mid): map_ids.append(mid)
+	if region_id=="sinnoh":
+		for file_name in DirAccess.get_files_at("res://content/platinum_native/maps"):
+			if file_name.ends_with(".json") and not map_ids.has(file_name.get_basename()): map_ids.append(file_name.get_basename())
 	if region_id=="johto":
 		var native: Dictionary = load_json("res://content/hgss/registry.json")
 		for mid in native.native:
@@ -177,6 +180,9 @@ func load_map(region_id: String, map_id: String) -> Dictionary:
 	var legacy_path := String(region["_base"]) + "maps/" + map_id + ".json"
 	var native_path := "res://content/hoenn_native/maps/"+map_id+".json"
 	var data_path := native_path if region_id=="hoenn" and FileAccess.file_exists(native_path) else legacy_path
+	if region_id=="sinnoh":
+		native_path="res://content/platinum_native/maps/"+map_id+".json"
+		if FileAccess.file_exists(native_path): data_path=native_path
 	var data = load_json(data_path) if FileAccess.file_exists(data_path) else null
 	if region_id == "johto" and FileAccess.file_exists("res://content/hgss/maps/"+map_id+".json"):
 		data = preload("res://core/hgss_field.gd").install(data if data is Dictionary else {},map_id)
@@ -185,6 +191,7 @@ func load_map(region_id: String, map_id: String) -> Dictionary:
 
 	data["id"] = map_id
 	data["region"] = region_id
+	if data.has("platinum_native"): preload("res://core/sinnoh_field.gd").populate(data)
 	region["maps"][map_id] = data
 	return data
 

@@ -1,6 +1,6 @@
 extends RefCounted
 ## Start the one shared adventure and take its regular travel item to a new region.
-const NAMES := {"kanto":"关都","johto":"城都","hoenn":"丰缘"}
+const NAMES := preload("res://core/region_journey.gd").NAMES
 
 static func press(node: Node, caption: String) -> bool:
 	for button in node.find_children("*","Button",true,false):

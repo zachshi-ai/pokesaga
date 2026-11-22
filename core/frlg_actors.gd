@@ -103,6 +103,14 @@ static func actor(row: Dictionary, spec: Dictionary, flags: Dictionary) -> Dicti
 
 static func roster(map: Dictionary, flags: Dictionary) -> Array:
 	var base: Array = map.get("npcs",[])
+	if map.has("platinum_native"):
+		var rows: Array = load("res://core/sinnoh_campaign.gd").roster(map,flags,base)
+		var side = load("res://core/sinnoh_side.gd")
+		rows=side.roster(map,flags,rows)
+		if map.has("platinum_cycling"):
+			var deck: bool=flags.get("platinum_cycling_deck",false)
+			rows=rows.filter(func(row):return str(row.get("platinum_gfx","")).begins_with("OBJ_EVENT_GFX_CYCLIST")==deck)
+		return rows
 	if map.has("emerald_original"):
 		return preload("res://core/hoenn_campaign.gd").roster(map,flags,base)
 	if map.get("region","")=="johto":

@@ -1,0 +1,13 @@
+神奥地区素材与文案
+
+场地布局、事件、训练家、等级、道具与图像参照 pret/pokeplatinum（485c400f9d7bad10d906d556ba23e5e46d5b3e5e）。
+https://github.com/pret/pokeplatinum
+
+19 份 GBA 人物图源自 Pokabbie/pokeemerald-rogue（5ccb74cf1ef2c0349dfa5d70883b030bbc9ff803）。其他神奥场地人物取自对应原角色，缩小并适配 GBA 色板与动作。
+https://github.com/Pokabbie/pokeemerald-rogue
+
+背景对白、道路训练家姓名与战斗台词节选自《宝可梦》第四世代汉化修正。原汉化由 YYJoy 汉化组（钻石／珍珠）和 ACG 汉化组（白金）制作，Xzonn 修订与本地化。本文本数据在 PokeSaga 中按原脚本索引重编，并为触屏及 START 菜单调整换页和按键字样。整理后的汉化文本继续采用 CC BY-NC-SA 3.0。原项目版本 84099c708d350f76fb41275114dbd5d0cd4fe1f5。
+https://github.com/Xzonn/PokemonChineseTranslationRevise
+https://creativecommons.org/licenses/by-nc-sa/3.0/
+
+宝可梦及原作游戏中的角色、美术与故事归相应权利人所有。

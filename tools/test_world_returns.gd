@@ -6,6 +6,7 @@ const Field := preload("res://core/emerald_field.gd")
 const Passage := preload("res://core/passage_memory.gd")
 var journal := {}
 var originals := {}
+var registry_count:=0
 
 func load_at(target: Dictionary) -> void:
 	var from: String=world.map_data.get("id","") if is_instance_valid(world) else ""
@@ -20,6 +21,7 @@ func check_graph() -> int:
 	const Passages=preload("res://core/world_passages.gd")
 	var rooms:=Passages.maps(db)
 	var graph:=Passages.graph(rooms)
+	registry_count=rooms.size()
 	originals=graph.records
 	for room in rooms:
 		var map: Dictionary=room.m
@@ -48,12 +50,15 @@ func check_graph() -> int:
 					fail("missing GBA image "+path)
 					return 0
 	var bedroom:="kanto/pallet_town_players_house_2f"
+	var bilateral:=Passages.reachable(bedroom,graph.forward)
+	var returns:=Passages.reachable(bedroom,graph.reverse)
 	for links in [graph.forward,graph.reverse]:
 		var seen:=Passages.reachable(bedroom,links)
-		if seen.size()!=rooms.size():
-			fail("bedroom directed reach %d/%d; missing %s"%[seen.size(),rooms.size(),links.keys().filter(func(k):return not seen.has(k))])
+		var missing: Array=links.keys().filter(func(k):return not seen.has(k) and not graph.technical.has(k))
+		if not missing.is_empty():
+			fail("bedroom directed reach %d/%d; missing %s"%[seen.size(),rooms.size(),missing])
 			return 0
-	return rooms.size()
+	return bilateral.keys().filter(func(k):return returns.has(k)).size()
 
 func approach(w: Dictionary) -> bool:
 	var at := vec(w.at)
@@ -152,5 +157,5 @@ func run() -> void:
 		load_at({"region":"johto","map":"johto_pokecenter_2f","at":[1,3]})
 		if not walk(Vector2i(0,3)) or not current.ends_with("johto_cherrygrove_pokecenter_1f"):
 			fail("old save upstairs has no default return")
-	print("WORLD RETURNS ","FAIL" if failed else "PASS"," bedroom_out_and_back=",count," dynamic_origins=",probes)
+	print("WORLD RETURNS ","FAIL" if failed else "PASS"," registry=",registry_count," bedroom_out_and_back=",count," dynamic_origins=",probes)
 	quit(1 if failed else 0)

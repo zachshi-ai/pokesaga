@@ -85,11 +85,13 @@ func trip(region: String, repeat_tap := false) -> bool:
 	await frames()
 	if region=="hoenn" and game.panel_open>0:
 		if not press(game.menu_layer.get_child(-1),"直接抵达"): return false
+	if region=="sinnoh" and not game.save_data.chapters.has("sinnoh"):
+		if not press(game.menu_layer.get_child(-1),"带现有队伍出发"): return false
 	await frames()
 	game._close_all_dialogs()
 	await frames()
 	var hub: Dictionary = destination.hub
-	if not at_hub(hub) and region in ["hoenn","johto"]:
+	if not at_hub(hub) and region in ["hoenn","johto","sinnoh"]:
 		check(game.save_data.chapters.has(region),"first arrival opened local story")
 		return await trip(region)
 	var saved := Save.existing()

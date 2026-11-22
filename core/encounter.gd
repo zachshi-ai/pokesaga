@@ -38,10 +38,10 @@ static func roll(pool: Array, rng: RandomNumberGenerator) -> Dictionary:
 
 ## 给一只配招：按等级从种族学习表里挑，取到这一级为止学会的最后四招。
 ## 以前是固定写死的两招，全图鉴的宝可梦打起来手感都一样。
-static func moves_for(species_id: int, level: int = 5) -> Array:
+static func moves_for(species_id: int, level: int = 5, learnset: Array = []) -> Array:
 	var sp: Dictionary = Data.species_of(species_id)
 	var out: Array = []
-	var learn = sp.get("learnset", [])
+	var learn = sp.get("learnset", []) if learnset.is_empty() else learnset
 	if learn is Array:
 		for row in learn:
 			if not (row is Array) or (row as Array).size() < 2:
