@@ -230,12 +230,14 @@ func test_channels():
 	world.surfing=true
 	world.facing="up"
 	game.save_data.badges.erase("升龙徽章")
+	game.save_data.regional_badges.johto.erase("升龙徽章")
 	game._on_action()
 	game._close_all_dialogs()
 	game._move("up")
 	world.tick_walk(1.0)
 	expect(world.player_pos==base,"uncleared Tohjo waterfall blocks running/walking without Rising Badge")
 	game.save_data.badges.append("升龙徽章")
+	game.save_data.regional_badges.johto.append("升龙徽章")
 	game._on_action()
 	expect(world.player_pos==landing,"A ascends the full real Tohjo waterfall and lands above it")
 	game._close_all_dialogs()
@@ -254,10 +256,12 @@ func test_channels():
 	world.surfing=true
 	world.facing="down"
 	game.save_data.badges.erase("冰川徽章")
+	game.save_data.regional_badges.johto.erase("冰川徽章")
 	game._on_action()
 	game._close_all_dialogs()
 	expect(not world.can_step(Vector2i.DOWN),"Dragon's Den whirlpool blocks passage without Glacier Badge")
 	game.save_data.badges.append("冰川徽章")
+	game.save_data.regional_badges.johto.append("冰川徽章")
 	game._on_action()
 	game._close_all_dialogs()
 	game._move("down")
@@ -269,7 +273,7 @@ func run():
 	game=load("res://scenes/boot.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
-	game.title_screen.johto_button.pressed.emit()
+	await preload("regional_start.gd").enter(game,"johto")
 	await process_frame
 	game._close_all_dialogs()
 	game._add_to_team(158,15)
@@ -294,6 +298,7 @@ func run():
 	for move in Items.BADGES:
 		expect(game._required_field_badge(move)==Items.BADGES[move],move+" badge gate")
 		game.save_data.badges.append(Items.BADGES[move])
+		game.save_data.regional_badges.johto.append(Items.BADGES[move])
 		expect(game._required_field_badge(move).is_empty(),move+" accepts the right badge")
 	gift("cianwood_city",[5,23],"秘传学习器 02")
 	gift("ice_path_1f",[15,3],"秘传学习器 07")

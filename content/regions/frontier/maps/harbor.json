@@ -674,8 +674,10 @@
     "at": [
      10,
      17
-    ]
-   }
+    ],
+    "hoenn_native": true
+   },
+   "atlas": "world"
   },
   {
    "at": [

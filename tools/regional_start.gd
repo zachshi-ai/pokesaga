@@ -1,0 +1,40 @@
+extends RefCounted
+## Start the one shared adventure and take its regular travel item to a new region.
+const NAMES := {"kanto":"关都","johto":"城都","hoenn":"丰缘"}
+
+static func press(node: Node, caption: String) -> bool:
+	for button in node.find_children("*","Button",true,false):
+		if button.is_visible_in_tree() and not button.disabled and str(button.text)==caption:
+			button.pressed.emit()
+			return true
+	push_error("Missing regional travel control " + caption)
+	return false
+
+static func open_trip(g, region: String) -> bool:
+	g._use_bag_item("地区转移器")
+	var atlas = g.menu_layer.get_child(-1)
+	return press(atlas,NAMES[region]) and press(atlas,"出发前往"+str(NAMES[region]))
+
+static func enter(g, region: String, mode := "carried") -> bool:
+	var tree: SceneTree = g.get_tree()
+	if is_instance_valid(g.title_screen):
+		if is_instance_valid(g.title_screen.continue_button):
+			g.title_screen.continue_button.pressed.emit()
+		else:
+			g.title_screen.new_button.pressed.emit()
+		await tree.process_frame
+	for n in 80:
+		if g._dialogs.is_empty(): break
+		g._on_action()
+	if not open_trip(g,region): return false
+	await tree.process_frame
+	if region=="hoenn":
+		if not press(g.menu_layer,"乘坐搬家货车"): return false
+		await tree.process_frame
+	if not g.save_data.get("chapters",{}).has(region):
+		if not press(g.menu_layer,"寄存队伍，重新组队" if mode=="boxed" else "带现有队伍出发"): return false
+	await tree.process_frame
+	for frame in 600:
+		if not g._escort_active: break
+		await tree.process_frame
+	return g.world.map_data.region==region and not g._escort_active

@@ -4,6 +4,9 @@ extends Node2D
 ##   0-15 独立瓦片；16-31 土路 autotile；32-47 水域 autotile
 ## 地图数据只用地形编号：0 草 1 树 2 水 3 路 4 花 5 石 6 墙 7 屋顶 8 门 9 栅栏 10 沙
 
+const HoennMechanisms := preload("res://core/hoenn_mechanisms.gd")
+var hoenn_local := {}
+
 const EmeraldField := preload("res://core/emerald_field.gd")
 const JohtoCast := preload("res://core/johto_gba_cast.gd")
 const TILE := 16
@@ -45,6 +48,7 @@ var npcs: Array = []
 ## 地图上的可交互物件：告示牌、道具球、树果树、翻过的土、隐藏道具
 var objects: Array = []
 var taken: Dictionary = {}          # 已拿走的物件（存档里记的 flag）
+var _hoenn_storm_phase := -1
 var weather := ""                   # rain / snow / sandstorm / fog / ash ...
 var night := 0.0                    # 0 白天 1 深夜，只影响画面染色与遇敌
 var bike := false                   # 骑车时走路速度翻倍
@@ -75,6 +79,7 @@ var walk_carry := 0.0
 # Warp events are keyed by their exact source tile in the current map.
 const WARP_DIR := {"up":Vector2i.UP, "down":Vector2i.DOWN, "left":Vector2i.LEFT, "right":Vector2i.RIGHT}
 var _passages: Dictionary = {}
+var _directional_passages: Dictionary = {}
 var _step_duration := 16.0 / 60.0
 var pending_warp: Dictionary = {}
 signal warp_ready(to: Dictionary)
@@ -187,10 +192,23 @@ var _prev_facing := ""
 
 func load_map(data: Dictionary) -> void:
 	_prev_facing = facing
+	var puzzle: Dictionary=data.get("mechanisms",{})
+	var local_save: Dictionary=taken.get("hoenn_room_state",{})
+	if puzzle.has("gates") or puzzle.has("switches") or puzzle.has("stairs") or puzzle.has("power_switches"):
+		if local_save.get("map","")!=data.id:
+			local_save={"map":data.id,"state":{}}
+		hoenn_local=local_save.state
+		taken.hoenn_room_state=local_save
+	else:
+		hoenn_local={}
+		taken.erase("hoenn_room_state")
 	map_data = data
 	_passages.clear()
-	for w in data.get("warps", []):
+	_directional_passages.clear()
+	for w in preload("res://core/world_passages.gd").active(data):
 		var p := Vector2i(int(w.at[0]), int(w.at[1]))
+		if data.has("emerald_original") and WARP_DIR.has(w.get("trigger","")):
+			_directional_passages[[p,WARP_DIR[w.trigger]]]=w
 		if not _passages.has(p):
 			_passages[p] = w
 	pending_warp = {}
@@ -245,7 +263,9 @@ func load_map(data: Dictionary) -> void:
 func _load_emerald_map(name: String) -> void:
 	var meta_path := "res://content/emerald_maps/%s.json" % name
 	var meta: Dictionary = {}
-	if map_data.has("hgss"):
+	if map_data.has("emerald_original"):
+		meta=map_data.physics
+	elif map_data.has("hgss"):
 		meta = preload("res://core/hgss_field.gd").grids(map_data.hgss)
 	elif FileAccess.file_exists(meta_path):
 		meta = JSON.parse_string(FileAccess.get_file_as_string(meta_path))
@@ -282,6 +302,7 @@ func _load_emerald_map(name: String) -> void:
 	render_pos = Vector2(player_pos)
 	walking = false
 	npcs = preload("res://core/frlg_actors.gd").roster(map_data, taken)
+	if map_data.has("mechanisms"):HoennMechanisms.adjust_actors(self,npcs)
 	objects = (map_data.get("objects", []) as Array).duplicate(true)
 	if map_data.has("hgss") and map_data.hgss.header in ["MAP_ICE_PATH_B1F","MAP_ICE_PATH_B2F"]:
 		objects=objects.filter(func(o):return (not o.has("ice_rock") or not taken.get("ice:rock:"+str(o.ice_rock),false)) and (not o.has("ice_rest") or taken.get("ice:pit:%d"%int(o.ice_rest),false)))
@@ -394,6 +415,7 @@ func _dir_bit(dir: Vector2i) -> int:
 
 ## 从 dir 方向走进 p 这一格行不行（方向性阻挡只挡对应方向）
 func can_enter(p: Vector2i, dir: Vector2i, ignore_mask: bool = false) -> bool:
+	if map_data.has("emerald_original") and not preload("res://core/hoenn_items.gd").can_enter(self,p,dir): return false
 	if map_data.get("hgss",{}).get("header","")=="MAP_OLIVINE_LIGHTHOUSE_LIGHT_ROOM" and p==Vector2i(8,12) and not taken.get("j_sick_amphy",false): return false
 	# 非原版地图（开拓区这类自建图）只有 tiles 网格，没有方向阻挡
 	if not is_emerald():
@@ -421,10 +443,10 @@ func can_enter(p: Vector2i, dir: Vector2i, ignore_mask: bool = false) -> bool:
 		if int(row[p.x]) != 0 and not (emerald_elevation.is_empty() and surfing and is_water(p)):
 			return false
 		# 水面：只有冲浪时能进；上了岸就自动结束冲浪
-		if is_water(p) and not surfing:
+		if is_water(p) and not surfing and map_data.get("map_type","")!="MAP_TYPE_UNDERWATER":
 			return false
 		# 深水只有潜下去才能进；漩涡没清掉过不去；岩壁和没填的坑洞一律挡
-		if is_deep(p) and not diving:
+		if is_deep(p) and not diving and not map_data.has("emerald_original"):
 			return false
 		if is_whirl(p) and not whirl_cleared(p):
 			return false
@@ -437,6 +459,7 @@ func can_enter(p: Vector2i, dir: Vector2i, ignore_mask: bool = false) -> bool:
 			var origin := p - dir
 			if _mask_blocks(origin, -dir) or not _heights_connect(origin, p):
 				return false
+		if map_data.has("mechanisms") and not HoennMechanisms.gate(self,p,dir,false): return false
 		if not ignore_mask and _mask_blocks(p, dir):
 			return false
 	if _blocked_by_object(p):
@@ -731,13 +754,14 @@ func warp_at(cell: Vector2i) -> Dictionary:
 # FRLG checks arrows and lateral stairs underfoot on a direction press,
 # animated house doors ahead when facing north, and other warps on arrival.
 func _warp_from(cell: Vector2i, dir: Vector2i) -> Dictionary:
-	var here: Dictionary = _passages.get(cell, {})
+	var here: Dictionary = _directional_passages.get([cell,dir],_passages.get(cell, {}))
 	if WARP_DIR.get(here.get("trigger", ""), Vector2i.ZERO) == dir and dir != Vector2i.ZERO:
 		return here
 	if dir == Vector2i.UP:
 		if cell + dir == quest_door_tile and not quest_door_open:
 			return {}
 		var front: Dictionary = _passages.get(cell + dir, {})
+		if front.has("trainer_gate") and not HoennMechanisms.open_door(taken,front.trainer_gate): return {}
 		if front.get("trigger", "") == "door":
 			return front
 	return {}
@@ -745,6 +769,9 @@ func _warp_from(cell: Vector2i, dir: Vector2i) -> Dictionary:
 func step(dir: Vector2i) -> bool:
 	if walking:
 		return false
+	if map_data.has("emerald_original") and not emerald_current.is_empty():
+		var current := _push_dir_of(emerald_current,player_pos)
+		if current!=Vector2i.ZERO and dir!=current and can_step(current): return false
 	match dir:
 		Vector2i(0, 1): facing = "down"
 		Vector2i(0, -1): facing = "up"
@@ -759,6 +786,7 @@ func step(dir: Vector2i) -> bool:
 		# 撞墙也要转身：原版顶着墙走，人是会转过脸来的
 		_sync_player()
 		return false
+	if map_data.has("mechanisms") and passage.is_empty(): HoennMechanisms.gate(self,player_pos+dir,dir,true)
 	if not emerald_elevation.is_empty() and elevation_at(player_pos) != 15:
 		last_elevation = elevation_at(player_pos)
 	last_dir = dir
@@ -882,6 +910,8 @@ func step_interact() -> void:
 
 func _queue_passage(row: Dictionary) -> void:
 	pending_warp = row.to
+	if map_data.has("emerald_original"):
+		pending_warp=preload("res://core/hoenn_field.gd").destination(map_data,pending_warp,taken,Time.get_time_dict_from_system().hour)
 	last_event = "warp:" + JSON.stringify(row.to)
 
 func _check_warp() -> void:
@@ -908,6 +938,9 @@ func _check_talk() -> void:
 			if not identity.is_empty() and not npc.has("apricorn"):
 				var turn: String = {"left":"right","right":"left","up":"down","down":"up"}[facing]
 				JohtoCast.draw(sprite,identity,turn)
+		if map_data.has("emerald_original") and npc.has("source_gfx") and index>=0 and index*2+1<_npc_nodes.size():
+			var turn: String={"up":"down","down":"up","left":"right","right":"left"}[facing]
+			preload("res://core/hoenn_field.gd").draw(_npc_nodes[index*2+1],npc,turn)
 		last_npc = npc
 		last_event = "talk:" + String(npc.get("name", ""))
 		return
@@ -1148,6 +1181,12 @@ func _rebuild(story_flags: Variant = null) -> void:
 	for xy in mansion.get("statues",[]):
 		mansion_switches.append(Vector2i(int(xy[0]),int(xy[1])))
 	var overrides: Array = []
+	if map_data.has("mechanisms"):
+		emerald_collision=map_data.physics.collision.duplicate(true)
+		overrides=HoennMechanisms.overrides(self,taken if story_flags==null else story_flags)
+		emerald_slide=map_data.physics.get("slide",[]).duplicate(true)
+		if map_data.mechanisms.has("stairs") and not emerald_slide.is_empty():
+			for tile in overrides: emerald_slide[int(tile[1])][int(tile[0])]=0
 	if not mansion_switches.is_empty() and taken.has(MANSION_FLAG):
 		overrides = mansion.on if taken[MANSION_FLAG] else mansion.off
 	var quest_door: Dictionary = plan.get("quest_door",{})
@@ -1159,6 +1198,10 @@ func _rebuild(story_flags: Variant = null) -> void:
 		var state: Array = quest_door.open if quest_door_open else quest_door.closed
 		quest_door_tile = Vector2i(int(state[0]),int(state[1]))
 		overrides.append(state)
+	if map_data.get("source_id","")=="MAP_JAGGED_PASS":
+		var progress: Dictionary = taken if story_flags==null else story_flags
+		var states: Dictionary = preload("res://core/hoenn_campaign.gd").data().jagged
+		overrides.append_array(states.open if progress.get("h_magma_gate",false) else states.closed)
 	if map_data.get("region","") in ["kanto","sevii"]:
 		overrides = overrides.duplicate()
 		overrides.append_array(preload("res://core/kanto_campaign.gd").tiles(map_data.id,taken if story_flags==null else story_flags))
@@ -1168,6 +1211,7 @@ func _rebuild(story_flags: Variant = null) -> void:
 		var field := EmeraldField.new()
 		add_child(field)
 		field.setup(self, plan, overrides)
+		if map_data.has("mechanisms"): HoennMechanisms.draw(field,self)
 		_tile_nodes.append(field)
 	else:
 		_build_legacy_ground()
@@ -1192,6 +1236,10 @@ func refresh_story_actors(flags: Dictionary) -> void:
 	for row in npcs:
 		if row.get("form_items",false): updated.append(row)
 	npcs = updated
+	if map_data.has("mechanisms"):
+		HoennMechanisms.adjust_actors(self,npcs)
+		_rebuild(flags)
+		return
 	if map_data.get("id","") == preload("res://core/johto_campaign.gd").SWITCH_ROOM:
 		_rebuild(flags)
 	elif (not quest_door_flag.is_empty() and _quest_passage_open(flags) != quest_door_open) or (map_data.get("region","") in ["kanto","sevii"] and not preload("res://core/kanto_campaign.gd").field_rules(map_data.id).is_empty()):
@@ -1210,7 +1258,10 @@ func _draw_npcs() -> void:
 		var johto: bool = map_data.get("region","")=="johto"
 		var identity := JohtoCast.character(n) if johto else ""
 		var tex: Texture2D
-		if not identity.is_empty():
+		if n.has("source_gfx") and map_data.has("emerald_original"):
+			preload("res://core/hoenn_field.gd").draw(s,n,n.get("facing","down"))
+			tex=s.texture
+		elif not identity.is_empty():
 			s.set_meta("johto_identity",identity)
 			JohtoCast.draw(s,identity,JohtoCast.facing(n.get("hgss_facing","down")))
 			tex=s.texture
@@ -1230,6 +1281,7 @@ func _draw_npcs() -> void:
 		sh.texture = _shadow_tex
 		sh.visible = not n.get("in_water_pose",false) and tex!=null and not (n.has("apricorn") or n.has("gives_mon") or n.get("name","")=="道具球")
 		var nz: int = Z_ACTOR + int(at[1]) * 2
+		if n.get("source_gfx","")=="OBJ_EVENT_GFX_TRUCK": nz-=1
 		sh.z_index = nz - 1
 		sh.position = Vector2(int(at[0]) * TILE + TILE / 2, int(at[1]) * TILE + TILE - 2)
 		add_child(sh)
@@ -1238,6 +1290,9 @@ func _draw_npcs() -> void:
 		var foot := Vector2(int(at[0]) * TILE + TILE / 2, (int(at[1]) + 1) * TILE)
 		s.position = foot
 		if tex: s.position.y -= tex.get_height()*s.scale.y*0.5
+		if map_data.get("source_id","")=="MAP_INSIDE_OF_TRUCK" and n.get("source_gfx","")=="OBJ_EVENT_GFX_MOVING_BOX":
+			s.position+=preload("res://core/hoenn_truck.gd").REST[int(n.local_id)-1]
+			sh.visible=false
 		if n.has("starter_balls"):
 			var offsets := [Vector2(-6,-23),Vector2(6,-23),Vector2(0,-18)]
 			for i in int(n.starter_balls):
@@ -1258,7 +1313,8 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 	var shadow: Sprite2D = _npc_nodes[index*2]
 	var npc_position := Vector2i(int(row.at[0]),int(row.at[1]))
 	var johto_identity := str(sprite.get_meta("johto_identity",""))
-	if johto_identity.is_empty():
+	var emerald: bool = map_data.has("emerald_original") and row.has("source_gfx")
+	if johto_identity.is_empty() and not emerald:
 		sprite.texture = preload("res://assets/npc/fr_oak_walk.png")
 		sprite.hframes = 9
 	var actor_face := "down"
@@ -1270,7 +1326,8 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 			var delta: Vector2i = directions[npc_path[i]]
 			npc_position+=delta
 			actor_face = faces[npc_path[i]]
-			if johto_identity.is_empty():
+			if emerald: preload("res://core/hoenn_field.gd").draw(sprite,row,actor_face,1+i%2)
+			elif johto_identity.is_empty():
 				sprite.flip_h = actor_face == "right"
 				sprite.frame = (WALK_A if i%2 == 0 else WALK_B)[actor_face]
 			else: JohtoCast.draw(sprite,johto_identity,actor_face,1+i%2)
@@ -1285,7 +1342,8 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 			player_pos+=Vector2i(directions[player_path[i]])
 			tween.tween_method(_render_story_step,render_pos,Vector2(player_pos),0.11)
 		await tween.finished
-		if johto_identity.is_empty(): sprite.frame = FACE_FRAME[actor_face]
+		if emerald: preload("res://core/hoenn_field.gd").draw(sprite,row,actor_face)
+		elif johto_identity.is_empty(): sprite.frame = FACE_FRAME[actor_face]
 		else: JohtoCast.draw(sprite,johto_identity,actor_face)
 	frame_col=0
 	_sync_player()
@@ -1506,6 +1564,7 @@ func apply_light() -> void:
 		var t: float = clampf(night, 0.0, 1.0)
 		base = Color(1.0 - 0.30 * t, 1.0 - 0.28 * t, 1.0 - 0.12 * t)
 	match weather:
+		"harsh_sun": base=base.lerp(Color(1,0.83,0.59),0.48)
 		"rain", "thunderstorm":
 			base = base.darkened(0.18).lerp(Color(0.78, 0.86, 1.0), 0.25)
 		"snow":
@@ -1737,6 +1796,7 @@ func tick_walk(delta: float) -> void:
 		frame_col = 0
 		render_pos = Vector2(player_pos)
 		_sync_player()
+		if map_data.has("mechanisms") and pending_warp.is_empty():HoennMechanisms.landed(self)
 		if not pending_warp.is_empty():
 			var to: Dictionary = pending_warp
 			pending_warp = {}
@@ -1787,12 +1847,17 @@ func warp_to(pos: Vector2i) -> void:
 
 func arrive(target: Dictionary) -> void:
 	var pos := Vector2i(int(target.at[0]), int(target.at[1]))
+	if map_data.has("emerald_original") and not target.get("hoenn_native",false) and map_data.has("legacy_size"):
+		pos=preload("res://core/hoenn_field.gd").saved_position(self,pos)
 	if map_data.has("hgss") and not target.get("hgss",false):
 		pos=preload("res://core/hgss_field.gd").position(map_data,pos)
 	facing = str(target.get("facing", facing))
 	if not is_water(pos):
 		surfing = false
 		diving = false
+	if map_data.has("emerald_original"):
+		diving=preload("res://core/hoenn_items.gd").underwater(map_data)
+		surfing=not diving and is_water(pos)
 	warp_to(pos)
 	if target.has("arrival_from"):
 		anim_from = Vector2(target.arrival_from[0], target.arrival_from[1])
@@ -1802,6 +1867,16 @@ func arrive(target: Dictionary) -> void:
 		_sync_player()
 
 func _process(_delta: float) -> void:
+	if map_data.get("source_id","")=="MAP_SOOTOPOLIS_CITY" and taken.get("h_kyogre",false) and not taken.get("h_peace",false):
+		var phase := int(Time.get_ticks_msec()/3400.0)%2
+		if phase!=_hoenn_storm_phase:
+			_hoenn_storm_phase=phase
+			weather="thunderstorm" if phase==0 else "harsh_sun"
+			apply_light()
+	elif _hoenn_storm_phase!=-1:
+		_hoenn_storm_phase=-1
+		weather=str(map_data.get("weather",""))
+		apply_light()
 	# 这个 HUD 只在调试时用，正常游戏里是空的；避免每帧拼字符串
 	if hud and hud.visible:
 		hud.text = "%s  (%d,%d)" % [String(map_data.get("name", "")), player_pos.x, player_pos.y]

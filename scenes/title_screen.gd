@@ -7,12 +7,10 @@ const ICE := Color("#fff8d6")
 const AQUA := Color("#f9e780")
 const MIDNIGHT := Color("#155048")
 
-signal start_requested(fresh: bool, origin: String)
+signal start_requested(fresh: bool)
 signal quit_requested
 
-var johto_button: Button
 var new_button: Button
-var selected_origin := "kanto"
 var continue_button: Button
 var cancel_button: Button
 var confirm_button: Button
@@ -45,18 +43,15 @@ func setup(saved: Dictionary, file_exists: bool) -> void:
 	title.add_theme_color_override("font_shadow_color", MIDNIGHT)
 
 	if not saved.is_empty():
-		continue_button = _button("继续冒险    ›", func(): start_requested.emit(false, ""), true)
+		continue_button = _button("继续冒险    ›", func(): start_requested.emit(false), true)
 		UI.place(self, continue_button, 22, 200, 174, 41)
 		continue_button.name = "Continue"
 		var location := str(saved.get("location", ""))
 		status_line = UI.label("%s  ·  %d 枚徽章" % [location, saved.get("badge_count", 0)], 10, ICE)
 		UI.place(self, status_line, 24, 242, 220, 18)
-	new_button = _button("关都 · 新的冒险", _on_new.bind("kanto"), saved.is_empty())
-	UI.place(self, new_button, 22, 264 if continue_button else 204, 174, 39)
+	new_button = _button("新的冒险", _on_new, saved.is_empty())
+	UI.place(self, new_button, 22, 264 if continue_button else 204, 174, 42)
 	new_button.name = "NewGame"
-	johto_button = _button("城都 · 新的冒险", _on_new.bind("johto"), saved.is_empty())
-	UI.place(self, johto_button, 207, 264 if continue_button else 204, 174, 39)
-	johto_button.name = "NewJohto"
 	if has_file and saved.is_empty():
 		status_line = UI.label("原存档暂时无法读取。", 11, ICE)
 		UI.place(self, status_line, 24, 248, 183, 22)
@@ -73,12 +68,11 @@ func _button(caption: String, action: Callable, primary: bool) -> Button:
 	b.add_theme_font_size_override("font_size", 16)
 	return b
 
-func _on_new(origin: String) -> void:
+func _on_new() -> void:
 	if is_instance_valid(confirmation):
 		return
-	selected_origin = origin
 	if not has_file:
-		start_requested.emit(true, selected_origin)
+		start_requested.emit(true)
 		return
 	confirmation = ColorRect.new()
 	confirmation.color = Color(0.015, 0.039, 0.09, 0.82)
@@ -87,10 +81,10 @@ func _on_new(origin: String) -> void:
 	var card := Panel.new()
 	card.add_theme_stylebox_override("panel", UI.box(MIDNIGHT, AQUA, 4))
 	UI.place(confirmation, card, 68, 72, 344, 174)
-	UI.place(card, UI.label("从若叶镇重新出发？" if selected_origin == "johto" else "从真新镇重新出发？", 23, ICE), 17, 17, 309, 32)
+	UI.place(card, UI.label("从真新镇重新出发？", 23, ICE), 17, 17, 309, 32)
 	UI.place(card, UI.label("现有进度会替换为新档。", 15, AQUA), 18, 63, 300, 36)
 	cancel_button = _button("保留原存档", _cancel, true)
-	confirm_button = _button("重新开始", func(): start_requested.emit(true, selected_origin), false)
+	confirm_button = _button("重新开始", func(): start_requested.emit(true), false)
 	UI.place(card, cancel_button, 17, 112, 147, 42)
 	UI.place(card, confirm_button, 179, 112, 147, 42)
 	cancel_button.grab_focus()
@@ -100,7 +94,7 @@ func _cancel() -> void:
 		remove_child(confirmation)
 		confirmation.queue_free()
 		confirmation = null
-	(johto_button if selected_origin == "johto" else new_button).grab_focus()
+	new_button.grab_focus()
 
 func show_failure(message: String) -> void:
 	if is_instance_valid(confirmation):

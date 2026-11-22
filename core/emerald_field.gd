@@ -23,6 +23,7 @@ var current := Vector2i(-100,-100)
 static func plan_for(data: Dictionary) -> Dictionary:
 	if _catalog.is_empty():
 		_catalog = JSON.parse_string(FileAccess.get_file_as_string(INDEX))
+	if data.has("hoenn_art"): return data.hoenn_art
 	return _catalog.maps.get("%s/%s" % [data.get("region",""),data.get("id","")], {})
 
 static func _tileset() -> TileSet:
@@ -43,6 +44,23 @@ static func _tileset() -> TileSet:
 	_tiles.add_source(switches,1)
 	for y in floori(switches.texture.get_height()/float(CELL)):
 		for x in 16: switches.create_tile(Vector2i(x,y))
+	var hoenn := TileSetAtlasSource.new()
+	hoenn.texture=load("res://assets/hoenn_native/tiles.png")
+	hoenn.texture_region_size=Vector2i(CELL,CELL)
+	_tiles.add_source(hoenn,2)
+	var meta: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://content/hoenn_native/atlas.json"))
+	for n in int(meta.tiles): hoenn.create_tile(Vector2i(n%64,floori(n/64.0)))
+	if meta.has("animated"):
+		var water:=TileSetAtlasSource.new()
+		water.texture=load("res://assets/hoenn_native/water.png")
+		water.texture_region_size=Vector2i(CELL,CELL)
+		_tiles.add_source(water,3)
+		for n in int(meta.animated):
+			var atlas:=Vector2i((n%8)*8,floori(n/8.0))
+			water.create_tile(atlas)
+			water.set_tile_animation_columns(atlas,8)
+			water.set_tile_animation_frames_count(atlas,8)
+			water.set_tile_animation_speed(atlas,3.75)
 	return _tiles
 
 @warning_ignore("integer_division")
@@ -145,7 +163,12 @@ func _change(key: Vector2i,show_chunk: bool) -> void:
 		active.erase(key)
 
 func _set_tile(layer: TileMapLayer,pos: Vector2i,id: int) -> void:
-	if id>=32768:
+	if world.map_data.has("emerald_original"):
+		if id>=49152:
+			var index:=id-49152
+			layer.set_cell(pos,3,Vector2i((index%8)*8,floori(index/8.0)))
+		elif id: layer.set_cell(pos,2,Vector2i(id%64,floori(id/64.0)))
+	elif id>=32768:
 		var n:=id-32768
 		layer.set_cell(pos,1,Vector2i(n%16,floori(n/16.0)))
 	elif id!=0:

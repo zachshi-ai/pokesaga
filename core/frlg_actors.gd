@@ -17,7 +17,7 @@ static func data() -> Dictionary:
 static func migrate_progress(save: Dictionary) -> void:
 	preload("res://core/sevii_campaign.gd").sync(save)
 	var flags: Dictionary = save.get("flags", {})
-	var badges: Array = save.get("badges", [])
+	var badges: Array = preload("res://core/region_journey.gd").badges(save,"kanto")
 	if "灰色徽章" in badges:
 		flags.beat_brock = true
 	if "绿色徽章" in badges:
@@ -101,6 +101,8 @@ static func actor(row: Dictionary, spec: Dictionary, flags: Dictionary) -> Dicti
 
 static func roster(map: Dictionary, flags: Dictionary) -> Array:
 	var base: Array = map.get("npcs",[])
+	if map.has("emerald_original"):
+		return preload("res://core/hoenn_campaign.gd").roster(map,flags,base)
 	if map.get("region","")=="johto":
 		var rows := preload("res://core/johto_campaign.gd").roster(map,flags)
 		rows = preload("res://core/johto_items.gd").roster(map,flags,rows)

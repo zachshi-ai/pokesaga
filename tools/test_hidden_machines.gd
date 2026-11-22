@@ -64,8 +64,10 @@ func run():
 	for move: String in Rules.FIELD_BADGES:
 		check(not game._party_can_move(move),"badge missing for "+move)
 		save.badges=[Rules.FIELD_BADGES[move]]
+		save.regional_badges.kanto=[Rules.FIELD_BADGES[move]]
 		check(game._party_can_move(move),"badge unlocks "+move)
 		save.badges=[]
+		save.regional_badges.kanto=[]
 	visit("kanto","route16_house",Vector2i(4,3))
 	click_tile(4,2)
 	click_tile(4,2)
@@ -99,12 +101,13 @@ func run():
 	check(game.world.player_pos==Vector2i(17,21),"cannot climb without move and badge")
 	save.party=[load("res://core/party.gd").make(9,55,[127])]
 	save.badges=[Rules.FIELD_BADGES.WATERFALL]
+	save.regional_badges.kanto=[Rules.FIELD_BADGES.WATERFALL]
 	game._on_action()
 	close()
 	check(game.world.player_pos==Vector2i(17,13),"Waterfall reaches top of all seven water tiles")
 	visit("hoenn","hoenn_mossdeep",Vector2i(15,14))
 	click_tile(15,13)
-	check(game._bag_count("秘传学习器 08")==1,"Steven gives Dive in Mossdeep")
+	check(game._bag_count("秘传学习器 08")==0,"a visitor cannot pick up Dive before the Space Center events")
 	game._flags().hm_kit=true
 	game.save_data.species_override={"25":{"atk":89}}
 	game._give_item("秘传学习器 03",1,"tm")

@@ -57,18 +57,24 @@ func walk_to(destination: Vector2i) -> void:
 	for step in steps: walk(step)
 
 func visit_houses() -> void:
-	for house in [["littleroot_west_home",5,8],["littleroot_east_home",14,8],["littleroot_birch_lab",7,16]]:
-		var outside := Vector2i(house[1],house[2])
-		var lab: bool = house[0]=="littleroot_birch_lab"
-		var entry: String = house[0] if lab else house[0]+"_1f"
-		walk_to(outside)
-		at(entry,Vector2i(6,7))
-		if not lab:
-			walk_to(Vector2i(10,2))
-			at(house[0]+"_2f",Vector2i(10,3))
+	for house in [
+		["littleroot_west_home",Vector2i(5,8),Vector2i(8,8),Vector2i(8,2),Vector2i(7,1)],
+		["littleroot_east_home",Vector2i(14,8),Vector2i(2,8),Vector2i(2,2),Vector2i(1,1)],
+		["littleroot_birch_lab",Vector2i(7,16),Vector2i(6,12)]]:
+		var outside: Vector2i = house[1]
+		var has_stairs: bool = house.size()==5
+		var room: String = house[0]+"_1f" if has_stairs else house[0]
+		walk_to(outside+Vector2i.DOWN)
+		walk(Vector2i.UP)
+		at(room,house[2])
+		if has_stairs:
+			walk_to(house[3])
+			at(house[0]+"_2f",house[4])
+			walk(Vector2i.DOWN)
 			walk(Vector2i.UP)
-			at(entry,Vector2i(10,3))
-		walk_to(Vector2i(6,8))
+			at(room,house[3])
+		walk_to(house[2])
+		walk(Vector2i.DOWN)
 		at("littleroot_town",outside+Vector2i.DOWN)
 	walk_to(Vector2i(10,17))
 

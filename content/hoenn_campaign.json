@@ -1,0 +1,7685 @@
+{
+ "league_back": {
+  "em_ever_grande_city_sidneys_room": "em_ever_grande_city_hall5",
+  "em_ever_grande_city_phoebes_room": "em_ever_grande_city_hall1",
+  "em_ever_grande_city_glacias_room": "em_ever_grande_city_hall2",
+  "em_ever_grande_city_drakes_room": "em_ever_grande_city_hall3",
+  "em_ever_grande_city_champions_room": "em_ever_grande_city_hall4"
+ },
+ "source_visibility": [
+  {
+   "flag": "h_moved",
+   "changes": {
+    "FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK": true,
+    "FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE": true,
+    "FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN": false
+   }
+  },
+  {
+   "flag": "h_rescued",
+   "changes": {
+    "FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE": true,
+    "FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH": false,
+    "FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG": true,
+    "FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM": true
+   }
+  },
+  {
+   "flag": "h_partner",
+   "changes": {
+    "FLAG_HIDE_ROUTE_101_BOY": false
+   }
+  },
+  {
+   "flag": "h_may103",
+   "changes": {
+    "FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL": false,
+    "FLAG_HIDE_OLDALE_TOWN_RIVAL": false
+   }
+  },
+  {
+   "flag": "h_wally_outing",
+   "changes": {
+    "FLAG_HIDE_PETALBURG_CITY_WALLYS_MOM": true,
+    "FLAG_HIDE_PETALBURG_CITY_WALLY": false,
+    "FLAG_HIDE_PETALBURG_GYM_WALLY": false,
+    "FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL": true
+   }
+  },
+  {
+   "flag": "h_wally_catch",
+   "changes": {
+    "FLAG_HIDE_PETALBURG_CITY_WALLY": true
+   }
+  },
+  {
+   "flag": "h_theft",
+   "changes": {
+    "FLAG_HIDE_RUSTBORO_CITY_DEVON_EMPLOYEE_1": false,
+    "FLAG_HIDE_ROUTE_116_MR_BRINEY": false,
+    "FLAG_HIDE_RUSTURF_TUNNEL_PEEKO": false,
+    "FLAG_HIDE_RUSTURF_TUNNEL_AQUA_GRUNT": false,
+    "FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY": true,
+    "FLAG_HIDE_BRINEYS_HOUSE_PEEKO": true
+   }
+  },
+  {
+   "flag": "h_peeko",
+   "changes": {
+    "FLAG_HIDE_ROUTE_116_MR_BRINEY": true
+   }
+  },
+  {
+   "flag": "h_devon_invite",
+   "changes": {
+    "FLAG_HIDE_RUSTBORO_CITY_DEVON_EMPLOYEE_1": true
+   }
+  },
+  {
+   "flag": "h_devon",
+   "changes": {
+    "FLAG_HIDE_RUSTBORO_CITY_POKEMON_SCHOOL_SCOTT": true,
+    "FLAG_HIDE_ROUTE_116_WANDAS_BOYFRIEND": true,
+    "FLAG_HIDE_RUSTURF_TUNNEL_WANDAS_BOYFRIEND": false,
+    "FLAG_HIDE_RUSTURF_TUNNEL_WANDA": false,
+    "FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY": false,
+    "FLAG_HIDE_BRINEYS_HOUSE_PEEKO": false,
+    "FLAG_HIDE_RUSTBORO_CITY_RIVAL": false
+   }
+  },
+  {
+   "flag": "h_dock",
+   "changes": {
+    "FLAG_HIDE_SLATEPORT_CITY_TEAM_AQUA": true
+   }
+  },
+  {
+   "flag": "h_stern",
+   "changes": {
+    "FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS": true,
+    "FLAG_HIDE_ROUTE_110_TEAM_AQUA": true,
+    "FLAG_HIDE_ROUTE_116_DEVON_EMPLOYEE": false,
+    "FLAG_HIDE_RUSTBORO_CITY_DEVON_CORP_3F_EMPLOYEE": true
+   }
+  },
+  {
+   "flag": "h_wally_mauville",
+   "changes": {
+    "FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WALLY": false,
+    "FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WALLYS_UNCLE": false
+   }
+  },
+  {
+   "flag": "h_meteor_falls",
+   "changes": {
+    "FLAG_HIDE_ROUTE_112_TEAM_MAGMA": true,
+    "FLAG_HIDE_FALLARBOR_TOWN_BATTLE_TENT_SCOTT": true
+   }
+  },
+  {
+   "flag": "h_chimney",
+   "changes": {
+    "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA": true,
+    "FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA": true,
+    "FLAG_HIDE_FALLARBOR_HOUSE_PROF_COZMO": false,
+    "FLAG_HIDE_METEOR_FALLS_1F_1R_COZMO": true,
+    "FLAG_HIDE_MT_CHIMNEY_LAVA_COOKIE_LADY": false
+   }
+  },
+  {
+   "flag": "h_goggles",
+   "changes": {
+    "FLAG_HIDE_MT_CHIMNEY_TRAINERS": false
+   }
+  },
+  {
+   "flag": "h_badge_5",
+   "changes": {
+    "FLAG_HIDE_MAUVILLE_GYM_WATTSON": true,
+    "FLAG_HIDE_MAUVILLE_CITY_WATTSON": false,
+    "FLAG_HIDE_DEWFORD_HALL_SLUDGE_BOMB_MAN": false,
+    "FLAG_HIDE_PETALBURG_CITY_WALLYS_DAD": false
+   }
+  },
+  {
+   "flag": "h_weather",
+   "changes": {
+    "FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS": false,
+    "FLAG_HIDE_ROUTE_119_TEAM_AQUA": true,
+    "FLAG_HIDE_WEATHER_INSTITUTE_2F_AQUA_GRUNT_M": true
+   }
+  },
+  {
+   "flag": "h_may119",
+   "changes": {
+    "FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS": true,
+    "FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS": false
+   }
+  },
+  {
+   "flag": "h_lilycove_may",
+   "changes": {
+    "FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM": false,
+    "FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_PICHU_DOLL": false
+   }
+  },
+  {
+   "flag": "h_pyre",
+   "changes": {
+    "FLAG_HIDE_MT_PYRE_SUMMIT_ARCHIE": true,
+    "FLAG_HIDE_MT_PYRE_SUMMIT_TEAM_AQUA": true,
+    "FLAG_HIDE_JAGGED_PASS_MAGMA_GUARD": true
+   }
+  },
+  {
+   "flag": "h_groudon",
+   "changes": {
+    "FLAG_HIDE_SLATEPORT_CITY_CAPTAIN_STERN": false,
+    "FLAG_HIDE_SLATEPORT_CITY_GABBY_AND_TY": false,
+    "FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS": true
+   }
+  },
+  {
+   "flag": "h_sub_stolen",
+   "changes": {
+    "FLAG_HIDE_LILYCOVE_MOTEL_SCOTT": true,
+    "FLAG_HIDE_AQUA_HIDEOUT_1F_GRUNT_1_BLOCKING_ENTRANCE": true,
+    "FLAG_HIDE_AQUA_HIDEOUT_1F_GRUNT_2_BLOCKING_ENTRANCE": true
+   }
+  },
+  {
+   "flag": "h_hideout",
+   "changes": {
+    "FLAG_HIDE_LILYCOVE_CITY_AQUA_GRUNTS": true
+   }
+  },
+  {
+   "flag": "h_badge_7",
+   "changes": {
+    "FLAG_HIDE_AQUA_HIDEOUT_GRUNTS": true,
+    "FLAG_HIDE_SLATEPORT_CITY_STERNS_SHIPYARD_MR_BRINEY": false,
+    "FLAG_HIDE_SLATEPORT_CITY_HARBOR_PATRONS": false,
+    "FLAG_HIDE_MOSSDEEP_CITY_TEAM_MAGMA": false,
+    "FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_1F_TEAM_MAGMA": false,
+    "FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_2F_TEAM_MAGMA": false,
+    "FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_2F_STEVEN": false,
+    "FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_1F_STEVEN": true
+   }
+  },
+  {
+   "flag": "h_space",
+   "changes": {
+    "FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_1F_TEAM_MAGMA": true,
+    "FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_2F_TEAM_MAGMA": true,
+    "FLAG_HIDE_MOSSDEEP_CITY_TEAM_MAGMA": true,
+    "FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_STEVEN": false,
+    "FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_MAGMA_NOTE": true,
+    "FLAG_HIDE_MOSSDEEP_CITY_SCOTT": true
+   }
+  },
+  {
+   "flag": "h_kyogre",
+   "changes": {
+    "FLAG_HIDE_SOOTOPOLIS_CITY_STEVEN": false,
+    "FLAG_HIDE_SOOTOPOLIS_CITY_ARCHIE": false,
+    "FLAG_HIDE_SOOTOPOLIS_CITY_MAXIE": false,
+    "FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS": false,
+    "FLAG_HIDE_SOOTOPOLIS_CITY_GROUDON": false,
+    "FLAG_HIDE_SOOTOPOLIS_CITY_KYOGRE": false,
+    "FLAG_HIDE_SOOTOPOLIS_CITY_MAN_1": true,
+    "FLAG_HIDE_ROUTE_128_ARCHIE": false,
+    "FLAG_HIDE_ROUTE_128_MAXIE": false,
+    "FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_STEVEN": true,
+    "FLAG_HIDE_SEAFLOOR_CAVERN_ROOM_9_ARCHIE": true,
+    "FLAG_HIDE_SEAFLOOR_CAVERN_ROOM_9_MAXIE": true,
+    "FLAG_HIDE_SEAFLOOR_CAVERN_ROOM_9_MAGMA_GRUNTS": true,
+    "FLAG_HIDE_SEAFLOOR_CAVERN_ROOM_9_KYOGRE": true,
+    "FLAG_HIDE_SEAFLOOR_CAVERN_AQUA_GRUNTS": true
+   }
+  },
+  {
+   "flag": "h_wallace_origin",
+   "changes": {
+    "FLAG_HIDE_SKY_PILLAR_WALLACE": false
+   }
+  },
+  {
+   "flag": "h_teams_leave",
+   "changes": {
+    "FLAG_HIDE_SOOTOPOLIS_CITY_MAXIE": true,
+    "FLAG_HIDE_SOOTOPOLIS_CITY_ARCHIE": true,
+    "FLAG_HIDE_MT_PYRE_SUMMIT_MAXIE": false,
+    "FLAG_HIDE_MT_PYRE_SUMMIT_ARCHIE": false
+   }
+  }
+ ],
+ "tutorial_wally": {
+  "at": [
+   6,
+   5
+  ],
+  "source_script": "0x0",
+  "source_flag": "FLAG_HIDE_PETALBURG_CITY_WALLY",
+  "source_gfx": "OBJ_EVENT_GFX_WALLY",
+  "source_id": 2,
+  "local_id": 2,
+  "source_local": "LOCALID_PETALBURG_WALLY",
+  "facing": "up",
+  "movement": "MOVEMENT_TYPE_FACE_UP",
+  "elevation": 3,
+  "initially_hidden": true,
+  "name": "满充",
+  "role": "h_tutorial_wally"
+ },
+ "steven": [
+  {
+   "species": 375,
+   "level": 42,
+   "moves": [
+    113,
+    94,
+    115,
+    232
+   ]
+  },
+  {
+   "species": 227,
+   "level": 43,
+   "moves": [
+    92,
+    332,
+    182,
+    211
+   ]
+  },
+  {
+   "species": 306,
+   "level": 44,
+   "moves": [
+    87,
+    182,
+    76,
+    337
+   ]
+  }
+ ],
+ "jagged": {
+  "closed": [
+   [
+    16,
+    17,
+    4234,
+    0,
+    1
+   ],
+   [
+    16,
+    18,
+    4234,
+    0,
+    1
+   ]
+  ],
+  "open": [
+   [
+    16,
+    17,
+    4481,
+    0,
+    1
+   ],
+   [
+    16,
+    18,
+    4482,
+    0,
+    0
+   ]
+  ]
+ },
+ "events": [
+  {
+   "id": "h_moved",
+   "map": "LittlerootTown",
+   "map_id": "littleroot_town",
+   "trigger": {
+    "kind": "enter"
+   },
+   "require": [
+    "h_started"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "妈妈",
+     "say": [
+      "小悠，搬家车里可闷了吧？到家啦。上二楼看看自己的房间，把爸爸买的钟调好。"
+     ]
+    },
+    {
+     "flag": "h_moved"
+    }
+   ]
+  },
+  {
+   "id": "h_clock",
+   "map": "LittlerootTown_BrendansHouse_2F",
+   "map_id": "littleroot_west_home_2f",
+   "trigger": {
+    "kind": "field",
+    "at": [
+     5,
+     1
+    ]
+   },
+   "require": [
+    "h_moved"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "小悠",
+     "say": [
+      "墙上的时钟开始走动了。"
+     ]
+    },
+    {
+     "who": "妈妈",
+     "say": [
+      "房间收拾得怎么样？楼下好像在播橙华道馆的新闻呢。"
+     ]
+    },
+    {
+     "flag": "h_clock"
+    }
+   ]
+  },
+  {
+   "id": "h_tv",
+   "map": "LittlerootTown_BrendansHouse_1F",
+   "map_id": "littleroot_west_home_1f",
+   "trigger": {
+    "kind": "enter"
+   },
+   "require": [
+    "h_clock"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "妈妈",
+     "say": [
+      "小悠，快看电视！橙华道馆……哎呀，爸爸受访的画面已经播完了。",
+      "隔壁住着小田卷博士一家，去打个招呼吧。"
+     ]
+    },
+    {
+     "flag": "h_tv"
+    }
+   ]
+  },
+  {
+   "id": "h_may_intro",
+   "map": "LittlerootTown_MaysHouse_2F",
+   "map_id": "littleroot_east_home_2f",
+   "trigger": {
+    "kind": "field",
+    "at": [
+     5,
+     4
+    ]
+   },
+   "require": [
+    "h_tv"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "hoenn_actor_walk": {
+      "id": 1,
+      "path": "DD",
+      "cast": "may_appears"
+     }
+    },
+    {
+     "who": "小遥",
+     "say": [
+      "啊，那是我的精灵球！你就是刚搬来的小悠吧？",
+      "我得去帮爸爸调查野生宝可梦。我们下次见！"
+     ]
+    },
+    {
+     "flag": "h_may_intro"
+    }
+   ]
+  },
+  {
+   "id": "h_birch_call",
+   "map": "Route101",
+   "map_id": "route101",
+   "trigger": {
+    "kind": "step",
+    "area": [
+     10,
+     19,
+     12,
+     20
+    ]
+   },
+   "require": [
+    "h_may_intro"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "小田卷博士",
+     "say": [
+      "糟了，这只蛇纹熊追上来了！那边的小朋友，快从我的背包里拿一个精灵球！"
+     ]
+    },
+    {
+     "flag": "h_birch_call"
+    }
+   ]
+  },
+  {
+   "id": "h_rescued",
+   "map": "Route101",
+   "map_id": "route101",
+   "trigger": {
+    "kind": "talk",
+    "actor": 3,
+    "at": [
+     7,
+     14
+    ]
+   },
+   "require": [
+    "h_birch_call"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "hoenn_starter": true
+    },
+    {
+     "battle": {
+      "name": "野生蛇纹熊",
+      "wild": true,
+      "team": [
+       {
+        "species": 263,
+        "level": 2
+       }
+      ]
+     }
+    },
+    {
+     "who": "小田卷博士",
+     "say": [
+      "得救了！你就是小悠吧？我们回研究所慢慢谈。"
+     ]
+    },
+    {
+     "flag": "h_rescued"
+    },
+    {
+     "warp": {
+      "region": "hoenn",
+      "map": "littleroot_birch_lab",
+      "at": [
+       6,
+       5
+      ],
+      "hoenn_native": true
+     }
+    },
+    {
+     "flag": "h_rescued"
+    }
+   ]
+  },
+  {
+   "id": "h_partner",
+   "map": "LittlerootTown_ProfessorBirchsLab",
+   "map_id": "littleroot_birch_lab",
+   "trigger": {
+    "kind": "talk",
+    "actor": 2,
+    "at": [
+     6,
+     4
+    ]
+   },
+   "require": [
+    "h_rescued"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "小田卷博士",
+     "say": [
+      "你和刚才的搭档合作得很好。让它跟着你吧！",
+      "小遥在103号道路做调查，去找她比一场吧。"
+     ]
+    },
+    {
+     "flag": "h_partner"
+    }
+   ]
+  },
+  {
+   "id": "h_may103",
+   "map": "Route103",
+   "map_id": "hoenn_103",
+   "trigger": {
+    "kind": "talk",
+    "actor": 2,
+    "at": [
+     10,
+     3
+    ]
+   },
+   "require": [
+    "h_partner"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "小遥",
+     "say": [
+      "爸爸把宝可梦交给你啦？我们来场对战，看看你和它有多合拍！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "小遥",
+      "starter_teams": [
+       "MAY_ROUTE_103_TREECKO",
+       "MAY_ROUTE_103_TORCHIC",
+       "MAY_ROUTE_103_MUDKIP"
+      ]
+     }
+    },
+    {
+     "who": "小遥",
+     "say": [
+      "我们先回研究所吧！"
+     ]
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "h_may103"
+    }
+   ]
+  },
+  {
+   "id": "h_dex",
+   "map": "LittlerootTown_ProfessorBirchsLab",
+   "map_id": "littleroot_birch_lab",
+   "trigger": {
+    "kind": "talk",
+    "actor": 2,
+    "at": [
+     6,
+     4
+    ]
+   },
+   "require": [
+    "h_may103"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "小田卷博士",
+     "say": [
+      "小遥说你很有天分。这本图鉴交给你，每一次相遇都会留下记录。"
+     ]
+    },
+    {
+     "who": "小遥",
+     "say": [
+      "这些精灵球给你。去高草里寻找新伙伴吧！"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "精灵球",
+      "count": 5,
+      "category": "ball"
+     }
+    },
+    {
+     "flag": "h_dex"
+    }
+   ]
+  },
+  {
+   "id": "h_shoes",
+   "map": "LittlerootTown",
+   "map_id": "littleroot_town",
+   "trigger": {
+    "kind": "step",
+    "area": [
+     8,
+     1,
+     12,
+     10
+    ]
+   },
+   "require": [
+    "h_dex"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "妈妈",
+     "say": [
+      "小悠，等等！穿上这双跑步鞋。按住 B 就能跑了。一路小心！"
+     ]
+    },
+    {
+     "hoenn_item": "ITEM_RUNNING_SHOES"
+    },
+    {
+     "flag": "h_shoes"
+    }
+   ]
+  },
+  {
+   "id": "h_wally_intro",
+   "map": "PetalburgCity_Gym",
+   "map_id": "em_petalburg_city_gym",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     4,
+     107
+    ]
+   },
+   "require": [
+    "h_dex"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "千里",
+     "say": [
+      "来到我的道馆啦，小悠。满充要去绿荫镇养病，却还没有自己的宝可梦。带他去102号道路看看吧。"
+     ]
+    },
+    {
+     "flag": "h_wally_outing"
+    },
+    {
+     "warp": {
+      "region": "hoenn",
+      "map": "hoenn_102",
+      "at": [
+       5,
+       4
+      ],
+      "hoenn_native": true
+     }
+    },
+    {
+     "flag": "h_wally_intro"
+    }
+   ]
+  },
+  {
+   "id": "h_wally_catch",
+   "map": "Route102",
+   "map_id": "hoenn_102",
+   "trigger": {
+    "kind": "enter"
+   },
+   "require": [
+    "h_wally_outing"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "hoenn_wally_tutorial": true
+    },
+    {
+     "who": "满充",
+     "say": [
+      "草丛动了，是拉鲁拉丝！蛇纹熊，先用撞击……现在扔精灵球！",
+      "抓到了！这是我第一个伙伴。我得回去把蛇纹熊还给千里先生。"
+     ]
+    },
+    {
+     "hoenn_seen": 280
+    },
+    {
+     "flag": "h_wally_catch"
+    },
+    {
+     "warp": {
+      "region": "hoenn",
+      "map": "em_petalburg_city_gym",
+      "at": [
+       4,
+       108
+      ],
+      "hoenn_native": true
+     }
+    },
+    {
+     "flag": "h_wally_catch"
+    }
+   ]
+  },
+  {
+   "id": "h_father_challenge",
+   "map": "PetalburgCity_Gym",
+   "map_id": "em_petalburg_city_gym",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     4,
+     107
+    ]
+   },
+   "require": [
+    "h_wally_catch"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "千里",
+     "say": [
+      "你先从卡那兹道馆开始修行吧。集齐四枚徽章，再来跟爸爸正式对战。"
+     ]
+    },
+    {
+     "flag": "h_father_challenge"
+    }
+   ]
+  },
+  {
+   "id": "h_woods",
+   "map": "PetalburgWoods",
+   "map_id": "hoenn_woods",
+   "trigger": {
+    "kind": "step",
+    "area": [
+     26,
+     23,
+     28,
+     24
+    ]
+   },
+   "require": [
+    "h_father_challenge"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "得文研究员",
+     "say": [
+      "那边穿蓝制服的人一直跟踪我！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "海洋队手下",
+      "emerald_team": "GRUNT_PETALBURG_WOODS"
+     }
+    },
+    {
+     "who": "得文研究员",
+     "say": [
+      "多亏了你！这个超级球送给你。我得赶回得文公司了。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "超级球",
+      "count": 1,
+      "category": "ball"
+     }
+    },
+    {
+     "flag": "h_woods"
+    }
+   ]
+  },
+  {
+   "id": "h_badge_1",
+   "map": "RustboroCity_Gym",
+   "map_id": "em_rustboro_city_gym",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     5,
+     2
+    ]
+   },
+   "require": [
+    "h_woods"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "杜鹃",
+     "say": [
+      "我想知道，用学校里学到的岩石系战术能走多远。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "杜鹃",
+      "emerald_team": "ROXANNE_1"
+     }
+    },
+    {
+     "who": "杜鹃",
+     "say": [
+      "你让我学到了一课。这枚岩石徽章属于你。",
+      "获得了岩石徽章！"
+     ]
+    },
+    {
+     "hoenn_badge": "岩石徽章"
+    },
+    {
+     "hoenn_tm": 317
+    },
+    {
+     "flag": "h_badge_1"
+    }
+   ]
+  },
+  {
+   "id": "h_theft",
+   "map": "RustboroCity",
+   "map_id": "hoenn_rustboro",
+   "trigger": {
+    "kind": "enter"
+   },
+   "require": [
+    "h_badge_1"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "得文研究员",
+     "say": [
+      "站住！我的包裹！小悠，那个海洋队员往东边的116号道路逃了！"
+     ]
+    },
+    {
+     "flag": "h_theft"
+    }
+   ]
+  },
+  {
+   "id": "h_peeko",
+   "map": "RusturfTunnel",
+   "map_id": "hoenn_rusturf",
+   "trigger": {
+    "kind": "talk",
+    "actor": 6,
+    "at": [
+     14,
+     5
+    ]
+   },
+   "require": [
+    "h_theft"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "海洋队手下",
+     "say": [
+      "前面是条死路……连这只长翅鸥也派不上用场！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "海洋队手下",
+      "emerald_team": "GRUNT_RUSTURF_TUNNEL"
+     }
+    },
+    {
+     "hoenn_item": "ITEM_DEVON_GOODS"
+    },
+    {
+     "who": "哈奇老人",
+     "say": [
+      "小皮！原来你在这儿。小悠，要坐船就来海边的小屋找我。"
+     ]
+    },
+    {
+     "flag": "h_peeko"
+    }
+   ]
+  },
+  {
+   "id": "h_devon_invite",
+   "map": "RustboroCity",
+   "map_id": "hoenn_rustboro",
+   "trigger": {
+    "kind": "talk",
+    "actor": 9,
+    "at": [
+     30,
+     10
+    ]
+   },
+   "require": [
+    "h_peeko"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "得文研究员",
+     "say": [
+      "包裹总算找回来了。社长想亲自谢谢你，请跟我到三楼。"
+     ]
+    },
+    {
+     "warp": {
+      "region": "hoenn",
+      "map": "em_rustboro_city_devon_corp_3f",
+      "at": [
+       14,
+       5
+      ],
+      "hoenn_native": true
+     }
+    },
+    {
+     "flag": "h_devon_invite"
+    }
+   ]
+  },
+  {
+   "id": "h_devon",
+   "map": "RustboroCity_DevonCorp_3F",
+   "map_id": "em_rustboro_city_devon_corp_3f",
+   "trigger": {
+    "kind": "talk",
+    "actor": 3,
+    "at": [
+     15,
+     5
+    ]
+   },
+   "require": [
+    "h_devon_invite"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "兹伏奇社长",
+     "say": [
+      "这封信请交给武斗镇附近的大吾，得文的物品请送到凯那市的造船厂。",
+      "这台宝可导航送给你。要渡海，可以找哈奇老人帮忙。"
+     ]
+    },
+    {
+     "hoenn_item": "ITEM_LETTER"
+    },
+    {
+     "hoenn_item": "ITEM_POKENAV"
+    },
+    {
+     "flag": "h_devon"
+    }
+   ]
+  },
+  {
+   "id": "h_dewford",
+   "map": "Route104_MrBrineysHouse",
+   "map_id": "em_route104_mr_brineys_house",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     5,
+     3
+    ]
+   },
+   "require": [
+    "h_devon"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "哈奇老人",
+     "say": [
+      "原来要送信！小皮，我们开船去武斗镇！"
+     ]
+    },
+    {
+     "warp": {
+      "region": "hoenn",
+      "map": "hoenn_dewford",
+      "at": [
+       11,
+       9
+      ],
+      "hoenn_native": true
+     }
+    },
+    {
+     "flag": "h_dewford"
+    }
+   ]
+  },
+  {
+   "id": "h_badge_2",
+   "map": "DewfordTown_Gym",
+   "map_id": "em_dewford_town_gym",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     4,
+     3
+    ]
+   },
+   "require": [
+    "h_dewford"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "滕树",
+     "say": [
+      "来吧！我的拳法是在海浪里磨练出来的！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "滕树",
+      "emerald_team": "BRAWLY_1"
+     }
+    },
+    {
+     "who": "滕树",
+     "say": [
+      "你们没有被浪头打倒。收下拳击徽章吧。",
+      "获得了拳击徽章！"
+     ]
+    },
+    {
+     "hoenn_badge": "拳击徽章"
+    },
+    {
+     "hoenn_tm": 339
+    },
+    {
+     "flag": "h_badge_2"
+    }
+   ]
+  },
+  {
+   "id": "h_letter",
+   "map": "GraniteCave_StevensRoom",
+   "map_id": "em_granite_cave_stevens_room",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     7,
+     8
+    ]
+   },
+   "require": [
+    "h_devon",
+    "h_dewford"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "大吾",
+     "say": [
+      "这是父亲托你带来的信？辛苦了。我喜欢来这里寻找珍稀石头。这招钢翼送给你。"
+     ]
+    },
+    {
+     "hoenn_take": "ITEM_LETTER"
+    },
+    {
+     "hoenn_tm": 211
+    },
+    {
+     "flag": "h_letter"
+    }
+   ]
+  },
+  {
+   "id": "h_slateport",
+   "map": "DewfordTown",
+   "map_id": "hoenn_dewford",
+   "trigger": {
+    "kind": "talk",
+    "actor": 2,
+    "at": [
+     12,
+     9
+    ]
+   },
+   "require": [
+    "h_letter"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "哈奇老人",
+     "say": [
+      "给大吾的信送到了？下一站，凯那市南边的沙滩！"
+     ]
+    },
+    {
+     "warp": {
+      "region": "hoenn",
+      "map": "hoenn_109",
+      "at": [
+       22,
+       24
+      ],
+      "hoenn_native": true
+     }
+    },
+    {
+     "flag": "h_slateport"
+    }
+   ]
+  },
+  {
+   "id": "h_dock",
+   "map": "SlateportCity_SternsShipyard_1F",
+   "map_id": "em_slateport_city_sterns_shipyard_1f",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     5,
+     5
+    ]
+   },
+   "require": [
+    "h_slateport"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "阿渡",
+     "say": [
+      "包裹是给楠木馆长的。他去海洋科学博物馆了，在那儿找找。"
+     ]
+    },
+    {
+     "flag": "h_dock"
+    }
+   ]
+  },
+  {
+   "id": "h_stern",
+   "map": "SlateportCity_OceanicMuseum_2F",
+   "map_id": "em_slateport_city_oceanic_museum_2f",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     13,
+     6
+    ]
+   },
+   "require": [
+    "h_dock"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "楠木馆长",
+     "say": [
+      "这就是潜水艇要用的零件！……等等，这些人要干什么？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "海洋队手下",
+      "emerald_team": "GRUNT_MUSEUM_1"
+     }
+    },
+    {
+     "battle": {
+      "name": "海洋队手下",
+      "emerald_team": "GRUNT_MUSEUM_2"
+     }
+    },
+    {
+     "who": "水梧桐",
+     "say": [
+      "住手。海洋孕育了万物，总有一天，你也会明白我们的理想。"
+     ]
+    },
+    {
+     "hoenn_take": "ITEM_DEVON_GOODS"
+    },
+    {
+     "who": "楠木馆长",
+     "say": [
+      "我收下零件了。有了它，就能继续探索海底。"
+     ]
+    },
+    {
+     "flag": "h_stern"
+    }
+   ]
+  },
+  {
+   "id": "h_may110",
+   "map": "Route110",
+   "map_id": "hoenn_110",
+   "trigger": {
+    "kind": "step",
+    "area": [
+     33,
+     56,
+     36,
+     57
+    ]
+   },
+   "require": [
+    "h_stern"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "小遥",
+     "say": [
+      "小悠，好久不见！给我看看你在海边遇见的新伙伴吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "小遥",
+      "starter_teams": [
+       "MAY_ROUTE_110_TREECKO",
+       "MAY_ROUTE_110_TORCHIC",
+       "MAY_ROUTE_110_MUDKIP"
+      ]
+     }
+    },
+    {
+     "hoenn_item": "ITEM_ITEMFINDER"
+    },
+    {
+     "who": "小遥",
+     "say": [
+      "探宝器能找到埋在附近的道具。我们在紫堇市见！"
+     ]
+    },
+    {
+     "flag": "h_may110"
+    }
+   ]
+  },
+  {
+   "id": "h_wally_mauville",
+   "map": "MauvilleCity",
+   "map_id": "hoenn_mauville",
+   "trigger": {
+    "kind": "talk",
+    "actor": 6,
+    "at": [
+     8,
+     6
+    ]
+   },
+   "require": [
+    "h_may110"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "满充",
+     "say": [
+      "叔叔，我已经可以和拉鲁拉丝并肩作战了！小悠，请和我打一场！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "满充",
+      "emerald_team": "WALLY_MAUVILLE"
+     }
+    },
+    {
+     "who": "满充",
+     "say": [
+      "我明白自己还差得很远。我们先回绿荫镇，总有一天我会再向你挑战。"
+     ]
+    },
+    {
+     "flag": "h_wally_mauville"
+    }
+   ]
+  },
+  {
+   "id": "h_badge_3",
+   "map": "MauvilleCity_Gym",
+   "map_id": "em_mauville_city_gym",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     5,
+     2
+    ]
+   },
+   "require": [
+    "h_wally_mauville"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "铁旋",
+     "say": [
+      "哈哈哈！能走过这些电路，就让我看看你的本事。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "铁旋",
+      "emerald_team": "WATTSON_1"
+     }
+    },
+    {
+     "who": "铁旋",
+     "say": [
+      "真痛快！接下这枚电力徽章。",
+      "获得了电力徽章！"
+     ]
+    },
+    {
+     "hoenn_badge": "电力徽章"
+    },
+    {
+     "hoenn_tm": 351
+    },
+    {
+     "flag": "h_badge_3"
+    }
+   ]
+  },
+  {
+   "id": "h_cozmo_report",
+   "map": "FallarborTown_CozmosHouse",
+   "map_id": "em_fallarbor_town_cozmos_house",
+   "trigger": {
+    "kind": "talk",
+    "actor": 2,
+    "at": [
+     5,
+     6
+    ]
+   },
+   "require": [
+    "h_badge_3"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "索蓝斯博士的妻子",
+     "say": [
+      "一群红制服的人找过他。他们说要去西南边的流星瀑布找陨石。"
+     ]
+    },
+    {
+     "flag": "h_cozmo_report"
+    }
+   ]
+  },
+  {
+   "id": "h_meteor_falls",
+   "map": "MeteorFalls_1F_1R",
+   "map_id": "hoenn_meteor",
+   "trigger": {
+    "kind": "step",
+    "area": [
+     14,
+     18,
+     15,
+     19
+    ]
+   },
+   "require": [
+    "h_badge_3"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "索蓝斯博士",
+     "say": [
+      "我以为他们会把陨石交给我研究……"
+     ]
+    },
+    {
+     "who": "熔岩队手下",
+     "say": [
+      "陨石到手！趁海洋队赶来之前，回烟囱山启动机器！"
+     ]
+    },
+    {
+     "who": "水梧桐",
+     "say": [
+      "我们追！他们要是动了火山，海和陆地都会受影响。"
+     ]
+    },
+    {
+     "flag": "h_meteor_falls"
+    }
+   ]
+  },
+  {
+   "id": "h_chimney_tabitha",
+   "map": "MtChimney",
+   "map_id": "hoenn_chimney",
+   "trigger": {
+    "kind": "talk",
+    "actor": 3,
+    "at": [
+     12,
+     11
+    ]
+   },
+   "require": [
+    "h_meteor_falls"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "火村",
+     "say": [
+      "别想靠近山顶的装置！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "火村",
+      "emerald_team": "TABITHA_MT_CHIMNEY"
+     }
+    },
+    {
+     "flag": "h_chimney_tabitha"
+    }
+   ]
+  },
+  {
+   "id": "h_chimney",
+   "map": "MtChimney",
+   "map_id": "hoenn_chimney",
+   "trigger": {
+    "kind": "talk",
+    "actor": 2,
+    "at": [
+     13,
+     6
+    ]
+   },
+   "require": [
+    "h_chimney_tabitha"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "赤焰松",
+     "say": [
+      "陨石能唤醒沉睡在火山里的力量。只要扩大大地，人类与宝可梦就有了新的家。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "赤焰松",
+      "emerald_team": "MAXIE_MT_CHIMNEY"
+     }
+    },
+    {
+     "who": "赤焰松",
+     "say": [
+      "竟然失败了。撤退！"
+     ]
+    },
+    {
+     "who": "水梧桐",
+     "say": [
+      "火山恢复平静了。谢谢你，小悠。"
+     ]
+    },
+    {
+     "flag": "h_chimney"
+    }
+   ]
+  },
+  {
+   "id": "h_meteorite",
+   "map": "MtChimney",
+   "map_id": "hoenn_chimney",
+   "trigger": {
+    "kind": "field",
+    "at": [
+     14,
+     6
+    ]
+   },
+   "require": [
+    "h_chimney"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "小悠",
+     "say": [
+      "关闭的机器里有一块暗色的陨石。"
+     ]
+    },
+    {
+     "hoenn_item": "ITEM_METEORITE"
+    },
+    {
+     "flag": "h_meteorite"
+    }
+   ]
+  },
+  {
+   "id": "h_meteorite_return",
+   "map": "FallarborTown_CozmosHouse",
+   "map_id": "em_fallarbor_town_cozmos_house",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     6,
+     4
+    ]
+   },
+   "require": [
+    "h_meteorite"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "索蓝斯博士",
+     "say": [
+      "这正是被抢走的那块陨石！请收下这枚报恩的招式学习器。"
+     ]
+    },
+    {
+     "hoenn_take": "ITEM_METEORITE"
+    },
+    {
+     "hoenn_tm": 216
+    },
+    {
+     "flag": "h_meteorite_return"
+    }
+   ]
+  },
+  {
+   "id": "h_badge_4",
+   "map": "LavaridgeTown_Gym_1F",
+   "map_id": "em_lavaridge_town_gym_1f",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     13,
+     9
+    ]
+   },
+   "require": [
+    "h_chimney"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "亚莎",
+     "say": [
+      "第一次当馆主也好，我一定要用自己的方式战斗！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "亚莎",
+      "emerald_team": "FLANNERY_1"
+     }
+    },
+    {
+     "who": "亚莎",
+     "say": [
+      "这份对搭档的信任……我也要学着相信自己。",
+      "获得了烈焰徽章！"
+     ]
+    },
+    {
+     "hoenn_badge": "烈焰徽章"
+    },
+    {
+     "hoenn_tm": 315
+    },
+    {
+     "flag": "h_badge_4"
+    }
+   ]
+  },
+  {
+   "id": "h_goggles",
+   "map": "LavaridgeTown",
+   "map_id": "hoenn_lavaridge",
+   "trigger": {
+    "kind": "enter"
+   },
+   "require": [
+    "h_badge_4"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "小遥",
+     "say": [
+      "你打赢了釜炎道馆？这些防沙护目镜给你，戴上就可以走进111号道路的沙漠了。"
+     ]
+    },
+    {
+     "hoenn_item": "ITEM_GO_GOGGLES"
+    },
+    {
+     "flag": "h_goggles"
+    }
+   ]
+  },
+  {
+   "id": "h_badge_5",
+   "map": "PetalburgCity_Gym",
+   "map_id": "em_petalburg_city_gym",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     4,
+     2
+    ]
+   },
+   "require": [
+    "h_father_challenge",
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "千里",
+     "say": [
+      "你真的集齐四枚徽章了。现在站在你面前的是橙华道馆馆主。来吧，小悠！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "千里",
+      "emerald_team": "NORMAN_1"
+     }
+    },
+    {
+     "who": "千里",
+     "say": [
+      "我输了。作为对手我很不甘心，作为父亲，我很为你高兴。满充的爸爸在等你。",
+      "获得了天秤徽章！"
+     ]
+    },
+    {
+     "hoenn_badge": "天秤徽章"
+    },
+    {
+     "hoenn_tm": 263
+    },
+    {
+     "flag": "h_badge_5"
+    }
+   ]
+  },
+  {
+   "id": "h_surf",
+   "map": "PetalburgCity_WallysHouse",
+   "map_id": "em_petalburg_city_wallys_house",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     3,
+     4
+    ]
+   },
+   "require": [
+    "h_badge_5"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "满充的爸爸",
+     "say": [
+      "满充交到伙伴，多亏了你和千里先生。这枚冲浪，可以带你渡过118号道路的河。"
+     ]
+    },
+    {
+     "hoenn_item": "ITEM_HM_SURF"
+    },
+    {
+     "flag": "h_surf"
+    }
+   ]
+  },
+  {
+   "id": "h_steven118",
+   "map": "Route118",
+   "map_id": "hoenn_118",
+   "trigger": {
+    "kind": "step",
+    "area": [
+     42,
+     7,
+     48,
+     14
+    ]
+   },
+   "require": [
+    "h_surf"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "大吾",
+     "say": [
+      "又见面了，小悠。培育喜欢的宝可梦，和不同的搭档一起生活，这也许正是训练家的意义。"
+     ]
+    },
+    {
+     "flag": "h_steven118"
+    }
+   ]
+  },
+  {
+   "id": "h_weather",
+   "map": "Route119_WeatherInstitute_2F",
+   "map_id": "em_route119_weather_institute_2f",
+   "trigger": {
+    "kind": "talk",
+    "actor": 3,
+    "at": [
+     4,
+     6
+    ]
+   },
+   "require": [
+    "h_surf"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "阿泉",
+     "say": [
+      "天气研究所的研究成果关系到海洋队的计划。你又来坏我们的事？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "阿泉",
+      "emerald_team": "SHELLY_WEATHER_INSTITUTE"
+     }
+    },
+    {
+     "who": "海洋队手下",
+     "say": [
+      "紧急消息！熔岩队已经赶往送神山。"
+     ]
+    },
+    {
+     "who": "阿泉",
+     "say": [
+      "什么？全体撤退！"
+     ]
+    },
+    {
+     "flag": "h_weather"
+    }
+   ]
+  },
+  {
+   "id": "h_castform",
+   "map": "Route119_WeatherInstitute_2F",
+   "map_id": "em_route119_weather_institute_2f",
+   "trigger": {
+    "kind": "talk",
+    "actor": 5,
+    "at": [
+     18,
+     6
+    ]
+   },
+   "require": [
+    "h_weather"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "研究员",
+     "say": [
+      "谢谢你救下研究所。这只飘浮泡泡会随天气改变模样，请带它一起旅行。"
+     ]
+    },
+    {
+     "give_mon": {
+      "species": 351,
+      "level": 25
+     }
+    },
+    {
+     "flag": "h_castform"
+    }
+   ]
+  },
+  {
+   "id": "h_may119",
+   "map": "Route119",
+   "map_id": "hoenn_119",
+   "trigger": {
+    "kind": "step",
+    "area": [
+     25,
+     31,
+     27,
+     32
+    ]
+   },
+   "require": [
+    "h_weather"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "小遥",
+     "say": [
+      "咦，你已经走到这里了？来试试我的新阵容！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "小遥",
+      "starter_teams": [
+       "MAY_ROUTE_119_TREECKO",
+       "MAY_ROUTE_119_TORCHIC",
+       "MAY_ROUTE_119_MUDKIP"
+      ]
+     }
+    },
+    {
+     "hoenn_item": "ITEM_HM_FLY"
+    },
+    {
+     "who": "小遥",
+     "say": [
+      "这招飞翔给你。赢下茵郁道馆后，就能飞回去过的城镇。"
+     ]
+    },
+    {
+     "flag": "h_may119"
+    }
+   ]
+  },
+  {
+   "id": "h_scope",
+   "map": "Route120",
+   "map_id": "hoenn_120",
+   "trigger": {
+    "kind": "talk",
+    "actor": 31,
+    "at": [
+     13,
+     15
+    ]
+   },
+   "require": [
+    "h_may119"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "大吾",
+     "say": [
+      "桥上有东西挡着路。用得文观测镜看看吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "变隐龙",
+      "wild": true,
+      "team": [
+       {
+        "species": 352,
+        "level": 30
+       }
+      ]
+     }
+    },
+    {
+     "hoenn_item": "ITEM_DEVON_SCOPE"
+    },
+    {
+     "who": "大吾",
+     "say": [
+      "这副观测镜归你了。茵郁道馆前也许有同样的障碍。"
+     ]
+    },
+    {
+     "flag": "h_scope"
+    }
+   ]
+  },
+  {
+   "id": "h_fortree_clear",
+   "map": "FortreeCity",
+   "map_id": "hoenn_fortree",
+   "trigger": {
+    "kind": "talk",
+    "actor": 7,
+    "at": [
+     25,
+     8
+    ]
+   },
+   "require": [
+    "h_scope"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "小悠",
+     "say": [
+      "透过得文观测镜看见了一只变隐龙！它被发现了，悄悄让开了路。"
+     ]
+    },
+    {
+     "flag": "h_fortree_clear"
+    }
+   ]
+  },
+  {
+   "id": "h_badge_6",
+   "map": "FortreeCity_Gym",
+   "map_id": "em_fortree_city_gym",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     15,
+     2
+    ]
+   },
+   "require": [
+    "h_fortree_clear"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "娜琪",
+     "say": [
+      "我和鸟宝可梦一起在丰缘的天空修行。让我见识你的飞翔吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "娜琪",
+      "emerald_team": "WINONA_1"
+     }
+    },
+    {
+     "who": "娜琪",
+     "say": [
+      "这座道馆承认你和搭档的实力。收下白羽徽章。",
+      "获得了白羽徽章！"
+     ]
+    },
+    {
+     "hoenn_badge": "白羽徽章"
+    },
+    {
+     "hoenn_tm": 332
+    },
+    {
+     "flag": "h_badge_6"
+    }
+   ]
+  },
+  {
+   "id": "h_aqua121",
+   "map": "Route121",
+   "map_id": "hoenn_121",
+   "trigger": {
+    "kind": "step",
+    "area": [
+     25,
+     5,
+     26,
+     9
+    ]
+   },
+   "require": [
+    "h_weather"
+   ],
+   "repeat": true,
+   "steps": [
+    {
+     "who": "海洋队手下",
+     "say": [
+      "收到命令！全队出发，去送神山！"
+     ]
+    },
+    {
+     "flag": "h_aqua121"
+    }
+   ]
+  },
+  {
+   "id": "h_lilycove_may",
+   "map": "LilycoveCity",
+   "map_id": "hoenn_lilycove",
+   "trigger": {
+    "kind": "talk",
+    "actor": 17,
+    "at": [
+     27,
+     7
+    ]
+   },
+   "require": [
+    "h_may119"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "小遥",
+     "say": [
+      "巧遇！在进百货商店之前，要不要再比一次？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "小遥",
+      "starter_teams": [
+       "MAY_LILYCOVE_TREECKO",
+       "MAY_LILYCOVE_TORCHIC",
+       "MAY_LILYCOVE_MUDKIP"
+      ]
+     }
+    },
+    {
+     "who": "小遥",
+     "say": [
+      "我想先回未白镇，陪爸爸继续完成图鉴。"
+     ]
+    },
+    {
+     "flag": "h_lilycove_may"
+    }
+   ]
+  },
+  {
+   "id": "h_pyre",
+   "map": "MtPyre_Summit",
+   "map_id": "em_mt_pyre_summit",
+   "trigger": {
+    "kind": "step",
+    "area": [
+     22,
+     7,
+     25,
+     8
+    ]
+   },
+   "require": [
+    "h_weather",
+    "h_may119"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "水梧桐",
+     "say": [
+      "赤焰松带走了蓝色宝珠。那么，这颗红色宝珠就是海洋队的了！去凯那市！"
+     ]
+    },
+    {
+     "who": "老奶奶",
+     "say": [
+      "守了这么久的两颗宝珠，还是都被带走了……刚才那些人好像落下了什么。"
+     ]
+    },
+    {
+     "flag": "h_pyre"
+    }
+   ]
+  },
+  {
+   "id": "h_emblem",
+   "map": "MtPyre_Summit",
+   "map_id": "em_mt_pyre_summit",
+   "trigger": {
+    "kind": "talk",
+    "actor": 3,
+    "at": [
+     23,
+     5
+    ]
+   },
+   "require": [
+    "h_pyre"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "老奶奶",
+     "say": [
+      "这是先来那群人掉下的熔岩标志。请你收下吧，也许能找到他们的去向。"
+     ]
+    },
+    {
+     "hoenn_item": "ITEM_MAGMA_EMBLEM"
+    },
+    {
+     "flag": "h_emblem"
+    }
+   ]
+  },
+  {
+   "id": "h_magma_gate",
+   "map": "JaggedPass",
+   "map_id": "em_jagged_pass",
+   "trigger": {
+    "kind": "step",
+    "area": [
+     15,
+     17,
+     20,
+     22
+    ]
+   },
+   "require": [
+    "h_emblem"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "小悠",
+     "say": [
+      "熔岩标志在震动！山壁传来低响，石门露了出来。"
+     ]
+    },
+    {
+     "flag": "h_magma_gate"
+    }
+   ]
+  },
+  {
+   "id": "h_magma_tabitha",
+   "map": "MagmaHideout_4F",
+   "map_id": "em_magma_hideout_4f",
+   "trigger": {
+    "kind": "talk",
+    "actor": 5,
+    "at": [
+     22,
+     4
+    ]
+   },
+   "require": [
+    "h_magma_gate"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "火村",
+     "say": [
+      "都追到这里来了？我不会让你妨碍老大！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "火村",
+      "emerald_team": "TABITHA_MAGMA_HIDEOUT"
+     }
+    },
+    {
+     "flag": "h_magma_tabitha"
+    }
+   ]
+  },
+  {
+   "id": "h_groudon",
+   "map": "MagmaHideout_4F",
+   "map_id": "em_magma_hideout_4f",
+   "trigger": {
+    "kind": "talk",
+    "actor": 6,
+    "at": [
+     16,
+     21
+    ]
+   },
+   "require": [
+    "h_magma_tabitha"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "赤焰松",
+     "say": [
+      "沉眠于岩浆中的固拉多，以蓝色宝珠的力量苏醒吧！",
+      "等等……你要去哪里？是你搞的鬼吗，小悠！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "赤焰松",
+      "emerald_team": "MAXIE_MAGMA_HIDEOUT"
+     }
+    },
+    {
+     "who": "赤焰松",
+     "say": [
+      "蓝色宝珠怎么会无法控制它？我们必须追上固拉多。"
+     ]
+    },
+    {
+     "flag": "h_groudon"
+    }
+   ]
+  },
+  {
+   "id": "h_stern_interview",
+   "map": "SlateportCity",
+   "map_id": "hoenn_slateport",
+   "trigger": {
+    "kind": "talk",
+    "actor": 11,
+    "at": [
+     28,
+     13
+    ]
+   },
+   "require": [
+    "h_groudon"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "楠木馆长",
+     "say": [
+      "我们在128号水路的海底发现了洞窟。海渊一号终于可以出航了。"
+     ]
+    },
+    {
+     "who": "广播里的声音",
+     "say": [
+      "谢谢你准备好的潜水艇，楠木馆长！"
+     ]
+    },
+    {
+     "who": "楠木馆长",
+     "say": [
+      "那个声音……从船厂里传来的！"
+     ]
+    },
+    {
+     "flag": "h_stern_interview"
+    }
+   ]
+  },
+  {
+   "id": "h_sub_stolen",
+   "map": "SlateportCity_Harbor",
+   "map_id": "em_slateport_city_harbor",
+   "trigger": {
+    "kind": "talk",
+    "actor": 4,
+    "at": [
+     6,
+     13
+    ]
+   },
+   "require": [
+    "h_stern_interview"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "水梧桐",
+     "say": [
+      "海渊一号由我们接收了！有胆量就到水静市的基地来找我。"
+     ]
+    },
+    {
+     "who": "楠木馆长",
+     "say": [
+      "他们把潜水艇开走了。小悠，拜托你了！"
+     ]
+    },
+    {
+     "flag": "h_sub_stolen"
+    }
+   ]
+  },
+  {
+   "id": "h_hideout",
+   "map": "AquaHideout_B2F",
+   "map_id": "em_aqua_hideout_b2f",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     23,
+     19
+    ]
+   },
+   "require": [
+    "h_sub_stolen"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "阿潮",
+     "say": [
+      "老大正在准备出发。我奉命在这里陪你玩玩！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "阿潮",
+      "emerald_team": "MATT"
+     }
+    },
+    {
+     "who": "阿潮",
+     "say": [
+      "我输了。可潜水艇已经开走了！往深海去找吧，哈哈！"
+     ]
+    },
+    {
+     "flag": "h_hideout"
+    }
+   ]
+  },
+  {
+   "id": "h_badge_7",
+   "map": "MossdeepCity_Gym",
+   "map_id": "em_mossdeep_city_gym",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     23,
+     7
+    ]
+   },
+   "require": [
+    "h_hideout"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "枫和南",
+     "say": [
+      "我们不用说话，就知道彼此在想什么。让你见识我们的默契！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "枫和南",
+      "emerald_team": "TATE_AND_LIZA_1",
+      "double": true
+     }
+    },
+    {
+     "who": "枫和南",
+     "say": [
+      "你和宝可梦的心意也是相通的呢。收下心灵徽章吧！",
+      "获得了心灵徽章！"
+     ]
+    },
+    {
+     "hoenn_badge": "心灵徽章"
+    },
+    {
+     "hoenn_tm": 347
+    },
+    {
+     "flag": "h_badge_7"
+    }
+   ]
+  },
+  {
+   "id": "h_rocket",
+   "map": "MossdeepCity",
+   "map_id": "hoenn_mossdeep",
+   "trigger": {
+    "kind": "enter"
+   },
+   "require": [
+    "h_badge_7"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "熔岩队手下",
+     "say": [
+      "去宇宙中心！老大要用那里的火箭燃料。"
+     ]
+    },
+    {
+     "flag": "h_rocket"
+    }
+   ]
+  },
+  {
+   "id": "h_space_stairs",
+   "map": "MossdeepCity_SpaceCenter_1F",
+   "map_id": "hoenn_space_center",
+   "trigger": {
+    "kind": "talk",
+    "actor": 9,
+    "at": [
+     13,
+     2
+    ]
+   },
+   "require": [
+    "h_rocket"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "熔岩队手下",
+     "say": [
+      "楼上正在办事，别想打扰老大！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "熔岩队楼梯守卫",
+      "emerald_team": "GRUNT_SPACE_CENTER_2"
+     }
+    },
+    {
+     "hoenn_actor_walk": {
+      "id": 9,
+      "stairs": true
+     }
+    },
+    {
+     "flag": "h_space_stairs"
+    }
+   ]
+  },
+  {
+   "id": "h_space_grunts",
+   "map": "MossdeepCity_SpaceCenter_2F",
+   "map_id": "em_mossdeep_city_space_center_2f",
+   "trigger": {
+    "kind": "enter"
+   },
+   "require": [
+    "h_space_stairs"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "hoenn_challenge": true
+    },
+    {
+     "battle": {
+      "name": "熔岩队手下",
+      "emerald_team": "GRUNT_SPACE_CENTER_5"
+     }
+    },
+    {
+     "hoenn_actor_walk": {
+      "id": 6,
+      "path": "D"
+     }
+    },
+    {
+     "battle": {
+      "name": "熔岩队手下",
+      "emerald_team": "GRUNT_SPACE_CENTER_6"
+     }
+    },
+    {
+     "hoenn_actor_walk": {
+      "id": 5,
+      "path": "L"
+     }
+    },
+    {
+     "battle": {
+      "name": "熔岩队手下",
+      "emerald_team": "GRUNT_SPACE_CENTER_7"
+     }
+    },
+    {
+     "hoenn_actor_walk": {
+      "id": 7,
+      "path": "R"
+     }
+    },
+    {
+     "flag": "h_space_grunts"
+    }
+   ]
+  },
+  {
+   "id": "h_space",
+   "map": "MossdeepCity_SpaceCenter_2F",
+   "map_id": "em_mossdeep_city_space_center_2f",
+   "trigger": {
+    "kind": "talk",
+    "actor": 4,
+    "at": [
+     1,
+     8
+    ]
+   },
+   "require": [
+    "h_space_grunts"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "大吾",
+     "say": [
+      "小悠，和我一起保护宇宙中心！"
+     ]
+    },
+    {
+     "who": "赤焰松",
+     "say": [
+      "既然宝珠没用，就把燃料投入烟囱山的火山口！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "赤焰松和火村",
+      "emerald_teams": [
+       "MAXIE_MOSSDEEP",
+       "TABITHA_MOSSDEEP"
+      ],
+      "ally": "steven",
+      "double": true
+     }
+    },
+    {
+     "who": "赤焰松",
+     "say": [
+      "扩大陆地，真的是对人类和宝可梦好吗？……我得想想。"
+     ]
+    },
+    {
+     "who": "大吾",
+     "say": [
+      "多谢帮忙。到我在绿岭市西北的家里来一趟吧。"
+     ]
+    },
+    {
+     "flag": "h_space"
+    }
+   ]
+  },
+  {
+   "id": "h_dive",
+   "map": "MossdeepCity_StevensHouse",
+   "map_id": "em_mossdeep_city_stevens_house",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     9,
+     6
+    ]
+   },
+   "require": [
+    "h_space"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "大吾",
+     "say": [
+      "你能在深蓝色的海域潜水，从水底找到他们的去向。这枚潜水交给你。"
+     ]
+    },
+    {
+     "hoenn_item": "ITEM_HM_DIVE"
+    },
+    {
+     "flag": "h_dive"
+    }
+   ]
+  },
+  {
+   "id": "h_kyogre",
+   "map": "SeafloorCavern_Room9",
+   "map_id": "em_seafloor_cavern_room9",
+   "trigger": {
+    "kind": "step",
+    "area": [
+     17,
+     42,
+     18,
+     43
+    ]
+   },
+   "require": [
+    "h_dive",
+    "h_hideout"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "水梧桐",
+     "say": [
+      "在海底沉睡了这么久！盖欧卡，让海洋恢复它应有的辽阔吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "水梧桐",
+      "emerald_team": "ARCHIE"
+     }
+    },
+    {
+     "who": "水梧桐",
+     "say": [
+      "红色宝珠自己发光了……怎么回事？这场暴雨根本停不下来！"
+     ]
+    },
+    {
+     "who": "赤焰松",
+     "say": [
+      "你现在明白了吗？海洋和大地都不能任我们支配！"
+     ]
+    },
+    {
+     "flag": "h_kyogre"
+    },
+    {
+     "warp": {
+      "region": "hoenn",
+      "map": "hoenn_128",
+      "at": [
+       38,
+       22
+      ],
+      "hoenn_native": true
+     }
+    },
+    {
+     "flag": "h_kyogre"
+    }
+   ]
+  },
+  {
+   "id": "h_duel",
+   "map": "SootopolisCity",
+   "map_id": "hoenn_sootopolis",
+   "trigger": {
+    "kind": "enter"
+   },
+   "require": [
+    "h_kyogre"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "琉璃市居民",
+     "say": [
+      "一下烈日，一下暴雨……固拉多和盖欧卡在湖中央对峙！"
+     ]
+    },
+    {
+     "who": "小悠",
+     "say": [
+      "大吾站在湖西岸，在等我过去。"
+     ]
+    },
+    {
+     "flag": "h_duel"
+    }
+   ]
+  },
+  {
+   "id": "h_origin",
+   "map": "SootopolisCity",
+   "map_id": "hoenn_sootopolis",
+   "trigger": {
+    "kind": "talk",
+    "actor": 7,
+    "at": [
+     20,
+     36
+    ]
+   },
+   "require": [
+    "h_duel"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "大吾",
+     "say": [
+      "传说中能安抚它们的宝可梦，会在世界面对危机时出现。米可利在觉醒祠堂等你。"
+     ]
+    },
+    {
+     "warp": {
+      "region": "hoenn",
+      "map": "hoenn_origin",
+      "at": [
+       9,
+       20
+      ],
+      "hoenn_native": true
+     }
+    },
+    {
+     "flag": "h_origin"
+    }
+   ]
+  },
+  {
+   "id": "h_wallace_origin",
+   "map": "CaveOfOrigin_B1F",
+   "map_id": "em_cave_of_origin_b1f",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     9,
+     13
+    ]
+   },
+   "require": [
+    "h_origin"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "米可利",
+     "say": [
+      "有一只宝可梦，能平息固拉多和盖欧卡。你觉得烈空坐现在会在哪里？"
+     ]
+    },
+    {
+     "hoenn_pillar_choice": true
+    },
+    {
+     "who": "米可利",
+     "say": [
+      "天空之柱！对，我也这样想。我们在131号水路见。"
+     ]
+    },
+    {
+     "flag": "h_wallace_origin"
+    }
+   ]
+  },
+  {
+   "id": "h_pillar",
+   "map": "SkyPillar_Outside",
+   "map_id": "em_sky_pillar_outside",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     13,
+     7
+    ]
+   },
+   "require": [
+    "h_wallace_origin"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "米可利",
+     "say": [
+      "天色越来越不对了。天空之柱的大门已经打开，拜托你去顶端唤醒烈空坐！"
+     ]
+    },
+    {
+     "flag": "h_pillar"
+    }
+   ]
+  },
+  {
+   "id": "h_rayquaza",
+   "map": "SkyPillar_Top",
+   "map_id": "em_sky_pillar_top",
+   "trigger": {
+    "kind": "step",
+    "area": [
+     14,
+     9,
+     15,
+     10
+    ]
+   },
+   "require": [
+    "h_pillar"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "hoenn_actor_walk": {
+      "id": 1,
+      "path": "UUUUU"
+     }
+    },
+    {
+     "who": "小悠",
+     "say": [
+      "塔顶的烈空坐睁开了双眼。它腾空而起，朝琉璃市飞去了！"
+     ]
+    },
+    {
+     "flag": "h_rayquaza"
+    }
+   ]
+  },
+  {
+   "id": "h_peace",
+   "map": "SootopolisCity",
+   "map_id": "hoenn_sootopolis",
+   "trigger": {
+    "kind": "enter"
+   },
+   "require": [
+    "h_rayquaza"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "hoenn_weather_scene": true
+    },
+    {
+     "who": "小悠",
+     "say": [
+      "烈空坐从云层间俯冲而下。吼声传遍湖面，固拉多和盖欧卡停了下来。",
+      "一只沉入大地，一只回到海里。风雨平息，烈空坐消失在云端。"
+     ]
+    },
+    {
+     "flag": "h_peace"
+    }
+   ]
+  },
+  {
+   "id": "h_maxie_peace",
+   "map": "SootopolisCity",
+   "map_id": "hoenn_sootopolis",
+   "trigger": {
+    "kind": "talk",
+    "actor": 16,
+    "at": [
+     33,
+     35
+    ]
+   },
+   "require": [
+    "h_peace"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "赤焰松",
+     "say": [
+      "我以为扩大大地就能造福大家。直到今天，我才明白人类的力量有多渺小。"
+     ]
+    },
+    {
+     "flag": "h_maxie_peace"
+    }
+   ]
+  },
+  {
+   "id": "h_archie_peace",
+   "map": "SootopolisCity",
+   "map_id": "hoenn_sootopolis",
+   "trigger": {
+    "kind": "talk",
+    "actor": 17,
+    "at": [
+     34,
+     35
+    ]
+   },
+   "require": [
+    "h_peace"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "水梧桐",
+     "say": [
+      "海与大地原本就在互相支撑。差点毁掉我想要保护的世界……我要回送神山归还宝珠。"
+     ]
+    },
+    {
+     "flag": "h_archie_peace"
+    }
+   ]
+  },
+  {
+   "id": "h_teams_leave",
+   "map": "SootopolisCity",
+   "map_id": "hoenn_sootopolis",
+   "trigger": {
+    "kind": "enter"
+   },
+   "require": [
+    "h_maxie_peace",
+    "h_archie_peace"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "hoenn_actor_walk": {
+      "id": 16,
+      "path": "UU"
+     }
+    },
+    {
+     "hoenn_actor_walk": {
+      "id": 17,
+      "path": "UU"
+     }
+    },
+    {
+     "who": "小悠",
+     "say": [
+      "赤焰松和水梧桐离开了道馆前的湖岸。"
+     ]
+    },
+    {
+     "flag": "h_teams_leave"
+    }
+   ]
+  },
+  {
+   "id": "h_waterfall",
+   "map": "SootopolisCity",
+   "map_id": "hoenn_sootopolis",
+   "trigger": {
+    "kind": "talk",
+    "actor": 18,
+    "at": [
+     31,
+     18
+    ]
+   },
+   "require": [
+    "h_teams_leave"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "米可利",
+     "say": [
+      "我们把世界从灾难边缘拉了回来，谢谢你。攀瀑交给你，道馆里的亚当正在等你。"
+     ]
+    },
+    {
+     "hoenn_item": "ITEM_HM_WATERFALL"
+    },
+    {
+     "hoenn_actor_walk": {
+      "id": 18,
+      "gym_door": true
+     }
+    },
+    {
+     "flag": "h_waterfall"
+    }
+   ]
+  },
+  {
+   "id": "h_badge_8",
+   "map": "SootopolisCity_Gym_1F",
+   "map_id": "em_sootopolis_city_gym_1f",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     8,
+     2
+    ]
+   },
+   "require": [
+    "h_waterfall"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "亚当",
+     "say": [
+      "你对宝可梦的指挥，能像水一样刚柔并济吗？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "亚当",
+      "emerald_team": "JUAN_1"
+     }
+    },
+    {
+     "who": "亚当",
+     "say": [
+      "多么优雅的一战！雨滴徽章能让你越过瀑布，抵达彩幽市。",
+      "获得了雨滴徽章！"
+     ]
+    },
+    {
+     "hoenn_badge": "雨滴徽章"
+    },
+    {
+     "hoenn_tm": 352
+    },
+    {
+     "flag": "h_badge_8"
+    }
+   ]
+  },
+  {
+   "id": "h_wally_road",
+   "map": "VictoryRoad_1F",
+   "map_id": "hoenn_victory",
+   "trigger": {
+    "kind": "step",
+    "area": [
+     2,
+     23,
+     4,
+     24
+    ]
+   },
+   "require": [
+    "h_badge_8"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "满充",
+     "say": [
+      "小悠，你还记得我们第一次一起走进草丛吗？我的伙伴们带我走到了这里。请认真和我对战！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "满充",
+      "emerald_team": "WALLY_VR_1"
+     }
+    },
+    {
+     "who": "满充",
+     "say": [
+      "尽管输了，我还会继续前进。你一定要挑战联盟成功！"
+     ]
+    },
+    {
+     "flag": "h_wally_road"
+    }
+   ]
+  },
+  {
+   "id": "h_league",
+   "map": "EverGrandeCity_PokemonLeague_1F",
+   "map_id": "hoenn_league",
+   "trigger": {
+    "kind": "talk",
+    "actor": 3,
+    "at": [
+     8,
+     2
+    ]
+   },
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_wally_road"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "联盟守卫",
+     "say": [
+      "八枚丰缘徽章均已确认。穿过这道门，挑战四天王和冠军吧！"
+     ]
+    },
+    {
+     "flag": "h_league"
+    }
+   ]
+  },
+  {
+   "id": "h_sidney",
+   "map": "EverGrandeCity_SidneysRoom",
+   "map_id": "em_ever_grande_city_sidneys_room",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     6,
+     5
+    ]
+   },
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_league"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "花月",
+     "say": [
+      "终于见到你了！痛痛快快地战一场吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "花月",
+      "emerald_team": "SIDNEY"
+     }
+    },
+    {
+     "who": "花月",
+     "say": [
+      "好样的！让下一位天王见识你的本领吧。"
+     ]
+    },
+    {
+     "flag": "h_sidney"
+    }
+   ]
+  },
+  {
+   "id": "h_phoebe",
+   "map": "EverGrandeCity_PhoebesRoom",
+   "map_id": "em_ever_grande_city_phoebes_room",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     6,
+     5
+    ]
+   },
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_sidney"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "芙蓉",
+     "say": [
+      "我在送神山修行，学会了与幽灵宝可梦沟通。你和伙伴又有怎样的默契呢？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "芙蓉",
+      "emerald_team": "PHOEBE"
+     }
+    },
+    {
+     "who": "芙蓉",
+     "say": [
+      "真是深厚的羁绊。我认输了。"
+     ]
+    },
+    {
+     "flag": "h_phoebe"
+    }
+   ]
+  },
+  {
+   "id": "h_glacia",
+   "map": "EverGrandeCity_GlaciasRoom",
+   "map_id": "em_ever_grande_city_glacias_room",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     6,
+     5
+    ]
+   },
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_phoebe"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "波妮",
+     "say": [
+      "我远道而来，在丰缘的炎热气候中磨炼冰之力量。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "波妮",
+      "emerald_team": "GLACIA"
+     }
+    },
+    {
+     "who": "波妮",
+     "say": [
+      "你有着足以融化坚冰的热情。请继续前进。"
+     ]
+    },
+    {
+     "flag": "h_glacia"
+    }
+   ]
+  },
+  {
+   "id": "h_drake",
+   "map": "EverGrandeCity_DrakesRoom",
+   "map_id": "em_ever_grande_city_drakes_room",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     6,
+     5
+    ]
+   },
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_glacia"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "源治",
+     "say": [
+      "训练家必须明白自己的宝可梦想要什么。证明给我看！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "源治",
+      "emerald_team": "DRAKE"
+     }
+    },
+    {
+     "who": "源治",
+     "say": [
+      "你明白什么是与宝可梦并肩战斗。冠军在等你。"
+     ]
+    },
+    {
+     "flag": "h_drake"
+    }
+   ]
+  },
+  {
+   "id": "h_wallace",
+   "map": "EverGrandeCity_ChampionsRoom",
+   "map_id": "em_ever_grande_city_champions_room",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     6,
+     5
+    ]
+   },
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_drake"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "米可利",
+     "say": [
+      "我们在琉璃市见证过奇迹。现在，作为丰缘联盟冠军，我接受你的挑战！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "米可利",
+      "emerald_team": "WALLACE"
+     }
+    },
+    {
+     "who": "米可利",
+     "say": [
+      "恭喜你，小悠！从今天起，你和伙伴们就是丰缘的新冠军。"
+     ]
+    },
+    {
+     "flag": "h_wallace"
+    },
+    {
+     "warp": {
+      "region": "hoenn",
+      "map": "em_ever_grande_city_hall_of_fame",
+      "at": [
+       7,
+       16
+      ],
+      "hoenn_native": true
+     }
+    },
+    {
+     "flag": "h_wallace"
+    }
+   ]
+  },
+  {
+   "id": "h_champion",
+   "map": "EverGrandeCity_HallOfFame",
+   "map_id": "em_ever_grande_city_hall_of_fame",
+   "trigger": {
+    "kind": "enter"
+   },
+   "require": [
+    "h_wallace"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "米可利",
+     "say": [
+      "这里记载着超越联盟的训练家和他们的搭档。让我把你们的名字刻在丰缘的历史里。"
+     ]
+    },
+    {
+     "hall_of_fame": "hoenn"
+    },
+    {
+     "hoenn_hall_team": true
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "h_champion"
+    },
+    {
+     "warp": {
+      "region": "hoenn",
+      "map": "littleroot_west_home_1f",
+      "at": [
+       5,
+       7
+      ],
+      "hoenn_native": true
+     }
+    },
+    {
+     "flag": "h_champion"
+    }
+   ]
+  },
+  {
+   "id": "h_ticket",
+   "map": "LittlerootTown_BrendansHouse_1F",
+   "map_id": "littleroot_west_home_1f",
+   "trigger": {
+    "kind": "enter"
+   },
+   "require": [
+    "h_champion"
+   ],
+   "repeat": false,
+   "steps": [
+    {
+     "who": "千里",
+     "say": [
+      "这是哈奇先生留下的船票。水流号已经开航，凭它可在凯那市和水静市乘船。"
+     ]
+    },
+    {
+     "hoenn_item": "ITEM_SS_TICKET"
+    },
+    {
+     "flag": "h_ticket"
+    }
+   ]
+  },
+  {
+   "id": "h_boat_home",
+   "map": "Route104_MrBrineysHouse",
+   "map_id": "em_route104_mr_brineys_house",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     5,
+     3
+    ]
+   },
+   "require": [
+    "h_dewford"
+   ],
+   "repeat": true,
+   "steps": [
+    {
+     "hoenn_transport": [
+      {
+       "name": "武斗镇",
+       "target": {
+        "region": "hoenn",
+        "map": "hoenn_dewford",
+        "at": [
+         11,
+         9
+        ],
+        "hoenn_native": true
+       },
+       "require": "h_dewford"
+      },
+      {
+       "name": "凯那海滩",
+       "target": {
+        "region": "hoenn",
+        "map": "hoenn_109",
+        "at": [
+         22,
+         24
+        ],
+        "hoenn_native": true
+       },
+       "require": "h_slateport"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "h_boat_dewford",
+   "map": "DewfordTown",
+   "map_id": "hoenn_dewford",
+   "trigger": {
+    "kind": "talk",
+    "actor": 2,
+    "at": [
+     12,
+     9
+    ]
+   },
+   "require": [
+    "h_dewford"
+   ],
+   "repeat": true,
+   "steps": [
+    {
+     "hoenn_transport": [
+      {
+       "name": "104号道路",
+       "target": {
+        "region": "hoenn",
+        "map": "hoenn_104",
+        "at": [
+         16,
+         52
+        ],
+        "hoenn_native": true
+       },
+       "require": "h_dewford"
+      },
+      {
+       "name": "凯那海滩",
+       "target": {
+        "region": "hoenn",
+        "map": "hoenn_109",
+        "at": [
+         22,
+         24
+        ],
+        "hoenn_native": true
+       },
+       "require": "h_slateport"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "h_boat_beach",
+   "map": "Route109",
+   "map_id": "hoenn_109",
+   "trigger": {
+    "kind": "talk",
+    "actor": 2,
+    "at": [
+     21,
+     24
+    ]
+   },
+   "require": [
+    "h_slateport"
+   ],
+   "repeat": true,
+   "steps": [
+    {
+     "hoenn_transport": [
+      {
+       "name": "武斗镇",
+       "target": {
+        "region": "hoenn",
+        "map": "hoenn_dewford",
+        "at": [
+         11,
+         9
+        ],
+        "hoenn_native": true
+       },
+       "require": "h_dewford"
+      },
+      {
+       "name": "104号道路",
+       "target": {
+        "region": "hoenn",
+        "map": "hoenn_104",
+        "at": [
+         16,
+         52
+        ],
+        "hoenn_native": true
+       },
+       "require": "h_dewford"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "h_cable_up",
+   "map": "Route112_CableCarStation",
+   "map_id": "em_route112_cable_car_station",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     6,
+     6
+    ]
+   },
+   "require": [
+    "h_meteor_falls"
+   ],
+   "repeat": true,
+   "steps": [
+    {
+     "hoenn_transport": [
+      {
+       "name": "烟囱山",
+       "target": {
+        "region": "hoenn",
+        "map": "em_mt_chimney_cable_car_station",
+        "at": [
+         6,
+         7
+        ],
+        "hoenn_native": true
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "h_cable_down",
+   "map": "MtChimney_CableCarStation",
+   "map_id": "em_mt_chimney_cable_car_station",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     6,
+     6
+    ]
+   },
+   "require": [
+    "h_meteor_falls"
+   ],
+   "repeat": true,
+   "steps": [
+    {
+     "hoenn_transport": [
+      {
+       "name": "112号道路",
+       "target": {
+        "region": "hoenn",
+        "map": "em_route112_cable_car_station",
+        "at": [
+         6,
+         7
+        ],
+        "hoenn_native": true
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "h_safari_exit",
+   "map": "SafariZone_South",
+   "map_id": "em_safari_zone_south",
+   "trigger": {
+    "kind": "talk",
+    "actor": 1,
+    "at": [
+     32,
+     34
+    ]
+   },
+   "require": [
+    "h_started"
+   ],
+   "repeat": true,
+   "steps": [
+    {
+     "who": "退场服务员",
+     "say": [
+      "现在要结束探险，回到入口大厅吗？"
+     ]
+    },
+    {
+     "hoenn_transport": [
+      {
+       "name": "退出野生原野区",
+       "target": {
+        "region": "hoenn",
+        "map": "em_route121_safari_zone_entrance",
+        "at": [
+         2,
+         5
+        ],
+        "hoenn_native": true
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "actors": {
+  "LittlerootTown": {
+   "4": [
+    {
+     "require": [
+      "h_started"
+     ],
+     "until": [
+      "h_moved"
+     ],
+     "name": "妈妈",
+     "at": [
+      5,
+      8
+     ]
+    }
+   ],
+   "5": [
+    {
+     "require": [
+      "h_started"
+     ],
+     "until": [
+      "h_clock"
+     ],
+     "name": "",
+     "at": [
+      2,
+      10
+     ]
+    }
+   ]
+  },
+  "LittlerootTown_BrendansHouse_1F": {
+   "1": [
+    {
+     "require": [
+      "h_moved"
+     ],
+     "until": [],
+     "name": "妈妈",
+     "at": [
+      2,
+      6
+     ]
+    }
+   ],
+   "2": [
+    {
+     "require": [
+      "h_moved"
+     ],
+     "until": [
+      "h_clock"
+     ],
+     "name": "",
+     "at": [
+      1,
+      3
+     ]
+    }
+   ],
+   "3": [
+    {
+     "require": [
+      "h_moved"
+     ],
+     "until": [
+      "h_clock"
+     ],
+     "name": "",
+     "at": [
+      4,
+      5
+     ]
+    }
+   ],
+   "5": [
+    {
+     "require": [
+      "h_champion"
+     ],
+     "until": [
+      "h_ticket"
+     ],
+     "name": "千里",
+     "at": [
+      5,
+      6
+     ]
+    }
+   ]
+  },
+  "LittlerootTown_MaysHouse_2F": {
+   "1": [
+    {
+     "require": [
+      "h_may_appears"
+     ],
+     "until": [
+      "h_may_intro"
+     ],
+     "name": "小遥",
+     "at": [
+      1,
+      1
+     ]
+    },
+    {
+     "require": [
+      "h_may_intro"
+     ],
+     "until": [
+      "h_rescued"
+     ],
+     "name": "小遥",
+     "at": [
+      8,
+      2
+     ]
+    }
+   ],
+   "16": [
+    {
+     "require": [
+      "h_tv"
+     ],
+     "until": [
+      "h_may_intro"
+     ],
+     "name": "",
+     "at": [
+      5,
+      4
+     ]
+    }
+   ]
+  },
+  "LittlerootTown_MaysHouse_1F": {
+   "4": [
+    {
+     "require": [
+      "h_started"
+     ],
+     "until": [],
+     "name": "小遥的妈妈",
+     "at": [
+      8,
+      7
+     ]
+    }
+   ]
+  },
+  "Route101": {
+   "2": [
+    {
+     "require": [
+      "h_may_intro"
+     ],
+     "until": [
+      "h_rescued"
+     ],
+     "name": "",
+     "at": [
+      9,
+      13
+     ]
+    }
+   ],
+   "3": [
+    {
+     "require": [
+      "h_may_intro"
+     ],
+     "until": [
+      "h_rescued"
+     ],
+     "name": "",
+     "at": [
+      7,
+      14
+     ]
+    }
+   ],
+   "4": [
+    {
+     "require": [
+      "h_may_intro"
+     ],
+     "until": [
+      "h_rescued"
+     ],
+     "name": "",
+     "at": [
+      10,
+      13
+     ]
+    }
+   ]
+  },
+  "LittlerootTown_ProfessorBirchsLab": {
+   "2": [
+    {
+     "require": [
+      "h_rescued"
+     ],
+     "until": [],
+     "name": "小田卷博士",
+     "at": [
+      6,
+      4
+     ]
+    }
+   ],
+   "3": [
+    {
+     "require": [
+      "h_may103"
+     ],
+     "until": [],
+     "name": "小遥",
+     "at": [
+      7,
+      4
+     ]
+    }
+   ]
+  },
+  "Route103": {
+   "2": [
+    {
+     "require": [
+      "h_partner"
+     ],
+     "until": [
+      "h_may103"
+     ],
+     "name": "小遥",
+     "at": [
+      10,
+      3
+     ]
+    }
+   ]
+  },
+  "PetalburgCity_Gym": {
+   "1": [
+    {
+     "require": [
+      "h_dex"
+     ],
+     "until": [
+      "h_badge_4"
+     ],
+     "name": "千里",
+     "at": [
+      4,
+      107
+     ]
+    },
+    {
+     "require": [
+      "h_badge_4"
+     ],
+     "until": [],
+     "name": "千里",
+     "at": [
+      4,
+      2
+     ]
+    }
+   ],
+   "10": [
+    {
+     "require": [
+      "h_wally_outing"
+     ],
+     "until": [
+      "h_wally_catch"
+     ],
+     "name": "满充",
+     "at": [
+      5,
+      108
+     ]
+    }
+   ]
+  },
+  "PetalburgWoods": {
+   "3": [
+    {
+     "require": [
+      "h_father_challenge"
+     ],
+     "until": [
+      "h_woods"
+     ],
+     "name": "",
+     "at": [
+      26,
+      17
+     ]
+    }
+   ],
+   "4": [
+    {
+     "require": [
+      "h_father_challenge"
+     ],
+     "until": [
+      "h_woods"
+     ],
+     "name": "",
+     "at": [
+      26,
+      20
+     ]
+    }
+   ]
+  },
+  "RustboroCity": {
+   "9": [
+    {
+     "require": [
+      "h_theft"
+     ],
+     "until": [
+      "h_devon_invite"
+     ],
+     "name": "得文研究员",
+     "at": [
+      30,
+      10
+     ]
+    }
+   ]
+  },
+  "Route116": {
+   "11": [
+    {
+     "require": [
+      "h_theft"
+     ],
+     "until": [
+      "h_peeko"
+     ],
+     "name": "哈奇老人",
+     "at": [
+      46,
+      9
+     ]
+    }
+   ],
+   "21": [
+    {
+     "require": [
+      "h_started"
+     ],
+     "until": [
+      "h_peeko"
+     ],
+     "name": "",
+     "at": [
+      38,
+      9
+     ]
+    },
+    {
+     "require": [
+      "h_peeko"
+     ],
+     "until": [
+      "h_devon"
+     ],
+     "name": "",
+     "at": [
+      38,
+      10
+     ]
+    }
+   ]
+  },
+  "RusturfTunnel": {
+   "6": [
+    {
+     "require": [
+      "h_theft"
+     ],
+     "until": [
+      "h_peeko"
+     ],
+     "name": "",
+     "at": [
+      14,
+      5
+     ]
+    }
+   ],
+   "7": [
+    {
+     "require": [
+      "h_theft"
+     ],
+     "until": [
+      "h_peeko"
+     ],
+     "name": "",
+     "at": [
+      14,
+      4
+     ]
+    }
+   ]
+  },
+  "RustboroCity_DevonCorp_3F": {
+   "3": [
+    {
+     "require": [
+      "h_peeko"
+     ],
+     "until": [],
+     "name": "兹伏奇社长",
+     "at": [
+      15,
+      5
+     ]
+    }
+   ],
+   "1": [
+    {
+     "require": [
+      "h___disabled"
+     ],
+     "until": [],
+     "name": "",
+     "at": [
+      17,
+      5
+     ]
+    }
+   ]
+  },
+  "Route104_MrBrineysHouse": {
+   "1": [
+    {
+     "require": [
+      "h_peeko"
+     ],
+     "until": [],
+     "name": "",
+     "at": [
+      5,
+      3
+     ]
+    }
+   ],
+   "2": [
+    {
+     "require": [
+      "h_peeko"
+     ],
+     "until": [],
+     "name": "",
+     "at": [
+      6,
+      3
+     ]
+    }
+   ]
+  },
+  "Route104": {
+   "7": [
+    {
+     "require": [
+      "h_peeko"
+     ],
+     "until": [],
+     "name": "",
+     "at": [
+      12,
+      54
+     ]
+    }
+   ]
+  },
+  "DewfordTown": {
+   "2": [
+    {
+     "require": [
+      "h_dewford"
+     ],
+     "until": [],
+     "name": "",
+     "at": [
+      12,
+      9
+     ]
+    }
+   ],
+   "4": [
+    {
+     "require": [
+      "h_dewford"
+     ],
+     "until": [],
+     "name": "",
+     "at": [
+      12,
+      8
+     ]
+    }
+   ]
+  },
+  "Route109": {
+   "1": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [],
+     "name": "",
+     "at": [
+      21,
+      26
+     ]
+    }
+   ],
+   "2": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [],
+     "name": "",
+     "at": [
+      21,
+      24
+     ]
+    }
+   ]
+  },
+  "GraniteCave_StevensRoom": {
+   "1": [
+    {
+     "require": [
+      "h_dewford"
+     ],
+     "until": [
+      "h_letter"
+     ],
+     "name": "大吾",
+     "at": [
+      7,
+      8
+     ]
+    }
+   ]
+  },
+  "SlateportCity": {
+   "5": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_dock"
+     ],
+     "name": "",
+     "at": [
+      31,
+      27
+     ]
+    }
+   ],
+   "18": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_dock"
+     ],
+     "name": "",
+     "at": [
+      30,
+      27
+     ]
+    }
+   ],
+   "19": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_dock"
+     ],
+     "name": "",
+     "at": [
+      29,
+      27
+     ]
+    }
+   ],
+   "26": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_dock"
+     ],
+     "name": "",
+     "at": [
+      22,
+      27
+     ]
+    }
+   ],
+   "27": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_dock"
+     ],
+     "name": "",
+     "at": [
+      23,
+      27
+     ]
+    }
+   ],
+   "28": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_dock"
+     ],
+     "name": "",
+     "at": [
+      24,
+      27
+     ]
+    }
+   ],
+   "29": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_dock"
+     ],
+     "name": "",
+     "at": [
+      21,
+      26
+     ]
+    }
+   ],
+   "30": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_dock"
+     ],
+     "name": "",
+     "at": [
+      20,
+      26
+     ]
+    }
+   ],
+   "31": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_dock"
+     ],
+     "name": "",
+     "at": [
+      26,
+      27
+     ]
+    }
+   ],
+   "32": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_dock"
+     ],
+     "name": "",
+     "at": [
+      28,
+      27
+     ]
+    }
+   ],
+   "33": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_dock"
+     ],
+     "name": "",
+     "at": [
+      25,
+      27
+     ]
+    }
+   ],
+   "11": [
+    {
+     "require": [
+      "h_groudon"
+     ],
+     "until": [
+      "h_stern_interview"
+     ],
+     "name": "楠木馆长",
+     "at": [
+      28,
+      13
+     ]
+    }
+   ]
+  },
+  "SlateportCity_OceanicMuseum_2F": {
+   "1": [
+    {
+     "require": [
+      "h_dock"
+     ],
+     "until": [
+      "h_stern"
+     ],
+     "name": "楠木馆长",
+     "at": [
+      13,
+      6
+     ]
+    }
+   ]
+  },
+  "Route110": {
+   "22": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_stern"
+     ],
+     "name": "",
+     "at": [
+      7,
+      83
+     ]
+    }
+   ],
+   "23": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_stern"
+     ],
+     "name": "",
+     "at": [
+      8,
+      83
+     ]
+    }
+   ],
+   "24": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_stern"
+     ],
+     "name": "",
+     "at": [
+      9,
+      83
+     ]
+    }
+   ],
+   "25": [
+    {
+     "require": [
+      "h_slateport"
+     ],
+     "until": [
+      "h_stern"
+     ],
+     "name": "",
+     "at": [
+      10,
+      83
+     ]
+    }
+   ],
+   "28": [
+    {
+     "require": [
+      "h_stern"
+     ],
+     "until": [
+      "h_may110"
+     ],
+     "name": "小遥",
+     "at": [
+      34,
+      54
+     ]
+    }
+   ]
+  },
+  "MauvilleCity": {
+   "6": [
+    {
+     "require": [
+      "h_dex"
+     ],
+     "until": [
+      "h_wally_mauville"
+     ],
+     "name": "",
+     "at": [
+      8,
+      6
+     ]
+    }
+   ],
+   "7": [
+    {
+     "require": [
+      "h_dex"
+     ],
+     "until": [
+      "h_wally_mauville"
+     ],
+     "name": "",
+     "at": [
+      9,
+      6
+     ]
+    }
+   ]
+  },
+  "FallarborTown_CozmosHouse": {
+   "1": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [],
+     "name": "索蓝斯博士",
+     "at": [
+      6,
+      4
+     ]
+    }
+   ]
+  },
+  "MeteorFalls_1F_1R": {
+   "5": [
+    {
+     "require": [
+      "h_badge_3"
+     ],
+     "until": [
+      "h_meteor_falls"
+     ],
+     "name": "",
+     "at": [
+      12,
+      20
+     ]
+    }
+   ],
+   "6": [
+    {
+     "require": [
+      "h_badge_3"
+     ],
+     "until": [
+      "h_meteor_falls"
+     ],
+     "name": "",
+     "at": [
+      14,
+      21
+     ]
+    }
+   ],
+   "10": [
+    {
+     "require": [
+      "h_badge_3"
+     ],
+     "until": [
+      "h_meteor_falls"
+     ],
+     "name": "",
+     "at": [
+      13,
+      23
+     ]
+    }
+   ]
+  },
+  "MtChimney": {
+   "2": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      13,
+      6
+     ]
+    }
+   ],
+   "3": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      12,
+      11
+     ]
+    }
+   ],
+   "4": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      32,
+      5
+     ]
+    }
+   ],
+   "5": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      28,
+      12
+     ]
+    }
+   ],
+   "6": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      19,
+      39
+     ]
+    }
+   ],
+   "7": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      29,
+      5
+     ]
+    }
+   ],
+   "8": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      31,
+      12
+     ]
+    }
+   ],
+   "10": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      22,
+      39
+     ]
+    }
+   ],
+   "11": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      23,
+      19
+     ]
+    }
+   ],
+   "12": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      23,
+      18
+     ]
+    }
+   ],
+   "13": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      23,
+      17
+     ]
+    }
+   ],
+   "14": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      23,
+      20
+     ]
+    }
+   ],
+   "15": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      22,
+      19
+     ]
+    }
+   ],
+   "16": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      23,
+      21
+     ]
+    }
+   ],
+   "17": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      21,
+      19
+     ]
+    }
+   ],
+   "18": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      30,
+      12
+     ]
+    }
+   ],
+   "19": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      29,
+      12
+     ]
+    }
+   ],
+   "20": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      30,
+      5
+     ]
+    }
+   ],
+   "21": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      31,
+      5
+     ]
+    }
+   ],
+   "22": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      9,
+      16
+     ]
+    }
+   ],
+   "23": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      20,
+      39
+     ]
+    }
+   ],
+   "24": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      21,
+      39
+     ]
+    }
+   ],
+   "29": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "",
+     "at": [
+      13,
+      16
+     ]
+    }
+   ],
+   "1": [
+    {
+     "require": [
+      "h_meteor_falls"
+     ],
+     "until": [
+      "h_chimney"
+     ],
+     "name": "水梧桐",
+     "at": [
+      24,
+      19
+     ]
+    }
+   ]
+  },
+  "LavaridgeTown": {
+   "8": [
+    {
+     "require": [
+      "h_badge_4"
+     ],
+     "until": [
+      "h_goggles"
+     ],
+     "name": "小遥",
+     "at": [
+      12,
+      15
+     ]
+    }
+   ]
+  },
+  "Route118": {
+   "19": [
+    {
+     "require": [
+      "h_surf"
+     ],
+     "until": [
+      "h_steven118"
+     ],
+     "name": "大吾",
+     "at": [
+      44,
+      7
+     ]
+    }
+   ]
+  },
+  "Route119": {
+   "23": [
+    {
+     "require": [
+      "h_surf"
+     ],
+     "until": [
+      "h_weather"
+     ],
+     "name": "",
+     "at": [
+      13,
+      33
+     ]
+    }
+   ],
+   "24": [
+    {
+     "require": [
+      "h_surf"
+     ],
+     "until": [
+      "h_weather"
+     ],
+     "name": "",
+     "at": [
+      13,
+      34
+     ]
+    }
+   ],
+   "16": [
+    {
+     "require": [
+      "h_weather"
+     ],
+     "until": [
+      "h_may119"
+     ],
+     "name": "小遥",
+     "at": [
+      25,
+      32
+     ]
+    }
+   ]
+  },
+  "Route119_WeatherInstitute_2F": {
+   "1": [
+    {
+     "require": [
+      "h_surf"
+     ],
+     "until": [
+      "h_weather"
+     ],
+     "name": "",
+     "at": [
+      15,
+      6
+     ]
+    }
+   ],
+   "2": [
+    {
+     "require": [
+      "h_surf"
+     ],
+     "until": [
+      "h_weather"
+     ],
+     "name": "",
+     "at": [
+      10,
+      8
+     ]
+    }
+   ],
+   "3": [
+    {
+     "require": [
+      "h_surf"
+     ],
+     "until": [
+      "h_weather"
+     ],
+     "name": "",
+     "at": [
+      4,
+      6
+     ]
+    }
+   ],
+   "7": [
+    {
+     "require": [
+      "h_surf"
+     ],
+     "until": [
+      "h_weather"
+     ],
+     "name": "",
+     "at": [
+      16,
+      6
+     ]
+    }
+   ],
+   "8": [
+    {
+     "require": [
+      "h_surf"
+     ],
+     "until": [
+      "h_weather"
+     ],
+     "name": "",
+     "at": [
+      19,
+      6
+     ]
+    }
+   ],
+   "5": [
+    {
+     "require": [
+      "h_weather"
+     ],
+     "until": [],
+     "name": "研究员",
+     "at": [
+      18,
+      6
+     ]
+    }
+   ]
+  },
+  "Route120": {
+   "31": [
+    {
+     "require": [
+      "h_may119"
+     ],
+     "until": [
+      "h_scope"
+     ],
+     "name": "大吾",
+     "at": [
+      13,
+      15
+     ]
+    }
+   ]
+  },
+  "FortreeCity": {
+   "7": [
+    {
+     "require": [
+      "h_started"
+     ],
+     "until": [
+      "h_fortree_clear"
+     ],
+     "name": "",
+     "at": [
+      25,
+      8
+     ]
+    }
+   ]
+  },
+  "Route121": {
+   "12": [
+    {
+     "require": [
+      "h_weather"
+     ],
+     "until": [
+      "h_aqua121",
+      "h_pyre"
+     ],
+     "name": "",
+     "at": [
+      30,
+      8
+     ]
+    }
+   ],
+   "13": [
+    {
+     "require": [
+      "h_weather"
+     ],
+     "until": [
+      "h_aqua121",
+      "h_pyre"
+     ],
+     "name": "",
+     "at": [
+      30,
+      7
+     ]
+    }
+   ],
+   "14": [
+    {
+     "require": [
+      "h_weather"
+     ],
+     "until": [
+      "h_aqua121",
+      "h_pyre"
+     ],
+     "name": "",
+     "at": [
+      31,
+      7
+     ]
+    }
+   ]
+  },
+  "LilycoveCity": {
+   "17": [
+    {
+     "require": [
+      "h_may119"
+     ],
+     "until": [
+      "h_lilycove_may"
+     ],
+     "name": "小遥",
+     "at": [
+      27,
+      7
+     ]
+    }
+   ],
+   "10": [
+    {
+     "require": [
+      "h_pyre"
+     ],
+     "until": [
+      "h_hideout"
+     ],
+     "name": "",
+     "at": [
+      73,
+      15
+     ]
+    }
+   ],
+   "12": [
+    {
+     "require": [
+      "h_pyre"
+     ],
+     "until": [
+      "h_hideout"
+     ],
+     "name": "",
+     "at": [
+      43,
+      18
+     ]
+    }
+   ],
+   "13": [
+    {
+     "require": [
+      "h_pyre"
+     ],
+     "until": [
+      "h_hideout"
+     ],
+     "name": "",
+     "at": [
+      46,
+      12
+     ]
+    }
+   ],
+   "14": [
+    {
+     "require": [
+      "h_pyre"
+     ],
+     "until": [
+      "h_hideout"
+     ],
+     "name": "",
+     "at": [
+      45,
+      12
+     ]
+    }
+   ],
+   "15": [
+    {
+     "require": [
+      "h_pyre"
+     ],
+     "until": [
+      "h_hideout"
+     ],
+     "name": "",
+     "at": [
+      38,
+      9
+     ]
+    }
+   ]
+  },
+  "MtPyre_Summit": {
+   "2": [
+    {
+     "require": [
+      "h_weather"
+     ],
+     "until": [
+      "h_pyre"
+     ],
+     "name": "",
+     "at": [
+      23,
+      6
+     ]
+    }
+   ],
+   "4": [
+    {
+     "require": [
+      "h_weather"
+     ],
+     "until": [
+      "h_pyre"
+     ],
+     "name": "",
+     "at": [
+      21,
+      15
+     ]
+    }
+   ],
+   "5": [
+    {
+     "require": [
+      "h_weather"
+     ],
+     "until": [
+      "h_pyre"
+     ],
+     "name": "",
+     "at": [
+      25,
+      18
+     ]
+    }
+   ],
+   "6": [
+    {
+     "require": [
+      "h_weather"
+     ],
+     "until": [
+      "h_pyre"
+     ],
+     "name": "",
+     "at": [
+      21,
+      11
+     ]
+    }
+   ],
+   "7": [
+    {
+     "require": [
+      "h_weather"
+     ],
+     "until": [
+      "h_pyre"
+     ],
+     "name": "",
+     "at": [
+      25,
+      11
+     ]
+    }
+   ]
+  },
+  "MagmaHideout_4F": {
+   "5": [
+    {
+     "require": [
+      "h_magma_gate"
+     ],
+     "until": [
+      "h_groudon"
+     ],
+     "name": "",
+     "at": [
+      22,
+      4
+     ]
+    }
+   ],
+   "6": [
+    {
+     "require": [
+      "h_magma_gate"
+     ],
+     "until": [
+      "h_groudon"
+     ],
+     "name": "",
+     "at": [
+      16,
+      21
+     ]
+    }
+   ],
+   "7": [
+    {
+     "require": [
+      "h_magma_gate"
+     ],
+     "until": [
+      "h_groudon"
+     ],
+     "name": "",
+     "at": [
+      16,
+      17
+     ]
+    }
+   ]
+  },
+  "SlateportCity_Harbor": {
+   "4": [
+    {
+     "require": [
+      "h_stern_interview"
+     ],
+     "until": [
+      "h_sub_stolen"
+     ],
+     "name": "",
+     "at": [
+      6,
+      13
+     ]
+    }
+   ],
+   "7": [
+    {
+     "require": [
+      "h_stern_interview"
+     ],
+     "until": [
+      "h_sub_stolen"
+     ],
+     "name": "",
+     "at": [
+      8,
+      10
+     ]
+    }
+   ]
+  },
+  "AquaHideout_B2F": {
+   "1": [
+    {
+     "require": [
+      "h_sub_stolen"
+     ],
+     "until": [
+      "h_hideout"
+     ],
+     "name": "",
+     "at": [
+      23,
+      19
+     ]
+    }
+   ],
+   "2": [
+    {
+     "require": [
+      "h_sub_stolen"
+     ],
+     "until": [
+      "h_hideout"
+     ],
+     "name": "",
+     "at": [
+      23,
+      10
+     ]
+    }
+   ],
+   "5": [
+    {
+     "require": [
+      "h_sub_stolen"
+     ],
+     "until": [
+      "h_hideout"
+     ],
+     "name": "",
+     "at": [
+      7,
+      5
+     ]
+    }
+   ],
+   "6": [
+    {
+     "require": [
+      "h_sub_stolen"
+     ],
+     "until": [
+      "h_hideout"
+     ],
+     "name": "",
+     "at": [
+      13,
+      5
+     ]
+    }
+   ]
+  },
+  "MossdeepCity": {
+   "10": [
+    {
+     "require": [
+      "h_badge_7"
+     ],
+     "until": [
+      "h_rocket"
+     ],
+     "name": "",
+     "at": [
+      44,
+      23
+     ]
+    }
+   ],
+   "11": [
+    {
+     "require": [
+      "h_badge_7"
+     ],
+     "until": [
+      "h_rocket"
+     ],
+     "name": "",
+     "at": [
+      44,
+      24
+     ]
+    }
+   ],
+   "12": [
+    {
+     "require": [
+      "h_badge_7"
+     ],
+     "until": [
+      "h_rocket"
+     ],
+     "name": "",
+     "at": [
+      44,
+      25
+     ]
+    }
+   ],
+   "13": [
+    {
+     "require": [
+      "h_badge_7"
+     ],
+     "until": [
+      "h_rocket"
+     ],
+     "name": "",
+     "at": [
+      44,
+      26
+     ]
+    }
+   ]
+  },
+  "MossdeepCity_SpaceCenter_1F": {
+   "1": [
+    {
+     "require": [
+      "h_started"
+     ],
+     "until": [
+      "h_rocket"
+     ],
+     "name": "",
+     "at": [
+      7,
+      2
+     ]
+    },
+    {
+     "require": [
+      "h_rocket"
+     ],
+     "until": [
+      "h_space"
+     ],
+     "name": "",
+     "at": [
+      3,
+      4
+     ]
+    },
+    {
+     "require": [
+      "h_space"
+     ],
+     "until": [],
+     "name": "",
+     "at": [
+      7,
+      2
+     ]
+    }
+   ],
+   "3": [
+    {
+     "require": [
+      "h_started"
+     ],
+     "until": [
+      "h_rocket"
+     ],
+     "name": "",
+     "at": [
+      6,
+      6
+     ]
+    },
+    {
+     "require": [
+      "h_rocket"
+     ],
+     "until": [
+      "h_space"
+     ],
+     "name": "",
+     "at": [
+      1,
+      9
+     ]
+    },
+    {
+     "require": [
+      "h_space"
+     ],
+     "until": [],
+     "name": "",
+     "at": [
+      6,
+      6
+     ]
+    }
+   ],
+   "4": [
+    {
+     "require": [
+      "h_started"
+     ],
+     "until": [
+      "h_rocket"
+     ],
+     "name": "",
+     "at": [
+      10,
+      2
+     ]
+    },
+    {
+     "require": [
+      "h_rocket"
+     ],
+     "until": [
+      "h_space"
+     ],
+     "name": "",
+     "at": [
+      1,
+      6
+     ]
+    },
+    {
+     "require": [
+      "h_space"
+     ],
+     "until": [],
+     "name": "",
+     "at": [
+      10,
+      2
+     ]
+    }
+   ],
+   "5": [
+    {
+     "require": [
+      "h_started"
+     ],
+     "until": [
+      "h_rocket"
+     ],
+     "name": "",
+     "at": [
+      14,
+      7
+     ]
+    },
+    {
+     "require": [
+      "h_rocket"
+     ],
+     "until": [
+      "h_space"
+     ],
+     "name": "",
+     "at": [
+      0,
+      8
+     ]
+    },
+    {
+     "require": [
+      "h_space"
+     ],
+     "until": [],
+     "name": "",
+     "at": [
+      14,
+      7
+     ]
+    }
+   ],
+   "6": [
+    {
+     "require": [
+      "h_rocket"
+     ],
+     "until": [
+      "h_space"
+     ],
+     "name": "",
+     "at": [
+      12,
+      9
+     ]
+    }
+   ],
+   "7": [
+    {
+     "require": [
+      "h_rocket"
+     ],
+     "until": [
+      "h_space"
+     ],
+     "name": "",
+     "at": [
+      11,
+      6
+     ]
+    }
+   ],
+   "8": [
+    {
+     "require": [
+      "h_rocket"
+     ],
+     "until": [
+      "h_space"
+     ],
+     "name": "",
+     "at": [
+      10,
+      2
+     ]
+    }
+   ],
+   "9": [
+    {
+     "require": [
+      "h_rocket"
+     ],
+     "until": [
+      "h_space"
+     ],
+     "name": "",
+     "at": [
+      13,
+      2
+     ]
+    }
+   ]
+  },
+  "MossdeepCity_SpaceCenter_2F": {
+   "4": [
+    {
+     "require": [
+      "h_rocket"
+     ],
+     "until": [
+      "h_space"
+     ],
+     "name": "",
+     "at": [
+      1,
+      8
+     ]
+    }
+   ],
+   "8": [
+    {
+     "require": [
+      "h_rocket"
+     ],
+     "until": [
+      "h_space"
+     ],
+     "name": "",
+     "at": [
+      0,
+      8
+     ]
+    }
+   ],
+   "9": [
+    {
+     "require": [
+      "h_rocket"
+     ],
+     "until": [
+      "h_space"
+     ],
+     "name": "",
+     "at": [
+      1,
+      9
+     ]
+    }
+   ],
+   "5": [
+    {
+     "require": [
+      "h_rocket"
+     ],
+     "until": [
+      "h_space_grunts"
+     ],
+     "name": "",
+     "at": [
+      12,
+      2
+     ]
+    },
+    {
+     "require": [
+      "h_space_grunts"
+     ],
+     "until": [
+      "h_space"
+     ],
+     "name": "",
+     "at": [
+      11,
+      2
+     ]
+    }
+   ],
+   "6": [
+    {
+     "require": [
+      "h_rocket"
+     ],
+     "until": [
+      "h_space_grunts"
+     ],
+     "name": "",
+     "at": [
+      13,
+      3
+     ]
+    },
+    {
+     "require": [
+      "h_space_grunts"
+     ],
+     "until": [
+      "h_space"
+     ],
+     "name": "",
+     "at": [
+      13,
+      4
+     ]
+    }
+   ],
+   "7": [
+    {
+     "require": [
+      "h_rocket"
+     ],
+     "until": [
+      "h_space_grunts"
+     ],
+     "name": "",
+     "at": [
+      14,
+      2
+     ]
+    },
+    {
+     "require": [
+      "h_space_grunts"
+     ],
+     "until": [
+      "h_space"
+     ],
+     "name": "",
+     "at": [
+      15,
+      2
+     ]
+    }
+   ]
+  },
+  "MossdeepCity_StevensHouse": {
+   "1": [
+    {
+     "require": [
+      "h_space"
+     ],
+     "until": [
+      "h_dive"
+     ],
+     "name": "大吾",
+     "at": [
+      9,
+      6
+     ]
+    }
+   ]
+  },
+  "SeafloorCavern_Room9": {
+   "7": [
+    {
+     "require": [
+      "h_dive"
+     ],
+     "until": [
+      "h_kyogre"
+     ],
+     "name": "",
+     "at": [
+      17,
+      38
+     ]
+    }
+   ]
+  },
+  "SootopolisCity": {
+   "1": [
+    {
+     "require": [
+      "h_started"
+     ],
+     "until": [
+      "h_origin"
+     ],
+     "name": "守祠长老",
+     "at": [
+      31,
+      18
+     ]
+    },
+    {
+     "require": [
+      "h_origin"
+     ],
+     "until": [
+      "h_peace"
+     ],
+     "name": "守祠长老",
+     "at": [
+      30,
+      18
+     ]
+    },
+    {
+     "require": [
+      "h_peace"
+     ],
+     "until": [],
+     "name": "守祠长老",
+     "at": [
+      31,
+      18
+     ]
+    }
+   ],
+   "7": [
+    {
+     "require": [
+      "h_kyogre"
+     ],
+     "until": [
+      "h_origin"
+     ],
+     "name": "大吾",
+     "at": [
+      20,
+      36
+     ]
+    },
+    {
+     "require": [
+      "h_origin"
+     ],
+     "until": [
+      "h_peace"
+     ],
+     "name": "大吾",
+     "at": [
+      32,
+      18
+     ]
+    },
+    {
+     "require": [
+      "h_peace"
+     ],
+     "until": [],
+     "name": "大吾",
+     "at": [
+      29,
+      33
+     ]
+    }
+   ],
+   "9": [
+    {
+     "require": [
+      "h_kyogre"
+     ],
+     "until": [
+      "h_peace"
+     ],
+     "name": "",
+     "at": [
+      28,
+      44
+     ]
+    }
+   ],
+   "10": [
+    {
+     "require": [
+      "h_kyogre"
+     ],
+     "until": [
+      "h_peace"
+     ],
+     "name": "",
+     "at": [
+      34,
+      44
+     ]
+    }
+   ],
+   "11": [
+    {
+     "require": [
+      "h_rayquaza",
+      "h_scene"
+     ],
+     "until": [
+      "h_peace"
+     ],
+     "name": "",
+     "at": [
+      31,
+      41
+     ]
+    }
+   ],
+   "16": [
+    {
+     "require": [
+      "h_duel"
+     ],
+     "until": [
+      "h_peace"
+     ],
+     "name": "",
+     "at": [
+      29,
+      33
+     ]
+    },
+    {
+     "require": [
+      "h_peace"
+     ],
+     "until": [
+      "h_teams_leave"
+     ],
+     "name": "赤焰松",
+     "at": [
+      33,
+      35
+     ]
+    }
+   ],
+   "17": [
+    {
+     "require": [
+      "h_duel"
+     ],
+     "until": [
+      "h_peace"
+     ],
+     "name": "",
+     "at": [
+      31,
+      33
+     ]
+    },
+    {
+     "require": [
+      "h_peace"
+     ],
+     "until": [
+      "h_teams_leave"
+     ],
+     "name": "水梧桐",
+     "at": [
+      34,
+      35
+     ]
+    }
+   ],
+   "18": [
+    {
+     "require": [
+      "h_peace"
+     ],
+     "until": [
+      "h_waterfall"
+     ],
+     "name": "米可利",
+     "at": [
+      31,
+      33
+     ]
+    },
+    {
+     "require": [
+      "h_waterfall"
+     ],
+     "until": [],
+     "name": "米可利",
+     "at": [
+      32,
+      33
+     ]
+    }
+   ]
+  },
+  "CaveOfOrigin_B1F": {
+   "1": [
+    {
+     "require": [
+      "h_origin"
+     ],
+     "until": [
+      "h_wallace_origin"
+     ],
+     "name": "米可利",
+     "at": [
+      9,
+      13
+     ]
+    }
+   ]
+  },
+  "SkyPillar_Outside": {
+   "1": [
+    {
+     "require": [
+      "h_wallace_origin"
+     ],
+     "until": [
+      "h_pillar"
+     ],
+     "name": "米可利",
+     "at": [
+      13,
+      7
+     ]
+    }
+   ]
+  },
+  "SkyPillar_Top": {
+   "1": [
+    {
+     "require": [
+      "h_pillar"
+     ],
+     "until": [
+      "h_rayquaza"
+     ],
+     "name": "",
+     "at": [
+      14,
+      7
+     ]
+    }
+   ]
+  },
+  "VictoryRoad_1F": {
+   "4": [
+    {
+     "require": [
+      "h_badge_8"
+     ],
+     "until": [
+      "h_wally_road"
+     ],
+     "name": "满充",
+     "at": [
+      12,
+      25
+     ]
+    }
+   ]
+  },
+  "EverGrandeCity_ChampionsRoom": {
+   "1": [
+    {
+     "require": [
+      "h_drake"
+     ],
+     "until": [],
+     "name": "米可利",
+     "at": [
+      6,
+      5
+     ]
+    }
+   ]
+  },
+  "EverGrandeCity_HallOfFame": {
+   "1": [
+    {
+     "require": [
+      "h_wallace"
+     ],
+     "until": [],
+     "name": "米可利",
+     "at": [
+      6,
+      16
+     ]
+    }
+   ]
+  },
+  "Route112_CableCarStation": {
+   "1": [
+    {
+     "require": [
+      "h_started"
+     ],
+     "until": [],
+     "name": "缆车乘务员",
+     "at": [
+      6,
+      6
+     ]
+    }
+   ]
+  },
+  "MtChimney_CableCarStation": {
+   "1": [
+    {
+     "require": [
+      "h_started"
+     ],
+     "until": [],
+     "name": "缆车乘务员",
+     "at": [
+      6,
+      6
+     ]
+    }
+   ]
+  }
+ },
+ "gates": {
+  "route101": {
+   "require": [
+    "h_may_intro"
+   ],
+   "message": "隔壁的小遥还没见过你。先去她家二楼打个招呼吧。"
+  },
+  "hoenn_oldale": {
+   "require": [
+    "h_rescued"
+   ],
+   "message": "博士还在101号道路求救！背包里有精灵球。"
+  },
+  "hoenn_102": {
+   "require": [
+    "h_dex"
+   ],
+   "message": "小田卷博士正在研究所等你。"
+  },
+  "em_mauville_city_gym": {
+   "require": [
+    "h_wally_mauville"
+   ],
+   "message": "满充想在道馆门前和你比一场。"
+  },
+  "hoenn_chimney": {
+   "require": [
+    "h_meteor_falls"
+   ],
+   "message": "熔岩队封锁了山路。先去流星瀑布。"
+  },
+  "em_lavaridge_town_gym_1f": {
+   "require": [
+    "h_chimney"
+   ],
+   "message": "先阻止烟囱山顶的熔岩队。"
+  },
+  "em_fortree_city_gym": {
+   "require": [
+    "h_fortree_clear"
+   ],
+   "message": "有什么东西挡在道馆前的那条路上。"
+  },
+  "hoenn_origin": {
+   "require": [
+    "h_origin"
+   ],
+   "message": "入口由长老守护。先与湖西岸的大吾交谈。"
+  },
+  "em_sky_pillar_1f": {
+   "require": [
+    "h_pillar"
+   ],
+   "message": "天空之柱的大门紧闭。米可利知道开启的方法。"
+  },
+  "em_sootopolis_city_gym_1f": {
+   "require": [
+    "h_waterfall"
+   ],
+   "message": "道馆仍未开放。米可利在琉璃市等你。"
+  },
+  "em_mossdeep_city_gym": {
+   "require": [
+    "h_hideout"
+   ],
+   "message": "水静市海洋队基地的潜水艇尚未出港。"
+  },
+  "em_magma_hideout_1f": {
+   "require": [
+    "h_magma_gate"
+   ],
+   "message": "山壁上有熔岩队的标志。"
+  },
+  "em_aqua_hideout_1f": {
+   "require": [
+    "h_sub_stolen"
+   ],
+   "message": "入口被海洋队把守。去凯那市港口看看。"
+  },
+  "em_mossdeep_city_space_center_2f": {
+   "require": [
+    "h_space_stairs"
+   ],
+   "message": "熔岩队手下堵在楼梯口。"
+  },
+  "hoenn_seafloor": {
+   "require": [
+    "h_dive"
+   ],
+   "message": "先在绿岭市拿到潜水，追踪被盗的潜水艇。"
+  },
+  "hoenn_victory": {
+   "require": [
+    "h_badge_8"
+   ],
+   "message": "取得丰缘雨滴徽章，才能攀上彩幽市的瀑布。"
+  },
+  "em_ever_grande_city_sidneys_room": {
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_league"
+   ],
+   "message": "请先通过丰缘联盟的徽章检查，并按顺序战胜前一位训练家。"
+  },
+  "em_ever_grande_city_hall5": {
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_league"
+   ],
+   "message": "丰缘联盟尚未向你开启下一道门。"
+  },
+  "em_ever_grande_city_phoebes_room": {
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_sidney"
+   ],
+   "message": "请先通过丰缘联盟的徽章检查，并按顺序战胜前一位训练家。"
+  },
+  "em_ever_grande_city_hall1": {
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_sidney"
+   ],
+   "message": "丰缘联盟尚未向你开启下一道门。"
+  },
+  "em_ever_grande_city_glacias_room": {
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_phoebe"
+   ],
+   "message": "请先通过丰缘联盟的徽章检查，并按顺序战胜前一位训练家。"
+  },
+  "em_ever_grande_city_hall2": {
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_phoebe"
+   ],
+   "message": "丰缘联盟尚未向你开启下一道门。"
+  },
+  "em_ever_grande_city_drakes_room": {
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_glacia"
+   ],
+   "message": "请先通过丰缘联盟的徽章检查，并按顺序战胜前一位训练家。"
+  },
+  "em_ever_grande_city_hall3": {
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_glacia"
+   ],
+   "message": "丰缘联盟尚未向你开启下一道门。"
+  },
+  "em_ever_grande_city_champions_room": {
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_drake"
+   ],
+   "message": "请先通过丰缘联盟的徽章检查，并按顺序战胜前一位训练家。"
+  },
+  "em_ever_grande_city_hall4": {
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_drake"
+   ],
+   "message": "丰缘联盟尚未向你开启下一道门。"
+  },
+  "em_ever_grande_city_hall_of_fame": {
+   "require": [
+    "h_badge_1",
+    "h_badge_2",
+    "h_badge_3",
+    "h_badge_4",
+    "h_badge_5",
+    "h_badge_6",
+    "h_badge_7",
+    "h_badge_8",
+    "h_wallace"
+   ],
+   "message": "请先通过丰缘联盟的徽章检查，并按顺序战胜前一位训练家。"
+  }
+ },
+ "teams": {
+  "MAY_ROUTE_103_TREECKO": [
+   {
+    "species": 255,
+    "level": 5
+   }
+  ],
+  "MAY_ROUTE_103_TORCHIC": [
+   {
+    "species": 258,
+    "level": 5
+   }
+  ],
+  "MAY_ROUTE_103_MUDKIP": [
+   {
+    "species": 252,
+    "level": 5
+   }
+  ],
+  "GRUNT_PETALBURG_WOODS": [
+   {
+    "species": 261,
+    "level": 9
+   }
+  ],
+  "ROXANNE_1": [
+   {
+    "species": 74,
+    "level": 12,
+    "moves": [
+     33,
+     111,
+     88,
+     317
+    ]
+   },
+   {
+    "species": 74,
+    "level": 12,
+    "moves": [
+     33,
+     111,
+     88,
+     317
+    ]
+   },
+   {
+    "species": 299,
+    "level": 15,
+    "moves": [
+     335,
+     106,
+     33,
+     317
+    ],
+    "berry": "oran"
+   }
+  ],
+  "GRUNT_RUSTURF_TUNNEL": [
+   {
+    "species": 261,
+    "level": 11
+   }
+  ],
+  "BRAWLY_1": [
+   {
+    "species": 66,
+    "level": 16,
+    "moves": [
+     2,
+     67,
+     69,
+     339
+    ]
+   },
+   {
+    "species": 307,
+    "level": 16,
+    "moves": [
+     264,
+     113,
+     115,
+     339
+    ]
+   },
+   {
+    "species": 296,
+    "level": 19,
+    "moves": [
+     292,
+     233,
+     179,
+     339
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "GRUNT_MUSEUM_1": [
+   {
+    "species": 318,
+    "level": 15
+   }
+  ],
+  "GRUNT_MUSEUM_2": [
+   {
+    "species": 41,
+    "level": 14
+   },
+   {
+    "species": 318,
+    "level": 14
+   }
+  ],
+  "MAY_ROUTE_110_TREECKO": [
+   {
+    "species": 278,
+    "level": 18
+   },
+   {
+    "species": 271,
+    "level": 18
+   },
+   {
+    "species": 256,
+    "level": 20
+   }
+  ],
+  "MAY_ROUTE_110_TORCHIC": [
+   {
+    "species": 271,
+    "level": 18
+   },
+   {
+    "species": 218,
+    "level": 18
+   },
+   {
+    "species": 259,
+    "level": 20
+   }
+  ],
+  "MAY_ROUTE_110_MUDKIP": [
+   {
+    "species": 278,
+    "level": 18
+   },
+   {
+    "species": 218,
+    "level": 18
+   },
+   {
+    "species": 253,
+    "level": 20
+   }
+  ],
+  "WALLY_MAUVILLE": [
+   {
+    "species": 280,
+    "level": 16
+   }
+  ],
+  "WATTSON_1": [
+   {
+    "species": 100,
+    "level": 20,
+    "moves": [
+     205,
+     209,
+     120,
+     351
+    ]
+   },
+   {
+    "species": 309,
+    "level": 20,
+    "moves": [
+     351,
+     43,
+     98,
+     336
+    ]
+   },
+   {
+    "species": 82,
+    "level": 22,
+    "moves": [
+     48,
+     351,
+     86,
+     49
+    ]
+   },
+   {
+    "species": 310,
+    "level": 24,
+    "moves": [
+     98,
+     86,
+     351,
+     336
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "TABITHA_MT_CHIMNEY": [
+   {
+    "species": 322,
+    "level": 18
+   },
+   {
+    "species": 261,
+    "level": 20
+   },
+   {
+    "species": 322,
+    "level": 22
+   },
+   {
+    "species": 41,
+    "level": 22
+   }
+  ],
+  "MAXIE_MT_CHIMNEY": [
+   {
+    "species": 262,
+    "level": 24
+   },
+   {
+    "species": 41,
+    "level": 24
+   },
+   {
+    "species": 323,
+    "level": 25
+   }
+  ],
+  "FLANNERY_1": [
+   {
+    "species": 322,
+    "level": 24,
+    "moves": [
+     315,
+     36,
+     222,
+     241
+    ]
+   },
+   {
+    "species": 218,
+    "level": 24,
+    "moves": [
+     315,
+     123,
+     113,
+     241
+    ]
+   },
+   {
+    "species": 323,
+    "level": 26,
+    "moves": [
+     315,
+     33,
+     241,
+     213
+    ]
+   },
+   {
+    "species": 324,
+    "level": 29,
+    "moves": [
+     315,
+     241,
+     34,
+     213
+    ]
+   }
+  ],
+  "NORMAN_1": [
+   {
+    "species": 327,
+    "level": 27,
+    "moves": [
+     298,
+     60,
+     263,
+     227
+    ]
+   },
+   {
+    "species": 288,
+    "level": 27,
+    "moves": [
+     163,
+     263,
+     227,
+     185
+    ]
+   },
+   {
+    "species": 264,
+    "level": 29,
+    "moves": [
+     163,
+     187,
+     263,
+     29
+    ]
+   },
+   {
+    "species": 289,
+    "level": 31,
+    "moves": [
+     68,
+     281,
+     263,
+     185
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "SHELLY_WEATHER_INSTITUTE": [
+   {
+    "species": 318,
+    "level": 28
+   },
+   {
+    "species": 262,
+    "level": 28
+   }
+  ],
+  "MAY_ROUTE_119_TREECKO": [
+   {
+    "species": 279,
+    "level": 29
+   },
+   {
+    "species": 271,
+    "level": 29
+   },
+   {
+    "species": 256,
+    "level": 31
+   }
+  ],
+  "MAY_ROUTE_119_TORCHIC": [
+   {
+    "species": 271,
+    "level": 29
+   },
+   {
+    "species": 218,
+    "level": 29
+   },
+   {
+    "species": 259,
+    "level": 31
+   }
+  ],
+  "MAY_ROUTE_119_MUDKIP": [
+   {
+    "species": 218,
+    "level": 29
+   },
+   {
+    "species": 271,
+    "level": 29
+   },
+   {
+    "species": 253,
+    "level": 31
+   }
+  ],
+  "WINONA_1": [
+   {
+    "species": 333,
+    "level": 29,
+    "moves": [
+     195,
+     119,
+     219,
+     332
+    ]
+   },
+   {
+    "species": 357,
+    "level": 29,
+    "moves": [
+     241,
+     332,
+     76,
+     235
+    ]
+   },
+   {
+    "species": 279,
+    "level": 30,
+    "moves": [
+     55,
+     48,
+     182,
+     332
+    ]
+   },
+   {
+    "species": 227,
+    "level": 31,
+    "moves": [
+     28,
+     31,
+     211,
+     332
+    ]
+   },
+   {
+    "species": 334,
+    "level": 33,
+    "moves": [
+     89,
+     225,
+     349,
+     332
+    ],
+    "berry": "oran"
+   }
+  ],
+  "MAY_LILYCOVE_TREECKO": [
+   {
+    "species": 357,
+    "level": 31
+   },
+   {
+    "species": 279,
+    "level": 32
+   },
+   {
+    "species": 272,
+    "level": 32
+   },
+   {
+    "species": 256,
+    "level": 34
+   }
+  ],
+  "MAY_LILYCOVE_TORCHIC": [
+   {
+    "species": 357,
+    "level": 31
+   },
+   {
+    "species": 272,
+    "level": 32
+   },
+   {
+    "species": 218,
+    "level": 32
+   },
+   {
+    "species": 259,
+    "level": 34
+   }
+  ],
+  "MAY_LILYCOVE_MUDKIP": [
+   {
+    "species": 357,
+    "level": 31
+   },
+   {
+    "species": 218,
+    "level": 32
+   },
+   {
+    "species": 279,
+    "level": 32
+   },
+   {
+    "species": 253,
+    "level": 34
+   }
+  ],
+  "TABITHA_MAGMA_HIDEOUT": [
+   {
+    "species": 322,
+    "level": 26
+   },
+   {
+    "species": 262,
+    "level": 28
+   },
+   {
+    "species": 41,
+    "level": 30
+   },
+   {
+    "species": 323,
+    "level": 33
+   }
+  ],
+  "MAXIE_MAGMA_HIDEOUT": [
+   {
+    "species": 262,
+    "level": 37
+   },
+   {
+    "species": 169,
+    "level": 38
+   },
+   {
+    "species": 323,
+    "level": 39
+   }
+  ],
+  "MATT": [
+   {
+    "species": 262,
+    "level": 34
+   },
+   {
+    "species": 42,
+    "level": 34
+   }
+  ],
+  "TATE_AND_LIZA_1": [
+   {
+    "species": 344,
+    "level": 41,
+    "moves": [
+     89,
+     246,
+     94,
+     113
+    ]
+   },
+   {
+    "species": 178,
+    "level": 41,
+    "moves": [
+     94,
+     241,
+     109,
+     347
+    ]
+   },
+   {
+    "species": 337,
+    "level": 42,
+    "moves": [
+     113,
+     94,
+     95,
+     347
+    ],
+    "berry": "sitrus"
+   },
+   {
+    "species": 338,
+    "level": 42,
+    "moves": [
+     241,
+     76,
+     94,
+     53
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "GRUNT_SPACE_CENTER_2": [
+   {
+    "species": 262,
+    "level": 26
+   },
+   {
+    "species": 262,
+    "level": 28
+   },
+   {
+    "species": 322,
+    "level": 30
+   }
+  ],
+  "GRUNT_SPACE_CENTER_5": [
+   {
+    "species": 41,
+    "level": 32
+   }
+  ],
+  "GRUNT_SPACE_CENTER_6": [
+   {
+    "species": 262,
+    "level": 32
+   }
+  ],
+  "GRUNT_SPACE_CENTER_7": [
+   {
+    "species": 343,
+    "level": 32
+   }
+  ],
+  "MAXIE_MOSSDEEP": [
+   {
+    "species": 262,
+    "level": 42
+   },
+   {
+    "species": 169,
+    "level": 43
+   },
+   {
+    "species": 323,
+    "level": 44
+   }
+  ],
+  "TABITHA_MOSSDEEP": [
+   {
+    "species": 323,
+    "level": 36
+   },
+   {
+    "species": 262,
+    "level": 38
+   },
+   {
+    "species": 42,
+    "level": 40
+   }
+  ],
+  "ARCHIE": [
+   {
+    "species": 262,
+    "level": 41
+   },
+   {
+    "species": 169,
+    "level": 41
+   },
+   {
+    "species": 319,
+    "level": 43
+   }
+  ],
+  "JUAN_1": [
+   {
+    "species": 370,
+    "level": 41,
+    "moves": [
+     352,
+     213,
+     186,
+     175
+    ]
+   },
+   {
+    "species": 340,
+    "level": 41,
+    "moves": [
+     240,
+     352,
+     133,
+     89
+    ]
+   },
+   {
+    "species": 364,
+    "level": 43,
+    "moves": [
+     227,
+     34,
+     62,
+     352
+    ]
+   },
+   {
+    "species": 342,
+    "level": 43,
+    "moves": [
+     352,
+     152,
+     269,
+     43
+    ]
+   },
+   {
+    "species": 230,
+    "level": 46,
+    "moves": [
+     352,
+     104,
+     58,
+     156
+    ],
+    "berry": "chesto"
+   }
+  ],
+  "WALLY_VR_1": [
+   {
+    "species": 334,
+    "level": 44,
+    "moves": [
+     332,
+     219,
+     225,
+     349
+    ]
+   },
+   {
+    "species": 301,
+    "level": 43,
+    "moves": [
+     47,
+     274,
+     204,
+     185
+    ]
+   },
+   {
+    "species": 315,
+    "level": 44,
+    "moves": [
+     345,
+     73,
+     202,
+     92
+    ]
+   },
+   {
+    "species": 82,
+    "level": 41,
+    "moves": [
+     48,
+     85,
+     161,
+     103
+    ]
+   },
+   {
+    "species": 282,
+    "level": 45,
+    "moves": [
+     104,
+     347,
+     94,
+     248
+    ]
+   }
+  ],
+  "SIDNEY": [
+   {
+    "species": 262,
+    "level": 46,
+    "moves": [
+     46,
+     38,
+     28,
+     242
+    ]
+   },
+   {
+    "species": 275,
+    "level": 48,
+    "moves": [
+     259,
+     104,
+     207,
+     326
+    ]
+   },
+   {
+    "species": 332,
+    "level": 46,
+    "moves": [
+     73,
+     185,
+     302,
+     178
+    ]
+   },
+   {
+    "species": 342,
+    "level": 48,
+    "moves": [
+     57,
+     14,
+     70,
+     263
+    ]
+   },
+   {
+    "species": 359,
+    "level": 49,
+    "moves": [
+     332,
+     157,
+     14,
+     163
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "PHOEBE": [
+   {
+    "species": 356,
+    "level": 48,
+    "moves": [
+     325,
+     109,
+     174,
+     182
+    ]
+   },
+   {
+    "species": 354,
+    "level": 49,
+    "moves": [
+     247,
+     288,
+     261,
+     185
+    ]
+   },
+   {
+    "species": 302,
+    "level": 50,
+    "moves": [
+     247,
+     104,
+     101,
+     185
+    ]
+   },
+   {
+    "species": 354,
+    "level": 49,
+    "moves": [
+     247,
+     94,
+     85,
+     263
+    ]
+   },
+   {
+    "species": 356,
+    "level": 51,
+    "moves": [
+     247,
+     58,
+     157,
+     89
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "GLACIA": [
+   {
+    "species": 364,
+    "level": 50,
+    "moves": [
+     227,
+     34,
+     258,
+     301
+    ]
+   },
+   {
+    "species": 362,
+    "level": 50,
+    "moves": [
+     113,
+     242,
+     196,
+     58
+    ]
+   },
+   {
+    "species": 364,
+    "level": 52,
+    "moves": [
+     213,
+     38,
+     258,
+     59
+    ]
+   },
+   {
+    "species": 362,
+    "level": 52,
+    "moves": [
+     247,
+     153,
+     258,
+     58
+    ]
+   },
+   {
+    "species": 365,
+    "level": 53,
+    "moves": [
+     57,
+     34,
+     58,
+     329
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "DRAKE": [
+   {
+    "species": 372,
+    "level": 52,
+    "moves": [
+     317,
+     337,
+     182,
+     38
+    ]
+   },
+   {
+    "species": 334,
+    "level": 54,
+    "moves": [
+     38,
+     225,
+     349,
+     332
+    ]
+   },
+   {
+    "species": 230,
+    "level": 53,
+    "moves": [
+     108,
+     349,
+     57,
+     34
+    ]
+   },
+   {
+    "species": 330,
+    "level": 53,
+    "moves": [
+     53,
+     242,
+     225,
+     89
+    ]
+   },
+   {
+    "species": 373,
+    "level": 55,
+    "moves": [
+     53,
+     337,
+     157,
+     242
+    ],
+    "berry": "sitrus"
+   }
+  ],
+  "WALLACE": [
+   {
+    "species": 321,
+    "level": 57,
+    "moves": [
+     240,
+     323,
+     38,
+     59
+    ]
+   },
+   {
+    "species": 73,
+    "level": 55,
+    "moves": [
+     92,
+     56,
+     188,
+     58
+    ]
+   },
+   {
+    "species": 272,
+    "level": 56,
+    "moves": [
+     202,
+     57,
+     73,
+     104
+    ]
+   },
+   {
+    "species": 340,
+    "level": 56,
+    "moves": [
+     89,
+     57,
+     133,
+     63
+    ]
+   },
+   {
+    "species": 130,
+    "level": 56,
+    "moves": [
+     349,
+     89,
+     63,
+     57
+    ]
+   },
+   {
+    "species": 350,
+    "level": 58,
+    "moves": [
+     105,
+     57,
+     58,
+     92
+    ],
+    "berry": "sitrus"
+   }
+  ]
+ }
+}

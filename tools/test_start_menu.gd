@@ -60,6 +60,7 @@ func check_field_moves() -> void:
 	game._give_item("秘传学习器 02",1,"tm")
 	game._give_item("秘传学习器 05",1,"tm")
 	game.save_data.badges = ["橙色徽章","灰色徽章"]
+	game.save_data.regional_badges.kanto = ["橙色徽章","灰色徽章"]
 	game.save_data.party = [{"species_id":149,"name":"快龙","moves":[19,148]}]
 	game.world.dark = true
 	for move_name in ["闪光","飞翔"]:

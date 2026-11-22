@@ -79,7 +79,14 @@ func probe(entry: Array, slot: String) -> bool:
 		if not walk(Vector2i(2,3)) or not current.ends_with("johto_pokecenter_2f"):return fail("cannot leave mobile battle room")
 	var exits:Array=world.map_data.warps.filter(func(row):return row.to.get("recall_passage","")==slot)
 	if exits.is_empty():return fail("missing return "+slot+" from "+current)
-	if not walk(vec(exits[0].at)):return false
+	var departure:=vec(exits[0].at)
+	if departure==world.player_pos and exits[0].get("trigger","step")=="step":
+		for d in DIR:
+			var side: Vector2i=departure+d
+			if world.can_step(d) and world.warp_at(side).is_empty():
+				if not walk(side):return false
+				break
+	if not walk(departure):return false
 	var pos:=vec(expected.at)
 	if not expected.get("hgss",false):pos=preload("res://core/hgss_field.gd").position(world.map_data,pos)
 	if current!=str(expected.region)+"/"+str(expected.map) or world.player_pos!=pos:

@@ -38,7 +38,7 @@ const BILL_CROSSOVER := "res://content/regions/sevii/kanto_events.json"
 
 static func sync(save: Dictionary) -> void:
 	var flags: Dictionary = save.get("flags",{})
-	if "深红徽章" in save.get("badges",[]): flags.sevii_blaine_badge = true
+	if "深红徽章" in preload("res://core/region_journey.gd").badges(save,"kanto"): flags.sevii_blaine_badge = true
 	if flags.get("kanto_champion",false) and not flags.get("sevii_dex_ready",false):
 		if preload("res://core/kanto_campaign.gd").caught_species_count(save) >= 60:
 			flags.sevii_dex_ready = true

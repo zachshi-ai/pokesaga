@@ -2,6 +2,7 @@ extends Node2D
 ## 启动场景：自检 + 场景装配 + 输入（键盘 / 触摸）。
 
 const StartMenu := preload("res://scenes/start_menu.gd")
+const Journey := preload("res://core/region_journey.gd")
 const TitleScreen := preload("res://scenes/title_screen.gd")
 const WorldScript := preload("res://core/world.gd")
 const BattleScript := preload("res://core/battle.gd")
@@ -136,7 +137,7 @@ func _ready() -> void:
 		elif want == "berry":
 			ok = _t("树果", _test_berries()) and ok
 		elif want == "reach":
-			ok = _t("每扇门都走得到", _test_warp_reach()) and ok
+			ok = _t("已开放的地图入口可达", _test_warp_reach()) and ok
 			ok = _t("跨地区走得通", _test_world_reach()) and ok
 		elif want == "lift":
 			ok = _t("百货电梯", _test_elevator()) and ok
@@ -179,7 +180,7 @@ func _ready() -> void:
 		ok = _t("道具能用", _test_item_use()) and ok
 		ok = _t("秘传开路与培育", _test_fieldwork()) and ok
 		ok = _t("地形机制", _test_terrain()) and ok
-		ok = _t("每扇门都走得到", _test_warp_reach()) and ok
+		ok = _t("已开放的地图入口可达", _test_warp_reach()) and ok
 		ok = _t("跨地区走得通", _test_world_reach()) and ok
 		ok = _t("道馆战与徽章", _test_gyms()) and ok
 		ok = _t("百货电梯", _test_elevator()) and ok
@@ -664,10 +665,10 @@ func _show_title() -> void:
 	title_screen.start_requested.connect(_enter_game)
 	title_screen.quit_requested.connect(func() -> void: get_tree().quit())
 
-func _enter_game(fresh: bool, origin := "kanto") -> void:
+func _enter_game(fresh: bool) -> void:
 	if not is_instance_valid(title_screen):
 		return
-	if fresh and not SaveScript.new_game(origin):
+	if fresh and not SaveScript.new_game():
 		title_screen.show_failure("未能写入新存档，请检查设备可用空间。")
 		return
 	if not fresh and SaveScript.existing().is_empty():
@@ -831,7 +832,9 @@ func _story_use_region(rid: String) -> void:
 func _story_fire(kind: String, ctx: Dictionary) -> bool:
 	if not story_on or story == null or not cur_story.is_empty():
 		return false
-	_story_use_region(String(world.map_data.get("region", "kanto")))
+	var chapter := str(world.map_data.get("region","kanto"))
+	if chapter in Journey.HOMES and not save_data.get("chapters",{}).has(chapter): return false
+	_story_use_region(chapter)
 	var flags := _flags()
 	if world.map_data.get("region","")=="johto":
 		preload("res://core/johto_campaign.gd").sync(save_data)
@@ -843,7 +846,11 @@ func _story_fire(kind: String, ctx: Dictionary) -> bool:
 	if (kind == "talk" and ctx.get("actor","") == "lab_oak") or (kind == "map_enter" and world.map_data.id == "kanto_main"):
 		preload("res://core/sevii_campaign.gd").sync(save_data)
 	var candidates := preload("res://core/johto_rival.gd").scene_flags(str(world.map_data.get("id","")),flags)
-	var ev: Dictionary = story.take(kind, ctx, candidates, _has_party())
+	var ev: Dictionary
+	if world.map_data.has("emerald_original"):
+		ev = preload("res://core/hoenn_campaign.gd").event(self,kind,ctx)
+	else:
+		ev = story.take(kind, ctx, candidates, _has_party())
 	if ev.is_empty():
 		return false
 	_play_story(ev)
@@ -864,6 +871,7 @@ func _play_story(ev: Dictionary) -> void:
 func _story_step() -> void:
 	while not story_queue.is_empty():
 		var act: Dictionary = story_queue.pop_front()
+		if preload("res://core/hoenn_campaign.gd").prompt(self,act): return
 		if act.has("johto_quiz"):
 			preload("res://core/johto_campaign.gd").quiz(self,act.johto_quiz,0)
 			return
@@ -899,7 +907,8 @@ func _story_done() -> void:
 		return
 	if not cur_story.is_empty() and story != null:
 		story.mark_finished(cur_story, _flags())
-		if world.map_data.get("region","") in ["kanto","sevii","johto"]:
+		if cur_story.get("id","")=="h_magma_gate": world._rebuild(_flags())
+		if world.map_data.get("region","") in ["kanto","sevii","johto","hoenn"]:
 			world.refresh_story_actors(_flags())
 			_apply_defeated()
 		save_data["flags"] = _flags()
@@ -913,6 +922,12 @@ func _story_battle(cfg) -> void:
 	var conf: Dictionary = cfg if cfg is Dictionary else {}
 	if conf.has("johto_rival"):
 		conf = conf.merged({"team":preload("res://core/johto_campaign.gd").team(conf.johto_rival,_flags())},true)
+	conf = preload("res://core/hoenn_campaign.gd").team(conf,_flags())
+	if conf.get("double",false) and not conf.has("ally"):
+		if _make_team().filter(func(m):return int(m.hp)>0).size()<2:
+			preload("res://core/hoenn_campaign.gd").abort_event(self)
+			_dialog(["这是双打道馆。请至少带两只还能战斗的宝可梦，再来挑战枫和南。"],"道馆")
+			return
 	var nm := String(conf.get("name", "对手"))
 	var npc := {"name": nm, "battle": conf}
 	var after := func(result: String) -> void:
@@ -930,6 +945,7 @@ func _story_battle(cfg) -> void:
 			story_abort = not conf.get("finish_on_loss",false)
 			if story_abort: story_queue.clear()
 			var stage: String = cur_story.get("id","")
+			preload("res://core/hoenn_campaign.gd").lost_league(self,stage)
 			if stage in ["kanto_loreleis_win","kanto_brunos_win","kanto_agathas_win","kanto_lances_win","kanto_champions_win"] or stage.begins_with("repeat_kanto_"):
 				preload("res://core/kanto_campaign.gd").lost_league(self)
 			var lose: Array = conf.get("lose_say", ["……这次算你运气好。"])
@@ -944,12 +960,13 @@ func _story_battle(cfg) -> void:
 						_blackout())
 	if conf.get("wild",false):
 		var foe: Dictionary = conf.team[0]
-		_start_wild_battle(int(foe.species),int(foe.level),"",after,conf.get("shiny_kind",""))
+		_start_wild_battle(int(foe.species),int(foe.level),"",after,conf.get("shiny_kind",""),int(_flags().get("h_starter",0)) if cur_story.get("id")=="h_rescued" else 0)
 	else:
 		_start_battle(npc,after)
 
 ## 单个剧情动作
 func _story_do(act: Dictionary) -> void:
+	preload("res://core/hoenn_campaign.gd").action(self,act)
 	var flags := _flags()
 	if act.has("johto_stage"):
 		flags[act.johto_stage] = true
@@ -975,7 +992,7 @@ func _story_do(act: Dictionary) -> void:
 	if act.has("scene_cast"):
 		var temporary := {"sevii_" + str(act.scene_cast):true}
 		world.refresh_story_actors(flags.merged(temporary,true))
-	if act.get("hall_of_fame") in ["johto","kanto"]:
+	if act.get("hall_of_fame") in ["johto","kanto","hoenn"]:
 		johto_league.register_team(save_data,act.hall_of_fame)
 		_persist()
 	if act.has("flag"):
@@ -990,6 +1007,7 @@ func _story_do(act: Dictionary) -> void:
 		var xy: Array = act.set_player_at
 		world.warp_to(preload("res://core/hgss_field.gd").position(world.map_data,Vector2i(int(xy[0]),int(xy[1]))))
 	if act.has("warp"):
+		if str(cur_story.get("id","")).begins_with("h_") and not cur_story.get("repeat",false): flags[cur_story.id]=true
 		_do_warp(act.warp)
 	if act.has("give_mon"):
 		var gm: Dictionary = act["give_mon"]
@@ -1070,6 +1088,7 @@ func _on_action() -> void:
 		return
 	if panel_open > 0 or world.walking:
 		return
+	if world.map_data.has("emerald_original") and _story_fire("field",{"at":world.player_pos+world._dir_vec()}): return
 	# 站在道具球上按 A 直接捡：球已经不挡路，人是踩着它站上去的，
 	# 这时候面前是空地，以前就永远捡不到（看着有球、按不到，就是这个原因）
 	var here: Dictionary = world.object_at(world.player_pos)
@@ -1121,12 +1140,13 @@ func _on_action() -> void:
 
 ## 火红叶绿的徽章约束场外使用，在战斗中仍能正常选择已学招式。
 func _required_field_badge(key: String) -> String:
+	if world.map_data.has("emerald_original"): return preload("res://core/hoenn_items.gd").permission(_flags(),key)
 	if world.map_data.get("region","")=="johto":
 		var badge: String = preload("res://core/johto_items.gd").BADGES.get(key,"")
-		return badge if badge not in save_data.get("badges",[]) else ""
+		return badge if badge not in Journey.badges(save_data,str(world.map_data.region)) else ""
 	if world.map_data.get("region","") not in ["kanto","sevii"]: return ""
 	var badge: String = preload("res://core/kanto_campaign.gd").FIELD_BADGES.get(key,"")
-	return badge if badge not in save_data.get("badges",[]) else ""
+	return badge if badge not in Journey.badges(save_data,str(world.map_data.region)) else ""
 
 func _party_can_move(key: String) -> bool:
 	return _required_field_badge(key).is_empty() and _party_has_move(key)
@@ -1158,8 +1178,10 @@ func _open_ruin_door() -> void:
 			_show_toast("点之穴的大门打开了。"))
 
 func _on_water_action() -> bool:
+	if world.map_data.get("map_type","")=="MAP_TYPE_UNDERWATER": return false
 	if not world._npc_at(world.player_pos+world._dir_vec()).is_empty():
 		return false
+	if world.map_data.has("emerald_original") and not world.object_at(world.player_pos+world._dir_vec()).is_empty(): return false
 	if world.surfing:
 		return _try_surf()
 	var face: Vector2i = world.player_pos + world._dir_vec()
@@ -1254,11 +1276,15 @@ func _on_back() -> void:
 			top_dlg._close()
 		return
 	if panel_open <= 0:
+		if world!=null and not world.walking and preload("res://core/hoenn_items.gd").underwater(world.map_data): preload("res://core/hoenn_items.gd").dive(self)
 		return
 	var kids: Array = menu_layer.get_children()
 	if kids.is_empty():
 		return
 	var top = kids.back()
+	if top.has_meta("choice_back"):
+		top.get_meta("choice_back").call()
+		return
 	if top.has_method("handle_back"):
 		top.handle_back()
 		return
@@ -1387,7 +1413,7 @@ func _move(key: String) -> void:
 		"up": Vector2i(0, -1), "down": Vector2i(0, 1),
 		"left": Vector2i(-1, 0), "right": Vector2i(1, 0),
 	}[key]
-	var checkpoint := preload("res://core/kanto_campaign.gd").checkpoint(world.map_data,world.player_pos+dir,dir,save_data.get("badges",[]))
+	var checkpoint := preload("res://core/kanto_campaign.gd").checkpoint(world.map_data,world.player_pos+dir,dir,Journey.badges(save_data,"kanto"))
 	if checkpoint!="":
 		held_dir=""
 		run_held=false
@@ -1466,6 +1492,24 @@ func _update_music() -> void:
 
 
 func _do_warp(target: Dictionary) -> void:
+	var destination_region := str(target.get("region",""))
+	var ride: Dictionary = save_data.get("hoenn_truck",{})
+	var truck_exit: bool = target.get("map")=="littleroot_town" and target.get("at",[]).size()==2 and int(target.at[0])==3 and int(target.at[1])==10
+	if world.map_data.id == "em_inside_of_truck" and truck_exit and not ride.is_empty() and not target.get("regional_travel",false):
+		if ride.phase != "parked": return
+		var exit_target: Dictionary = ride.destination.duplicate(true)
+		exit_target["transport_selected"] = true
+		save_data.erase("hoenn_truck")
+		_do_warp(exit_target)
+		if world.map_data.id=="em_inside_of_truck":
+			save_data.hoenn_truck=ride
+		_persist()
+		return
+	var item_gate := preload("res://core/hoenn_items.gd").passage(self,target)
+	if not item_gate.is_empty():
+		held_dir=""
+		_dialog([item_gate])
+		return
 	target = preload("res://core/hgss_field.gd").merged_destination(target)
 	if target.get("sea_connection",false) and not _party_can_move("SURF"):
 		_dialog([_field_move_hint("SURF","冲浪")])
@@ -1478,6 +1522,12 @@ func _do_warp(target: Dictionary) -> void:
 		_dialog([crystal_gate],"守塔人")
 		return
 	if target.is_empty():
+		return
+	var h_gate := preload("res://core/hoenn_campaign.gd").gate(target,_flags(),world.map_data)
+	if h_gate != "":
+		held_dir = ""
+		run_held = false
+		_dialog([h_gate])
 		return
 	var j_gate := preload("res://core/johto_campaign.gd").gate(world.map_data,target,_flags())
 	if j_gate != "":
@@ -1525,18 +1575,28 @@ func _do_warp(target: Dictionary) -> void:
 		print("[warp] 目标地图缺失 ", target)
 		_dialog(["这扇门打不开。"], "")
 		return
+	if story_on and destination_region == "hoenn" and not target.get("transport_selected",false) and (destination_region != str(world.map_data.region) or target.get("regional_travel",false)):
+		_offer_hoenn_transport(target)
+		return
+	if destination_region != "hoenn" and destination_region != str(world.map_data.region) and _offer_chapter(destination_region):
+		return
+	if world.map_data.id=="em_inside_of_truck" and next_map.id!="em_inside_of_truck":
+		save_data.erase("hoenn_truck")
 	snd.play_sfx("door")
 	_show_toast("前往 " + String(next_map.get("name", "")))
 	if world.map_data.get("id","") == "four_island_icefall_cave_1f" and next_map.id != world.map_data.id:
 		for rule in preload("res://core/kanto_campaign.gd").field_rules(world.map_data.id):
 			_flags().erase(rule.variants[0].flags[0])
+	preload("res://core/hoenn_items.gd").leave(self,next_map)
+	preload("res://core/hoenn_campaign.gd").leave_league(world.map_data,next_map,_flags())
 	world.load_map(next_map)
 	world.arrive(target)
 	if target.get("sea_connection",false):
 		world.surfing=world.is_water(world.player_pos)
 		world._sync_player()
-	if next_map.region in ["kanto","sevii","johto"] and next_map.get("npcs",[]).any(func(n):return n.get("heal",false) and n.get("name","")=="护士"):
+	if next_map.region in ["kanto","sevii","johto","hoenn"] and next_map.get("npcs",[]).any(func(n):return n.get("heal",false) and n.get("name","")=="护士"):
 		save_data["last_pokemon_center"] = {"region":next_map.region,"map":next_map.id,"at":next_map.spawn.duplicate()}
+		save_data.get_or_add("centers",{})[next_map.region] = save_data.last_pokemon_center
 	_start_after_step = false
 	if not target.get("connection",false):
 		for pair in KEY_MAP:
@@ -1551,6 +1611,8 @@ func _do_warp(target: Dictionary) -> void:
 	preload("res://core/johto_items.gd").enter(self)
 
 func _after_step() -> void:
+	if preload("res://core/hoenn_items.gd").fall_through(self): return
+	preload("res://core/hoenn_items.gd").field_step(self)
 	if preload("res://core/hgss_azalea.gd").board(self): return
 	preload("res://core/johto_items.gd").field_step(self)
 	preload("res://core/sevii_campaign.gd").request_step(save_data)
@@ -1653,7 +1715,7 @@ func _try_encounter() -> void:
 					pool = z.get("encounters", [])
 					rate = float(z.get("rate", 0.0))
 				break
-	if pool.is_empty() and not crystal_map:
+	if pool.is_empty() and not crystal_map and not world.map_data.has("emerald_original"):
 		var reg: Dictionary = Data.load_region(String(world.map_data.get("region", "")))
 		pool = reg.get("encounters", [])
 		rate = float(reg.get("encounter_rate", 0.12))
@@ -1665,6 +1727,10 @@ func _try_encounter() -> void:
 		if mon is Dictionary and not mon.is_empty():
 			if str(mon.get("held", "")) == "CLEANSE_TAG": rate *= 2.0 / 3.0
 			break
+	if world.map_data.has("emerald_original"):
+		var flute: String = _flags().get("h_encounter_flute","")
+		if flute=="白色玻璃哨": rate*=1.5
+		if flute=="黑色玻璃哨": rate*=0.5
 	if not EncounterScript.should_encounter(rng, rate, grass_streak):
 		return
 	if world.map_data.get("region","")=="johto":
@@ -1702,6 +1768,7 @@ func _roll_regional(species_id: int) -> String:
 ## 商店：读货架，买完改背包和钱
 func _open_shop() -> void:
 	var goods := Data.load_shop(str(world.map_data.get("region", "kanto")))
+	if world.map_data.get("source_id","")=="MAP_SLATEPORT_CITY_MART": goods.append({"name":"港口邮件","category":"other","price":50})
 	if world.map_data.id in ["indigo_plateau_pokemon_center_1f", "johto_indigo_plateau_pokecenter_1f"]:
 		goods.append_array([{"name":"活力碎片","category":"heal","price":1500},{"name":"厉害伤药","category":"heal","price":1200}])
 	if goods.is_empty():
@@ -1731,6 +1798,7 @@ func _open_shop() -> void:
 
 ## 告示牌 / 道具球 / 树果树 / 土：按 A 之后的分流
 func _handle_object(o: Dictionary) -> void:
+	if preload("res://core/hoenn_items.gd").object_action(self,o): return
 	if preload("res://core/johto_items.gd").shrine(self,o): return
 	if o.get("kind","")=="kanto_puzzle":
 		preload("res://core/kanto_campaign.gd").use_control(self,o)
@@ -1911,6 +1979,7 @@ func _use_field_move(o: Dictionary, key: String, cname: String, msg: String) -> 
 
 ## 地形类秘传招式统一入口：潜水、漩涡、攀岩
 func _try_terrain_move() -> bool:
+	if world.map_data.has("emerald_original"): return preload("res://core/hoenn_items.gd").dive(self)
 	var face: Vector2i = world.player_pos + {
 		"up": Vector2i(0, -1), "down": Vector2i(0, 1),
 		"left": Vector2i(-1, 0), "right": Vector2i(1, 0),
@@ -2041,9 +2110,18 @@ func _berry_interact(o: Dictionary, is_tree: bool) -> void:
 	var all: Dictionary = save_data["berries"]
 	var key := _berry_key(o)
 	var st: Dictionary = all.get(key, {})
+	if st.is_empty() and world.map_data.has("emerald_original") and is_tree and o.has("berry") and not _flags().get("h_harvested_"+key,false):
+		var berry := str(o.berry)
+		var name_text: String = Data.berry_name(berry)
+		_give_bag_item(name_text,"berry","",berry)
+		_give_bag_item(name_text,"berry","",berry)
+		_flags()["h_harvested_"+key]=true
+		_persist()
+		_dialog(["摘下了 2 个%s。这里的土可以再种树果。" % name_text])
+		return
 	if st.is_empty():
 		# 没种：选一种树果种下去
-		if is_tree:
+		if is_tree and not world.map_data.has("emerald_original"):
 			_dialog(["树上没有果子。", "过一段时间再来看看。"], "")
 			return
 		var seed := _first_berry_in_bag()
@@ -2114,7 +2192,11 @@ func _fish(rod: String = "") -> void:
 			return
 		rod = str(owned[0])
 	var pool: Array = FISH_TABLE
-	if world.map_data.get("region","") in ["kanto","sevii"]:
+	if world.map_data.has("emerald_original"):
+		var pools: Array = preload("res://core/hoenn_items.gd").data().fishing.get(world.map_data.source_id,[])
+		var rank := RODS.find(rod) if rod!="钓竿" else 1
+		pool=pools[rank] if rank>=0 and rank<pools.size() else []
+	elif world.map_data.get("region","") in ["kanto","sevii"]:
 		var area: Dictionary = world.map_data
 		if area.get("id","") == "kanto_main":
 			area = world.area_at(world.player_pos + world._dir_vec())
@@ -2213,6 +2295,9 @@ func _tm_move_of(nm: String) -> int:
 ## 原版的"招式机兼容表"我们没有搬进来（machine_set 是空的），
 ## 所以招式机一律放行，不然玩家永远学不会冲浪/飞行/闪光。
 func _can_learn_move(sid: int, mv: int) -> bool:
+	if world.map_data.has("emerald_original") and sid<=386:
+		var table: Dictionary = preload("res://core/hoenn_items.gd").data().learn
+		if table.has(str(mv)): return table[str(mv)].any(func(id): return int(id)==sid)
 	if mv==431 and sid<=493:
 		return sid in preload("res://core/johto_items.gd").CLIMBERS
 	var sp: Dictionary = Data.species_of(sid)
@@ -2324,6 +2409,12 @@ func _receive_field_machine(npc: Dictionary) -> void:
 	_dialog([reward.say,"获得了%s（%s）。" % [item,Data.move_of(int(Data.tm_map[item])).name]],npc.name)
 
 func _talk_to_npc(npc: Dictionary) -> void:
+	if world.map_data.has("emerald_original") and preload("res://core/hoenn_field.gd").trick_master(self,npc):return
+	var rid := str(world.map_data.region)
+	if story_on and rid in Journey.HOMES and not save_data.get("chapters",{}).has(rid) and not npc.get("transit",false) and (npc.has("gives_mon") or npc.has("badge") or (rid=="hoenn" and npc.has("source_script") and not npc.get("heal",false) and not npc.get("shop",false))):
+		_offer_chapter(rid)
+		return
+	if preload("res://core/hoenn_items.gd").talk(self,npc): return
 	if not npc.is_empty() and preload("res://core/johto_items.gd").talk(self,npc): return
 	if npc.is_empty():
 		return
@@ -2601,11 +2692,14 @@ func _party_fainted() -> bool:
 	return _has_party() and not save_data.get("party",[]).any(func(m): return m is Dictionary and int(m.get("hp",0)) > 0)
 
 func _blackout() -> void:
-	if world.map_data.region not in ["kanto","sevii","johto"]: return
-	var home := {"region":"kanto","map":"pallet_town_players_house_2f","at":[3,6]}
-	if save_data.get("origin","kanto") == "johto":
-		home = {"region":"johto","map":"johto_players_house_2f","at":[1,1]}
-	var destination: Dictionary = save_data.get("last_pokemon_center",home)
+	var region := str(world.map_data.region)
+	if region not in ["kanto","sevii","johto","hoenn"]: return
+	var home: Dictionary = Journey.HOMES.get(region,Journey.HOMES.kanto).merged({"region":"kanto" if region=="sevii" else region})
+	if region == "hoenn" and _flags().get("h_started",false):
+		home = {"region":region,"map":"littleroot_town","at":[3,10]}
+	var last: Dictionary = save_data.get("last_pokemon_center",{})
+	var destination: Dictionary = save_data.get("centers",{}).get(region, last if last.get("region","")==region else home)
+
 	_heal_party()
 	_do_warp(destination)
 	_persist()
@@ -2630,6 +2724,9 @@ func _heal_party() -> void:
 
 ## 打赢过的训练家记进存档，换图回来就不再重新开战
 func _mark_defeated(npc_name: String) -> void:
+	if world.map_data.has("emerald_original"):
+		var native := _find_npc(npc_name)
+		if native.has("source_trainer"): _flags()["h_trainer_"+str(native.source_trainer)]=true
 	if npc_name == "":
 		return
 	var key := "%s/%s" % [String(world.map_data.get("region", "")), String(world.map_data.get("id", ""))]
@@ -2694,6 +2791,7 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 				mvs = EncounterScript.moves_for(sid, lv)
 			var opponent := BattleScript.make_combatant(sid, lv, mvs)
 			opponent["berry"] = e.get("berry", "")
+			if e.has("trainer_group"): opponent.trainer_group=e.trainer_group
 			enemy.append(opponent)
 	else:
 		var sid2 := int(cfg.get("species", 143))
@@ -2703,11 +2801,21 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 			mvs2 = EncounterScript.moves_for(sid2, lv2)
 		enemy.append(BattleScript.make_combatant(sid2, lv2, mvs2))
 	var mine: Array = _make_team()
+	if cfg.get("ally","")=="steven":
+		# The allied trainers bring three each. Keep the player's party/PC slots intact.
+		mine = mine.slice(0,3)
+		team_slots.resize(mini(3,team_slots.size()))
+		for mon in mine: mon.trainer_group="first"
+		for row in preload("res://core/hoenn_campaign.gd").data().steven:
+			var partner := BattleScript.make_combatant(int(row.species),int(row.level),row.moves)
+			partner.trainer_group="second"
+			mine.append(partner)
 
 	var layer := CanvasLayer.new()
 	layer.layer = 6
 	add_child(layer)
-	var ui := BattleUI.new()
+	var ui = preload("res://scenes/double_battle_ui.gd").new() if cfg.get("double",false) else BattleUI.new()
+	if cfg.get("double",false): ui.companion=cfg.get("ally","")=="steven"
 	ui.backdrop = _battle_backdrop()
 	ui.observe_variant = _battle_variant_seen.bind(PartyScript.occupied(save_data.get("party", [])) > 0)
 	active_battle = ui
@@ -2739,7 +2847,7 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 			var is_leader := npc_name.contains("馆主")
 			var badge := String(npc.get("badge", ""))
 			if is_leader and badge != "":
-				var have: bool = (save_data.get("badges", []) as Array).has(badge)
+				var have: bool = badge in Journey.badges(save_data,str(world.map_data.region))
 				_grant_badge(badge)
 				if not have:
 					_show_toast("获得 %s！" % badge)
@@ -2763,11 +2871,11 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 	)
 
 ## 野外一只，打或抓都行。抓到就入队，队伍满了记进 box。
-func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_done := Callable(), shiny_kind := "") -> void:
+func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_done := Callable(), shiny_kind := "", borrowed: int = 0) -> void:
 	var mon := PartyScript.make(species_id, level, EncounterScript.moves_for(species_id, level), form_key)
 	PartyScript.set_shiny_kind(mon, shiny_kind if shiny_kind != "" else PartyScript.roll_shiny(appearance_rng))
 	var enemy := [mon.duplicate(true)]
-	var mine: Array = _make_team()
+	var mine: Array = _make_team() if borrowed==0 else [BattleScript.make_combatant(borrowed,5,EncounterScript.moves_for(borrowed,5))]
 	var layer := CanvasLayer.new()
 	layer.layer = 6
 	add_child(layer)
@@ -2777,7 +2885,7 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 	active_battle = ui
 	held_dir = ""
 	layer.add_child(ui)
-	ui.setup(mine, enemy, rng.randi(), bag_items)
+	ui.setup(mine, enemy, rng.randi(), bag_items if borrowed==0 else [])
 	ui.item_used.connect(func(nm: String) -> void:
 		for it in bag_items:
 			if it is Dictionary and String((it as Dictionary).get("name", "")) == nm:
@@ -2785,7 +2893,7 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 	_set_hud_visible(false)
 	ui.finished.connect(func(result: String) -> void:
 		active_battle = null
-		_writeback_team(ui.player_team)
+		if borrowed==0: _writeback_team(ui.player_team)
 		if result == "caught":
 			var caught: Dictionary = ui.battle.cur_b()
 			mon["pp"] = caught.pp.duplicate()
@@ -2798,7 +2906,7 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 			var name_text := String(Data.species_of(species_id).get("name", "?"))
 			_show_toast("抓到了！%s%s" % [name_text, "加入队伍" if destination == "party" else "已送入电脑"])
 		elif result == "a":
-			_award_exp([mon])
+			if borrowed==0: _award_exp([mon])
 		elif result == "fled":
 			_show_toast("成功逃走了！")
 		elif result == "b" and not on_done.is_valid() and _party_fainted():
@@ -2813,10 +2921,7 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 
 ## 打赢后给队伍里没过劳的成员分经验；升满级的不再涨
 func _grant_badge(badge: String) -> void:
-	var bs: Array = save_data.get("badges", [])
-	if not bs.has(badge):
-		bs.append(badge)
-	save_data["badges"] = bs
+	Journey.grant(save_data,str(world.map_data.region),badge)
 	preload("res://core/frlg_actors.gd").migrate_progress(save_data)
 	# 拿到徽章就触发对应的剧情台词
 	_story_fire("badge", {"badge": badge})
@@ -2875,7 +2980,7 @@ func _learn_new_moves(mon: Dictionary, from_lv: int = 0, to_lv: int = 0) -> void
 	var got: Array = GrowthScript.moves_learned(mon, from_lv, to_lv)
 	for id in got:
 		var mid := int(id)
-		if moves.has(mid) or not Data.moves.has(mid):
+		if moves.any(func(id):return int(id)==mid) or not Data.moves.has(mid):
 			continue
 		if moves.size() < 4:
 			moves.append(mid)
@@ -2884,14 +2989,15 @@ func _learn_new_moves(mon: Dictionary, from_lv: int = 0, to_lv: int = 0) -> void
 				String((Data.move_of(mid) as Dictionary).get("name", ""))])
 			continue
 		# 满了：找当前最弱的一招换掉
-		var worst := 0
+		var worst := -1
 		var worst_power := 9999
 		for i in moves.size():
+			if world.map_data.has("emerald_original") and preload("res://core/hoenn_items.gd").data().learn.has(str(int(moves[i]))): continue
 			var pw := int((Data.move_of(int(moves[i])) as Dictionary).get("power", 0))
 			if pw < worst_power:
 				worst_power = pw
 				worst = i
-		if int((Data.move_of(mid) as Dictionary).get("power", 0)) > worst_power:
+		if worst>=0 and int((Data.move_of(mid) as Dictionary).get("power", 0)) > worst_power:
 			var old := String((Data.move_of(int(moves[worst])) as Dictionary).get("name", ""))
 			moves[worst] = mid
 			pp[worst] = int((Data.move_of(mid) as Dictionary).get("pp", 10))
@@ -2957,7 +3063,8 @@ func _process(delta: float) -> void:
 		_refresh_hud()
 	# 先推进走路时间，再读输入：同一帧走完就能立刻迈下一步，不会每格顿一下
 	# 按住 B 跑步：和原版一致，8 帧一格（正好两倍速）
-	world.running = (run_held or world.bike) and panel_open == 0
+	var can_run: bool = not world.map_data.has("emerald_original") or (world.map_data.get("allow_running",false) and preload("res://core/hoenn_items.gd").received(_flags(),"ITEM_RUNNING_SHOES"))
+	world.running = ((run_held and can_run) or world.bike) and panel_open == 0
 	var changing_map: bool = not world.pending_warp.is_empty()
 	world.tick_walk(delta)
 	if world.walking or changing_map:
@@ -3064,7 +3171,11 @@ func _test_warp() -> bool:
 			if m.is_empty():
 				print("warp dbg: 地图加载失败 ", rid, "/", cur)
 				return false
-			for w in m.get("warps", []):
+			var passages: Array=m.get("warps",[]).duplicate()
+			if m.has("emerald_original"):
+				for row in preload("res://core/hoenn_field.gd").travel().passages.get(cur,[]):
+					passages.append({"to":row.target})
+			for w in passages:
 				var to: Dictionary = w.get("to", {})
 				if String(to.get("region", "")) != rid:
 					continue
@@ -3944,6 +4055,9 @@ func _test_map_graph() -> bool:
 
 func _tile_blocked(m: Dictionary, x: int, y: int, cache: Dictionary) -> bool:
 	var size: Array = m.get("size", [0, 0])
+	if m.has("emerald_original"):
+		if x<0 or y<0 or x>=int(size[0]) or y>=int(size[1]): return true
+		return bool(m.physics.collision[y][x])
 	if m.has("hgss"):
 		var word:=preload("res://core/hgss_field.gd").word(m.hgss,Vector2i(x,y))
 		return bool(word & 0x8000)
@@ -6829,14 +6943,23 @@ func _test_gyms() -> bool:
 	print("gym dbg: %d 个道馆，队伍与徽章都齐；道馆战 %d 回合结束，胜者 %s" % [found, rounds, bt.winner])
 	return true
 
-## 每张图：从出生点出发，所有传送点都必须走得到（含跳土坡）
+const HoennDoorAudit := preload("res://core/hoenn_door_audit.gd")
+
+## Verify each original entrance from the published arrivals and field progression.
 func _test_warp_reach() -> bool:
 	var all_reached := true
+	var scoped := {}
+	var low_tide_reached := {}
+	var low_tide_only := []
+	var field_flags: Dictionary=HoennDoorAudit.completed_field()
+	var previous_taken: Dictionary=world.taken
 	var maps := _all_maps()
 	var arrivals: Dictionary = preload("res://core/world_passages.gd").graph(maps).arrivals
 	for room in maps:
 		var rid := str(room.rid)
 		var mid := str(room.mid)
+		var native: bool=room.m.has("emerald_original")
+		world.taken=field_flags.duplicate(true) if native else previous_taken
 		world.load_map(room.m)
 		var sp: Array = room.m.get("spawn", [0, 0])
 		var seed := {}
@@ -6844,10 +6967,11 @@ func _test_warp_reach() -> bool:
 			var pos := Vector2i(int(entry[0][0]),int(entry[0][1]))
 			if not entry[1]: pos=preload("res://core/hgss_field.gd").position(room.m,pos)
 			seed[pos]=true
-		seed[Vector2i(int(sp[0]), int(sp[1]))] = true
+		if not native or seed.is_empty():
+			seed[Vector2i(int(sp[0]), int(sp[1]))] = true
 		if mid in ["mt_ember_exterior","six_island_ruin_valley"]:
 			world.refresh_story_actors(OPEN_FIELD_FLAGS)
-		var seen := _walkable_from(seed)
+		var seen := HoennDoorAudit.walk(world,seed) if native else _walkable_from(seed)
 		if mid.begins_with("victoryroad_"):
 			# The upper drop is physically reached after the third-floor Strength puzzle.
 			var solved := {"btn:victoryroad_1f:20,16":true,"btn:victoryroad_2f:2,19":true,
@@ -6866,6 +6990,23 @@ func _test_warp_reach() -> bool:
 			# 连接生成的地图边缘门、以及海路上的门，都不按"屋里那扇门"的标准判
 			if bool(w.get("edge", false)):
 				continue
+			if native:
+				var tidal_key = [w.at,w.to.map,w.to.at]
+				if HoennDoorAudit.trigger_reached(world,w,seen) or HoennDoorAudit.scripted_exit(world,w,seen):
+					if mid=="em_shoal_cave_low_tide_inner_room":low_tide_reached[tidal_key]=true
+					continue
+				# The two tide layouts share a table. Check an inundated stair at its
+				# identical source/target in the real low-tide layout after this pass.
+				if mid=="em_shoal_cave_high_tide_inner_room" and str(w.to.map).begins_with("em_shoal_cave_low_tide_"):
+					low_tide_only.append(tidal_key)
+					continue
+				var reason:=HoennDoorAudit.unavailable(world,w,seen)
+				if not reason.is_empty():
+					scoped[reason]=int(scoped.get(reason,0))+1
+					continue
+				print("reach dbg: %s/%s 的门 %s 走不到，可达 %d 格，起点 %s" % [rid,mid,at,seen.size(),sp])
+				all_reached=false
+				continue
 			if world.is_water(Vector2i(int(at[0]), int(at[1]))):
 				continue
 			var approach := Vector2i(int(at[0]),int(at[1]))
@@ -6877,6 +7018,12 @@ func _test_warp_reach() -> bool:
 			if not seen.has(approach):
 				print("reach dbg: %s/%s 的门 %s 走不到，可达 %d 格，起点 %s" % [rid, mid, str(at), seen.size(), str(sp)])
 				all_reached = false
+	world.taken=previous_taken
+	for stair in low_tide_only:
+		if not low_tide_reached.has(stair):
+			print("reach dbg: 退潮后仍到不了浅滩洞穴出口 ",stair)
+			all_reached=false
+	for reason in scoped: print("reach separate: %s × %d" % [reason,scoped[reason]])
 	return all_reached
 
 func _walkable_from(seed: Dictionary) -> Dictionary:
@@ -7642,6 +7789,7 @@ func _e2e_pc() -> void:
 
 func _restore_from_save() -> void:
 	save_data = SaveScript.load_game()
+	Journey.migrate(save_data)
 	preload("res://core/johto_apricorns.gd").sync(save_data)
 	preload("res://core/frlg_actors.gd").migrate_progress(save_data)
 	PartyScript.migrate_legacy_box(save_data)
@@ -7662,7 +7810,7 @@ func _restore_from_save() -> void:
 		has_bag = arr.size() > 0
 	if has_bag:
 		bag_items = Data.normalize_bag(saved_bag)
-	elif save_data.get("origin","") == "johto":
+	elif save_data.get("origin","") in ["johto","hoenn"] or save_data.has("bag"):
 		bag_items = []
 	else:
 		bag_items = _default_items()
@@ -7674,21 +7822,12 @@ func _restore_from_save() -> void:
 
 	# 出生地：地区表里写死的起点。没有存档 / 存档地图没了，都回到这里，
 	# 而不是随随便便落到地区表里排序第一的那张图。
-	var start_region := "kanto"
-	var start_map := "pallet_town_players_house_2f"
-	var start_at := Vector2i(3, 6)
-	var reg_home: Dictionary = Data.load_region(start_region)
-	var st = reg_home.get("start", {})
-	if st is Dictionary and (st as Dictionary).has("map"):
-		start_map = String((st as Dictionary)["map"])
-		var sa = (st as Dictionary).get("at", [])
-		if sa is Array and (sa as Array).size() == 2 and sa[0] != null:
-			start_at = Vector2i(int(sa[0]), int(sa[1]))
-
-	if save_data.get("origin","kanto") == "johto":
-		start_region = "johto"
-		start_map = "johto_players_house_2f"
-		start_at = Vector2i(6,6)
+	var start_region := str(save_data.get("region","kanto"))
+	if start_region not in Journey.HOMES: start_region = str(save_data.get("origin","kanto"))
+	if start_region not in Journey.HOMES: start_region = "kanto"
+	var home: Dictionary = Journey.HOMES[start_region]
+	var start_map := str(home.map)
+	var start_at := Vector2i(int(home.at[0]),int(home.at[1]))
 
 	var region := String(save_data.get("region", start_region))
 	var map_id := String(save_data.get("map", start_map))
@@ -7699,10 +7838,7 @@ func _restore_from_save() -> void:
 		map_id=merged_target.map
 		saved_pos=merged_target.at
 		save_data.johto_field_revision=1
-	var map: Dictionary = {}
-	var first_path := "res://content/regions/%s/maps/%s.json" % [region, map_id]
-	if FileAccess.file_exists(first_path) or (region=="johto" and FileAccess.file_exists("res://content/hgss/maps/"+map_id+".json")):
-		map = Data.load_map(region, map_id)
+	var map: Dictionary = Data.load_map(region, map_id)
 	if map.is_empty():
 		print("[start] 存档地图 %s/%s 不存在，回出生地" % [region, map_id])
 		region = start_region
@@ -7725,6 +7861,8 @@ func _restore_from_save() -> void:
 	var spot := start_at
 	if has_saved_spot:
 		spot = Vector2i(int(saved_pos[0]), int(saved_pos[1]))
+		if map.has("emerald_original") and not save_data.has("hoenn_field_revision"):
+			spot = preload("res://core/hoenn_field.gd").saved_position(world,spot,save_data.get("surfing",false))
 		if map.has("hgss") and not save_data.has("johto_field_revision"):
 			spot = preload("res://core/hgss_field.gd").saved_position(world,spot,save_data.get("surfing",false))
 		# Before 4.51 the interior and connecting exterior of Saffron City overlapped.
@@ -7740,6 +7878,7 @@ func _restore_from_save() -> void:
 	# 存档点要是被挡住（换版本后地块变了），退到这张图自己的出生点
 	world.surfing = has_saved_spot and world.is_water(spot) and bool(save_data.get("surfing", true))
 	world.diving = world.surfing and bool(save_data.get("diving", world.is_deep(spot)))
+	if map.has("emerald_original"): world.diving=preload("res://core/hoenn_items.gd").underwater(map)
 	world.bike = bool(save_data.get("bike", false))
 	# Old builds saved on top of animated exterior doors. Restore at that door's doorstep.
 	if has_saved_spot and world.warp_at(spot).get("trigger", "") == "door":
@@ -7761,6 +7900,13 @@ func _restore_from_save() -> void:
 	_refresh_scene()
 	print("[start] %s/%s %s" % [region, String(map.get("id", map_id)), spot])
 	_story_init()
+	if map_id == "em_inside_of_truck" and save_data.get("hoenn_truck",{}).get("phase","") == "moving":
+		_play_truck()
+	if not save_data.get("chapters",{}).has(region):
+		if region=="hoenn":
+			_offer_hoenn_transport({"region":region,"map":map_id,"at":[spot.x,spot.y],"hoenn_native":true})
+			return
+		if _offer_chapter(region): return
 	_story_fire("map_enter", {"map": String(map.get("id", map_id)), "region": region})
 	_ensure_form_npc()
 
@@ -7794,6 +7940,7 @@ func _persist() -> bool:
 	save_data["pos"] = [world.player_pos.x, world.player_pos.y]
 	save_data["field_revision"] = 1
 	if world.map_data.has("hgss"): save_data["johto_field_revision"] = 1
+	if world.map_data.has("emerald_original"): save_data["hoenn_field_revision"] = 1
 	save_data["field_elevation"] = world.last_elevation
 	save_data["facing"] = world.facing
 	save_data["surfing"] = world.surfing
@@ -8256,6 +8403,91 @@ func _change_tera(slot: int, tera_type: String, ui) -> void:
 		_set_hud_visible(true)
 		_open_party()
 
+func _play_truck() -> void:
+	_escort_active = true
+	panel_open += 1
+	held_dir = ""
+	run_held = false
+	_start_after_step = false
+	_field_fingers.clear()
+	_set_hud_visible(false)
+	await preload("res://core/hoenn_truck.gd").play(self)
+	_escort_active = false
+	panel_open = maxi(0,panel_open-1)
+	_set_hud_visible(panel_open==0)
+	if world.map_data.id=="em_inside_of_truck" and save_data.has("hoenn_truck"):
+		save_data.hoenn_truck.phase="parked"
+		_persist()
+
+const HOENN_ARRIVAL := {"region":"hoenn","map":"littleroot_town","at":[3,10],"facing":"right","hoenn_native":true}
+
+func _offer_hoenn_transport(target: Dictionary) -> void:
+	held_dir = ""
+	run_held = false
+	var destination := target.duplicate(true) if _flags().get("h_moved",false) else HOENN_ARRIVAL.duplicate(true)
+	destination.erase("regional_travel")
+	destination["transport_selected"] = true
+	_pick("前往丰缘",["乘坐搬家货车","直接抵达"],func(i: int) -> void:
+		var first: bool = not save_data.get("chapters",{}).has("hoenn")
+		if first:
+			_offer_chapter("hoenn",i==0)
+		elif i==1:
+			_do_warp(destination)
+			_persist()
+		else:
+			save_data.bag = bag_items
+			var staged: Dictionary = save_data.duplicate(true)
+			_board_truck(staged,destination)
+			_load_chapter(staged))
+
+func _board_truck(staged: Dictionary, destination: Dictionary) -> void:
+	staged.region="hoenn"
+	staged.map="em_inside_of_truck"
+	staged.pos=[2,2]
+	staged.facing="right"
+	staged.hoenn_field_revision=1
+	for key in ["surfing","diving","bike"]: staged[key]=false
+	staged.erase("field_elevation")
+	staged.erase("location_label")
+	staged.hoenn_truck={"phase":"moving","destination":destination.duplicate(true)}
+
+func _load_chapter(staged: Dictionary) -> void:
+	if not SaveScript.save(staged):
+		_dialog(["写入失败，请检查设备空间。"])
+		return
+	_post_warp_keys.clear()
+	_field_fingers.clear()
+	cur_story = {}
+	story_queue.clear()
+	_restore_from_save()
+
+func _begin_chapter(region: String, mode: String, truck: bool) -> void:
+	save_data.bag = bag_items
+	var staged := Journey.begin(save_data,region,mode)
+	if staged.is_empty():
+		_dialog(["电脑空位不足。请整理箱子，或选择带现有队伍出发。"])
+		return
+	if region=="hoenn":
+		var arrival := HOENN_ARRIVAL.duplicate(true)
+		if truck:
+			_board_truck(staged,arrival)
+		else:
+			staged.map=arrival.map
+			staged.pos=arrival.at
+			staged.facing=arrival.facing
+	_load_chapter(staged)
+
+func _offer_chapter(region: String, truck := false) -> bool:
+	if not story_on or region not in Journey.HOMES or save_data.get("chapters",{}).has(region): return false
+	held_dir = ""
+	run_held = false
+	if not _has_party():
+		_begin_chapter(region,"carried",truck)
+		return true
+	_pick("初到%s · 现有队伍怎么安排？" % Journey.NAMES[region],["带现有队伍出发","寄存队伍，重新组队"],func(i: int) -> void:
+		_begin_chapter(region,"carried" if i==0 else "boxed",truck))
+	return true
+
 func _open_world_atlas(travel: bool, from_bag: BagUI = null) -> void:
 	var atlas := preload("res://scenes/world_atlas.gd").new()
 	if is_instance_valid(from_bag):
@@ -8275,10 +8507,7 @@ func _open_world_atlas(travel: bool, from_bag: BagUI = null) -> void:
 			if is_instance_valid(from_bag):
 				from_bag.handle_back()
 				_close_start_menu()
-				world.bike = false
-			world.surfing = false
-			world.diving = false
-			_do_warp(hub)
+			_do_warp(hub.merged({"regional_travel":true}))
 			_persist())
 	atlas.setup(Data.travel_regions(), world.map_data, travel, world.player_pos, world.area_name())
 
@@ -8296,7 +8525,7 @@ func _open_bag() -> void:
 		_set_hud_visible(true))
 
 ## 通用选项面板：手机上点一条就行，比"按 A 循环"可靠
-func _pick(title: String, options: Array, cb: Callable) -> void:
+func _pick(title: String, options: Array, cb: Callable, on_cancel := Callable()) -> void:
 	var ui := Control.new()
 	ui.set_anchors_preset(Control.PRESET_FULL_RECT)
 	menu_layer.add_child(ui)
@@ -8333,6 +8562,7 @@ func _pick(title: String, options: Array, cb: Callable) -> void:
 	sc.add_child(box)
 
 	var close := func() -> void:
+		ui.hide()
 		panel_open = maxi(0, panel_open - 1)
 		if panel_open == 0:
 			_set_hud_visible(true)
@@ -8358,6 +8588,7 @@ func _pick(title: String, options: Array, cb: Callable) -> void:
 		b.add_theme_color_override("font_color", Color(0.95, 0.96, 0.93))
 		var idx := i
 		b.pressed.connect(func() -> void:
+			if not ui.visible: return
 			snd.play_sfx("select")
 			close.call()
 			cb.call(idx))
@@ -8368,13 +8599,18 @@ func _pick(title: String, options: Array, cb: Callable) -> void:
 	cancel.size = Vector2(72, 32)
 	cancel.position = Vector2(vp.x - 96, vp.y - 44)
 	cancel.add_theme_font_size_override("font_size", 13)
-	cancel.pressed.connect(func() -> void:
+	var back := func() -> void:
+		if not ui.visible: return
 		snd.play_sfx("select")
-		close.call())
+		close.call()
+		if on_cancel.is_valid(): on_cancel.call()
+	ui.set_meta("choice_back",back)
+	cancel.pressed.connect(back)
 	ui.add_child(cancel)
 
 ## 背包里点中一件东西：能用的都真的用掉，不能用的说清为什么
 func _use_bag_item(nm: String) -> void:
+	if _bag_count(nm)>0 and preload("res://core/hoenn_items.gd").use(self,nm): return
 	if _bag_count(nm)>0 and preload("res://core/johto_items.gd").use(self,nm): return
 	if _bag_count(nm)>0 and preload("res://core/johto_postgame.gd").use_item(self,nm): return
 	if nm == "对战搜寻器":
@@ -8854,9 +9090,11 @@ func _mark_fly_visits() -> void:
 	var dirty := false
 	var path := reg + "/" + mid
 	var town: String = world.area_name() if mid == "kanto_main" else ""
-	for sp in FLY_SPOTS:
+	for sp in (preload("res://core/hoenn_items.gd").data().fly if world.map_data.has("emerald_original") else FLY_SPOTS):
 		var key := "fly_" + String(sp.name)
 		if flags.get(key, false) or path != sp.map: continue
+		if sp.name=="丰缘宝可梦联盟" and world.player_pos.y>18: continue
+		if sp.name=="彩幽市" and world.player_pos.y<25: continue
 		if mid == "kanto_main" and town != str(sp.get("area", sp.name)) and town != sp.name: continue
 		flags[key] = true
 		dirty = true
@@ -8866,13 +9104,16 @@ func _mark_fly_visits() -> void:
 
 
 func _open_fly() -> void:
+	if world.map_data.has("emerald_original") and world.map_data.get("map_type","") not in ["MAP_TYPE_ROUTE","MAP_TYPE_TOWN","MAP_TYPE_CITY","MAP_TYPE_OCEAN_ROUTE"]:
+		_show_toast("先走到户外再使用飞翔。")
+		return
 	if not _party_can_move("FLY"):
 		_show_toast(_field_move_hint("FLY","飞翔"))
 		return
 	var flags := _flags()
 	var spots: Array = []
 	var names: Array = []
-	for sp in FLY_SPOTS:
+	for sp in (preload("res://core/hoenn_items.gd").data().fly if world.map_data.has("emerald_original") else FLY_SPOTS):
 		if flags.get("fly_" + String(sp["name"]), false):
 			spots.append(sp)
 			names.append(String(sp["name"]))
@@ -8886,7 +9127,7 @@ func _open_fly() -> void:
 		var parts := String(sp["map"]).split("/")
 		world.surfing = false
 		world.diving = false
-		_do_warp({"region":parts[0], "map":parts[1], "at":sp.at, "facing":"down"})
+		_do_warp({"region":parts[0], "map":parts[1], "at":sp.at, "facing":"down", "hoenn_native":parts[0]=="hoenn"})
 		_persist())
 
 
@@ -8988,6 +9229,12 @@ func _open_pc() -> void:
 
 ## 骑车：队伍外也能用，速度翻倍，还能骑在路上
 func _toggle_bike() -> void:
+	if world.map_data.has("emerald_original") and (not world.map_data.get("allow_cycling",false) or world.surfing or world.diving):
+		_show_toast("这里不能骑自行车。")
+		return
+	if world.map_data.has("emerald_original") and _flags().get("h_bike","")=="":
+		_show_toast("到紫堇市的风野自行车店领取一辆自行车。")
+		return
 	var has := false
 	for it in bag_items:
 		if it is Dictionary and String((it as Dictionary).get("name", "")).contains("自行车"):

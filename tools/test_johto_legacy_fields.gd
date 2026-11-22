@@ -102,7 +102,7 @@ func run():
 	game=load("res://scenes/boot.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
-	game.title_screen.johto_button.pressed.emit()
+	await preload("regional_start.gd").enter(game,"johto")
 	world=game.world
 	for suffix in ["mahogany_side","blackthorn_side"]:
 		var old: String="johto_ice_path_b2_f_"+suffix
@@ -154,6 +154,7 @@ func run():
 	game._close_all_dialogs()
 	expect(game._party_has_move("ROCK_CLIMB") and not game._party_can_move("ROCK_CLIMB"),"backpack teaches Rock Climb and its field use checks the Earth Badge")
 	game.save_data.badges.append("绿色徽章")
+	game.save_data.regional_badges.johto.append("绿色徽章")
 	expect(game._party_can_move("ROCK_CLIMB"),"Earth Badge permits Rock Climb")
 	round_trip("Oak HM08")
 	expect(game._bag_count(machine)==1 and game._party_has_move("ROCK_CLIMB"),"HM and learned move survive reopen")

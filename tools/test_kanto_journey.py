@@ -29,10 +29,13 @@ class Player:
             self.pos = tuple(self.state["pos"])
             self.routes.occupied[self.pos[0]] = {tuple(r[0]) for r in self.state["actors"]}
             self.routes.history = self.state["history"]
+            self.routes.elevation = int(self.state.get("elevation",0))
             badges = self.state["badges"]
             field_badges = {15: "蓝色徽章", 57: "粉红徽章", 70: "彩虹徽章", 249: "金色徽章"}
             if self.pos[0].startswith(("johto_","hgss_")):
                 field_badges = {15:"昆虫徽章", 57:"魅影徽章", 70:"标准徽章", 250:"冰川徽章", 127:"升龙徽章",431:"绿色徽章"}
+            if self.routes.regions == ("hoenn",):
+                field_badges = {15:"岩石徽章",19:"白羽徽章",57:"天秤徽章",70:"烈焰徽章",148:"拳击徽章",249:"电力徽章",127:"雨滴徽章",291:"心灵徽章"}
             moves = frozenset(move for member in self.state["party"] for move in member[5]
                               if field_badges.get(move) in badges)
             if self.routes.field_moves != moves:
@@ -62,16 +65,17 @@ class Player:
         if action != "quit":
             return self.receive()
 
-    def go(self, goals):
+    def go(self, goals, until_flag=None):
         self.routes.denied.clear()
         for attempt in range(250):
-            if self.pos in goals: return
+            if self.pos in goals or (until_flag and until_flag in self.state["flags"]): return
             plan = self.routes.path(self.pos, goals)
             for i in range(0, len(plan), 24):
                 batch = plan[i:i+24]
                 previous = self.pos
                 previous_flags = self.last_flags
                 self.do("walk", legs=[[k, end] for _, k, end in batch])
+                if until_flag and until_flag in self.state["flags"]: return
                 if self.pos == batch[-1][2]: continue
                 if self.last_flags != previous_flags: break  # A one-time field event can interrupt a door or step.
                 event = self.state["obstruction"]

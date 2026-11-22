@@ -83,9 +83,15 @@ func trip(region: String, repeat_tap := false) -> bool:
 		atlas._depart()
 	check(departures == previous + 1, "confirm departure exactly once")
 	await frames()
+	if region=="hoenn" and game.panel_open>0:
+		if not press(game.menu_layer.get_child(-1),"直接抵达"): return false
+	await frames()
 	game._close_all_dialogs()
 	await frames()
 	var hub: Dictionary = destination.hub
+	if not at_hub(hub) and region in ["hoenn","johto"]:
+		check(game.save_data.chapters.has(region),"first arrival opened local story")
+		return await trip(region)
 	var saved := Save.existing()
 	check(at_hub(hub), "arrival in " + region)
 	check(saved.region == hub.region and saved.map == hub.map and saved.pos == hub.at, "saved landing in " + region)

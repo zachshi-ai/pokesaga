@@ -112,6 +112,19 @@ func run() -> void:
 		if not click(atlas,catalog[id].name) or not click(atlas,"出发前往"+str(catalog[id].name)):
 			break
 		await process_frame
+		if id=="hoenn": click(game.menu_layer.get_child(-1),"直接抵达")
+		await process_frame
+		game._close_all_dialogs()
+		await process_frame
+		if id in ["hoenn","johto"] and (world.map_data.id!=catalog[id].hub.map or world.player_pos!=tile(catalog[id].hub.at)):
+			expect(game.save_data.chapters.has(id),"first visit began local story")
+			game._use_bag_item("地区转移器")
+			atlas = game.menu_layer.get_child(-1)
+			click(atlas,catalog[id].name)
+			click(atlas,"出发前往"+str(catalog[id].name))
+			await process_frame
+			if id=="hoenn": click(game.menu_layer.get_child(-1),"直接抵达")
+			await process_frame
 		here = catalog[id].hub
 		var stored := Save.existing()
 		expect(world.map_data.region==here.region and world.map_data.id==here.map and world.player_pos==tile(here.at),"arrival "+id)

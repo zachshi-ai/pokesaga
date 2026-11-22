@@ -19,7 +19,7 @@ class Field:
         self.w, self.h = meta.get("size", data["size"])
         self.crystal = data.get("emerald", "").startswith("johto_")
         self.grid = {k: [int(v) for row in arr for v in row] for k, arr in meta.items()
-                     if k in ("collision", "water", "elevation", "ledge", "dirblock", "counter", "grass", "whirl", "waterfall", "slide") and arr}
+                     if k in ("collision", "water", "elevation", "ledge", "dirblock", "counter", "grass", "whirl", "waterfall", "slide", "current") and arr}
         self.doors = {}
         for door in data.get("warps", []):
             self.doors.setdefault(tuple(door["at"]), door)
@@ -36,6 +36,11 @@ class Routes:
         self.regions = regions
         self.fields = {}
         for region in regions:
+            if region == "hoenn":
+                for path in (ROOT / "content/hoenn_native/maps").glob("*.json"):
+                    data = read(path)
+                    self.fields[path.stem] = Field(data,data["physics"])
+                continue
             for path in (ROOT / "content/regions" / region / "maps").glob("*.json"):
                 data = read(path)
                 meta_path = ROOT / "content/emerald_maps" / (str(data.get("emerald", "")) + ".json")
@@ -46,6 +51,7 @@ class Routes:
         self.history = {}
         self.cleared = set()
         self.field_moves = frozenset()
+        self.elevation = 0
 
     def projection(self, dest):
         if self.regions == ("johto",) and dest.get("map") == "johto_pokecenter_2f":
@@ -79,7 +85,7 @@ class Routes:
                 if 0<=nx<f.w and 0<=ny<f.h and not f.get("collision",nx,ny):
                     edges.append((key,(mid,nx,ny)))
                 continue
-            if f.crystal:
+            if f.crystal or f.data.get("emerald_original"):
                 if f.get("whirl",nx,ny) and 250 not in self.field_moves and (mid,nx,ny) not in self.cleared:
                     continue
                 if key!="d" and (f.get("waterfall",nx,ny) or f.get("waterfall",x,y)):
@@ -118,27 +124,55 @@ class Routes:
                 continue
             step = f.doors.get((nx, ny), {})
             dest = step["to"] if step and step.get("trigger", "step") == "step" else (mid, nx, ny)
+            if isinstance(dest,tuple) and getattr(self,"pillar_clean",False):
+                lower = f.data.get("mechanisms",{}).get("hole_return")
+                if lower and f.data["physics"]["behavior"][ny][nx] in (0x66,0xd2):
+                    if (nx,ny) not in getattr(f,"repaired_floor",()):
+                        dest={"map":lower,"region":"hoenn","at":[nx,ny]}
             edges.append((key, dest))
+        if f.data.get("emerald_original"):
+            forced = f.get("current", x, y)
+            downstream = [edge for edge in edges if VECTORS[edge[0]][2] == forced]
+            if downstream:
+                return downstream
         return edges
 
     def path(self, start, goals):
-        pending = deque([start])
-        prev = {start: None}
+        # A multi-level tile keeps the walker's previous height. Two people on the
+        # same 119 bridge square may therefore have different legal next steps.
+        hoenn = self.regions == ("hoenn",)
+        first = (*start, self.elevation if hoenn and self.fields[start[0]].get("elevation",*start[1:])==15 else 0)
+        pending = deque([first])
+        prev = {first: None}
         while pending:
-            here = pending.popleft()
+            node = pending.popleft()
+            here = node[:3]
             if here in goals:
                 steps = []
-                while prev[here] is not None:
-                    before, key = prev[here]
-                    steps.append((before, key, here))
-                    here = before
+                while prev[node] is not None:
+                    before, key = prev[node]
+                    steps.append((before[:3], key, node[:3]))
+                    node = before
                 return steps[::-1]
             for key, dest in self.edges(here):
-                if isinstance(dest, dict):
+                passage = isinstance(dest, dict)
+                if passage:
                     dest = self.projection(dest)
-                if (dest is None or dest in prev or (here, key) in self.denied or
+                if (dest is None or (here, key) in self.denied or
                         dest[1:] in self.occupied.get(dest[0], ())):
                     continue
-                prev[dest] = (here, key)
-                pending.append(dest)
+                layer = 0
+                if hoenn:
+                    origin = self.fields[here[0]].get("elevation",*here[1:])
+                    height = self.fields[dest[0]].get("elevation",*dest[1:])
+                    if origin == 15: origin = node[3]
+                    if height == 15: layer = origin
+                    elif not passage and node[3] and height not in (0, origin):
+                        shore = (57 in self.field_moves and {height,origin} == {1,3} and
+                                 bool(self.fields[dest[0]].get("water",*dest[1:])) == (height==1))
+                        if not shore: continue
+                nxt = (*dest,layer)
+                if nxt not in prev:
+                    prev[nxt] = (node, key)
+                    pending.append(nxt)
         raise ValueError(f"No walk from {start} to {goals}")

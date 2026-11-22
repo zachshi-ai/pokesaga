@@ -52,16 +52,24 @@ func setup(p_team: Array, e_team: Array, seed_value: int = 0, p_bag: Array = [],
 	player_team = p_team
 	enemy_team = e_team
 	bag = p_bag
-	battle = preload("res://core/battle.gd").new(seed_value)
+	battle = _battle_engine(seed_value)
 	if observe_variant.is_valid():
 		battle.variant_seen.connect(observe_variant)
 	battle.start(player_team, enemy_team)
+	if battle.over:
+		# The field connects the normal loss and recovery handler after setup returns.
+		state = "end"
+		wait = 0.0
+		return
 	battle.health_changed.connect(_queue_health)
 	_build()
 	var opponent := _display_name(battle.cur_b())
 	_say("野生的 %s 出现了！" % opponent if trainer_name == "" else "%s 派出了 %s！" % [trainer_name, opponent])
 	state = "intro"
 	wait = _dur(0.9)
+
+func _battle_engine(seed_value: int):
+	return preload("res://core/battle.gd").new(seed_value)
 
 func _build() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -550,7 +558,7 @@ func _open_balls() -> void:
 	var choices: Array = bag.filter(func(it):
 		return it is Dictionary and int(it.get("count", 0)) > 0 and (
 			(trainer_name.is_empty() and BALL_BONUS.has(str(it.get("name", "")))) or
-			str(it.get("name", "")) in Data.FIELD_BATTLE_ITEMS.values()))
+			str(it.get("name", "")) in Data.FIELD_BATTLE_ITEMS.values() or str(it.get("name","")) in ["蓝色玻璃哨","黄色玻璃哨","红色玻璃哨"]))
 	if not trainer_name.is_empty() and choices.is_empty():
 		_open_commands("bag", "训练家对战不能投球。")
 		return
@@ -565,8 +573,10 @@ func _open_balls() -> void:
 func _use_booster(item_name: String) -> void:
 	if not bag.any(func(it): return it is Dictionary and it.get("name", "") == item_name and int(it.get("count", 0)) > 0):
 		return
+	var reusable := item_name in ["蓝色玻璃哨","黄色玻璃哨","红色玻璃哨"]
 	var key := str(Data.FIELD_BATTLE_ITEMS.find_key(item_name))
-	if not battle.use_battle_item("a", key):
+	var effect: bool = preload("res://core/hoenn_items.gd").flute_effect(battle.cur_a(),item_name) if reusable else battle.use_battle_item("a", key)
+	if not effect:
 		_open_commands("bag", "现在使用没有效果。")
 		return
 	_begin_resolve()
@@ -574,7 +584,7 @@ func _use_booster(item_name: String) -> void:
 	pending.append("使用了%s！" % item_name)
 	pending.append_array(battle.log)
 	battle.log.clear()
-	item_used.emit(item_name)
+	if not reusable: item_used.emit(item_name)
 	_queue_turn("item", "move:0")
 	msg.text = ""
 	wait = _dur(0.1)

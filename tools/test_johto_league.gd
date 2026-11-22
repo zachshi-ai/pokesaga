@@ -139,6 +139,7 @@ func run() -> void:
 	check(world.map_data.id == lobby and not game._dialogs.is_empty(), "badge gate")
 	close_dialogs()
 	game.save_data.badges.append_array(rules.badges)
+	game.save_data.regional_badges.johto.append_array(rules.badges)
 	door(rooms[0].room)
 	check(world.map_data.id == rooms[0].room, "first chamber")
 	talk(world.npcs[0])

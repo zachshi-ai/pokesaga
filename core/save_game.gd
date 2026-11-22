@@ -3,7 +3,8 @@ extends RefCounted
 ## 用 JSON 起步，字段稳定后可以换成二进制，但结构不变。
 
 const PATH := "user://save.json"
-const VERSION := 2
+const VERSION := 3
+const Journey := preload("res://core/region_journey.gd")
 static var slot := PATH
 
 static func use_test_slot() -> void:
@@ -49,8 +50,7 @@ static func save(data: Dictionary) -> bool:
 		return false
 	return DirAccess.rename_absolute(ProjectSettings.globalize_path(temp_path), ProjectSettings.globalize_path(slot)) == OK
 
-static func new_game(origin := "kanto") -> bool:
-	if origin not in ["kanto","johto"]: return false
+static func new_game() -> bool:
 	if FileAccess.file_exists(slot):
 		var path := ProjectSettings.globalize_path(slot)
 		if DirAccess.copy_absolute(path, path + ".previous.tmp") != OK:
@@ -58,12 +58,8 @@ static func new_game(origin := "kanto") -> bool:
 		if DirAccess.rename_absolute(path + ".previous.tmp", path + ".previous") != OK:
 			return false
 	var fresh := empty()
-	fresh["origin"] = origin
-	if origin == "johto":
-		fresh["region"] = "johto"
-		fresh["map"] = "johto_players_house_2f"
-		fresh["pos"] = [6,6]
-		fresh["johto_field_revision"] = 1
+	fresh["origin"] = "kanto"
+	Journey.migrate(fresh)
 	return save(fresh)
 
 ## Used by the title screen. An invalid save stays on disk until the player confirms replacement.

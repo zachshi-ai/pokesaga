@@ -20,23 +20,25 @@ static func data() -> Dictionary:
 
 static func migrate(save: Dictionary) -> void:
 	var flags: Dictionary = save.get("flags",{})
-	var badges: Array = save.get("badges",[])
+	var badges: Array = preload("res://core/region_journey.gd").badges(save,"kanto")
 	if "橙色徽章" in badges: flags.surge_open=true
 	if "深红徽章" in badges:
 		for i in range(1,7): flags["cinnabar_quiz_"+str(i)]=true
 	flags.kanto_eight_badges = BADGES.all(func(b): return b in badges)
-	for row in save.get("bag",[]):
+	var legacy_items: Array = save.get("bag",[]) if save.get("import_kanto_items",not save.has("chapters")) else []
+	for row in legacy_items:
 		if row.get("name","")=="自行车" and int(row.get("count",0))>0: flags.received_kanto_bike=true
 	# Keys were collectible before their item labels and story flags were connected.
 	for key in [["silph_co_5f:22,21","ITEM_CARD_KEY","钥匙卡","card_key"],
 			["pokemon_mansion_b1f:4,7","ITEM_SECRET_KEY","秘密钥匙","secret_key"],
 			["safarizone_west:28,14","ITEM_GOLD_TEETH","金假牙","gold_teeth"]]:
 		if flags.get(key[0],false): flags[key[3]] = true
-		for row in save.get("bag",[]):
+		for row in legacy_items:
 			if row.get("name","") in [key[1],key[2]] and int(row.get("count",0))>0:
 				row.name=key[2]
 				row.category="key"
 				flags[key[3]]=true
+	save.erase("import_kanto_items")
 	save.flags=flags
 
 static func passage_message(source: Dictionary, target: Dictionary, save: Dictionary) -> String:
@@ -44,7 +46,7 @@ static func passage_message(source: Dictionary, target: Dictionary, save: Dictio
 	var here: String = source.get("id","")
 	var dest: String = target.get("map","")
 	var fl: Dictionary = save.get("flags",{})
-	var badges: Array = save.get("badges",[])
+	var badges: Array = preload("res://core/region_journey.gd").badges(save,"kanto")
 	if here=="kanto_main":
 		match dest:
 			"s_s_anne_exterior":

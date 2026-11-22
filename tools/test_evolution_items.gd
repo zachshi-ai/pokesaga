@@ -7,7 +7,7 @@ var Shop: Script
 var PartyUI: Script
 const MARKETS := {
 	"sinnoh":"sinnoh_canalave", "galar":"galar_hammerlocke", "hisui":"hisui_jubilife",
-	"paldea":"paldea_mesagoza", "kitakami":"kitakami_mossui", "hoenn":"hoenn_dewford",
+	"paldea":"paldea_mesagoza", "kitakami":"kitakami_mossui", "hoenn":"em_oldale_town_mart",
 	"kalos":"kalos_ambrette"
 }
 var failed := false
@@ -70,6 +70,13 @@ func check_markets() -> void:
 	var bought := {}
 	game.save_data.money = 500000
 	for region in MARKETS:
+		if region=="hoenn":
+			var travel := preload("regional_start.gd")
+			expect(travel.open_trip(game,"hoenn"),"take regular transport to Hoenn")
+			await process_frame
+			expect(travel.press(game.menu_layer,"直接抵达"),"skip the optional moving van")
+			await process_frame
+			game._close_all_dialogs()
 		var mid: String = MARKETS[region]
 		game._do_warp({"region":region, "map":mid, "at":db.load_map(region, mid).spawn})
 		game._close_all_dialogs()

@@ -35,7 +35,10 @@ class Emerald:
     @lru_cache(None)
     def tileset(self, name):
         folder = self.dirs[normalized(name.removeprefix('gTileset_'))]
-        image = np.array(Image.open(folder / 'tiles.png'))
+        art_folder = folder
+        if name.startswith("gTileset_SecretBase") and name != "gTileset_SecretBase":
+            art_folder = next(p for p in folder.iterdir() if normalized(p.name) == normalized(name.removeprefix("gTileset_SecretBase")))
+        image = np.array(Image.open(art_folder / 'tiles.png'))
         assert image.ndim == 2, folder
         tiles = image.reshape(image.shape[0]//8,8,image.shape[1]//8,8).transpose(0,2,1,3).reshape(-1,8,8)
         if name == 'gTileset_General':
@@ -47,7 +50,7 @@ class Emerald:
         entries = np.fromfile(folder / 'metatiles.bin', dtype='<u2').reshape(-1,8)
         palettes = []
         for i in range(16):
-            lines = (folder / 'palettes' / f'{i:02}.pal').read_text().splitlines()[3:19]
+            lines = (art_folder / 'palettes' / f'{i:02}.pal').read_text().splitlines()[3:19]
             palette = [[*map(int, line.split()),255] for line in lines]
             palette[0][3] = 0
             palettes.append(np.array(palette, np.uint8))

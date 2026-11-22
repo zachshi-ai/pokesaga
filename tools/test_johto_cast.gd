@@ -44,7 +44,7 @@ func run():
 	var game=load("res://scenes/boot.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
-	game.title_screen.johto_button.pressed.emit()
+	await preload("regional_start.gd").enter(game,"johto")
 	await process_frame
 	var world=game.world
 	expect(game.title_screen==null and world.map_data.id=="johto_players_house_2f","direct Johto start in bedroom")

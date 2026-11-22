@@ -88,8 +88,6 @@ static func normalize_team(team: Array) -> Array:
 		var d: Dictionary = c
 		if not d.has("stages"):
 			d["stages"] = {"atk": 0, "def": 0, "spa": 0, "spd": 0, "spe": 0}
-		if not d.has("fainted"):
-			d["fainted"] = false
 		if not d.has("status"):
 			d["status"] = ""
 		if not d.has("status_turns"):
@@ -159,6 +157,7 @@ static func normalize_team(team: Array) -> Array:
 		if not d.has("hp"):
 			d["hp"] = int(d["max_hp"])
 		d["hp"] = clampi(int(d["hp"]), 0, int(d["max_hp"]))
+		d["fainted"] = d["hp"] == 0
 	return team
 
 func start(a_team: Array, b_team: Array) -> void:
@@ -167,13 +166,15 @@ func start(a_team: Array, b_team: Array) -> void:
 	field.reset()
 	team_a = normalize_team(a_team)
 	team_b = normalize_team(b_team)
-	active_a = 0
-	active_b = 0
+	active_a = _first_alive(team_a)
+	active_b = _first_alive(team_b)
 	over = false
 	winner = ""
 	caught = false
 	caught_species = 0
 	fled = false
+	_check_end()
+	if over: return
 	_on_send_out("a")
 	_on_send_out("b")
 
@@ -2754,7 +2755,7 @@ func _end_of_turn_volatile() -> void:
 			log.append("%s 倒下了！" % who)
 
 ## 回合末结算之三：天气掉血、青草场地回血、各种回合数递减
-func _end_of_turn_field() -> void:
+func _end_of_turn_field(tick_field := true) -> void:
 	# 守住只维持这一回合
 	for c in [cur_a(), cur_b()]:
 		c["protected"] = false
@@ -2769,10 +2770,11 @@ func _end_of_turn_field() -> void:
 				_set_hp(c, mini(int(c["max_hp"]), int(c["hp"]) + h))
 				log.append("%s 借水环回复了体力。" % c["name"])
 	# 许愿
-	for line in field.tick_wish([cur_a(), cur_b()]):
-		log.append(String(line))
-	for line in field.end_turn([cur_a(), cur_b()]):
-		log.append(String(line))
+	if tick_field:
+		for line in field.tick_wish([cur_a(), cur_b()]):
+			log.append(String(line))
+		for line in field.end_turn([cur_a(), cur_b()]):
+			log.append(String(line))
 	# 携带道具：剩饭回血
 	for c in [cur_a(), cur_b()]:
 		for line in held_end_turn(c):
@@ -3723,7 +3725,7 @@ func _next_alive(side: String, exclude: int) -> int:
 
 func _do_switch(side: String, index: int, forced: bool = false) -> void:
 	var team: Array = team_a if side == "a" else team_b
-	if index < 0 or index >= team.size() or team[index]["fainted"]:
+	if index < 0 or index >= team.size() or team[index]["fainted"] or int(team[index]["hp"]) <= 0:
 		return
 	# 被束缚时换不了人（被吹飞、击退除外）
 	var stuck: Dictionary = cur_a() if side == "a" else cur_b()

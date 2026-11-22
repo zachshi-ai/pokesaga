@@ -14,8 +14,11 @@ static func active(map: Dictionary) -> Array:
 	var cells := {}
 	for warp in map.get("warps",[]):
 		var p := Field.vec(warp.at)
-		if not cells.has(p):
-			cells[p]=warp
+		var trigger: String=warp.get("trigger","")
+		# At Emerald map corners each outward direction connects to its own neighbor.
+		var slot: Variant=[p,trigger] if map.has("emerald_original") and trigger in ["up","down","left","right"] else p
+		if not cells.has(slot):
+			cells[slot]=warp
 	return cells.values()
 
 static func key(target: Dictionary) -> String:
@@ -30,6 +33,9 @@ static func graph(rooms: Array) -> Dictionary:
 	for room in rooms:
 		var source := "%s/%s" % [room.rid,room.mid]
 		var targets: Array = room.m.get("lift_stops",[]).duplicate()
+		if room.m.has("emerald_original"):
+			for row in preload("res://core/hoenn_field.gd").travel().passages.get(room.mid,[]):
+				targets.append(row.target)
 		for warp in active(room.m):
 			var t: Dictionary=warp.to
 			if t.has("remember_passage"):

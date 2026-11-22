@@ -45,5 +45,23 @@ func run() -> void:
 			expect(now==int(foe.hp),"second attack started before first finished")
 		if v.state=="menu": break
 	expect(enemy_mid and player_mid and v.enemy_hp.get_meta("shown_hp")==int(foe.hp) and v.player_hp.get_meta("shown_hp")==int(me.hp), "both HP bars must pass through intermediate frames and land exactly")
+	var exhausted: Dictionary = Combat.make_combatant(260,72,[127])
+	exhausted.hp = 0
+	exhausted.erase("fainted")
+	var healthy: Dictionary = Combat.make_combatant(297,73,[33])
+	var opponent: Dictionary = Combat.make_combatant(321,57,[33])
+	var next = View.new()
+	root.add_child(next)
+	next.setup([exhausted,healthy],[opponent],9)
+	expect(next.battle.active_a==1 and next.player_hp.get_meta("slot")==1,"send the first conscious party member into consecutive battles")
+	next.battle._do_switch("a",0)
+	expect(next.battle.active_a==1 and exhausted.fainted,"cannot switch to a zero-HP member from an older save")
+	var lost = View.new()
+	root.add_child(lost)
+	lost.setup([exhausted],[opponent],9)
+	var results: Array=[]
+	lost.finished.connect(func(result):results.append(result))
+	lost._process(0.1)
+	expect(results==["b"] and lost.state=="finished","all exhausted must reach field recovery without offering battle commands")
 	print("BATTLE HP ", "FAIL" if failed else "PASS")
 	quit(1 if failed else 0)

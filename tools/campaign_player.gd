@@ -68,7 +68,7 @@ func battle() -> void:
 	var owned: bool = game.save_data.dex.caught.any(func(n): return int(n) == int(enemy.species_id))
 	var capture: bool = wild and mode == "collect" and not owned
 	for frame in 3500:
-		if game.active_battle == null: break
+		if game.active_battle != ui: break
 		if ui.state == "menu":
 			turns += 1
 			var ball := ""
@@ -93,6 +93,10 @@ func battle() -> void:
 			elif wild and mode != "train":
 				ui._on_command_kind("flee")
 			else:
+				var paired: bool = ui.get_script().resource_path=="res://scenes/double_battle_ui.gd"
+				if paired:
+					var foe_lane: int = ui.battle.choose_lane("b",1 if turns%2==0 else 0)
+					if foe_lane>=0: ui.target_buttons[foe_lane].pressed.emit()
 				var mon: Dictionary = ui.battle.cur_a()
 				var best := -1
 				var high := -1.0
@@ -106,11 +110,12 @@ func battle() -> void:
 					if power > high:
 						best = i
 						high = power
-				ui._on_command_kind("fight")
-				ui._on_move(maxi(0,best))
+				ui.menu.get_node("fight").pressed.emit()
+				var move_button: Button = ui.move_menu.get_node("Move%d"%best if best>=0 else "Struggle")
+				move_button.pressed.emit()
 		ui._process(5.0)
-	if game.active_battle != null:
-		problem = "Battle did not finish: " + str(ui.trainer_name)
+	if game.active_battle == ui:
+		problem = "Battle did not finish: %s, state=%s, turn=%s" % [ui.trainer_name,ui.state,turns]
 		return
 	if not wild or ui.battle.winner in ["caught","b"] or ui.battle.fishing_encounter:
 		fights.append([str(ui.trainer_name),enemy.name,enemy.level,ui.battle.winner])
@@ -146,9 +151,9 @@ func status() -> Dictionary:
 	if game.panel_open > 0 and game.menu_layer.get_child_count() > 0:
 		for b in game.menu_layer.get_child(-1).find_children("*","Button",true,false):
 			if b.is_visible_in_tree() and not b.disabled: panels.append(b.text)
-	return {"pos":current(),"party":mons,"bag":items,"flags":game._flags().keys().filter(func(k): return game._flags()[k]),
-		"badges":game.save_data.badges,"money":game.save_data.money,"dex":game.save_data.dex.caught,"defeated":game.save_data.get("defeated",{}),
-		"actors":world.npcs.map(func(n):return [n.at,n.get("role",""),n.get("name",""),n.get("shop",false),n.get("legacy_at",n.at),n.get("story_map",world.map_data.id),n.get("heal",false),n.get("hgss_source","")]),
+	return {"pos":current(),"elevation":world.last_elevation,"party":mons,"bag":items,"flags":game._flags().keys().filter(func(k): return game._flags()[k]),
+		"gym_button":int(game._flags().get("h_wattson_switch",0)),"gym_local":world.hoenn_local,"badges":game.save_data.badges,"money":game.save_data.money,"dex":game.save_data.dex.caught,"defeated":game.save_data.get("defeated",{}),
+		"actors":world.npcs.map(func(n):return [n.at,n.get("role",""),n.get("name",""),n.get("shop",false),n.get("legacy_at",n.at),n.get("story_map",world.map_data.id),n.get("heal",false),n.get("hgss_source",""),int(n.get("local_id",-1))]),
 		"bins":[game._flags().get("surge_bin",-1),game._flags().get("surge_second_bin",-1)],"history":game.save_data.get("return_passages",{}),"buttons":panels,"panels":game.panel_open,"held":game.save_data.party.map(func(m):return m.get("held","")),"problem":problem,"fights":fights,
 		"dialog":lines,"turns":turns,"steps":steps,"obstruction":obstruction,"hall":game.save_data.get("hall_of_fame",{})}
 
@@ -267,12 +272,17 @@ func run() -> void:
 	await process_frame
 	world = game.world
 	db = root.get_node("Data")
-	if OS.get_cmdline_user_args().has("new-johto"):
-		if game.title_screen.continue_button != null:
-			push_error("Johto new-game replay requires an empty slot")
+	var args := OS.get_cmdline_user_args()
+	if "hoenn-boxed" in args or "hoenn-carried" in args or "new-hoenn" in args or "new-johto" in args:
+		var region := "johto" if "new-johto" in args else "hoenn"
+		var fresh := "new-hoenn" in args or "new-johto" in args
+		if fresh == is_instance_valid(game.title_screen.continue_button):
+			push_error("Unexpected save slot for regional journey")
 			quit(1)
 			return
-		game.title_screen.johto_button.pressed.emit()
+		if not await preload("regional_start.gd").enter(game,region,"boxed" if "hoenn-boxed" in args else "carried"):
+			quit(1)
+			return
 	elif game.title_screen.continue_button == null:
 		push_error("First chapter save missing")
 		quit(1)

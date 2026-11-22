@@ -52,7 +52,7 @@ static func sync(save: Dictionary) -> void:
 	var flags: Dictionary = save.get("flags",{})
 	var n := 0
 	for badge in data().badges:
-		if badge in save.get("badges",[]):
+		if badge in preload("res://core/region_journey.gd").badges(save,"johto"):
 			flags["j_badge_" + str(data().badges.find(badge)+1)] = true
 			n += 1
 	if n >= 7 and flags.get("j_plant_clear",false): flags.j_radio_takeover = true
