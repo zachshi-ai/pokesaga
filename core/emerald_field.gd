@@ -67,6 +67,12 @@ static func _tileset() -> TileSet:
 	_tiles.add_source(platinum,4)
 	for y in floori(platinum.texture.get_height()/float(CELL)):
 		for x in 16: platinum.create_tile(Vector2i(x,y))
+	var unova := TileSetAtlasSource.new()
+	unova.texture = load("res://assets/unova/tiles.png")
+	unova.texture_region_size = Vector2i(CELL,CELL)
+	_tiles.add_source(unova,5)
+	for y in floori(unova.texture.get_height()/float(CELL)):
+		for x in 16: unova.create_tile(Vector2i(x,y))
 	return _tiles
 
 @warning_ignore("integer_division")
@@ -90,6 +96,12 @@ func setup(owner_world: Node2D,plan: Dictionary, overrides: Array = []) -> void:
 		ground_data.encode_u16(offset,int(row[2]))
 		if not above_data.is_empty(): above_data.encode_u16(offset,int(row[3]))
 	ground = _layer()
+	if plan.has("scene"):
+		var scene := Sprite2D.new()
+		scene.centered = false
+		scene.texture = load(plan.scene[0])
+		scene.position = Vector2(plan.scene[1], plan.scene[2])
+		add_child(scene)
 	if not above_data.is_empty():
 		above = _layer()
 		above.z_index = 997
@@ -169,7 +181,9 @@ func _change(key: Vector2i,show_chunk: bool) -> void:
 		active.erase(key)
 
 func _set_tile(layer: TileMapLayer,pos: Vector2i,id: int) -> void:
-	if world.map_data.has("platinum_native"):
+	if world.map_data.has("unova_native"):
+		if id: layer.set_cell(pos,5,Vector2i(id%16,floori(id/16.0)))
+	elif world.map_data.has("platinum_native"):
 		if id: layer.set_cell(pos,4,Vector2i(id%16,floori(id/16.0)))
 	elif world.map_data.has("emerald_original"):
 		if id>=49152:

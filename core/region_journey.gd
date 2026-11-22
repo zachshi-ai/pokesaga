@@ -1,7 +1,9 @@
 extends RefCounted
 
-const NAMES := {"kanto":"关都","johto":"城都","hoenn":"丰缘","sinnoh":"神奥"}
+const NAMES := {"kanto":"关都","johto":"城都","hoenn":"丰缘","sinnoh":"神奥","unova":"合众"}
+const SEQUEL_HOME := {"map":"unova_b2_home","at":[4,6]}
 const HOMES := {
+	"unova":{"map":"unova_bw_home_2f","at":[5,6]},
 	"sinnoh":{"map":"sinnoh_twinleaf_town_player_house_2f","at":[4,6]},
 	"kanto":{"map":"pallet_town_players_house_2f","at":[3,6]},
 	"johto":{"map":"johto_players_house_2f","at":[6,6]},
@@ -13,7 +15,8 @@ const J2 := ["brock","misty","ltsurge","erika","janine","sabrina","blaine","blue
 
 static func migrate(data: Dictionary) -> void:
 	if data.has("chapters"):
-		data.get_or_add("regional_badges",{}).get_or_add("sinnoh",[])
+		for key in ["sinnoh","unova","unova_bw2"]:
+			data.get_or_add("regional_badges",{}).get_or_add(key,[])
 		return
 	var origin := str(data.get("origin","kanto"))
 	var flags: Dictionary = data.get("flags",{})
@@ -24,7 +27,7 @@ static func migrate(data: Dictionary) -> void:
 	data.chapters = chapters
 	if chapters.has("kanto") and data.has("bag"):
 		data.import_kanto_items = true
-	var regional := {"kanto":[],"johto":[],"hoenn":[],"sinnoh":[]}
+	var regional := {"kanto":[],"johto":[],"hoenn":[],"sinnoh":[],"unova":[],"unova_bw2":[]}
 	for badge in data.get("badges",[]):
 		if badge in JOHTO: regional.johto.append(badge)
 		elif badge in KANTO:
@@ -42,6 +45,8 @@ static func migrate(data: Dictionary) -> void:
 
 static func badges(data: Dictionary, region: String) -> Array:
 	if not data.has("regional_badges"): return data.get("badges",[])
+	if region=="unova" and data.get("flags",{}).get("u2_started",false) and not data.flags.get("u1_memory",false):
+		region="unova_bw2"
 	return data.regional_badges.get("kanto" if region=="sevii" else region,[])
 
 static func grant(data: Dictionary, region: String, badge: String) -> void:
@@ -55,15 +60,7 @@ static func begin(data: Dictionary, region: String, mode: String) -> Dictionary:
 	var staged := data.duplicate(true)
 	migrate(staged)
 	if staged.chapters.has(region): return {}
-	if mode == "boxed":
-		var party_script = load("res://core/party.gd")
-		party_script.migrate_legacy_box(staged)
-		var boxes: Array = staged.get("boxes",[])
-		for mon in staged.get("party",[]):
-			if mon is Dictionary and not mon.is_empty() and not party_script.store_in_boxes(boxes,mon):
-				return {}
-		staged.boxes = boxes
-		staged.party = []
+	if not _arrange_party(staged,mode): return {}
 	staged.chapters[region] = mode
 	staged.region = region
 	staged.map = HOMES[region].map
@@ -77,4 +74,63 @@ static func begin(data: Dictionary, region: String, mode: String) -> Dictionary:
 		staged.hoenn_field_revision = 1
 	if region == "johto": staged.johto_field_revision = 1
 	if region == "sinnoh": staged.flags.s_started = true
+	if region == "unova": staged.flags.u1_started = true
 	return staged
+
+## Copy the entire slot before changing the era. A full PC or a cancelled arrival
+## leaves the current party, badges, maps and last healing location intact.
+static func begin_unova_sequel(data: Dictionary, mode: String) -> Dictionary:
+	var flags: Dictionary=data.get("flags",{})
+	if mode not in ["carried","boxed"] or not flags.get("u1_ghetsis",false) or flags.get("u2_started",false): return {}
+	var staged := data.duplicate(true)
+	migrate(staged)
+	if not _arrange_party(staged,mode): return {}
+	staged.flags.u2_started=true
+	staged.unova_sequel_party=mode
+	staged.region="unova"
+	staged.map=SEQUEL_HOME.map
+	staged.pos=SEQUEL_HOME.at.duplicate()
+	staged.facing="down"
+	for key in ["surfing","diving","bike"]: staged[key]=false
+	for key in ["field_elevation","location_label"]: staged.erase(key)
+	if staged.get("centers",{}).has("unova"):
+		staged.get_or_add("unova_centers",{})["bw"]=staged.centers.unova
+	staged.get_or_add("centers",{}).erase("unova")
+	if staged.get("last_pokemon_center",{}).get("region","")=="unova":
+		staged.erase("last_pokemon_center")
+	return staged
+
+static func switch_unova_memory(data: Dictionary) -> Dictionary:
+	if data.get("region","")!="unova" or not data.get("flags",{}).get("u2_champion",false): return {}
+	var in_past: bool=data.flags.get("u1_memory",false)
+	var here: Dictionary=HOMES.unova if in_past else SEQUEL_HOME
+	if data.get("map","")!=here.map: return {}
+	var staged:=data.duplicate(true)
+	var home: Dictionary=SEQUEL_HOME if in_past else HOMES.unova
+	var centers: Dictionary=staged.get_or_add("centers",{})
+	var records: Dictionary=staged.get_or_add("unova_centers",{})
+	if centers.has("unova"): records["bw" if in_past else "b2"]=centers.unova
+	centers.erase("unova")
+	if staged.get("last_pokemon_center",{}).get("region","")=="unova": staged.erase("last_pokemon_center")
+	var next: String="b2" if in_past else "bw"
+	if records.has(next):
+		centers.unova=records[next]
+		staged.last_pokemon_center=records[next]
+	staged.flags.u1_memory=not in_past
+	staged.map=home.map
+	staged.pos=home.at.duplicate()
+	staged.facing="down"
+	for key in ["surfing","diving","bike"]: staged[key]=false
+	for key in ["field_elevation","location_label"]: staged.erase(key)
+	return staged
+
+static func _arrange_party(staged: Dictionary, mode: String) -> bool:
+	if mode=="carried": return true
+	var party_script=load("res://core/party.gd")
+	party_script.migrate_legacy_box(staged)
+	var boxes: Array=staged.get("boxes",[])
+	for mon in staged.get("party",[]):
+		if mon is Dictionary and not mon.is_empty() and not party_script.store_in_boxes(boxes,mon): return false
+	staged.boxes=boxes
+	staged.party=[]
+	return true

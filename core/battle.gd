@@ -3456,6 +3456,13 @@ func _take_action(side: String, choice: String) -> void:
 	if attacker.get("held","")=="METRONOME" and not aabe0.get("ignore_own_item",false):
 		repeat_scale+=0.1*int(attacker.get("metronome_chain",0))
 	var dealt := int(damage(attacker, defender, mv)*repeat_scale)
+	var gem:=str(mv.get("type","normal")).to_upper()+"_GEM"
+	if dealt>0 and attacker.get("held","")==gem and not aabe0.get("ignore_own_item",false):
+		repeat_scale*=1.5
+		dealt=int(dealt*1.5)
+		attacker.held=""
+		attacker.spent_gem=gem
+		log.append("%s 的属性宝石增强了这次招式！"%attacker.name)
 	if dealt>0 and attacker.get("held","")=="METRONOME" and not aabe0.get("ignore_own_item",false):
 		attacker.metronome_move=base_id
 		attacker.metronome_chain=mini(10,int(attacker.get("metronome_chain",0))+1)

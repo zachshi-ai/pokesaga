@@ -1,8 +1,8 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.58.0-study`，versionCode 为 91，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.59.0-study`，versionCode 为 92，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
 
-[下载 4.58 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.58.0-study/PokeSaga-4.58.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.58.0-study)
+[下载 4.59 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.59.0-study/PokeSaga-4.59.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.59.0-study)
 
 关都可以带伙伴去两岛参加无线小游戏，城都可以按星期参加捕虫大会、拼阿露福遗迹石板，丰缘可以报名五种华丽大赛、挑战八间戏法屋或收集开拓象征。各地区共用主角、队伍、箱子和图鉴。[三作支线入口、奖励与验证范围](doc/三作支线.md)
 
@@ -12,11 +12,19 @@
 
 全程操控《绿宝石》的小悠。阿银、空木博士、城都八位馆主、四天王、渡和赤红各自沿用剧情身份，并采用对应人物的 GBA 风格像素图。[城都人物对照与素材署名](doc/城都角色素材.md) · [在白银山与赤红同屏的安卓实拍](.github/preview/v4.55-red.png)
 
-**地区转移器**随新档发放，旧档选择「继续冒险」后也会出现在背包里。探索时点 **START → 背包 → 重要道具 → 地区转移器**，选地区，再点「出发前往」。可以从屋内、洞窟、水上或异空间出发。首次进入有开场剧情的地区，会先到剧情起点，之后再去会抵达领航员旁。21 个目的地从开局就能选择，道具可重复使用，到达后自动保存。首次进入城都、丰缘、神奥会接上当地的开场剧情。 [查看背包实拍](.github/preview/v4.52-region-transfer.png)
+**地区转移器**随新档发放，旧档选择「继续冒险」后也会出现在背包里。探索时点 **START → 背包 → 重要道具 → 地区转移器**，选地区，再点「出发前往」。可以从屋内、洞窟、水上或异空间出发。首次进入有开场剧情的地区，会先到剧情起点，之后再去会抵达领航员旁。21 个目的地从开局就能选择，道具可重复使用，到达后自动保存。首次进入城都、丰缘、神奥或合众会接上当地的开场剧情。 [查看背包实拍](.github/preview/v4.52-region-transfer.png)
 
 ![安卓同位置实拍对比。左列为 4.50，右列为 4.51。上排是常磐商店门前，下排是华蓝道馆的木桥和水池。](.github/preview/v4.51-field.png)
 
 [查看战斗动图：皮卡丘使用十万伏特时，水伊布的 HP 从 132 降至 79](.github/preview/v4.51-battle-hp.gif)
+
+## 从鹿子镇出发，两年后在桧扇市再启程
+
+用地区转移器选「合众」。第一次抵达可以带着现有队伍，也可以把它们寄存在共享电脑。你仍然操作《绿宝石》的小悠。在鹿子镇的卧室拆开礼盒，从藤藤蛇、暖暖猪和水水獭中选择，再和白露、黑连出发。走完八馆、N 的城堡和魁奇思后，回鹿子镇家里一楼和妈妈说话。可以继续前篇的通关后冒险，也可以选择进入两年后，再决定这次带谁去桧扇市。
+
+两段采用《黑》接《黑2》的版本差异。两年后先在桧扇市的瞭望台找白露，走过另外八个道馆、等离子驱逐舰与巨人洞窟，最后挑战冠军艾莉丝。两段分别检查徽章、秘传许可、宿敌与等离子队事件。打赢艾莉丝后，在合众家里打开 **START → 工具 → 回忆链接** 可以往返两个年代，继续捕捉、交换和完成支线。[合众支线、版本差异与实测范围](doc/合众两段旅程.md)
+
+[第一次到合众的队伍选择](.github/preview/v4.59-unova-entry.png) · [N 在城堡迎战](.github/preview/v4.59-n.png) · [冠军房里的艾莉丝和小悠](.github/preview/v4.59-iris.png) · [艾莉丝派出三首恶龙](.github/preview/v4.59-iris-battle.png)
 
 ## 从双叶镇到神奥联盟
 
@@ -106,7 +114,7 @@
 ```bash
 godot --headless --path . --import
 godot --path .
-tools/build_android.sh ../交付/PokeSaga-4.58.0-study.apk
+tools/build_android.sh ../交付/PokeSaga-4.59.0-study.apk
 ```
 
 构建 Android 需要匹配的 Godot 导出模板、JDK 17、Android SDK、platform-tools、build-tools 和 Godot 可访问的本机调试签名。已配置的机器可用 `GODOT_BIN`、`JAVA_HOME`、`ANDROID_HOME` 选择工具路径。本机脚本也识别 `~/Library/Application Support/PokeSagaBuild`。学习版使用 `Android Study` 导出预设，目标架构为 ARM64，输出为签名调试 APK。安装可用 `adb install -r ../交付/PokeSaga-4.56.0-study.apk`。

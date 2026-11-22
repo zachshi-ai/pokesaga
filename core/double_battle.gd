@@ -2,6 +2,7 @@ extends "res://core/battle.gd"
 ## Two positions per side. The paired Space Center trainers each replace their own
 ## fainted Pokémon. Move effects, accuracy, damage, PP and abilities use the shared battle engine.
 var palace := false
+var positions := 2
 var lanes := {"a":[-1,-1],"b":[-1,-1]}
 var groups := {"a":["",""],"b":["",""]}
 
@@ -10,14 +11,20 @@ func start(a_team: Array,b_team: Array) -> void:
 	if over: return
 	for side in ["a","b"]:
 		var team: Array = team_a if side=="a" else team_b
-		if team.any(func(m):return m.has("trainer_group")):
+		lanes[side]=[]
+		groups[side]=[]
+		for i in positions:
+			lanes[side].append(-1)
+			groups[side].append("")
+		if positions==2 and team.any(func(m):return m.has("trainer_group")):
 			groups[side] = ["first","second"]
-		for pos in 2: lanes[side][pos]=replacement(side,pos)
+		for pos in positions: lanes[side][pos]=replacement(side,pos)
 	focus(0,0)
 	for side in ["a","b"]:
-		if lanes[side][1]>=0:
-			pair(side,1,0)
-			_on_send_out(side)
+		for i in range(1,positions):
+			if lanes[side][i]>=0:
+				pair(side,i,0)
+				_on_send_out(side)
 	focus(0,0)
 
 func replacement(side: String,pos: int) -> int:
@@ -28,13 +35,14 @@ func replacement(side: String,pos: int) -> int:
 	return -1
 
 func viable(side: String,pos: int) -> bool:
-	if pos<0 or pos>=2: return false
+	if pos<0 or pos>=positions: return false
 	var i: int = lanes[side][pos]
 	return i>=0 and not (team_a if side=="a" else team_b)[i].fainted
 
 func choose_lane(side: String,preferred: int) -> int:
 	if viable(side,preferred): return preferred
-	if viable(side,1-preferred): return 1-preferred
+	for i in positions:
+		if viable(side,i): return i
 	return -1
 
 func focus(player_lane: int,enemy_lane: int) -> void:
@@ -64,14 +72,29 @@ func ai(side: String) -> String:
 			best="move:%d"%i
 	return best
 
+func reachable(side: String, pos: int, target: int, choice: String) -> bool:
+	if positions!=3 or absi(pos-target)<=1 or not choice.begins_with("move:"):return true
+	var slot:=int(choice.get_slice(":",1))
+	var unit: Dictionary=(team_a if side=="a" else team_b)[lanes[side][pos]]
+	if slot>=unit.moves.size():return false
+	var move: Dictionary=Data.move_of(int(unit.moves[slot]))
+	return move.type=="flying" or move.key in ["AURA_SPHERE","DARK_PULSE","DRAGON_PULSE","WATER_PULSE","HEAL_PULSE","GUST","TWISTER","FLYING_PRESS"]
+
+func find_target(side: String, pos: int, preferred: int, choice: String) -> int:
+	var foe:="b" if side=="a" else "a"
+	if viable(foe,preferred) and reachable(side,pos,preferred,choice):return preferred
+	for i in positions:
+		if viable(foe,i) and reachable(side,pos,i,choice):return i
+	return -1
+
 func round_actions(player_orders: Dictionary) -> void:
 	if over: return
 	_clear_round_hits()
 	var order := []
 	for side in ["a","b"]:
-		for pos in 2:
+		for pos in positions:
 			if not viable(side,pos): continue
-			var target: int = rng.randi_range(0,1)
+			var target: int = rng.randi_range(0,positions-1)
 			var command: Dictionary = player_orders.get(pos,{}) if side=="a" else {}
 			target = choose_lane("b" if side=="a" else "a",int(command.get("target",target)))
 			if target<0: continue
@@ -85,10 +108,21 @@ func round_actions(player_orders: Dictionary) -> void:
 		if l.speed!=r.speed:return l.speed>r.speed
 		return l.tie>r.tie)
 	for action in order:
-		var other := "b" if action.side=="a" else "a"
 		if not viable(action.side,action.pos): continue
-		var target := choose_lane(other,action.target)
-		if target<0: continue
+		if action.move=="shift":
+			var old: int=lanes[action.side][1]
+			lanes[action.side][1]=lanes[action.side][action.pos]
+			lanes[action.side][action.pos]=old
+			for later in order:
+				if later.side==action.side and later!=action:
+					if later.pos==1:later.pos=action.pos
+					elif later.pos==action.pos:later.pos=1
+			log.append("宝可梦移到了中央！")
+			continue
+		var target := find_target(action.side,action.pos,action.target,action.move)
+		if target<0:
+			log.append("招式够不到远处的目标！")
+			continue
 		pair(action.side,action.pos,target)
 		_take_action(action.side,action.move)
 		if action.move.begins_with("switch:"):
@@ -96,7 +130,7 @@ func round_actions(player_orders: Dictionary) -> void:
 	acting_side=""
 	# Preserve the two active pairs for end-of-turn damage, including a fainted slot
 	# until replacements enter. Never tick the same surviving Pokémon twice.
-	for pos in 2:
+	for pos in positions:
 		if lanes.a[pos]<0 or lanes.b[pos]<0: continue
 		active_a=lanes.a[pos]
 		active_b=lanes.b[pos]
@@ -106,7 +140,7 @@ func round_actions(player_orders: Dictionary) -> void:
 		_end_of_turn_field(pos==0)
 	for side in guard_turns: guard_turns[side]=maxi(0,int(guard_turns[side])-1)
 	for side in ["a","b"]:
-		for pos in 2:
+		for pos in positions:
 			if viable(side,pos): continue
 			var fresh := replacement(side,pos)
 			lanes[side][pos]=fresh
@@ -120,4 +154,13 @@ func round_actions(player_orders: Dictionary) -> void:
 	if not a_up or not b_up:
 		over=true
 		winner="draw" if not a_up and not b_up else ("a" if a_up else "b")
+	if positions==3 and not over:
+		var a_lanes:=range(3).filter(func(i):return viable("a",i))
+		var b_lanes:=range(3).filter(func(i):return viable("b",i))
+		if a_lanes.size()==1 and b_lanes.size()==1 and absi(a_lanes[0]-b_lanes[0])==2:
+			for side in ["a","b"]:
+				var i:=choose_lane(side,0)
+				lanes[side][1]=lanes[side][i]
+				lanes[side][i]=-1
+			log.append("最后两只宝可梦移到了中间。")
 	focus(0,0)

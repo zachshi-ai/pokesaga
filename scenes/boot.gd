@@ -2,6 +2,12 @@ extends Node2D
 ## 启动场景：自检 + 场景装配 + 输入（键盘 / 触摸）。
 
 const StartMenu := preload("res://scenes/start_menu.gd")
+const Unova := preload("res://core/unova_campaign.gd")
+const UnovaGyms := preload("res://core/unova_gyms.gd")
+const UnovaTrainers := preload("res://core/unova_trainers.gd")
+const UnovaSide := preload("res://core/unova_side.gd")
+const UnovaSpots := preload("res://core/unova_phenomena.gd")
+const UnovaField := preload("res://core/unova_field.gd")
 const Sinnoh := preload("res://core/sinnoh_campaign.gd")
 const SinnohField := preload("res://core/sinnoh_field.gd")
 const SinnohSide := preload("res://core/sinnoh_side.gd")
@@ -660,9 +666,10 @@ func _show_title() -> void:
 	var stored := SaveScript.existing()
 	var summary := {}
 	if not stored.is_empty():
+		if stored.region=="unova":Data.set_unova_era(UnovaField.era(stored.get("flags",{})))
 		var last_map: Dictionary = Data.load_map(str(stored.region), str(stored.map))
 		summary = {"location":str(stored.get("location_label", last_map.get("name", stored.map))),
-			"badge_count":stored.get("badges", []).size()}
+			"badge_count":Journey.badges(stored,"unova").size() if stored.region=="unova" else stored.get("badges", []).size()}
 	title_layer = CanvasLayer.new()
 	title_layer.layer = 12
 	add_child(title_layer)
@@ -698,7 +705,7 @@ func _refresh_hud() -> void:
 	if money_label and save_data.has("money"):
 		money_label.text = "¥%d" % int(save_data.get("money", 0))
 	if badges_label:
-		var bs: Array = save_data.get("badges", [])
+		var bs: Array = Journey.badges(save_data,"unova") if world.map_data.get("region","")=="unova" else save_data.get("badges", [])
 		badges_label.text = ("徽章 %d" % bs.size()) if not bs.is_empty() else ""
 
 ## 站在坡上方时直接把「按 ↓ 能跳下去」写出来，省得靠坐标对位置
@@ -857,7 +864,14 @@ func _story_fire(kind: String, ctx: Dictionary) -> bool:
 		preload("res://core/sevii_campaign.gd").sync(save_data)
 	var candidates := preload("res://core/johto_rival.gd").scene_flags(str(world.map_data.get("id","")),flags)
 	var ev: Dictionary
-	if chapter=="sinnoh":
+	if chapter=="unova":
+		if kind=="talk":
+			var hint:=UnovaGyms.message(str(ctx.get("actor","")),flags)
+			if not hint.is_empty():
+				_dialog([hint])
+				return true
+		ev=Unova.event(self,kind,ctx)
+	elif chapter=="sinnoh":
 		ev=Sinnoh.event(self,kind,ctx)
 	elif world.map_data.has("emerald_original"):
 		ev = preload("res://core/hoenn_campaign.gd").event(self,kind,ctx)
@@ -883,6 +897,10 @@ func _play_story(ev: Dictionary) -> void:
 func _story_step() -> void:
 	while not story_queue.is_empty():
 		var act: Dictionary = story_queue.pop_front()
+		if act.has("unova_sequel"):
+			_choose_unova_sequel()
+			return
+		if world.map_data.region=="unova" and Unova.prompt(self,act):return
 		if Sinnoh.prompt(self,act): return
 		if preload("res://core/hoenn_campaign.gd").prompt(self,act): return
 		if act.has("johto_quiz"):
@@ -916,14 +934,14 @@ func _story_done() -> void:
 	if _flags().get("rival_bridge",false) and _bag_count("名人传言器")==0:_give_item("名人传言器",1,"key")
 	_persist()
 	if story_abort:
-		if world.map_data.get("region","") in ["kanto","johto","sinnoh"]: world.refresh_story_actors(_flags())
+		if world.map_data.get("region","") in ["kanto","johto","sinnoh","unova"]: world.refresh_story_actors(_flags())
 		story_abort = false
 		cur_story = {}
 		return
 	if not cur_story.is_empty() and story != null:
 		story.mark_finished(cur_story, _flags())
 		if cur_story.get("id","")=="h_magma_gate": world._rebuild(_flags())
-		if world.map_data.get("region","") in ["kanto","sevii","johto","hoenn","sinnoh"]:
+		if world.map_data.get("region","") in ["kanto","sevii","johto","hoenn","sinnoh","unova"]:
 			world.refresh_story_actors(_flags())
 			_apply_defeated()
 		save_data["flags"] = _flags()
@@ -937,7 +955,10 @@ func _story_battle(cfg) -> void:
 	var conf: Dictionary = cfg if cfg is Dictionary else {}
 	if conf.has("johto_rival"):
 		conf = conf.merged({"team":preload("res://core/johto_campaign.gd").team(conf.johto_rival,_flags())},true)
-	conf = Sinnoh.team(conf,_flags()) if world.map_data.region=="sinnoh" else preload("res://core/hoenn_campaign.gd").team(conf,_flags())
+	match world.map_data.region:
+		"unova": conf=Unova.team(conf,_flags())
+		"sinnoh": conf=Sinnoh.team(conf,_flags())
+		_: conf=preload("res://core/hoenn_campaign.gd").team(conf,_flags())
 	if conf.get("double",false) and not conf.has("ally"):
 		if _make_team().filter(func(m):return int(m.hp)>0).size()<2:
 			preload("res://core/hoenn_campaign.gd").abort_event(self)
@@ -961,6 +982,7 @@ func _story_battle(cfg) -> void:
 			story_abort = not conf.get("finish_on_loss",false)
 			if story_abort: story_queue.clear()
 			var stage: String = cur_story.get("id","")
+			if world.map_data.region=="unova": Unova.lost_league(self,stage)
 			if world.map_data.region=="sinnoh": Sinnoh.lost_league(self,stage)
 			preload("res://core/hoenn_campaign.gd").lost_league(self,stage)
 			if stage in ["kanto_loreleis_win","kanto_brunos_win","kanto_agathas_win","kanto_lances_win","kanto_champions_win"] or stage.begins_with("repeat_kanto_"):
@@ -983,6 +1005,10 @@ func _story_battle(cfg) -> void:
 
 ## 单个剧情动作
 func _story_do(act: Dictionary) -> void:
+	if world.map_data.region=="unova":
+		Unova.action(self,act)
+		if act.has("unova_hm"):UnovaField.give_machine(self,int(act.unova_hm),true)
+		if act.has("unova_tm"):UnovaField.give_machine(self,int(act.unova_tm),false)
 	Sinnoh.action(self,act)
 	preload("res://core/hoenn_campaign.gd").action(self,act)
 	var flags := _flags()
@@ -1010,7 +1036,7 @@ func _story_do(act: Dictionary) -> void:
 	if act.has("scene_cast"):
 		var temporary := {"sevii_" + str(act.scene_cast):true}
 		world.refresh_story_actors(flags.merged(temporary,true))
-	if act.get("hall_of_fame") in ["johto","kanto","hoenn","sinnoh"]:
+	if act.get("hall_of_fame") in ["johto","kanto","hoenn","sinnoh","unova"]:
 		if act.hall_of_fame=="kanto" and not flags.get("kanto_champion",false):flags.fr_hof_count=1
 		johto_league.register_team(save_data,act.hall_of_fame)
 		_persist()
@@ -1110,6 +1136,7 @@ func _on_action() -> void:
 		return
 	if panel_open > 0 or world.walking:
 		return
+	if world.map_data.has("unova_native") and (Unova.bed(self,world.player_pos+world._dir_vec()) or UnovaGyms.shelf(self,world.player_pos+world._dir_vec()) or UnovaGyms.switch_at(self,world.player_pos+world._dir_vec())):return
 	if (world.map_data.has("emerald_original") or world.map_data.has("platinum_native")) and _story_fire("field",{"at":world.player_pos+world._dir_vec()}): return
 	# 站在道具球上按 A 直接捡：球已经不挡路，人是踩着它站上去的，
 	# 这时候面前是空地，以前就永远捡不到（看着有球、按不到，就是这个原因）
@@ -1175,10 +1202,12 @@ func _required_field_badge(key: String) -> String:
 	return badge if badge not in Journey.badges(save_data,str(world.map_data.region)) else ""
 
 func _party_can_move(key: String) -> bool:
+	if world.map_data.region=="unova":return UnovaField.allowed(self,key)
 	if world.map_data.region=="sinnoh": return SinnohSide.field_unlocked(self,key)
 	return _required_field_badge(key).is_empty() and _party_has_move(key)
 
 func _field_move_hint(key: String, move_name: String) -> String:
+	if world.map_data.region=="unova":return "要在这一段合众旅程取得相应秘传学习器，并带上会%s的队员。" % move_name
 	if world.map_data.region=="sinnoh": return "需要在神奥取得对应的秘传学习器和徽章，并让队员学会%s。" % move_name
 	var badge := _required_field_badge(key)
 	if not badge.is_empty(): return "获得%s后才能在场外使用%s。" % [badge,move_name]
@@ -1459,6 +1488,11 @@ func _move(key: String) -> void:
 
 ## 走到门口、这一步动画走完才切场景，不会半路就闪进去
 func _on_warp_ready(target: Dictionary) -> void:
+	if world.map_data.has("unova_native"):
+		var platform:=UnovaGyms.station(self,target)
+		if not platform.is_empty():
+			UnovaGyms.ride(self,platform,target)
+			return
 	var ticket := preload("res://core/sevii_campaign.gd").ferry_message(world.map_data,target,bag_items)
 	if ticket != "":
 		held_dir = ""
@@ -1525,6 +1559,26 @@ func _update_music() -> void:
 
 func _do_warp(target: Dictionary) -> void:
 	var destination_region := str(target.get("region",""))
+	if destination_region=="unova":
+		if _offer_chapter("unova"):return
+		Data.set_unova_era(UnovaField.era(_flags()))
+		if target.get("regional_travel",false):
+			target=target.duplicate()
+			# Regional travel returns to the chapter's starting town. Internal roads,
+			# fly points and NPC transports still need their own story permission.
+			target.map="unova_aspertia" if UnovaField.era(_flags())=="b2" else "unova_nuvema"
+			target.at=Data.load_map("unova",target.map).get("spawn",[4,6])
+			target.unova_native=true
+		var unova_gate:=Unova.gate(target,_flags(),world.map_data)
+		if unova_gate.is_empty():unova_gate=UnovaGyms.gate(world.map_data,target,_flags())
+		if unova_gate.is_empty():unova_gate=preload("res://core/unova_ship.gd").gate(world.map_data,target,_flags())
+		if unova_gate.is_empty() and "_pass_" in str(world.map_data.get("id","")) and target.map in UnovaField.TOWNS and target.map!=("unova_nuvema" if UnovaField.era(_flags())=="bw" else "unova_aspertia") and not _flags().get(UnovaField.flag_prefix(_flags())+"visited_"+str(target.map),false):
+			unova_gate="先在本段合众旅程中走到%s，便能从这条路往返。"%UnovaField.TOWNS[target.map]
+		if not unova_gate.is_empty():
+			held_dir=""
+			run_held=false
+			_dialog([unova_gate])
+			return
 	if destination_region=="sinnoh":
 		if _offer_chapter("sinnoh"): return
 		target=Sinnoh.destination(target,_flags(),world.map_data)
@@ -1623,6 +1677,8 @@ func _do_warp(target: Dictionary) -> void:
 		print("[warp] 目标地图缺失 ", target)
 		_dialog(["这扇门打不开。"], "")
 		return
+	if next_map.has("unova_native") and not target.get("unova_native",false) and not world.map_data.has("unova_native"):
+		target=target.merged({"at":next_map.spawn,"unova_native":true},true)
 	if next_map.has("platinum_native") and not target.get("platinum_native",false) and not world.map_data.has("platinum_native"):
 		target=target.merged({"at":next_map.spawn,"platinum_native":true},true)
 	if story_on and destination_region == "hoenn" and not target.get("transport_selected",false) and (destination_region != str(world.map_data.region) or target.get("regional_travel",false)):
@@ -1640,18 +1696,20 @@ func _do_warp(target: Dictionary) -> void:
 	preload("res://core/emerald_cycling.gd").transfer(self,next_map,target)
 	preload("res://core/hoenn_items.gd").leave(self,next_map)
 	preload("res://core/hoenn_campaign.gd").leave_league(world.map_data,next_map,_flags())
+	if world.map_data.region=="unova":Unova.leave_league(world.map_data,next_map,_flags())
 	Sinnoh.leave_league(world.map_data,next_map,_flags())
 	if world.map_data.has("platinum_native") and world.map_data.id!=next_map.id:
 		for obstacle in world.objects:
 			if obstacle.get("platinum_obstacle",false): _flags().erase(world._object_key(obstacle))
 	world.load_map(next_map)
+	UnovaSpots.restore(self)
 	preload("res://core/hoenn_match_call.gd").arrive(self)
 	world.arrive(target)
 	if next_map.has("platinum_native") and not SinnohField.field(next_map.id).get("bike",false): world.bike=false
 	if target.get("sea_connection",false):
 		world.surfing=world.is_water(world.player_pos)
 		world._sync_player()
-	if next_map.region in ["kanto","sevii","johto","hoenn","sinnoh"] and next_map.get("npcs",[]).any(func(n):return n.get("heal",false) and n.get("name","")=="护士"):
+	if next_map.region in ["kanto","sevii","johto","hoenn","sinnoh","unova"] and world.npcs.any(func(n):return n.get("heal",false) and n.get("name","")=="护士"):
 		save_data["last_pokemon_center"] = {"region":next_map.region,"map":next_map.id,"at":next_map.spawn.duplicate()}
 		save_data.get_or_add("centers",{})[next_map.region] = save_data.last_pokemon_center
 	_start_after_step = false
@@ -1728,6 +1786,7 @@ func _after_step() -> void:
 	if _story_fire("step", {"map": String(world.map_data.get("id", "")),
 			"x": world.player_pos.x, "y": world.player_pos.y}):
 		return
+	if world.map_data.region=="unova" and (UnovaGyms.step(self) or UnovaSide.step(self) or UnovaTrainers.challenge(self)):return
 	if world.map_data.region=="sinnoh" and (SinnohSide.step(self) or SinnohField.challenge(self)): return
 	_try_encounter()
 
@@ -1741,6 +1800,7 @@ func _try_encounter() -> void:
 	if world.is_blocked(world.player_pos) and not (world.surfing and world.is_water(world.player_pos)):
 		return
 	# 踩草遇敌；在海上冲浪也算「有东西会冒出来」
+	if world.map_data.has("unova_native") and UnovaSpots.step(self):return
 	var on_grass: bool = world.wild_tile_here()
 	if world.map_data.id==preload("res://core/crystal_ruins.gd").HALL:
 		var letters:=preload("res://core/crystal_ruins.gd").letters(_flags())
@@ -1795,7 +1855,12 @@ func _try_encounter() -> void:
 		pool=area.get("surf",[]) if on_sea else SinnohField.land(area,int(Time.get_time_dict_from_system().hour))
 		if not on_sea and world.map_data.id=="sinnoh_trophy_garden":pool=SinnohSide.Dailies.garden_pool(save_data,pool)
 		rate=float(area.get("surf_rate" if on_sea else "land_rate",0.0))
-	if pool.is_empty() and not crystal_map and not world.map_data.has("platinum_native") and not world.map_data.has("emerald_original"):
+	if world.map_data.region=="unova":
+		var method: String=UnovaField.land_method(world.map_data,world.player_pos,on_sea)
+		var habitat:=UnovaField.habitat(world.map_data,_flags(),method,int(Time.get_date_dict_from_system().month))
+		pool=habitat.pool
+		rate=habitat.rate
+	if pool.is_empty() and world.map_data.region!="unova" and not crystal_map and not world.map_data.has("platinum_native") and not world.map_data.has("emerald_original"):
 		var reg: Dictionary = Data.load_region(String(world.map_data.get("region", "")))
 		pool = reg.get("encounters", [])
 		rate = float(reg.get("encounter_rate", 0.12))
@@ -1846,6 +1911,7 @@ func _try_encounter() -> void:
 				break
 	var sid := int(wild["species"])
 	var form := preload("res://core/frlg_sidequests.gd").unown(self) if sid==201 and world.map_data.region=="sevii" else _roll_regional(sid)
+	if world.map_data.region=="unova":form=str(wild.get("form",""))
 	if form=="locked":return
 	_start_wild_battle(sid, int(wild["level"]), form)
 
@@ -1863,8 +1929,10 @@ func _roll_regional(species_id: int) -> String:
 	return String(pool[rng.randi_range(0, pool.size() - 1)])
 
 ## 商店：读货架，买完改背包和钱
-func _open_shop() -> void:
+func _open_shop(merchant: Dictionary={}) -> void:
 	var goods := Data.load_shop(str(world.map_data.get("region", "kanto")))
+	if merchant.has("unova_shop"):
+		goods=preload("res://core/unova_trainers.gd").goods(self,int(merchant.unova_shop))
 	if world.map_data.get("source_id","")=="MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F":
 		goods = [
 			{"name":"高级球","category":"ball","price":1200},
@@ -1899,7 +1967,8 @@ func _open_shop() -> void:
 			TravelStories.record(self,"SHOPPED")
 			for g in goods:
 				if str(g.name) == item_name:
-					_give_bag_item(item_name, category, str(g.get("held", "")), str(g.get("berry", "")), str(g.get("tera", "")))
+					if g.has("unova_item"):UnovaSide.give(self,str(g.unova_item))
+					else:_give_bag_item(item_name, category, str(g.get("held", "")), str(g.get("berry", "")), str(g.get("tera", "")))
 					break
 			_persist()
 			_refresh_hud())
@@ -1907,6 +1976,7 @@ func _open_shop() -> void:
 
 ## 告示牌 / 道具球 / 树果树 / 土：按 A 之后的分流
 func _handle_object(o: Dictionary) -> void:
+	if world.map_data.region=="unova" and UnovaSide.object_action(self,o):return
 	if world.map_data.region=="sinnoh" and preload("res://core/sinnoh_contests.gd").photo(self,o): return
 	if world.map_data.region=="sinnoh" and SinnohSide.object_action(self,o): return
 	if preload("res://core/crystal_arcade.gd").machine(self,o):return
@@ -2094,6 +2164,10 @@ func _use_field_move(o: Dictionary, key: String, cname: String, msg: String) -> 
 	snd.play_sfx("hit")
 	world.mark_taken(o)
 	save_data["flags"] = world.taken
+	if key=="CUT" and world.map_data.id=="unova_dreamyard" and UnovaField.era(_flags())=="bw":
+		_flags().u1_dreamyard_cut=true
+		world.refresh_story_actors(_flags())
+		_apply_defeated()
 	if key in ["CUT","ROCK_SMASH"]:TravelStories.record(self,"USED_"+key)
 	_persist()
 	if key=="ROCK_SMASH" and preload("res://core/crystal_wild_events.gd").rock(self):return
@@ -2316,7 +2390,11 @@ func _fish(rod: String = "") -> void:
 			return
 		rod = str(owned[0])
 	var pool: Array = FISH_TABLE
-	if world.map_data.has("platinum_native"):
+	if world.map_data.region=="unova":
+		var ripple:=UnovaSpots.water_at(self,world.player_pos+world._dir_vec())
+		pool=UnovaField.habitat(world.map_data,_flags(),"rippling_fishing" if ripple else "fishing",int(Time.get_date_dict_from_system().month)).pool if UnovaField.can_fish(self,rod) else []
+		if ripple and not pool.is_empty():UnovaSpots.take(self)
+	elif world.map_data.has("platinum_native"):
 		var rank := 1 if rod=="钓竿" else RODS.find(rod)
 		pool=SinnohField.field(world.map_data.id).get(["old_rod","good_rod","super_rod"][rank],[]) if rank>=0 else []
 	elif world.map_data.has("emerald_original"):
@@ -2343,7 +2421,7 @@ func _fish(rod: String = "") -> void:
 		return
 	snd.play_sfx("water")
 	_dialog(["……","钓到了什么东西！"],"")
-	_start_wild_battle(int(pick.species),int(pick.level))
+	_start_wild_battle(int(pick.species),int(pick.level),str(pick.get("form","")))
 	if is_instance_valid(active_battle):active_battle.battle.fishing_encounter=true
 	if is_instance_valid(active_battle) or menu_layer.has_node("SafariEncounter") or menu_layer.has_node("HoennSafariEncounter"):
 		TravelStories.record(self,"FISHING_ENCOUNTERS")
@@ -2548,6 +2626,7 @@ func _talk_to_npc(npc: Dictionary) -> void:
 	if story_on and rid in Journey.HOMES and not save_data.get("chapters",{}).has(rid) and not npc.get("transit",false) and (npc.has("gives_mon") or npc.has("badge") or (rid=="hoenn" and npc.has("source_script") and not npc.get("heal",false) and not npc.get("shop",false))):
 		_offer_chapter(rid)
 		return
+	if rid=="unova" and (UnovaSide.talk(self,npc) or UnovaTrainers.talk(self,npc)):return
 	if rid=="sinnoh":
 		if preload("res://core/sinnoh_contests.gd").talk(self,npc): return
 		if preload("res://core/sinnoh_frontier.gd").talk(self,npc): return
@@ -2641,7 +2720,7 @@ func _talk_to_npc(npc: Dictionary) -> void:
 			_dialog(npc.after, String(npc.name))
 			return
 	if npc.get("shop", false):
-		_open_shop()
+		_open_shop(npc)
 		return
 	if npc.get("facility", false):
 		_open_facility(npc)
@@ -2831,8 +2910,9 @@ func _party_fainted() -> bool:
 
 func _blackout() -> void:
 	var region := str(world.map_data.region)
-	if region not in ["kanto","sevii","johto","hoenn","sinnoh"]: return
+	if region not in ["kanto","sevii","johto","hoenn","sinnoh","unova"]: return
 	var home: Dictionary = Journey.HOMES.get(region,Journey.HOMES.kanto).merged({"region":"kanto" if region=="sevii" else region})
+	if region=="unova" and UnovaField.era(_flags())=="b2": home=Journey.SEQUEL_HOME.merged({"region":"unova"})
 	if region == "hoenn" and _flags().get("h_started",false):
 		home = {"region":region,"map":"littleroot_town","at":[3,10]}
 	var last: Dictionary = save_data.get("last_pokemon_center",{})
@@ -2880,6 +2960,9 @@ func _apply_defeated() -> void:
 	var key := "%s/%s" % [String(world.map_data.get("region", "")), String(world.map_data.get("id", ""))]
 	var arr: Array = (save_data.get("defeated", {}) as Dictionary).get(key, [])
 	for n in world.npcs:
+		if n.has("unova_trainer"):
+			n.defeated=_flags().get(n.unova_trainer,false)
+			continue
 		if _flags().get("s_trainer_"+str(n.get("platinum_trainer","")),false) or arr.has(String(n.get("name", ""))):
 			n["defeated"] = true
 
@@ -2929,8 +3012,11 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 			# 没写招式就按它的等级从学习表里配
 			var mvs = e.get("moves", null)
 			if not (mvs is Array) or (mvs as Array).is_empty():
-				mvs = EncounterScript.moves_for(sid, lv)
-			var opponent := BattleScript.make_combatant(sid, lv, mvs)
+				mvs = UnovaField.moves_for(sid,lv,_flags()) if world.map_data.region=="unova" else EncounterScript.moves_for(sid,lv)
+			var opponent := BattleScript.make_combatant(sid,lv,mvs,str(e.get("form","")))
+			if e.has("ability"):
+				opponent.ability=int(e.ability)
+				opponent.ability_name=Data.abilities.get(int(e.ability),{}).get("name","")
 			opponent["berry"] = e.get("berry", "")
 			if e.has("held"):opponent.held=e.held
 			if cfg.has("crystal_party"):preload("res://core/crystal_tower.gd").fixed_mon(opponent,e)
@@ -2946,29 +3032,41 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 	var mine: Array = cfg.crystal_party.duplicate(true) if cfg.has("crystal_party") else _make_team()
 	if cfg.get("platinum_battle",false): mine=cfg.player.duplicate(true)
 	var first_partner: Dictionary = {}
-	if cfg.get("sinnoh_starter_only",false):
-		first_partner=SinnohField.partner(save_data)
+	if cfg.get("sinnoh_starter_only",false) or cfg.has("unova_starter_only"):
+		first_partner=UnovaField.partner(save_data,int(cfg.unova_starter_only)) if cfg.has("unova_starter_only") else SinnohField.partner(save_data)
 		if first_partner.is_empty():
-			push_error("Platinum starter missing before first rival battle")
+			push_error("Regional starter missing before rival battle")
 			return
 		mine=[first_partner.duplicate(true)]
 		team_slots=[]
-	if cfg.get("ally","") in ["steven","sinnoh"]:
+	if cfg.get("ally","") in ["steven","sinnoh","unova"]:
 		# The allied trainers bring three each. Keep the player's party/PC slots intact.
 		mine = mine.slice(0,3)
 		team_slots.resize(mini(3,team_slots.size()))
 		for mon in mine: mon.trainer_group="first"
-		var partners: Array = cfg.ally_team if cfg.ally=="sinnoh" else preload("res://core/hoenn_campaign.gd").data().steven
+		var partners: Array = cfg.ally_team if cfg.ally in ["sinnoh","unova"] else preload("res://core/hoenn_campaign.gd").data().steven
 		for row in partners:
-			var partner := BattleScript.make_combatant(int(row.species),int(row.level),row.moves)
+			var partner := BattleScript.make_combatant(int(row.species),int(row.level),row.moves,str(row.get("form","")))
+			if row.has("ability"):
+				partner.ability=int(row.ability)
+				partner.ability_name=Data.abilities.get(int(row.ability),{}).get("name","")
+			if row.has("held"): partner.held=row.held
 			partner.trainer_group="second"
 			mine.append(partner)
 
 	var layer := CanvasLayer.new()
 	layer.layer = 6
 	add_child(layer)
-	var ui = preload("res://scenes/double_battle_ui.gd").new() if cfg.get("double",false) else BattleUI.new()
-	if cfg.get("double",false): ui.companion=cfg.get("ally","") in ["steven","sinnoh"]
+	var ui
+	if cfg.has("unova_movie"):
+		ui=load("res://core/unova_side_film_ui.gd").new()
+		ui.movie=cfg.unova_movie
+	elif cfg.get("battle_type","")=="rotation": ui=preload("res://scenes/rotation_battle_ui.gd").new()
+	elif cfg.get("double",false) or cfg.get("battle_type","")=="triple":
+		ui=preload("res://scenes/double_battle_ui.gd").new()
+		if cfg.get("battle_type","")=="triple": ui.positions=3
+	else: ui=BattleUI.new()
+	if cfg.get("double",false): ui.companion=cfg.get("ally","") in ["steven","sinnoh","unova"]
 	ui.backdrop = _battle_backdrop()
 	if not cfg.get("platinum_battle",false): ui.observe_variant = _battle_variant_seen.bind(PartyScript.occupied(save_data.get("party", [])) > 0)
 	active_battle = ui
@@ -3003,10 +3101,11 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 			var npc_name := String(npc.get("name", ""))
 			if npc.has("platinum_trainer"):
 				_flags()["s_trainer_"+str(npc.platinum_trainer)]=true
+			if npc.has("unova_trainer"): _flags()[npc.unova_trainer]=true
 			if npc.has("league_flag"):
 				_flags()[npc.league_flag] = true
 			_mark_defeated(npc_name)
-			if npc.has("platinum_trainer"):
+			if npc.has("platinum_trainer") or npc.has("unova_trainer"):
 				world.refresh_story_actors(_flags())
 				_apply_defeated()
 			var lv := int(cfg.get("level", 0))
@@ -3048,9 +3147,16 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 	if world.map_data.region=="sinnoh" and SinnohSide.marsh_encounter(self,species_id,level,form_key): return
 	if preload("res://core/hoenn_safari.gd").encounter(self,species_id,level,form_key):return
 	if preload("res://core/frlg_safari.gd").encounter(self,species_id,level,form_key):return
-	var roster_moves := SinnohSide.moves_for(species_id,level,form_key) if world.map_data.region=="sinnoh" else EncounterScript.moves_for(species_id,level)
+	var roster_moves := UnovaField.moves_for(species_id,level,_flags()) if world.map_data.region=="unova" else SinnohSide.moves_for(species_id,level,form_key) if world.map_data.region=="sinnoh" else EncounterScript.moves_for(species_id,level)
 	var mon := PartyScript.make(species_id, level, roster_moves, form_key)
-	PartyScript.set_shiny_kind(mon, shiny_kind if shiny_kind != "" else PartyScript.roll_shiny(appearance_rng))
+	var shiny_draw:=shiny_kind
+	if shiny_draw=="":
+		shiny_draw=PartyScript.roll_shiny(appearance_rng)
+		if world.map_data.region=="unova" and _flags().get("us_b2_shiny",false) and roamer.is_empty():
+			for roll in 2:
+				if shiny_draw!="none":break
+				shiny_draw=PartyScript.roll_shiny(appearance_rng)
+	PartyScript.set_shiny_kind(mon,shiny_draw)
 	if not roamer.is_empty():mon=roamer.duplicate(true)
 	var enemy := [mon.duplicate(true)]
 	var mine: Array = _make_team() if borrowed==0 else [BattleScript.make_combatant(borrowed,5,EncounterScript.moves_for(borrowed,5))]
@@ -3075,7 +3181,7 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 	layer.add_child(ui)
 	ui.setup(mine, enemy, rng.randi(), supplies)
 	SinnohSide.capsule_effect(ui,mine)
-	if not roamer.is_empty():ui.battle.cur_b().fr_roaming=true
+	if not roamer.is_empty() and not roamer.get("unova_stationary",false): ui.battle.cur_b().fr_roaming=true
 	ui.item_used.connect(func(nm: String) -> void:
 		if contest:
 			save_data.js_contest.balls= maxi(0,int(save_data.js_contest.balls)-1)
@@ -3163,7 +3269,7 @@ func _award_exp(enemies: Array, prize: int = 0, badge: String = "", only: Dictio
 			notes.append("%s 升到 Lv%d" % [String(mon.get("name", "?")), int(mon["level"])])
 			# 升级后学这一级段的新招式
 			_learn_new_moves(mon, before, int(mon["level"]))
-			var evo: Dictionary = GrowthScript.evolution_of(mon)
+			var evo: Dictionary = Unova.evolution(mon) if world.map_data.get("region","")=="unova" else GrowthScript.evolution_of(mon)
 			if not evo.is_empty():
 				var old_name := String(mon.get("name", "?"))
 				if PartyScript.evolve(mon, int(evo.get("to", 0)), String(evo.get("form", ""))):
@@ -3188,7 +3294,7 @@ func _award_exp(enemies: Array, prize: int = 0, badge: String = "", only: Dictio
 func _learn_new_moves(mon: Dictionary, from_lv: int = 0, to_lv: int = 0) -> void:
 	var moves: Array = mon.get("moves", [])
 	var pp: Array = mon.get("pp", [])
-	var learnset := SinnohSide.learnset(int(mon.species_id),str(mon.get("form",""))) if world.map_data.get("region","")=="sinnoh" else []
+	var learnset := UnovaField.learnset(int(mon.species_id),_flags()) if world.map_data.get("region","")=="unova" else SinnohSide.learnset(int(mon.species_id),str(mon.get("form",""))) if world.map_data.get("region","")=="sinnoh" else []
 	var got: Array = GrowthScript.moves_learned(mon, from_lv, to_lv, learnset)
 	for id in got:
 		var mid := int(id)
@@ -3205,6 +3311,7 @@ func _learn_new_moves(mon: Dictionary, from_lv: int = 0, to_lv: int = 0) -> void
 		var worst_power := 9999
 		for i in moves.size():
 			if world.map_data.has("emerald_original") and preload("res://core/hoenn_items.gd").data().learn.has(str(int(moves[i]))): continue
+			if world.map_data.get("region","")=="unova" and int(moves[i]) in [15,19,57,70,127,291]: continue
 			if world.map_data.get("region","")=="sinnoh" and int(moves[i]) in [15,19,57,70,432,249,127,431]: continue
 			var pw := int((Data.move_of(int(moves[i])) as Dictionary).get("power", 0))
 			if pw < worst_power:
@@ -4229,6 +4336,8 @@ const OPEN_FIELD_FLAGS := {"j_radio_free":true,"j_well_clear":true,"j_gym8":true
 	"FLAG_HIDE_MT_EMBER_EXTERIOR_ROCKETS":true,"FLAG_HIDE_RUIN_VALLEY_SCIENTIST":true}
 
 ## 全量地图体检：每张图能加载、warp 双向、落点不撞墙不撞人、传送图连通
+const UnovaDoorAudit:=preload("res://core/unova_door_audit.gd")
+
 func _test_map_graph() -> bool:
 	const Passages=preload("res://core/world_passages.gd")
 	const Native=preload("res://core/hgss_field.gd")
@@ -4236,6 +4345,7 @@ func _test_map_graph() -> bool:
 	var graph:=Passages.graph(rooms)
 	var collision:={}
 	var ok:=true
+	for era in ["bw","b2"]:ok=UnovaDoorAudit.graph(Data,era) and ok
 	for room in rooms:
 		var m: Dictionary=room.m
 		var key:="%s/%s"%[room.rid,room.mid]
@@ -4271,9 +4381,9 @@ func _test_map_graph() -> bool:
 
 func _tile_blocked(m: Dictionary, x: int, y: int, cache: Dictionary) -> bool:
 	var size: Array = m.get("size", [0, 0])
-	if m.has("emerald_original") or m.has("platinum_native"):
+	if m.has("emerald_original") or m.has("platinum_native") or m.has("unova_native"):
 		if x<0 or y<0 or x>=int(size[0]) or y>=int(size[1]): return true
-		return bool(m.physics.collision[y][x])
+		return int(m.physics.collision[y][x])!=0
 	if m.has("hgss"):
 		var word:=preload("res://core/hgss_field.gd").word(m.hgss,Vector2i(x,y))
 		return bool(word & 0x8000)
@@ -7168,6 +7278,8 @@ const HoennDoorAudit := preload("res://core/hoenn_door_audit.gd")
 ## Verify each original entrance from the published arrivals and field progression.
 func _test_warp_reach(only_region: String="") -> bool:
 	var all_reached := true
+	if only_region in ["","unova"]:
+		for era in ["bw","b2"]:all_reached=UnovaDoorAudit.reach(Data,era) and all_reached
 	var scoped := {}
 	var low_tide_reached := {}
 	var low_tide_only := []
@@ -7179,7 +7291,7 @@ func _test_warp_reach(only_region: String="") -> bool:
 	for room in maps:
 		var rid := str(room.rid)
 		if not only_region.is_empty() and only_region!=rid: continue
-		if room.m.get("platinum_technical",false): continue
+		if room.m.has("unova_native") or room.m.get("platinum_technical",false): continue
 		var mid := str(room.mid)
 		var native: bool=room.m.has("emerald_original")
 		var platinum: bool=room.m.has("platinum_native")
@@ -7276,6 +7388,8 @@ func _all_maps() -> Array:
 ## 土坡：从高的一侧走过去要能落到两格之外，反过来必须走不过去
 func _test_ledge() -> bool:
 	var tested := 0
+	var unova_ok:=true
+	for era in ["bw","b2"]:unova_ok=UnovaDoorAudit.ledges(Data,world,era) and unova_ok
 	var maps := ["hoenn/route101", "kanto/kanto_main", "johto/johto_route_45", "johto/johto_route_4"]
 	for key in maps:
 		var parts := String(key).split("/")
@@ -7346,7 +7460,7 @@ func _test_ledge() -> bool:
 	for key2 in maps_all:
 		var p2 := String(key2).split("/")
 		var md2: Dictionary = Data.load_map(p2[0], p2[1])
-		if md2.is_empty():
+		if md2.is_empty() or md2.has("unova_native"):
 			continue
 		world.load_map(md2)
 		var em2 = world.emerald_ledge
@@ -7384,7 +7498,7 @@ func _test_ledge() -> bool:
 		print("ledge dbg: 全量扫 %d 个坡向，%d 个跳不过去" % [checked, bad])
 		return false
 	print("ledge dbg: 全量扫 %d 个坡向，全都能跳过去" % checked)
-	return tested > 0
+	return unova_ok and tested > 0
 
 
 ## 冲浪：水面没冲浪进不去，会冲浪就能进，上岸后自动取消
@@ -8014,6 +8128,7 @@ func _e2e_pc() -> void:
 func _restore_from_save() -> void:
 	save_data = SaveScript.load_game()
 	Journey.migrate(save_data)
+	Data.set_unova_era(UnovaField.era(save_data.get("flags",{})))
 	preload("res://core/johto_apricorns.gd").sync(save_data)
 	preload("res://core/frlg_actors.gd").migrate_progress(save_data)
 	PartyScript.migrate_legacy_box(save_data)
@@ -8051,13 +8166,16 @@ func _restore_from_save() -> void:
 	var start_region := str(save_data.get("region","kanto"))
 	if start_region not in Journey.HOMES: start_region = str(save_data.get("origin","kanto"))
 	if start_region not in Journey.HOMES: start_region = "kanto"
-	var home: Dictionary = Journey.HOMES[start_region]
+	var home: Dictionary = Journey.SEQUEL_HOME if start_region=="unova" and UnovaField.era(_flags())=="b2" else Journey.HOMES[start_region]
 	var start_map := str(home.map)
 	var start_at := Vector2i(int(home.at[0]),int(home.at[1]))
 
 	var region := String(save_data.get("region", start_region))
 	var map_id := String(save_data.get("map", start_map))
 	var saved_pos: Array = save_data.get("pos", [])
+	if region=="unova" and not save_data.chapters.has("unova"):
+		map_id=Journey.HOMES.unova.map
+		saved_pos=Journey.HOMES.unova.at.duplicate()
 	var has_saved_spot := saved_pos.size() == 2
 	if map_id=="trainer_tower_lobby" and has_saved_spot and int(saved_pos[0])==17 and int(saved_pos[1]) in [8,9,10]:
 		_flags().fr_tower_lobby_exit=true
@@ -8085,6 +8203,7 @@ func _restore_from_save() -> void:
 	world.taken = _flags()
 	world.facing = str(save_data.get("facing", "down"))
 	world.load_map(map)
+	UnovaSpots.restore(self)
 
 	var spot := start_at
 	if has_saved_spot:
@@ -8273,6 +8392,7 @@ func _toggle_start_menu() -> void:
 	start_menu.closed.connect(_close_start_menu)
 	start_menu.chosen.connect(_start_selected)
 	start_menu.registered=str(_flags().get("fr_registered_item",""))
+	start_menu.unova_memory=world.map_data.region=="unova" and _flags().get("u2_champion",false) and world.map_data.id==(Journey.HOMES.unova.map if _flags().get("u1_memory",false) else Journey.SEQUEL_HOME.map)
 	start_menu.setup(_in_pokemon_center())
 	snd.play_sfx("select")
 
@@ -8308,6 +8428,13 @@ func _start_selected(command: String) -> void:
 		"快捷道具":
 			var registered: String=_flags().get("fr_registered_item","")
 			if _bag_count(registered)>0:_use_bag_item(registered)
+		"回忆链接":
+			var past: bool=_flags().get("u1_memory",false)
+			_pick("回忆链接",["回到两年后的桧扇市" if past else "重访两年前的鹿子镇","留在这里"],func(i):
+				if i==0:
+					_persist()
+					var staged:=Journey.switch_unova_memory(save_data)
+					if not staged.is_empty(): _load_chapter(staged))
 		"骑行": _toggle_bike()
 		"存档": _show_toast("进度已保存。" if _manual_save() else "存档写入失败，请检查设备空间。")
 
@@ -8467,6 +8594,7 @@ func _floor_ok(p: Vector2i, w: int, h: int, taken: Dictionary) -> bool:
 	return not world.blocked_by_terrain(up)
 
 func _in_pokemon_center() -> bool:
+	if world.map_data.get("region","")=="unova":return world.npcs.any(func(n):return n.get("heal",false) and n.get("name","")=="护士")
 	var map_id := String(world.map_data.get("id", "")).replace("_", "")
 	return map_id.contains("pokemoncenter") or map_id.contains("pokecenter")
 
@@ -8720,11 +8848,25 @@ func _begin_chapter(region: String, mode: String, truck: bool) -> void:
 			staged.facing=arrival.facing
 	_load_chapter(staged)
 
+func _choose_unova_sequel() -> void:
+	var cancel:=func():preload("res://core/hoenn_campaign.gd").abort_event(self)
+	_pick("两年后，从桧扇市出发",["带现有队伍出发","寄存队伍，重新组队","先留在现在的合众"],func(i: int):
+		if i==2:
+			cancel.call()
+			return
+		save_data.bag=bag_items
+		var staged:=Journey.begin_unova_sequel(save_data,"boxed" if i==1 else "carried")
+		if staged.is_empty():
+			cancel.call()
+			_dialog(["电脑空位不足或合众前篇尚未完成。"])
+			return
+		_load_chapter(staged),cancel)
+
 func _offer_chapter(region: String, truck := false) -> bool:
 	if not story_on or region not in Journey.HOMES or save_data.get("chapters",{}).has(region): return false
 	held_dir = ""
 	run_held = false
-	if region!="sinnoh" and not _has_party():
+	if region not in ["sinnoh","unova"] and not _has_party():
 		_begin_chapter(region,"carried",truck)
 		return true
 	_pick("初到%s · 现有队伍怎么安排？" % Journey.NAMES[region],["带现有队伍出发","寄存队伍，重新组队"],func(i: int) -> void:
@@ -8854,6 +8996,7 @@ func _pick(title: String, options: Array, cb: Callable, on_cancel := Callable())
 ## 背包里点中一件东西：能用的都真的用掉，不能用的说清为什么
 func _use_bag_item(nm: String) -> void:
 	if _bag_count(nm)>0 and preload("res://core/sinnoh_contests.gd").use_item(self,nm): return
+	if _bag_count(nm)>0 and (UnovaField.use(self,nm) or Unova.use(self,nm) or UnovaSide.use_item(self,nm)):return
 	if _bag_count(nm)>0 and SinnohSide.use(self,nm): return
 	if nm=="开拓通行证" and _bag_count(nm)>0:
 		var frontier: Dictionary=_flags().get("h_frontier_run",{})
@@ -9226,7 +9369,7 @@ func _candy_one(slot: int) -> void:
 		return
 	PartyScript.recalc(mon, true)
 	_learn_new_moves(mon, before, int(mon["level"]))
-	var evo: Dictionary = GrowthScript.evolution_of(mon)
+	var evo: Dictionary = Unova.evolution(mon) if world.map_data.get("region","")=="unova" else GrowthScript.evolution_of(mon)
 	var extra := ""
 	if not evo.is_empty():
 		var old_name := String(mon.get("name", "?"))
@@ -9347,6 +9490,11 @@ func _mark_fly_visits() -> void:
 	var reg := String(world.map_data.get("region", ""))
 	var flags := _flags()
 	var dirty := false
+	if reg=="unova" and UnovaField.TOWNS.has(mid):
+		var visit:=UnovaField.flag_prefix(flags)+"visited_"+mid
+		if not flags.get(visit,false):
+			flags[visit]=true
+			dirty=true
 	if reg=="sinnoh":
 		if mid in SinnohField.TOWNS and not flags.get("s_visited_"+mid,false):
 			flags["s_visited_"+mid]=true
@@ -9368,6 +9516,9 @@ func _mark_fly_visits() -> void:
 
 
 func _open_fly() -> void:
+	if world.map_data.region=="unova":
+		UnovaField.fly(self)
+		return
 	if world.map_data.region=="sinnoh":
 		if not SinnohField.field(world.map_data.id).get("fly",false) or not _party_can_move("FLY"):
 			_show_toast("需要在能起飞的户外，取得神奥飞翔许可并带上会飞翔的队员。")
@@ -9409,6 +9560,9 @@ func _open_fly() -> void:
 
 ## 秘传：不用翻背包分类，直接在菜单里挑一招、挑一只队伍宝可梦来教
 func _open_hm() -> void:
+	if world.map_data.region=="unova":
+		UnovaField.hm_menu(self)
+		return
 	if world.map_data.region=="sinnoh":
 		var numbers := []
 		var labels: Array = []
@@ -9632,6 +9786,7 @@ func _writeback_mon(dst: Dictionary, src: Dictionary) -> void:
 		dst["moves"] = (src["moves"] as Array).duplicate()
 	if src.has("level"):
 		dst["level"] = int(src["level"])
+	if src.has("spent_gem") and dst.get("held","")==src.spent_gem:dst.held=""
 	if src.get("spent_gene", false) and dst.get("held", "") == "BERSERK_GENE":
 		dst["held"] = ""
 

@@ -103,6 +103,10 @@ static func actor(row: Dictionary, spec: Dictionary, flags: Dictionary) -> Dicti
 
 static func roster(map: Dictionary, flags: Dictionary) -> Array:
 	var base: Array = map.get("npcs",[])
+	if map.get("region","")=="unova":
+		var residents: Array=load("res://core/unova_trainers.gd").roster(map,flags,base)
+		var cast: Array=load("res://core/unova_campaign.gd").roster(map,flags,residents)
+		return load("res://core/unova_side.gd").decorate(map,flags,cast)
 	if map.has("platinum_native"):
 		var rows: Array = load("res://core/sinnoh_campaign.gd").roster(map,flags,base)
 		var side = load("res://core/sinnoh_side.gd")

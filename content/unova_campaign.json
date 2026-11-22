@@ -1,0 +1,12101 @@
+{
+ "events": [
+  {
+   "id": "u1_first_battle",
+   "map": "unova_bw_home_2f",
+   "era": 1,
+   "require": [
+    "u1_started"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_first_battle"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "博士的礼物送来了！盒子里有三个球。小悠，你先挑，我和黑连再选。"
+     ]
+    },
+    {
+     "unova_starter": 1
+    },
+    {
+     "who": "白露",
+     "say": [
+      "它愿意跟我一起冒险！来，让我们的伙伴打一场见面赛！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "白露",
+      "unova_era": 1,
+      "unova_starter_only": 1,
+      "finish_on_loss": true,
+      "u_variants": [
+       "1/59",
+       "1/60",
+       "1/61"
+      ]
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "u1_first_battle"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "黑连"
+   ]
+  },
+  {
+   "id": "u1_cheren_home",
+   "map": "unova_bw_home_2f",
+   "era": 1,
+   "require": [
+    "u1_first_battle"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_cheren_home"
+   },
+   "who": "黑连",
+   "steps": [
+    {
+     "who": "黑连",
+     "say": [
+      "房间乱成这样了……先替大家恢复体力。小悠，接下来该轮到我们了。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "黑连",
+      "unova_era": 1,
+      "unova_starter_only": 1,
+      "finish_on_loss": true,
+      "u_variants": [
+       "1/53",
+       "1/54",
+       "1/55"
+      ]
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "u1_cheren_home"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "白露"
+   ]
+  },
+  {
+   "id": "u1_watch",
+   "map": "unova_bw_home_1f",
+   "era": 1,
+   "require": [
+    "u1_cheren_home"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_watch"
+   },
+   "who": "妈妈",
+   "steps": [
+    {
+     "who": "妈妈",
+     "say": [
+      "我听到楼上的动静了。你们去见红豆杉博士吧，房间交给我。这只即时通讯器带上。"
+     ]
+    },
+    {
+     "unova_key": "即时通讯器"
+    },
+    {
+     "flag": "u1_watch"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_bianca_home",
+   "map": "unova_bw_bianca_home",
+   "era": 1,
+   "require": [
+    "u1_watch"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_bianca_home"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "爸爸，我知道你担心我。我想自己走走看看。黑连和小悠都在等我，我会小心的。"
+     ]
+    },
+    {
+     "flag": "u1_bianca_home"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "白露的爸爸"
+   ]
+  },
+  {
+   "id": "u1_dex",
+   "map": "unova_juniper_lab",
+   "era": 1,
+   "require": [
+    "u1_bianca_home"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_dex"
+   },
+   "who": "红豆杉博士",
+   "steps": [
+    {
+     "who": "红豆杉博士",
+     "say": [
+      "我想知道合众究竟住着多少宝可梦。你、黑连和白露愿意替我记录亲眼见到的伙伴吗？"
+     ]
+    },
+    {
+     "unova_key": "合众图鉴"
+    },
+    {
+     "who": "妈妈",
+     "say": [
+      "路上会用得着这张地图。三个人一起迈出第一步吧。"
+     ]
+    },
+    {
+     "unova_key": "城镇地图"
+    },
+    {
+     "flag": "u1_dex"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "黑连",
+    "白露"
+   ]
+  },
+  {
+   "id": "u1_catch",
+   "map": "unova_1",
+   "era": 1,
+   "require": [
+    "u1_dex"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_catch"
+   },
+   "who": "红豆杉博士",
+   "steps": [
+    {
+     "who": "红豆杉博士",
+     "say": [
+      "先观察，再削弱它的体力，最后投球。这里有五个精灵球，剩下的就让你自己来试试。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "精灵球",
+      "count": 5,
+      "category": "ball"
+     }
+    },
+    {
+     "flag": "u1_catch"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_rally",
+   "map": "unova_accumula",
+   "era": 1,
+   "require": [
+    "u1_catch"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_rally"
+   },
+   "who": "魁奇思",
+   "steps": [
+    {
+     "who": "魁奇思",
+     "say": [
+      "人们说自己爱宝可梦，可是谁听过它们的想法？等离子队要求诸位解放它们。"
+     ]
+    },
+    {
+     "who": "N",
+     "say": [
+      "你身边的宝可梦在说话。我想听得更清楚一点……和我对战吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "N",
+      "unova_era": 1,
+      "u_teams": [
+       "1/64"
+      ]
+     }
+    },
+    {
+     "flag": "u1_rally"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "N",
+    "黑连"
+   ]
+  },
+  {
+   "id": "u1_shoes",
+   "map": "unova_2",
+   "era": 1,
+   "require": [
+    "u1_rally"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_shoes"
+   },
+   "who": "妈妈",
+   "steps": [
+    {
+     "who": "妈妈",
+     "say": [
+      "终于追上你了。这是跑步鞋！有了它，就能更快赶上朋友们了。"
+     ]
+    },
+    {
+     "unova_key": "跑步鞋"
+    },
+    {
+     "flag": "u1_shoes"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_bianca_2",
+   "map": "unova_2",
+   "era": 1,
+   "require": [
+    "u1_shoes"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_bianca_2"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "想知道我们出发后进步了多少吗？让宝可梦告诉我们吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "白露",
+      "unova_era": 1,
+      "u_variants": [
+       "1/498",
+       "1/499",
+       "1/500"
+      ]
+     }
+    },
+    {
+     "flag": "u1_bianca_2"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_school",
+   "map": "unova_striaton_school",
+   "era": 1,
+   "require": [
+    "u1_bianca_2"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_school"
+   },
+   "who": "黑连",
+   "steps": [
+    {
+     "who": "黑连",
+     "say": [
+      "我在训练家学校研究道具。让我看看，你找到的伙伴都擅长什么。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "黑连",
+      "unova_era": 1,
+      "u_variants": [
+       "1/287",
+       "1/288",
+       "1/289"
+      ]
+     }
+    },
+    {
+     "flag": "u1_school"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_monkey",
+   "map": "unova_dreamyard",
+   "era": 1,
+   "require": [
+    "u1_school"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_monkey"
+   },
+   "who": "培育家",
+   "steps": [
+    {
+     "who": "培育家",
+     "say": [
+      "你最先得到的伙伴有不擅长的属性。这孩子正好可以补上它的弱点，要一起旅行吗？"
+     ]
+    },
+    {
+     "unova_monkey": true
+    },
+    {
+     "flag": "u1_monkey"
+    }
+   ],
+   "route": false
+  },
+  {
+   "id": "u1_badge_1",
+   "map": "unova_bw_gym_striaton",
+   "era": 1,
+   "require": [
+    "u1_school"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_badge_1"
+   },
+   "who": "三曜道馆馆主",
+   "steps": [
+    {
+     "who": "三曜道馆馆主",
+     "say": [
+      "三曜道馆有三位馆主。今天由擅长你伙伴弱点属性的那一位接受挑战！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "三曜道馆馆主",
+      "unova_era": 1,
+      "u_variants": [
+       "1/11",
+       "1/13",
+       "1/12"
+      ]
+     }
+    },
+    {
+     "who": "三曜道馆馆主",
+     "say": [
+      "赢得漂亮！三元徽章和自我激励就交给你了。"
+     ]
+    },
+    {
+     "unova_badge": "三元徽章"
+    },
+    {
+     "unova_tm": 83
+    },
+    {
+     "flag": "u1_badge_1"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u1_cut",
+   "map": "unova_striaton",
+   "era": 1,
+   "require": [
+    "u1_badge_1"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_cut"
+   },
+   "who": "真菰",
+   "steps": [
+    {
+     "who": "真菰",
+     "say": [
+      "我正在研究梦的力量。请到梦之遗址找食梦梦；细树挡路时，让伙伴用居合斩。"
+     ]
+    },
+    {
+     "unova_hm": 1
+    },
+    {
+     "flag": "u1_cut"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_dream_mist",
+   "map": "unova_dreamyard",
+   "era": 1,
+   "require": [
+    "u1_cut",
+    "u1_dreamyard_cut"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_dream_mist"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "听，那只食梦梦在叫！你们为什么要伤害它？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/80"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/309"
+      ]
+     }
+    },
+    {
+     "who": "真菰",
+     "say": [
+      "梦梦蚀带走了孩子，留下了梦之烟。这就是我需要的研究材料。"
+     ]
+    },
+    {
+     "flag": "u1_dream_mist"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "等离子队队员",
+    "真菰"
+   ]
+  },
+  {
+   "id": "u1_cgear",
+   "map": "unova_fennel_lab",
+   "era": 1,
+   "require": [
+    "u1_dream_mist"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_cgear"
+   },
+   "who": "真菰",
+   "steps": [
+    {
+     "who": "真菰",
+     "say": [
+      "有了梦之烟，研究终于能继续了。用 C 装置查看自己的伙伴和合众的行程吧。"
+     ]
+    },
+    {
+     "unova_key": "C 装置"
+    },
+    {
+     "flag": "u1_cgear"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "松露"
+   ]
+  },
+  {
+   "id": "u1_route3",
+   "map": "unova_3",
+   "era": 1,
+   "require": [
+    "u1_cgear"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_route3"
+   },
+   "who": "黑连",
+   "steps": [
+    {
+     "who": "黑连",
+     "say": [
+      "两个人都有了徽章，那就再来一场。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "黑连",
+      "unova_era": 1,
+      "u_variants": [
+       "1/56",
+       "1/57",
+       "1/58"
+      ]
+     }
+    },
+    {
+     "who": "白露",
+     "say": [
+      "刚才那两个人抢走了小女孩的宝可梦！他们往地下水脉之穴去了。"
+     ]
+    },
+    {
+     "flag": "u1_route3"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "白露"
+   ]
+  },
+  {
+   "id": "u1_wellspring",
+   "map": "unova_wellspring",
+   "era": 1,
+   "require": [
+    "u1_route3"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_wellspring"
+   },
+   "who": "黑连",
+   "steps": [
+    {
+     "who": "黑连",
+     "say": [
+      "失主在等着我们。把宝可梦还回来！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/294"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/62",
+       "1/63"
+      ],
+      "double": true,
+      "ally": "unova",
+      "u_ally": [
+       "1/56",
+       "1/57",
+       "1/58"
+      ]
+     }
+    },
+    {
+     "flag": "u1_wellspring"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "等离子队队员"
+   ]
+  },
+  {
+   "id": "u1_n_museum",
+   "map": "unova_nacrene",
+   "era": 1,
+   "require": [
+    "u1_wellspring"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_n_museum"
+   },
+   "who": "N",
+   "steps": [
+    {
+     "who": "N",
+     "say": [
+      "我想看见朋友们心里的世界。你的伙伴会说什么呢？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "N",
+      "unova_era": 1,
+      "u_teams": [
+       "1/65"
+      ]
+     }
+    },
+    {
+     "flag": "u1_n_museum"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_badge_2",
+   "map": "unova_bw_zone_19",
+   "era": 1,
+   "require": [
+    "u1_n_museum"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_badge_2"
+   },
+   "who": "芦荟",
+   "steps": [
+    {
+     "who": "芦荟",
+     "say": [
+      "书架的尽头就是我的研究室。自己的战术被读透了，还能想出第二步吗？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "芦荟",
+      "unova_era": 1,
+      "u_teams": [
+       "1/21"
+      ]
+     }
+    },
+    {
+     "who": "芦荟",
+     "say": [
+      "你的基础打得很好。这枚徽章和报仇学习器属于你。"
+     ]
+    },
+    {
+     "unova_badge": "基础徽章"
+    },
+    {
+     "unova_tm": 67
+    },
+    {
+     "flag": "u1_badge_2"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u1_fossil_theft",
+   "map": "unova_museum",
+   "era": 1,
+   "require": [
+    "u1_badge_2"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_fossil_theft"
+   },
+   "who": "木立",
+   "steps": [
+    {
+     "who": "木立",
+     "say": [
+      "馆长！等离子队进了展厅，那只快龙骨架的头被拿走了！"
+     ]
+    },
+    {
+     "who": "亚堤",
+     "say": [
+      "我往矢车森林去，你跟着林中的小路追。"
+     ]
+    },
+    {
+     "flag": "u1_fossil_theft"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "芦荟",
+    "亚堤"
+   ]
+  },
+  {
+   "id": "u1_dowsing",
+   "map": "unova_nacrene",
+   "era": 1,
+   "require": [
+    "u1_fossil_theft"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_dowsing"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "前面就要进矢车森林了。我送你一台探宝器，能找到埋在身边的道具。"
+     ]
+    },
+    {
+     "unova_key": "探宝器"
+    },
+    {
+     "flag": "u1_dowsing"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "黑连"
+   ]
+  },
+  {
+   "id": "u1_skull",
+   "map": "unova_bw_zone_155",
+   "era": 1,
+   "require": [
+    "u1_dowsing"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_skull"
+   },
+   "who": "等离子队队员",
+   "steps": [
+    {
+     "who": "等离子队队员",
+     "say": [
+      "我再拖你一会儿，贤人就能带走龙骨。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/295"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/296"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/297"
+      ]
+     }
+    },
+    {
+     "who": "阿苏拉",
+     "say": [
+      "这副骨头与我们寻找的传说不同。留下它，撤退。"
+     ]
+    },
+    {
+     "unova_key": "龙之骨"
+    },
+    {
+     "flag": "u1_skull"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "阿苏拉"
+   ]
+  },
+  {
+   "id": "u1_skull_back",
+   "map": "unova_bw_zone_155",
+   "era": 1,
+   "require": [
+    "u1_skull"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_skull_back"
+   },
+   "who": "芦荟",
+   "steps": [
+    {
+     "who": "芦荟",
+     "say": [
+      "这正是博物馆失去的龙骨。谢谢你，这颗月之石送给你。"
+     ]
+    },
+    {
+     "remove_item": "龙之骨"
+    },
+    {
+     "give_item": {
+      "name": "月之石",
+      "count": 1,
+      "category": "evo"
+     }
+    },
+    {
+     "flag": "u1_skull_back"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "亚堤"
+   ]
+  },
+  {
+   "id": "u1_port",
+   "map": "unova_bw_zone_38",
+   "era": 1,
+   "require": [
+    "u1_skull_back"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_port"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "我的食梦梦被抢走了……艾莉丝，多亏你一直陪着我。"
+     ]
+    },
+    {
+     "who": "艾莉丝",
+     "say": [
+      "他们跑向道馆那条街了！"
+     ]
+    },
+    {
+     "flag": "u1_port"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "艾莉丝",
+    "亚堤"
+   ]
+  },
+  {
+   "id": "u1_munna_back",
+   "map": "unova_bw_zone_56",
+   "era": 1,
+   "require": [
+    "u1_port"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_munna_back"
+   },
+   "who": "亚堤",
+   "steps": [
+    {
+     "who": "亚堤",
+     "say": [
+      "前面那栋楼就是。你负责门口的一个，我来对付另外的人！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/279"
+      ]
+     }
+    },
+    {
+     "who": "魁奇思",
+     "say": [
+      "在这座城继续争执毫无益处。把那只食梦梦还给她。"
+     ]
+    },
+    {
+     "flag": "u1_munna_back"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "魁奇思",
+    "白露"
+   ]
+  },
+  {
+   "id": "u1_badge_3",
+   "map": "unova_bw_gym_castelia",
+   "era": 1,
+   "require": [
+    "u1_munna_back"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_badge_3"
+   },
+   "who": "亚堤",
+   "steps": [
+    {
+     "who": "亚堤",
+     "say": [
+      "看啊，虫宝可梦也是艺术家。它们编织的战术可藏不住热情！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "亚堤",
+      "unova_era": 1,
+      "u_teams": [
+       "1/22"
+      ]
+     }
+    },
+    {
+     "who": "亚堤",
+     "say": [
+      "让它跟着你旅行吧。这是甲虫徽章和虫之抵抗。"
+     ]
+    },
+    {
+     "unova_badge": "甲虫徽章"
+    },
+    {
+     "unova_tm": 76
+    },
+    {
+     "flag": "u1_badge_3"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u1_bianca_gate",
+   "map": "unova_castelia_gate_north",
+   "era": 1,
+   "require": [
+    "u1_badge_3"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_bianca_gate"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "在连接四号道路的北门过一招吧！这次我想靠自己的力量再试试。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "白露",
+      "unova_era": 1,
+      "u_variants": [
+       "1/507",
+       "1/508",
+       "1/509"
+      ]
+     }
+    },
+    {
+     "flag": "u1_bianca_gate"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_cheren_4",
+   "map": "unova_4",
+   "era": 1,
+   "require": [
+    "u1_bianca_gate"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_cheren_4"
+   },
+   "who": "黑连",
+   "steps": [
+    {
+     "who": "黑连",
+     "say": [
+      "沙暴会改变对战的节奏，能让我看看你的应对吗？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "黑连",
+      "unova_era": 1,
+      "u_variants": [
+       "1/403",
+       "1/404",
+       "1/405"
+      ]
+     }
+    },
+    {
+     "flag": "u1_cheren_4"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_bike",
+   "map": "unova_nimbasa",
+   "era": 1,
+   "require": [
+    "u1_cheren_4"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_bike"
+   },
+   "who": "培育屋爷爷",
+   "steps": [
+    {
+     "who": "培育屋爷爷",
+     "say": [
+      "他们想从培育屋夺走宝可梦！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/81"
+      ]
+     }
+    },
+    {
+     "who": "培育屋爷爷",
+     "say": [
+      "这辆自行车给你，终于可以安心回去照顾孩子们了。"
+     ]
+    },
+    {
+     "unova_key": "自行车"
+    },
+    {
+     "flag": "u1_bike"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_musical",
+   "map": "unova_bw_zone_77",
+   "era": 1,
+   "require": [
+    "u1_bike"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_musical"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "我也想试着在舞台上找到自己的长处。你看，馆长给我们准备了道具盒！"
+     ]
+    },
+    {
+     "unova_key": "装饰物盒"
+    },
+    {
+     "flag": "u1_musical"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_father",
+   "map": "unova_nimbasa",
+   "era": 1,
+   "require": [
+    "u1_musical"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_father"
+   },
+   "who": "白露的爸爸",
+   "steps": [
+    {
+     "who": "白露的爸爸",
+     "say": [
+      "白露，跟我回家吧。外出旅行总是让我担心。"
+     ]
+    },
+    {
+     "who": "小菊儿",
+     "say": [
+      "请也听听她自己的想法。她正在寻找想做的事情。"
+     ]
+    },
+    {
+     "who": "白露",
+     "say": [
+      "爸爸，我想再走走。等我回家，我有很多想讲给你听的故事。"
+     ]
+    },
+    {
+     "flag": "u1_father"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "白露",
+    "小菊儿"
+   ]
+  },
+  {
+   "id": "u1_ferris",
+   "map": "unova_bw_zone_64",
+   "era": 1,
+   "require": [
+    "u1_father"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_ferris"
+   },
+   "who": "N",
+   "steps": [
+    {
+     "who": "N",
+     "say": [
+      "坐摩天轮吧。从最高处能把这座城市看得很清楚。我是等离子队的王。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "N",
+      "unova_era": 1,
+      "u_teams": [
+       "1/89"
+      ]
+     }
+    },
+    {
+     "flag": "u1_ferris"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "等离子队队员"
+   ]
+  },
+  {
+   "id": "u1_badge_4",
+   "map": "unova_bw_gym_nimbasa",
+   "era": 1,
+   "require": [
+    "u1_ferris"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_badge_4"
+   },
+   "who": "小菊儿",
+   "steps": [
+    {
+     "who": "小菊儿",
+     "say": [
+      "聚光灯亮了！能跟上我们伏特替换的节奏吗？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "小菊儿",
+      "unova_era": 1,
+      "u_teams": [
+       "1/23"
+      ]
+     }
+    },
+    {
+     "who": "小菊儿",
+     "say": [
+      "你们的闪耀不输给聚光灯。收好伏特徽章。"
+     ]
+    },
+    {
+     "unova_badge": "伏特徽章"
+    },
+    {
+     "unova_tm": 72
+    },
+    {
+     "flag": "u1_badge_4"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u1_bridge",
+   "map": "unova_5",
+   "era": 1,
+   "require": [
+    "u1_badge_4"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_bridge"
+   },
+   "who": "黑连",
+   "steps": [
+    {
+     "who": "黑连",
+     "say": [
+      "过桥之前，先检验你我之间的距离吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "黑连",
+      "unova_era": 1,
+      "u_variants": [
+       "1/90",
+       "1/91",
+       "1/92"
+      ]
+     }
+    },
+    {
+     "who": "阿戴克",
+     "say": [
+      "成为最强之后呢？来，跟这两个孩子打一场，多想想你为什么和宝可梦在一起。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "莎拉与比利",
+      "unova_era": 1,
+      "u_teams": [
+       "1/401",
+       "1/402"
+      ],
+      "double": true,
+      "ally": "unova",
+      "u_ally": [
+       "1/90",
+       "1/91",
+       "1/92"
+      ]
+     }
+    },
+    {
+     "who": "小菊儿",
+     "say": [
+      "吊桥已经可以通行了。"
+     ]
+    },
+    {
+     "flag": "u1_bridge"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "阿戴克",
+    "小菊儿"
+   ]
+  },
+  {
+   "id": "u1_freezer",
+   "map": "unova_cold_storage",
+   "era": 1,
+   "require": [
+    "u1_bridge"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_freezer"
+   },
+   "who": "黑连",
+   "steps": [
+    {
+     "who": "黑连",
+     "say": [
+      "冷冻仓库深处的货柜里藏着等离子队。咱们把逃犯找出来！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/298"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/299"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/300"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/301"
+      ]
+     }
+    },
+    {
+     "who": "菊老大",
+     "say": [
+      "是维奥和他的手下。事情到这儿由我来管！"
+     ]
+    },
+    {
+     "flag": "u1_freezer"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "维奥",
+    "菊老大"
+   ]
+  },
+  {
+   "id": "u1_release",
+   "map": "unova_driftveil",
+   "era": 1,
+   "require": [
+    "u1_freezer"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_release"
+   },
+   "who": "魁奇思",
+   "steps": [
+    {
+     "who": "魁奇思",
+     "say": [
+      "菊老大，把我的同伴还给我吧。你也不想整座城市为了他们动手。"
+     ]
+    },
+    {
+     "flag": "u1_release"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "菊老大",
+    "维奥"
+   ]
+  },
+  {
+   "id": "u1_badge_5",
+   "map": "unova_bw_gym_driftveil",
+   "era": 1,
+   "require": [
+    "u1_release"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_badge_5"
+   },
+   "who": "菊老大",
+   "steps": [
+    {
+     "who": "菊老大",
+     "say": [
+      "矿石只有往深处挖才能见到。把你的本事也给我挖出来！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "菊老大",
+      "unova_era": 1,
+      "u_teams": [
+       "1/24"
+      ]
+     }
+    },
+    {
+     "who": "菊老大",
+     "say": [
+      "震动徽章收好了。电气石洞穴入口见，我会替你把路清出来。"
+     ]
+    },
+    {
+     "unova_badge": "震动徽章"
+    },
+    {
+     "flag": "u1_badge_5"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u1_bianca_fly",
+   "map": "unova_driftveil",
+   "era": 1,
+   "require": [
+    "u1_badge_5"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_bianca_fly"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "让我看看道馆挑战后的你吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "白露",
+      "unova_era": 1,
+      "u_variants": [
+       "1/491",
+       "1/492",
+       "1/493"
+      ]
+     }
+    },
+    {
+     "who": "白露",
+     "say": [
+      "我从家里带了两份飞翔学习器。你也拿一份吧。"
+     ]
+    },
+    {
+     "unova_hm": 2
+    },
+    {
+     "flag": "u1_bianca_fly"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_web",
+   "map": "unova_chargestone",
+   "era": 1,
+   "require": [
+    "u1_bianca_fly"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_web"
+   },
+   "who": "菊老大",
+   "steps": [
+    {
+     "who": "菊老大",
+     "say": [
+      "这团丝是电蜘蛛留下的。龙头地鼠，把它劈开！我答应过你的重踏也给你。"
+     ]
+    },
+    {
+     "unova_tm": 78
+    },
+    {
+     "flag": "u1_web"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_cave_n",
+   "map": "unova_bw_zone_195",
+   "era": 1,
+   "require": [
+    "u1_web"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_cave_n"
+   },
+   "who": "N",
+   "steps": [
+    {
+     "who": "N",
+     "say": [
+      "这些电气石聚在一起，宝可梦却有各自的声音。小悠，我要知道你的答案。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "N",
+      "unova_era": 1,
+      "u_teams": [
+       "1/218"
+      ]
+     }
+    },
+    {
+     "flag": "u1_cave_n"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "红豆杉博士",
+    "白露"
+   ]
+  },
+  {
+   "id": "u1_tower",
+   "map": "unova_bw_zone_342",
+   "era": 1,
+   "require": [
+    "u1_cave_n"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_tower"
+   },
+   "who": "风露",
+   "steps": [
+    {
+     "who": "风露",
+     "say": [
+      "受伤的宝可梦已经好些了。登上塔顶吧，让天堂之塔的钟声为它送行。"
+     ]
+    },
+    {
+     "flag": "u1_tower"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_badge_6",
+   "map": "unova_bw_gym_mistralton",
+   "era": 1,
+   "require": [
+    "u1_tower"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_badge_6"
+   },
+   "who": "风露",
+   "steps": [
+    {
+     "who": "风露",
+     "say": [
+      "钟声把你的心意传到了这里。现在，要飞得比谁都高！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "风露",
+      "unova_era": 1,
+      "u_teams": [
+       "1/25"
+      ]
+     }
+    },
+    {
+     "who": "风露",
+     "say": [
+      "喷射徽章和杂技交给你了。七号道路北边通往罗斯山。"
+     ]
+    },
+    {
+     "unova_badge": "喷射徽章"
+    },
+    {
+     "unova_tm": 62
+    },
+    {
+     "flag": "u1_badge_6"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u1_surf",
+   "map": "unova_7",
+   "era": 1,
+   "require": [
+    "u1_badge_6"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_surf"
+   },
+   "who": "黑连",
+   "steps": [
+    {
+     "who": "黑连",
+     "say": [
+      "我一直追求强大。阿戴克先生，你说过的答案，我还在找。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "黑连",
+      "unova_era": 1,
+      "u_variants": [
+       "1/539",
+       "1/540",
+       "1/541"
+      ]
+     }
+    },
+    {
+     "who": "阿戴克",
+     "say": [
+      "这个是冲浪。山有山路，河有水路。你们的路也该自己去找。"
+     ]
+    },
+    {
+     "unova_hm": 3
+    },
+    {
+     "flag": "u1_surf"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "阿戴克"
+   ]
+  },
+  {
+   "id": "u1_badge_7",
+   "map": "unova_bw_gym_icirrus",
+   "era": 1,
+   "require": [
+    "u1_surf"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_badge_7"
+   },
+   "who": "哈奇库",
+   "steps": [
+    {
+     "who": "哈奇库",
+     "say": [
+      "演员卸下妆容之后，就是一名训练家。就用招式来交流吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "哈奇库",
+      "unova_era": 1,
+      "u_teams": [
+       "1/131"
+      ]
+     }
+    },
+    {
+     "who": "哈奇库",
+     "say": [
+      "冰柱徽章见证了这一战。冰息会准确击中要害。"
+     ]
+    },
+    {
+     "unova_badge": "冰柱徽章"
+    },
+    {
+     "unova_tm": 79
+    },
+    {
+     "flag": "u1_badge_7"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u1_tower_alarm",
+   "map": "unova_icirrus",
+   "era": 1,
+   "require": [
+    "u1_badge_7"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_tower_alarm"
+   },
+   "who": "黑暗铁三角",
+   "steps": [
+    {
+     "who": "黑暗铁三角",
+     "say": [
+      "奉王的命令前来。七贤人已向龙螺旋之塔出发。"
+     ]
+    },
+    {
+     "flag": "u1_tower_alarm"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "哈奇库",
+    "黑连"
+   ]
+  },
+  {
+   "id": "u1_dragonspiral",
+   "map": "unova_bw_zone_212",
+   "era": 1,
+   "require": [
+    "u1_tower_alarm"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_dragonspiral"
+   },
+   "who": "等离子队队员",
+   "steps": [
+    {
+     "who": "等离子队队员",
+     "say": [
+      "从塔底一路追到这里？我们四个人来拦住你！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/303"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/304"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/305"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/306"
+      ]
+     }
+    },
+    {
+     "who": "等离子队队员",
+     "say": [
+      "王就在塔顶。已经来不及了！"
+     ]
+    },
+    {
+     "flag": "u1_dragonspiral"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_n_zekrom",
+   "map": "unova_bw_zone_213",
+   "era": 1,
+   "require": [
+    "u1_dragonspiral"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_n_zekrom"
+   },
+   "who": "N",
+   "steps": [
+    {
+     "who": "N",
+     "say": [
+      "捷克罗姆回应了我。若你也相信自己的道路，就去找能与你并肩的另一条龙。"
+     ]
+    },
+    {
+     "flag": "u1_n_zekrom"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "捷克罗姆"
+   ]
+  },
+  {
+   "id": "u1_castle_stone",
+   "map": "unova_bw_zone_165",
+   "era": 1,
+   "require": [
+    "u1_n_zekrom"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_castle_stone"
+   },
+   "who": "阿戴克",
+   "steps": [
+    {
+     "who": "阿戴克",
+     "say": [
+      "古代城的底层已经找过了。魁奇思，你到底想让小悠做什么？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 1,
+      "u_teams": [
+       "1/221"
+      ]
+     }
+    },
+    {
+     "who": "魁奇思",
+     "say": [
+      "让另一条龙醒来的人，就是王要见的人。"
+     ]
+    },
+    {
+     "flag": "u1_castle_stone"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "魁奇思"
+   ]
+  },
+  {
+   "id": "u1_relic_exit",
+   "map": "unova_bw_zone_165",
+   "era": 1,
+   "require": [
+    "u1_castle_stone"
+   ],
+   "trigger": {
+    "kind": "enter",
+    "actor": "u1_relic_exit"
+   },
+   "who": "阿戴克",
+   "steps": [
+    {
+     "who": "阿戴克",
+     "say": [
+      "走吧。我们到沙漠入口，再听听博士找到的线索。"
+     ]
+    },
+    {
+     "flag": "u1_relic_exit"
+    },
+    {
+     "unova_warp": "unova_bw_zone_158",
+     "at": [
+      61,
+      32
+     ],
+     "facing": "down"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_light_stone",
+   "map": "unova_nacrene",
+   "era": 1,
+   "require": [
+    "u1_relic_exit"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_light_stone"
+   },
+   "who": "芦荟",
+   "steps": [
+    {
+     "who": "芦荟",
+     "say": [
+      "这块研究不出成分的白石头，原来就是光明石。我们相信它该由你带走。"
+     ]
+    },
+    {
+     "unova_key": "光明石"
+    },
+    {
+     "flag": "u1_light_stone"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "红豆杉博士",
+    "阿戴克"
+   ]
+  },
+  {
+   "id": "u1_bianca_8",
+   "map": "unova_8",
+   "era": 1,
+   "require": [
+    "u1_light_stone"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_bianca_8"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "你要去双龙市了吧？出发之前我想再和你认真比一次。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "白露",
+      "unova_era": 1,
+      "u_variants": [
+       "1/494",
+       "1/495",
+       "1/496"
+      ]
+     }
+    },
+    {
+     "flag": "u1_bianca_8"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_bridge_ghetsis",
+   "map": "unova_tubeline_bridge",
+   "era": 1,
+   "require": [
+    "u1_bianca_8"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_bridge_ghetsis"
+   },
+   "who": "魁奇思",
+   "steps": [
+    {
+     "who": "魁奇思",
+     "say": [
+      "光明石已经到了你手上。接下来，会是两位英雄面对彼此的时候。"
+     ]
+    },
+    {
+     "flag": "u1_bridge_ghetsis"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "黑暗铁三角"
+   ]
+  },
+  {
+   "id": "u1_dragons",
+   "map": "unova_opelucid_house",
+   "era": 1,
+   "require": [
+    "u1_bridge_ghetsis"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_dragons"
+   },
+   "who": "夏卡",
+   "steps": [
+    {
+     "who": "夏卡",
+     "say": [
+      "很久以前，两位追求真实与理想的英雄让一条龙分成了两条。我们愿意把这个故事告诉你。"
+     ]
+    },
+    {
+     "flag": "u1_dragons"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "艾莉丝"
+   ]
+  },
+  {
+   "id": "u1_badge_8",
+   "map": "unova_bw_gym_opelucid",
+   "era": 1,
+   "require": [
+    "u1_dragons"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_badge_8"
+   },
+   "who": "夏卡",
+   "steps": [
+    {
+     "who": "夏卡",
+     "say": [
+      "龙与训练家都不能只有力量。拿出你一路选择的答案吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "夏卡",
+      "unova_era": 1,
+      "u_teams": [
+       "1/133"
+      ]
+     }
+    },
+    {
+     "who": "夏卡",
+     "say": [
+      "八枚徽章都齐了。去挑战宝可梦联盟吧。"
+     ]
+    },
+    {
+     "unova_badge": "传说徽章"
+    },
+    {
+     "unova_tm": 82
+    },
+    {
+     "flag": "u1_badge_8"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u1_master_ball",
+   "map": "unova_opelucid",
+   "era": 1,
+   "require": [
+    "u1_badge_8"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_master_ball"
+   },
+   "who": "红豆杉博士",
+   "steps": [
+    {
+     "who": "红豆杉博士",
+     "say": [
+      "这一路你亲眼见过、亲手记录了许多事。这是大师球，只此一颗，交给你决定如何使用。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "大师球",
+      "count": 1,
+      "category": "ball"
+     }
+    },
+    {
+     "flag": "u1_master_ball"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_last_rival",
+   "map": "unova_10",
+   "era": 1,
+   "require": [
+    "u1_master_ball"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_last_rival"
+   },
+   "who": "黑连",
+   "steps": [
+    {
+     "who": "黑连",
+     "say": [
+      "前面就是徽章检查关。最后一次，让我和你尽全力吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "黑连",
+      "unova_era": 1,
+      "u_variants": [
+       "1/588",
+       "1/589",
+       "1/590"
+      ]
+     }
+    },
+    {
+     "flag": "u1_last_rival"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "白露"
+   ]
+  },
+  {
+   "id": "u1_league",
+   "map": "unova_league",
+   "era": 1,
+   "require": [
+    "u1_last_rival",
+    "u1_badge_1",
+    "u1_badge_2",
+    "u1_badge_3",
+    "u1_badge_4",
+    "u1_badge_5",
+    "u1_badge_6",
+    "u1_badge_7",
+    "u1_badge_8"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_league"
+   },
+   "who": "联盟向导",
+   "steps": [
+    {
+     "who": "联盟向导",
+     "say": [
+      "八道徽章关都过了。四位天王的房间任你选择，四场全胜才能登上冠军殿堂。"
+     ]
+    },
+    {
+     "flag": "u1_league"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_shauntal",
+   "map": "unova_e4_shauntal",
+   "era": 1,
+   "require": [
+    "u1_league"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_shauntal"
+   },
+   "who": "婉龙",
+   "steps": [
+    {
+     "who": "婉龙",
+     "say": [
+      "我总想把这样的相遇写进书里。今天，你来翻开新的一页吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "婉龙",
+      "unova_era": 1,
+      "u_teams": [
+       "1/228"
+      ]
+     }
+    },
+    {
+     "flag": "u1_shauntal"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_grimsley",
+   "map": "unova_e4_grimsley",
+   "era": 1,
+   "require": [
+    "u1_league"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_grimsley"
+   },
+   "who": "越橘",
+   "steps": [
+    {
+     "who": "越橘",
+     "say": [
+      "赌局里要懂得接受输赢。对战也一样，让我们看看你会怎么出牌。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "越橘",
+      "unova_era": 1,
+      "u_teams": [
+       "1/230"
+      ]
+     }
+    },
+    {
+     "flag": "u1_grimsley"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_caitlin",
+   "map": "unova_e4_caitlin",
+   "era": 1,
+   "require": [
+    "u1_league"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_caitlin"
+   },
+   "who": "嘉德丽雅",
+   "steps": [
+    {
+     "who": "嘉德丽雅",
+     "say": [
+      "能让我睁开眼睛的挑战者并不多。请你和伙伴一起，使出全力。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "嘉德丽雅",
+      "unova_era": 1,
+      "u_teams": [
+       "1/231"
+      ]
+     }
+    },
+    {
+     "flag": "u1_caitlin"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_marshal",
+   "map": "unova_e4_marshal",
+   "era": 1,
+   "require": [
+    "u1_league"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_marshal"
+   },
+   "who": "连武",
+   "steps": [
+    {
+     "who": "连武",
+     "say": [
+      "我从阿戴克师父身上学到，强大没有终点。让我领教你的本事！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "连武",
+      "unova_era": 1,
+      "u_teams": [
+       "1/229"
+      ]
+     }
+    },
+    {
+     "flag": "u1_marshal"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u1_castle_rises",
+   "map": "unova_champion_room",
+   "era": 1,
+   "require": [
+    "u1_shauntal",
+    "u1_grimsley",
+    "u1_caitlin",
+    "u1_marshal"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_castle_rises"
+   },
+   "who": "阿戴克",
+   "steps": [
+    {
+     "who": "阿戴克",
+     "say": [
+      "我输了。N，为什么连听伙伴说话的你，也要让大家分离？"
+     ]
+    },
+    {
+     "who": "N",
+     "say": [
+      "我的城堡已同联盟相连。小悠，我在王座前等你和另一位英雄。"
+     ]
+    },
+    {
+     "flag": "u1_castle_rises"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "N"
+   ]
+  },
+  {
+   "id": "u1_reshiram",
+   "map": "unova_ns_castle",
+   "era": 1,
+   "require": [
+    "u1_castle_rises"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_reshiram"
+   },
+   "who": "N",
+   "steps": [
+    {
+     "who": "N",
+     "say": [
+      "你的光明石在发光。雷希拉姆，醒来吧！先让它知道你的意志。"
+     ]
+    },
+    {
+     "unova_dragon": true
+    },
+    {
+     "remove_item": "光明石"
+    },
+    {
+     "flag": "u1_reshiram"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "雷希拉姆"
+   ]
+  },
+  {
+   "id": "u1_n_final",
+   "map": "unova_ns_castle",
+   "era": 1,
+   "require": [
+    "u1_reshiram"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_n_final"
+   },
+   "who": "N",
+   "steps": [
+    {
+     "who": "N",
+     "say": [
+      "现在，两位英雄和各自的龙都到了。来决定我们要走的道路吧。"
+     ]
+    },
+    {
+     "heal": true
+    },
+    {
+     "battle": {
+      "name": "N",
+      "unova_era": 1,
+      "u_teams": [
+       "1/587"
+      ]
+     }
+    },
+    {
+     "flag": "u1_n_final"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "捷克罗姆"
+   ]
+  },
+  {
+   "id": "u1_ghetsis",
+   "map": "unova_ns_castle",
+   "era": 1,
+   "require": [
+    "u1_n_final"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_ghetsis"
+   },
+   "who": "魁奇思",
+   "steps": [
+    {
+     "who": "魁奇思",
+     "say": [
+      "解放宝可梦？我是要其他人都失去伙伴，只有我能掌握力量！N，你竟然输了！"
+     ]
+    },
+    {
+     "heal": true
+    },
+    {
+     "battle": {
+      "name": "魁奇思",
+      "unova_era": 1,
+      "u_teams": [
+       "1/232"
+      ]
+     }
+    },
+    {
+     "who": "黑连",
+     "say": [
+      "魁奇思由我们带走。N，你自己听到了他们的声音。"
+     ]
+    },
+    {
+     "who": "N",
+     "say": [
+      "原来宝可梦可以这样相信人类。小悠，你有自己的梦想。向着它走下去吧。再见。"
+     ]
+    },
+    {
+     "flag": "u1_ghetsis"
+    },
+    {
+     "unova_warp": "unova_bw_home_2f"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "N",
+    "黑连"
+   ]
+  },
+  {
+   "id": "u1_again_shauntal",
+   "map": "unova_e4_shauntal",
+   "era": 1,
+   "require": [
+    "u1_ghetsis"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_again_shauntal"
+   },
+   "who": "婉龙",
+   "steps": [
+    {
+     "who": "婉龙",
+     "say": [
+      "我总想把这样的相遇写进书里。今天，你来翻开新的一页吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "婉龙",
+      "unova_era": 1,
+      "u_teams": [
+       "1/563"
+      ]
+     }
+    },
+    {
+     "flag": "u1_again_shauntal"
+    }
+   ],
+   "route": false
+  },
+  {
+   "id": "u1_again_grimsley",
+   "map": "unova_e4_grimsley",
+   "era": 1,
+   "require": [
+    "u1_ghetsis"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_again_grimsley"
+   },
+   "who": "越橘",
+   "steps": [
+    {
+     "who": "越橘",
+     "say": [
+      "赌局里要懂得接受输赢。对战也一样，让我们看看你会怎么出牌。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "越橘",
+      "unova_era": 1,
+      "u_teams": [
+       "1/565"
+      ]
+     }
+    },
+    {
+     "flag": "u1_again_grimsley"
+    }
+   ],
+   "route": false
+  },
+  {
+   "id": "u1_again_caitlin",
+   "map": "unova_e4_caitlin",
+   "era": 1,
+   "require": [
+    "u1_ghetsis"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_again_caitlin"
+   },
+   "who": "嘉德丽雅",
+   "steps": [
+    {
+     "who": "嘉德丽雅",
+     "say": [
+      "能让我睁开眼睛的挑战者并不多。请你和伙伴一起，使出全力。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "嘉德丽雅",
+      "unova_era": 1,
+      "u_teams": [
+       "1/566"
+      ]
+     }
+    },
+    {
+     "flag": "u1_again_caitlin"
+    }
+   ],
+   "route": false
+  },
+  {
+   "id": "u1_again_marshal",
+   "map": "unova_e4_marshal",
+   "era": 1,
+   "require": [
+    "u1_ghetsis"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_again_marshal"
+   },
+   "who": "连武",
+   "steps": [
+    {
+     "who": "连武",
+     "say": [
+      "我从阿戴克师父身上学到，强大没有终点。让我领教你的本事！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "连武",
+      "unova_era": 1,
+      "u_teams": [
+       "1/564"
+      ]
+     }
+    },
+    {
+     "flag": "u1_again_marshal"
+    }
+   ],
+   "route": false
+  },
+  {
+   "id": "u1_alder",
+   "map": "unova_champion_room",
+   "era": 1,
+   "require": [
+    "u1_again_shauntal",
+    "u1_again_grimsley",
+    "u1_again_caitlin",
+    "u1_again_marshal"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_alder"
+   },
+   "who": "阿戴克",
+   "steps": [
+    {
+     "who": "阿戴克",
+     "say": [
+      "这回擂台上的冠军是我。让我看看从那个城堡走出来的你和伙伴们！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "阿戴克",
+      "unova_era": 1,
+      "u_teams": [
+       "1/407"
+      ]
+     }
+    },
+    {
+     "unova_hall": "bw"
+    },
+    {
+     "flag": "u1_alder"
+    }
+   ],
+   "route": false
+  },
+  {
+   "id": "u1_alder_repeat",
+   "map": "unova_champion_room",
+   "era": 1,
+   "require": [
+    "u1_again_shauntal",
+    "u1_again_grimsley",
+    "u1_again_caitlin",
+    "u1_again_marshal",
+    "u1_alder"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_alder_repeat"
+   },
+   "who": "阿戴克",
+   "steps": [
+    {
+     "who": "阿戴克",
+     "say": [
+      "欢迎回来！带上这回与四天王战斗过的伙伴，再来挑战冠军吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "阿戴克",
+      "unova_era": 1,
+      "u_teams": [
+       "1/407"
+      ]
+     }
+    },
+    {
+     "unova_repeat_hall": "bw"
+    },
+    {
+     "flag": "u1_alder_repeat"
+    }
+   ],
+   "route": false
+  },
+  {
+   "id": "u1_two_years",
+   "map": "unova_bw_home_1f",
+   "era": 1,
+   "require": [
+    "u1_ghetsis"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u1_two_years"
+   },
+   "who": "妈妈",
+   "steps": [
+    {
+     "who": "妈妈",
+     "say": [
+      "后来，桧扇市也有了自己的道馆。想听两年后从那里开始的故事吗？你也可以先留在现在的合众。"
+     ]
+    },
+    {
+     "unova_sequel": true
+    },
+    {
+     "flag": "u1_two_years"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_home",
+   "map": "unova_b2_home",
+   "era": 2,
+   "require": [
+    "u2_started"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_home"
+   },
+   "who": "妈妈",
+   "steps": [
+    {
+     "who": "妈妈",
+     "say": [
+      "红豆杉博士的助手白露到了。她戴着一顶绿帽，你去桧扇市的展望台看看！"
+     ]
+    },
+    {
+     "flag": "u2_home"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_first_battle",
+   "map": "unova_aspertia_lookout",
+   "era": 2,
+   "require": [
+    "u2_home"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_first_battle"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "我是红豆杉博士的助手白露。站在能看见整个合众的地方，选一位一起出发的伙伴吧。"
+     ]
+    },
+    {
+     "unova_starter": 2
+    },
+    {
+     "unova_key": "合众图鉴"
+    },
+    {
+     "who": "阿修",
+     "say": [
+      "这孩子从蛋里孵出来，我一直带着它训练。小悠，就在这儿比一场！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "阿修",
+      "unova_era": 2,
+      "unova_starter_only": 2,
+      "finish_on_loss": true,
+      "u_variants": [
+       "2/161",
+       "2/162",
+       "2/163"
+      ]
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "u2_first_battle"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "阿修"
+   ]
+  },
+  {
+   "id": "u2_maps",
+   "map": "unova_aspertia",
+   "era": 2,
+   "require": [
+    "u2_first_battle"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_maps"
+   },
+   "who": "妈妈",
+   "steps": [
+    {
+     "who": "妈妈",
+     "say": [
+      "这是跑步鞋。阿修的妹妹也给你准备了两张地图，记得把另一份送给哥哥。"
+     ]
+    },
+    {
+     "unova_key": "跑步鞋"
+    },
+    {
+     "unova_key": "城镇地图"
+    },
+    {
+     "unova_key": "给阿修的地图"
+    },
+    {
+     "who": "白露",
+     "say": [
+      "到十九号道路找我，我来教你如何捕捉宝可梦。"
+     ]
+    },
+    {
+     "flag": "u2_maps"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "阿修的妹妹",
+    "白露"
+   ]
+  },
+  {
+   "id": "u2_catch",
+   "map": "unova_19",
+   "era": 2,
+   "require": [
+    "u2_maps"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_catch"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "先削弱体力，状态异常也能帮上忙。看看我怎么对付这只扒手猫。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "精灵球",
+      "count": 10,
+      "category": "ball"
+     }
+    },
+    {
+     "flag": "u2_catch"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_alder_visit",
+   "map": "unova_floccesy",
+   "era": 2,
+   "require": [
+    "u2_catch"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_alder_visit"
+   },
+   "who": "阿戴克",
+   "steps": [
+    {
+     "who": "阿戴克",
+     "say": [
+      "久等了！看得出你正赶着送东西。沿着二十号道路去牧场，你会碰上那孩子。"
+     ]
+    },
+    {
+     "flag": "u2_alder_visit"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_ranch_rival",
+   "map": "unova_b2_zone_445",
+   "era": 2,
+   "require": [
+    "u2_alder_visit"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_ranch_rival"
+   },
+   "who": "阿修",
+   "steps": [
+    {
+     "who": "阿修",
+     "say": [
+      "你也到算木牧场了？来打一场，给我看看你和新伙伴练得怎么样！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "阿修",
+      "unova_era": 2,
+      "u_variants": [
+       "2/166",
+       "2/167",
+       "2/168"
+      ]
+     }
+    },
+    {
+     "remove_item": "给阿修的地图"
+    },
+    {
+     "who": "牧场主人",
+     "say": [
+      "哈约克不见了！拜托你们帮我在牧场深处找一找。"
+     ]
+    },
+    {
+     "flag": "u2_ranch_rival"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "牧场主人"
+   ]
+  },
+  {
+   "id": "u2_herdier",
+   "map": "unova_b2_zone_445",
+   "era": 2,
+   "require": [
+    "u2_ranch_rival"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_herdier"
+   },
+   "who": "等离子队队员",
+   "steps": [
+    {
+     "who": "等离子队队员",
+     "say": [
+      "找的就是这只哈约克？别追！给你个学习器，放我走！"
+     ]
+    },
+    {
+     "unova_tm": 21
+    },
+    {
+     "who": "阿修",
+     "say": [
+      "哈约克，平安就好。我绝不会放过夺走别人伙伴的家伙。"
+     ]
+    },
+    {
+     "flag": "u2_herdier"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "哈约克",
+    "阿修"
+   ]
+  },
+  {
+   "id": "u2_school",
+   "map": "unova_b2_zone_440",
+   "era": 2,
+   "require": [
+    "u2_herdier"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_school"
+   },
+   "who": "阿戴克",
+   "steps": [
+    {
+     "who": "阿戴克",
+     "say": [
+      "帮我给孩子们上一堂属性课。弱点、抵抗，都在交手时最容易理解。"
+     ]
+    },
+    {
+     "unova_school": true
+    },
+    {
+     "flag": "u2_school"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "男学生",
+    "女学生"
+   ]
+  },
+  {
+   "id": "u2_badge_1",
+   "map": "unova_b2_gym_aspertia",
+   "era": 2,
+   "require": [
+    "u2_school"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_badge_1"
+   },
+   "who": "黑连",
+   "steps": [
+    {
+     "who": "黑连",
+     "say": [
+      "我是桧扇道馆的新馆主黑连。第一次以馆主身份迎接挑战，心情和当年很不一样。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "黑连",
+      "unova_era": 2,
+      "u_teams": [
+       "2/156"
+      ]
+     }
+    },
+    {
+     "who": "黑连",
+     "say": [
+      "这是我亲手颁发的第一枚基础徽章。谢谢你和伙伴的精彩表现。"
+     ]
+    },
+    {
+     "unova_badge": "基础徽章"
+    },
+    {
+     "unova_tm": 83
+    },
+    {
+     "flag": "u2_badge_1"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u2_returns",
+   "map": "unova_aspertia",
+   "era": 2,
+   "require": [
+    "u2_badge_1"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_returns"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "黑连现在是可靠的老师了吧？这是报恩，宝可梦越亲近你，威力越强。"
+     ]
+    },
+    {
+     "unova_tm": 27
+    },
+    {
+     "flag": "u2_returns"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "黑连",
+    "阿修"
+   ]
+  },
+  {
+   "id": "u2_captain",
+   "map": "unova_virbank",
+   "era": 2,
+   "require": [
+    "u2_returns"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_captain"
+   },
+   "who": "霍米加",
+   "steps": [
+    {
+     "who": "霍米加",
+     "say": [
+      "爸爸，船在码头等着，你却要去拍电影？我先回道馆。你可得给乘客一个交代。"
+     ]
+    },
+    {
+     "flag": "u2_captain"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "船长"
+   ]
+  },
+  {
+   "id": "u2_badge_2",
+   "map": "unova_b2_gym_virbank",
+   "era": 2,
+   "require": [
+    "u2_captain"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_badge_2"
+   },
+   "who": "霍米加",
+   "steps": [
+    {
+     "who": "霍米加",
+     "say": [
+      "让低音和毒气一起涌上来！我听得见你和伙伴合拍的声音。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "霍米加",
+      "unova_era": 2,
+      "u_teams": [
+       "2/157"
+      ]
+     }
+    },
+    {
+     "who": "霍米加",
+     "say": [
+      "能在这么大的音量中抓住节奏，你们值得毒烟徽章。"
+     ]
+    },
+    {
+     "unova_badge": "毒烟徽章"
+    },
+    {
+     "unova_tm": 9
+    },
+    {
+     "flag": "u2_badge_2"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u2_studio",
+   "map": "unova_b2_zone_567",
+   "era": 2,
+   "require": [
+    "u2_badge_2"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_studio"
+   },
+   "who": "哈奇库",
+   "steps": [
+    {
+     "who": "哈奇库",
+     "say": [
+      "摄影棚准备好了。借你的搭档是利欧路。看准驹刀小兵和秃鹰丫头的弱点，把两幕戏演完吧。"
+     ]
+    },
+    {
+     "unova_studio": true
+    },
+    {
+     "who": "船长",
+     "say": [
+      "现在我知道了，我最想当的是能让乘客安心的船长。码头见！"
+     ]
+    },
+    {
+     "flag": "u2_studio"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "船长"
+   ]
+  },
+  {
+   "id": "u2_port",
+   "map": "unova_virbank",
+   "era": 2,
+   "require": [
+    "u2_studio"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_port"
+   },
+   "who": "阿修",
+   "steps": [
+    {
+     "who": "阿修",
+     "say": [
+      "那些黑衣人是等离子队！霍米加对付一个，另一个就拜托你了。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 2,
+      "u_teams": [
+       "2/690"
+      ]
+     }
+    },
+    {
+     "who": "霍米加",
+     "say": [
+      "别让他们跑了。这个居合斩送你，去二十号道路找找！"
+     ]
+    },
+    {
+     "unova_hm": 1
+    },
+    {
+     "flag": "u2_port"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "霍米加",
+    "等离子队队员"
+   ]
+  },
+  {
+   "id": "u2_pursuit",
+   "map": "unova_20",
+   "era": 2,
+   "require": [
+    "u2_port"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_pursuit"
+   },
+   "who": "等离子队队员",
+   "steps": [
+    {
+     "who": "等离子队队员",
+     "say": [
+      "怎么连这儿都让你找到了！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 2,
+      "u_teams": [
+       "2/763"
+      ]
+     }
+    },
+    {
+     "who": "阿修",
+     "say": [
+      "他们打算坐船去飞云。我们也回立涌的码头！"
+     ]
+    },
+    {
+     "flag": "u2_pursuit"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_ferry",
+   "map": "unova_virbank",
+   "era": 2,
+   "require": [
+    "u2_pursuit"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_ferry"
+   },
+   "who": "船长",
+   "steps": [
+    {
+     "who": "船长",
+     "say": [
+      "去飞云港的乘客上船了！多谢你们帮我找回掌舵的劲头。"
+     ]
+    },
+    {
+     "flag": "u2_ferry"
+    },
+    {
+     "unova_warp": "unova_castelia"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "阿修"
+   ]
+  },
+  {
+   "id": "u2_iris_port",
+   "map": "unova_castelia",
+   "era": 2,
+   "require": [
+    "u2_ferry"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_iris_port"
+   },
+   "who": "艾莉丝",
+   "steps": [
+    {
+     "who": "艾莉丝",
+     "say": [
+      "亚堤去追一伙可疑的人了。你要找他？跟我来，飞云下水道的入口在码头旁。"
+     ]
+    },
+    {
+     "flag": "u2_iris_port"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "阿修"
+   ]
+  },
+  {
+   "id": "u2_sewers",
+   "map": "unova_castelia_sewers",
+   "era": 2,
+   "require": [
+    "u2_iris_port"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_sewers"
+   },
+   "who": "阿修",
+   "steps": [
+    {
+     "who": "阿修",
+     "say": [
+      "这里果然有等离子队！我来照顾队伍的体力，你和我一起上！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 2,
+      "u_teams": [
+       "2/342",
+       "2/356"
+      ],
+      "double": true,
+      "ally": "unova",
+      "u_ally": [
+       "2/588",
+       "2/589",
+       "2/590"
+      ]
+     }
+    },
+    {
+     "who": "亚堤",
+     "say": [
+      "谢谢你们！我得回道馆了。"
+     ]
+    },
+    {
+     "who": "阿修",
+     "say": [
+      "这个怪力给你。只要想到我妹妹的扒手猫，我就不能停。"
+     ]
+    },
+    {
+     "unova_hm": 4
+    },
+    {
+     "flag": "u2_sewers"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "亚堤",
+    "阿克罗玛"
+   ]
+  },
+  {
+   "id": "u2_badge_3",
+   "map": "unova_b2_gym_castelia",
+   "era": 2,
+   "require": [
+    "u2_sewers"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_badge_3"
+   },
+   "who": "亚堤",
+   "steps": [
+    {
+     "who": "亚堤",
+     "say": [
+      "丝线把画室连在一起，虫宝可梦的变化让我画也画不完。轮到我们对战了！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "亚堤",
+      "unova_era": 2,
+      "u_teams": [
+       "2/154"
+      ]
+     }
+    },
+    {
+     "who": "亚堤",
+     "say": [
+      "甲虫徽章，送给从茧里走出来的伙伴。"
+     ]
+    },
+    {
+     "unova_badge": "甲虫徽章"
+    },
+    {
+     "unova_tm": 76
+    },
+    {
+     "flag": "u2_badge_3"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u2_dowsing",
+   "map": "unova_castelia_gate_north",
+   "era": 2,
+   "require": [
+    "u2_badge_3"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_dowsing"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "终于赶上你了！这台探宝器能指出附近藏着道具的方向。去四号道路的路上试试吧！"
+     ]
+    },
+    {
+     "unova_key": "探宝器"
+    },
+    {
+     "flag": "u2_dowsing"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_colress_4",
+   "map": "unova_4",
+   "era": 2,
+   "require": [
+    "u2_dowsing"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_colress_4"
+   },
+   "who": "阿克罗玛",
+   "steps": [
+    {
+     "who": "阿克罗玛",
+     "say": [
+      "堵住道路的岩殿居蟹，并非用蛮力才能赶走。我想知道，什么能让宝可梦发挥力量。请和我交手。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "阿克罗玛",
+      "unova_era": 2,
+      "u_teams": [
+       "2/358"
+      ]
+     }
+    },
+    {
+     "flag": "u2_colress_4"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_subway",
+   "map": "unova_nimbasa",
+   "era": 2,
+   "require": [
+    "u2_colress_4"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_subway"
+   },
+   "who": "鸣依",
+   "steps": [
+    {
+     "who": "鸣依",
+     "say": [
+      "那边是地铁总控官北尚和南厦。只有两个人组队才行，你愿意和我一起吗？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "北尚和南厦",
+      "unova_era": 2,
+      "u_teams": [
+       "2/732",
+       "2/733"
+      ],
+      "double": true,
+      "ally": "unova",
+      "u_ally": [
+       "2/363",
+       "2/364",
+       "2/365"
+      ]
+     }
+    },
+    {
+     "flag": "u2_subway"
+    }
+   ],
+   "route": false,
+   "guests": [
+    "北尚",
+    "南厦"
+   ]
+  },
+  {
+   "id": "u2_old_gym",
+   "map": "unova_nimbasa_old_gym",
+   "era": 2,
+   "require": [
+    "u2_colress_4"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_old_gym"
+   },
+   "who": "模特",
+   "steps": [
+    {
+     "who": "模特",
+     "say": [
+      "你来晚了一步，小菊儿已经搬去新的舞台了。坐车到终点就知道下一步往哪儿走。"
+     ]
+    },
+    {
+     "flag": "u2_old_gym"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_badge_4",
+   "map": "unova_b2_gym_nimbasa",
+   "era": 2,
+   "require": [
+    "u2_old_gym"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_badge_4"
+   },
+   "who": "小菊儿",
+   "steps": [
+    {
+     "who": "小菊儿",
+     "say": [
+      "欢迎来到我的新舞台。灯光调好，让我们把最精彩的表演献给观众吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "小菊儿",
+      "unova_era": 2,
+      "u_teams": [
+       "2/153"
+      ]
+     }
+    },
+    {
+     "who": "小菊儿",
+     "say": [
+      "你们果然值得压轴出场。请收下伏特徽章。"
+     ]
+    },
+    {
+     "unova_badge": "伏特徽章"
+    },
+    {
+     "unova_tm": 72
+    },
+    {
+     "flag": "u2_badge_4"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u2_plasma_park",
+   "map": "unova_nimbasa",
+   "era": 2,
+   "require": [
+    "u2_badge_4"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_plasma_park"
+   },
+   "who": "阿修",
+   "steps": [
+    {
+     "who": "阿修",
+     "say": [
+      "我妹妹的扒手猫被他们抢走五年了。你问我为什么这么生气？我答应过要找回来。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 2,
+      "u_teams": [
+       "2/359"
+      ]
+     }
+    },
+    {
+     "flag": "u2_plasma_park"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "等离子队队员"
+   ]
+  },
+  {
+   "id": "u2_grotto",
+   "map": "unova_5",
+   "era": 2,
+   "require": [
+    "u2_plasma_park"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_grotto"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "把飞翔收下吧。你看那两棵树之间！从这里钻进去，也许能发现平时看不到的宝可梦。"
+     ]
+    },
+    {
+     "unova_hm": 2
+    },
+    {
+     "flag": "u2_grotto"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_charles",
+   "map": "unova_5",
+   "era": 2,
+   "require": [
+    "u2_grotto"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_charles"
+   },
+   "who": "查尔斯",
+   "steps": [
+    {
+     "who": "查尔斯",
+     "say": [
+      "第一次在路上见到轮盘对战？三只伙伴同时出场，每回合由站到前面的伙伴出招。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "查尔斯",
+      "unova_era": 2,
+      "battle_type": "rotation",
+      "u_teams": [
+       "2/340"
+      ]
+     }
+    },
+    {
+     "flag": "u2_charles"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_rood",
+   "map": "unova_driftveil",
+   "era": 2,
+   "require": [
+    "u2_charles"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_rood"
+   },
+   "who": "罗德",
+   "steps": [
+    {
+     "who": "罗德",
+     "say": [
+      "我曾是七贤人。现在我们照顾那些回不了家的伙伴。如果你愿意，请用对战让我看看你的心。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "罗德",
+      "unova_era": 2,
+      "u_teams": [
+       "2/346"
+      ]
+     }
+    },
+    {
+     "flag": "u2_rood"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "阿修"
+   ]
+  },
+  {
+   "id": "u2_badge_5",
+   "map": "unova_b2_gym_driftveil",
+   "era": 2,
+   "require": [
+    "u2_rood"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_badge_5"
+   },
+   "who": "菊老大",
+   "steps": [
+    {
+     "who": "菊老大",
+     "say": [
+      "我对嘴上说的漂亮话没兴趣。拿出你们真正的实力！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "菊老大",
+      "unova_era": 2,
+      "u_teams": [
+       "2/158"
+      ]
+     }
+    },
+    {
+     "who": "菊老大",
+     "say": [
+      "帆巴有个新会场叫宝可梦世界锦标赛。领了徽章，也去打场锦标赛吧。"
+     ]
+    },
+    {
+     "unova_badge": "震动徽章"
+    },
+    {
+     "unova_tm": 78
+    },
+    {
+     "flag": "u2_badge_5"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u2_pwt",
+   "map": "unova_pwt",
+   "era": 2,
+   "require": [
+    "u2_badge_5"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_pwt"
+   },
+   "who": "菊老大",
+   "steps": [
+    {
+     "who": "菊老大",
+     "say": [
+      "首届帆巴锦标赛开始！从队伍中选三只出场。三轮单打，对手都是二十五级。"
+     ]
+    },
+    {
+     "unova_pwt": true
+    },
+    {
+     "flag": "u2_pwt"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "黑连",
+    "阿修"
+   ]
+  },
+  {
+   "id": "u2_frigate_port",
+   "map": "unova_frigate_driftveil",
+   "era": 2,
+   "require": [
+    "u2_pwt"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_frigate_port"
+   },
+   "who": "黑连",
+   "steps": [
+    {
+     "who": "黑连",
+     "say": [
+      "这是一艘武装船。小悠、阿修，守住彼此的背后。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 2,
+      "u_teams": [
+       "2/372"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 2,
+      "u_teams": [
+       "2/374",
+       "2/375"
+      ],
+      "double": true,
+      "ally": "unova",
+      "u_ally": [
+       "2/371",
+       "2/371",
+       "2/371"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 2,
+      "u_teams": [
+       "2/376",
+       "2/377"
+      ],
+      "double": true,
+      "ally": "unova",
+      "u_ally": [
+       "2/368",
+       "2/369",
+       "2/370"
+      ]
+     }
+    },
+    {
+     "who": "维奥",
+     "say": [
+      "黑暗铁三角，把这些不请自来的人送下船。"
+     ]
+    },
+    {
+     "flag": "u2_frigate_port"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "阿修",
+    "维奥"
+   ]
+  },
+  {
+   "id": "u2_surf",
+   "map": "unova_6",
+   "era": 2,
+   "require": [
+    "u2_frigate_port"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_surf"
+   },
+   "who": "黑连",
+   "steps": [
+    {
+     "who": "黑连",
+     "say": [
+      "十一度的异常低温已经在各处出现过。我会继续调查。这个冲浪学习器会帮你渡过阻路的水面。"
+     ]
+    },
+    {
+     "unova_hm": 3
+    },
+    {
+     "flag": "u2_surf"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_professor",
+   "map": "unova_mistralton",
+   "era": 2,
+   "require": [
+    "u2_surf"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_professor"
+   },
+   "who": "红豆杉博士",
+   "steps": [
+    {
+     "who": "红豆杉博士",
+     "say": [
+      "我一直想见见白露挑的训练家。这颗大师球交给你，我先去天堂之塔研究。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "大师球",
+      "count": 1,
+      "category": "ball"
+     }
+    },
+    {
+     "flag": "u2_professor"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "风露"
+   ]
+  },
+  {
+   "id": "u2_badge_6",
+   "map": "unova_b2_gym_mistralton",
+   "era": 2,
+   "require": [
+    "u2_professor"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_badge_6"
+   },
+   "who": "风露",
+   "steps": [
+    {
+     "who": "风露",
+     "say": [
+      "站稳了吗？接下来迎着劲风和我对战！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "风露",
+      "unova_era": 2,
+      "u_teams": [
+       "2/155"
+      ]
+     }
+    },
+    {
+     "who": "风露",
+     "say": [
+      "有了喷射徽章，你可以骄傲地和伙伴一起飞越群山。"
+     ]
+    },
+    {
+     "unova_badge": "喷射徽章"
+    },
+    {
+     "unova_tm": 62
+    },
+    {
+     "flag": "u2_badge_6"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u2_flight",
+   "map": "unova_mistralton",
+   "era": 2,
+   "require": [
+    "u2_badge_6"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_flight"
+   },
+   "who": "风露",
+   "steps": [
+    {
+     "who": "风露",
+     "say": [
+      "窗外山脊的另一侧就是山路镇。博士和白露都准备好了，上飞机吧！"
+     ]
+    },
+    {
+     "flag": "u2_flight"
+    },
+    {
+     "unova_warp": "unova_lentimas"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "红豆杉博士",
+    "白露"
+   ]
+  },
+  {
+   "id": "u2_reverse",
+   "map": "unova_b2_zone_533",
+   "era": 2,
+   "require": [
+    "u2_flight"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_reverse"
+   },
+   "who": "白露",
+   "steps": [
+    {
+     "who": "白露",
+     "say": [
+      "反转山深处的洞，看起来像是什么宝可梦住过的地方。我们一起走吧，我会帮队员恢复体力。"
+     ]
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "u2_reverse"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_undella",
+   "map": "unova_undella",
+   "era": 2,
+   "require": [
+    "u2_reverse"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_undella"
+   },
+   "who": "阿修",
+   "steps": [
+    {
+     "who": "阿修",
+     "say": [
+      "等离子队的船还在附近。你和伙伴有没有变得更强？让我试一试！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "阿修",
+      "unova_era": 2,
+      "u_variants": [
+       "2/378",
+       "2/379",
+       "2/380"
+      ]
+     }
+    },
+    {
+     "flag": "u2_undella"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_lacunosa",
+   "map": "unova_lacunosa",
+   "era": 2,
+   "require": [
+    "u2_undella"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_lacunosa"
+   },
+   "who": "红豆杉博士",
+   "steps": [
+    {
+     "who": "红豆杉博士",
+     "say": [
+      "相传巨人洞窟有一只随陨石而来的宝可梦。镇上的奶奶知道那个故事。"
+     ]
+    },
+    {
+     "flag": "u2_lacunosa"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "白露"
+   ]
+  },
+  {
+   "id": "u2_zinzolin",
+   "map": "unova_lacunosa",
+   "era": 2,
+   "require": [
+    "u2_lacunosa"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_zinzolin"
+   },
+   "who": "维奥",
+   "steps": [
+    {
+     "who": "维奥",
+     "say": [
+      "冰封的世界会让人们听从等离子队！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "维奥和等离子队队员",
+      "unova_era": 2,
+      "u_teams": [
+       "2/704",
+       "2/705"
+      ],
+      "double": true,
+      "ally": "unova",
+      "u_ally": [
+       "2/701",
+       "2/702",
+       "2/703"
+      ]
+     }
+    },
+    {
+     "flag": "u2_zinzolin"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "阿修",
+    "等离子队队员"
+   ]
+  },
+  {
+   "id": "u2_badge_7",
+   "map": "unova_b2_gym_opelucid",
+   "era": 2,
+   "require": [
+    "u2_zinzolin"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_badge_7"
+   },
+   "who": "夏卡",
+   "steps": [
+    {
+     "who": "夏卡",
+     "say": [
+      "这座龙道馆换了模样。你能走到这里，我愿意以全部实力回应。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "夏卡",
+      "unova_era": 2,
+      "u_teams": [
+       "2/159"
+      ]
+     }
+    },
+    {
+     "who": "夏卡",
+     "say": [
+      "传说徽章归你。关于传说中的龙，我家里还有些事情想告诉你。"
+     ]
+    },
+    {
+     "unova_badge": "传说徽章"
+    },
+    {
+     "unova_tm": 82
+    },
+    {
+     "flag": "u2_badge_7"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u2_splicers",
+   "map": "unova_opelucid_house",
+   "era": 2,
+   "require": [
+    "u2_badge_7"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_splicers"
+   },
+   "who": "夏卡",
+   "steps": [
+    {
+     "who": "夏卡",
+     "say": [
+      "留下两头龙的传说之外，双龙市还保管着一件宝物，叫基因之楔。外边怎么会有炮声？"
+     ]
+    },
+    {
+     "flag": "u2_splicers"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_freeze",
+   "map": "unova_opelucid",
+   "era": 2,
+   "require": [
+    "u2_splicers"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_freeze"
+   },
+   "who": "维奥",
+   "steps": [
+    {
+     "who": "维奥",
+     "say": [
+      "等离子驱逐舰，发射！看吧，整座双龙市都将在寒冰中俯首。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 2,
+      "u_teams": [
+       "2/585"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 2,
+      "u_teams": [
+       "2/586"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 2,
+      "u_teams": [
+       "2/587"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "维奥",
+      "unova_era": 2,
+      "u_teams": [
+       "2/584"
+      ]
+     }
+    },
+    {
+     "flag": "u2_freeze"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "夏卡"
+   ]
+  },
+  {
+   "id": "u2_shadow",
+   "map": "unova_opelucid",
+   "era": 2,
+   "require": [
+    "u2_freeze"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_shadow"
+   },
+   "who": "黑暗铁三角",
+   "steps": [
+    {
+     "who": "黑暗铁三角",
+     "say": [
+      "基因之楔到手了。你只能追上我的影子。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "黑暗铁三角",
+      "unova_era": 2,
+      "u_teams": [
+       "2/583"
+      ]
+     }
+    },
+    {
+     "who": "黑连",
+     "say": [
+      "他们还有别的同伴。我要追查驱逐舰的行踪。你从涟漪镇乘海洋隧道去青海波市。"
+     ]
+    },
+    {
+     "flag": "u2_shadow"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "黑连"
+   ]
+  },
+  {
+   "id": "u2_marlon",
+   "map": "unova_humilau",
+   "era": 2,
+   "require": [
+    "u2_shadow"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_marlon"
+   },
+   "who": "西子伊",
+   "steps": [
+    {
+     "who": "西子伊",
+     "say": [
+      "游泳游到忘了时间！你是来挑战道馆的吧？我这就回去。"
+     ]
+    },
+    {
+     "flag": "u2_marlon"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_badge_8",
+   "map": "unova_b2_gym_humilau",
+   "era": 2,
+   "require": [
+    "u2_marlon"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_badge_8"
+   },
+   "who": "西子伊",
+   "steps": [
+    {
+     "who": "西子伊",
+     "say": [
+      "听一听海浪，跟水属性的伙伴们一起放开手脚吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "西子伊",
+      "unova_era": 2,
+      "u_teams": [
+       "2/160"
+      ]
+     }
+    },
+    {
+     "who": "西子伊",
+     "say": [
+      "八枚都集齐了！接下来你怎么帮那些陷入麻烦的人，由你自己来决定。"
+     ]
+    },
+    {
+     "unova_badge": "海浪徽章"
+    },
+    {
+     "unova_tm": 55
+    },
+    {
+     "flag": "u2_badge_8"
+    }
+   ],
+   "route": true,
+   "resident": true
+  },
+  {
+   "id": "u2_mchn",
+   "map": "unova_22",
+   "era": 2,
+   "require": [
+    "u2_badge_8"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_mchn"
+   },
+   "who": "阿克罗玛",
+   "steps": [
+    {
+     "who": "阿克罗玛",
+     "say": [
+      "这台仪器能激发宝可梦的力量。海边洞穴里如果有岩殿居蟹拦路，不妨试试。"
+     ]
+    },
+    {
+     "unova_key": "阿克罗玛机器"
+    },
+    {
+     "flag": "u2_mchn"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_crustle",
+   "map": "unova_seaside_cave",
+   "era": 2,
+   "require": [
+    "u2_mchn"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_crustle"
+   },
+   "who": "岩殿居蟹",
+   "steps": [
+    {
+     "who": "岩殿居蟹",
+     "say": [
+      "岩石动了一下。打开阿克罗玛机器，挡住出口的岩殿居蟹醒了！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "岩殿居蟹",
+      "wild": true,
+      "finish_on_escape": true,
+      "team": [
+       {
+        "species": 558,
+        "level": 42
+       }
+      ]
+     }
+    },
+    {
+     "remove_item": "阿克罗玛机器"
+    },
+    {
+     "flag": "u2_crustle"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_board_ship",
+   "map": "unova_frigate_seaside",
+   "era": 2,
+   "require": [
+    "u2_crustle"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_board_ship"
+   },
+   "who": "西子伊",
+   "steps": [
+    {
+     "who": "西子伊",
+     "say": [
+      "跳板已经放下来啦，你和阿修都能上船了。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 2,
+      "u_teams": [
+       "2/798",
+       "2/799"
+      ],
+      "double": true,
+      "ally": "unova",
+      "u_ally": [
+       "2/794",
+       "2/795",
+       "2/796"
+      ]
+     }
+    },
+    {
+     "flag": "u2_board_ship"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "阿修"
+   ]
+  },
+  {
+   "id": "u2_ship_switches",
+   "map": "unova_b2_zone_553",
+   "era": 2,
+   "require": [
+    "u2_board_ship",
+    "u2_panel_1",
+    "u2_panel_2",
+    "u2_panel_3",
+    "u2_panel_4"
+   ],
+   "trigger": {
+    "kind": "enter",
+    "actor": "u2_ship_switches"
+   },
+   "who": "电网",
+   "steps": [
+    {
+     "who": "电网",
+     "say": [
+      "最后一道电网消失了。通往船舱深处的通道已经断电。"
+     ]
+    },
+    {
+     "flag": "u2_ship_switches"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_ship_ice",
+   "map": "unova_b2_zone_556",
+   "era": 2,
+   "require": [
+    "u2_ship_switches"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_ship_ice"
+   },
+   "who": "维奥",
+   "steps": [
+    {
+     "who": "维奥",
+     "say": [
+      "制冷装置里关着的宝可梦是酋雷姆。它的力量，就连双龙市也抵挡不住。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "维奥和等离子队队员",
+      "unova_era": 2,
+      "u_teams": [
+       "2/797",
+       "2/347"
+      ],
+      "double": true,
+      "ally": "unova",
+      "u_ally": [
+       "2/794",
+       "2/795",
+       "2/796"
+      ]
+     }
+    },
+    {
+     "who": "黑暗铁三角",
+     "say": [
+      "你们的航程到这里就结束了。"
+     ]
+    },
+    {
+     "flag": "u2_ship_ice"
+    },
+    {
+     "unova_warp": "unova_21",
+     "at": [
+      30,
+      50
+     ],
+     "facing": "right"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "阿修"
+   ]
+  },
+  {
+   "id": "u2_chasm",
+   "map": "unova_b2_zone_233",
+   "era": 2,
+   "require": [
+    "u2_ship_ice"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_chasm"
+   },
+   "who": "罗德",
+   "steps": [
+    {
+     "who": "罗德",
+     "say": [
+      "我们曾经犯过错。现在让我和同伴们挡住他们，你们去阻止那艘船！"
+     ]
+    },
+    {
+     "flag": "u2_chasm"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "阿修"
+   ]
+  },
+  {
+   "id": "u2_card",
+   "map": "unova_b2_zone_561",
+   "era": 2,
+   "require": [
+    "u2_chasm"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_card"
+   },
+   "who": "等离子队队员",
+   "steps": [
+    {
+     "who": "等离子队队员",
+     "say": [
+      "想从传送装置进去？等离子卡在我身上！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "等离子队队员",
+      "unova_era": 2,
+      "u_teams": [
+       "2/439"
+      ]
+     }
+    },
+    {
+     "unova_key": "等离子卡"
+    },
+    {
+     "flag": "u2_card"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_password",
+   "map": "unova_b2_zone_561",
+   "era": 2,
+   "require": [
+    "u2_card"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_password"
+   },
+   "who": "控制面板",
+   "steps": [
+    {
+     "who": "控制面板",
+     "say": [
+      "在读卡器上刷等离子卡。密码提示亮了起来……"
+     ]
+    },
+    {
+     "unova_password": true
+    },
+    {
+     "flag": "u2_password"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_zinzolin_last",
+   "map": "unova_b2_zone_561",
+   "era": 2,
+   "require": [
+    "u2_password"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_zinzolin_last"
+   },
+   "who": "维奥",
+   "steps": [
+    {
+     "who": "维奥",
+     "say": [
+      "我身后的装置能将酋雷姆的力量变成冰。你休想把它放出来！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "维奥",
+      "unova_era": 2,
+      "u_teams": [
+       "2/497"
+      ]
+     }
+    },
+    {
+     "flag": "u2_zinzolin_last"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_lab",
+   "map": "unova_colress_lab",
+   "era": 2,
+   "require": [
+    "u2_zinzolin_last"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_lab"
+   },
+   "who": "阿克罗玛",
+   "steps": [
+    {
+     "who": "阿克罗玛",
+     "say": [
+      "可以用机器逼出力量，也可以相信伙伴。哪一种能引出它们全部的潜力？请用对战给我答案。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "阿克罗玛",
+      "unova_era": 2,
+      "u_teams": [
+       "2/344"
+      ]
+     }
+    },
+    {
+     "flag": "u2_lab"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_purrloin",
+   "map": "unova_b2_zone_557",
+   "era": 2,
+   "require": [
+    "u2_lab"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_purrloin"
+   },
+   "who": "黑暗铁三角",
+   "steps": [
+    {
+     "who": "黑暗铁三角",
+     "say": [
+      "五年前那只扒手猫？它已经进化成酷豹了。它还能认出原来的主人吗？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "黑暗铁三角",
+      "unova_era": 2,
+      "u_teams": [
+       "2/348"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "黑暗铁三角",
+      "unova_era": 2,
+      "u_teams": [
+       "2/498"
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "黑暗铁三角",
+      "unova_era": 2,
+      "u_teams": [
+       "2/499"
+      ]
+     }
+    },
+    {
+     "who": "阿修",
+     "say": [
+      "我把妹妹的伙伴带回去。小悠，魁奇思跑进了巨人洞窟，拜托你了！"
+     ]
+    },
+    {
+     "flag": "u2_purrloin"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "阿修",
+    "酷豹"
+   ]
+  },
+  {
+   "id": "u2_fusion",
+   "map": "unova_b2_zone_604",
+   "era": 2,
+   "require": [
+    "u2_purrloin"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_fusion"
+   },
+   "who": "魁奇思",
+   "steps": [
+    {
+     "who": "魁奇思",
+     "say": [
+      "酋雷姆，冰封他！"
+     ]
+    },
+    {
+     "who": "N",
+     "say": [
+      "捷克罗姆，挡住冰柱！"
+     ]
+    },
+    {
+     "who": "魁奇思",
+     "say": [
+      "我等的就是你。基因之楔，让酋雷姆吸收捷克罗姆！"
+     ]
+    },
+    {
+     "flag": "u2_fusion"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "N",
+    "酋雷姆"
+   ]
+  },
+  {
+   "id": "u2_kyurem",
+   "map": "unova_b2_zone_604",
+   "era": 2,
+   "require": [
+    "u2_fusion"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_kyurem"
+   },
+   "who": "暗黑酋雷姆",
+   "steps": [
+    {
+     "who": "暗黑酋雷姆",
+     "say": [
+      "冰面震动。与捷克罗姆合体的暗黑酋雷姆挡住了前路！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "暗黑酋雷姆",
+      "team": [
+       {
+        "species": 646,
+        "level": 55,
+        "form": "KYUREM_BLACK",
+        "moves": [
+         225,
+         163,
+         559,
+         553
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "flag": "u2_kyurem"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "N",
+    "魁奇思"
+   ]
+  },
+  {
+   "id": "u2_ghetsis",
+   "map": "unova_b2_zone_604",
+   "era": 2,
+   "require": [
+    "u2_kyurem"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_ghetsis"
+   },
+   "who": "魁奇思",
+   "steps": [
+    {
+     "who": "魁奇思",
+     "say": [
+      "怎么可能，基因之楔让它们分开了！都是因为你……我亲自来结束这一切！"
+     ]
+    },
+    {
+     "heal": true
+    },
+    {
+     "battle": {
+      "name": "魁奇思",
+      "unova_era": 2,
+      "u_teams": [
+       "2/345"
+      ]
+     }
+    },
+    {
+     "who": "N",
+     "say": [
+      "你的伙伴和你守住了未来。去联盟吧，那里的胜负该由你自己决定。"
+     ]
+    },
+    {
+     "flag": "u2_ghetsis"
+    }
+   ],
+   "route": true,
+   "guests": [
+    "N",
+    "黑暗铁三角"
+   ]
+  },
+  {
+   "id": "u2_waterfall",
+   "map": "unova_b2_zone_573",
+   "era": 2,
+   "require": [
+    "u2_ghetsis"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_waterfall"
+   },
+   "who": "N",
+   "steps": [
+    {
+     "who": "N",
+     "say": [
+      "从这里继续向上就是胜利之路。我和伙伴走过自己的路，也把这个攀瀑学习器留给你。"
+     ]
+    },
+    {
+     "unova_hm": 5
+    },
+    {
+     "flag": "u2_waterfall"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_rival_road",
+   "map": "unova_b2_zone_228",
+   "era": 2,
+   "require": [
+    "u2_waterfall"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_rival_road"
+   },
+   "who": "阿修",
+   "steps": [
+    {
+     "who": "阿修",
+     "say": [
+      "酷豹已经和妹妹重逢。现在，我也可以为了自己的目标向前。联盟之前，再跟我打一场吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "阿修",
+      "unova_era": 2,
+      "u_variants": [
+       "2/684",
+       "2/685",
+       "2/686"
+      ]
+     }
+    },
+    {
+     "who": "阿修",
+     "say": [
+      "谢谢你陪我找回她的伙伴。这个十万伏特给你！"
+     ]
+    },
+    {
+     "unova_tm": 24
+    },
+    {
+     "flag": "u2_rival_road"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_league",
+   "map": "unova_league",
+   "era": 2,
+   "require": [
+    "u2_rival_road",
+    "u2_badge_1",
+    "u2_badge_2",
+    "u2_badge_3",
+    "u2_badge_4",
+    "u2_badge_5",
+    "u2_badge_6",
+    "u2_badge_7",
+    "u2_badge_8"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_league"
+   },
+   "who": "联盟向导",
+   "steps": [
+    {
+     "who": "联盟向导",
+     "say": [
+      "请出示这个时代在合众获得的八枚徽章。四个房间各有一位天王，次序由你自己决定。"
+     ]
+    },
+    {
+     "flag": "u2_league"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_shauntal",
+   "map": "unova_e4_shauntal",
+   "era": 2,
+   "require": [
+    "u2_league"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_shauntal"
+   },
+   "who": "婉龙",
+   "steps": [
+    {
+     "who": "婉龙",
+     "say": [
+      "我总想把这样的相遇写进书里。今天，你来翻开新的一页吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "婉龙",
+      "unova_era": 2,
+      "u_teams": [
+       "2/38"
+      ]
+     }
+    },
+    {
+     "flag": "u2_shauntal"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_grimsley",
+   "map": "unova_e4_grimsley",
+   "era": 2,
+   "require": [
+    "u2_league"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_grimsley"
+   },
+   "who": "越橘",
+   "steps": [
+    {
+     "who": "越橘",
+     "say": [
+      "赌局里要懂得接受输赢。对战也一样，让我们看看你会怎么出牌。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "越橘",
+      "unova_era": 2,
+      "u_teams": [
+       "2/40"
+      ]
+     }
+    },
+    {
+     "flag": "u2_grimsley"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_caitlin",
+   "map": "unova_e4_caitlin",
+   "era": 2,
+   "require": [
+    "u2_league"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_caitlin"
+   },
+   "who": "嘉德丽雅",
+   "steps": [
+    {
+     "who": "嘉德丽雅",
+     "say": [
+      "能让我睁开眼睛的挑战者并不多。请你和伙伴一起，使出全力。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "嘉德丽雅",
+      "unova_era": 2,
+      "u_teams": [
+       "2/41"
+      ]
+     }
+    },
+    {
+     "flag": "u2_caitlin"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_marshal",
+   "map": "unova_e4_marshal",
+   "era": 2,
+   "require": [
+    "u2_league"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_marshal"
+   },
+   "who": "连武",
+   "steps": [
+    {
+     "who": "连武",
+     "say": [
+      "我从阿戴克师父身上学到，强大没有终点。让我领教你的本事！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "连武",
+      "unova_era": 2,
+      "u_teams": [
+       "2/39"
+      ]
+     }
+    },
+    {
+     "flag": "u2_marshal"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_iris",
+   "map": "unova_champion_room",
+   "era": 2,
+   "require": [
+    "u2_shauntal",
+    "u2_grimsley",
+    "u2_caitlin",
+    "u2_marshal"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_iris"
+   },
+   "who": "艾莉丝",
+   "steps": [
+    {
+     "who": "艾莉丝",
+     "say": [
+      "我是合众冠军艾莉丝！不管是谁，都可以和珍爱的宝可梦一起变强。来吧，让我的龙也见识一下！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "艾莉丝",
+      "unova_era": 2,
+      "u_teams": [
+       "2/341"
+      ]
+     }
+    },
+    {
+     "who": "艾莉丝",
+     "say": [
+      "太好了！你们都是闪闪发光的冠军。和我来，我带你们去名人堂。"
+     ]
+    },
+    {
+     "flag": "u2_iris"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_champion",
+   "map": "unova_champion_room",
+   "era": 2,
+   "require": [
+    "u2_iris"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_champion"
+   },
+   "who": "艾莉丝",
+   "steps": [
+    {
+     "who": "艾莉丝",
+     "say": [
+      "把今天和你并肩作战的伙伴都记录下来。无论回到哪个地区，这份记忆都会一直跟着你。"
+     ]
+    },
+    {
+     "unova_hall": "b2"
+    },
+    {
+     "flag": "u2_champion"
+    },
+    {
+     "unova_warp": "unova_b2_home"
+    }
+   ],
+   "route": true
+  },
+  {
+   "id": "u2_again_shauntal",
+   "map": "unova_e4_shauntal",
+   "era": 2,
+   "require": [
+    "u2_champion"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_again_shauntal"
+   },
+   "who": "婉龙",
+   "steps": [
+    {
+     "who": "婉龙",
+     "say": [
+      "我总想把这样的相遇写进书里。今天，你来翻开新的一页吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "婉龙",
+      "unova_era": 2,
+      "u_teams": [
+       "2/143"
+      ]
+     }
+    },
+    {
+     "flag": "u2_again_shauntal"
+    }
+   ],
+   "route": false
+  },
+  {
+   "id": "u2_again_grimsley",
+   "map": "unova_e4_grimsley",
+   "era": 2,
+   "require": [
+    "u2_champion"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_again_grimsley"
+   },
+   "who": "越橘",
+   "steps": [
+    {
+     "who": "越橘",
+     "say": [
+      "赌局里要懂得接受输赢。对战也一样，让我们看看你会怎么出牌。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "越橘",
+      "unova_era": 2,
+      "u_teams": [
+       "2/145"
+      ]
+     }
+    },
+    {
+     "flag": "u2_again_grimsley"
+    }
+   ],
+   "route": false
+  },
+  {
+   "id": "u2_again_caitlin",
+   "map": "unova_e4_caitlin",
+   "era": 2,
+   "require": [
+    "u2_champion"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_again_caitlin"
+   },
+   "who": "嘉德丽雅",
+   "steps": [
+    {
+     "who": "嘉德丽雅",
+     "say": [
+      "能让我睁开眼睛的挑战者并不多。请你和伙伴一起，使出全力。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "嘉德丽雅",
+      "unova_era": 2,
+      "u_teams": [
+       "2/146"
+      ]
+     }
+    },
+    {
+     "flag": "u2_again_caitlin"
+    }
+   ],
+   "route": false
+  },
+  {
+   "id": "u2_again_marshal",
+   "map": "unova_e4_marshal",
+   "era": 2,
+   "require": [
+    "u2_champion"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_again_marshal"
+   },
+   "who": "连武",
+   "steps": [
+    {
+     "who": "连武",
+     "say": [
+      "我从阿戴克师父身上学到，强大没有终点。让我领教你的本事！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "连武",
+      "unova_era": 2,
+      "u_teams": [
+       "2/144"
+      ]
+     }
+    },
+    {
+     "flag": "u2_again_marshal"
+    }
+   ],
+   "route": false
+  },
+  {
+   "id": "u2_again_iris",
+   "map": "unova_champion_room",
+   "era": 2,
+   "require": [
+    "u2_again_shauntal",
+    "u2_again_grimsley",
+    "u2_again_caitlin",
+    "u2_again_marshal"
+   ],
+   "trigger": {
+    "kind": "talk",
+    "actor": "u2_again_iris"
+   },
+   "who": "艾莉丝",
+   "steps": [
+    {
+     "who": "艾莉丝",
+     "say": [
+      "欢迎再回来！这一次，让我们带着更加成熟的伙伴们一决胜负！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "艾莉丝",
+      "unova_era": 2,
+      "u_teams": [
+       "2/536"
+      ]
+     }
+    },
+    {
+     "unova_repeat_hall": "b2"
+    },
+    {
+     "flag": "u2_again_iris"
+    }
+   ],
+   "route": false
+  }
+ ],
+ "teams": {
+  "1/59": [
+   {
+    "species": 501,
+    "level": 5,
+    "moves": [
+     33,
+     39
+    ],
+    "ability": 67
+   }
+  ],
+  "1/60": [
+   {
+    "species": 495,
+    "level": 5,
+    "moves": [
+     33,
+     43
+    ],
+    "ability": 65
+   }
+  ],
+  "1/61": [
+   {
+    "species": 498,
+    "level": 5,
+    "moves": [
+     33,
+     39
+    ],
+    "ability": 66
+   }
+  ],
+  "1/53": [
+   {
+    "species": 498,
+    "level": 5,
+    "moves": [
+     33,
+     39
+    ],
+    "ability": 66
+   }
+  ],
+  "1/54": [
+   {
+    "species": 501,
+    "level": 5,
+    "moves": [
+     33,
+     39
+    ],
+    "ability": 67
+   }
+  ],
+  "1/55": [
+   {
+    "species": 495,
+    "level": 5,
+    "moves": [
+     33,
+     43
+    ],
+    "ability": 65
+   }
+  ],
+  "1/64": [
+   {
+    "species": 509,
+    "level": 7,
+    "moves": [
+     10,
+     45
+    ],
+    "ability": 84
+   }
+  ],
+  "1/498": [
+   {
+    "species": 506,
+    "level": 6,
+    "moves": [
+     43,
+     33,
+     316
+    ],
+    "ability": 72
+   },
+   {
+    "species": 501,
+    "level": 7,
+    "moves": [
+     33,
+     39,
+     55
+    ],
+    "ability": 67
+   }
+  ],
+  "1/499": [
+   {
+    "species": 506,
+    "level": 6,
+    "moves": [
+     43,
+     33,
+     316
+    ],
+    "ability": 72
+   },
+   {
+    "species": 495,
+    "level": 7,
+    "moves": [
+     33,
+     43,
+     22
+    ],
+    "ability": 65
+   }
+  ],
+  "1/500": [
+   {
+    "species": 506,
+    "level": 6,
+    "moves": [
+     43,
+     33,
+     316
+    ],
+    "ability": 72
+   },
+   {
+    "species": 498,
+    "level": 7,
+    "moves": [
+     33,
+     39,
+     52
+    ],
+    "ability": 66
+   }
+  ],
+  "1/287": [
+   {
+    "species": 498,
+    "level": 8,
+    "moves": [
+     33,
+     39,
+     52
+    ],
+    "held": "ORAN_BERRY",
+    "ability": 66
+   },
+   {
+    "species": 509,
+    "level": 8,
+    "moves": [
+     10,
+     45,
+     274
+    ],
+    "ability": 84
+   }
+  ],
+  "1/288": [
+   {
+    "species": 501,
+    "level": 8,
+    "moves": [
+     33,
+     39,
+     55
+    ],
+    "held": "ORAN_BERRY",
+    "ability": 67
+   },
+   {
+    "species": 509,
+    "level": 8,
+    "moves": [
+     10,
+     45,
+     274
+    ],
+    "ability": 84
+   }
+  ],
+  "1/289": [
+   {
+    "species": 495,
+    "level": 8,
+    "moves": [
+     33,
+     43,
+     22
+    ],
+    "held": "ORAN_BERRY",
+    "ability": 65
+   },
+   {
+    "species": 509,
+    "level": 8,
+    "moves": [
+     10,
+     45,
+     274
+    ],
+    "ability": 84
+   }
+  ],
+  "1/11": [
+   {
+    "species": 506,
+    "level": 12,
+    "moves": [
+     44,
+     526
+    ],
+    "ability": 53
+   },
+   {
+    "species": 513,
+    "level": 14,
+    "moves": [
+     510,
+     526
+    ],
+    "ability": 82
+   }
+  ],
+  "1/13": [
+   {
+    "species": 506,
+    "level": 12,
+    "moves": [
+     44,
+     526
+    ],
+    "ability": 53
+   },
+   {
+    "species": 515,
+    "level": 14,
+    "moves": [
+     55,
+     526
+    ],
+    "ability": 82
+   }
+  ],
+  "1/12": [
+   {
+    "species": 506,
+    "level": 12,
+    "moves": [
+     44,
+     526
+    ],
+    "ability": 53
+   },
+   {
+    "species": 511,
+    "level": 14,
+    "moves": [
+     22,
+     526
+    ],
+    "ability": 82
+   }
+  ],
+  "1/80": [
+   {
+    "species": 504,
+    "level": 10,
+    "moves": [
+     33,
+     43,
+     44,
+     117
+    ],
+    "ability": 50
+   }
+  ],
+  "1/309": [
+   {
+    "species": 509,
+    "level": 16,
+    "moves": [
+     274,
+     28,
+     154,
+     228
+    ],
+    "ability": 84
+   }
+  ],
+  "1/56": [
+   {
+    "species": 498,
+    "level": 14,
+    "moves": [
+     39,
+     52,
+     316,
+     111
+    ],
+    "held": "ORAN_BERRY",
+    "ability": 66
+   },
+   {
+    "species": 509,
+    "level": 12,
+    "moves": [
+     45,
+     274,
+     28,
+     154
+    ],
+    "ability": 84
+   }
+  ],
+  "1/57": [
+   {
+    "species": 501,
+    "level": 14,
+    "moves": [
+     39,
+     55,
+     346,
+     116
+    ],
+    "held": "ORAN_BERRY",
+    "ability": 67
+   },
+   {
+    "species": 509,
+    "level": 12,
+    "moves": [
+     45,
+     274,
+     28,
+     154
+    ],
+    "ability": 84
+   }
+  ],
+  "1/58": [
+   {
+    "species": 495,
+    "level": 14,
+    "moves": [
+     43,
+     22,
+     35,
+     74
+    ],
+    "held": "ORAN_BERRY",
+    "ability": 65
+   },
+   {
+    "species": 509,
+    "level": 12,
+    "moves": [
+     45,
+     274,
+     28,
+     154
+    ],
+    "ability": 84
+   }
+  ],
+  "1/294": [
+   {
+    "species": 504,
+    "level": 12,
+    "moves": [
+     43,
+     44,
+     117,
+     197
+    ],
+    "ability": 50
+   }
+  ],
+  "1/62": [
+   {
+    "species": 504,
+    "level": 12,
+    "moves": [
+     43,
+     44,
+     117,
+     197
+    ],
+    "ability": 51
+   }
+  ],
+  "1/63": [
+   {
+    "species": 504,
+    "level": 12,
+    "moves": [
+     43,
+     44,
+     117,
+     197
+    ],
+    "ability": 51
+   }
+  ],
+  "1/65": [
+   {
+    "species": 519,
+    "level": 13,
+    "moves": [
+     16,
+     45,
+     43,
+     98
+    ],
+    "ability": 105
+   },
+   {
+    "species": 535,
+    "level": 13,
+    "moves": [
+     45,
+     48,
+     496,
+     61
+    ],
+    "ability": 93
+   },
+   {
+    "species": 532,
+    "level": 13,
+    "moves": [
+     43,
+     116,
+     117,
+     67
+    ],
+    "ability": 62
+   }
+  ],
+  "1/21": [
+   {
+    "species": 507,
+    "level": 18,
+    "moves": [
+     36,
+     44,
+     514,
+     43
+    ],
+    "ability": 22
+   },
+   {
+    "species": 505,
+    "level": 20,
+    "moves": [
+     43,
+     242,
+     514,
+     95
+    ],
+    "ability": 35
+   }
+  ],
+  "1/295": [
+   {
+    "species": 551,
+    "level": 16,
+    "moves": [
+     28,
+     259,
+     328,
+     372
+    ],
+    "ability": 22
+   }
+  ],
+  "1/296": [
+   {
+    "species": 504,
+    "level": 16,
+    "moves": [
+     117,
+     197,
+     28,
+     242
+    ],
+    "ability": 51
+   }
+  ],
+  "1/297": [
+   {
+    "species": 504,
+    "level": 14,
+    "moves": [
+     44,
+     117,
+     197,
+     28
+    ],
+    "ability": 51
+   },
+   {
+    "species": 504,
+    "level": 14,
+    "moves": [
+     44,
+     117,
+     197,
+     28
+    ],
+    "ability": 51
+   },
+   {
+    "species": 551,
+    "level": 14,
+    "moves": [
+     44,
+     28,
+     259,
+     328
+    ],
+    "ability": 22
+   }
+  ],
+  "1/279": [
+   {
+    "species": 505,
+    "level": 18,
+    "moves": [
+     197,
+     28,
+     242,
+     95
+    ],
+    "ability": 51
+   },
+   {
+    "species": 568,
+    "level": 18,
+    "moves": [
+     390,
+     491,
+     3,
+     124
+    ],
+    "ability": 60
+   }
+  ],
+  "1/22": [
+   {
+    "species": 544,
+    "level": 21,
+    "moves": [
+     342,
+     522,
+     228,
+     103
+    ],
+    "ability": 68
+   },
+   {
+    "species": 557,
+    "level": 21,
+    "moves": [
+     479,
+     522,
+     185,
+     28
+    ],
+    "ability": 75
+   },
+   {
+    "species": 542,
+    "level": 23,
+    "moves": [
+     75,
+     522,
+     81,
+     182
+    ],
+    "ability": 68
+   }
+  ],
+  "1/507": [
+   {
+    "species": 507,
+    "level": 18,
+    "moves": [
+     316,
+     44,
+     270,
+     36
+    ],
+    "ability": 22
+   },
+   {
+    "species": 513,
+    "level": 18,
+    "moves": [
+     122,
+     510,
+     154,
+     281
+    ],
+    "ability": 82
+   },
+   {
+    "species": 517,
+    "level": 18,
+    "moves": [
+     281,
+     60,
+     286,
+     236
+    ],
+    "ability": 108
+   },
+   {
+    "species": 502,
+    "level": 20,
+    "moves": [
+     346,
+     116,
+     534,
+     210
+    ],
+    "ability": 67
+   }
+  ],
+  "1/508": [
+   {
+    "species": 507,
+    "level": 18,
+    "moves": [
+     316,
+     44,
+     270,
+     36
+    ],
+    "ability": 22
+   },
+   {
+    "species": 515,
+    "level": 18,
+    "moves": [
+     122,
+     55,
+     154,
+     346
+    ],
+    "ability": 82
+   },
+   {
+    "species": 517,
+    "level": 18,
+    "moves": [
+     281,
+     60,
+     286,
+     236
+    ],
+    "ability": 108
+   },
+   {
+    "species": 496,
+    "level": 20,
+    "moves": [
+     35,
+     74,
+     536,
+     73
+    ],
+    "ability": 65
+   }
+  ],
+  "1/509": [
+   {
+    "species": 507,
+    "level": 18,
+    "moves": [
+     316,
+     44,
+     270,
+     36
+    ],
+    "ability": 22
+   },
+   {
+    "species": 511,
+    "level": 18,
+    "moves": [
+     122,
+     22,
+     154,
+     73
+    ],
+    "ability": 82
+   },
+   {
+    "species": 517,
+    "level": 18,
+    "moves": [
+     281,
+     60,
+     286,
+     236
+    ],
+    "ability": 108
+   },
+   {
+    "species": 499,
+    "level": 20,
+    "moves": [
+     111,
+     488,
+     292,
+     123
+    ],
+    "ability": 66
+   }
+  ],
+  "1/403": [
+   {
+    "species": 519,
+    "level": 20,
+    "moves": [
+     43,
+     98,
+     314,
+     355
+    ],
+    "ability": 105
+   },
+   {
+    "species": 510,
+    "level": 20,
+    "moves": [
+     28,
+     154,
+     228,
+     259
+    ],
+    "ability": 84
+   },
+   {
+    "species": 511,
+    "level": 20,
+    "moves": [
+     22,
+     154,
+     73,
+     44
+    ],
+    "ability": 82
+   },
+   {
+    "species": 499,
+    "level": 22,
+    "moves": [
+     111,
+     488,
+     292,
+     123
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 66
+   }
+  ],
+  "1/404": [
+   {
+    "species": 519,
+    "level": 20,
+    "moves": [
+     43,
+     98,
+     314,
+     355
+    ],
+    "ability": 105
+   },
+   {
+    "species": 510,
+    "level": 20,
+    "moves": [
+     28,
+     154,
+     228,
+     259
+    ],
+    "ability": 84
+   },
+   {
+    "species": 513,
+    "level": 20,
+    "moves": [
+     510,
+     154,
+     281,
+     44
+    ],
+    "ability": 82
+   },
+   {
+    "species": 502,
+    "level": 22,
+    "moves": [
+     346,
+     116,
+     534,
+     210
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 67
+   }
+  ],
+  "1/405": [
+   {
+    "species": 519,
+    "level": 20,
+    "moves": [
+     43,
+     98,
+     314,
+     355
+    ],
+    "ability": 105
+   },
+   {
+    "species": 510,
+    "level": 20,
+    "moves": [
+     28,
+     154,
+     228,
+     259
+    ],
+    "ability": 84
+   },
+   {
+    "species": 515,
+    "level": 20,
+    "moves": [
+     55,
+     154,
+     346,
+     44
+    ],
+    "ability": 82
+   },
+   {
+    "species": 496,
+    "level": 22,
+    "moves": [
+     35,
+     74,
+     536,
+     73
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 65
+   }
+  ],
+  "1/81": [
+   {
+    "species": 551,
+    "level": 23,
+    "moves": [
+     328,
+     372,
+     189,
+     373
+    ],
+    "ability": 153
+   },
+   {
+    "species": 505,
+    "level": 23,
+    "moves": [
+     242,
+     95,
+     109,
+     162
+    ],
+    "ability": 51
+   }
+  ],
+  "1/89": [
+   {
+    "species": 551,
+    "level": 22,
+    "moves": [
+     328,
+     372,
+     189,
+     373
+    ],
+    "ability": 153
+   },
+   {
+    "species": 554,
+    "level": 22,
+    "moves": [
+     29,
+     253,
+     263,
+     7
+    ],
+    "ability": 55
+   },
+   {
+    "species": 559,
+    "level": 22,
+    "moves": [
+     185,
+     29,
+     207,
+     280
+    ],
+    "ability": 61
+   },
+   {
+    "species": 561,
+    "level": 22,
+    "moves": [
+     366,
+     18,
+     60,
+     314
+    ],
+    "ability": 98
+   }
+  ],
+  "1/23": [
+   {
+    "species": 587,
+    "level": 25,
+    "moves": [
+     228,
+     98,
+     521,
+     332
+    ],
+    "ability": 9
+   },
+   {
+    "species": 587,
+    "level": 25,
+    "moves": [
+     228,
+     98,
+     521,
+     332
+    ],
+    "ability": 9
+   },
+   {
+    "species": 523,
+    "level": 27,
+    "moves": [
+     98,
+     209,
+     521,
+     488
+    ],
+    "ability": 31
+   }
+  ],
+  "1/90": [
+   {
+    "species": 510,
+    "level": 24,
+    "moves": [
+     154,
+     228,
+     259,
+     252
+    ],
+    "ability": 84
+   },
+   {
+    "species": 511,
+    "level": 24,
+    "moves": [
+     154,
+     73,
+     44,
+     402
+    ],
+    "held": "MIRACLE_SEED",
+    "ability": 82
+   },
+   {
+    "species": 520,
+    "level": 24,
+    "moves": [
+     98,
+     314,
+     355,
+     197
+    ],
+    "ability": 105
+   },
+   {
+    "species": 499,
+    "level": 26,
+    "moves": [
+     488,
+     292,
+     123,
+     205
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 66
+   }
+  ],
+  "1/91": [
+   {
+    "species": 510,
+    "level": 24,
+    "moves": [
+     154,
+     228,
+     259,
+     252
+    ],
+    "ability": 84
+   },
+   {
+    "species": 513,
+    "level": 24,
+    "moves": [
+     154,
+     281,
+     44,
+     481
+    ],
+    "held": "CHARCOAL",
+    "ability": 82
+   },
+   {
+    "species": 520,
+    "level": 24,
+    "moves": [
+     98,
+     314,
+     355,
+     197
+    ],
+    "ability": 105
+   },
+   {
+    "species": 502,
+    "level": 26,
+    "moves": [
+     116,
+     534,
+     210,
+     352
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 67
+   }
+  ],
+  "1/92": [
+   {
+    "species": 510,
+    "level": 24,
+    "moves": [
+     154,
+     228,
+     259,
+     252
+    ],
+    "ability": 84
+   },
+   {
+    "species": 515,
+    "level": 24,
+    "moves": [
+     154,
+     346,
+     44,
+     503
+    ],
+    "held": "MYSTIC_WATER",
+    "ability": 82
+   },
+   {
+    "species": 520,
+    "level": 24,
+    "moves": [
+     98,
+     314,
+     355,
+     197
+    ],
+    "ability": 105
+   },
+   {
+    "species": 496,
+    "level": 26,
+    "moves": [
+     74,
+     536,
+     73,
+     72
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 65
+   }
+  ],
+  "1/401": [
+   {
+    "species": 507,
+    "level": 26,
+    "moves": [
+     270,
+     36,
+     526,
+     242
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 146
+   }
+  ],
+  "1/402": [
+   {
+    "species": 507,
+    "level": 26,
+    "moves": [
+     270,
+     36,
+     526,
+     242
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 22
+   }
+  ],
+  "1/298": [
+   {
+    "species": 551,
+    "level": 26,
+    "moves": [
+     372,
+     189,
+     373,
+     207
+    ],
+    "ability": 153
+   },
+   {
+    "species": 505,
+    "level": 26,
+    "moves": [
+     95,
+     109,
+     162,
+     495
+    ],
+    "ability": 51
+   },
+   {
+    "species": 559,
+    "level": 26,
+    "moves": [
+     29,
+     207,
+     280,
+     371
+    ],
+    "ability": 153
+   }
+  ],
+  "1/299": [
+   {
+    "species": 559,
+    "level": 28,
+    "moves": [
+     207,
+     280,
+     371,
+     498
+    ],
+    "ability": 61
+   }
+  ],
+  "1/300": [
+   {
+    "species": 505,
+    "level": 27,
+    "moves": [
+     95,
+     109,
+     162,
+     495
+    ],
+    "ability": 35
+   },
+   {
+    "species": 551,
+    "level": 27,
+    "moves": [
+     372,
+     189,
+     373,
+     207
+    ],
+    "ability": 153
+   }
+  ],
+  "1/301": [
+   {
+    "species": 551,
+    "level": 27,
+    "moves": [
+     372,
+     189,
+     373,
+     207
+    ],
+    "ability": 153
+   },
+   {
+    "species": 505,
+    "level": 27,
+    "moves": [
+     95,
+     109,
+     162,
+     495
+    ],
+    "ability": 51
+   }
+  ],
+  "1/24": [
+   {
+    "species": 552,
+    "level": 29,
+    "moves": [
+     242,
+     207,
+     523,
+     259
+    ],
+    "ability": 153
+   },
+   {
+    "species": 536,
+    "level": 29,
+    "moves": [
+     330,
+     392,
+     523,
+     61
+    ],
+    "ability": 93
+   },
+   {
+    "species": 530,
+    "level": 31,
+    "moves": [
+     163,
+     157,
+     523,
+     468
+    ],
+    "ability": 159
+   }
+  ],
+  "1/491": [
+   {
+    "species": 507,
+    "level": 26,
+    "moves": [
+     270,
+     36,
+     526,
+     242
+    ],
+    "ability": 22
+   },
+   {
+    "species": 513,
+    "level": 26,
+    "moves": [
+     281,
+     44,
+     481,
+     133
+    ],
+    "ability": 82
+   },
+   {
+    "species": 518,
+    "level": 26,
+    "moves": [
+     111,
+     381,
+     60,
+     95
+    ],
+    "ability": 108
+   },
+   {
+    "species": 502,
+    "level": 28,
+    "moves": [
+     534,
+     210,
+     352,
+     279
+    ],
+    "ability": 67
+   }
+  ],
+  "1/492": [
+   {
+    "species": 507,
+    "level": 26,
+    "moves": [
+     270,
+     36,
+     526,
+     242
+    ],
+    "ability": 22
+   },
+   {
+    "species": 515,
+    "level": 26,
+    "moves": [
+     346,
+     44,
+     503,
+     269
+    ],
+    "ability": 82
+   },
+   {
+    "species": 518,
+    "level": 26,
+    "moves": [
+     111,
+     381,
+     60,
+     95
+    ],
+    "ability": 108
+   },
+   {
+    "species": 496,
+    "level": 28,
+    "moves": [
+     536,
+     73,
+     72,
+     21
+    ],
+    "ability": 65
+   }
+  ],
+  "1/493": [
+   {
+    "species": 507,
+    "level": 26,
+    "moves": [
+     270,
+     36,
+     526,
+     242
+    ],
+    "ability": 22
+   },
+   {
+    "species": 511,
+    "level": 26,
+    "moves": [
+     73,
+     44,
+     402,
+     259
+    ],
+    "ability": 82
+   },
+   {
+    "species": 518,
+    "level": 26,
+    "moves": [
+     111,
+     381,
+     60,
+     95
+    ],
+    "ability": 108
+   },
+   {
+    "species": 499,
+    "level": 28,
+    "moves": [
+     292,
+     123,
+     205,
+     36
+    ],
+    "ability": 66
+   }
+  ],
+  "1/218": [
+   {
+    "species": 525,
+    "level": 28,
+    "moves": [
+     189,
+     334,
+     479,
+     408
+    ],
+    "ability": 5
+   },
+   {
+    "species": 597,
+    "level": 28,
+    "moves": [
+     232,
+     42,
+     360,
+     334
+    ],
+    "ability": 160
+   },
+   {
+    "species": 595,
+    "level": 28,
+    "moves": [
+     527,
+     450,
+     380,
+     163
+    ],
+    "ability": 127
+   },
+   {
+    "species": 599,
+    "level": 28,
+    "moves": [
+     84,
+     544,
+     20,
+     451
+    ],
+    "ability": 57
+   }
+  ],
+  "1/25": [
+   {
+    "species": 528,
+    "level": 33,
+    "moves": [
+     531,
+     133,
+     512,
+     372
+    ],
+    "ability": 103
+   },
+   {
+    "species": 521,
+    "level": 33,
+    "moves": [
+     98,
+     403,
+     43,
+     13
+    ],
+    "ability": 145
+   },
+   {
+    "species": 581,
+    "level": 35,
+    "moves": [
+     392,
+     332,
+     403,
+     61
+    ],
+    "ability": 145
+   }
+  ],
+  "1/539": [
+   {
+    "species": 521,
+    "level": 33,
+    "moves": [
+     355,
+     197,
+     269,
+     403
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 105
+   },
+   {
+    "species": 510,
+    "level": 33,
+    "moves": [
+     259,
+     252,
+     468,
+     372
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 84
+   },
+   {
+    "species": 512,
+    "level": 33,
+    "moves": [
+     43,
+     122,
+     154,
+     402
+    ],
+    "held": "MIRACLE_SEED",
+    "ability": 82
+   },
+   {
+    "species": 499,
+    "level": 35,
+    "moves": [
+     123,
+     205,
+     36,
+     535
+    ],
+    "held": "LEFTOVERS",
+    "ability": 66
+   }
+  ],
+  "1/540": [
+   {
+    "species": 521,
+    "level": 33,
+    "moves": [
+     355,
+     197,
+     269,
+     403
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 105
+   },
+   {
+    "species": 510,
+    "level": 33,
+    "moves": [
+     259,
+     252,
+     468,
+     372
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 84
+   },
+   {
+    "species": 514,
+    "level": 33,
+    "moves": [
+     43,
+     122,
+     154,
+     481
+    ],
+    "held": "CHARCOAL",
+    "ability": 82
+   },
+   {
+    "species": 502,
+    "level": 35,
+    "moves": [
+     210,
+     352,
+     279,
+     453
+    ],
+    "held": "LEFTOVERS",
+    "ability": 67
+   }
+  ],
+  "1/541": [
+   {
+    "species": 521,
+    "level": 33,
+    "moves": [
+     355,
+     197,
+     269,
+     403
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 105
+   },
+   {
+    "species": 510,
+    "level": 33,
+    "moves": [
+     259,
+     252,
+     468,
+     372
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 84
+   },
+   {
+    "species": 516,
+    "level": 33,
+    "moves": [
+     43,
+     122,
+     154,
+     503
+    ],
+    "held": "MYSTIC_WATER",
+    "ability": 82
+   },
+   {
+    "species": 496,
+    "level": 35,
+    "moves": [
+     73,
+     72,
+     21,
+     348
+    ],
+    "held": "LEFTOVERS",
+    "ability": 65
+   }
+  ],
+  "1/131": [
+   {
+    "species": 583,
+    "level": 37,
+    "moves": [
+     429,
+     151,
+     524,
+     310
+    ],
+    "ability": 115
+   },
+   {
+    "species": 615,
+    "level": 37,
+    "moves": [
+     115,
+     62,
+     524,
+     229
+    ],
+    "ability": 26
+   },
+   {
+    "species": 614,
+    "level": 39,
+    "moves": [
+     163,
+     362,
+     556,
+     207
+    ],
+    "ability": 81
+   }
+  ],
+  "1/303": [
+   {
+    "species": 505,
+    "level": 34,
+    "moves": [
+     162,
+     495,
+     244,
+     158
+    ],
+    "ability": 51
+   }
+  ],
+  "1/304": [
+   {
+    "species": 559,
+    "level": 34,
+    "moves": [
+     371,
+     498,
+     136,
+     184
+    ],
+    "ability": 153
+   }
+  ],
+  "1/305": [
+   {
+    "species": 505,
+    "level": 33,
+    "moves": [
+     162,
+     495,
+     244,
+     158
+    ],
+    "ability": 51
+   },
+   {
+    "species": 552,
+    "level": 33,
+    "moves": [
+     373,
+     207,
+     242,
+     91
+    ],
+    "ability": 22
+   }
+  ],
+  "1/306": [
+   {
+    "species": 552,
+    "level": 34,
+    "moves": [
+     373,
+     207,
+     242,
+     91
+    ],
+    "ability": 153
+   }
+  ],
+  "1/221": [
+   {
+    "species": 505,
+    "level": 34,
+    "moves": [
+     162,
+     495,
+     244,
+     158
+    ],
+    "ability": 35
+   },
+   {
+    "species": 552,
+    "level": 34,
+    "moves": [
+     373,
+     207,
+     242,
+     91
+    ],
+    "ability": 153
+   },
+   {
+    "species": 552,
+    "level": 34,
+    "moves": [
+     373,
+     207,
+     242,
+     91
+    ],
+    "ability": 153
+   }
+  ],
+  "1/494": [
+   {
+    "species": 508,
+    "level": 38,
+    "moves": [
+     526,
+     242,
+     46,
+     514
+    ],
+    "ability": 22
+   },
+   {
+    "species": 514,
+    "level": 38,
+    "moves": [
+     43,
+     122,
+     154,
+     481
+    ],
+    "ability": 82
+   },
+   {
+    "species": 518,
+    "level": 38,
+    "moves": [
+     111,
+     381,
+     60,
+     95
+    ],
+    "ability": 108
+   },
+   {
+    "species": 503,
+    "level": 40,
+    "moves": [
+     279,
+     453,
+     163,
+     227
+    ],
+    "ability": 67
+   }
+  ],
+  "1/495": [
+   {
+    "species": 508,
+    "level": 38,
+    "moves": [
+     526,
+     242,
+     46,
+     514
+    ],
+    "ability": 22
+   },
+   {
+    "species": 516,
+    "level": 38,
+    "moves": [
+     43,
+     122,
+     154,
+     503
+    ],
+    "ability": 82
+   },
+   {
+    "species": 518,
+    "level": 38,
+    "moves": [
+     111,
+     381,
+     60,
+     95
+    ],
+    "ability": 108
+   },
+   {
+    "species": 497,
+    "level": 40,
+    "moves": [
+     72,
+     21,
+     348,
+     489
+    ],
+    "ability": 65
+   }
+  ],
+  "1/496": [
+   {
+    "species": 508,
+    "level": 38,
+    "moves": [
+     526,
+     242,
+     46,
+     514
+    ],
+    "ability": 22
+   },
+   {
+    "species": 512,
+    "level": 38,
+    "moves": [
+     43,
+     122,
+     154,
+     402
+    ],
+    "ability": 82
+   },
+   {
+    "species": 518,
+    "level": 38,
+    "moves": [
+     111,
+     381,
+     60,
+     95
+    ],
+    "ability": 108
+   },
+   {
+    "species": 500,
+    "level": 40,
+    "moves": [
+     205,
+     36,
+     535,
+     372
+    ],
+    "ability": 66
+   }
+  ],
+  "1/133": [
+   {
+    "species": 611,
+    "level": 41,
+    "moves": [
+     349,
+     82,
+     525,
+     372
+    ],
+    "ability": 79
+   },
+   {
+    "species": 621,
+    "level": 41,
+    "moves": [
+     498,
+     279,
+     525,
+     400
+    ],
+    "ability": 24
+   },
+   {
+    "species": 612,
+    "level": 43,
+    "moves": [
+     349,
+     163,
+     525,
+     372
+    ],
+    "ability": 79
+   }
+  ],
+  "1/588": [
+   {
+    "species": 521,
+    "level": 43,
+    "moves": [
+     197,
+     269,
+     403,
+     13
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 105
+   },
+   {
+    "species": 510,
+    "level": 43,
+    "moves": [
+     372,
+     163,
+     269,
+     400
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 84
+   },
+   {
+    "species": 512,
+    "level": 43,
+    "moves": [
+     43,
+     122,
+     154,
+     402
+    ],
+    "held": "MIRACLE_SEED",
+    "ability": 82
+   },
+   {
+    "species": 500,
+    "level": 45,
+    "moves": [
+     36,
+     535,
+     372,
+     53
+    ],
+    "held": "LEFTOVERS",
+    "ability": 66
+   }
+  ],
+  "1/589": [
+   {
+    "species": 521,
+    "level": 43,
+    "moves": [
+     197,
+     269,
+     403,
+     13
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 105
+   },
+   {
+    "species": 510,
+    "level": 43,
+    "moves": [
+     372,
+     163,
+     269,
+     400
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 84
+   },
+   {
+    "species": 514,
+    "level": 43,
+    "moves": [
+     43,
+     122,
+     154,
+     481
+    ],
+    "held": "CHARCOAL",
+    "ability": 82
+   },
+   {
+    "species": 503,
+    "level": 45,
+    "moves": [
+     453,
+     163,
+     227,
+     401
+    ],
+    "held": "LEFTOVERS",
+    "ability": 67
+   }
+  ],
+  "1/590": [
+   {
+    "species": 521,
+    "level": 43,
+    "moves": [
+     197,
+     269,
+     403,
+     13
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 105
+   },
+   {
+    "species": 510,
+    "level": 43,
+    "moves": [
+     372,
+     163,
+     269,
+     400
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 84
+   },
+   {
+    "species": 516,
+    "level": 43,
+    "moves": [
+     43,
+     122,
+     154,
+     503
+    ],
+    "held": "MYSTIC_WATER",
+    "ability": 82
+   },
+   {
+    "species": 497,
+    "level": 45,
+    "moves": [
+     21,
+     348,
+     489,
+     202
+    ],
+    "held": "LEFTOVERS",
+    "ability": 65
+   }
+  ],
+  "1/228": [
+   {
+    "species": 563,
+    "level": 48,
+    "moves": [
+     261,
+     447,
+     94,
+     247
+    ],
+    "ability": 152
+   },
+   {
+    "species": 593,
+    "level": 48,
+    "moves": [
+     412,
+     362,
+     57,
+     247
+    ],
+    "ability": 130
+   },
+   {
+    "species": 623,
+    "level": 48,
+    "moves": [
+     174,
+     89,
+     280,
+     325
+    ],
+    "ability": 89
+   },
+   {
+    "species": 609,
+    "level": 50,
+    "moves": [
+     371,
+     126,
+     94,
+     247
+    ],
+    "ability": 49
+   }
+  ],
+  "1/230": [
+   {
+    "species": 560,
+    "level": 48,
+    "moves": [
+     242,
+     280,
+     398,
+     28
+    ],
+    "ability": 153
+   },
+   {
+    "species": 510,
+    "level": 48,
+    "moves": [
+     400,
+     252,
+     332,
+     213
+    ],
+    "ability": 7
+   },
+   {
+    "species": 553,
+    "level": 48,
+    "moves": [
+     242,
+     337,
+     89,
+     492
+    ],
+    "ability": 22
+   },
+   {
+    "species": 625,
+    "level": 50,
+    "moves": [
+     400,
+     404,
+     232,
+     332
+    ],
+    "ability": 128
+   }
+  ],
+  "1/231": [
+   {
+    "species": 579,
+    "level": 48,
+    "moves": [
+     94,
+     412,
+     411,
+     87
+    ],
+    "ability": 98
+   },
+   {
+    "species": 518,
+    "level": 48,
+    "moves": [
+     94,
+     247,
+     451,
+     115
+    ],
+    "ability": 28
+   },
+   {
+    "species": 561,
+    "level": 48,
+    "moves": [
+     94,
+     247,
+     58,
+     403
+    ],
+    "ability": 147
+   },
+   {
+    "species": 576,
+    "level": 50,
+    "moves": [
+     94,
+     247,
+     85,
+     347
+    ],
+    "ability": 119
+   }
+  ],
+  "1/229": [
+   {
+    "species": 538,
+    "level": 48,
+    "moves": [
+     480,
+     523,
+     444,
+     371
+    ],
+    "ability": 62
+   },
+   {
+    "species": 539,
+    "level": 48,
+    "moves": [
+     2,
+     447,
+     444,
+     514
+    ],
+    "ability": 5
+   },
+   {
+    "species": 534,
+    "level": 48,
+    "moves": [
+     359,
+     447,
+     444,
+     514
+    ],
+    "ability": 125
+   },
+   {
+    "species": 620,
+    "level": 50,
+    "moves": [
+     26,
+     369,
+     157,
+     514
+    ],
+    "ability": 39
+   }
+  ],
+  "1/587": [
+   {
+    "species": 644,
+    "level": 52,
+    "moves": [
+     428,
+     416,
+     113,
+     559
+    ],
+    "ability": 164
+   },
+   {
+    "species": 565,
+    "level": 50,
+    "moves": [
+     453,
+     127,
+     444,
+     242
+    ],
+    "ability": 5
+   },
+   {
+    "species": 584,
+    "level": 50,
+    "moves": [
+     524,
+     59,
+     258,
+     430
+    ],
+    "ability": 115
+   },
+   {
+    "species": 567,
+    "level": 50,
+    "moves": [
+     337,
+     512,
+     444,
+     242
+    ],
+    "ability": 129
+   },
+   {
+    "species": 571,
+    "level": 50,
+    "moves": [
+     400,
+     53,
+     411,
+     514
+    ],
+    "ability": 149
+   },
+   {
+    "species": 601,
+    "level": 50,
+    "moves": [
+     85,
+     430,
+     63,
+     319
+    ],
+    "ability": 58
+   }
+  ],
+  "1/232": [
+   {
+    "species": 563,
+    "level": 52,
+    "moves": [
+     182,
+     247,
+     94,
+     92
+    ],
+    "ability": 152
+   },
+   {
+    "species": 626,
+    "level": 52,
+    "moves": [
+     543,
+     528,
+     89,
+     398
+    ],
+    "ability": 120
+   },
+   {
+    "species": 537,
+    "level": 52,
+    "moves": [
+     330,
+     482,
+     89,
+     240
+    ],
+    "ability": 143
+   },
+   {
+    "species": 625,
+    "level": 52,
+    "moves": [
+     400,
+     404,
+     444,
+     368
+    ],
+    "ability": 39
+   },
+   {
+    "species": 604,
+    "level": 52,
+    "moves": [
+     242,
+     528,
+     53,
+     512
+    ],
+    "ability": 26
+   },
+   {
+    "species": 635,
+    "level": 54,
+    "moves": [
+     406,
+     57,
+     126,
+     411
+    ],
+    "ability": 26
+   }
+  ],
+  "1/563": [
+   {
+    "species": 563,
+    "level": 71,
+    "moves": [
+     247,
+     94,
+     261,
+     412
+    ],
+    "ability": 152
+   },
+   {
+    "species": 593,
+    "level": 71,
+    "moves": [
+     247,
+     94,
+     56,
+     482
+    ],
+    "ability": 130
+   },
+   {
+    "species": 478,
+    "level": 71,
+    "moves": [
+     247,
+     94,
+     59,
+     420
+    ],
+    "ability": 81
+   },
+   {
+    "species": 426,
+    "level": 71,
+    "moves": [
+     247,
+     94,
+     512,
+     87
+    ],
+    "ability": 106
+   },
+   {
+    "species": 623,
+    "level": 71,
+    "moves": [
+     325,
+     89,
+     359,
+     174
+    ],
+    "ability": 89
+   },
+   {
+    "species": 609,
+    "level": 73,
+    "moves": [
+     247,
+     94,
+     126,
+     371
+    ],
+    "ability": 49
+   }
+  ],
+  "1/565": [
+   {
+    "species": 319,
+    "level": 71,
+    "moves": [
+     453,
+     400,
+     127,
+     89
+    ],
+    "ability": 24
+   },
+   {
+    "species": 510,
+    "level": 71,
+    "moves": [
+     389,
+     252,
+     332,
+     213
+    ],
+    "ability": 7
+   },
+   {
+    "species": 560,
+    "level": 71,
+    "moves": [
+     457,
+     242,
+     280,
+     398
+    ],
+    "ability": 153
+   },
+   {
+    "species": 452,
+    "level": 71,
+    "moves": [
+     422,
+     305,
+     424,
+     242
+    ],
+    "ability": 4
+   },
+   {
+    "species": 553,
+    "level": 71,
+    "moves": [
+     479,
+     89,
+     492,
+     200
+    ],
+    "ability": 22
+   },
+   {
+    "species": 625,
+    "level": 73,
+    "moves": [
+     12,
+     400,
+     404,
+     332
+    ],
+    "ability": 128
+   }
+  ],
+  "1/566": [
+   {
+    "species": 518,
+    "level": 71,
+    "moves": [
+     94,
+     138,
+     95,
+     115
+    ],
+    "ability": 28
+   },
+   {
+    "species": 561,
+    "level": 71,
+    "moves": [
+     403,
+     94,
+     430,
+     58
+    ],
+    "ability": 147
+   },
+   {
+    "species": 437,
+    "level": 71,
+    "moves": [
+     371,
+     430,
+     94,
+     451
+    ],
+    "ability": 26
+   },
+   {
+    "species": 579,
+    "level": 71,
+    "moves": [
+     94,
+     87,
+     412,
+     411
+    ],
+    "ability": 98
+   },
+   {
+    "species": 576,
+    "level": 71,
+    "moves": [
+     94,
+     371,
+     260,
+     85
+    ],
+    "ability": 119
+   },
+   {
+    "species": 376,
+    "level": 73,
+    "moves": [
+     428,
+     418,
+     89,
+     416
+    ],
+    "ability": 29
+   }
+  ],
+  "1/564": [
+   {
+    "species": 286,
+    "level": 71,
+    "moves": [
+     183,
+     147,
+     447,
+     327
+    ],
+    "ability": 27
+   },
+   {
+    "species": 539,
+    "level": 71,
+    "moves": [
+     370,
+     514,
+     444,
+     398
+    ],
+    "ability": 5
+   },
+   {
+    "species": 538,
+    "level": 71,
+    "moves": [
+     276,
+     514,
+     89,
+     447
+    ],
+    "ability": 62
+   },
+   {
+    "species": 454,
+    "level": 71,
+    "moves": [
+     474,
+     92,
+     490,
+     89
+    ],
+    "ability": 107
+   },
+   {
+    "species": 620,
+    "level": 71,
+    "moves": [
+     136,
+     369,
+     512,
+     252
+    ],
+    "ability": 39
+   },
+   {
+    "species": 534,
+    "level": 73,
+    "moves": [
+     359,
+     89,
+     444,
+     371
+    ],
+    "ability": 125
+   }
+  ],
+  "1/407": [
+   {
+    "species": 617,
+    "level": 75,
+    "moves": [
+     411,
+     405,
+     382,
+     412
+    ],
+    "ability": 60
+   },
+   {
+    "species": 626,
+    "level": 75,
+    "moves": [
+     543,
+     224,
+     89,
+     444
+    ],
+    "ability": 157
+   },
+   {
+    "species": 621,
+    "level": 75,
+    "moves": [
+     200,
+     276,
+     400,
+     371
+    ],
+    "ability": 24
+   },
+   {
+    "species": 584,
+    "level": 75,
+    "moves": [
+     59,
+     430,
+     113,
+     151
+    ],
+    "ability": 115
+   },
+   {
+    "species": 589,
+    "level": 75,
+    "moves": [
+     404,
+     442,
+     332,
+     416
+    ],
+    "ability": 75
+   },
+   {
+    "species": 637,
+    "level": 77,
+    "moves": [
+     315,
+     483,
+     405,
+     63
+    ],
+    "ability": 49
+   }
+  ],
+  "2/161": [
+   {
+    "species": 498,
+    "level": 5,
+    "moves": [
+     33,
+     39
+    ],
+    "ability": 66
+   }
+  ],
+  "2/162": [
+   {
+    "species": 501,
+    "level": 5,
+    "moves": [
+     33,
+     39
+    ],
+    "ability": 67
+   }
+  ],
+  "2/163": [
+   {
+    "species": 495,
+    "level": 5,
+    "moves": [
+     33,
+     43
+    ],
+    "ability": 65
+   }
+  ],
+  "2/166": [
+   {
+    "species": 498,
+    "level": 8,
+    "moves": [
+     33,
+     39
+    ],
+    "ability": 66
+   }
+  ],
+  "2/167": [
+   {
+    "species": 501,
+    "level": 8,
+    "moves": [
+     33,
+     39
+    ],
+    "ability": 67
+   }
+  ],
+  "2/168": [
+   {
+    "species": 495,
+    "level": 8,
+    "moves": [
+     33,
+     43
+    ],
+    "ability": 65
+   }
+  ],
+  "2/156": [
+   {
+    "species": 504,
+    "level": 11,
+    "moves": [
+     526,
+     44,
+     33
+    ],
+    "ability": 51
+   },
+   {
+    "species": 506,
+    "level": 13,
+    "moves": [
+     526,
+     44,
+     33
+    ],
+    "ability": 72
+   }
+  ],
+  "2/157": [
+   {
+    "species": 109,
+    "level": 16,
+    "moves": [
+     123,
+     372,
+     33
+    ],
+    "ability": 26
+   },
+   {
+    "species": 544,
+    "level": 18,
+    "moves": [
+     474,
+     40,
+     182,
+     228
+    ],
+    "ability": 38
+   }
+  ],
+  "2/690": [
+   {
+    "species": 504,
+    "level": 14,
+    "moves": [
+     44,
+     117,
+     197,
+     28
+    ],
+    "ability": 50
+   }
+  ],
+  "2/763": [
+   {
+    "species": 509,
+    "level": 14,
+    "moves": [
+     45,
+     274,
+     28,
+     154
+    ],
+    "ability": 7
+   }
+  ],
+  "2/342": [
+   {
+    "species": 559,
+    "level": 16,
+    "moves": [
+     28,
+     185,
+     29,
+     207
+    ],
+    "ability": 153
+   }
+  ],
+  "2/356": [
+   {
+    "species": 551,
+    "level": 16,
+    "moves": [
+     28,
+     259,
+     328,
+     372
+    ],
+    "ability": 153
+   }
+  ],
+  "2/588": [
+   {
+    "species": 499,
+    "level": 20,
+    "moves": [
+     111,
+     488,
+     292,
+     123
+    ],
+    "held": "CHARCOAL",
+    "ability": 66
+   },
+   {
+    "species": 519,
+    "level": 18,
+    "moves": [
+     43,
+     98,
+     314,
+     355
+    ],
+    "ability": 145
+   }
+  ],
+  "2/589": [
+   {
+    "species": 502,
+    "level": 20,
+    "moves": [
+     346,
+     116,
+     534,
+     210
+    ],
+    "held": "MYSTIC_WATER",
+    "ability": 67
+   },
+   {
+    "species": 519,
+    "level": 18,
+    "moves": [
+     43,
+     98,
+     314,
+     355
+    ],
+    "ability": 145
+   }
+  ],
+  "2/590": [
+   {
+    "species": 496,
+    "level": 20,
+    "moves": [
+     35,
+     74,
+     536,
+     73
+    ],
+    "held": "MIRACLE_SEED",
+    "ability": 65
+   },
+   {
+    "species": 519,
+    "level": 18,
+    "moves": [
+     43,
+     98,
+     314,
+     355
+    ],
+    "ability": 145
+   }
+  ],
+  "2/154": [
+   {
+    "species": 541,
+    "level": 22,
+    "moves": [
+     522,
+     75,
+     81
+    ],
+    "ability": 34
+   },
+   {
+    "species": 557,
+    "level": 22,
+    "moves": [
+     522,
+     479,
+     185,
+     397
+    ],
+    "ability": 5
+   },
+   {
+    "species": 542,
+    "level": 24,
+    "moves": [
+     522,
+     75,
+     15,
+     81
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 68
+   }
+  ],
+  "2/358": [
+   {
+    "species": 81,
+    "level": 21,
+    "moves": [
+     49,
+     86,
+     443,
+     209
+    ],
+    "ability": 5
+   },
+   {
+    "species": 599,
+    "level": 23,
+    "moves": [
+     268,
+     84,
+     544,
+     20
+    ],
+    "ability": 57
+   }
+  ],
+  "2/732": [
+   {
+    "species": 525,
+    "level": 26,
+    "moves": [
+     189,
+     334,
+     479,
+     408
+    ],
+    "ability": 5
+   }
+  ],
+  "2/733": [
+   {
+    "species": 533,
+    "level": 26,
+    "moves": [
+     67,
+     88,
+     358,
+     498
+    ],
+    "ability": 125
+   }
+  ],
+  "2/363": [
+   {
+    "species": 502,
+    "level": 25,
+    "moves": [
+     116,
+     534,
+     210,
+     352
+    ],
+    "ability": 67
+   },
+   {
+    "species": 513,
+    "level": 23,
+    "moves": [
+     154,
+     281,
+     44,
+     481
+    ],
+    "ability": 82
+   }
+  ],
+  "2/364": [
+   {
+    "species": 496,
+    "level": 25,
+    "moves": [
+     74,
+     536,
+     73,
+     72
+    ],
+    "ability": 65
+   },
+   {
+    "species": 515,
+    "level": 23,
+    "moves": [
+     154,
+     346,
+     44,
+     503
+    ],
+    "ability": 82
+   }
+  ],
+  "2/365": [
+   {
+    "species": 499,
+    "level": 25,
+    "moves": [
+     488,
+     292,
+     123,
+     205
+    ],
+    "ability": 66
+   },
+   {
+    "species": 511,
+    "level": 23,
+    "moves": [
+     154,
+     73,
+     44,
+     402
+    ],
+    "ability": 82
+   }
+  ],
+  "2/153": [
+   {
+    "species": 587,
+    "level": 28,
+    "moves": [
+     521,
+     98,
+     228
+    ],
+    "ability": 9
+   },
+   {
+    "species": 180,
+    "level": 28,
+    "moves": [
+     521,
+     36,
+     86
+    ],
+    "ability": 9
+   },
+   {
+    "species": 523,
+    "level": 30,
+    "moves": [
+     521,
+     488,
+     98,
+     228
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 78
+   }
+  ],
+  "2/359": [
+   {
+    "species": 568,
+    "level": 27,
+    "moves": [
+     124,
+     254,
+     256,
+     36
+    ],
+    "ability": 1
+   }
+  ],
+  "2/340": [
+   {
+    "species": 564,
+    "level": 26,
+    "moves": [
+     453,
+     246,
+     242,
+     469
+    ],
+    "ability": 116
+   },
+   {
+    "species": 561,
+    "level": 26,
+    "moves": [
+     18,
+     60,
+     314,
+     113
+    ],
+    "ability": 98
+   },
+   {
+    "species": 566,
+    "level": 26,
+    "moves": [
+     365,
+     246,
+     97,
+     501
+    ],
+    "ability": 129
+   }
+  ],
+  "2/346": [
+   {
+    "species": 507,
+    "level": 27,
+    "moves": [
+     270,
+     36,
+     526,
+     242
+    ],
+    "ability": 22
+   },
+   {
+    "species": 528,
+    "level": 27,
+    "moves": [
+     531,
+     286,
+     314,
+     213
+    ],
+    "ability": 109
+   }
+  ],
+  "2/158": [
+   {
+    "species": 552,
+    "level": 31,
+    "moves": [
+     523,
+     242,
+     328,
+     259
+    ],
+    "ability": 22
+   },
+   {
+    "species": 28,
+    "level": 31,
+    "moves": [
+     523,
+     306,
+     205,
+     210
+    ],
+    "ability": 8
+   },
+   {
+    "species": 530,
+    "level": 33,
+    "moves": [
+     523,
+     232,
+     163,
+     157
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 159
+   }
+  ],
+  "2/372": [
+   {
+    "species": 109,
+    "level": 30,
+    "moves": [
+     124,
+     120,
+     114,
+     360
+    ],
+    "ability": 26
+   }
+  ],
+  "2/374": [
+   {
+    "species": 88,
+    "level": 29,
+    "moves": [
+     107,
+     426,
+     188,
+     374
+    ],
+    "ability": 1
+   },
+   {
+    "species": 552,
+    "level": 29,
+    "moves": [
+     189,
+     373,
+     207,
+     242
+    ],
+    "ability": 153
+   }
+  ],
+  "2/375": [
+   {
+    "species": 42,
+    "level": 29,
+    "moves": [
+     17,
+     109,
+     129,
+     314
+    ],
+    "ability": 39
+   },
+   {
+    "species": 510,
+    "level": 29,
+    "moves": [
+     228,
+     259,
+     252,
+     468
+    ],
+    "ability": 7
+   }
+  ],
+  "2/371": [
+   {
+    "species": 508,
+    "level": 33,
+    "moves": [
+     70,
+     242,
+     422,
+     316
+    ],
+    "ability": 22
+   },
+   {
+    "species": 505,
+    "level": 31,
+    "moves": [
+     158,
+     67,
+     242,
+     95
+    ],
+    "ability": 51
+   },
+   {
+    "species": 573,
+    "level": 31,
+    "moves": [
+     541,
+     350,
+     331,
+     358
+    ],
+    "ability": 101
+   }
+  ],
+  "2/376": [
+   {
+    "species": 88,
+    "level": 29,
+    "moves": [
+     107,
+     426,
+     188,
+     374
+    ],
+    "ability": 1
+   },
+   {
+    "species": 20,
+    "level": 29,
+    "moves": [
+     389,
+     184,
+     242,
+     372
+    ],
+    "ability": 50
+   }
+  ],
+  "2/377": [
+   {
+    "species": 109,
+    "level": 29,
+    "moves": [
+     124,
+     120,
+     114,
+     360
+    ],
+    "ability": 26
+   },
+   {
+    "species": 505,
+    "level": 29,
+    "moves": [
+     109,
+     162,
+     495,
+     244
+    ],
+    "ability": 51
+   }
+  ],
+  "2/368": [
+   {
+    "species": 499,
+    "level": 33,
+    "moves": [
+     123,
+     205,
+     36,
+     535
+    ],
+    "ability": 66
+   },
+   {
+    "species": 516,
+    "level": 31,
+    "moves": [
+     43,
+     122,
+     154,
+     503
+    ],
+    "ability": 82
+   },
+   {
+    "species": 520,
+    "level": 31,
+    "moves": [
+     314,
+     355,
+     197,
+     269
+    ],
+    "ability": 105
+   }
+  ],
+  "2/369": [
+   {
+    "species": 502,
+    "level": 33,
+    "moves": [
+     210,
+     352,
+     279,
+     453
+    ],
+    "ability": 67
+   },
+   {
+    "species": 512,
+    "level": 31,
+    "moves": [
+     43,
+     122,
+     154,
+     402
+    ],
+    "ability": 82
+   },
+   {
+    "species": 520,
+    "level": 31,
+    "moves": [
+     314,
+     355,
+     197,
+     269
+    ],
+    "ability": 105
+   }
+  ],
+  "2/370": [
+   {
+    "species": 496,
+    "level": 33,
+    "moves": [
+     73,
+     72,
+     21,
+     348
+    ],
+    "ability": 65
+   },
+   {
+    "species": 514,
+    "level": 31,
+    "moves": [
+     43,
+     122,
+     154,
+     481
+    ],
+    "ability": 82
+   },
+   {
+    "species": 520,
+    "level": 31,
+    "moves": [
+     314,
+     355,
+     197,
+     269
+    ],
+    "ability": 105
+   }
+  ],
+  "2/155": [
+   {
+    "species": 528,
+    "level": 37,
+    "moves": [
+     512,
+     531,
+     372,
+     213
+    ],
+    "ability": 109
+   },
+   {
+    "species": 227,
+    "level": 37,
+    "moves": [
+     314,
+     211,
+     31,
+     97
+    ],
+    "ability": 5
+   },
+   {
+    "species": 581,
+    "level": 39,
+    "moves": [
+     403,
+     61,
+     355,
+     297
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 145
+   }
+  ],
+  "2/378": [
+   {
+    "species": 521,
+    "level": 39,
+    "moves": [
+     197,
+     269,
+     403,
+     13
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 145
+   },
+   {
+    "species": 516,
+    "level": 39,
+    "moves": [
+     43,
+     122,
+     154,
+     503
+    ],
+    "held": "MYSTIC_WATER",
+    "ability": 82
+   },
+   {
+    "species": 500,
+    "level": 41,
+    "moves": [
+     205,
+     36,
+     535,
+     372
+    ],
+    "held": "CHARCOAL",
+    "ability": 66
+   }
+  ],
+  "2/379": [
+   {
+    "species": 521,
+    "level": 39,
+    "moves": [
+     197,
+     269,
+     403,
+     13
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 145
+   },
+   {
+    "species": 512,
+    "level": 39,
+    "moves": [
+     43,
+     122,
+     154,
+     402
+    ],
+    "held": "MIRACLE_SEED",
+    "ability": 82
+   },
+   {
+    "species": 503,
+    "level": 41,
+    "moves": [
+     279,
+     453,
+     163,
+     227
+    ],
+    "held": "MYSTIC_WATER",
+    "ability": 67
+   }
+  ],
+  "2/380": [
+   {
+    "species": 521,
+    "level": 39,
+    "moves": [
+     197,
+     269,
+     403,
+     13
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 145
+   },
+   {
+    "species": 514,
+    "level": 39,
+    "moves": [
+     43,
+     122,
+     154,
+     481
+    ],
+    "held": "CHARCOAL",
+    "ability": 82
+   },
+   {
+    "species": 497,
+    "level": 41,
+    "moves": [
+     72,
+     21,
+     348,
+     489
+    ],
+    "held": "MIRACLE_SEED",
+    "ability": 65
+   }
+  ],
+  "2/704": [
+   {
+    "species": 615,
+    "level": 42,
+    "moves": [
+     58,
+     113,
+     115,
+     163
+    ],
+    "ability": 26
+   },
+   {
+    "species": 215,
+    "level": 44,
+    "moves": [
+     103,
+     163,
+     289,
+     386
+    ],
+    "ability": 39
+   }
+  ],
+  "2/705": [
+   {
+    "species": 42,
+    "level": 39,
+    "moves": [
+     129,
+     314,
+     512,
+     212
+    ],
+    "ability": 39
+   },
+   {
+    "species": 569,
+    "level": 39,
+    "moves": [
+     34,
+     188,
+     499,
+     92
+    ],
+    "ability": 133
+   }
+  ],
+  "2/701": [
+   {
+    "species": 500,
+    "level": 43,
+    "moves": [
+     36,
+     535,
+     372,
+     53
+    ],
+    "held": "CHARCOAL",
+    "ability": 66
+   },
+   {
+    "species": 516,
+    "level": 41,
+    "moves": [
+     43,
+     122,
+     154,
+     503
+    ],
+    "held": "MYSTIC_WATER",
+    "ability": 82
+   },
+   {
+    "species": 521,
+    "level": 41,
+    "moves": [
+     197,
+     269,
+     403,
+     13
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 145
+   }
+  ],
+  "2/702": [
+   {
+    "species": 503,
+    "level": 43,
+    "moves": [
+     279,
+     453,
+     163,
+     227
+    ],
+    "held": "MYSTIC_WATER",
+    "ability": 67
+   },
+   {
+    "species": 512,
+    "level": 41,
+    "moves": [
+     43,
+     122,
+     154,
+     402
+    ],
+    "held": "MIRACLE_SEED",
+    "ability": 82
+   },
+   {
+    "species": 521,
+    "level": 41,
+    "moves": [
+     197,
+     269,
+     403,
+     13
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 145
+   }
+  ],
+  "2/703": [
+   {
+    "species": 497,
+    "level": 43,
+    "moves": [
+     72,
+     21,
+     348,
+     489
+    ],
+    "held": "MIRACLE_SEED",
+    "ability": 65
+   },
+   {
+    "species": 514,
+    "level": 41,
+    "moves": [
+     43,
+     122,
+     154,
+     481
+    ],
+    "held": "CHARCOAL",
+    "ability": 82
+   },
+   {
+    "species": 521,
+    "level": 41,
+    "moves": [
+     197,
+     269,
+     403,
+     13
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 145
+   }
+  ],
+  "2/159": [
+   {
+    "species": 621,
+    "level": 46,
+    "moves": [
+     525,
+     279,
+     163,
+     242
+    ],
+    "ability": 125
+   },
+   {
+    "species": 330,
+    "level": 46,
+    "moves": [
+     525,
+     242,
+     414,
+     157
+    ],
+    "ability": 26
+   },
+   {
+    "species": 612,
+    "level": 48,
+    "moves": [
+     525,
+     163,
+     372,
+     349
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 104
+   }
+  ],
+  "2/585": [
+   {
+    "species": 505,
+    "level": 44,
+    "moves": [
+     158,
+     212,
+     226,
+     21
+    ],
+    "ability": 51
+   },
+   {
+    "species": 89,
+    "level": 44,
+    "moves": [
+     374,
+     103,
+     482,
+     151
+    ],
+    "ability": 1
+   }
+  ],
+  "2/586": [
+   {
+    "species": 336,
+    "level": 44,
+    "moves": [
+     400,
+     380,
+     114,
+     398
+    ],
+    "ability": 61
+   },
+   {
+    "species": 110,
+    "level": 44,
+    "moves": [
+     114,
+     458,
+     188,
+     153
+    ],
+    "ability": 26
+   }
+  ],
+  "2/587": [
+   {
+    "species": 42,
+    "level": 44,
+    "moves": [
+     314,
+     512,
+     212,
+     305
+    ],
+    "ability": 39
+   },
+   {
+    "species": 569,
+    "level": 44,
+    "moves": [
+     34,
+     188,
+     499,
+     92
+    ],
+    "ability": 1
+   }
+  ],
+  "2/584": [
+   {
+    "species": 615,
+    "level": 46,
+    "moves": [
+     58,
+     115,
+     163,
+     109
+    ],
+    "ability": 26
+   },
+   {
+    "species": 615,
+    "level": 46,
+    "moves": [
+     58,
+     113,
+     163,
+     109
+    ],
+    "ability": 26
+   },
+   {
+    "species": 461,
+    "level": 48,
+    "moves": [
+     400,
+     163,
+     420,
+     232
+    ],
+    "ability": 46
+   }
+  ],
+  "2/583": [
+   {
+    "species": 624,
+    "level": 46,
+    "moves": [
+     232,
+     185,
+     163,
+     184
+    ],
+    "ability": 128
+   },
+   {
+    "species": 624,
+    "level": 46,
+    "moves": [
+     232,
+     185,
+     163,
+     468
+    ],
+    "ability": 39
+   },
+   {
+    "species": 359,
+    "level": 48,
+    "moves": [
+     400,
+     163,
+     248,
+     14
+    ],
+    "ability": 105
+   }
+  ],
+  "2/160": [
+   {
+    "species": 565,
+    "level": 49,
+    "moves": [
+     503,
+     479,
+     242,
+     504
+    ],
+    "ability": 5
+   },
+   {
+    "species": 321,
+    "level": 49,
+    "moves": [
+     503,
+     205,
+     340,
+     133
+    ],
+    "ability": 41
+   },
+   {
+    "species": 593,
+    "level": 51,
+    "moves": [
+     503,
+     466,
+     362,
+     105
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 130
+   }
+  ],
+  "2/798": [
+   {
+    "species": 42,
+    "level": 46,
+    "moves": [
+     314,
+     512,
+     212,
+     305
+    ],
+    "ability": 39
+   },
+   {
+    "species": 452,
+    "level": 46,
+    "moves": [
+     468,
+     390,
+     400,
+     184
+    ],
+    "ability": 97
+   }
+  ],
+  "2/799": [
+   {
+    "species": 336,
+    "level": 46,
+    "moves": [
+     380,
+     114,
+     398,
+     242
+    ],
+    "ability": 61
+   },
+   {
+    "species": 569,
+    "level": 46,
+    "moves": [
+     188,
+     499,
+     92,
+     133
+    ],
+    "ability": 133
+   }
+  ],
+  "2/794": [
+   {
+    "species": 500,
+    "level": 50,
+    "moves": [
+     535,
+     372,
+     53,
+     457
+    ],
+    "held": "CHARCOAL",
+    "ability": 66
+   },
+   {
+    "species": 516,
+    "level": 48,
+    "moves": [
+     43,
+     122,
+     154,
+     503
+    ],
+    "held": "MYSTIC_WATER",
+    "ability": 82
+   },
+   {
+    "species": 521,
+    "level": 48,
+    "moves": [
+     269,
+     403,
+     13,
+     297
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 145
+   }
+  ],
+  "2/795": [
+   {
+    "species": 503,
+    "level": 50,
+    "moves": [
+     163,
+     227,
+     401,
+     514
+    ],
+    "held": "MYSTIC_WATER",
+    "ability": 67
+   },
+   {
+    "species": 512,
+    "level": 48,
+    "moves": [
+     43,
+     122,
+     154,
+     402
+    ],
+    "held": "MIRACLE_SEED",
+    "ability": 82
+   },
+   {
+    "species": 521,
+    "level": 48,
+    "moves": [
+     269,
+     403,
+     13,
+     297
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 145
+   }
+  ],
+  "2/796": [
+   {
+    "species": 497,
+    "level": 50,
+    "moves": [
+     348,
+     489,
+     202,
+     378
+    ],
+    "held": "MIRACLE_SEED",
+    "ability": 65
+   },
+   {
+    "species": 514,
+    "level": 48,
+    "moves": [
+     43,
+     122,
+     154,
+     481
+    ],
+    "held": "CHARCOAL",
+    "ability": 82
+   },
+   {
+    "species": 521,
+    "level": 48,
+    "moves": [
+     269,
+     403,
+     13,
+     297
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 145
+   }
+  ],
+  "2/797": [
+   {
+    "species": 510,
+    "level": 45,
+    "moves": [
+     372,
+     163,
+     269,
+     400
+    ],
+    "ability": 7
+   },
+   {
+    "species": 505,
+    "level": 45,
+    "moves": [
+     158,
+     212,
+     226,
+     21
+    ],
+    "ability": 35
+   },
+   {
+    "species": 545,
+    "level": 45,
+    "moves": [
+     226,
+     97,
+     537,
+     92
+    ],
+    "ability": 38
+   }
+  ],
+  "2/347": [
+   {
+    "species": 615,
+    "level": 48,
+    "moves": [
+     58,
+     115,
+     163,
+     109
+    ],
+    "ability": 26
+   },
+   {
+    "species": 615,
+    "level": 48,
+    "moves": [
+     58,
+     113,
+     163,
+     109
+    ],
+    "ability": 26
+   },
+   {
+    "species": 461,
+    "level": 50,
+    "moves": [
+     400,
+     163,
+     420,
+     232
+    ],
+    "ability": 46
+   }
+  ],
+  "2/439": [
+   {
+    "species": 568,
+    "level": 46,
+    "moves": [
+     499,
+     92,
+     133,
+     441
+    ],
+    "ability": 60
+   },
+   {
+    "species": 335,
+    "level": 46,
+    "moves": [
+     197,
+     404,
+     269,
+     14
+    ],
+    "ability": 17
+   }
+  ],
+  "2/497": [
+   {
+    "species": 615,
+    "level": 49,
+    "moves": [
+     58,
+     115,
+     163,
+     109
+    ],
+    "ability": 26
+   },
+   {
+    "species": 615,
+    "level": 49,
+    "moves": [
+     58,
+     113,
+     163,
+     109
+    ],
+    "ability": 26
+   },
+   {
+    "species": 461,
+    "level": 51,
+    "moves": [
+     400,
+     163,
+     420,
+     232
+    ],
+    "ability": 46
+   }
+  ],
+  "2/344": [
+   {
+    "species": 82,
+    "level": 50,
+    "moves": [
+     521,
+     430,
+     161,
+     86
+    ],
+    "held": "EVIOLITE",
+    "ability": 5
+   },
+   {
+    "species": 375,
+    "level": 50,
+    "moves": [
+     309,
+     428,
+     157,
+     97
+    ],
+    "ability": 29
+   },
+   {
+    "species": 606,
+    "level": 50,
+    "moves": [
+     94,
+     412,
+     347,
+     105
+    ],
+    "ability": 28
+   },
+   {
+    "species": 462,
+    "level": 50,
+    "moves": [
+     435,
+     430,
+     153,
+     86
+    ],
+    "ability": 5
+   },
+   {
+    "species": 601,
+    "level": 52,
+    "moves": [
+     544,
+     85,
+     416,
+     508
+    ],
+    "held": "AIR_BALLOON",
+    "ability": 57
+   }
+  ],
+  "2/348": [
+   {
+    "species": 624,
+    "level": 49,
+    "moves": [
+     232,
+     185,
+     163,
+     184
+    ],
+    "ability": 128
+   },
+   {
+    "species": 624,
+    "level": 49,
+    "moves": [
+     232,
+     185,
+     163,
+     468
+    ],
+    "ability": 39
+   },
+   {
+    "species": 359,
+    "level": 51,
+    "moves": [
+     400,
+     163,
+     248,
+     14
+    ],
+    "ability": 105
+   }
+  ],
+  "2/498": [
+   {
+    "species": 624,
+    "level": 49,
+    "moves": [
+     232,
+     185,
+     163,
+     184
+    ],
+    "ability": 128
+   },
+   {
+    "species": 624,
+    "level": 49,
+    "moves": [
+     232,
+     185,
+     163,
+     468
+    ],
+    "ability": 39
+   },
+   {
+    "species": 617,
+    "level": 51,
+    "moves": [
+     405,
+     202,
+     129,
+     382
+    ],
+    "ability": 93
+   }
+  ],
+  "2/499": [
+   {
+    "species": 624,
+    "level": 49,
+    "moves": [
+     232,
+     185,
+     163,
+     184
+    ],
+    "ability": 128
+   },
+   {
+    "species": 624,
+    "level": 49,
+    "moves": [
+     232,
+     185,
+     163,
+     468
+    ],
+    "ability": 39
+   },
+   {
+    "species": 354,
+    "level": 51,
+    "moves": [
+     421,
+     389,
+     94,
+     261
+    ],
+    "ability": 15
+   }
+  ],
+  "2/345": [
+   {
+    "species": 563,
+    "level": 50,
+    "moves": [
+     182,
+     247,
+     92,
+     94
+    ],
+    "held": "LEFTOVERS",
+    "ability": 152
+   },
+   {
+    "species": 537,
+    "level": 50,
+    "moves": [
+     330,
+     482,
+     89,
+     409
+    ],
+    "ability": 143
+   },
+   {
+    "species": 604,
+    "level": 50,
+    "moves": [
+     85,
+     242,
+     53,
+     512
+    ],
+    "ability": 26
+   },
+   {
+    "species": 452,
+    "level": 50,
+    "moves": [
+     400,
+     89,
+     305,
+     404
+    ],
+    "ability": 97
+   },
+   {
+    "species": 454,
+    "level": 50,
+    "moves": [
+     398,
+     389,
+     247,
+     280
+    ],
+    "ability": 107
+   },
+   {
+    "species": 635,
+    "level": 52,
+    "moves": [
+     407,
+     242,
+     157,
+     218
+    ],
+    "held": "LIFE_ORB",
+    "ability": 26
+   }
+  ],
+  "2/684": [
+   {
+    "species": 521,
+    "level": 55,
+    "moves": [
+     263,
+     332,
+     369,
+     207
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 145
+   },
+   {
+    "species": 516,
+    "level": 55,
+    "moves": [
+     157,
+     242,
+     280,
+     57
+    ],
+    "held": "MYSTIC_WATER",
+    "ability": 82
+   },
+   {
+    "species": 626,
+    "level": 55,
+    "moves": [
+     543,
+     528,
+     224,
+     89
+    ],
+    "ability": 120
+   },
+   {
+    "species": 500,
+    "level": 57,
+    "moves": [
+     53,
+     157,
+     280,
+     503
+    ],
+    "held": "CHARCOAL",
+    "ability": 66
+   }
+  ],
+  "2/685": [
+   {
+    "species": 521,
+    "level": 55,
+    "moves": [
+     263,
+     332,
+     369,
+     207
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 145
+   },
+   {
+    "species": 512,
+    "level": 55,
+    "moves": [
+     157,
+     242,
+     280,
+     412
+    ],
+    "held": "MIRACLE_SEED",
+    "ability": 82
+   },
+   {
+    "species": 626,
+    "level": 55,
+    "moves": [
+     543,
+     528,
+     224,
+     89
+    ],
+    "ability": 157
+   },
+   {
+    "species": 503,
+    "level": 57,
+    "moves": [
+     57,
+     404,
+     58,
+     279
+    ],
+    "held": "MYSTIC_WATER",
+    "ability": 67
+   }
+  ],
+  "2/686": [
+   {
+    "species": 521,
+    "level": 55,
+    "moves": [
+     263,
+     332,
+     369,
+     207
+    ],
+    "held": "SCOPE_LENS",
+    "ability": 145
+   },
+   {
+    "species": 514,
+    "level": 55,
+    "moves": [
+     157,
+     242,
+     280,
+     53
+    ],
+    "held": "CHARCOAL",
+    "ability": 82
+   },
+   {
+    "species": 626,
+    "level": 55,
+    "moves": [
+     543,
+     528,
+     224,
+     89
+    ],
+    "ability": 120
+   },
+   {
+    "species": 497,
+    "level": 57,
+    "moves": [
+     202,
+     348,
+     525,
+     489
+    ],
+    "held": "MIRACLE_SEED",
+    "ability": 65
+   }
+  ],
+  "2/38": [
+   {
+    "species": 563,
+    "level": 56,
+    "moves": [
+     261,
+     447,
+     94,
+     247
+    ],
+    "ability": 152
+   },
+   {
+    "species": 426,
+    "level": 56,
+    "moves": [
+     94,
+     85,
+     512,
+     247
+    ],
+    "ability": 106
+   },
+   {
+    "species": 623,
+    "level": 56,
+    "moves": [
+     484,
+     89,
+     280,
+     325
+    ],
+    "ability": 89
+   },
+   {
+    "species": 609,
+    "level": 58,
+    "moves": [
+     412,
+     126,
+     94,
+     247
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 49
+   }
+  ],
+  "2/40": [
+   {
+    "species": 510,
+    "level": 56,
+    "moves": [
+     400,
+     252,
+     332,
+     213
+    ],
+    "ability": 7
+   },
+   {
+    "species": 560,
+    "level": 56,
+    "moves": [
+     242,
+     280,
+     398,
+     317
+    ],
+    "ability": 153
+   },
+   {
+    "species": 553,
+    "level": 56,
+    "moves": [
+     242,
+     337,
+     89,
+     317
+    ],
+    "ability": 22
+   },
+   {
+    "species": 625,
+    "level": 58,
+    "moves": [
+     400,
+     404,
+     232,
+     332
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 128
+   }
+  ],
+  "2/41": [
+   {
+    "species": 518,
+    "level": 56,
+    "moves": [
+     451,
+     138,
+     281,
+     115
+    ],
+    "ability": 28
+   },
+   {
+    "species": 579,
+    "level": 56,
+    "moves": [
+     94,
+     412,
+     411,
+     105
+    ],
+    "ability": 98
+   },
+   {
+    "species": 561,
+    "level": 56,
+    "moves": [
+     94,
+     247,
+     58,
+     403
+    ],
+    "ability": 147
+   },
+   {
+    "species": 576,
+    "level": 58,
+    "moves": [
+     94,
+     247,
+     85,
+     347
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 119
+   }
+  ],
+  "2/39": [
+   {
+    "species": 538,
+    "level": 56,
+    "moves": [
+     480,
+     523,
+     317,
+     371
+    ],
+    "ability": 62
+   },
+   {
+    "species": 539,
+    "level": 56,
+    "moves": [
+     280,
+     514,
+     157,
+     371
+    ],
+    "ability": 5
+   },
+   {
+    "species": 620,
+    "level": 56,
+    "moves": [
+     136,
+     369,
+     340,
+     514
+    ],
+    "ability": 144
+   },
+   {
+    "species": 534,
+    "level": 58,
+    "moves": [
+     359,
+     339,
+     444,
+     514
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 62
+   }
+  ],
+  "2/341": [
+   {
+    "species": 635,
+    "level": 57,
+    "moves": [
+     53,
+     451,
+     406,
+     57
+    ],
+    "ability": 26
+   },
+   {
+    "species": 621,
+    "level": 57,
+    "moves": [
+     157,
+     53,
+     525,
+     411
+    ],
+    "held": "LIFE_ORB",
+    "ability": 125
+   },
+   {
+    "species": 567,
+    "level": 57,
+    "moves": [
+     512,
+     157,
+     337,
+     283
+    ],
+    "ability": 129
+   },
+   {
+    "species": 306,
+    "level": 57,
+    "moves": [
+     89,
+     38,
+     157,
+     475
+    ],
+    "ability": 69
+   },
+   {
+    "species": 131,
+    "level": 57,
+    "moves": [
+     57,
+     58,
+     85,
+     47
+    ],
+    "ability": 11
+   },
+   {
+    "species": 612,
+    "level": 59,
+    "moves": [
+     89,
+     404,
+     530,
+     349
+    ],
+    "held": "FOCUS_SASH",
+    "ability": 104
+   }
+  ],
+  "2/143": [
+   {
+    "species": 563,
+    "level": 72,
+    "moves": [
+     247,
+     94,
+     261,
+     412
+    ],
+    "ability": 152
+   },
+   {
+    "species": 429,
+    "level": 72,
+    "moves": [
+     247,
+     94,
+     408,
+     195
+    ],
+    "ability": 26
+   },
+   {
+    "species": 478,
+    "level": 72,
+    "moves": [
+     247,
+     94,
+     59,
+     420
+    ],
+    "ability": 81
+   },
+   {
+    "species": 426,
+    "level": 72,
+    "moves": [
+     247,
+     94,
+     512,
+     87
+    ],
+    "held": "FLYING_GEM",
+    "ability": 84
+   },
+   {
+    "species": 623,
+    "level": 72,
+    "moves": [
+     325,
+     89,
+     359,
+     444
+    ],
+    "ability": 89
+   },
+   {
+    "species": 609,
+    "level": 74,
+    "moves": [
+     247,
+     94,
+     126,
+     412
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 49
+   }
+  ],
+  "2/145": [
+   {
+    "species": 510,
+    "level": 72,
+    "moves": [
+     389,
+     252,
+     332,
+     213
+    ],
+    "held": "NORMAL_GEM",
+    "ability": 84
+   },
+   {
+    "species": 430,
+    "level": 72,
+    "moves": [
+     400,
+     94,
+     332,
+     114
+    ],
+    "ability": 105
+   },
+   {
+    "species": 560,
+    "level": 72,
+    "moves": [
+     457,
+     242,
+     136,
+     398
+    ],
+    "ability": 153
+   },
+   {
+    "species": 229,
+    "level": 72,
+    "moves": [
+     422,
+     126,
+     188,
+     242
+    ],
+    "ability": 18
+   },
+   {
+    "species": 553,
+    "level": 72,
+    "moves": [
+     157,
+     89,
+     242,
+     200
+    ],
+    "ability": 22
+   },
+   {
+    "species": 625,
+    "level": 74,
+    "moves": [
+     12,
+     400,
+     404,
+     332
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 128
+   }
+  ],
+  "2/146": [
+   {
+    "species": 518,
+    "level": 72,
+    "moves": [
+     451,
+     138,
+     281,
+     115
+    ],
+    "ability": 28
+   },
+   {
+    "species": 561,
+    "level": 72,
+    "moves": [
+     403,
+     94,
+     430,
+     58
+    ],
+    "ability": 147
+   },
+   {
+    "species": 475,
+    "level": 72,
+    "moves": [
+     370,
+     348,
+     427,
+     400
+    ],
+    "ability": 80
+   },
+   {
+    "species": 579,
+    "level": 72,
+    "moves": [
+     94,
+     87,
+     105,
+     411
+    ],
+    "held": "LEFTOVERS",
+    "ability": 98
+   },
+   {
+    "species": 576,
+    "level": 72,
+    "moves": [
+     94,
+     247,
+     260,
+     85
+    ],
+    "ability": 119
+   },
+   {
+    "species": 376,
+    "level": 74,
+    "moves": [
+     428,
+     418,
+     89,
+     359
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 29
+   }
+  ],
+  "2/144": [
+   {
+    "species": 538,
+    "level": 72,
+    "moves": [
+     276,
+     89,
+     444,
+     371
+    ],
+    "ability": 62
+   },
+   {
+    "species": 539,
+    "level": 72,
+    "moves": [
+     370,
+     514,
+     444,
+     398
+    ],
+    "held": "MUSCLE_BAND",
+    "ability": 5
+   },
+   {
+    "species": 308,
+    "level": 72,
+    "moves": [
+     136,
+     7,
+     8,
+     9
+    ],
+    "ability": 74
+   },
+   {
+    "species": 448,
+    "level": 72,
+    "moves": [
+     396,
+     406,
+     245,
+     247
+    ],
+    "ability": 39
+   },
+   {
+    "species": 620,
+    "level": 72,
+    "moves": [
+     136,
+     369,
+     512,
+     252
+    ],
+    "ability": 144
+   },
+   {
+    "species": 534,
+    "level": 74,
+    "moves": [
+     359,
+     339,
+     444,
+     89
+    ],
+    "held": "SITRUS_BERRY",
+    "ability": 125
+   }
+  ],
+  "2/536": [
+   {
+    "species": 635,
+    "level": 76,
+    "moves": [
+     126,
+     411,
+     406,
+     57
+    ],
+    "ability": 26
+   },
+   {
+    "species": 621,
+    "level": 76,
+    "moves": [
+     7,
+     9,
+     200,
+     411
+    ],
+    "held": "LIFE_ORB",
+    "ability": 125
+   },
+   {
+    "species": 567,
+    "level": 76,
+    "moves": [
+     512,
+     444,
+     337,
+     283
+    ],
+    "ability": 129
+   },
+   {
+    "species": 306,
+    "level": 76,
+    "moves": [
+     89,
+     38,
+     444,
+     475
+    ],
+    "ability": 69
+   },
+   {
+    "species": 131,
+    "level": 76,
+    "moves": [
+     56,
+     59,
+     87,
+     47
+    ],
+    "ability": 11
+   },
+   {
+    "species": 612,
+    "level": 78,
+    "moves": [
+     89,
+     12,
+     200,
+     349
+    ],
+    "held": "FOCUS_SASH",
+    "ability": 104
+   }
+  ],
+  "2/169": [
+   {
+    "species": 515,
+    "level": 9,
+    "moves": [
+     10,
+     43,
+     122
+    ],
+    "ability": 82
+   }
+  ],
+  "2/170": [
+   {
+    "species": 513,
+    "level": 9,
+    "moves": [
+     10,
+     43,
+     122
+    ],
+    "ability": 82
+   }
+  ],
+  "2/747": [
+   {
+    "species": 511,
+    "level": 9,
+    "moves": [
+     10,
+     43,
+     122
+    ],
+    "ability": 82
+   }
+  ],
+  "2/748": [
+   {
+    "species": 515,
+    "level": 9,
+    "moves": [
+     10,
+     43,
+     122
+    ],
+    "ability": 82
+   }
+  ],
+  "2/749": [
+   {
+    "species": 513,
+    "level": 9,
+    "moves": [
+     10,
+     43,
+     122
+    ],
+    "ability": 82
+   }
+  ],
+  "2/750": [
+   {
+    "species": 511,
+    "level": 9,
+    "moves": [
+     10,
+     43,
+     122
+    ],
+    "ability": 82
+   }
+  ]
+ },
+ "gates": {
+  "1": {
+   "unova_bw_home_1f": {
+    "require": [
+     "u1_cheren_home"
+    ],
+    "message": "先和白露、黑连试一试刚选的伙伴。"
+   },
+   "unova_1": {
+    "require": [
+     "u1_dex"
+    ],
+    "message": "先到鹿子镇的研究所领取合众图鉴。"
+   },
+   "unova_accumula": {
+    "require": [
+     "u1_dex"
+    ],
+    "message": "先到鹿子镇的研究所领取合众图鉴。"
+   },
+   "unova_2": {
+    "require": [
+     "u1_dex"
+    ],
+    "message": "先到鹿子镇的研究所领取合众图鉴。"
+   },
+   "unova_striaton": {
+    "require": [
+     "u1_dex"
+    ],
+    "message": "先到鹿子镇的研究所领取合众图鉴。"
+   },
+   "unova_bw_gym_striaton": {
+    "require": [
+     "u1_school"
+    ],
+    "message": "黑连正在三曜市的训练家学校等你。"
+   },
+   "unova_3": {
+    "require": [
+     "u1_dream_mist"
+    ],
+    "message": "去梦之遗址帮真菰找梦之烟。"
+   },
+   "unova_wellspring": {
+    "require": [
+     "u1_dream_mist"
+    ],
+    "message": "去梦之遗址帮真菰找梦之烟。"
+   },
+   "unova_nacrene": {
+    "require": [
+     "u1_dream_mist"
+    ],
+    "message": "去梦之遗址帮真菰找梦之烟。"
+   },
+   "unova_bw_gym_nacrene": {
+    "require": [
+     "u1_n_museum"
+    ],
+    "message": "先在七宝博物馆入口见到 N。"
+   },
+   "unova_pinwheel": {
+    "require": [
+     "u1_fossil_theft"
+    ],
+    "message": "先去博物馆看看龙骨。"
+   },
+   "unova_skyarrow_bridge": {
+    "require": [
+     "u1_skull_back"
+    ],
+    "message": "馆长还在等你追回被夺走的龙骨。"
+   },
+   "unova_castelia": {
+    "require": [
+     "u1_skull_back"
+    ],
+    "message": "馆长还在等你追回被夺走的龙骨。"
+   },
+   "unova_castelia_plasma": {
+    "require": [
+     "u1_skull_back"
+    ],
+    "message": "馆长还在等你追回被夺走的龙骨。"
+   },
+   "unova_bw_gym_castelia": {
+    "require": [
+     "u1_munna_back"
+    ],
+    "message": "白露的食梦梦还没有救回来。"
+   },
+   "unova_4": {
+    "require": [
+     "u1_badge_3"
+    ],
+    "message": "飞云道馆的甲虫徽章尚未取得。"
+   },
+   "unova_nimbasa": {
+    "require": [
+     "u1_badge_3"
+    ],
+    "message": "飞云道馆的甲虫徽章尚未取得。"
+   },
+   "unova_5": {
+    "require": [
+     "u1_badge_3"
+    ],
+    "message": "飞云道馆的甲虫徽章尚未取得。"
+   },
+   "unova_bw_gym_nimbasa": {
+    "require": [
+     "u1_ferris"
+    ],
+    "message": "N 想和你在摩天轮旁谈谈。"
+   },
+   "unova_driftveil_bridge": {
+    "require": [
+     "u1_bridge"
+    ],
+    "message": "帆巴吊桥还没放下。"
+   },
+   "unova_driftveil": {
+    "require": [
+     "u1_bridge"
+    ],
+    "message": "帆巴吊桥还没放下。"
+   },
+   "unova_cold_storage": {
+    "require": [
+     "u1_bridge"
+    ],
+    "message": "帆巴吊桥还没放下。"
+   },
+   "unova_bw_gym_driftveil": {
+    "require": [
+     "u1_release"
+    ],
+    "message": "去冷冻仓库处理等离子队的事。"
+   },
+   "unova_6": {
+    "require": [
+     "u1_badge_5"
+    ],
+    "message": "先完成帆巴道馆的挑战。"
+   },
+   "unova_chargestone": {
+    "require": [
+     "u1_badge_5"
+    ],
+    "message": "先完成帆巴道馆的挑战。"
+   },
+   "unova_mistralton": {
+    "require": [
+     "u1_badge_5"
+    ],
+    "message": "先完成帆巴道馆的挑战。"
+   },
+   "unova_celestial": {
+    "require": [
+     "u1_badge_5"
+    ],
+    "message": "先完成帆巴道馆的挑战。"
+   },
+   "unova_7": {
+    "require": [
+     "u1_badge_5"
+    ],
+    "message": "先完成帆巴道馆的挑战。"
+   },
+   "unova_bw_gym_mistralton": {
+    "require": [
+     "u1_tower"
+    ],
+    "message": "风露去了天堂之塔。"
+   },
+   "unova_twist": {
+    "require": [
+     "u1_surf"
+    ],
+    "message": "黑连在七号道路通往罗斯山的台阶等你。"
+   },
+   "unova_icirrus": {
+    "require": [
+     "u1_surf"
+    ],
+    "message": "黑连在七号道路通往罗斯山的台阶等你。"
+   },
+   "unova_bw_gym_icirrus": {
+    "require": [
+     "u1_surf"
+    ],
+    "message": "黑连在七号道路通往罗斯山的台阶等你。"
+   },
+   "unova_dragonspiral": {
+    "require": [
+     "u1_tower_alarm"
+    ],
+    "message": "龙螺旋之塔的入口还没有开启。"
+   },
+   "unova_8": {
+    "require": [
+     "u1_light_stone"
+    ],
+    "message": "先向芦荟领取光明石。"
+   },
+   "unova_tubeline_bridge": {
+    "require": [
+     "u1_light_stone"
+    ],
+    "message": "先向芦荟领取光明石。"
+   },
+   "unova_9": {
+    "require": [
+     "u1_light_stone"
+    ],
+    "message": "先向芦荟领取光明石。"
+   },
+   "unova_opelucid": {
+    "require": [
+     "u1_light_stone"
+    ],
+    "message": "先向芦荟领取光明石。"
+   },
+   "unova_opelucid_house": {
+    "require": [
+     "u1_light_stone"
+    ],
+    "message": "先向芦荟领取光明石。"
+   },
+   "unova_bw_gym_opelucid": {
+    "require": [
+     "u1_dragons"
+    ],
+    "message": "先听夏卡和艾莉丝讲述两条龙。"
+   },
+   "unova_10": {
+    "require": [
+     "u1_badge_8"
+    ],
+    "message": "先获得双龙道馆的徽章。"
+   },
+   "unova_victory": {
+    "require": [
+     "u1_last_rival"
+    ],
+    "message": "十号道路的徽章检查站尚未放行。"
+   },
+   "unova_league": {
+    "require": [
+     "u1_last_rival"
+    ],
+    "message": "十号道路的徽章检查站尚未放行。"
+   },
+   "unova_e4_shauntal": {
+    "require": [
+     "u1_league"
+    ],
+    "message": "请先在联盟入口接受徽章检查。"
+   },
+   "unova_e4_grimsley": {
+    "require": [
+     "u1_league"
+    ],
+    "message": "请先在联盟入口接受徽章检查。"
+   },
+   "unova_e4_caitlin": {
+    "require": [
+     "u1_league"
+    ],
+    "message": "请先在联盟入口接受徽章检查。"
+   },
+   "unova_e4_marshal": {
+    "require": [
+     "u1_league"
+    ],
+    "message": "请先在联盟入口接受徽章检查。"
+   },
+   "unova_champion_room": {
+    "require": [
+     "u1_shauntal",
+     "u1_grimsley",
+     "u1_caitlin",
+     "u1_marshal"
+    ],
+    "message": "四位天王全部战胜后，大殿才会开放。"
+   },
+   "unova_ns_castle": {
+    "require": [
+     "u1_castle_rises"
+    ],
+    "message": "N 的城堡尚未出现在联盟。"
+   },
+   "unova_black_city": {
+    "require": [
+     "u1_ghetsis"
+    ],
+    "message": "这条通往东合众的道路在等离子队事件平息之后开放。"
+   },
+   "unova_11": {
+    "require": [
+     "u1_ghetsis"
+    ],
+    "message": "这条通往东合众的道路在等离子队事件平息之后开放。"
+   },
+   "unova_12": {
+    "require": [
+     "u1_ghetsis"
+    ],
+    "message": "这条通往东合众的道路在等离子队事件平息之后开放。"
+   },
+   "unova_13": {
+    "require": [
+     "u1_ghetsis"
+    ],
+    "message": "这条通往东合众的道路在等离子队事件平息之后开放。"
+   },
+   "unova_14": {
+    "require": [
+     "u1_ghetsis"
+    ],
+    "message": "这条通往东合众的道路在等离子队事件平息之后开放。"
+   },
+   "unova_15": {
+    "require": [
+     "u1_ghetsis"
+    ],
+    "message": "这条通往东合众的道路在等离子队事件平息之后开放。"
+   },
+   "unova_lacunosa": {
+    "require": [
+     "u1_ghetsis"
+    ],
+    "message": "这条通往东合众的道路在等离子队事件平息之后开放。"
+   },
+   "unova_undella": {
+    "require": [
+     "u1_ghetsis"
+    ],
+    "message": "这条通往东合众的道路在等离子队事件平息之后开放。"
+   },
+   "unova_village": {
+    "require": [
+     "u1_ghetsis"
+    ],
+    "message": "这条通往东合众的道路在等离子队事件平息之后开放。"
+   },
+   "unova_giant": {
+    "require": [
+     "u1_ghetsis"
+    ],
+    "message": "这条通往东合众的道路在等离子队事件平息之后开放。"
+   },
+   "unova_bw_zone_19": {
+    "require": [
+     "u1_n_museum"
+    ],
+    "message": "先在七宝博物馆入口见到 N。"
+   },
+   "unova_bw_zone_155": {
+    "require": [
+     "u1_fossil_theft"
+    ],
+    "message": "先去博物馆看看龙骨。"
+   },
+   "unova_bw_zone_38": {
+    "require": [
+     "u1_skull_back"
+    ],
+    "message": "馆长还在等你追回被夺走的龙骨。"
+   },
+   "unova_bw_zone_56": {
+    "require": [
+     "u1_skull_back"
+    ],
+    "message": "馆长还在等你追回被夺走的龙骨。"
+   },
+   "unova_bw_zone_64": {
+    "require": [
+     "u1_badge_3"
+    ],
+    "message": "飞云道馆的甲虫徽章尚未取得。"
+   },
+   "unova_bw_zone_195": {
+    "require": [
+     "u1_badge_5"
+    ],
+    "message": "先完成帆巴道馆的挑战。"
+   },
+   "unova_bw_zone_342": {
+    "require": [
+     "u1_badge_5"
+    ],
+    "message": "先完成帆巴道馆的挑战。"
+   }
+  },
+  "2": {
+   "unova_aspertia_lookout": {
+    "require": [
+     "u2_home"
+    ],
+    "message": "先在家里和妈妈谈谈。"
+   },
+   "unova_19": {
+    "require": [
+     "u2_maps"
+    ],
+    "message": "带上地图再出发。"
+   },
+   "unova_floccesy": {
+    "require": [
+     "u2_maps"
+    ],
+    "message": "带上地图再出发。"
+   },
+   "unova_20": {
+    "require": [
+     "u2_alder_visit"
+    ],
+    "message": "阿戴克在算木镇等你。"
+   },
+   "unova_ranch": {
+    "require": [
+     "u2_alder_visit"
+    ],
+    "message": "阿戴克在算木镇等你。"
+   },
+   "unova_b2_gym_aspertia": {
+    "require": [
+     "u2_school"
+    ],
+    "message": "先把牧场的哈约克找回来，再到算木镇上完属性课。"
+   },
+   "unova_virbank": {
+    "require": [
+     "u2_badge_1"
+    ],
+    "message": "二十号道路的训练家会检查桧扇道馆徽章。"
+   },
+   "unova_b2_gym_virbank": {
+    "require": [
+     "u2_badge_1"
+    ],
+    "message": "二十号道路的训练家会检查桧扇道馆徽章。"
+   },
+   "unova_film": {
+    "require": [
+     "u2_badge_2"
+    ],
+    "message": "先接受立涌道馆的挑战。"
+   },
+   "unova_castelia": {
+    "require": [
+     "u2_ferry"
+    ],
+    "message": "立涌市的联络船还没启航。"
+   },
+   "unova_castelia_sewers": {
+    "require": [
+     "u2_iris_port"
+    ],
+    "message": "艾莉丝知道飞云下水道的入口。"
+   },
+   "unova_b2_gym_castelia": {
+    "require": [
+     "u2_sewers"
+    ],
+    "message": "飞云馆主亚堤去了下水道。"
+   },
+   "unova_4": {
+    "require": [
+     "u2_badge_3"
+    ],
+    "message": "先通过飞云道馆。"
+   },
+   "unova_nimbasa": {
+    "require": [
+     "u2_colress_4"
+    ],
+    "message": "四号道路的岩殿居蟹还挡着路。"
+   },
+   "unova_nimbasa_old_gym": {
+    "require": [
+     "u2_colress_4"
+    ],
+    "message": "四号道路的岩殿居蟹还挡着路。"
+   },
+   "unova_driftveil_bridge": {
+    "require": [
+     "u2_charles"
+    ],
+    "message": "五号道路的摩托车手查尔斯正在等你。"
+   },
+   "unova_driftveil": {
+    "require": [
+     "u2_charles"
+    ],
+    "message": "五号道路的摩托车手查尔斯正在等你。"
+   },
+   "unova_b2_gym_nimbasa": {
+    "require": [
+     "u2_old_gym"
+    ],
+    "message": "去旧过山车道馆问问小菊儿的去向。"
+   },
+   "unova_5": {
+    "require": [
+     "u2_plasma_park"
+    ],
+    "message": "先和阿修处理雷文市路口的等离子队。"
+   },
+   "unova_b2_gym_driftveil": {
+    "require": [
+     "u2_rood"
+    ],
+    "message": "先在帆巴市见一见旧等离子队的罗德。"
+   },
+   "unova_pwt": {
+    "require": [
+     "u2_badge_5"
+    ],
+    "message": "菊老大尚未开放初次锦标赛。"
+   },
+   "unova_frigate_driftveil": {
+    "require": [
+     "u2_pwt"
+    ],
+    "message": "驱逐舰要在初次帆巴锦标赛后才能登上。"
+   },
+   "unova_6": {
+    "require": [
+     "u2_frigate_port"
+    ],
+    "message": "先和黑连、阿修调查帆巴码头的船。"
+   },
+   "unova_chargestone": {
+    "require": [
+     "u2_frigate_port"
+    ],
+    "message": "先和黑连、阿修调查帆巴码头的船。"
+   },
+   "unova_mistralton": {
+    "require": [
+     "u2_frigate_port"
+    ],
+    "message": "先和黑连、阿修调查帆巴码头的船。"
+   },
+   "unova_celestial": {
+    "require": [
+     "u2_frigate_port"
+    ],
+    "message": "先和黑连、阿修调查帆巴码头的船。"
+   },
+   "unova_7": {
+    "require": [
+     "u2_frigate_port"
+    ],
+    "message": "先和黑连、阿修调查帆巴码头的船。"
+   },
+   "unova_b2_gym_mistralton": {
+    "require": [
+     "u2_professor"
+    ],
+    "message": "先见红豆杉博士和风露。"
+   },
+   "unova_lentimas": {
+    "require": [
+     "u2_flight"
+    ],
+    "message": "吹寄市飞往山路镇的飞机还未起飞。"
+   },
+   "unova_reverse": {
+    "require": [
+     "u2_flight"
+    ],
+    "message": "吹寄市飞往山路镇的飞机还未起飞。"
+   },
+   "unova_undella": {
+    "require": [
+     "u2_flight"
+    ],
+    "message": "吹寄市飞往山路镇的飞机还未起飞。"
+   },
+   "unova_13": {
+    "require": [
+     "u2_undella"
+    ],
+    "message": "阿修在涟漪镇等你。"
+   },
+   "unova_lacunosa": {
+    "require": [
+     "u2_undella"
+    ],
+    "message": "阿修在涟漪镇等你。"
+   },
+   "unova_12": {
+    "require": [
+     "u2_undella"
+    ],
+    "message": "阿修在涟漪镇等你。"
+   },
+   "unova_village": {
+    "require": [
+     "u2_undella"
+    ],
+    "message": "阿修在涟漪镇等你。"
+   },
+   "unova_11": {
+    "require": [
+     "u2_undella"
+    ],
+    "message": "阿修在涟漪镇等你。"
+   },
+   "unova_opelucid": {
+    "require": [
+     "u2_zinzolin"
+    ],
+    "message": "先解救笼目镇。"
+   },
+   "unova_b2_gym_opelucid": {
+    "require": [
+     "u2_zinzolin"
+    ],
+    "message": "先解救笼目镇。"
+   },
+   "unova_opelucid_house": {
+    "require": [
+     "u2_zinzolin"
+    ],
+    "message": "先解救笼目镇。"
+   },
+   "unova_9": {
+    "require": [
+     "u2_zinzolin"
+    ],
+    "message": "先解救笼目镇。"
+   },
+   "unova_marine_tube": {
+    "require": [
+     "u2_shadow"
+    ],
+    "message": "双龙市被冰封了，先找到基因之楔的下落。"
+   },
+   "unova_humilau": {
+    "require": [
+     "u2_shadow"
+    ],
+    "message": "双龙市被冰封了，先找到基因之楔的下落。"
+   },
+   "unova_b2_gym_humilau": {
+    "require": [
+     "u2_shadow"
+    ],
+    "message": "双龙市被冰封了，先找到基因之楔的下落。"
+   },
+   "unova_21": {
+    "require": [
+     "u2_shadow"
+    ],
+    "message": "双龙市被冰封了，先找到基因之楔的下落。"
+   },
+   "unova_22": {
+    "require": [
+     "u2_badge_8"
+    ],
+    "message": "先拿到当地的海浪徽章。"
+   },
+   "unova_seaside_cave": {
+    "require": [
+     "u2_badge_8"
+    ],
+    "message": "先拿到当地的海浪徽章。"
+   },
+   "unova_frigate_seaside": {
+    "require": [
+     "u2_crustle"
+    ],
+    "message": "海边洞穴的出口有岩殿居蟹挡路。"
+   },
+   "unova_b2_zone_556": {
+    "require": [
+     "u2_ship_switches"
+    ],
+    "message": "四道电网还没有全部关闭。"
+   },
+   "unova_giant": {
+    "require": [
+     "u2_ship_ice"
+    ],
+    "message": "等离子驱逐舰还没有飞往巨人洞窟。"
+   },
+   "unova_frigate_giant": {
+    "require": [
+     "u2_chasm"
+    ],
+    "message": "罗德与伙伴还在巨人洞窟的入口。"
+   },
+   "unova_b2_zone_561": {
+    "require": [
+     "u2_chasm"
+    ],
+    "message": "罗德与伙伴还在巨人洞窟的入口。"
+   },
+   "unova_colress_lab": {
+    "require": [
+     "u2_zinzolin_last"
+    ],
+    "message": "通往阿克罗玛的舱门仍被电网封锁。"
+   },
+   "unova_b2_zone_557": {
+    "require": [
+     "u2_lab"
+    ],
+    "message": "另一侧的传送装置仍被封锁，先找到阿克罗玛。"
+   },
+   "unova_giant_chamber": {
+    "require": [
+     "u2_purrloin"
+    ],
+    "message": "黑暗铁三角还在守着通往洞窟核心的路。"
+   },
+   "unova_23": {
+    "require": [
+     "u2_ghetsis"
+    ],
+    "message": "巨人洞窟里的危机尚未解除。"
+   },
+   "unova_victory": {
+    "require": [
+     "u2_ghetsis"
+    ],
+    "message": "巨人洞窟里的危机尚未解除。"
+   },
+   "unova_league": {
+    "require": [
+     "u2_ghetsis"
+    ],
+    "message": "巨人洞窟里的危机尚未解除。"
+   },
+   "unova_e4_shauntal": {
+    "require": [
+     "u2_league"
+    ],
+    "message": "请先在联盟入口接受徽章检查。"
+   },
+   "unova_e4_grimsley": {
+    "require": [
+     "u2_league"
+    ],
+    "message": "请先在联盟入口接受徽章检查。"
+   },
+   "unova_e4_caitlin": {
+    "require": [
+     "u2_league"
+    ],
+    "message": "请先在联盟入口接受徽章检查。"
+   },
+   "unova_e4_marshal": {
+    "require": [
+     "u2_league"
+    ],
+    "message": "请先在联盟入口接受徽章检查。"
+   },
+   "unova_champion_room": {
+    "require": [
+     "u2_shauntal",
+     "u2_grimsley",
+     "u2_caitlin",
+     "u2_marshal"
+    ],
+    "message": "集齐本轮四场胜利才能向冠军挑战。"
+   },
+   "unova_nuvema": {
+    "require": [
+     "u2_champion"
+    ],
+    "message": "这个时代的东南合众在联盟之后开放。"
+   },
+   "unova_bw_home_1f": {
+    "require": [
+     "u2_champion"
+    ],
+    "message": "这个时代的东南合众在联盟之后开放。"
+   },
+   "unova_bw_home_2f": {
+    "require": [
+     "u2_champion"
+    ],
+    "message": "这个时代的东南合众在联盟之后开放。"
+   },
+   "unova_striaton": {
+    "require": [
+     "u2_champion"
+    ],
+    "message": "这个时代的东南合众在联盟之后开放。"
+   },
+   "unova_1": {
+    "require": [
+     "u2_champion"
+    ],
+    "message": "这个时代的东南合众在联盟之后开放。"
+   },
+   "unova_2": {
+    "require": [
+     "u2_champion"
+    ],
+    "message": "这个时代的东南合众在联盟之后开放。"
+   },
+   "unova_3": {
+    "require": [
+     "u2_champion"
+    ],
+    "message": "这个时代的东南合众在联盟之后开放。"
+   },
+   "unova_nacrene": {
+    "require": [
+     "u2_champion"
+    ],
+    "message": "这个时代的东南合众在联盟之后开放。"
+   },
+   "unova_icirrus": {
+    "require": [
+     "u2_champion"
+    ],
+    "message": "这个时代的东南合众在联盟之后开放。"
+   },
+   "unova_black_city": {
+    "require": [
+     "u2_champion"
+    ],
+    "message": "这个时代的东南合众在联盟之后开放。"
+   },
+   "unova_b2_zone_445": {
+    "require": [
+     "u2_alder_visit"
+    ],
+    "message": "阿戴克在算木镇等你。"
+   },
+   "unova_b2_zone_440": {
+    "require": [
+     "u2_maps"
+    ],
+    "message": "带上地图再出发。"
+   },
+   "unova_b2_zone_567": {
+    "require": [
+     "u2_badge_2"
+    ],
+    "message": "先接受立涌道馆的挑战。"
+   },
+   "unova_b2_zone_533": {
+    "require": [
+     "u2_flight"
+    ],
+    "message": "吹寄市飞往山路镇的飞机还未起飞。"
+   },
+   "unova_b2_zone_233": {
+    "require": [
+     "u2_ship_ice"
+    ],
+    "message": "等离子驱逐舰还没有飞往巨人洞窟。"
+   },
+   "unova_b2_zone_604": {
+    "require": [
+     "u2_purrloin"
+    ],
+    "message": "黑暗铁三角还在守着通往洞窟核心的路。"
+   },
+   "unova_b2_zone_573": {
+    "require": [
+     "u2_ghetsis"
+    ],
+    "message": "巨人洞窟里的危机尚未解除。"
+   },
+   "unova_b2_zone_228": {
+    "require": [
+     "u2_ghetsis"
+    ],
+    "message": "巨人洞窟里的危机尚未解除。"
+   }
+  }
+ },
+ "pwt": [
+  [
+   [
+    {
+     "species": 499,
+     "level": 25,
+     "moves": [
+      36,
+      123,
+      535,
+      205
+     ]
+    },
+    {
+     "species": 516,
+     "level": 25,
+     "moves": [
+      503,
+      43,
+      122,
+      154
+     ]
+    },
+    {
+     "species": 520,
+     "level": 25,
+     "moves": [
+      269,
+      314,
+      355,
+      197
+     ]
+    }
+   ],
+   [
+    {
+     "species": 502,
+     "level": 25,
+     "moves": [
+      453,
+      352,
+      279,
+      210
+     ]
+    },
+    {
+     "species": 512,
+     "level": 25,
+     "moves": [
+      402,
+      43,
+      122,
+      154
+     ]
+    },
+    {
+     "species": 520,
+     "level": 25,
+     "moves": [
+      269,
+      314,
+      355,
+      197
+     ]
+    }
+   ],
+   [
+    {
+     "species": 496,
+     "level": 25,
+     "moves": [
+      73,
+      348,
+      21,
+      72
+     ]
+    },
+    {
+     "species": 514,
+     "level": 25,
+     "moves": [
+      481,
+      43,
+      122,
+      154
+     ]
+    },
+    {
+     "species": 520,
+     "level": 25,
+     "moves": [
+      269,
+      314,
+      355,
+      197
+     ]
+    }
+   ]
+  ],
+  [
+   [
+    {
+     "species": 508,
+     "level": 25,
+     "moves": [
+      33,
+      526,
+      44,
+      316
+     ]
+    },
+    {
+     "species": 573,
+     "level": 25,
+     "moves": [
+      526,
+      47,
+      358,
+      331
+     ]
+    },
+    {
+     "species": 505,
+     "level": 25,
+     "moves": [
+      526,
+      109,
+      95,
+      44
+     ]
+    }
+   ]
+  ],
+  [
+   [
+    {
+     "species": 82,
+     "level": 25,
+     "moves": [
+      86,
+      48,
+      84,
+      429
+     ]
+    },
+    {
+     "species": 605,
+     "level": 25,
+     "moves": [
+      45,
+      29,
+      60,
+      377
+     ]
+    },
+    {
+     "species": 599,
+     "level": 25,
+     "moves": [
+      268,
+      84,
+      544,
+      20
+     ]
+    }
+   ]
+  ]
+ ]
+}

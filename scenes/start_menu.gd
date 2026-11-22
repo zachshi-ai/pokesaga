@@ -15,6 +15,7 @@ const WINDOW_Y := 47
 const WINDOW_WIDTH := 153
 
 var has_fusion := false
+var unova_memory := false
 var registered:=""
 var tools_open := false
 var selected := 0
@@ -77,6 +78,7 @@ func _populate(focus_row: int) -> void:
 	rows.clear()
 	var labels: Array = TOOLS.duplicate() if tools_open else MAIN
 	if tools_open:
+		if unova_memory: labels.append("回忆链接")
 		if registered!="":labels.append("快捷道具")
 		if has_fusion:
 			labels.append("融合")

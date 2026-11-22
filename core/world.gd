@@ -193,6 +193,7 @@ var emerald_chunks: Array = []
 var _prev_facing := ""
 
 func load_map(data: Dictionary) -> void:
+	if data.get("unova_dynamic_exits",false):data=preload("res://core/unova_ship.gd").active_map(data,taken)
 	if data.get("platinum_flower","")=="closed" and taken.get("s_flower_path",false):
 		data=JSON.parse_string(FileAccess.get_file_as_string("res://content/platinum_native/flower/%s.json" % data.id))
 		preload("res://core/sinnoh_field.gd").populate(data)
@@ -218,7 +219,7 @@ func load_map(data: Dictionary) -> void:
 	_directional_passages.clear()
 	for w in preload("res://core/world_passages.gd").active(data):
 		var p := Vector2i(int(w.at[0]), int(w.at[1]))
-		if (data.has("emerald_original") or data.has("platinum_native")) and WARP_DIR.has(w.get("trigger","")):
+		if (data.has("emerald_original") or data.has("platinum_native") or data.has("unova_native")) and WARP_DIR.has(w.get("trigger","")):
 			_directional_passages[[p,WARP_DIR[w.trigger]]]=w
 		if not _passages.has(p):
 			_passages[p] = w
@@ -230,7 +231,7 @@ func load_map(data: Dictionary) -> void:
 	walk_timer = 0.0
 	frame_col = 0
 	var em: String = String(data.get("emerald", ""))
-	if em != "" or data.has("platinum_native"):
+	if em != "" or data.has("platinum_native") or data.has("unova_native"):
 		_load_emerald_map(em)
 		return
 	# 切到自建图（开拓区这类）必须把原版地图的几张表清掉，
@@ -274,7 +275,7 @@ func load_map(data: Dictionary) -> void:
 func _load_emerald_map(name: String) -> void:
 	var meta_path := "res://content/emerald_maps/%s.json" % name
 	var meta: Dictionary = {}
-	if map_data.has("emerald_original") or map_data.has("platinum_native"):
+	if map_data.has("emerald_original") or map_data.has("platinum_native") or map_data.has("unova_native"):
 		meta=map_data.physics
 	elif map_data.has("hgss"):
 		meta = preload("res://core/hgss_field.gd").grids(map_data.hgss)
@@ -663,6 +664,12 @@ func hole_filled(p: Vector2i) -> bool:
 
 
 func fill_hole(p: Vector2i) -> void:
+	if map_data.has("unova_native"):
+		for pit in map_data.physics.get("strength_pits",[]):
+			if pit.any(func(cell):return p==Vector2i(int(cell[0]),int(cell[1]))):
+				for cell in pit:
+					taken[_hole_key(Vector2i(int(cell[0]),int(cell[1])))]=true
+				return
 	taken[_hole_key(p)] = true
 
 
@@ -803,6 +810,10 @@ func step(dir: Vector2i) -> bool:
 		_sync_player()
 		return false
 	var passage := _warp_from(player_pos, dir)
+	var unova_ledge: bool=map_data.has("unova_native") and str(passage.get("source_warp","")).begins_with("ledge_")
+	if unova_ledge and not can_enter(Vector2i(int(passage.to.at[0]),int(passage.to.at[1])),dir,true):
+		_sync_player()
+		return false
 	if passage.is_empty() and not can_step(dir):
 		# 撞墙也要转身：原版顶着墙走，人是会转过脸来的
 		_sync_player()
@@ -815,9 +826,9 @@ func step(dir: Vector2i) -> bool:
 	var target := player_pos + dir
 	var is_jump := false
 	var rift_move: bool=passage.get("mechanism","") in ["distortion_jump","floating_jump","floating_ride"]
-	if rift_move:
+	if rift_move or unova_ledge:
 		player_pos=Vector2i(int(passage.to.at[0]),int(passage.to.at[1]))
-		is_jump=passage.mechanism!="floating_ride"
+		is_jump=unova_ledge or passage.mechanism!="floating_ride"
 	elif not passage.is_empty():
 		player_pos = Vector2i(int(passage.at[0]), int(passage.at[1]))
 	elif hop_wanted(dir):
@@ -851,7 +862,7 @@ func step(dir: Vector2i) -> bool:
 	_sync_player()
 	# 走路时只认门；对话必须按 A，否则贴着 NPC 走过去会自动开口
 	if not passage.is_empty():
-		if not rift_move:_queue_passage(passage)
+		if not rift_move and not unova_ledge:_queue_passage(passage)
 	else:
 		_check_warp()
 	return true
@@ -963,8 +974,10 @@ func step_interact() -> void:
 
 func _queue_passage(row: Dictionary) -> void:
 	pending_warp = row.to
-	if row.get("atlas","")=="world" and pending_warp.region=="sinnoh":
-		pending_warp=preload("res://core/world_passages.gd").atlas_return(map_data,pending_warp,get_node("/root/Data").load_map("sinnoh",pending_warp.map))
+	if row.get("atlas","")=="world" and pending_warp.region in ["sinnoh","unova"]:
+		var db=get_node("/root/Data")
+		pending_warp=preload("res://core/world_passages.gd").unova_terminus(map_data,pending_warp,db.unova_era)
+		pending_warp=preload("res://core/world_passages.gd").atlas_return(map_data,pending_warp,db.load_map(pending_warp.region,pending_warp.map))
 	if row.get("turnback_maze",false): pending_warp=preload("res://core/platinum_maze.gd").destination(self,row)
 	if map_data.has("platinum_gym"): pending_warp=preload("res://core/platinum_gym.gd").destination(self,row)
 	if map_data.has("emerald_original"):
@@ -991,6 +1004,9 @@ func _check_talk() -> void:
 		var index := npcs.find(npc)
 		if index>=0 and index*2+1<_npc_nodes.size():
 			var sprite: Sprite2D = _npc_nodes[index*2+1]
+			var unova_identity := str(sprite.get_meta("unova_identity",""))
+			if not unova_identity.is_empty():
+				preload("res://core/unova_cast.gd").draw(sprite,unova_identity,{"left":"right","right":"left","up":"down","down":"up"}[facing])
 			var sinnoh_identity := str(sprite.get_meta("sinnoh_identity",""))
 			if not sinnoh_identity.is_empty():
 				SinnohCast.draw(sprite,sinnoh_identity,{"left":"right","right":"left","up":"down","down":"up"}[facing])
@@ -1335,8 +1351,15 @@ func _draw_npcs() -> void:
 		var johto: bool = map_data.get("region","")=="johto"
 		var identity := JohtoCast.character(n) if johto else ""
 		var tex: Texture2D
+		var unova_identity: String = preload("res://core/unova_cast.gd").character(n) if map_data.has("unova_native") else ""
 		var sinnoh_identity := SinnohCast.character(n) if map_data.has("platinum_native") else ""
-		if not sinnoh_identity.is_empty():
+		if n.has("unova_prop"):
+			tex=EmeraldField.prop_texture(str(n.unova_prop))
+		elif not unova_identity.is_empty():
+			s.set_meta("unova_identity",unova_identity)
+			preload("res://core/unova_cast.gd").draw(s,unova_identity,n.get("facing","down"))
+			tex=s.texture
+		elif not sinnoh_identity.is_empty():
 			s.set_meta("sinnoh_identity",sinnoh_identity)
 			SinnohCast.draw(s,sinnoh_identity,n.get("facing","down"))
 			tex=s.texture
@@ -1361,7 +1384,7 @@ func _draw_npcs() -> void:
 		var sh := Sprite2D.new()
 		sh.scale = s.scale
 		sh.texture = _shadow_tex
-		sh.visible = not n.get("in_water_pose",false) and tex!=null and not (n.has("apricorn") or n.has("gives_mon") or n.get("name","")=="道具球")
+		sh.visible = not n.has("unova_prop") and not n.get("in_water_pose",false) and tex!=null and not (n.has("apricorn") or n.has("gives_mon") or n.get("name","")=="道具球")
 		var nz: int = Z_ACTOR + int(at[1]) * 2
 		if n.get("source_gfx","")=="OBJ_EVENT_GFX_TRUCK": nz-=1
 		sh.z_index = nz - 1
@@ -1395,9 +1418,10 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 	var shadow: Sprite2D = _npc_nodes[index*2]
 	var npc_position := Vector2i(int(row.at[0]),int(row.at[1]))
 	var johto_identity := str(sprite.get_meta("johto_identity",""))
+	var unova_identity := str(sprite.get_meta("unova_identity",""))
 	var sinnoh_identity := str(sprite.get_meta("sinnoh_identity",""))
 	var emerald: bool = map_data.has("emerald_original") and row.has("source_gfx")
-	if johto_identity.is_empty() and sinnoh_identity.is_empty() and not emerald:
+	if johto_identity.is_empty() and sinnoh_identity.is_empty() and unova_identity.is_empty() and not emerald:
 		sprite.texture = preload("res://assets/npc/fr_oak_walk.png")
 		sprite.hframes = 9
 	var actor_face := "down"
@@ -1409,7 +1433,8 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 			var delta: Vector2i = directions[npc_path[i]]
 			npc_position+=delta
 			actor_face = faces[npc_path[i]]
-			if not sinnoh_identity.is_empty(): SinnohCast.draw(sprite,sinnoh_identity,actor_face,1+i%2)
+			if not unova_identity.is_empty(): preload("res://core/unova_cast.gd").draw(sprite,unova_identity,actor_face,1+i%2)
+			elif not sinnoh_identity.is_empty(): SinnohCast.draw(sprite,sinnoh_identity,actor_face,1+i%2)
 			elif emerald: preload("res://core/hoenn_field.gd").draw(sprite,row,actor_face,1+i%2)
 			elif johto_identity.is_empty():
 				sprite.flip_h = actor_face == "right"
@@ -1426,7 +1451,8 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 			player_pos+=Vector2i(directions[player_path[i]])
 			tween.tween_method(_render_story_step,render_pos,Vector2(player_pos),0.11)
 		await tween.finished
-		if not sinnoh_identity.is_empty(): SinnohCast.draw(sprite,sinnoh_identity,actor_face)
+		if not unova_identity.is_empty(): preload("res://core/unova_cast.gd").draw(sprite,unova_identity,actor_face)
+		elif not sinnoh_identity.is_empty(): SinnohCast.draw(sprite,sinnoh_identity,actor_face)
 		elif emerald: preload("res://core/hoenn_field.gd").draw(sprite,row,actor_face)
 		elif johto_identity.is_empty(): sprite.frame = FACE_FRAME[actor_face]
 		else: JohtoCast.draw(sprite,johto_identity,actor_face)
@@ -1941,6 +1967,8 @@ func arrive(target: Dictionary) -> void:
 	var pos := Vector2i(int(target.at[0]), int(target.at[1]))
 	if map_data.has("emerald_original") and not target.get("hoenn_native",false) and map_data.has("legacy_size"):
 		pos=preload("res://core/hoenn_field.gd").saved_position(self,pos)
+	if map_data.has("unova_native") and target.get("regional_travel",false):
+		pos=Vector2i(int(map_data.spawn[0]),int(map_data.spawn[1]))
 	if map_data.has("platinum_native") and (target.get("regional_travel",false) or not target.get("platinum_native",false)):
 		pos=Vector2i(int(map_data.spawn[0]),int(map_data.spawn[1]))
 	if map_data.has("hgss") and not target.get("hgss",false):

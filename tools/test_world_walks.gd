@@ -116,7 +116,7 @@ func check_navigator() -> bool:
 
 func run() -> void:
 	db=root.get_node("Data")
-	atlas=db.load_json("res://content/world_destinations.json")
+	atlas={"regions":db.travel_regions()}
 	world=Walker.new()
 	root.add_child(world)
 	for region in atlas.regions:
@@ -128,7 +128,7 @@ func run() -> void:
 			if map.is_empty():fail("missing map "+key);break
 			var links := {}
 			for w in map.warps:
-				var to: Dictionary=w.to
+				var to: Dictionary=preload("res://core/world_passages.gd").unova_terminus(map,w.to,db.unova_era) if w.get("atlas","")=="world" else w.to
 				var dest:=str(to.region)+"/"+str(to.map)
 				var legacy: bool=key in ["hoenn/littleroot_town","hoenn/route101"] and dest in ["hoenn/littleroot_town","hoenn/route101"]
 				if w.get("atlas","")=="world" or legacy: links[dest]=vec(w.at)
@@ -145,6 +145,8 @@ func run() -> void:
 	# gates. Start a walking circuit at each independent atlas branch, and require
 	# its entire road network (including the new hub) to return to that same town.
 	var native_termini:=["sinnoh/sinnoh_twinleaf","sinnoh/sinnoh_canalave","sinnoh/sinnoh_celestic","sinnoh/sinnoh_spring"]
+	for place in places:
+		if places[place].has("unova_native"):native_termini.append(place)
 	var seen: Dictionary={}
 	var done_edges: Dictionary={}
 	var stack: Array=[]
@@ -177,7 +179,7 @@ func run() -> void:
 			if next.is_empty():break
 			tour=next[0]
 			var start: Dictionary=places[tour]
-			load_at({"region":start.region,"map":start.id,"at":start.spawn,"platinum_native":true})
+			load_at({"region":start.region,"map":start.id,"at":start.spawn,"platinum_native":start.has("platinum_native"),"unova_native":start.has("unova_native")})
 			trips+=1
 	if not failed and (current!=tour or seen.size()!=places.size() or checked_hubs.size()!=atlas.regions.size()):
 		fail("incomplete tour: %s maps %s navigators %s" % [current,seen.size(),checked_hubs.size()])

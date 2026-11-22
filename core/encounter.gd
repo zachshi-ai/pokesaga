@@ -33,7 +33,9 @@ static func roll(pool: Array, rng: RandomNumberGenerator) -> Dictionary:
 			var lo := int(row.get("min", 2))
 			var hi := int(row.get("max", lo))
 			var lv := rng.randi_range(mini(lo, hi), maxi(lo, hi))
-			return {"species": sid, "level": clampi(lv, 1, 100)}
+			var encounter := {"species":sid,"level":clampi(lv,1,100)}
+			if row.has("form"):encounter.form=row.form
+			return encounter
 	return {}
 
 ## 给一只配招：按等级从种族学习表里挑，取到这一级为止学会的最后四招。

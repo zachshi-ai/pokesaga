@@ -1,6 +1,8 @@
 extends "res://scenes/battle_ui.gd"
 
 var companion := false
+var positions := 2
+var shift_button: Button
 var orders := {}
 var selection := 0
 var target := 0
@@ -10,7 +12,9 @@ var target_buttons := []
 var animations := {}
 
 func _battle_engine(seed_value: int):
-	return preload("res://core/double_battle.gd").new(seed_value)
+	var engine:=preload("res://core/double_battle.gd").new(seed_value)
+	engine.positions=positions
+	return engine
 
 func _build() -> void:
 	super._build()
@@ -18,14 +22,26 @@ func _build() -> void:
 	boxes.b = [enemy_hp,_make_hpbox(Vector2.ZERO,battle.cur_b(),false)]
 	sprites.a = [player_sprite,_make_sprite(battle.cur_a(),Vector2.ZERO,1.55,true)]
 	sprites.b = [enemy_sprite,_make_sprite(battle.cur_b(),Vector2.ZERO,1.35)]
-	for i in 2:
+	if positions==3:
+		boxes.a.append(_make_hpbox(Vector2.ZERO,battle.cur_a(),true))
+		boxes.b.append(_make_hpbox(Vector2.ZERO,battle.cur_b(),false))
+		sprites.a.append(_make_sprite(battle.cur_a(),Vector2.ZERO,1.05,true))
+		sprites.b.append(_make_sprite(battle.cur_b(),Vector2.ZERO,1.05))
+		shift_button=_choice("移到中央",func():_select_action("shift"),13)
+		UI.place(self,shift_button,216,159,88,37)
+	for i in positions:
 		boxes.b[i].position=Vector2(3,i*45+2)
 		boxes.a[i].position=Vector2(310,132+i*45)
 		boxes.a[i].scale=Vector2(0.81,0.81)
 		boxes.b[i].scale=Vector2(0.8,0.8)
 		var button := Button.new()
 		button.add_theme_font_size_override("font_size",11)
-		button.position=Vector2(164,5+i*44)
+		if positions==3:
+			boxes.b[i].position=Vector2(2,i*36+2)
+			boxes.a[i].position=Vector2(347,102+i*36)
+			boxes.a[i].scale=Vector2(0.63,0.63)
+			boxes.b[i].scale=Vector2(0.64,0.64)
+		button.position=Vector2(126 if positions==3 else 164,5+i*(36 if positions==3 else 44))
 		button.size=Vector2(56,33)
 		button.pressed.connect(_select_target.bind(i))
 		target_buttons.append(button)
@@ -39,7 +55,8 @@ func _select_target(i: int) -> void:
 	_refresh_targets()
 
 func _refresh_targets() -> void:
-	for i in 2:
+	if is_instance_valid(shift_button):shift_button.visible=state=="menu" and selection!=1 and menu.visible
+	for i in positions:
 		target_buttons[i].text = "目标 ✓" if i==target else "瞄准"
 		target_buttons[i].disabled = not battle.viable("b",i)
 
@@ -57,13 +74,13 @@ func _on_move(i: int) -> void:
 
 func _do_switch(i: int) -> void:
 	if i in battle.lanes.a or player_team[i].get("trainer_group","first")=="second":
-		_open_commands("switch","这位伙伴已在场上，或由大吾指挥。")
+		_open_commands("switch","这位伙伴已在场上，或由同行的训练家指挥。")
 		return
 	_select_action("switch:%d"%i)
 
 func _select_action(choice: String) -> void:
 	orders[selection]={"move":choice,"target":target}
-	for i in 2:
+	for i in positions:
 		if orders.has(i) or not battle.viable("a",i): continue
 		if companion and battle.groups.a[i]=="second": continue
 		selection=i
@@ -114,10 +131,10 @@ func _play_health(index: int) -> void:
 			animations[key]=tween
 
 func _refresh_hp() -> void:
-	if boxes.a.size()!=2: return
+	if boxes.a.size()!=positions: return
 	for side: String in ["a","b"]:
 		var group: Array = battle.team_a if side=="a" else battle.team_b
-		for i in 2:
+		for i in positions:
 			var idx: int=battle.lanes[side][i]
 			var box: Control=boxes[side][i]
 			var sprite: TextureRect=sprites[side][i]
@@ -128,10 +145,14 @@ func _refresh_hp() -> void:
 			box.set_meta("slot",idx)
 			_apply_appearance(sprite,group[idx])
 			var factor:=1.55 if side=="a" else 1.35
+			if positions==3:factor=1.12
 			var feet:=float(sprite.texture.get_meta("feet",56))
 			sprite.scale=Vector2.ONE*factor
 			var ground_y:=float((213-i*25) if side=="a" else (115+i*14))-feet*factor
 			sprite.position=Vector2((34+i*94) if side=="a" else (248+i*90),ground_y)
+			if positions==3:
+				ground_y=float((201-i*13) if side=="a" else (69+i*18))-feet*factor
+				sprite.position=Vector2((16+i*75) if side=="a" else (195+i*73),ground_y)
 			sprite.set_meta("ground_y",ground_y)
 	_refresh_targets()
 	_refresh_field_label()

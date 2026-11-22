@@ -199,7 +199,7 @@ func status() -> Dictionary:
 		"pl_obstacles":world.objects.filter(func(o):return o.get("kind","") in ["rock","cut","boulder"]).map(func(o):return [o.at,o.kind]) if world.map_data.has("platinum_native") else [],
 		"pl_gym_state":game._flags().get("pl_gym_"+str(world.map_data.id),{}),"pl_gym_collision":world.emerald_collision if world.map_data.has("platinum_gym") else [],
 		"gym_button":int(game._flags().get("h_wattson_switch",0)),"gym_local":world.hoenn_local,"badges":game.save_data.badges,"money":game.save_data.money,"dex":game.save_data.dex.caught,"defeated":game.save_data.get("defeated",{}),
-		"actors":world.npcs.map(func(n):return [n.at,n.get("role",""),n.get("name",""),n.get("shop",false),n.get("legacy_at",n.at),n.get("story_map",world.map_data.id),n.get("heal",false),n.get("hgss_source",""),n.get("local_id",-1),n.get("source_script","")]),
+		"actors":world.npcs.map(func(n):return [n.at,n.get("role",""),n.get("name",""),n.get("shop",false),n.get("legacy_at",n.at),n.get("story_map",world.map_data.id),n.get("heal",false),n.get("hgss_source",""),n.get("local_id",-1),n.get("source_script",""),n.get("unova_trainer","")]),
 		"bins":[game._flags().get("surge_bin",-1),game._flags().get("surge_second_bin",-1)],"history":game.save_data.get("return_passages",{}),"buttons":panels,"panels":game.panel_open,"held":game.save_data.party.map(func(m):return m.get("held","")),"problem":problem,"fights":fights,
 		"dialog":lines,"turns":turns,"steps":steps,"obstruction":obstruction,"hall":game.save_data.get("hall_of_fame",{})}
 
@@ -287,6 +287,7 @@ func act(cmd: Dictionary) -> void:
 				problem = "Item absent from bag: " + item_name
 			if cmd.action == "use" and is_instance_valid(bag): bag.handle_back()
 		"mode": mode = str(cmd.value)
+		"start": game.ui_layer.get_node("StartKey").pressed.emit()
 		"save": game._persist()
 		"shop":
 			var shop = game.menu_layer.get_child(-1)
@@ -319,15 +320,21 @@ func run() -> void:
 	world = game.world
 	db = root.get_node("Data")
 	var args := OS.get_cmdline_user_args()
-	if "hoenn-boxed" in args or "hoenn-carried" in args or "new-hoenn" in args or "new-johto" in args or "new-sinnoh" in args or "sinnoh-boxed" in args or "sinnoh-carried" in args:
-		var region := "johto" if "new-johto" in args else "hoenn"
-		if "new-sinnoh" in args or "sinnoh-boxed" in args or "sinnoh-carried" in args: region="sinnoh"
-		var fresh := "new-hoenn" in args or "new-johto" in args or "new-sinnoh" in args
+	var region := ""
+	var mode := "carried"
+	var fresh := false
+	for candidate in ["hoenn","johto","sinnoh","unova"]:
+		if "new-"+candidate in args or candidate+"-carried" in args or candidate+"-boxed" in args:
+			region=candidate
+			mode="boxed" if candidate+"-boxed" in args else "carried"
+			fresh="new-"+candidate in args
+			break
+	if not region.is_empty():
 		if fresh == is_instance_valid(game.title_screen.continue_button):
 			push_error("Unexpected save slot for regional journey")
 			quit(1)
 			return
-		if not await preload("regional_start.gd").enter(game,region,"boxed" if "hoenn-boxed" in args or "sinnoh-boxed" in args else "carried"):
+		if not await preload("regional_start.gd").enter(game,region,mode):
 			quit(1)
 			return
 	elif game.title_screen.continue_button == null:

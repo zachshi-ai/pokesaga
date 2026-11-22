@@ -130,7 +130,31 @@ func travel_regions() -> Dictionary:
 		if catalog is Dictionary:
 			destinations = catalog.get("regions", {})
 			world_passages = catalog.get("passages", [])
+			_refresh_unova_atlas()
 	return destinations
+
+var unova_era := "bw"
+
+func set_unova_era(era: String) -> void:
+	var selected := "b2" if era in ["b2", "bw2", "b2w2"] else "bw"
+	if unova_era != selected:
+		unova_era = selected
+		regions.erase("unova")
+		_refresh_unova_atlas()
+
+func _refresh_unova_atlas() -> void:
+	if not destinations.has("unova"):return
+	var charts: Dictionary=load_json("res://content/unova_atlas.json")
+	for key in charts[unova_era]:
+		destinations.unova[key]=charts[unova_era][key]
+
+
+func load_unova_map(map_id: String, era: String) -> Dictionary:
+	var path := "res://content/unova_native/%s/%s.json" % [era,map_id]
+	if not FileAccess.file_exists(path): return {}
+	var mapped: Dictionary = load_json(path)
+	mapped.objects = preload("res://core/unova_side.gd").map_objects(mapped)
+	return mapped
 
 ## 保留完整地图目录，具体地图首次进入时才读入内存。
 func load_region(region_id: String) -> Dictionary:
@@ -153,6 +177,10 @@ func load_region(region_id: String) -> Dictionary:
 		region["activity_map_ids"]=facilities.keys()
 		for mid in registry.values():
 			if not facilities.has(mid) and not map_ids.has(mid): map_ids.append(mid)
+	if region_id=="unova":
+		map_ids=map_ids.filter(func(mid):return str(mid).begins_with("unova_pass_"))
+		for file_name in DirAccess.get_files_at("res://content/unova_native/"+unova_era):
+			if file_name.ends_with(".json") and not map_ids.has(file_name.get_basename()): map_ids.append(file_name.get_basename())
 	if region_id=="sinnoh":
 		for file_name in DirAccess.get_files_at("res://content/platinum_native/maps"):
 			if file_name.ends_with(".json") and not map_ids.has(file_name.get_basename()): map_ids.append(file_name.get_basename())
@@ -176,6 +204,14 @@ func load_map(region_id: String, map_id: String) -> Dictionary:
 	var region: Dictionary = regions[region_id]
 	if region["maps"].has(map_id):
 		return region["maps"][map_id]
+
+	if region_id == "unova":
+		if map_id=="unova_skyarrow": map_id="unova_skyarrow_bridge"
+		var mapped := load_unova_map(map_id,unova_era)
+		if not mapped.is_empty():
+			region.maps[map_id] = mapped
+			return mapped
+		if not map_id.begins_with("unova_pass_"):return {}
 
 	var legacy_path := String(region["_base"]) + "maps/" + map_id + ".json"
 	var native_path := "res://content/hoenn_native/maps/"+map_id+".json"
@@ -329,6 +365,7 @@ func berry_name(key: String) -> String:
 	return String(d.get("name", key))
 
 func item_name(key: String) -> String:
+	if key.ends_with("_GEM") and not held_items.has(key):return load("res://core/unova_side.gd").item_name(key)
 	return String((held_items.get(key, {}) as Dictionary).get("name", key))
 
 func evo_item_name(key: String) -> String:
