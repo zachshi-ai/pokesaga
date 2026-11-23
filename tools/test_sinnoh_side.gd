@@ -129,6 +129,9 @@ func run():
 			check(int(game.save_data.sinnoh_underground.wall.hits)==14,"dig consumes wall strength")
 		click("离开岩壁")
 		click("回到地面")
+	var thunder_before:int=game._bag_count("雷之石")
+	Side.give(game,"THUNDER_STONE")
+	check(Side.item_name("THUNDER_STONE")=="雷之石" and game._bag_count("雷之石")==thunder_before+1,"underground Thunder Stone uses the shared evolution inventory")
 	check(Side.give_egg(game,175,"s_side_test_egg") and Side.give_egg(game,447,"s_side_test_egg_riley"),"two independent gifts can incubate together")
 	game._close_all_dialogs()
 	game.save_data.sinnoh_eggs[0].steps=1

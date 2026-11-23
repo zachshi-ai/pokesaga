@@ -7,6 +7,13 @@ static var indices: Dictionary = {}
 static var feet: Dictionary = {}
 
 static func texture(species_id: int, form_key: String, shiny: bool, back := false) -> Texture2D:
+	if species_id==778 and form_key in ["MIMIKYU_TOTEM_DISGUISED","MIMIKYU_TOTEM_BUSTED"]:
+		var giant:=AtlasTexture.new()
+		giant.atlas=preload("res://assets/dex/alola_mimikyu_totem.png")
+		giant.region=Rect2((int(back)*2+int(shiny))*TILE_SIZE,int(form_key.ends_with("BUSTED"))*TILE_SIZE,TILE_SIZE,TILE_SIZE)
+		giant.set_meta("feet",63)
+		giant.filter_clip=true
+		return giant
 	var side := "back_" if back else ""
 	if not indices.has(side):
 		indices[side] = JSON.parse_string(FileAccess.get_file_as_string("res://content/dex_%sart.json" % side))

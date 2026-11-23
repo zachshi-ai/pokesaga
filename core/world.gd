@@ -220,7 +220,7 @@ func load_map(data: Dictionary) -> void:
 	_directional_passages.clear()
 	for w in preload("res://core/world_passages.gd").active(data):
 		var p := Vector2i(int(w.at[0]), int(w.at[1]))
-		if (data.has("emerald_original") or data.has("platinum_native") or data.has("unova_native") or data.has("kalos_native")) and WARP_DIR.has(w.get("trigger","")):
+		if (data.has("emerald_original") or data.has("platinum_native") or data.has("unova_native") or data.has("kalos_native") or data.has("alola_native")) and WARP_DIR.has(w.get("trigger","")):
 			_directional_passages[[p,WARP_DIR[w.trigger]]]=w
 		if not _passages.has(p):
 			_passages[p] = w
@@ -232,7 +232,7 @@ func load_map(data: Dictionary) -> void:
 	walk_timer = 0.0
 	frame_col = 0
 	var em: String = String(data.get("emerald", ""))
-	if em != "" or data.has("platinum_native") or data.has("unova_native") or data.has("kalos_native"):
+	if em != "" or data.has("platinum_native") or data.has("unova_native") or data.has("kalos_native") or data.has("alola_native"):
 		_load_emerald_map(em)
 		return
 	# 切到自建图（开拓区这类）必须把原版地图的几张表清掉，
@@ -263,6 +263,7 @@ func load_map(data: Dictionary) -> void:
 	tiles = data.get("tiles", [])
 	npcs = preload("res://core/frlg_actors.gd").roster(data, taken)
 	objects = (data.get("objects", []) as Array).duplicate(true)
+	if data.get("alola_native",false):objects=load("res://core/alola_routes.gd").edition_objects(data,taken,objects)
 	weather = String(data.get("weather", ""))
 	var sp: Array = data.get("spawn", [1, 1])
 	player_pos = Vector2i(int(sp[0]), int(sp[1]))
@@ -276,7 +277,7 @@ func load_map(data: Dictionary) -> void:
 func _load_emerald_map(name: String) -> void:
 	var meta_path := "res://content/emerald_maps/%s.json" % name
 	var meta: Dictionary = {}
-	if map_data.has("emerald_original") or map_data.has("platinum_native") or map_data.has("unova_native") or map_data.has("kalos_native"):
+	if map_data.has("emerald_original") or map_data.has("platinum_native") or map_data.has("unova_native") or map_data.has("kalos_native") or map_data.has("alola_native"):
 		meta=map_data.physics
 	elif map_data.has("hgss"):
 		meta = preload("res://core/hgss_field.gd").grids(map_data.hgss)
@@ -309,6 +310,8 @@ func _load_emerald_map(name: String) -> void:
 	tile_size = Vector2i(int(sz[0]), int(sz[1]))
 	tiles = []
 	emerald_png_path = "res://content/emerald_maps/%s.png" % name
+	if map_data.has("alola_image"):
+		emerald_png_path="res://assets/alola/maps/%s.png" % map_data.alola_image
 	if map_data.has("kalos_image"):
 		emerald_png_path="res://assets/kalos/maps/%s.png" % map_data.kalos_image
 	var sp: Array = map_data.get("spawn", [1, 1])
@@ -320,6 +323,7 @@ func _load_emerald_map(name: String) -> void:
 	npcs = preload("res://core/frlg_actors.gd").roster(map_data, taken)
 	if map_data.has("mechanisms"):HoennMechanisms.adjust_actors(self,npcs)
 	objects = (map_data.get("objects", []) as Array).duplicate(true)
+	if map_data.get("alola_native",false):objects=load("res://core/alola_routes.gd").edition_objects(map_data,taken,objects)
 	if map_data.id=="hoenn_130" and not taken.get("h_mirage_today",false):objects=objects.filter(func(o):return o.get("kind","")!="berry_tree")
 	if map_data.has("hgss") and map_data.hgss.header in ["MAP_ICE_PATH_B1F","MAP_ICE_PATH_B2F"]:
 		objects=objects.filter(func(o):return (not o.has("ice_rock") or not taken.get("ice:rock:"+str(o.ice_rock),false)) and (not o.has("ice_rest") or taken.get("ice:pit:%d"%int(o.ice_rest),false)))
@@ -1009,6 +1013,8 @@ func _check_talk() -> void:
 		var index := npcs.find(npc)
 		if index>=0 and index*2+1<_npc_nodes.size():
 			var sprite: Sprite2D = _npc_nodes[index*2+1]
+			var alola_identity := str(sprite.get_meta("alola_identity",""))
+			if not alola_identity.is_empty():load("res://core/alola_cast.gd").draw(sprite,alola_identity,{"left":"right","right":"left","up":"down","down":"up"}[facing])
 			var kalos_identity := str(sprite.get_meta("kalos_identity",""))
 			if not kalos_identity.is_empty():load("res://core/kalos_cast.gd").draw(sprite,kalos_identity,{"left":"right","right":"left","up":"down","down":"up"}[facing])
 			var unova_identity := str(sprite.get_meta("unova_identity",""))
@@ -1140,7 +1146,8 @@ func _sync_player() -> void:
 	var f: int = int(FACE_FRAME.get(facing, 0))
 	var afloat := surfing and is_water(player_pos)
 	var sheet: Texture2D = PLAYER_SURF if afloat else PLAYER_WALK
-	if taken.has("ks_cap"):sheet=preload("res://core/kalos_skate_appearance.gd").sheet(sheet,taken.ks_cap,afloat)
+	if taken.get("a_guide_worn",false):sheet=preload("res://assets/alola/guide_player_surf.png") if afloat else preload("res://assets/alola/guide_player_emerald.png")
+	elif taken.has("ks_cap"):sheet=preload("res://core/kalos_skate_appearance.gd").sheet(sheet,taken.ks_cap,afloat)
 	if _player_sprite.texture != sheet:
 		_player_sprite.texture = sheet
 		_player_sprite.hframes = 3 if afloat else 9
@@ -1308,7 +1315,7 @@ func _rebuild(story_flags: Variant = null) -> void:
 		var field := EmeraldField.new()
 		add_child(field)
 		field.setup(self, plan, overrides)
-		if map_data.has("kalos_native"):
+		if map_data.has("kalos_native") or map_data.has("alola_native"):
 			var exits:=preload("res://core/kalos_exit_signs.gd").new()
 			field.add_child(exits)
 			exits.setup(self,map_data.warps)
@@ -1370,10 +1377,15 @@ func _draw_npcs() -> void:
 		var identity := JohtoCast.character(n) if johto else ""
 		var tex: Texture2D
 		var unova_identity: String = preload("res://core/unova_cast.gd").character(n) if map_data.has("unova_native") else ""
+		var alola_identity:String=load("res://core/alola_cast.gd").character(n) if map_data.get("region","")=="alola" else ""
 		var kalos_identity: String=load("res://core/kalos_cast.gd").character(n) if map_data.get("region","")=="kalos" else ""
 		var sinnoh_identity := SinnohCast.character(n) if map_data.has("platinum_native") else ""
 		if n.has("unova_prop"):
 			tex=EmeraldField.prop_texture(str(n.unova_prop))
+		elif not alola_identity.is_empty():
+			s.set_meta("alola_identity",alola_identity)
+			load("res://core/alola_cast.gd").draw(s,alola_identity,n.get("facing","down"))
+			tex=s.texture
 		elif not kalos_identity.is_empty():
 			s.set_meta("kalos_identity",kalos_identity)
 			load("res://core/kalos_cast.gd").draw(s,kalos_identity,n.get("facing","down"))
@@ -1440,12 +1452,13 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 	var sprite: Sprite2D = _npc_nodes[index*2+1]
 	var shadow: Sprite2D = _npc_nodes[index*2]
 	var npc_position := Vector2i(int(row.at[0]),int(row.at[1]))
+	var alola_identity:=str(sprite.get_meta("alola_identity",""))
 	var kalos_identity:=str(sprite.get_meta("kalos_identity",""))
 	var johto_identity := str(sprite.get_meta("johto_identity",""))
 	var unova_identity := str(sprite.get_meta("unova_identity",""))
 	var sinnoh_identity := str(sprite.get_meta("sinnoh_identity",""))
 	var emerald: bool = map_data.has("emerald_original") and row.has("source_gfx")
-	if johto_identity.is_empty() and sinnoh_identity.is_empty() and unova_identity.is_empty() and kalos_identity.is_empty() and not emerald:
+	if johto_identity.is_empty() and sinnoh_identity.is_empty() and unova_identity.is_empty() and kalos_identity.is_empty() and alola_identity.is_empty() and not emerald:
 		sprite.texture = preload("res://assets/npc/fr_oak_walk.png")
 		sprite.hframes = 9
 	var actor_face := "down"
@@ -1457,7 +1470,8 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 			var delta: Vector2i = directions[npc_path[i]]
 			npc_position+=delta
 			actor_face = faces[npc_path[i]]
-			if not kalos_identity.is_empty():load("res://core/kalos_cast.gd").draw(sprite,kalos_identity,actor_face,1+i%2)
+			if not alola_identity.is_empty():load("res://core/alola_cast.gd").draw(sprite,alola_identity,actor_face,1+i%2)
+			elif not kalos_identity.is_empty():load("res://core/kalos_cast.gd").draw(sprite,kalos_identity,actor_face,1+i%2)
 			elif not unova_identity.is_empty(): preload("res://core/unova_cast.gd").draw(sprite,unova_identity,actor_face,1+i%2)
 			elif not sinnoh_identity.is_empty(): SinnohCast.draw(sprite,sinnoh_identity,actor_face,1+i%2)
 			elif emerald: preload("res://core/hoenn_field.gd").draw(sprite,row,actor_face,1+i%2)
@@ -1476,7 +1490,8 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 			player_pos+=Vector2i(directions[player_path[i]])
 			tween.tween_method(_render_story_step,render_pos,Vector2(player_pos),0.11)
 		await tween.finished
-		if not kalos_identity.is_empty():load("res://core/kalos_cast.gd").draw(sprite,kalos_identity,actor_face)
+		if not alola_identity.is_empty():load("res://core/alola_cast.gd").draw(sprite,alola_identity,actor_face)
+		elif not kalos_identity.is_empty():load("res://core/kalos_cast.gd").draw(sprite,kalos_identity,actor_face)
 		elif not unova_identity.is_empty(): preload("res://core/unova_cast.gd").draw(sprite,unova_identity,actor_face)
 		elif not sinnoh_identity.is_empty(): SinnohCast.draw(sprite,sinnoh_identity,actor_face)
 		elif emerald: preload("res://core/hoenn_field.gd").draw(sprite,row,actor_face)

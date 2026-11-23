@@ -39,6 +39,7 @@ static func script_of(row: Dictionary) -> String:
 	return script if script!="" else str(row.get("hidden_item",""))
 
 static func item_name(key: String) -> String:
+	if not data().items.has(key) and Data.evo_item_key(key)!="":return Data.evo_item_name(key)
 	return str(data().items[key][0])
 
 static func has(g,name: String) -> bool:
@@ -85,6 +86,9 @@ static func teach_key(g,key: String) -> void:
 static func give(g,key: String,count:=1) -> void:
 	if key.begins_with("HM") and key.right(2).is_valid_int():
 		give_machine(g,int(key.right(2)))
+		return
+	if not data().items.has(key) and Data.evo_item_key(key)!="":
+		g._give_item(Data.evo_item_name(key),count,"evo")
 		return
 	var item: Array=data().items[key]
 	for i in count:

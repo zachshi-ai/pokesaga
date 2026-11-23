@@ -1,5 +1,6 @@
 extends "res://scenes/battle_ui.gd"
 
+var alola_totem: Dictionary={}
 var companion := false
 var positions := 2
 var shift_button: Button
@@ -14,6 +15,7 @@ var animations := {}
 func _battle_engine(seed_value: int):
 	var engine:=preload("res://core/double_battle.gd").new(seed_value)
 	engine.positions=positions
+	engine.alola_totem=alola_totem
 	return engine
 
 func _build() -> void:
@@ -91,6 +93,14 @@ func _select_action(choice: String) -> void:
 	_queue_turn(choice,"")
 	msg.text=""
 	wait=_dur(0.1)
+
+func _do_z(idx:int) -> void:
+	if not alola_rules:
+		super._do_z(idx)
+		return
+	if battle.can_use_z("a") and battle.z_move_of(battle.cur_a(),battle.cur_a().moves[idx])>0:
+		_close_sheet()
+		_select_action("z:%d"%idx)
 
 func _queue_turn(player: String,_opponent: String) -> void:
 	if not orders.has(selection): orders[selection]={"move":player,"target":target}

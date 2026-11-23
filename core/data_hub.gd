@@ -227,6 +227,8 @@ func load_map(region_id: String, map_id: String) -> Dictionary:
 
 	data["id"] = map_id
 	data["region"] = region_id
+	if data.get("alola_native",false):
+		data.objects.append_array(load("res://core/alola_routes.gd").objects(data))
 	if region_id=="kalos" and data.has("kalos_zone"):
 		data.objects=load("res://core/kalos_side.gd").map_objects(data).duplicate()
 		data.objects.append_array(preload("res://core/kalos_items.gd").objects(data))
@@ -371,6 +373,7 @@ func berry_name(key: String) -> String:
 	return String(d.get("name", key))
 
 func item_name(key: String) -> String:
+	if preload("res://core/alola_z.gd").crystal(key):return preload("res://core/alola_z.gd").label(self,key)
 	if preload("res://core/kalos_mega.gd").STONES.has(key):return load("res://core/kalos_side.gd").stone_name(key)
 	if key=="HEART_SCALE":return "心之鳞片"
 	if key in ["WEAKNESS_POLICY","SAFETY_GOGGLES"]:

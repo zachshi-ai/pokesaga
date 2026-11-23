@@ -86,7 +86,8 @@ func check_classic_stones() -> void:
 	for pair in [[25,26,"THUNDER_STONE"],[102,103,"LEAF_STONE"]]:
 		var mon: Dictionary = Party.make(pair[0], 20, [33])
 		var stone: String = db.evo_item_name(pair[2])
-		expect(Growth.evolution_for_item(mon, pair[2], "alola").is_empty(), "Mainland target unlocked in Alola")
+		var island:Dictionary=Growth.evolution_for_item(mon,pair[2],"alola")
+		expect(int(island.get("to",0))==pair[1] and island.get("form","")==("RAICHU_ALOLA" if pair[0]==25 else "EXEGGUTOR_ALOLA"),"Alola stones give the island form")
 		for form in db.species_of(pair[0]).get("forms", []):
 			var special: Dictionary = Party.make(pair[0], 20, [33], form.key)
 			expect(Growth.evolution_for_item(special, pair[2], "kanto").is_empty(), "Special form stone-evolved " + str(form.key))

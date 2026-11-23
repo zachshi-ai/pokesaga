@@ -389,6 +389,8 @@ func _pick_stats() -> void:
 	var info := Catalog.stats(current)
 	var base: Dictionary = info.get("base",{})
 	rows.add_child(UI.label(str(current.label),17,UI.GREEN))
+	if current.has("height_dm") and current.has("weight_hg"):
+		rows.add_child(UI.label("身高 %.1f 米　体重 %.1f 千克"%[float(current.height_dm)/10.0,float(current.weight_hg)/10.0],14,UI.GREEN))
 	rows.add_child(UI.wrapped("HP  %d       攻击  %d       防御  %d\n特攻  %d       特防  %d       速度  %d"%[int(base.get("hp",0)),int(base.get("atk",0)),int(base.get("def",0)),int(base.get("spa",0)),int(base.get("spd",0)),int(base.get("spe",0))],15))
 	rows.add_child(UI.label("捕获率   %d"%int(info.get("catch_rate",0)),13,UI.MUTED))
 	for id in info.get("abilities",[]):

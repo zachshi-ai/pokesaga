@@ -18,6 +18,8 @@ var has_fusion := false
 var unova_memory := false
 var kalos_invert := false
 var kalos_opowers := false
+var alola_pelago := false
+var alola_editions := false
 var registered:=""
 var tools_open := false
 var selected := 0
@@ -82,6 +84,8 @@ func _populate(focus_row: int) -> void:
 	if tools_open:
 		if unova_memory: labels.append("回忆链接")
 		if kalos_opowers:labels.append("Ｏ力量")
+		if alola_pelago:labels.append("宝可度假地")
+		if alola_editions:labels.append("阿罗拉版本")
 		if kalos_invert:labels.append("倒转掌机")
 		if registered!="":labels.append("快捷道具")
 		if has_fusion:

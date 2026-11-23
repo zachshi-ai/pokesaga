@@ -1,6 +1,8 @@
 extends "res://core/battle.gd"
 ## Two positions per side. The paired Space Center trainers each replace their own
 ## fainted Pokémon. Move effects, accuracy, damage, PP and abilities use the shared battle engine.
+var alola_totem: Dictionary={}
+var alola_repeat_ally: Dictionary={}
 var palace := false
 var positions := 2
 var lanes := {"a":[-1,-1],"b":[-1,-1]}
@@ -8,7 +10,18 @@ var groups := {"a":["",""],"b":["",""]}
 
 func start(a_team: Array,b_team: Array) -> void:
 	super.start(a_team,b_team)
+	alola_repeat_ally={}
 	if over: return
+	if not alola_totem.is_empty():
+		if alola_totem.get("repeat_ally", false) and team_b.size()>1:
+			alola_repeat_ally=team_b[1].duplicate(true)
+		if alola_totem.has("weather"):
+			log.append(field.set_weather(alola_totem.weather,0))
+		var boss:Dictionary=team_b[0]
+		var boost:String=alola_totem.get("stat","all")
+		for stat in (["atk","def","spa","spd","spe"] if boost=="all" else [boost]):
+			_apply_stage(boss,stat,int(alola_totem.get("stages",1)),log)
+		log.append("%s 被气场包围了！"%boss.name)
 	for side in ["a","b"]:
 		var team: Array = team_a if side=="a" else team_b
 		lanes[side]=[]
@@ -28,6 +41,21 @@ func start(a_team: Array,b_team: Array) -> void:
 	focus(0,0)
 
 func replacement(side: String,pos: int) -> int:
+	if not alola_totem.is_empty():
+		if side=="a" and pos>0:return -1
+		if side=="b":
+			if pos==0:return 0 if not team_b[0].fainted else -1
+			if completed_turns==0 or team_b[0].fainted or team_b.size()<2:return -1
+			var boss: Dictionary = team_b[0]
+			var hp := float(boss.hp)/float(boss.max_hp)
+			if team_b.size()>2 and not team_b[2].fainted:
+				var threshold := float(alola_totem.get("ally_hp", 2.0/3.0)) if team_b[1].fainted else 2.0/3.0
+				if hp < threshold:return 2
+			if not team_b[1].fainted:return 1
+			if not alola_repeat_ally.is_empty():
+				team_b[1]=alola_repeat_ally.duplicate(true)
+				return 1
+			return -1
 	var team: Array = team_a if side=="a" else team_b
 	for i in team.size():
 		if i in lanes[side] or team[i].fainted: continue
@@ -82,6 +110,11 @@ func reachable(side: String, pos: int, target: int, choice: String) -> bool:
 
 func find_target(side: String, pos: int, preferred: int, choice: String) -> int:
 	var foe:="b" if side=="a" else "a"
+	if alola_rules and (choice.begins_with("move:") or choice.begins_with("z:")):
+		for i in positions:
+			if not viable(foe,i):continue
+			var redirector:Dictionary=(team_b if foe=="b" else team_a)[lanes[foe][i]]
+			if redirector.get("alola_redirect",-1)==completed_turns and reachable(side,pos,i,choice):return i
 	if viable(foe,preferred) and reachable(side,pos,preferred,choice):return preferred
 	for i in positions:
 		if viable(foe,i) and reachable(side,pos,i,choice):return i
@@ -104,10 +137,11 @@ func round_actions(player_orders: Dictionary) -> void:
 			if target<0: continue
 			pair(side,pos,target)
 			var choice: String = command.get("move",ai(side))
+			if alola_rules and side=="b":choice=alola_z_choice(choice)
 			var who: Dictionary = cur_a() if side=="a" else cur_b()
 			order.append({"side":side,"pos":pos,"move":choice,"target":target,"prio":_priority(side,choice),
 				"speed":_speed(who)*(-1 if field.trick_room else 1),"tie":rng.randf()})
-	if kalos_rules:
+	if kalos_rules or alola_rules:
 		for action in order:
 			pair(action.side,action.pos,action.target)
 			kalos_before_move(action.side,action.move)
@@ -155,10 +189,10 @@ func round_actions(player_orders: Dictionary) -> void:
 			if fresh>=0:
 				pair(side,pos,0)
 				var entrant: Dictionary = (team_a if side=="a" else team_b)[fresh]
-				log.append("%s 上场了！"%entrant.name)
+				log.append("霸主呼唤了同伴，%s 加入战斗！"%entrant.name if side=="b" and pos==1 and not alola_totem.is_empty() else "%s 上场了！"%entrant.name)
 				_on_send_out(side)
 	var a_up := _any_alive(team_a)
-	var b_up := _any_alive(team_b)
+	var b_up := _any_alive(team_b) if alola_totem.is_empty() else viable("b",0) or viable("b",1)
 	if not a_up or not b_up:
 		over=true
 		winner="draw" if not a_up and not b_up else ("a" if a_up else "b")

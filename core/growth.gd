@@ -178,6 +178,9 @@ static func item_evolutions(mon: Dictionary, region: String = "") -> Array:
 	var sid := int(mon.get("species_id", 0))
 	var form_key := String(mon.get("form", ""))
 	var list: Array = []
+	if region=="alola" and form_key=="":
+		if sid==25:return [{"item":"THUNDER_STONE","to":26,"form":"RAICHU_ALOLA"}]
+		if sid==102:return [{"item":"LEAF_STONE","to":103,"form":"EXEGGUTOR_ALOLA"}]
 	if sid==670 and (form_key=="" or (form_key.begins_with("FLOETTE_") and form_key not in ["FLOETTE_ETERNAL","FLOETTE_MEGA"])):
 		return [{"item":"SHINY_STONE","to":671,"form":form_key.replace("FLOETTE_","FLORGES_")}]
 	if sid==710 and form_key.begins_with("PUMPKABOO_"):

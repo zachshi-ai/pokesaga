@@ -146,7 +146,7 @@ func run() -> void:
 	# its entire road network (including the new hub) to return to that same town.
 	var native_termini:=["sinnoh/sinnoh_twinleaf","sinnoh/sinnoh_canalave","sinnoh/sinnoh_celestic","sinnoh/sinnoh_spring"]
 	for place in places:
-		if places[place].has("unova_native") or places[place].has("kalos_native"):native_termini.append(place)
+		if places[place].has("unova_native") or places[place].has("kalos_native") or places[place].has("alola_native"):native_termini.append(place)
 	var seen: Dictionary={}
 	var done_edges: Dictionary={}
 	var stack: Array=[]
@@ -179,7 +179,7 @@ func run() -> void:
 			if next.is_empty():break
 			tour=next[0]
 			var start: Dictionary=places[tour]
-			load_at({"region":start.region,"map":start.id,"at":start.spawn,"platinum_native":start.has("platinum_native"),"unova_native":start.has("unova_native"),"kalos_native":start.has("kalos_native")})
+			load_at({"region":start.region,"map":start.id,"at":start.spawn,"platinum_native":start.has("platinum_native"),"unova_native":start.has("unova_native"),"kalos_native":start.has("kalos_native"),"alola_native":start.has("alola_native")})
 			trips+=1
 	if not failed and (current!=tour or seen.size()!=places.size() or checked_hubs.size()!=atlas.regions.size()):
 		fail("incomplete tour: %s maps %s navigators %s" % [current,seen.size(),checked_hubs.size()])

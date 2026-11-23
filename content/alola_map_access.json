@@ -1,0 +1,244 @@
+{
+  "alola_big_wave_beach": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ]
+  },
+  "alola_heahea_beach": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ],
+    "require": "a_sail",
+    "message": "完成出海准备后，就能从美乐美乐岛抵达这里。"
+  },
+  "alola_ulaula_beach": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ],
+    "require": "a_nihilego",
+    "message": "先到以太乐园完成首次参观，再去乌拉乌拉岛。"
+  },
+  "alola_poni_beach": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ],
+    "require": "a_flute1",
+    "message": "先和莉莉艾一起启程前往波尼岛。"
+  },
+  "alola_poni_wilds_beach": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ],
+    "require": "a_flute1",
+    "message": "先和莉莉艾一起启程前往波尼岛。"
+  },
+  "alola_pikachu_valley": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ]
+  },
+  "alola_megalopolis": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ]
+  },
+  "alola_megalo_tower": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ]
+  },
+  "alola_poni_wormhole": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ],
+    "require": "a_ultra_necrozma",
+    "message": "先在大都会塔解决奈克洛兹玛的危机。"
+  },
+  "alola_ultra_space_wilds": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ],
+    "require": "a_ultra_necrozma",
+    "message": "先在大都会塔解决奈克洛兹玛的危机。"
+  },
+  "alola_rr_mansion": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ],
+    "require": "as_rr_faba",
+    "message": "圆庆广场和以太乐园的异动，需要先和马玛内、扎奥博交涉。",
+    "closes": "as_rr_end"
+  },
+  "alola_rr_left": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ],
+    "require": "as_rr_guzma",
+    "message": "古兹马正在城堡入口等你。",
+    "closes": "as_rr_end"
+  },
+  "alola_rr_right": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ],
+    "require": "as_rr_guzma",
+    "message": "古兹马正在城堡入口等你。",
+    "closes": "as_rr_end"
+  },
+  "alola_rr_giovanni": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ],
+    "require": "as_rr_colress",
+    "message": "先在大厅与阿克罗玛会合。",
+    "closes": "as_rr_end"
+  },
+  "alola_ultra_plant": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ],
+    "require": "a_ultra_necrozma",
+    "message": "先在大都会塔解决奈克洛兹玛的危机。"
+  },
+  "alola_ultra_ruin": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ],
+    "require": "a_ultra_necrozma",
+    "message": "先在大都会塔解决奈克洛兹玛的危机。"
+  },
+  "alola_ultra_jungle": {
+    "versions": [
+      "ultra_sun"
+    ],
+    "require": "a_ultra_necrozma",
+    "message": "先在大都会塔解决奈克洛兹玛的危机。"
+  },
+  "alola_ultra_forest": {
+    "versions": [
+      "ultra_sun"
+    ],
+    "require": "a_ultra_necrozma",
+    "message": "先在大都会塔解决奈克洛兹玛的危机。"
+  },
+  "alola_ultra_desert": {
+    "versions": [
+      "ultra_moon"
+    ],
+    "require": "a_ultra_necrozma",
+    "message": "先在大都会塔解决奈克洛兹玛的危机。"
+  },
+  "alola_ultra_crater": {
+    "versions": [
+      "ultra_moon"
+    ],
+    "require": "a_ultra_necrozma",
+    "message": "先在大都会塔解决奈克洛兹玛的危机。"
+  },
+  "alola_lake_sunne": {
+    "versions": [
+      "moon",
+      "ultra_moon"
+    ]
+  },
+  "alola_lake_moone": {
+    "versions": [
+      "sun",
+      "ultra_sun"
+    ]
+  },
+  "alola_poni_grove": {
+    "require": "a_credits",
+    "message": "波尼岛北部的道路在巡礼和联盟庆典结束后开放。"
+  },
+  "alola_poni_plains": {
+    "require": "a_credits",
+    "message": "波尼岛北部的道路在巡礼和联盟庆典结束后开放。"
+  },
+  "alola_poni_coast": {
+    "require": "a_credits",
+    "message": "波尼岛北部的道路在巡礼和联盟庆典结束后开放。"
+  },
+  "alola_poni_gauntlet": {
+    "require": "a_credits",
+    "message": "波尼岛北部的道路在巡礼和联盟庆典结束后开放。"
+  },
+  "alola_battle_tree": {
+    "require": "a_credits",
+    "message": "波尼岛北部的道路在巡礼和联盟庆典结束后开放。"
+  },
+  "alola_poni_meadow": {
+    "require": "a_credits",
+    "message": "波尼岛北部的道路在巡礼和联盟庆典结束后开放。"
+  },
+  "alola_resolution_cave": {
+    "require": "a_credits",
+    "message": "波尼岛北部的道路在巡礼和联盟庆典结束后开放。"
+  },
+  "alola_resolution_cave_184": {
+    "require": "a_credits",
+    "message": "波尼岛北部的道路在巡礼和联盟庆典结束后开放。"
+  },
+  "alola_plains_grotto": {
+    "require": "a_credits",
+    "message": "波尼岛北部的道路在巡礼和联盟庆典结束后开放。"
+  },
+  "alola_sandy_cave": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ]
+  },
+  "alola_pelago_abeens": {
+    "require": "a_ride_charizard",
+    "message": "通过卡奇的考验并登记喷火龙后，就可以飞去宝可度假地。"
+  },
+  "alola_pelago_aplenny": {
+    "require": "a_ride_charizard",
+    "message": "通过卡奇的考验并登记喷火龙后，就可以飞去宝可度假地。"
+  },
+  "alola_pelago_aphun": {
+    "require": "a_ride_charizard",
+    "message": "通过卡奇的考验并登记喷火龙后，就可以飞去宝可度假地。"
+  },
+  "alola_pelago_evelup": {
+    "require": "a_ride_charizard",
+    "message": "通过卡奇的考验并登记喷火龙后，就可以飞去宝可度假地。"
+  },
+  "alola_pelago_avue": {
+    "require": "a_ride_charizard",
+    "message": "通过卡奇的考验并登记喷火龙后，就可以飞去宝可度假地。"
+  },
+  "alola_photo_hauoli": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ],
+    "require": "a_hala",
+    "message": "完成哈拉的大考验后，摄影俱乐部会欢迎你和伙伴一起拍照。"
+  },
+  "alola_photo_konikoni": {
+    "versions": [
+      "ultra_sun",
+      "ultra_moon"
+    ],
+    "require": "a_hala",
+    "message": "完成哈拉的大考验后，摄影俱乐部会欢迎你和伙伴一起拍照。"
+  }
+}

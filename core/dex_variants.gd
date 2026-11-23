@@ -46,6 +46,8 @@ static func record(save: Dictionary, mon: Dictionary, owned: bool) -> void:
 static func sync_owned(save: Dictionary, members: Array) -> void:
 	for mon in members:
 		if mon is Dictionary and int(mon.get("species_id", 0)) > 0:
+			if int(mon.species_id)==778 and mon.get("alola_totem_size",false) and str(mon.get("form","")) in ["","MIMIKYU_BUSTED"]:
+				Party.set_form(mon,"MIMIKYU_TOTEM_BUSTED" if mon.get("form","")=="MIMIKYU_BUSTED" else "MIMIKYU_TOTEM_DISGUISED")
 			Party.set_shiny_kind(mon, Party.shiny_kind(mon))
 			if not mon.has("form"):
 				mon["form"] = ""

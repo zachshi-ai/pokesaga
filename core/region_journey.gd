@@ -1,8 +1,9 @@
 extends RefCounted
 
-const NAMES := {"kanto":"关都","johto":"城都","hoenn":"丰缘","sinnoh":"神奥","unova":"合众","kalos":"卡洛斯"}
+const NAMES := {"kanto":"关都","johto":"城都","hoenn":"丰缘","sinnoh":"神奥","unova":"合众","kalos":"卡洛斯","alola":"阿罗拉"}
 const SEQUEL_HOME := {"map":"unova_b2_home","at":[4,6]}
 const HOMES := {
+	"alola":{"map":"alola_home","at":[8,7]},
 	"kalos":{"map":"kalos_home_2f","at":[14,11]},
 	"unova":{"map":"unova_bw_home_2f","at":[5,6]},
 	"sinnoh":{"map":"sinnoh_twinleaf_town_player_house_2f","at":[4,6]},
@@ -16,7 +17,7 @@ const J2 := ["brock","misty","ltsurge","erika","janine","sabrina","blaine","blue
 
 static func migrate(data: Dictionary) -> void:
 	if data.has("chapters"):
-		for key in ["sinnoh","unova","unova_bw2","kalos"]:
+		for key in ["sinnoh","unova","unova_bw2","kalos","alola"]:
 			data.get_or_add("regional_badges",{}).get_or_add(key,[])
 		return
 	var origin := str(data.get("origin","kanto"))
@@ -28,7 +29,7 @@ static func migrate(data: Dictionary) -> void:
 	data.chapters = chapters
 	if chapters.has("kanto") and data.has("bag"):
 		data.import_kanto_items = true
-	var regional := {"kanto":[],"johto":[],"hoenn":[],"sinnoh":[],"unova":[],"unova_bw2":[],"kalos":[]}
+	var regional := {"kanto":[],"johto":[],"hoenn":[],"sinnoh":[],"unova":[],"unova_bw2":[],"kalos":[],"alola":[]}
 	for badge in data.get("badges",[]):
 		if badge in JOHTO: regional.johto.append(badge)
 		elif badge in KANTO:
@@ -76,6 +77,10 @@ static func begin(data: Dictionary, region: String, mode: String, version := "x"
 	if region == "johto": staged.johto_field_revision = 1
 	if region == "sinnoh": staged.flags.s_started = true
 	if region == "unova": staged.flags.u1_started = true
+	if region=="alola":
+		if version not in preload("res://core/alola_field.gd").VERSIONS:return {}
+		staged.flags.a_started=true
+		staged.flags.a_version=version
 	if region=="kalos":
 		if version not in ["x","y"]:return {}
 		staged.flags.k_started=true

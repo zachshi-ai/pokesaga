@@ -167,6 +167,9 @@ def build(tab):
             if r["is_battle_only"] == "1" and kind == "form": kind = "battle"
             v = {"key":slug,"label":label,"kind":kind,"species_id":sid,"form":local_key,"art_key":art,
                  "pokeapi_id":pid,"pokeapi_form_id":fid,"slug":slug}
+            if sid == 778:
+                v["height_dm"] = 4 if "totem" in slug else 2
+                v["weight_hg"] = 28 if "totem" in slug else 7
             # Some purely visual forms share one Pokemon ID. Keep their real battle data,
             # and apply differences only; user-edited base stats still flow through Data.stats_of.
             for field, value in [("types",form_types[fid] or mon_types[pid]),("base",stats[pid]),("abilities",abilities[pid])]:

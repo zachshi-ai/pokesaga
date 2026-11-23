@@ -26,6 +26,7 @@
  "wacan": {"name": "烛木果", "kind": "resist", "type": "electric", "desc": "被电属性招式打中且体力已过半时伤害减半"},
  "rindo": {"name": "罗子果", "kind": "resist", "type": "grass", "desc": "被草属性招式打中且体力已过半时伤害减半"},
  "yache": {"name": "番荔果", "kind": "resist", "type": "ice", "desc": "被冰属性招式打中且体力已过半时伤害减半"},
+ "roseli": {"name": "洛玫果", "kind": "resist", "type": "fairy", "desc": "受到效果绝佳的妖精属性攻击时，伤害减半。"},
  "chople": {"name": "莲蒲果", "kind": "resist", "type": "fighting", "desc": "被格斗属性招式打中且体力已过半时伤害减半"},
  "kebia": {"name": "通通果", "kind": "resist", "type": "poison", "desc": "被毒属性招式打中且体力已过半时伤害减半"},
  "shuca": {"name": "腰木果", "kind": "resist", "type": "ground", "desc": "被地面属性招式打中且体力已过半时伤害减半"},

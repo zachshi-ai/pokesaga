@@ -1,0 +1,6196 @@
+{
+ "events": [
+  {
+   "id": "card",
+   "map": "alola_1",
+   "name": "神秘的大叔",
+   "action": "item",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "sm",
+   "item": "谜之卡片",
+   "count": 1,
+   "category": "key",
+   "text": "请到８号道路的汽车旅馆。有人希望听听穿过究极之洞的训练家的意见。",
+   "slot": 4
+  },
+  {
+   "id": "anabel",
+   "map": "alola_motel_8",
+   "name": "莉拉",
+   "action": "battle",
+   "require": [
+    "as_card"
+   ],
+   "versions": "sm",
+   "team": 164,
+   "text": "我们要保护从洞口来到这里的生命。让我先确认你的实力。",
+   "slot": 1
+  },
+  {
+   "id": "ball_lab",
+   "map": "alola_aether_lab_b",
+   "name": "碧珂",
+   "action": "item",
+   "require": [
+    "as_anabel"
+   ],
+   "versions": "sm",
+   "item": "究极球",
+   "count": 10,
+   "category": "ball",
+   "text": "为了活着保护异兽，实验室准备了专用的球。请回８号道路交换情报。",
+   "slot": 1
+  },
+  {
+   "id": "ub1",
+   "map": "alola_motel_8",
+   "name": "帅哥",
+   "action": "say",
+   "require": [
+    "as_ball_lab"
+   ],
+   "versions": "sm",
+   "text": "ＵＢ０１，代号「寄生物」。侦察员在维拉火山公园和地鼠隧道发现了一只。",
+   "slot": 2
+  },
+  {
+   "id": "ub010",
+   "map": "alola_diglett_tunnel",
+   "name": "虚吾伊德",
+   "action": "wild",
+   "require": [
+    "as_ub1"
+   ],
+   "versions": "sm",
+   "species": 793,
+   "level": 55,
+   "quota": 1,
+   "group": "ub01",
+   "beast": true,
+   "slot": 2
+  },
+  {
+   "id": "ub011",
+   "map": "alola_wela",
+   "name": "虚吾伊德",
+   "action": "wild",
+   "require": [
+    "as_ub1"
+   ],
+   "versions": "sm",
+   "species": 793,
+   "level": 55,
+   "quota": 1,
+   "group": "ub01",
+   "beast": true,
+   "slot": 2
+  },
+  {
+   "id": "ub02s0",
+   "map": "alola_melemele_meadow",
+   "name": "爆肌蚊",
+   "action": "wild",
+   "require": [
+    "as_ub2"
+   ],
+   "versions": "sun",
+   "species": 794,
+   "level": 65,
+   "quota": 2,
+   "group": "ub02s",
+   "beast": true,
+   "slot": 1
+  },
+  {
+   "id": "ub02m0",
+   "map": "alola_cavern",
+   "name": "费洛美螂",
+   "action": "wild",
+   "require": [
+    "as_ub2"
+   ],
+   "versions": "moon",
+   "species": 795,
+   "level": 60,
+   "quota": 4,
+   "group": "ub02m",
+   "beast": true,
+   "slot": 2
+  },
+  {
+   "id": "ub030",
+   "map": "alola_memorial_hill",
+   "name": "电束木",
+   "action": "wild",
+   "require": [
+    "as_ub3"
+   ],
+   "versions": "sm",
+   "species": 796,
+   "level": 65,
+   "quota": 2,
+   "group": "ub03",
+   "beast": true,
+   "slot": 1
+  },
+  {
+   "id": "ub031",
+   "map": "alola_lush",
+   "name": "电束木",
+   "action": "wild",
+   "require": [
+    "as_ub3"
+   ],
+   "versions": "sm",
+   "species": 796,
+   "level": 65,
+   "quota": 2,
+   "group": "ub03",
+   "beast": true,
+   "slot": 2
+  },
+  {
+   "id": "ub04s0",
+   "map": "alola_17",
+   "name": "纸御剑",
+   "action": "wild",
+   "require": [
+    "as_ub4"
+   ],
+   "versions": "sun",
+   "species": 798,
+   "level": 60,
+   "quota": 4,
+   "group": "ub04s",
+   "beast": true,
+   "slot": 4
+  },
+  {
+   "id": "ub04s1",
+   "map": "alola_malie_garden",
+   "name": "纸御剑",
+   "action": "wild",
+   "require": [
+    "as_ub4"
+   ],
+   "versions": "sun",
+   "species": 798,
+   "level": 60,
+   "quota": 4,
+   "group": "ub04s",
+   "beast": true,
+   "slot": 2
+  },
+  {
+   "id": "ub04m0",
+   "map": "alola_haina",
+   "name": "铁火辉夜",
+   "action": "wild",
+   "require": [
+    "as_ub4"
+   ],
+   "versions": "moon",
+   "species": 797,
+   "level": 65,
+   "quota": 2,
+   "group": "ub04m",
+   "beast": true,
+   "slot": 2
+  },
+  {
+   "id": "ub04m1",
+   "map": "alola_malie_garden",
+   "name": "铁火辉夜",
+   "action": "wild",
+   "require": [
+    "as_ub4"
+   ],
+   "versions": "moon",
+   "species": 797,
+   "level": 65,
+   "quota": 2,
+   "group": "ub04m",
+   "beast": true,
+   "slot": 3
+  },
+  {
+   "id": "ub050",
+   "map": "alola_resolution_cave_184",
+   "name": "恶食大王",
+   "action": "wild",
+   "require": [
+    "as_ub5"
+   ],
+   "versions": "sm",
+   "species": 799,
+   "level": 70,
+   "quota": 1,
+   "group": "ub05",
+   "beast": true,
+   "slot": 1
+  },
+  {
+   "id": "groves0",
+   "map": "alola_poni_grove",
+   "name": "砰头小丑",
+   "action": "wild",
+   "require": [
+    "as_ultra_balls"
+   ],
+   "versions": "ultra_sun",
+   "species": 806,
+   "level": 60,
+   "quota": 2,
+   "group": "groves",
+   "beast": true,
+   "ko_ok": true,
+   "slot": 1
+  },
+  {
+   "id": "grovem0",
+   "map": "alola_poni_grove",
+   "name": "垒磊石",
+   "action": "wild",
+   "require": [
+    "as_ultra_balls"
+   ],
+   "versions": "ultra_moon",
+   "species": 805,
+   "level": 60,
+   "quota": 2,
+   "group": "grovem",
+   "beast": true,
+   "ko_ok": true,
+   "slot": 2
+  },
+  {
+   "id": "report2sun",
+   "map": "alola_motel_2",
+   "name": "莉拉",
+   "action": "say",
+   "require": [
+    "as_ub02s"
+   ],
+   "versions": "sun",
+   "text": "美乐美乐岛的保护工作完成了。阿卡拉岛有新的联络，我们在８号道路会合。",
+   "slot": 1
+  },
+  {
+   "id": "report2moon",
+   "map": "alola_motel_2",
+   "name": "莉拉",
+   "action": "say",
+   "require": [
+    "as_ub02m"
+   ],
+   "versions": "moon",
+   "text": "美乐美乐岛的保护工作完成了。阿卡拉岛有新的联络，我们在８号道路会合。",
+   "slot": 2
+  },
+  {
+   "id": "report1",
+   "map": "alola_motel_8",
+   "name": "莉拉",
+   "action": "say",
+   "require": [
+    "as_ub01"
+   ],
+   "versions": "sm",
+   "text": "新的目击报告来自美乐美乐岛。请到２号道路的汽车旅馆会合。",
+   "slot": 3
+  },
+  {
+   "id": "ub2",
+   "map": "alola_motel_2",
+   "name": "默丹",
+   "action": "item",
+   "require": [
+    "as_report1"
+   ],
+   "versions": "sm",
+   "item": "究极球",
+   "count": 10,
+   "category": "ball",
+   "text": "这里有新的一批究极球。",
+   "version_text": {
+    "sun": "在美乐美乐花园发现了两只爆肌蚊。",
+    "moon": "在葱郁洞窟发现了四只费洛美螂。"
+   },
+   "slot": 3
+  },
+  {
+   "id": "ub3",
+   "map": "alola_motel_8",
+   "name": "茉莉",
+   "action": "battle",
+   "require": [
+    "as_report2"
+   ],
+   "versions": "sm",
+   "team": 435,
+   "text": "交手的时候我在想，通体闪亮的那家伙是什么颜色？去慷待市郊外的回忆之丘或树荫丛林找它吧。",
+   "balls": 10,
+   "slot": 4
+  },
+  {
+   "id": "report3",
+   "map": "alola_motel_8",
+   "name": "莉拉",
+   "action": "say",
+   "require": [
+    "as_ub03"
+   ],
+   "versions": "sm",
+   "text": "两只都找到了。乌拉乌拉岛有新的目击报告，请到１３号道路。",
+   "slot": 5
+  },
+  {
+   "id": "ub4",
+   "map": "alola_motel_13",
+   "name": "默丹",
+   "action": "item",
+   "require": [
+    "as_report3"
+   ],
+   "versions": "sm",
+   "item": "究极球",
+   "count": 10,
+   "category": "ball",
+   "text": "带上这些究极球去调查。",
+   "version_text": {
+    "sun": "在１７号道路和马利埃庭园有四只纸御剑。",
+    "moon": "哈伊纳沙漠和马利埃庭园有两只铁火辉夜。"
+   },
+   "slot": 1
+  },
+  {
+   "id": "report4sun",
+   "map": "alola_motel_13",
+   "name": "帅哥",
+   "action": "say",
+   "require": [
+    "as_ub04s"
+   ],
+   "versions": "sun",
+   "text": "十年前，我们也遇到过穿越究极之洞的人。最后一次报告来自波尼岛，去海洋居民之村的餐厅吧。",
+   "slot": 2
+  },
+  {
+   "id": "report4moon",
+   "map": "alola_motel_13",
+   "name": "帅哥",
+   "action": "say",
+   "require": [
+    "as_ub04m"
+   ],
+   "versions": "moon",
+   "text": "十年前，我们也遇到过穿越究极之洞的人。最后一次报告来自波尼岛，去海洋居民之村的餐厅吧。",
+   "slot": 3
+  },
+  {
+   "id": "ub5",
+   "map": "alola_seafolk_restaurant",
+   "name": "默丹",
+   "action": "battle",
+   "require": [
+    "as_report4"
+   ],
+   "versions": "sm",
+   "team": 403,
+   "text": "莉拉要休息了。最后的家伙在终结洞窟深处，先让我试试你的本事。",
+   "balls": 10,
+   "slot": 1
+  },
+  {
+   "id": "report5",
+   "map": "alola_seafolk_restaurant",
+   "name": "莉拉",
+   "action": "say",
+   "require": [
+    "as_ub05"
+   ],
+   "versions": "sm",
+   "text": "所有报告里的异兽都已得到保护。回到以太乐园向碧珂报告吧。",
+   "slot": 2
+  },
+  {
+   "id": "ub_complete",
+   "map": "alola_aether_lab_b",
+   "name": "帅哥",
+   "action": "money",
+   "require": [
+    "as_report5"
+   ],
+   "versions": "sm",
+   "amount": 1000000,
+   "text": "这是国际警察的调查报酬。刚才我在美乐美乐岛上空看见了漆黑的影子……",
+   "slot": 2
+  },
+  {
+   "id": "necrozma",
+   "map": "alola_hill",
+   "name": "奈克洛兹玛",
+   "action": "wild",
+   "require": [
+    "as_ub_complete"
+   ],
+   "versions": "sm",
+   "species": 800,
+   "level": 75,
+   "slot": 1
+  },
+  {
+   "id": "silvally_sm",
+   "map": "alola_aether_entrance",
+   "name": "格拉吉欧",
+   "action": "gift",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "sm",
+   "species": 772,
+   "level": 40,
+   "memories": true,
+   "slot": 6
+  },
+  {
+   "id": "silvally_us",
+   "map": "alola_ancient_path",
+   "name": "碧珂",
+   "action": "gift",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "usum",
+   "species": 772,
+   "level": 60,
+   "memories": true,
+   "slot": 7
+  },
+  {
+   "id": "ultra_balls",
+   "map": "alola_poni_grove",
+   "name": "究极调查队",
+   "action": "item",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "usum",
+   "item": "究极球",
+   "count": 5,
+   "category": "ball",
+   "text": "波尼树林有三只陌生的异兽。哈乌负责一只，剩下两只就拜托你了。",
+   "slot": 3
+  },
+  {
+   "id": "beastshop",
+   "map": "alola_aether_entrance",
+   "name": "以太职员",
+   "action": "shop",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "usum",
+   "repeat": true,
+   "price": 1000,
+   "item": "究极球",
+   "slot": 1
+  },
+  {
+   "id": "spareball",
+   "map": "alola_motel_8",
+   "name": "帅哥",
+   "action": "spare",
+   "require": [
+    "as_ball_lab"
+   ],
+   "versions": "sm",
+   "repeat": true,
+   "slot": 6
+  },
+  {
+   "id": "rr_help",
+   "map": "alola_home_1f",
+   "name": "马玛内",
+   "action": "say",
+   "require": [
+    "as_grove_done"
+   ],
+   "versions": "usum",
+   "text": "圆庆广场的系统被人接管了！请帮我赶走那些戴彩虹标志的家伙。",
+   "slot": 1
+  },
+  {
+   "id": "rr_agency",
+   "map": "alola_festival_plaza",
+   "name": "彩虹火箭队队员",
+   "action": "battle",
+   "require": [
+    "as_rr_help"
+   ],
+   "versions": "usum",
+   "team": 0,
+   "text": "这里的对战权限已被封锁。用代理人开放的一组租借宝可梦挑战吧。",
+   "rental": true,
+   "slot": 1
+  },
+  {
+   "id": "rr_tv",
+   "map": "alola_home_1f",
+   "name": "莉莉艾",
+   "action": "say",
+   "require": [
+    "as_rr_agency"
+   ],
+   "versions": "usum",
+   "text": "发布会的画面中断了。虫洞里出现了陌生男人，妈妈还在以太乐园！",
+   "slot": 2
+  },
+  {
+   "id": "rr_faba",
+   "map": "alola_aether_entrance",
+   "name": "扎奥博",
+   "action": "battle",
+   "require": [
+    "as_rr_tv"
+   ],
+   "versions": "usum",
+   "team": 561,
+   "text": "如果有他们的技术，就可以保护更多宝可梦。你们要阻拦吗？",
+   "ally": "lillie",
+   "slot": 2
+  },
+  {
+   "id": "rr_guzma",
+   "map": "alola_rr_mansion",
+   "name": "古兹马",
+   "action": "battle",
+   "require": [
+    "as_rr_faba"
+   ],
+   "versions": "usum",
+   "team": 584,
+   "text": "占别人的地盘？喂，小悠！咱俩把这帮穿制服的家伙赶走。",
+   "ally": "guzma",
+   "slot": 1
+  },
+  {
+   "id": "rr_heal",
+   "map": "alola_rr_mansion",
+   "name": "莉莉艾",
+   "action": "heal",
+   "require": [
+    "as_rr_guzma"
+   ],
+   "versions": "usum",
+   "repeat": true,
+   "until": [
+    "as_rr_end"
+   ],
+   "slot": 2
+  },
+  {
+   "id": "rr_warp",
+   "map": "alola_rr_left",
+   "name": "传送面板",
+   "action": "puzzle",
+   "require": [
+    "as_rr_guzma"
+   ],
+   "versions": "usum",
+   "puzzle": "warp",
+   "slot": 1
+  },
+  {
+   "id": "rr_color",
+   "map": "alola_rr_right",
+   "name": "彩色面板",
+   "action": "puzzle",
+   "require": [
+    "as_rr_guzma"
+   ],
+   "versions": "usum",
+   "puzzle": "colors",
+   "slot": 1
+  },
+  {
+   "id": "rr_archie",
+   "map": "alola_rr_left",
+   "name": "水梧桐",
+   "action": "battle",
+   "require": [
+    "as_rr_warp"
+   ],
+   "versions": "usum",
+   "team": 541,
+   "text": "我亲眼见过盖欧卡唤来的海洋。这里也应该有可供它遨游的天地！",
+   "slot": 2
+  },
+  {
+   "id": "rr_maxie",
+   "map": "alola_rr_right",
+   "name": "赤焰松",
+   "action": "battle",
+   "require": [
+    "as_rr_color"
+   ],
+   "versions": "usum",
+   "team": 580,
+   "text": "我的世界已经拥有辽阔的大地。固拉多会为人类拓展下一个世界！",
+   "slot": 2
+  },
+  {
+   "id": "rr_arrows",
+   "map": "alola_rr_left",
+   "name": "旋转地板",
+   "action": "puzzle",
+   "require": [
+    "as_rr_archie",
+    "as_rr_maxie"
+   ],
+   "versions": "usum",
+   "puzzle": "arrows",
+   "slot": 3
+  },
+  {
+   "id": "rr_statues",
+   "map": "alola_rr_right",
+   "name": "喵喵雕像",
+   "action": "puzzle",
+   "require": [
+    "as_rr_archie",
+    "as_rr_maxie"
+   ],
+   "versions": "usum",
+   "puzzle": "statues",
+   "slot": 3
+  },
+  {
+   "id": "rr_cyrus",
+   "map": "alola_rr_left",
+   "name": "赤日",
+   "action": "battle",
+   "require": [
+    "as_rr_arrows"
+   ],
+   "versions": "usum",
+   "team": {
+    "ultra_sun": 542,
+    "ultra_moon": 543
+   },
+   "text": "这个世界和我知道的世界不同。你的心，会带来怎样的结果？",
+   "reward": "银河队钥匙",
+   "slot": 4
+  },
+  {
+   "id": "rr_mirror",
+   "map": "alola_rr_left",
+   "name": "镜门控制台",
+   "action": "unlock",
+   "require": [
+    "as_rr_cyrus"
+   ],
+   "versions": "usum",
+   "item": "银河队钥匙",
+   "text": "控制台接受银河队钥匙。首领房的镜门打开了一半。",
+   "slot": 5
+  },
+  {
+   "id": "rr_lysandre",
+   "map": "alola_rr_right",
+   "name": "弗拉达利",
+   "action": "battle",
+   "require": [
+    "as_rr_statues"
+   ],
+   "versions": "usum",
+   "team": {
+    "ultra_sun": 572,
+    "ultra_moon": 573
+   },
+   "text": "你会按下哪一个按钮？这个世界的美，能靠选择守护多久？",
+   "slot": 4
+  },
+  {
+   "id": "rr_button",
+   "map": "alola_rr_right",
+   "name": "红蓝按钮",
+   "action": "puzzle",
+   "require": [
+    "as_rr_lysandre"
+   ],
+   "versions": "usum",
+   "puzzle": "button",
+   "slot": 5
+  },
+  {
+   "id": "rr_ghetsis",
+   "map": "alola_rr_mansion",
+   "name": "魁奇思",
+   "action": "battle",
+   "require": [
+    "as_rr_button",
+    "as_rr_mirror"
+   ],
+   "versions": "usum",
+   "team": {
+    "ultra_sun": 559,
+    "ultra_moon": 560
+   },
+   "text": "坂木会成为我的棋子。等宝可梦从训练家身边解放，我就能统治每一个世界！",
+   "slot": 3
+  },
+  {
+   "id": "rr_colress",
+   "map": "alola_rr_mansion",
+   "name": "阿克罗玛",
+   "action": "say",
+   "require": [
+    "as_rr_ghetsis"
+   ],
+   "versions": "usum",
+   "text": "停手吧，魁奇思。利用究极之洞的能量，我能把你送回原来的世界。",
+   "slot": 4
+  },
+  {
+   "id": "rr_giovanni",
+   "map": "alola_rr_giovanni",
+   "name": "坂木",
+   "action": "battle",
+   "require": [
+    "as_rr_colress"
+   ],
+   "versions": "usum",
+   "team": {
+    "ultra_sun": 562,
+    "ultra_moon": 645
+   },
+   "text": "你已经站在我面前了。用你的宝可梦让我看看，你有没有阻止彩虹火箭队的实力。",
+   "slot": 1
+  },
+  {
+   "id": "rr_end",
+   "map": "alola_aether_entrance",
+   "name": "碧珂",
+   "action": "item",
+   "require": [
+    "as_rr_giovanni"
+   ],
+   "versions": "usum",
+   "item": "巨大金珠",
+   "count": 55,
+   "text": "城堡恢复了原样。露莎米奈平安无事，这些巨大金珠是我们的一点谢意。",
+   "slot": 3
+  },
+  {
+   "id": "nuggets",
+   "map": "alola_hauoli",
+   "name": "古董商",
+   "action": "sell",
+   "require": [
+    "a_olivia"
+   ],
+   "versions": "usum",
+   "repeat": true,
+   "slot": 12
+  },
+  {
+   "id": "tapu785",
+   "map": "alola_conflict",
+   "name": "卡璞・鸣鸣的神像",
+   "action": "wild",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "all",
+   "species": 785,
+   "level": 60,
+   "tapu": true,
+   "until": [
+    "a_tapu_koko_caught"
+   ],
+   "slot": 2
+  },
+  {
+   "id": "tapu786",
+   "map": "alola_life",
+   "name": "卡璞・蝶蝶的神像",
+   "action": "wild",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "all",
+   "species": 786,
+   "level": 60,
+   "tapu": true,
+   "until": [],
+   "slot": 1
+  },
+  {
+   "id": "tapu787",
+   "map": "alola_abundance",
+   "name": "卡璞・哞哞的神像",
+   "action": "wild",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "all",
+   "species": 787,
+   "level": 60,
+   "tapu": true,
+   "until": [],
+   "slot": 2
+  },
+  {
+   "id": "tapu788",
+   "map": "alola_hope",
+   "name": "卡璞・鳍鳍的神像",
+   "action": "wild",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "all",
+   "species": 788,
+   "level": 60,
+   "tapu": true,
+   "until": [],
+   "slot": 2
+  },
+  {
+   "id": "dexio",
+   "map": "alola_ancient_path",
+   "name": "德克希欧",
+   "action": "battle",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "all",
+   "team": 412,
+   "text": "还记得钥石吗？只要与伙伴配合，对战中便能引发超级进化。",
+   "mega": true,
+   "slot": 5
+  },
+  {
+   "id": "fly",
+   "map": "alola_hill",
+   "name": "Ｚ纯晶台",
+   "action": "crystal",
+   "require": [
+    "a_hapu"
+   ],
+   "versions": "all",
+   "key": "FLYINIUM_Z",
+   "needs_mon": 0,
+   "slot": 2
+  },
+  {
+   "id": "psychic",
+   "map": "alola_haina",
+   "name": "Ｚ纯晶台",
+   "action": "crystal",
+   "require": [
+    "a_ghost"
+   ],
+   "versions": "all",
+   "key": "PSYCHIUM_Z",
+   "needs_mon": 0,
+   "slot": 3
+  },
+  {
+   "id": "bug",
+   "map": "alola_shady_house",
+   "name": "Ｚ纯晶台",
+   "action": "crystal",
+   "require": [
+    "a_guzma_po"
+   ],
+   "versions": "all",
+   "key": "BUGINIUM_Z",
+   "needs_mon": 0,
+   "slot": 1
+  },
+  {
+   "id": "ice",
+   "map": "alola_lanakila",
+   "name": "Ｚ纯晶台",
+   "action": "crystal",
+   "require": [
+    "a_hapu"
+   ],
+   "versions": "all",
+   "key": "ICIUM_Z",
+   "needs_mon": 0,
+   "slot": 3
+  },
+  {
+   "id": "electric_mouse",
+   "map": "alola_konikoni",
+   "name": "皮卡丘使者",
+   "action": "crystal",
+   "require": [
+    "a_z_ring"
+   ],
+   "versions": "sm",
+   "key": "PIKANIUM_Z",
+   "needs_mon": 0,
+   "slot": 3
+  },
+  {
+   "id": "raichu",
+   "map": "alola_seafolk",
+   "name": "海洋居民",
+   "action": "crystal",
+   "require": [
+    "a_hapu"
+   ],
+   "versions": "all",
+   "key": "ALORAICHIUM_Z",
+   "needs_mon": 26,
+   "form": "RAICHU_ALOLA",
+   "slot": 3
+  },
+  {
+   "id": "fairy_sm",
+   "map": "alola_canyon",
+   "name": "茉莉",
+   "action": "crystal",
+   "require": [
+    "a_hapu"
+   ],
+   "versions": "sm",
+   "key": "FAIRIUM_Z",
+   "needs_mon": 0,
+   "slot": 5
+  },
+  {
+   "id": "mew",
+   "map": "alola_tide_song",
+   "name": "神秘绅士",
+   "action": "crystal",
+   "require": [
+    "a_z_ring"
+   ],
+   "versions": "usum",
+   "key": "MEWNIUM_Z",
+   "needs_mon": 151,
+   "slot": 1
+  },
+  {
+   "id": "marsh",
+   "map": "alola_tide_song",
+   "name": "神秘绅士",
+   "action": "crystal",
+   "require": [
+    "a_z_ring"
+   ],
+   "versions": "usum",
+   "key": "MARSHADIUM_Z",
+   "needs_mon": 802,
+   "slot": 2
+  },
+  {
+   "id": "ash_pika",
+   "map": "alola_pikachu_valley",
+   "name": "皮卡丘",
+   "action": "crystal",
+   "require": [
+    "a_z_ring"
+   ],
+   "versions": "usum",
+   "key": "PIKASHUNIUM_Z",
+   "needs_mon": 25,
+   "cap": true,
+   "slot": 1
+  },
+  {
+   "id": "lycan",
+   "map": "alola_malie",
+   "name": "哈乌",
+   "action": "crystal",
+   "require": [
+    "a_malie"
+   ],
+   "versions": "usum",
+   "key": "LYCANIUM_Z",
+   "needs_mon": 0,
+   "slot": 8
+  },
+  {
+   "id": "mimikyu",
+   "map": "alola_megamart",
+   "name": "谜拟Ｑ",
+   "action": "task",
+   "require": [
+    "a_nanu"
+   ],
+   "versions": "usum",
+   "key": "MIMIKIUM_Z",
+   "needs_mon": 0,
+   "phase": "night",
+   "slot": 1,
+   "ask": [
+    "抚摸谜拟Ｑ",
+    "抚摸皮卡丘"
+   ],
+   "text": "走到商场尽头，皮卡丘和谜拟Ｑ正等你选择。",
+   "crystal": "MIMIKIUM_Z"
+  },
+  {
+   "id": "kommo",
+   "map": "alola_plains_grotto",
+   "name": "Ｚ纯晶台",
+   "action": "crystal",
+   "require": [
+    "a_hapu"
+   ],
+   "versions": "usum",
+   "key": "KOMMONIUM_Z",
+   "needs_mon": 0,
+   "slot": 1
+  },
+  {
+   "id": "eevee",
+   "map": "alola_thrifty_mart",
+   "name": "超值超市收银员",
+   "action": "say",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "all",
+   "text": "当年有八位训练家分别培育着伊布的进化形。如今他们已在阿罗拉各地扎根。你能代我拜访他们吗？",
+   "slot": 1
+  },
+  {
+   "id": "eevee0",
+   "map": "alola_school",
+   "name": "水伊布使者",
+   "action": "battle",
+   "require": [
+    "as_eevee"
+   ],
+   "versions": "all",
+   "team": 361,
+   "text": "我会带着多年的伙伴应战。",
+   "slot": 2
+  },
+  {
+   "id": "eevee1",
+   "map": "alola_malie",
+   "name": "雷伊布使者",
+   "action": "battle",
+   "require": [
+    "as_eevee"
+   ],
+   "versions": "all",
+   "team": 362,
+   "text": "我会带着多年的伙伴应战。",
+   "slot": 4
+  },
+  {
+   "id": "eevee2",
+   "map": "alola_tide_song",
+   "name": "火伊布使者",
+   "action": "battle",
+   "require": [
+    "as_eevee"
+   ],
+   "versions": "all",
+   "team": 364,
+   "text": "我会带着多年的伙伴应战。",
+   "slot": 1
+  },
+  {
+   "id": "eevee3",
+   "map": "alola_blush_mountain",
+   "name": "太阳伊布使者",
+   "action": "battle",
+   "require": [
+    "as_eevee"
+   ],
+   "versions": "all",
+   "team": 365,
+   "text": "我会带着多年的伙伴应战。",
+   "slot": 2
+  },
+  {
+   "id": "eevee4",
+   "map": "alola_cemetery",
+   "name": "月亮伊布使者",
+   "action": "battle",
+   "require": [
+    "as_eevee"
+   ],
+   "versions": "all",
+   "team": 367,
+   "text": "我会带着多年的伙伴应战。",
+   "slot": 2
+  },
+  {
+   "id": "eevee5",
+   "map": "alola_hano_beach",
+   "name": "叶伊布使者",
+   "action": "battle",
+   "require": [
+    "as_eevee"
+   ],
+   "versions": "all",
+   "team": 368,
+   "text": "我会带着多年的伙伴应战。",
+   "slot": 3
+  },
+  {
+   "id": "eevee6",
+   "map": "alola_iki",
+   "name": "冰伊布使者",
+   "action": "battle",
+   "require": [
+    "as_eevee"
+   ],
+   "versions": "all",
+   "team": 363,
+   "text": "我会带着多年的伙伴应战。",
+   "slot": 3
+  },
+  {
+   "id": "eevee7",
+   "map": "alola_seafolk",
+   "name": "仙子伊布使者",
+   "action": "battle",
+   "require": [
+    "as_eevee"
+   ],
+   "versions": "all",
+   "team": 369,
+   "text": "我会带着多年的伙伴应战。",
+   "slot": 4
+  },
+  {
+   "id": "eevee_last",
+   "map": "alola_thrifty_mart",
+   "name": "伊布使者景虎",
+   "action": "battle",
+   "require": [
+    "as_eevee0",
+    "as_eevee1",
+    "as_eevee2",
+    "as_eevee3",
+    "as_eevee4",
+    "as_eevee5",
+    "as_eevee6",
+    "as_eevee7"
+   ],
+   "versions": "all",
+   "team": 379,
+   "text": "让我也来和你对战一次。这是这趟旅程最后的一只伊布！",
+   "crystal": "EEVIUM_Z",
+   "slot": 2
+  },
+  {
+   "id": "cell1",
+   "map": "alola_1",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 1
+  },
+  {
+   "id": "cell2",
+   "map": "alola_1",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 2
+  },
+  {
+   "id": "cell3",
+   "map": "alola_1",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "cell4",
+   "map": "alola_school",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 1
+  },
+  {
+   "id": "cell5",
+   "map": "alola_2",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell6",
+   "map": "alola_3",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 1
+  },
+  {
+   "id": "cell7",
+   "map": "alola_3",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell8",
+   "map": "alola_cemetery",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell9",
+   "map": "alola_hauoli",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 1
+  },
+  {
+   "id": "cell10",
+   "map": "alola_hauoli",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell11",
+   "map": "alola_iki",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 1
+  },
+  {
+   "id": "cell12",
+   "map": "alola_kalae_bay",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell13",
+   "map": "alola_conflict",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell14",
+   "map": "alola_cavern",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell15",
+   "map": "alola_4",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell16",
+   "map": "alola_5",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell17",
+   "map": "alola_7",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell18",
+   "map": "alola_8",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell19",
+   "map": "alola_8",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 2
+  },
+  {
+   "id": "cell20",
+   "map": "alola_akala_outskirts",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell21",
+   "map": "alola_diglett_tunnel",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell22",
+   "map": "alola_hano_beach",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 1
+  },
+  {
+   "id": "cell23",
+   "map": "alola_hano_beach",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell24",
+   "map": "alola_heahea",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 1
+  },
+  {
+   "id": "cell25",
+   "map": "alola_heahea",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell26",
+   "map": "alola_konikoni",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 1
+  },
+  {
+   "id": "cell27",
+   "map": "alola_lush",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell28",
+   "map": "alola_paniola_ranch",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 1
+  },
+  {
+   "id": "cell29",
+   "map": "alola_paniola_ranch",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 2
+  },
+  {
+   "id": "cell30",
+   "map": "alola_royal",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 1
+  },
+  {
+   "id": "cell31",
+   "map": "alola_royal",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 2
+  },
+  {
+   "id": "cell32",
+   "map": "alola_wela",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell33",
+   "map": "alola_10",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 1
+  },
+  {
+   "id": "cell34",
+   "map": "alola_11",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 1
+  },
+  {
+   "id": "cell35",
+   "map": "alola_12",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell36",
+   "map": "alola_12",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell37",
+   "map": "alola_13",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell38",
+   "map": "alola_13",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 2
+  },
+  {
+   "id": "cell39",
+   "map": "alola_14",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell40",
+   "map": "alola_14",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 2
+  },
+  {
+   "id": "cell41",
+   "map": "alola_15",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell42",
+   "map": "alola_16",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 1
+  },
+  {
+   "id": "cell43",
+   "map": "alola_17",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell44",
+   "map": "alola_17",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell45",
+   "map": "alola_aether_house",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 1
+  },
+  {
+   "id": "cell46",
+   "map": "alola_blush_mountain",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell47",
+   "map": "alola_haina",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell48",
+   "map": "alola_observatory",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 1
+  },
+  {
+   "id": "cell49",
+   "map": "alola_malie",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 1
+  },
+  {
+   "id": "cell50",
+   "map": "alola_malie",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 2
+  },
+  {
+   "id": "cell51",
+   "map": "alola_malie",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 3
+  },
+  {
+   "id": "cell52",
+   "map": "alola_malie_garden",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell53",
+   "map": "alola_lanakila",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell54",
+   "map": "alola_lanakila",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell55",
+   "map": "alola_po",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 1
+  },
+  {
+   "id": "cell56",
+   "map": "alola_po",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 2
+  },
+  {
+   "id": "cell57",
+   "map": "alola_abundance",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell58",
+   "map": "alola_secluded_shore",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 1
+  },
+  {
+   "id": "cell59",
+   "map": "alola_secluded_shore",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 2
+  },
+  {
+   "id": "cell60",
+   "map": "alola_tapu",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell61",
+   "map": "alola_meadow",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell62",
+   "map": "alola_meadow",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell63",
+   "map": "alola_ancient_path",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 1
+  },
+  {
+   "id": "cell64",
+   "map": "alola_ancient_path",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 2
+  },
+  {
+   "id": "cell65",
+   "map": "alola_ancient_path",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 3
+  },
+  {
+   "id": "cell66",
+   "map": "alola_poni_breaker_coast",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 1
+  },
+  {
+   "id": "cell67",
+   "map": "alola_poni_breaker_coast",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 2
+  },
+  {
+   "id": "cell68",
+   "map": "alola_poni_coast",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell69",
+   "map": "alola_poni_coast",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell70",
+   "map": "alola_poni_gauntlet",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell71",
+   "map": "alola_poni_gauntlet",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell72",
+   "map": "alola_poni_grove",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell73",
+   "map": "alola_poni_grove",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell74",
+   "map": "alola_poni_meadow",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell75",
+   "map": "alola_poni_plains",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 1
+  },
+  {
+   "id": "cell76",
+   "map": "alola_poni_plains",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell77",
+   "map": "alola_poni_plains",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 3
+  },
+  {
+   "id": "cell78",
+   "map": "alola_wilds",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell79",
+   "map": "alola_wilds",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 2
+  },
+  {
+   "id": "cell80",
+   "map": "alola_wilds",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 3
+  },
+  {
+   "id": "cell81",
+   "map": "alola_resolution_cave",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 1
+  },
+  {
+   "id": "cell82",
+   "map": "alola_resolution_cave",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell83",
+   "map": "alola_resolution_cave",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 3
+  },
+  {
+   "id": "cell84",
+   "map": "alola_hope",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell85",
+   "map": "alola_seafolk",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell86",
+   "map": "alola_seafolk",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell87",
+   "map": "alola_canyon",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell88",
+   "map": "alola_canyon",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell89",
+   "map": "alola_canyon",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "cell90",
+   "map": "alola_canyon",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 4
+  },
+  {
+   "id": "cell91",
+   "map": "alola_aether_entrance",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "cell92",
+   "map": "alola_aether_entrance",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "cell93",
+   "map": "alola_aether_entrance",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "day",
+   "slot": 3
+  },
+  {
+   "id": "cell94",
+   "map": "alola_aether_entrance",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "",
+   "slot": 4
+  },
+  {
+   "id": "cell95",
+   "map": "alola_aether_entrance",
+   "name": "绿色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "cell",
+   "phase": "night",
+   "slot": 5
+  },
+  {
+   "id": "sticker1",
+   "map": "alola_2",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker2",
+   "map": "alola_2",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker3",
+   "map": "alola_2",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "sticker4",
+   "map": "alola_berry_fields",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker5",
+   "map": "alola_berry_fields",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker6",
+   "map": "alola_iki",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker7",
+   "map": "alola_hauoli",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker8",
+   "map": "alola_hauoli",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker9",
+   "map": "alola_hauoli",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "sticker10",
+   "map": "alola_hauoli",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 4
+  },
+  {
+   "id": "sticker11",
+   "map": "alola_hauoli",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 5
+  },
+  {
+   "id": "sticker12",
+   "map": "alola_hauoli",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 6
+  },
+  {
+   "id": "sticker13",
+   "map": "alola_hauoli",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 7
+  },
+  {
+   "id": "sticker14",
+   "map": "alola_hauoli",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 8
+  },
+  {
+   "id": "sticker15",
+   "map": "alola_hauoli",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 9
+  },
+  {
+   "id": "sticker16",
+   "map": "alola_hauoli",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 10
+  },
+  {
+   "id": "sticker17",
+   "map": "alola_hauoli",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 11
+  },
+  {
+   "id": "sticker18",
+   "map": "alola_5",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker19",
+   "map": "alola_8",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker20",
+   "map": "alola_8",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker21",
+   "map": "alola_hano_beach",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker22",
+   "map": "alola_hano_beach",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker23",
+   "map": "alola_hano",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker24",
+   "map": "alola_hano",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker25",
+   "map": "alola_hano",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "sticker26",
+   "map": "alola_heahea",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker27",
+   "map": "alola_heahea",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker28",
+   "map": "alola_heahea",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "sticker29",
+   "map": "alola_heahea",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 4
+  },
+  {
+   "id": "sticker30",
+   "map": "alola_heahea",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 5
+  },
+  {
+   "id": "sticker31",
+   "map": "alola_heahea",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 6
+  },
+  {
+   "id": "sticker32",
+   "map": "alola_heahea",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 7
+  },
+  {
+   "id": "sticker33",
+   "map": "alola_heahea",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 8
+  },
+  {
+   "id": "sticker34",
+   "map": "alola_heahea",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 9
+  },
+  {
+   "id": "sticker35",
+   "map": "alola_heahea",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 10
+  },
+  {
+   "id": "sticker36",
+   "map": "alola_heahea",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 11
+  },
+  {
+   "id": "sticker37",
+   "map": "alola_konikoni",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker38",
+   "map": "alola_konikoni",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker39",
+   "map": "alola_konikoni",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "sticker40",
+   "map": "alola_konikoni",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 4
+  },
+  {
+   "id": "sticker41",
+   "map": "alola_paniola_ranch",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker42",
+   "map": "alola_paniola_ranch",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker43",
+   "map": "alola_paniola",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker44",
+   "map": "alola_paniola",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker45",
+   "map": "alola_paniola",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "sticker46",
+   "map": "alola_royal",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker47",
+   "map": "alola_royal",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker48",
+   "map": "alola_royal",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "sticker49",
+   "map": "alola_royal",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 4
+  },
+  {
+   "id": "sticker50",
+   "map": "alola_wela",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker51",
+   "map": "alola_13",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker52",
+   "map": "alola_13",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker53",
+   "map": "alola_14",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker54",
+   "map": "alola_14",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker55",
+   "map": "alola_15",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker56",
+   "map": "alola_16",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker57",
+   "map": "alola_17",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker58",
+   "map": "alola_17",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker59",
+   "map": "alola_17",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "sticker60",
+   "map": "alola_blush_mountain",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker61",
+   "map": "alola_blush_mountain",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker62",
+   "map": "alola_observatory",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker63",
+   "map": "alola_observatory",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker64",
+   "map": "alola_observatory",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "sticker65",
+   "map": "alola_malie",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker66",
+   "map": "alola_malie",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker67",
+   "map": "alola_malie",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "sticker68",
+   "map": "alola_malie",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 4
+  },
+  {
+   "id": "sticker69",
+   "map": "alola_malie",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 5
+  },
+  {
+   "id": "sticker70",
+   "map": "alola_malie",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 6
+  },
+  {
+   "id": "sticker71",
+   "map": "alola_malie",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 7
+  },
+  {
+   "id": "sticker72",
+   "map": "alola_malie_garden",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker73",
+   "map": "alola_hokulani",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker74",
+   "map": "alola_hokulani",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker75",
+   "map": "alola_po",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker76",
+   "map": "alola_po",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker77",
+   "map": "alola_po",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "sticker78",
+   "map": "alola_po",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 4
+  },
+  {
+   "id": "sticker79",
+   "map": "alola_po",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 5
+  },
+  {
+   "id": "sticker80",
+   "map": "alola_po",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 6
+  },
+  {
+   "id": "sticker81",
+   "map": "alola_po",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 7
+  },
+  {
+   "id": "sticker82",
+   "map": "alola_shady_house",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker83",
+   "map": "alola_shady_house",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker84",
+   "map": "alola_meadow",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker85",
+   "map": "alola_ancient_path",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker86",
+   "map": "alola_ancient_path",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker87",
+   "map": "alola_ancient_path",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "sticker88",
+   "map": "alola_ancient_path",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 4
+  },
+  {
+   "id": "sticker89",
+   "map": "alola_ancient_path",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 5
+  },
+  {
+   "id": "sticker90",
+   "map": "alola_ancient_path",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 6
+  },
+  {
+   "id": "sticker91",
+   "map": "alola_exeggutor",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker92",
+   "map": "alola_poni_gauntlet",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker93",
+   "map": "alola_wilds",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker94",
+   "map": "alola_seafolk",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 1
+  },
+  {
+   "id": "sticker95",
+   "map": "alola_seafolk",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 2
+  },
+  {
+   "id": "sticker96",
+   "map": "alola_seafolk",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 3
+  },
+  {
+   "id": "sticker97",
+   "map": "alola_seafolk",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 4
+  },
+  {
+   "id": "sticker98",
+   "map": "alola_seafolk",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 5
+  },
+  {
+   "id": "sticker99",
+   "map": "alola_seafolk",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 6
+  },
+  {
+   "id": "sticker100",
+   "map": "alola_seafolk",
+   "name": "霸主贴纸",
+   "action": "collect",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "kind": "sticker",
+   "phase": "",
+   "slot": 7
+  },
+  {
+   "id": "core0",
+   "map": "alola_home_1f",
+   "name": "红色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "core",
+   "move": 245,
+   "slot": 1
+  },
+  {
+   "id": "core1",
+   "map": "alola_iki",
+   "name": "红色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "core",
+   "move": 614,
+   "slot": 2
+  },
+  {
+   "id": "core2",
+   "map": "alola_konikoni",
+   "name": "红色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "core",
+   "move": 349,
+   "slot": 2
+  },
+  {
+   "id": "core3",
+   "map": "alola_17",
+   "name": "红色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "core",
+   "move": 615,
+   "slot": 3
+  },
+  {
+   "id": "core4",
+   "map": "alola_ancient_path",
+   "name": "红色光点",
+   "action": "collect",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "sm",
+   "kind": "core",
+   "move": 687,
+   "slot": 4
+  },
+  {
+   "id": "cube",
+   "map": "alola_heahea",
+   "name": "吉娜",
+   "action": "item",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "sm",
+   "item": "基格尔德多面体",
+   "count": 1,
+   "category": "key",
+   "text": "在各岛留意绿色的细胞和红色的核心。１６号道路的实验室可以把它们合成宝可梦。",
+   "slot": 3
+  },
+  {
+   "id": "machine",
+   "map": "alola_zygarde_lab",
+   "name": "复原机器",
+   "action": "assemble",
+   "require": [
+    "as_cube"
+   ],
+   "versions": "all",
+   "repeat": true,
+   "slot": 1
+  },
+  {
+   "id": "zygarde",
+   "map": "alola_resolution_cave_184",
+   "name": "基格尔德",
+   "action": "wild",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "usum",
+   "species": 718,
+   "level": 60,
+   "slot": 1
+  },
+  {
+   "id": "dexio_cell",
+   "map": "alola_zygarde_lab",
+   "name": "德克希欧",
+   "action": "battle",
+   "require": [
+    "as_zygarde"
+   ],
+   "versions": "usum",
+   "team": 623,
+   "text": "一起研究基格尔德吧！我有一只１０％形态和一批尚未重组的细胞。",
+   "cube": true,
+   "slot": 2
+  },
+  {
+   "id": "sticker_gifts",
+   "map": "alola_heahea_beach",
+   "name": "成也・大木",
+   "action": "stickers",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "repeat": true,
+   "slot": 1
+  },
+  {
+   "id": "surf0",
+   "map": "alola_big_wave_beach",
+   "name": "巨翅飞鱼指导员",
+   "action": "surf",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "usum",
+   "course": 0,
+   "repeat": true,
+   "slot": 1
+  },
+  {
+   "id": "surf1",
+   "map": "alola_heahea_beach",
+   "name": "巨翅飞鱼指导员",
+   "action": "surf",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "usum",
+   "course": 1,
+   "repeat": true,
+   "slot": 2
+  },
+  {
+   "id": "surf2",
+   "map": "alola_ulaula_beach",
+   "name": "巨翅飞鱼指导员",
+   "action": "surf",
+   "require": [
+    "a_olivia"
+   ],
+   "versions": "usum",
+   "course": 2,
+   "repeat": true,
+   "slot": 1
+  },
+  {
+   "id": "surf3",
+   "map": "alola_poni_beach",
+   "name": "巨翅飞鱼指导员",
+   "action": "surf",
+   "require": [
+    "a_nanu"
+   ],
+   "versions": "usum",
+   "course": 3,
+   "repeat": true,
+   "slot": 1
+  },
+  {
+   "id": "surfer",
+   "map": "alola_heahea",
+   "name": "海洋协会会长",
+   "action": "surf_pikachu",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "usum",
+   "slot": 12
+  },
+  {
+   "id": "egg",
+   "map": "alola_paniola_ranch",
+   "name": "寄放屋姐姐",
+   "action": "gift",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "all",
+   "species": 133,
+   "level": 1,
+   "egg": true,
+   "slot": 3
+  },
+  {
+   "id": "remaining_z",
+   "map": "alola_iki",
+   "name": "哈乌",
+   "action": "starter_crystals",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "all",
+   "slot": 4
+  },
+  {
+   "id": "snor",
+   "map": "alola_tide_song",
+   "name": "神秘绅士",
+   "action": "crystal",
+   "require": [
+    "a_z_ring"
+   ],
+   "versions": "usum",
+   "key": "SNORLIUM_Z",
+   "needs_mon": 143,
+   "slot": 4
+  },
+  {
+   "id": "chuuster",
+   "map": "alola_hano",
+   "name": "强行采访的记者",
+   "action": "battle",
+   "require": [
+    "a_z_ring"
+   ],
+   "versions": "usum",
+   "team": 540,
+   "text": "我想拍摄明星皮卡丘。你要替它出面？来一场对战吧。",
+   "crystal": "PIKANIUM_Z",
+   "slot": 4
+  },
+  {
+   "id": "volttacklesm",
+   "map": "alola_konikoni",
+   "name": "招式教练",
+   "action": "tutor",
+   "require": [
+    "as_electric_mouse"
+   ],
+   "versions": "sm",
+   "repeat": true,
+   "species": 25,
+   "move": 344,
+   "slot": 4
+  },
+  {
+   "id": "volttackleusum",
+   "map": "alola_hano",
+   "name": "招式教练",
+   "action": "tutor",
+   "require": [
+    "as_chuuster"
+   ],
+   "versions": "usum",
+   "repeat": true,
+   "species": 25,
+   "move": 344,
+   "slot": 5
+  },
+  {
+   "id": "warp793",
+   "map": "alola_ultra_deep_sea",
+   "name": "虚吾伊德",
+   "action": "wild",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "usum",
+   "species": 793,
+   "level": 60,
+   "repeat": true,
+   "beast": true,
+   "slot": 1
+  },
+  {
+   "id": "warp794",
+   "map": "alola_ultra_jungle",
+   "name": "爆肌蚊",
+   "action": "wild",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "ultra_sun",
+   "species": 794,
+   "level": 60,
+   "repeat": true,
+   "beast": true,
+   "slot": 1
+  },
+  {
+   "id": "warp795",
+   "map": "alola_ultra_desert",
+   "name": "费洛美螂",
+   "action": "wild",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "ultra_moon",
+   "species": 795,
+   "level": 60,
+   "repeat": true,
+   "beast": true,
+   "slot": 1
+  },
+  {
+   "id": "warp796",
+   "map": "alola_ultra_plant",
+   "name": "电束木",
+   "action": "wild",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "usum",
+   "species": 796,
+   "level": 60,
+   "repeat": true,
+   "beast": true,
+   "slot": 1
+  },
+  {
+   "id": "warp797",
+   "map": "alola_ultra_crater",
+   "name": "铁火辉夜",
+   "action": "wild",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "ultra_moon",
+   "species": 797,
+   "level": 60,
+   "repeat": true,
+   "beast": true,
+   "slot": 1
+  },
+  {
+   "id": "warp798",
+   "map": "alola_ultra_forest",
+   "name": "纸御剑",
+   "action": "wild",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "ultra_sun",
+   "species": 798,
+   "level": 60,
+   "repeat": true,
+   "beast": true,
+   "slot": 1
+  },
+  {
+   "id": "warp799",
+   "map": "alola_ultra_ruin",
+   "name": "恶食大王",
+   "action": "wild",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "usum",
+   "species": 799,
+   "level": 60,
+   "repeat": true,
+   "beast": true,
+   "slot": 1
+  },
+  {
+   "id": "reverse_sun",
+   "map": "alola_altar",
+   "name": "时空裂隙",
+   "action": "reverse",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "sun",
+   "repeat": true,
+   "slot": 1
+  },
+  {
+   "id": "cosmog_sun",
+   "map": "alola_lake_sunne",
+   "name": "科斯莫古",
+   "action": "cosmog",
+   "require": [
+    "a_reverse_world"
+   ],
+   "versions": "sun",
+   "species": 789,
+   "level": 5,
+   "slot": 1
+  },
+  {
+   "id": "reverse_moon",
+   "map": "alola_moone",
+   "name": "时空裂隙",
+   "action": "reverse",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "moon",
+   "repeat": true,
+   "slot": 1
+  },
+  {
+   "id": "cosmog_moon",
+   "map": "alola_lake_moone",
+   "name": "科斯莫古",
+   "action": "cosmog",
+   "require": [
+    "a_reverse_world"
+   ],
+   "versions": "moon",
+   "species": 789,
+   "level": 5,
+   "slot": 1
+  },
+  {
+   "id": "reverse_ultra_sun",
+   "map": "alola_altar",
+   "name": "时空裂隙",
+   "action": "reverse",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "ultra_sun",
+   "repeat": true,
+   "slot": 1
+  },
+  {
+   "id": "cosmog_ultra_sun",
+   "map": "alola_lake_sunne",
+   "name": "科斯莫古",
+   "action": "cosmog",
+   "require": [
+    "a_reverse_world"
+   ],
+   "versions": "ultra_sun",
+   "species": 789,
+   "level": 5,
+   "slot": 1
+  },
+  {
+   "id": "reverse_ultra_moon",
+   "map": "alola_moone",
+   "name": "时空裂隙",
+   "action": "reverse",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "ultra_moon",
+   "repeat": true,
+   "slot": 1
+  },
+  {
+   "id": "cosmog_ultra_moon",
+   "map": "alola_lake_moone",
+   "name": "科斯莫古",
+   "action": "cosmog",
+   "require": [
+    "a_reverse_world"
+   ],
+   "versions": "ultra_moon",
+   "species": 789,
+   "level": 5,
+   "slot": 1
+  },
+  {
+   "id": "tree_gate",
+   "map": "alola_battle_tree",
+   "name": "青绿",
+   "action": "tree_intro",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "all",
+   "slot": 1
+  },
+  {
+   "id": "tree_desk",
+   "map": "alola_battle_tree",
+   "name": "对战树接待员",
+   "action": "tree",
+   "require": [
+    "as_tree_gate"
+   ],
+   "versions": "all",
+   "repeat": true,
+   "slot": 2
+  },
+  {
+   "id": "tree_shop",
+   "map": "alola_battle_tree",
+   "name": "ＢＰ兑换员",
+   "action": "bp_exchange",
+   "require": [
+    "as_tree_gate"
+   ],
+   "versions": "all",
+   "repeat": true,
+   "slot": 3
+  },
+  {
+   "id": "tree_lillie",
+   "map": "alola_lab",
+   "name": "莉莉艾",
+   "action": "say",
+   "require": [
+    "as_rr_end"
+   ],
+   "versions": "usum",
+   "text": "我和皮皮也想继续修行。在对战树的多人对战里，我们可以成为搭档！",
+   "slot": 1
+  },
+  {
+   "id": "usumtrade0",
+   "map": "alola_center_2",
+   "name": "交换宝可梦的训练家",
+   "action": "trade",
+   "require": [
+    "a_school"
+   ],
+   "versions": "usum",
+   "species": 701,
+   "initial": 701,
+   "level": 8,
+   "moves": [
+    33,
+    468,
+    2,
+    17
+   ],
+   "want": 21,
+   "ot": "Hila",
+   "tid": "000410",
+   "nickname": "Cha",
+   "gender": "male",
+   "ability": 84,
+   "nature": "Brave",
+   "held": "X_ATTACK",
+   "form": "",
+   "slot": 7,
+   "ivs": {
+    "atk": 31
+   }
+  },
+  {
+   "id": "usumtrade1",
+   "map": "alola_center_5",
+   "name": "交换宝可梦的训练家",
+   "action": "trade",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "usum",
+   "species": 714,
+   "initial": 714,
+   "level": 19,
+   "moves": [
+    16,
+    44,
+    17,
+    97
+   ],
+   "want": 506,
+   "ot": "Kihei",
+   "tid": "610507",
+   "nickname": "Noinoi",
+   "gender": "male",
+   "ability": 119,
+   "nature": "Modest",
+   "held": "BRIGHT_POWDER",
+   "form": "",
+   "slot": 7,
+   "ivs": {
+    "spa": 31
+   }
+  },
+  {
+   "id": "usumtrade2",
+   "map": "alola_royal",
+   "name": "交换宝可梦的训练家",
+   "action": "trade",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "usum",
+   "species": 339,
+   "initial": 339,
+   "level": 21,
+   "moves": [
+    426,
+    133,
+    352,
+    222
+   ],
+   "want": 72,
+   "ot": "Yuichi",
+   "tid": "590916",
+   "nickname": "Babo",
+   "gender": "female",
+   "ability": 107,
+   "nature": "Naughty",
+   "held": "PECHA_BERRY",
+   "form": "",
+   "slot": 7,
+   "ivs": {
+    "hp": 31
+   }
+  },
+  {
+   "id": "usumtrade3",
+   "map": "alola_8",
+   "name": "交换宝可梦的训练家",
+   "action": "trade",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "usum",
+   "species": 24,
+   "initial": 24,
+   "level": 22,
+   "moves": [
+    44,
+    137,
+    103,
+    51
+   ],
+   "want": 732,
+   "ot": "Miyo",
+   "tid": "010913",
+   "nickname": "Arbo",
+   "gender": "female",
+   "ability": 22,
+   "nature": "Impish",
+   "held": "BALM_MUSHROOM",
+   "form": "",
+   "slot": 7,
+   "ivs": {
+    "def": 31
+   }
+  },
+  {
+   "id": "usumtrade4",
+   "map": "alola_center_tapu",
+   "name": "交换宝可梦的训练家",
+   "action": "trade",
+   "require": [
+    "a_olivia"
+   ],
+   "versions": "usum",
+   "species": 709,
+   "initial": 708,
+   "level": 33,
+   "moves": [
+    185,
+    73,
+    174,
+    261
+   ],
+   "want": 708,
+   "ot": "Sill",
+   "tid": "610602",
+   "nickname": "Tumptump",
+   "gender": "male",
+   "ability": 30,
+   "nature": "Calm",
+   "held": "GRASSIUM_Z",
+   "form": "",
+   "slot": 7,
+   "ivs": {
+    "spd": 31
+   }
+  },
+  {
+   "id": "usumtrade5",
+   "map": "alola_seafolk",
+   "name": "交换宝可梦的训练家",
+   "action": "trade",
+   "require": [
+    "a_olivia"
+   ],
+   "versions": "usum",
+   "species": 422,
+   "initial": 422,
+   "level": 44,
+   "moves": [
+    237,
+    240,
+    34,
+    330
+   ],
+   "want": 210,
+   "ot": "Kumu",
+   "tid": "610503",
+   "nickname": "Solle",
+   "gender": "female",
+   "ability": 114,
+   "nature": "Quiet",
+   "held": "WATERIUM_Z",
+   "form": "",
+   "slot": 7,
+   "ivs": {
+    "def": 31
+   }
+  },
+  {
+   "id": "usumtrade6",
+   "map": "alola_poni_gauntlet",
+   "name": "交换宝可梦的训练家",
+   "action": "trade",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "usum",
+   "species": 128,
+   "initial": 128,
+   "level": 59,
+   "moves": [
+    36,
+    428,
+    207,
+    37
+   ],
+   "want": 760,
+   "ot": "Anga",
+   "tid": "581022",
+   "nickname": "Professor",
+   "gender": "male",
+   "ability": 22,
+   "nature": "Jolly",
+   "held": "NORMALIUM_Z",
+   "form": "",
+   "slot": 7,
+   "ivs": {
+    "spe": 31
+   }
+  },
+  {
+   "id": "smtrade0",
+   "map": "alola_center_konikoni",
+   "name": "交换宝可梦的训练家",
+   "action": "trade",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "sm",
+   "species": 61,
+   "initial": 61,
+   "level": 22,
+   "moves": [
+    145,
+    3,
+    240,
+    34
+   ],
+   "want": 41,
+   "ot": "Laule'a",
+   "tid": "590916",
+   "nickname": "Whirly",
+   "gender": "male",
+   "ability": 6,
+   "nature": "Naughty",
+   "held": "WATERIUM_Z",
+   "form": "",
+   "slot": 7,
+   "ivs": {
+    "hp": 31
+   }
+  },
+  {
+   "id": "smtrade1",
+   "map": "alola_center_2",
+   "name": "交换宝可梦的训练家",
+   "action": "trade",
+   "require": [
+    "a_school"
+   ],
+   "versions": "sm",
+   "species": 66,
+   "initial": 66,
+   "level": 9,
+   "moves": [
+    43,
+    116,
+    2,
+    193
+   ],
+   "want": 21,
+   "ot": "Hila",
+   "tid": "000410",
+   "nickname": "Macho",
+   "gender": "male",
+   "ability": 99,
+   "nature": "Brave",
+   "held": "X_ATTACK",
+   "form": "",
+   "slot": 7,
+   "ivs": {
+    "atk": 31
+   }
+  },
+  {
+   "id": "smtrade2",
+   "map": "alola_center_tapu",
+   "name": "交换宝可梦的训练家",
+   "action": "trade",
+   "require": [
+    "a_olivia"
+   ],
+   "versions": "sm",
+   "species": 76,
+   "initial": 75,
+   "level": 32,
+   "moves": [
+    479,
+    9,
+    120,
+    446
+   ],
+   "want": 93,
+   "ot": "Sill",
+   "tid": "610602",
+   "nickname": "Veler",
+   "gender": "male",
+   "ability": 42,
+   "nature": "Impish",
+   "held": "ROCKIUM_Z",
+   "form": "GOLEM_ALOLA",
+   "slot": 7,
+   "ivs": {
+    "def": 31
+   }
+  },
+  {
+   "id": "smtrade3",
+   "map": "alola_malie",
+   "name": "交换宝可梦的训练家",
+   "action": "trade",
+   "require": [
+    "a_olivia"
+   ],
+   "versions": "sm",
+   "species": 440,
+   "initial": 440,
+   "level": 27,
+   "moves": [
+    204,
+    383,
+    287,
+    186
+   ],
+   "want": 674,
+   "ot": "Momoe",
+   "tid": "010913",
+   "nickname": "Happini",
+   "gender": "female",
+   "ability": 32,
+   "nature": "Calm",
+   "held": "",
+   "form": "",
+   "slot": 7,
+   "ivs": {
+    "spa": 31
+   }
+  },
+  {
+   "id": "smtrade4",
+   "map": "alola_poni_gauntlet",
+   "name": "交换宝可梦的训练家",
+   "action": "trade",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "sm",
+   "species": 663,
+   "initial": 663,
+   "level": 43,
+   "moves": [
+    488,
+    512,
+    382,
+    366
+   ],
+   "want": 760,
+   "ot": "Anga",
+   "tid": "581022",
+   "nickname": "Talo",
+   "gender": "male",
+   "ability": 177,
+   "nature": "Jolly",
+   "held": "FIRIUM_Z",
+   "form": "",
+   "slot": 7,
+   "ivs": {
+    "spe": 31
+   }
+  },
+  {
+   "id": "smtrade5",
+   "map": "alola_center_5",
+   "name": "交换宝可梦的训练家",
+   "action": "trade",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "sm",
+   "species": 761,
+   "initial": 761,
+   "level": 16,
+   "moves": [
+    150,
+    589,
+    229,
+    75
+   ],
+   "want": 506,
+   "ot": "Kihei",
+   "tid": "610507",
+   "nickname": "Bouncee",
+   "gender": "female",
+   "ability": 102,
+   "nature": "Adamant",
+   "held": "BRIGHT_POWDER",
+   "form": "",
+   "slot": 7,
+   "ivs": {
+    "atk": 31
+   }
+  },
+  {
+   "id": "smtrade6",
+   "map": "alola_seafolk",
+   "name": "交换宝可梦的训练家",
+   "action": "trade",
+   "require": [
+    "a_olivia"
+   ],
+   "versions": "sm",
+   "species": 762,
+   "initial": 762,
+   "level": 43,
+   "moves": [
+    23,
+    597,
+    445,
+    312
+   ],
+   "want": 210,
+   "ot": "Kumu",
+   "tid": "610503",
+   "nickname": "Stena",
+   "gender": "female",
+   "ability": 102,
+   "nature": "Careful",
+   "held": "GRASSIUM_Z",
+   "form": "",
+   "slot": 7,
+   "ivs": {
+    "spd": 31
+   }
+  },
+  {
+   "id": "dexsm0",
+   "map": "alola_center_hauoli",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "sm",
+   "species": 425,
+   "amount": 10000,
+   "form": "",
+   "slot": 7
+  },
+  {
+   "id": "dexsm1",
+   "map": "alola_center_2",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "sm",
+   "species": 742,
+   "amount": 3000,
+   "form": "",
+   "slot": 8
+  },
+  {
+   "id": "dexsm2",
+   "map": "alola_3",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "sm",
+   "species": 744,
+   "amount": 3000,
+   "form": "",
+   "slot": 7
+  },
+  {
+   "id": "dexsm3",
+   "map": "alola_heahea",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "sm",
+   "species": 771,
+   "amount": 10000,
+   "form": "",
+   "slot": 7
+  },
+  {
+   "id": "dexsun4",
+   "map": "alola_center_konikoni",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "sun",
+   "species": 766,
+   "amount": 5000,
+   "slot": 7
+  },
+  {
+   "id": "dexmoon4",
+   "map": "alola_center_konikoni",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "moon",
+   "species": 765,
+   "amount": 5000,
+   "slot": 7
+  },
+  {
+   "id": "dexsm5",
+   "map": "alola_center_5",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "sm",
+   "species": 349,
+   "amount": 3000,
+   "form": "",
+   "slot": 8
+  },
+  {
+   "id": "dexsm6",
+   "map": "alola_8",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "sm",
+   "species": 759,
+   "amount": 5000,
+   "form": "",
+   "slot": 7
+  },
+  {
+   "id": "dexsm7",
+   "map": "alola_malie",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "sm",
+   "species": 777,
+   "amount": 10000,
+   "form": "",
+   "slot": 8
+  },
+  {
+   "id": "dexsm8",
+   "map": "alola_malie",
+   "name": "藏书人",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "sm",
+   "species": 53,
+   "amount": 0,
+   "form": "PERSIAN_ALOLA",
+   "slot": 9
+  },
+  {
+   "id": "dexsm9",
+   "map": "alola_center_16",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "sm",
+   "species": 778,
+   "amount": 20000,
+   "form": "",
+   "slot": 7
+  },
+  {
+   "id": "dexusum0",
+   "map": "alola_center_hauoli",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "usum",
+   "species": 63,
+   "amount": 10000,
+   "form": "",
+   "slot": 7
+  },
+  {
+   "id": "dexusum1",
+   "map": "alola_center_2",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "usum",
+   "species": 739,
+   "amount": 3000,
+   "form": "",
+   "slot": 8
+  },
+  {
+   "id": "dexusum2",
+   "map": "alola_3",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "usum",
+   "species": 302,
+   "amount": 3000,
+   "form": "",
+   "slot": 7
+  },
+  {
+   "id": "dexusum3",
+   "map": "alola_heahea",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "usum",
+   "species": 758,
+   "amount": 10000,
+   "form": "",
+   "slot": 7
+  },
+  {
+   "id": "dexultra_sun4",
+   "map": "alola_center_konikoni",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "ultra_sun",
+   "species": 177,
+   "amount": 5000,
+   "slot": 7
+  },
+  {
+   "id": "dexultra_moon4",
+   "map": "alola_center_konikoni",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "ultra_moon",
+   "species": 163,
+   "amount": 5000,
+   "slot": 7
+  },
+  {
+   "id": "dexusum5",
+   "map": "alola_center_5",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "usum",
+   "species": 222,
+   "amount": 3000,
+   "form": "",
+   "slot": 8
+  },
+  {
+   "id": "dexusum6",
+   "map": "alola_8",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "usum",
+   "species": 704,
+   "amount": 5000,
+   "form": "",
+   "slot": 8
+  },
+  {
+   "id": "dexusum7",
+   "map": "alola_malie",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "usum",
+   "species": 774,
+   "amount": 10000,
+   "form": "",
+   "slot": 7
+  },
+  {
+   "id": "dexusum8",
+   "map": "alola_malie",
+   "name": "藏书人",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "usum",
+   "species": 53,
+   "amount": 0,
+   "form": "PERSIAN_ALOLA",
+   "slot": 8
+  },
+  {
+   "id": "dexusum9",
+   "map": "alola_center_16",
+   "name": "调查员",
+   "action": "dex",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "usum",
+   "species": 445,
+   "amount": 20000,
+   "form": "",
+   "slot": 7
+  },
+  {
+   "id": "drink",
+   "map": "alola_hauoli_marina",
+   "name": "自动售货机旁的女孩",
+   "action": "task",
+   "require": [
+    "a_rotom"
+   ],
+   "versions": "usum",
+   "text": "洛托姆能钻进机器查出故障。让它试试看？",
+   "ask": [
+    "请洛托姆帮忙",
+    "暂时离开"
+   ],
+   "give": "美味之水",
+   "slot": 7
+  },
+  {
+   "id": "meowth_search",
+   "map": "alola_2",
+   "name": "喵喵的主人",
+   "action": "task",
+   "require": [
+    "a_school"
+   ],
+   "versions": "usum",
+   "text": "我的喵喵又跑去靠近旧轮胎的地方了。不要吓着它，等它看见你。",
+   "slot": 7
+  },
+  {
+   "id": "lost_meowth",
+   "map": "alola_2",
+   "name": "轮胎旁的喵喵",
+   "action": "task",
+   "require": [
+    "as_meowth_search"
+   ],
+   "versions": "usum",
+   "text": "它正在观察你的举动。",
+   "ask": [
+    "静静对视",
+    "伸手去抓"
+   ],
+   "goods": [
+    [
+     "速度强化",
+     1
+    ],
+    [
+     "特攻强化",
+     1
+    ],
+    [
+     "攻击强化",
+     1
+    ]
+   ],
+   "slot": 8
+  },
+  {
+   "id": "school_rumor",
+   "map": "alola_big_wave_beach",
+   "name": "海滩上的少年",
+   "action": "task",
+   "require": [
+    "a_school"
+   ],
+   "versions": "usum",
+   "text": "听说晚上学校里会发生七件怪事！校门旁有个带飘飘球的女孩子。",
+   "slot": 7
+  },
+  {
+   "id": "school_girl",
+   "map": "alola_school",
+   "name": "带着飘飘球的女孩",
+   "action": "task",
+   "require": [
+    "as_school_rumor"
+   ],
+   "versions": "usum",
+   "text": "一起找出谜团的真相吧。听听广播，再看看楼梯、焚化炉、日记和教室。",
+   "phase": "night",
+   "slot": 7
+  },
+  {
+   "id": "school_lore0",
+   "map": "alola_school",
+   "name": "广播喇叭",
+   "action": "task",
+   "require": [
+    "as_school_girl"
+   ],
+   "versions": "usum",
+   "text": "播音器的线松脱了。杂音正从这里传出。",
+   "phase": "night",
+   "enemy": 0,
+   "level": 8,
+   "slot": 8
+  },
+  {
+   "id": "school_lore1",
+   "map": "alola_school",
+   "name": "楼梯告示板",
+   "action": "task",
+   "require": [
+    "as_school_girl"
+   ],
+   "versions": "usum",
+   "text": "回头看布告栏，一只鬼斯偷偷绕着楼梯打转。",
+   "phase": "night",
+   "enemy": 0,
+   "level": 8,
+   "slot": 9
+  },
+  {
+   "id": "school_lore2",
+   "map": "alola_school",
+   "name": "湿滑的地板",
+   "action": "task",
+   "require": [
+    "as_school_girl"
+   ],
+   "versions": "usum",
+   "text": "湿印的尽头是清洁工的臭泥，正高兴地帮忙收拾。",
+   "phase": "night",
+   "enemy": 0,
+   "level": 8,
+   "slot": 10
+  },
+  {
+   "id": "school_lore3",
+   "map": "alola_school",
+   "name": "焚化炉的光",
+   "action": "task",
+   "require": [
+    "as_school_girl"
+   ],
+   "versions": "usum",
+   "text": "女学生举起手灯，旁边的纸堆还冒着烟。",
+   "phase": "night",
+   "enemy": 0,
+   "level": 8,
+   "slot": 11
+  },
+  {
+   "id": "school_lore4",
+   "map": "alola_school",
+   "name": "架上的日记",
+   "action": "task",
+   "require": [
+    "as_school_girl"
+   ],
+   "versions": "usum",
+   "text": "飘飘球从书架后面扑过来！",
+   "phase": "night",
+   "enemy": 425,
+   "level": 8,
+   "slot": 12
+  },
+  {
+   "id": "school_lore5",
+   "map": "alola_school",
+   "name": "夜里的教室",
+   "action": "task",
+   "require": [
+    "as_school_girl"
+   ],
+   "versions": "usum",
+   "text": "教室里的同学消失了。引梦貘人解除了催眠。",
+   "phase": "night",
+   "enemy": 0,
+   "level": 8,
+   "slot": 1
+  },
+  {
+   "id": "school_end",
+   "map": "alola_school",
+   "name": "带着飘飘球的女孩",
+   "action": "task",
+   "require": [
+    "as_school_lore0",
+    "as_school_lore1",
+    "as_school_lore2",
+    "as_school_lore3",
+    "as_school_lore4",
+    "as_school_lore5"
+   ],
+   "versions": "usum",
+   "text": "她讲起自己刚来阿罗拉时听不懂大家说什么。保安的手电照过来，女孩和飘飘球都已不见。",
+   "held": [
+    "博识眼镜",
+    "WISE_GLASSES"
+   ],
+   "phase": "night",
+   "slot": 2
+  },
+  {
+   "id": "bottle0",
+   "map": "alola_kalae_bay",
+   "name": "漂流瓶",
+   "action": "task",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "text": "瓶内的信封上写着收信人的特征。",
+   "give": "给姐姐的信",
+   "key": true,
+   "slot": 7
+  },
+  {
+   "id": "deliver0",
+   "map": "alola_iki",
+   "name": "利利小镇的姐姐",
+   "action": "task",
+   "require": [
+    "as_bottle0"
+   ],
+   "versions": "usum",
+   "text": "写信的弟弟托海水带来远方的消息。",
+   "take": "给姐姐的信",
+   "give": "星星沙子",
+   "slot": 7
+  },
+  {
+   "id": "bottle1",
+   "map": "alola_heahea_beach",
+   "name": "漂流瓶",
+   "action": "task",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "text": "瓶内的信封上写着收信人的特征。",
+   "give": "给舞者的信",
+   "key": true,
+   "slot": 7
+  },
+  {
+   "id": "deliver1",
+   "map": "alola_tide_song",
+   "name": "酒店里的舞者",
+   "action": "task",
+   "require": [
+    "as_bottle1"
+   ],
+   "versions": "usum",
+   "text": "信里写着一段专给舞者的祝愿。",
+   "take": "给舞者的信",
+   "give": "心之鳞片",
+   "slot": 7
+  },
+  {
+   "id": "bottle2",
+   "map": "alola_ulaula_beach",
+   "name": "漂流瓶",
+   "action": "task",
+   "require": [
+    "a_started"
+   ],
+   "versions": "usum",
+   "text": "瓶内的信封上写着收信人的特征。",
+   "give": "给海角的信",
+   "key": true,
+   "slot": 7
+  },
+  {
+   "id": "deliver2",
+   "map": "alola_malie_cape",
+   "name": "海角的男士",
+   "action": "task",
+   "require": [
+    "as_bottle2"
+   ],
+   "versions": "usum",
+   "text": "海漂来的签名和话语让他认出了写信的人。",
+   "take": "给海角的信",
+   "give": "珍珠贝壳",
+   "slot": 7
+  },
+  {
+   "id": "hotel",
+   "map": "alola_tide_song",
+   "name": "怀念老朋友的爷爷",
+   "action": "task",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "usum",
+   "text": "有位朋友去了冲浪柜台，一位去买衣服，还有一位在码头边。能帮我约他们来吗？",
+   "slot": 8
+  },
+  {
+   "id": "hotel0",
+   "map": "alola_heahea_beach",
+   "name": "冲浪柜台的老友",
+   "action": "task",
+   "require": [
+    "as_hotel"
+   ],
+   "versions": "usum",
+   "text": "好久不见，我这就去听涛酒店。",
+   "slot": 8
+  },
+  {
+   "id": "hotel1",
+   "map": "alola_heahea",
+   "name": "服装店的老友",
+   "action": "task",
+   "require": [
+    "as_hotel"
+   ],
+   "versions": "usum",
+   "text": "好久不见，我这就去听涛酒店。",
+   "slot": 8
+  },
+  {
+   "id": "hotel2",
+   "map": "alola_heahea",
+   "name": "码头的老友",
+   "action": "task",
+   "require": [
+    "as_hotel"
+   ],
+   "versions": "usum",
+   "text": "好久不见，我这就去听涛酒店。",
+   "slot": 9
+  },
+  {
+   "id": "hotel_reunion",
+   "map": "alola_tide_song",
+   "name": "团聚的老友",
+   "action": "task",
+   "require": [
+    "as_hotel0",
+    "as_hotel1",
+    "as_hotel2"
+   ],
+   "versions": "usum",
+   "text": "三位老朋友围坐在房间里，老人把包好的药草交给你。",
+   "give": "复活草",
+   "slot": 9
+  },
+  {
+   "id": "pika_wedding",
+   "map": "alola_hano",
+   "name": "举行婚礼的孩子",
+   "action": "task",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "usum",
+   "text": "两只皮卡丘戴好了花环。愿意做个见证吗？",
+   "ask": [
+    "参加婚礼",
+    "稍后再来"
+   ],
+   "held": [
+    "花朵薰香",
+    "ROSE_INCENSE"
+   ],
+   "phase": "day",
+   "slot": 7
+  },
+  {
+   "id": "love_pyukumuku",
+   "map": "alola_hano_beach",
+   "name": "眺望海面的拳海参",
+   "action": "task",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "usum",
+   "text": "年轻女子说，另一只拳海参被抛进了海里。也许已经漂到沙滩上。",
+   "phase": "night",
+   "slot": 7
+  },
+  {
+   "id": "love_return",
+   "map": "alola_hano_beach",
+   "name": "搁浅的拳海参",
+   "action": "task",
+   "require": [
+    "as_love_pyukumuku"
+   ],
+   "versions": "usum",
+   "text": "你把它带回同伴身旁。两只拳海参紧紧靠在一起，女孩拿出了一颗珍珠。",
+   "give": "大珍珠",
+   "phase": "night",
+   "slot": 8
+  },
+  {
+   "id": "left_ball",
+   "map": "alola_heahea",
+   "name": "以太职员",
+   "action": "task",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "usum",
+   "text": "这个球打不开。请到马利埃静市找它原本的家人。",
+   "give": "遗失的精灵球",
+   "key": true,
+   "slot": 10
+  },
+  {
+   "id": "left_ball_family",
+   "map": "alola_malie",
+   "name": "老训练家的孙女",
+   "action": "task",
+   "require": [
+    "as_left_ball"
+   ],
+   "versions": "usum",
+   "text": "我认得它，是爷爷的投羽枭！它会留在我们家的，谢谢。",
+   "take": "遗失的精灵球",
+   "held": [
+    "心灵香草",
+    "MENTAL_HERB"
+   ],
+   "slot": 9
+  },
+  {
+   "id": "lost_trainer",
+   "map": "alola_motel_13",
+   "name": "独自等待的童偶熊",
+   "action": "task",
+   "require": [
+    "a_olivia"
+   ],
+   "versions": "usum",
+   "text": "柜台的人说它一直在等一位去哈伊纳沙漠的背包客。",
+   "slot": 7
+  },
+  {
+   "id": "thirsty",
+   "map": "alola_haina",
+   "name": "迷路的背包客",
+   "action": "task",
+   "require": [
+    "as_lost_trainer"
+   ],
+   "versions": "usum",
+   "text": "请分我一瓶美味之水吧。有力气了，我就能回旅馆接童偶熊。",
+   "take": "美味之水",
+   "slot": 7
+  },
+  {
+   "id": "lost_reunion",
+   "map": "alola_motel_13",
+   "name": "与伙伴重逢的背包客",
+   "action": "task",
+   "require": [
+    "as_thirsty"
+   ],
+   "versions": "usum",
+   "text": "童偶熊扑进背包客怀里。这些饮用水送给你，谢谢你帮忙。",
+   "give": "美味之水",
+   "count": 10,
+   "slot": 8
+  },
+  {
+   "id": "sand_kid",
+   "map": "alola_14",
+   "name": "带着沙丘娃的孩子",
+   "action": "task",
+   "require": [
+    "a_ghost"
+   ],
+   "versions": "ultra_sun",
+   "text": "它不喜欢火山黑沙，我们一起去乌拉乌拉海滩吧。",
+   "slot": 7
+  },
+  {
+   "id": "sand_rescue",
+   "map": "alola_ulaula_beach",
+   "name": "开心的沙丘娃",
+   "action": "task",
+   "require": [
+    "as_sand_kid"
+   ],
+   "versions": "ultra_sun",
+   "text": "沙丘娃在白沙上恢复了精神。",
+   "give": "星星沙子",
+   "slot": 7
+  },
+  {
+   "id": "stufful_gran",
+   "map": "alola_10",
+   "name": "寻找童偶熊的婆婆",
+   "action": "task",
+   "require": [
+    "a_malie"
+   ],
+   "versions": "all",
+   "text": "我的八只童偶熊在道路上各自跑开了。请带它们回家。",
+   "slot": 7
+  },
+  {
+   "id": "stufful0",
+   "map": "alola_10",
+   "name": "落单的童偶熊",
+   "action": "task",
+   "require": [
+    "as_stufful_gran"
+   ],
+   "versions": "all",
+   "text": "童偶熊闻到熟悉的气味，往婆婆身边跑去。",
+   "field_species": 759,
+   "slot": 8
+  },
+  {
+   "id": "stufful1",
+   "map": "alola_10",
+   "name": "落单的童偶熊",
+   "action": "task",
+   "require": [
+    "as_stufful_gran"
+   ],
+   "versions": "all",
+   "text": "童偶熊闻到熟悉的气味，往婆婆身边跑去。",
+   "field_species": 759,
+   "slot": 9
+  },
+  {
+   "id": "stufful2",
+   "map": "alola_10",
+   "name": "落单的童偶熊",
+   "action": "task",
+   "require": [
+    "as_stufful_gran"
+   ],
+   "versions": "all",
+   "text": "童偶熊闻到熟悉的气味，往婆婆身边跑去。",
+   "field_species": 759,
+   "slot": 10
+  },
+  {
+   "id": "stufful3",
+   "map": "alola_10",
+   "name": "落单的童偶熊",
+   "action": "task",
+   "require": [
+    "as_stufful_gran"
+   ],
+   "versions": "all",
+   "text": "童偶熊闻到熟悉的气味，往婆婆身边跑去。",
+   "field_species": 759,
+   "slot": 11
+  },
+  {
+   "id": "stufful4",
+   "map": "alola_10",
+   "name": "落单的童偶熊",
+   "action": "task",
+   "require": [
+    "as_stufful_gran"
+   ],
+   "versions": "all",
+   "text": "童偶熊闻到熟悉的气味，往婆婆身边跑去。",
+   "field_species": 759,
+   "slot": 12
+  },
+  {
+   "id": "stufful5",
+   "map": "alola_10",
+   "name": "落单的童偶熊",
+   "action": "task",
+   "require": [
+    "as_stufful_gran"
+   ],
+   "versions": "all",
+   "text": "童偶熊闻到熟悉的气味，往婆婆身边跑去。",
+   "field_species": 759,
+   "slot": 1
+  },
+  {
+   "id": "stufful6",
+   "map": "alola_10",
+   "name": "落单的童偶熊",
+   "action": "task",
+   "require": [
+    "as_stufful_gran"
+   ],
+   "versions": "all",
+   "text": "童偶熊闻到熟悉的气味，往婆婆身边跑去。",
+   "field_species": 759,
+   "slot": 2
+  },
+  {
+   "id": "stufful7",
+   "map": "alola_10",
+   "name": "落单的童偶熊",
+   "action": "task",
+   "require": [
+    "as_stufful_gran"
+   ],
+   "versions": "all",
+   "text": "童偶熊闻到熟悉的气味，往婆婆身边跑去。",
+   "field_species": 759,
+   "slot": 3
+  },
+  {
+   "id": "stufful_end",
+   "map": "alola_10",
+   "name": "寻找童偶熊的婆婆",
+   "action": "task",
+   "require": [
+    "as_stufful0",
+    "as_stufful1",
+    "as_stufful2",
+    "as_stufful3",
+    "as_stufful4",
+    "as_stufful5",
+    "as_stufful6",
+    "as_stufful7"
+   ],
+   "versions": "all",
+   "text": "一、二……八只全到齐了！请收下这条腰带。",
+   "held": [
+    "力量头带",
+    "MUSCLE_BAND"
+   ],
+   "slot": 4
+  },
+  {
+   "id": "photo_book",
+   "map": "alola_malie",
+   "name": "书架上的绿色书本",
+   "action": "task",
+   "require": [
+    "a_malie"
+   ],
+   "versions": "usum",
+   "text": "一张女孩与重泥挽马的旧照夹在书里。拍摄地点是波尼古道。",
+   "give": "泛黄的照片",
+   "key": true,
+   "slot": 10
+  },
+  {
+   "id": "photo_return",
+   "map": "alola_ancient_path",
+   "name": "哈普乌的奶奶",
+   "action": "task",
+   "require": [
+    "as_photo_book"
+   ],
+   "versions": "usum",
+   "text": "原来这张照片还留着。那时候的她还没有马背高呢。",
+   "take": "泛黄的照片",
+   "give": "心之鳞片",
+   "slot": 7
+  },
+  {
+   "id": "reporter_bulu",
+   "map": "alola_megamart",
+   "name": "想采访的记者",
+   "action": "task",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "usum",
+   "text": "能请卡璞・哞哞出来吗？我想问它过去发生的事。守护神打断了追问，回到了球中。",
+   "need_mon": 787,
+   "held": [
+    "青草种子",
+    "GRASSY_SEED"
+   ],
+   "slot": 7
+  },
+  {
+   "id": "ditto0",
+   "map": "alola_9",
+   "name": "交班的警察",
+   "action": "task",
+   "require": [
+    "a_olivia"
+   ],
+   "versions": "usum",
+   "text": "回答只有一句奇怪的话。面前的人忽然变成了一只百变怪！",
+   "enemy": 132,
+   "level": 29,
+   "nature": "大胆",
+   "slot": 7,
+   "ivs": {
+    "def": 31,
+    "spe": 0,
+    "spa": 30
+   }
+  },
+  {
+   "id": "ditto_report0",
+   "map": "alola_9",
+   "name": "调查中的警员",
+   "action": "task",
+   "require": [
+    "as_ditto0"
+   ],
+   "versions": "usum",
+   "text": "这是第一只。城里有人声称草药商的动作很不对劲。",
+   "amount": 12000,
+   "slot": 8
+  },
+  {
+   "id": "ditto1",
+   "map": "alola_konikoni",
+   "name": "卖药草的商人",
+   "action": "task",
+   "require": [
+    "as_ditto_report0"
+   ],
+   "versions": "usum",
+   "text": "回答只有一句奇怪的话。面前的人忽然变成了一只百变怪！",
+   "enemy": 132,
+   "level": 29,
+   "nature": "爽朗",
+   "slot": 7,
+   "ivs": {
+    "def": 30,
+    "spe": 31,
+    "spa": 30
+   }
+  },
+  {
+   "id": "ditto_report1",
+   "map": "alola_9",
+   "name": "调查中的警员",
+   "action": "task",
+   "require": [
+    "as_ditto1"
+   ],
+   "versions": "usum",
+   "text": "收到第二起报告，餐厅的厨师也需要调查。",
+   "amount": 16000,
+   "slot": 9
+  },
+  {
+   "id": "ditto2",
+   "map": "alola_konikoni",
+   "name": "做饭的厨师",
+   "action": "task",
+   "require": [
+    "as_ditto_report1"
+   ],
+   "versions": "usum",
+   "text": "回答只有一句奇怪的话。面前的人忽然变成了一只百变怪！",
+   "enemy": 132,
+   "level": 29,
+   "nature": "固执",
+   "slot": 8,
+   "ivs": {
+    "atk": 31,
+    "def": 30,
+    "spe": 30
+   }
+  },
+  {
+   "id": "ditto_report2",
+   "map": "alola_9",
+   "name": "调查中的警员",
+   "action": "task",
+   "require": [
+    "as_ditto2"
+   ],
+   "versions": "usum",
+   "text": "第三只也被认出来了。市场附近的按摩师行为古怪。",
+   "amount": 20000,
+   "slot": 10
+  },
+  {
+   "id": "ditto3",
+   "map": "alola_konikoni",
+   "name": "按摩师",
+   "action": "task",
+   "require": [
+    "as_ditto_report2"
+   ],
+   "versions": "usum",
+   "text": "回答只有一句奇怪的话。面前的人忽然变成了一只百变怪！",
+   "enemy": 132,
+   "level": 29,
+   "nature": "内敛",
+   "slot": 9,
+   "ivs": {
+    "atk": 0,
+    "spa": 31,
+    "spd": 30
+   }
+  },
+  {
+   "id": "ditto_report3",
+   "map": "alola_9",
+   "name": "调查中的警员",
+   "action": "task",
+   "require": [
+    "as_ditto3"
+   ],
+   "versions": "usum",
+   "text": "第四起结案。最后目击到的是港边的丽姿。",
+   "amount": 24000,
+   "slot": 11
+  },
+  {
+   "id": "ditto4",
+   "map": "alola_konikoni",
+   "name": "港边的丽姿",
+   "action": "task",
+   "require": [
+    "as_ditto_report3"
+   ],
+   "versions": "usum",
+   "text": "回答只有一句奇怪的话。面前的人忽然变成了一只百变怪！",
+   "enemy": 132,
+   "level": 29,
+   "nature": "胆小",
+   "slot": 10,
+   "ivs": {
+    "atk": 30,
+    "spe": 31,
+    "spd": 30
+   }
+  },
+  {
+   "id": "ditto_report4",
+   "map": "alola_9",
+   "name": "调查中的警员",
+   "action": "task",
+   "require": [
+    "as_ditto4"
+   ],
+   "versions": "usum",
+   "text": "五只全都找到了。谢谢你协助破案！",
+   "amount": 28000,
+   "slot": 12,
+   "held": [
+    "气势头带",
+    "FOCUS_BAND"
+   ]
+  },
+  {
+   "id": "hypno_open",
+   "map": "alola_hauoli_police",
+   "name": "伊利马",
+   "action": "say",
+   "require": [
+    "a_olivia"
+   ],
+   "versions": "usum",
+   "slot": 1,
+   "text": "我房间里的金珠被偷了。守门的怪力睡着，房门和窗户却都锁着。警员带来了三只引梦貘人，你愿意观察它们的招式吗？"
+  },
+  {
+   "id": "hypno0",
+   "map": "alola_hauoli_police",
+   "name": "左侧的引梦貘人",
+   "action": "hypno",
+   "require": [
+    "as_hypno_open"
+   ],
+   "versions": "usum",
+   "slot": 2,
+   "suspect": 0,
+   "field_species": 97,
+   "repeat": true,
+   "until": [
+    "as_hypno_solved"
+   ]
+  },
+  {
+   "id": "hypno1",
+   "map": "alola_hauoli_police",
+   "name": "中间的引梦貘人",
+   "action": "hypno",
+   "require": [
+    "as_hypno_open"
+   ],
+   "versions": "usum",
+   "slot": 3,
+   "suspect": 1,
+   "field_species": 97,
+   "repeat": true,
+   "until": [
+    "as_hypno_solved"
+   ]
+  },
+  {
+   "id": "hypno2",
+   "map": "alola_hauoli_police",
+   "name": "右侧的引梦貘人",
+   "action": "hypno",
+   "require": [
+    "as_hypno_open"
+   ],
+   "versions": "usum",
+   "slot": 4,
+   "suspect": 2,
+   "field_species": 97,
+   "repeat": true,
+   "until": [
+    "as_hypno_solved"
+   ]
+  },
+  {
+   "id": "hypno_reward",
+   "map": "alola_hauoli_police",
+   "name": "伊利马",
+   "action": "item",
+   "require": [
+    "as_hypno_solved"
+   ],
+   "versions": "usum",
+   "slot": 1,
+   "item": "巨大金珠",
+   "count": 1,
+   "text": "这三只合谋作案：一只想出计划，一只催眠怪力，一只用念力移动金珠。这块巨大的金珠是谢礼。"
+  },
+  {
+   "id": "bear_show",
+   "map": "alola_hauoli_mall",
+   "name": "表演主持人",
+   "action": "bear_show",
+   "require": [
+    "a_olivia"
+   ],
+   "versions": "usum",
+   "slot": 1,
+   "phase": "day"
+  },
+  {
+   "id": "bear_actor0",
+   "map": "alola_hauoli_mall",
+   "name": "布偶演员",
+   "action": "bear_actor",
+   "require": [
+    "a_olivia"
+   ],
+   "versions": "usum",
+   "slot": 2,
+   "field_species": 760,
+   "repeat": true,
+   "until": [
+    "as_bewear"
+   ],
+   "phase": "day",
+   "text": "啊，这头套里真热。大家请离舞台留点距离！"
+  },
+  {
+   "id": "bear_actor1",
+   "map": "alola_hauoli_mall",
+   "name": "布偶演员",
+   "action": "bear_actor",
+   "require": [
+    "a_olivia"
+   ],
+   "versions": "usum",
+   "slot": 3,
+   "field_species": 760,
+   "repeat": true,
+   "until": [
+    "as_bewear"
+   ],
+   "phase": "day",
+   "text": "表演拥抱只需要做做样子。真正的穿着熊力气可大多了。"
+  },
+  {
+   "id": "bewear",
+   "map": "alola_hauoli_mall",
+   "name": "闯入的穿着熊",
+   "action": "bewear",
+   "require": [
+    "as_bear_show"
+   ],
+   "versions": "usum",
+   "slot": 4,
+   "field_species": 760
+  },
+  {
+   "id": "bear_med",
+   "map": "alola_hauoli_mall",
+   "name": "表演主持人",
+   "action": "item",
+   "require": [
+    "as_bewear"
+   ],
+   "versions": "usum",
+   "slot": 1,
+   "item": "全满药",
+   "count": 1,
+   "category": "heal",
+   "text": "刚才的确是真正的穿着熊。谢谢你保护观众！"
+  },
+  {
+   "id": "ilima_invitesm",
+   "map": "alola_ilima_room",
+   "name": "伊利马",
+   "action": "ilima_invite",
+   "require": [
+    "a_hala"
+   ],
+   "versions": "sm",
+   "slot": 1
+  },
+  {
+   "id": "ilima_testsm",
+   "map": "alola_school",
+   "name": "伊利马",
+   "action": "ilima_test",
+   "require": [
+    "as_ilima_invitesm"
+   ],
+   "versions": "sm",
+   "slot": 3
+  },
+  {
+   "id": "ilima_inviteusum",
+   "map": "alola_ilima_room",
+   "name": "伊利马",
+   "action": "ilima_invite",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "usum",
+   "slot": 1
+  },
+  {
+   "id": "ilima_testusum",
+   "map": "alola_school",
+   "name": "伊利马",
+   "action": "ilima_test",
+   "require": [
+    "as_ilima_inviteusum"
+   ],
+   "versions": "usum",
+   "slot": 3
+  },
+  {
+   "id": "ilima_crystal",
+   "map": "alola_ilima_room",
+   "name": "伊利马",
+   "action": "item",
+   "require": [
+    "as_ilima_testusum"
+   ],
+   "versions": "usum",
+   "slot": 1,
+   "item": "伊利马的一般Ｚ",
+   "count": 1,
+   "category": "key",
+   "text": "新一轮考验很快开始。请把这块一般Ｚ送到葱郁洞窟深处，放回霸主居住的台座。"
+  },
+  {
+   "id": "ilima_pedestal",
+   "map": "alola_cavern_den",
+   "name": "霸主居住处的台座",
+   "action": "ilima_pedestal",
+   "require": [
+    "as_ilima_crystal"
+   ],
+   "versions": "usum",
+   "slot": 1
+  },
+  {
+   "id": "hyper",
+   "map": "alola_hauoli_mall",
+   "name": "极限特训爷爷",
+   "gfx": "old_man",
+   "action": "hyper",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "all",
+   "slot": 7,
+   "repeat": true
+  },
+  {
+   "id": "vulpix_rescue",
+   "map": "alola_paniola",
+   "name": "骷髅队员",
+   "action": "battle",
+   "require": [
+    "a_paniola_rival"
+   ],
+   "versions": "usum",
+   "slot": 4,
+   "team": 646,
+   "text": "这只白色六尾叼着个银色王冠。喂，把东西交出来！"
+  },
+  {
+   "id": "vulpix_cornered",
+   "map": "alola_paniola",
+   "name": "六尾",
+   "action": "vulpix",
+   "require": [
+    "a_paniola_rival"
+   ],
+   "versions": "usum",
+   "slot": 5,
+   "until": [
+    "as_vulpix_rescue"
+   ],
+   "repeat": true
+  },
+  {
+   "id": "vulpix_cap",
+   "map": "alola_paniola",
+   "name": "照看六尾的居民",
+   "action": "vulpix",
+   "require": [
+    "as_vulpix_rescue"
+   ],
+   "versions": "usum",
+   "slot": 4,
+   "gfx": "woman_1"
+  },
+  {
+   "id": "vulpix_care",
+   "map": "alola_aether_base_8",
+   "name": "六尾",
+   "action": "vulpix",
+   "require": [
+    "as_vulpix_rescue"
+   ],
+   "versions": "usum",
+   "slot": 4,
+   "repeat": true,
+   "until": [
+    "as_vulpix_care"
+   ]
+  },
+  {
+   "id": "vulpix_recovered",
+   "map": "alola_lanakila_119",
+   "name": "六尾",
+   "action": "vulpix",
+   "require": [
+    "as_vulpix_care"
+   ],
+   "versions": "usum",
+   "slot": 4,
+   "repeat": true
+  },
+  {
+   "id": "malasada_hauoli",
+   "map": "alola_hauoli",
+   "name": "马拉萨达店员",
+   "action": "malasada",
+   "require": [
+    "a_starter"
+   ],
+   "versions": "usum",
+   "slot": 12,
+   "repeat": true,
+   "gfx": "woman_1"
+  },
+  {
+   "id": "malasada_royal",
+   "map": "alola_royal",
+   "name": "马拉萨达店员",
+   "action": "malasada",
+   "require": [
+    "a_starter"
+   ],
+   "versions": "usum",
+   "slot": 12,
+   "repeat": true,
+   "gfx": "woman_1"
+  },
+  {
+   "id": "malasada_malie",
+   "map": "alola_malie",
+   "name": "马拉萨达店员",
+   "action": "malasada",
+   "require": [
+    "a_starter"
+   ],
+   "versions": "usum",
+   "slot": 12,
+   "repeat": true,
+   "gfx": "woman_1"
+  },
+  {
+   "id": "mom_meowth",
+   "map": "alola_home_1f",
+   "name": "妈妈的喵喵",
+   "action": "family_duel",
+   "require": [
+    "a_credits"
+   ],
+   "versions": "usum",
+   "slot": 4,
+   "field_species": 52
+  }
+ ]
+}

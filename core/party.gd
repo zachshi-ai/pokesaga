@@ -7,6 +7,33 @@ const Growth := preload("res://core/growth.gd")
 
 const SHINY_KINDS := ["none", "star", "square"]
 
+const STAT_LABELS := {"hp":"体力","atk":"攻击","def":"防御","spa":"特攻","spd":"特防","spe":"速度"}
+# Wild Legendary Pokémon, Mythical Pokémon and Ultra Beasts available in Alola.
+const ALOLA_SPECIAL := [144,145,146,150,151,243,244,245,249,250,251,377,378,379,380,381,382,383,384,385,386,480,481,482,483,484,485,486,487,488,489,490,491,492,493,494,638,639,640,641,642,643,644,645,646,647,648,649,716,717,718,719,720,721,772,773,785,786,787,788,789,790,791,792,793,794,795,796,797,798,799,800,801,802,803,804,805,806,807]
+
+## Called once, at the birth of a new Alola Pokémon. Older individuals keep their saved stats.
+static func init_alola_ivs(mon: Dictionary, rng: RandomNumberGenerator, fixed: Dictionary={}, guaranteed: int=0) -> void:
+	if mon.is_empty() or mon.get("alola_ivs",false):return
+	var natural: Dictionary={}
+	for stat in STAT_LABELS:
+		natural[stat]=rng.randi_range(0,31)
+	if int(mon.species_id) in ALOLA_SPECIAL or "TOTEM" in str(mon.get("form","")):guaranteed=maxi(guaranteed,3)
+	if guaranteed>0:
+		var remaining:=STAT_LABELS.keys()
+		for i in mini(6,guaranteed):
+			var index:=rng.randi_range(0,remaining.size()-1)
+			natural[remaining.pop_at(index)]=31
+	for stat in fixed:
+		if STAT_LABELS.has(stat):natural[stat]=clampi(int(fixed[stat]),0,31)
+	mon.alola_ivs=true
+	mon.ivs=natural
+	mon.hyper_trained={}
+	recalc(mon,true)
+
+static func effective_iv(mon: Dictionary, stat: String) -> int:
+	if not mon.get("alola_ivs",false) or mon.get("hyper_trained",{}).get(stat,false):return 31
+	return int(mon.get("ivs",{}).get(stat,31))
+
 static func shiny_kind(mon: Dictionary) -> String:
 	var kind := str(mon.get("shiny_kind", ""))
 	if kind in SHINY_KINDS:
@@ -145,20 +172,19 @@ static func recalc(m: Dictionary, keep_ratio: bool = false) -> void:
 	# 增强剂加的是基础点，独立存在 plus 里，换形态/升级都跟着走
 	var plus: Dictionary = m.get("plus", {}) if m.get("plus", {}) is Dictionary else {}
 	var effort: Dictionary = m.get("effort", {})
-	var max_hp := int((2 * (int(base.get("hp", 1)) + int(plus.get("hp", 0))) + 31 + int(effort.get("hp", 0)) / 4) * lv / 100.0) + lv + 10
-	m["max_hp"] = max_hp
-	if keep_ratio and old_max > 0:
-		m["hp"] = clampi(int(round(float(old_hp) / old_max * max_hp)), 0, max_hp)
+	var stats: Dictionary={}
+	for stat in STAT_LABELS:
+		var points:=2*(int(base.get(stat,1))+int(plus.get(stat,0)))+effective_iv(m,stat)+int(effort.get(stat,0))/4
+		stats[stat]=int(points*lv/100.0)+(lv+10 if stat=="hp" else 5)
+	var max_hp:=int(stats.hp)
+	stats.erase("hp")
+	m["stats"]=stats
+	m["max_hp"]=max_hp
+	if keep_ratio and old_max>0:
+		m["hp"]=clampi(roundi(float(old_hp)*max_hp/old_max),0,max_hp)
 	else:
-		m["hp"] = clampi(old_hp, 0, max_hp)
-	m["hp_text"] = "%d/%d" % [int(m["hp"]), max_hp]
-	m["stats"] = {
-		"atk": int((2 * (int(base.get("atk", 1)) + int(plus.get("atk", 0))) + 31 + int(effort.get("atk", 0)) / 4) * lv / 100.0) + 5,
-		"def": int((2 * (int(base.get("def", 1)) + int(plus.get("def", 0))) + 31 + int(effort.get("def", 0)) / 4) * lv / 100.0) + 5,
-		"spa": int((2 * (int(base.get("spa", 1)) + int(plus.get("spa", 0))) + 31 + int(effort.get("spa", 0)) / 4) * lv / 100.0) + 5,
-		"spd": int((2 * (int(base.get("spd", 1)) + int(plus.get("spd", 0))) + 31 + int(effort.get("spd", 0)) / 4) * lv / 100.0) + 5,
-		"spe": int((2 * (int(base.get("spe", 1)) + int(plus.get("spe", 0))) + 31 + int(effort.get("spe", 0)) / 4) * lv / 100.0) + 5,
-	}
+		m["hp"]=clampi(old_hp,0,max_hp)
+	m["hp_text"]="%d/%d" % [int(m.hp),max_hp]
 
 ## 把队伍压紧：空槽剔除、补齐到 MAX_SIZE 个 {}，并刷新 hp_text
 static func compact(party: Array) -> Array:

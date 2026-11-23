@@ -1,8 +1,25 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.60.0-study`，versionCode 为 93，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.61.0-study`，versionCode 为 94，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
 
-[下载 4.60 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.60.0-study/PokeSaga-4.60.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.60.0-study)
+[下载 4.61 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.61.0-study/PokeSaga-4.61.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.61.0-study)
+
+## 从美乐美乐岛开始四岛巡礼
+
+打开 **START → 背包 → 重要道具 → 地区转移器 → 阿罗拉**。第一次抵达先选把队伍寄存到电脑，或带现有队伍出发，再在四个版本中选一个。在美乐美乐岛自己的卧室打开 **START → 工具 → 阿罗拉版本**，也可以在同一份档里开始另一版，之后切回继续。四条巡礼分别记进度。小悠从好奥乐市郊的家醒来，之前的伙伴、箱子、图鉴、资金和各地名人堂都接着用。
+
+| 选择 | 御三家与美乐美乐霸主 | 波尼岛与联盟 | 通关后 |
+| --- | --- | --- | --- |
+| 太阳 | 利利小镇领伙伴，霸主猫鼬探长 | 露莎米奈与虚吾伊德、索尔迦雷欧，最后挑战库库伊 | 跟莉拉与帅哥调查异兽，含爆肌蚊、纸御剑 |
+| 月亮 | 利利小镇领伙伴，霸主阿罗拉拉达 | 露莎米奈与虚吾伊德、露奈雅拉，最后挑战库库伊 | 异兽调查中出现费洛美螂、铁火辉夜 |
+| 究极之日 | 1号道路领伙伴，霸主猫鼬探长 | 日食奈克洛兹玛、究极大都会、茉莉的考验，联盟迎战哈乌 | 波尼树林遇砰头小丑，进入彩虹火箭队篇 |
+| 究极之月 | 1号道路领伙伴，霸主阿罗拉拉达 | 月食奈克洛兹玛、究极大都会、茉莉的考验，联盟迎战哈乌 | 波尼树林遇垒磊石，进入彩虹火箭队篇 |
+
+岛上的骑行许可按当地主线取得。第一次用 Z 招式时，跟库库伊和岩狗狗实战，在战斗菜单打开「特殊行动」。此后让伙伴携带对应的 Z 纯晶，选择兼容的招式，每方每场可发动一次。月亮和究极之月的岛上时钟与太阳系版本相差十二小时。
+
+[巡礼、角色与卫冕](doc/阿罗拉巡礼.md) · [支线、道具与取得条件](doc/阿罗拉支线与道具.md) · [四岛与究极空间怎样转为俯视地图](doc/阿罗拉地图.md)
+
+[安卓模拟器实拍 · 四版选择](.github/preview/v4.61-alola-versions.png) · [利利小镇的御三家](.github/preview/v4.61-alola-starters.png) · [库库伊与岩狗狗的 Z 招式教学](.github/preview/v4.61-alola-z-tutor.png) · [大都会塔的究极奈克洛兹玛](.github/preview/v4.61-alola-necrozma.png) · [联盟的库库伊](.github/preview/v4.61-alola-kukui.png)
 
 ## 从朝香镇到卡洛斯联盟
 

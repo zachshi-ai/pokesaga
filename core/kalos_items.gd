@@ -27,16 +27,19 @@ static func take(g,obj: Dictionary) -> bool:
 	return true
 
 static func entering(g,next: Dictionary) -> void:
-	if g.world.map_data.get("region","")!="kalos" or next.get("region","")!="kalos":return
+	var region:=str(g.world.map_data.get("region",""))
+	if region not in ["alola","kalos"] or next.get("region","")!=region:return
+	var slot:=region+"_cave_exit"
 	if next.get("allow_fly",false):
-		g.save_data.erase("kalos_cave_exit")
+		g.save_data.erase(slot)
 		return
-	if not g.world.map_data.get("allow_fly",false) or not next.get("physics",{}).has("wild_any"):return
+	var cave:bool=next.get("physics",{}).has("wild_any") if region=="kalos" else str(next.get("alola_location","")).contains("cave") or next.id in ["alola_sandy_cave","alola_hill","alola_canyon","alola_diglett_tunnel","alola_lanakila"]
+	if not g.world.map_data.get("allow_fly",false) or not cave:return
 	var spot: Vector2i=g.world.player_pos
 	for offset in [-g.world._dir_vec(),Vector2i.DOWN,Vector2i.LEFT,Vector2i.UP,Vector2i.RIGHT]:
 		var cell: Vector2i=spot+Vector2i(offset)
 		if not g.world.is_blocked(cell) and not g.world.is_water(cell) and g.world.warp_at(cell).is_empty():
-			g.save_data.kalos_cave_exit={"region":"kalos","map":g.world.map_data.id,"at":[cell.x,cell.y],"facing":"down"}
+			g.save_data[slot]={"region":region,"map":g.world.map_data.id,"at":[cell.x,cell.y],"facing":"down"}
 			break
 
 static func use(g,name: String) -> bool:
@@ -50,7 +53,7 @@ static func use(g,name: String) -> bool:
 		g._show_toast("%s会持续%d步。"%[name,REPEL[name]])
 		return true
 	if name!="离洞绳":return false
-	var exit: Dictionary=g.save_data.get("kalos_cave_exit",{})
+	var exit: Dictionary=g.save_data.get(str(g.world.map_data.region)+"_cave_exit",{})
 	if exit.is_empty():g._dialog(["这处场地没有通往洞外的绳索落点。"])
 	else:g._pick("用离洞绳回到进洞处？",["离开洞窟","继续探索"],func(i):
 		if i!=0:return
@@ -61,7 +64,7 @@ static func use(g,name: String) -> bool:
 	return true
 
 static func counter(g,npc: Dictionary) -> bool:
-	if not npc.get("kalos_shop",false):return false
+	if not (npc.get("kalos_shop",false) or npc.get("alola_shop",false)):return false
 	var bag: Array=g.bag_items.filter(func(item):return item.name in TREASURES and int(item.count)>0)
 	if bag.is_empty():return false
 	g._pick("友好商店",["购买道具","出售宝物","离开"],func(i):

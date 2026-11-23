@@ -167,6 +167,9 @@ static func normalize_team(team: Array) -> Array:
 func start(a_team: Array, b_team: Array) -> void:
 	completed_turns=0
 	kalos_used={"a":false,"b":false}
+	alola_z_used={"a":false,"b":false}
+	alola_heal_replacement.clear()
+	alola_magic_room=0
 	guard_turns = {"a":0, "b":0}
 	acting_side = ""
 	field.reset()
@@ -202,6 +205,12 @@ func _set_hp(mon: Dictionary, value: int, at_line := -1) -> void:
 
 # X/Y checks the trainer's Key Stone and the active Pokémon's held stone.
 var inverse_record: Dictionary = {}
+var alola_magic_room := 0
+var alola_rules := false
+var alola_ring := false
+var alola_ultra := false
+var alola_heal_replacement := {}
+var alola_z_used := {"a":false,"b":false}
 var kalos_rules := false
 var kalos_o_stages: Array=[]
 var kalos_o_capture:=1.0
@@ -212,7 +221,10 @@ func available_forms(side: String) -> Array:
 	var c: Dictionary = cur_a() if side == "a" else cur_b()
 	if c["fainted"] or int(c.get("forms_used", 0)) > 0:
 		return []
-	if kalos_rules:
+	if alola_rules and alola_ultra and c.get("held","")=="ULTRANECROZIUM_Z" and c.get("form","") in ["NECROZMA_DAWN_WINGS","NECROZMA_DUSK_MANE"] and (side=="b" or alola_ring):
+		var burst:=Data.form_of(800,"NECROZMA_ULTRA")
+		return [] if burst.is_empty() else [burst]
+	if kalos_rules or alola_rules:
 		if kalos_used[side] or (side=="a" and not kalos_ring):return []
 		var key: String=preload("res://core/kalos_mega.gd").STONES.get(str(c.get("held","")),"")
 		if key.is_empty() or not str(c.get("form","")).is_empty():return []
@@ -253,7 +265,7 @@ func transform(side: String, form_key: String) -> Dictionary:
 	if f.is_empty():
 		return {"ok": false, "text": "没有这个形态。"}
 	var kind := String(f.get("kind", ""))
-	if kalos_rules and not available_forms(side).any(func(row):return row.key==form_key):
+	if (kalos_rules or alola_rules) and not available_forms(side).any(func(row):return row.key==form_key):
 		return {"ok":false,"text":"超级进化需要钥石和对应的超级石，一场对战只能使用一次。"}
 	var old_name := String(c["name"])
 	var base: Dictionary = f.get("base", {})
@@ -283,12 +295,17 @@ func transform(side: String, form_key: String) -> Dictionary:
 		"spd": int((2 * int(base.get("spd", 1)) + 31) * lv / 100.0) + 5,
 		"spe": int((2 * int(base.get("spe", 1)) + 31) * lv / 100.0) + 5,
 	}
+	if c.get("alola_ivs",false):
+		load("res://core/party.gd").recalc(c,true)
+		if kind=="gmax":c.max_hp*=2
+		_set_hp(c,clampi(roundi(ratio*int(c.max_hp)),1,int(c.max_hp)))
 	c["forms_used"] = int(c.get("forms_used", 0)) + 1
 	c["gmax_active"] = kind == "gmax"
-	if kalos_rules:
+	if kalos_rules or alola_rules:
 		kalos_used[side]=true
 		for stat in c.stats:
-			var training: int=31 + int(c.get("effort",{}).get(stat,0))/4 + 2*int(c.get("stat_plus",{}).get(stat,0))
+			var iv:int=load("res://core/party.gd").effective_iv(c,stat) if c.get("alola_ivs",false) else 31
+			var training: int=iv + int(c.get("effort",{}).get(stat,0))/4 + 2*int(c.get("stat_plus",{}).get(stat,0))
 			var old_value:=floori((2*int(previous_base.get(stat,1))+training)*lv/100.0)
 			var new_value:=floori((2*int(base.get(stat,1))+training)*lv/100.0)
 			c.stats[stat]=maxi(1,int(previous[stat])+new_value-old_value)
@@ -337,18 +354,22 @@ func switch_form(side: String, form_key: String, reason: String = "") -> bool:
 		c["types"] = f.get("types", c["types"])
 		var label := String(f.get("label", ""))
 		c["name"] = sp_name if label == "" else "%s（%s）" % [sp_name, label]
-	var new_base: Dictionary = (Data.stats_of(sid, form_key) as Dictionary).get("base", {})
-	c["max_hp"] = int(round(float(int(c["max_hp"])) * float(int(new_base.get("hp", 1))) \
-		/ maxf(1.0, float(int(old_base.get("hp", 1))))))
-	_set_hp(c, clampi(int(round(ratio * float(int(c["max_hp"])))), 0, int(c["max_hp"])))
-	var lv := int(c.get("level", 1))
-	c["stats"] = {
-		"atk": int((2 * int(new_base.get("atk", 1)) + 31) * lv / 100.0) + 5,
-		"def": int((2 * int(new_base.get("def", 1)) + 31) * lv / 100.0) + 5,
-		"spa": int((2 * int(new_base.get("spa", 1)) + 31) * lv / 100.0) + 5,
-		"spd": int((2 * int(new_base.get("spd", 1)) + 31) * lv / 100.0) + 5,
-		"spe": int((2 * int(new_base.get("spe", 1)) + 31) * lv / 100.0) + 5,
-	}
+	if c.has("alola_ivs"):
+		load("res://core/party.gd").recalc(c,true)
+		_set_hp(c,clampi(roundi(ratio*int(c.max_hp)),0,int(c.max_hp)))
+	else:
+		var new_base: Dictionary = (Data.stats_of(sid, form_key) as Dictionary).get("base", {})
+		c["max_hp"] = int(round(float(int(c["max_hp"])) * float(int(new_base.get("hp", 1))) \
+			/ maxf(1.0, float(int(old_base.get("hp", 1))))))
+		_set_hp(c, clampi(int(round(ratio * float(int(c["max_hp"])))), 0, int(c["max_hp"])))
+		var lv := int(c.get("level", 1))
+		c["stats"] = {
+			"atk": int((2 * int(new_base.get("atk", 1)) + 31) * lv / 100.0) + 5,
+			"def": int((2 * int(new_base.get("def", 1)) + 31) * lv / 100.0) + 5,
+			"spa": int((2 * int(new_base.get("spa", 1)) + 31) * lv / 100.0) + 5,
+			"spd": int((2 * int(new_base.get("spd", 1)) + 31) * lv / 100.0) + 5,
+			"spe": int((2 * int(new_base.get("spe", 1)) + 31) * lv / 100.0) + 5,
+		}
 	variant_seen.emit(side, c)
 	if reason != "":
 		log.append(reason)
@@ -521,6 +542,7 @@ func _type_on_item(attacker: Dictionary, mv: Dictionary) -> void:
 ## ---------------- Z 招式 ----------------
 ## 一场战斗一次。先把这一招换成它的 Z 版本，再按 Z 版本打出去。
 func z_move_of(c: Dictionary, move_id: int) -> int:
+	if alola_rules:return preload("res://core/alola_z.gd").move_id(Data,c,Data.move_of(move_id),alola_ultra)
 	var key := String((Data.species_of(int(c.get("species_id", 0))) as Dictionary).get("key", ""))
 	var form_key := String(c.get("form", ""))
 	# 专属 Z：只有那几只，且形态也要对得上（阿罗拉雷丘、黄昏鬃岩狼人这些）
@@ -534,11 +556,16 @@ func z_move_of(c: Dictionary, move_id: int) -> int:
 	return Data.z_move_for_type(String(mv.get("type", "normal")))
 
 func can_use_z(side: String) -> bool:
+	if alola_rules and (alola_z_used[side] or (side=="a" and not alola_ring)):return false
 	if kalos_rules:return false
 	var c: Dictionary = cur_a() if side == "a" else cur_b()
 	if c.get("fainted", false) or int(c.get("z_used", 0)) > 0:
 		return false
-	if int(c.get("forms_used", 0)) > 0 or bool(c.get("tera_active", false)):
+	if (int(c.get("forms_used", 0)) > 0 and not (alola_rules and c.get("form","")=="NECROZMA_ULTRA")) or bool(c.get("tera_active", false)):
+		return false
+	if alola_rules:
+		for i in c.moves.size():
+			if i<c.pp.size() and int(c.pp[i])>0 and z_move_of(c,int(c.moves[i]))>0:return true
 		return false
 	return not Data.gimmicks.is_empty()
 
@@ -553,7 +580,7 @@ func use_z(side: String, idx: int) -> Dictionary:
 	var zid := z_move_of(c, base_id)
 	if zid <= 0:
 		return {"ok": false, "text": "这一招没有 Z 形态。"}
-	c["z_used"] = int(c.get("z_used", 0)) + 1
+	if not alola_rules:c["z_used"] = int(c.get("z_used", 0)) + 1
 	return {"ok": true, "move": zid, "base": base_id,
 		"text": "%s 的 %s 变成了 Z 招式！" % [String(c["name"]), String((Data.move_of(base_id) as Dictionary).get("name", ""))]}
 
@@ -564,6 +591,20 @@ func z_move_data(c: Dictionary, base_id: int) -> Dictionary:
 	var out: Dictionary = (Data.move_of(zid) as Dictionary).duplicate(true)
 	if out.is_empty():
 		return out
+	if alola_rules:
+		if preload("res://core/alola_z.gd").SPECIAL.has(str(c.held)):
+			out.alola_z=true
+			if out.key=="GUARDIAN_OF_ALOLA":out.effect="HIT"
+			if out.key=="EXTREME_EVOBOOST":out.extra={}
+			return out
+		if base.category=="status":
+			out.name="Ｚ"+str(base.name)
+			return out
+		var effect:Dictionary=load("res://core/alola_field.gd").data().z_effects.get(str(base_id),{})
+		out.alola_z=true
+		out.power=int(effect.get("power",Data.z_power(int(base.power))))
+		out.category=base.category
+		return out
 	out["power"] = Data.z_power(int(base.get("power", 60)))
 	out["type"] = String(base.get("type", out.get("type", "normal")))
 	out["category"] = String(base.get("category", out.get("category", "physical")))
@@ -573,7 +614,7 @@ func z_move_data(c: Dictionary, base_id: int) -> Dictionary:
 ## ---------------- 太晶化 ----------------
 ## 一场战斗一次：属性换成太晶属性，本系加成提到 2 倍。
 func can_use_tera(side: String) -> bool:
-	if kalos_rules:return false
+	if alola_rules or kalos_rules:return false
 	var c: Dictionary = cur_a() if side == "a" else cur_b()
 	if c.get("fainted", false) or int(c.get("tera_used", 0)) > 0 or bool(c.get("tera_active", false)):
 		return false
@@ -621,7 +662,12 @@ func _on_send_out(side: String) -> void:
 	var foe: Dictionary = cur_b() if side == "a" else cur_a()
 	if me.get("fainted", false):
 		return
-	if kalos_rules and side=="a":me.kalos_participated=true
+	if (kalos_rules or alola_rules) and side=="a":me.kalos_participated=true
+	if alola_rules and not str(me.get("alola_aura","")).is_empty():
+		_apply_stage(me,str(me.alola_aura),1,log)
+	if alola_rules and alola_heal_replacement.get(side,false):
+		me.hp=me.max_hp
+		alola_heal_replacement.erase(side)
 	me.erase("metronome_move")
 	me.erase("metronome_chain")
 	me.erase("acted_this_turn")
@@ -734,6 +780,9 @@ func _on_send_out(side: String) -> void:
 ## 投球。纯概率，不改血量以外的状态：血越少、捕获率越高、球越好，越容易成。
 ## 返回值给界面拿去播报：{ok: bool, shakes: int, text: String}
 func catch_bonus(ball_name: String, base: float, target: Dictionary) -> float:
+	var beast: bool=int(target.species_id) in [793,794,795,796,797,798,799,803,804,805,806]
+	if ball_name=="究极球":return 5.0 if beast else 0.1
+	if alola_rules and beast:return 0.1
 	match ball_name:
 		"计时球":return minf(4.0,1.0+float(completed_turns)*(1229.0/4096.0 if kalos_rules else 0.1))
 		"重复球":return 3.0 if previously_caught else 1.0
@@ -1105,6 +1154,32 @@ func _ignores_ability(attacker: Dictionary) -> bool:
 		return true
 	return _ab(attacker) in ["破格", "涡轮火焰", "涡轮火花", "兆级电压"]
 
+func _alola_held_enabled(mon: Dictionary) -> bool:
+	return alola_rules and int(mon.get("embargo", 0)) == 0 and alola_magic_room == 0 \
+			and not Data.ability_effect(_ab(mon)).get("ignore_own_item", false)
+
+func _alola_mental_herb(mon: Dictionary) -> String:
+	if mon.get("held", "") != "MENTAL_HERB" or not _alola_held_enabled(mon) or mon.get("fainted", false):
+		return ""
+	var cured := false
+	for key in ["taunt", "encore", "no_repeat", "heal_block"]:
+		if int(mon.get(key, 0)) > 0:
+			mon[key] = 0
+			cured = true
+	if not mon.get("disabled", {}).is_empty() or mon.get("attract", false):
+		mon.disabled = {}
+		mon.attract = false
+		cured = true
+	if mon.get("status", "") == "inf":
+		mon.status = ""
+		mon.status_turns = 0
+		cured = true
+	if not cured:
+		return ""
+	mon.spent_herb = mon.held
+	mon.held = ""
+	return "%s 的心灵香草解除了招式限制！" % mon.name
+
 func damage(attacker: Dictionary, defender: Dictionary, move: Dictionary) -> int:
 	# 皮肤类特性：招式属性被改写（一般皮肤之外还会略微增强）
 	var skin := String(Data.ability_effect(_ab(attacker)).get("skin_type", ""))
@@ -1132,6 +1207,8 @@ func damage(attacker: Dictionary, defender: Dictionary, move: Dictionary) -> int
 		atk_stage = 0
 	var a: float = attacker["stats"][atk_stat] * _stage_mult(atk_stage) * _boost_mult(attacker, atk_stat)
 	a *= _ruin_mult(atk_stat)
+	if atk_stat == "atk" and attacker.get("held", "") == "THICK_CLUB" and int(attacker.species_id) in [104,105] and _alola_held_enabled(attacker):
+		a *= 2.0
 	# 特性对能力值本身的修正
 	var ae0: Dictionary = Data.ability_effect(_ab(attacker))
 	var sm: Dictionary = ae0.get("stat_mult", {})
@@ -1188,11 +1265,13 @@ func damage(attacker: Dictionary, defender: Dictionary, move: Dictionary) -> int
 	# 会心一击：1/16，1.5 倍；会心一击专属招式把它提到 1/2
 	var crit_chance := 0.0625
 	var cs := int(attacker.get("crit_stage", 0)) + int(atk_eff.get("crit_stage", 0))
+	if alola_rules and move.get("key","")=="10000000_VOLT_THUNDERBOLT":cs+=2
 	if str(attacker.get("held", "")) == "LUCKY_PUNCH" and int(attacker.get("species_id", 0)) == 113:
 		cs += 2
 	if bool(attacker.get("dire_hit", false)): cs += 2
 	if cs > 0:
 		crit_chance = [0.0625, 0.125, 0.25, 0.33, 0.5][mini(cs, 4)]
+	if alola_rules:crit_chance=[1.0/24.0,0.125,0.5,1.0][mini(cs,3)]
 	if int(attacker.get("crit_up", 0)) > 0:
 		crit_chance = 0.5
 	var crit := 1.0
@@ -1319,13 +1398,18 @@ func damage(attacker: Dictionary, defender: Dictionary, move: Dictionary) -> int
 	# 超极巨极光旋律：几回合内受到伤害减半
 	if int(defender.get("shield_turns", 0)) > 0:
 		dmg = int(dmg / 2.0)
-	# 抗性果：体力已过半时被克制的那个属性打中，伤害减半
-	var bd: Dictionary = Data.berry_def(String(defender.get("berry", "")))
-	if String(bd.get("kind", "")) == "resist" and String(bd.get("type", "")) == mtype \
-			and int(defender["hp"]) * 2 <= int(defender["max_hp"]):
-		dmg = maxi(1, int(dmg / 2.0))
-		defender["berry"] = ""
-		last_berry = String(bd.get("name", ""))
+	var berry := str(defender.get("berry", ""))
+	var bd: Dictionary = Data.berry_def(berry)
+	if bd.get("kind", "") == "resist" and bd.get("type", "") == mtype:
+		var activate := int(defender.hp) * 2 <= int(defender.max_hp)
+		if alola_rules:
+			var exposed := int(defender.get("sub_hp", 0)) == 0 or bool(atk_eff.get("bypass_sub", false))
+			activate = exposed and (eff > 1.0 or mtype == "normal") and _alola_held_enabled(defender) and not atk_eff.get("block_foe_berry", false)
+		if activate:
+			dmg = maxi(1, int(dmg / 2.0))
+			defender.berry = ""
+			defender.eaten_berry = berry
+			last_berry = String(bd.get("name", ""))
 	return maxi(1, dmg)
 
 ## 招式打完之后的效果：状态、能力升降、回复、反伤、一击必杀这些
@@ -2036,7 +2120,7 @@ func _clear_round_hits() -> void:
 		mon.erase("acted_this_turn")
 
 func kalos_before_move(side: String, choice: String) -> void:
-	if not kalos_rules:return
+	if not (kalos_rules or alola_rules):return
 	var active: Dictionary=cur_a() if side=="a" else cur_b()
 	var requested: String=active.get("kalos_intent","")
 	active.erase("kalos_intent")
@@ -2055,6 +2139,14 @@ func apply_kalos_power() -> void:
 	if stage[0]=="critical":mon.crit_stage=mini(4,int(mon.get("crit_stage",0))+int(stage[1]))
 	else:_apply_stage(mon,str(stage[0]),int(stage[1]),log)
 
+func alola_z_choice(fallback:String) -> String:
+	if not can_use_z("b"):return fallback
+	var mon:=cur_b()
+	for i in mon.moves.size():
+		if int(mon.pp[i])>0 and z_move_of(mon,int(mon.moves[i]))>0 and Data.move_of(int(mon.moves[i])).category!="status":
+			return "z:%d"%i
+	return fallback
+
 func run_turn(a_choice: String, b_choice: String) -> void:
 	if over:
 		return
@@ -2062,6 +2154,7 @@ func run_turn(a_choice: String, b_choice: String) -> void:
 	completed_turns+=1
 	_clear_round_hits()
 	apply_kalos_power()
+	if alola_rules and b_choice.begins_with("move:"):b_choice=alola_z_choice(b_choice)
 	# X/Y sorts the turn using the speed before Mega Evolution.
 	var pa := _speed(cur_a())
 	var pb := _speed(cur_b())
@@ -2465,7 +2558,10 @@ func _extra_effect(effect: String, attacker: Dictionary, defender: Dictionary, m
 		"GRAVITY":
 			out.append(field.set_gravity())
 		"MAGIC_ROOM":
-			attacker["magic_room"] = 5
+			if alola_rules:
+				alola_magic_room = 0 if alola_magic_room > 0 else 5
+			else:
+				attacker["magic_room"] = 5
 			out.append("魔法空间展开了，携带物暂时失效。")
 		"COURT_CHANGE":
 			var tmp_screens: Dictionary = (field.screens["a"] as Dictionary).duplicate()
@@ -2786,6 +2882,8 @@ func _end_of_turn_gmax() -> void:
 
 ## 回合末结算之二半：寄生种子、诅咒、恶梦、灭亡之歌、预知未来
 func _end_of_turn_volatile() -> void:
+	if alola_magic_room > 0:
+		alola_magic_room -= 1
 	for c in [cur_a(), cur_b()]:
 		if bool(c["fainted"]):
 			continue
@@ -2839,6 +2937,8 @@ func _end_of_turn_volatile() -> void:
 				c["status_turns"] = rng.randi_range(1, 3)
 				log.append("%s 睡着了！" % who)
 		# 各种回合标记递减
+		if alola_rules and int(c.get("embargo", 0)) > 0:
+			c.embargo -= 1
 		if int(c.get("taunt", 0)) > 0:
 			c["taunt"] = int(c["taunt"]) - 1
 		if int(c.get("encore", 0)) > 0:
@@ -2891,7 +2991,7 @@ func _end_of_turn_field(tick_field := true) -> void:
 func _try_berry(c: Dictionary, cat: String = "") -> Array:
 	var out: Array = []
 	var key := String(c.get("berry", ""))
-	if key == "" or bool(c.get("fainted", false)):
+	if key == "" or bool(c.get("fainted", false)) or (alola_rules and not _alola_held_enabled(c)):
 		return out
 	var d: Dictionary = Data.berry_def(key)
 	if d.is_empty():
@@ -2912,7 +3012,7 @@ func _try_berry(c: Dictionary, cat: String = "") -> Array:
 				"flat":
 					heal = int(d.get("value", 10))
 				"half":
-					heal = int(mx / 2.0)
+					heal = int(mx / 4.0) if alola_rules and key == "sitrus" else int(mx / 2.0)
 				_:
 					heal = int(mx / 3.0)
 			heal = maxi(1, heal)
@@ -2949,7 +3049,7 @@ func _try_berry(c: Dictionary, cat: String = "") -> Array:
 			c["status_turns"] = 0
 			out.append("%s 吃掉了%s，状态恢复了！" % [c["name"], nam])
 		"cure_all":
-			if String(c.get("status", "")) == "":
+			if String(c.get("status", "")) == "" or (alola_rules and c.get("status", "") == "inf"):
 				return out
 			c["status"] = ""
 			c["status_turns"] = 0
@@ -3254,6 +3354,7 @@ func _take_action(side: String, choice: String) -> void:
 	if attacker.moves.is_empty() or int(attacker.pp[idx]) <= 0:
 		_struggle(side)
 		return
+	var alola_z_ready:=alola_rules and choice.begins_with("z:") and can_use_z(side)
 	# 精神场地：先制招式在这边打不出来
 	var mprio := int((Data.move_of(int(attacker["moves"][idx])) as Dictionary).get("priority", 0))
 	var foe_side_ab: Dictionary = cur_b() if side == "a" else cur_a()
@@ -3299,7 +3400,7 @@ func _take_action(side: String, choice: String) -> void:
 	else:
 		attacker["charging"] = {}
 		var pp_cost := 2 if bool(Data.ability_effect(_ab(defender)).get("pp_pressure", false)) else 1
-		attacker["pp"][idx] = int(attacker["pp"][idx]) - pp_cost
+		attacker["pp"][idx] = maxi(0,int(attacker["pp"][idx]) - pp_cost)
 		attacker["last_move"] = base_id
 	var mv: Dictionary = Data.move_of(base_id)
 	# 上回合才上场才能用的招式（击掌奇袭这类）
@@ -3327,9 +3428,12 @@ func _take_action(side: String, choice: String) -> void:
 	# Z 招式：这一回合按 Z 版本打
 	if choice.begins_with("z:"):
 		var zd: Dictionary = z_move_data(attacker, base_id)
-		if zd.is_empty():
+		if zd.is_empty() or (alola_rules and not alola_z_ready):
 			log.append("%s 的 %s 没能变成 Z 招式。" % [attacker["name"], String(mv.get("name", "?"))])
 		else:
+			if alola_rules:
+				alola_z_used[side]=true
+				if mv.category=="status":preload("res://core/alola_z.gd").status_bonus(self,attacker,mv)
 			mv = zd
 			attacker["z_used"] = int(attacker.get("z_used", 0)) + 1
 	# 极巨化 / 超极巨：攻击招式换成极巨招式
@@ -3342,17 +3446,23 @@ func _take_action(side: String, choice: String) -> void:
 		log.append("%s 受到攻击，无法集中精神！" % attacker.name)
 		return
 	if not releasing and eff0 in ["TWO_TURNS_ATTACK", "SEMI_INVULNERABLE", "SOLAR_BEAM", "FLY", "DIG", "DIVE"]:
-		attacker["charging"] = {"move": base_id}
-		# 半无敌：蓄力这一回合打不到它（飞翔、挖洞、潜水、潜灵奇袭这些）
-		attacker["semi_invuln"] = eff0 == "SEMI_INVULNERABLE"
-		match eff0:
-			"SEMI_INVULNERABLE":
-				log.append("%s 消失了身影！" % attacker["name"])
-			"SOLAR_BEAM":
-				log.append("%s 开始吸收光线！" % attacker["name"])
-			_:
-				log.append("%s 正在蓄力！" % attacker["name"])
-		return
+		var instant_solar: bool = alola_rules and eff0 == "SOLAR_BEAM" and field.weather == "sun"
+		if not instant_solar and attacker.get("held", "") == "POWER_HERB" and _alola_held_enabled(attacker):
+			attacker.spent_herb = attacker.held
+			attacker.held = ""
+			log.append("%s 用强力香草完成了蓄力！" % attacker.name)
+		elif not instant_solar:
+			attacker["charging"] = {"move": base_id}
+			# 半无敌：蓄力这一回合打不到它（飞翔、挖洞、潜水、潜灵奇袭这些）
+			attacker["semi_invuln"] = eff0 == "SEMI_INVULNERABLE"
+			match eff0:
+				"SEMI_INVULNERABLE":
+					log.append("%s 消失了身影！" % attacker["name"])
+				"SOLAR_BEAM":
+					log.append("%s 开始吸收光线！" % attacker["name"])
+				_:
+					log.append("%s 正在蓄力！" % attacker["name"])
+			return
 
 	# 太晶爆发：属性跟着太晶属性走，物特取更高的那一项
 	if String((mv.get("field", {}) as Dictionary).get("kind", "")) == "tera_blast":
@@ -3511,7 +3621,7 @@ func _take_action(side: String, choice: String) -> void:
 		defender["disguise_used"] = true
 		log.append("%s 的画皮替它挡下了这一击！" % defender["name"])
 		if int(defender.get("species_id", 0)) == 778:
-			switch_form(_side_of(defender), "MIMIKYU_BUSTED", "%s 的画皮破掉了！" % defender["name"])
+			switch_form(_side_of(defender), "MIMIKYU_TOTEM_BUSTED" if defender.get("form","")=="MIMIKYU_TOTEM_DISGUISED" else "MIMIKYU_BUSTED", "%s 的画皮破掉了！" % defender["name"])
 		else:
 			_set_hp(defender, maxi(0, int(defender["hp"]) - maxi(1, int(int(defender["max_hp"]) / 8.0))))
 		return
@@ -3523,8 +3633,10 @@ func _take_action(side: String, choice: String) -> void:
 
 	# 守住：挡下这一下
 	if bool(defender.get("protected", false)) and not bool(Data.ability_effect(_ab(attacker)).get("no_protect", false)):
-		log.append("%s 保护住了自己，没有受到伤害。" % defender["name"])
-		return
+		if not mv.get("alola_z",false) or mv.category=="status":
+			log.append("%s 保护住了自己，没有受到伤害。" % defender["name"])
+			return
+		log.append("守住削弱了Ｚ招式的威力！")
 
 	# 预知未来 / 破灭之愿：当回合不造成伤害，挂到两回合后
 	var eff_fs := String(mv.get("effect", ""))
@@ -3539,6 +3651,9 @@ func _take_action(side: String, choice: String) -> void:
 	if attacker.get("held","")=="METRONOME" and not aabe0.get("ignore_own_item",false):
 		repeat_scale+=0.1*int(attacker.get("metronome_chain",0))
 	var dealt := int(damage(attacker, defender, mv)*repeat_scale)
+	if mv.get("alola_z",false):
+		if mv.key=="GUARDIAN_OF_ALOLA":dealt=maxi(1,int(defender.hp)*3/4)
+		if defender.get("protected",false) and dealt>0:dealt=maxi(1,dealt/4)
 	var gem:=str(mv.get("type","normal")).to_upper()+"_GEM"
 	if dealt>0 and attacker.get("held","")==gem and not aabe0.get("ignore_own_item",false):
 		repeat_scale*=1.5
@@ -3681,9 +3796,20 @@ func _take_action(side: String, choice: String) -> void:
 	_contact_ability_effect(attacker, defender, mv)
 	_after_hit_passive(attacker, defender, mv, dealt)
 
+	if mv.get("alola_z",false) and dealt>0:
+		if mv.key=="GENESIS_SUPERNOVA":log.append(field.set_terrain("psychic"))
+		if mv.key=="CLANGOROUS_SOULBLAZE":
+			for stat in ["atk","def","spa","spd","spe"]:_apply_stage(attacker,stat,1,log)
 	var extra := _apply_effect(attacker, defender, mv, dealt)
 	if extra != "":
 		log.append(extra)
+	if alola_rules:
+		for affected in [attacker, defender]:
+			var herb := _alola_mental_herb(affected)
+			if herb != "":
+				log.append(herb)
+			if Data.berry_def(affected.get("berry", "")).get("kind", "") in ["cure", "cure_all"]:
+				log.append_array(_try_berry(affected))
 	# 低血自动退场（跃跃欲逃、危险回避）
 	_check_emergency_exit("a")
 	_check_emergency_exit("b")

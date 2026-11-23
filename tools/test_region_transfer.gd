@@ -86,8 +86,11 @@ func trip(region: String, repeat_tap := false) -> bool:
 	await frames()
 	if region=="hoenn" and game.panel_open>0:
 		if not press(game.menu_layer.get_child(-1),"直接抵达"): return false
-	if region in ["sinnoh","unova","kalos"] and not game.save_data.chapters.has(region):
+	if region in ["sinnoh","unova","kalos","alola"] and not game.save_data.chapters.has(region):
 		if not press(game.menu_layer.get_child(-1),"带现有队伍出发"): return false
+		if region=="alola":
+			await frames()
+			if not press(game.menu_layer.get_child(-1),"《究极之日》"):return false
 		if region == "kalos":
 			await frames()
 			if not press(game.menu_layer.get_child(-1),"《X》"): return false
@@ -95,6 +98,8 @@ func trip(region: String, repeat_tap := false) -> bool:
 	game._close_all_dialogs()
 	await frames()
 	var hub: Dictionary = destination.hub
+	if region=="alola" and not game._flags().get("a_visited_alola_hauoli",false):
+		hub={"region":"alola","map":"alola_home","at":[8,7]}
 	if first_arrival and not at_hub(hub) and region in ["hoenn","johto","sinnoh","unova","kalos"]:
 		check(game.save_data.chapters.has(region),"first arrival opened local story")
 		if region=="kalos":
@@ -102,7 +107,7 @@ func trip(region: String, repeat_tap := false) -> bool:
 		return await trip(region)
 	var saved := Save.existing()
 	check(at_hub(hub), "arrival in " + region)
-	check(saved.region == hub.region and saved.map == hub.map and saved.pos == hub.at, "saved landing in " + region)
+	check(saved.region == hub.region and saved.map == hub.map and Vector2i(int(saved.pos[0]),int(saved.pos[1])) == Vector2i(int(hub.at[0]),int(hub.at[1])), "saved landing in " + region)
 	check(game.panel_open == 0 and game.touch_layer.visible, "field controls restored in " + region)
 	check(single_item(saved.get("bag", [])), "permanent item in " + region)
 	return not failed

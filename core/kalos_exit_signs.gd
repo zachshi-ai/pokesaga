@@ -1,5 +1,5 @@
 extends Node2D
-## Fixed field markings for Kalos walkways, script-operated lifts and doorways.
+## Fixed field markings for field walkways, script-operated lifts and doorways.
 const FONT=preload("res://assets/fonts/field-sans.otf")
 var world
 var exits: Array=[]
@@ -11,7 +11,7 @@ func setup(field, passages: Array) -> void:
 	world=field
 	z_index=91
 	for p in passages:
-		if p.has("kalos_label"):exits.append(p)
+		if p.has("kalos_label") or p.has("alola_label"):exits.append(p)
 	queue_redraw()
 
 func _process(_dt:float) -> void:
@@ -50,6 +50,7 @@ func _draw() -> void:
 		var at:=Vector2(p.at[0],p.at[1])*16
 		if maxf(absf(p.at[0]-last.x),absf(p.at[1]-last.y))>24:continue
 		var style:=str(p.get("source_warp",""))
+		if p.has("alola_label"):continue # Markers are baked into the Emerald field image.
 		if style.begins_with("script_"):
 			draw_rect(Rect2(at+Vector2(2,7),Vector2(12,7)),Color("#39494f"))
 			for i in 3:draw_line(at+Vector2(3,8+i*2),at+Vector2(12,8+i*2),Color("#f1d893"))
@@ -57,7 +58,7 @@ func _draw() -> void:
 			draw_rect(Rect2(at+Vector2(3,10),Vector2(10,4)),Color("#445357"))
 			draw_line(at+Vector2(4,11),at+Vector2(11,11),Color("#d8c795"))
 	if nearby.is_empty() or not show_label:return
-	var label:String=nearby.kalos_label
+	var label:String=nearby.get("alola_label",nearby.get("kalos_label",""))
 	var width:float=FONT.get_string_size(label,HORIZONTAL_ALIGNMENT_LEFT,-1,9).x+8
 	var pos:=Vector2(nearby.at[0],nearby.at[1])*16+Vector2(8-width/2,-13)
 	draw_rect(Rect2(pos,Vector2(width,12)),Color("#233239df"))

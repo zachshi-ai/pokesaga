@@ -7,6 +7,7 @@ signal item_used(item_name: String)
 const Party := preload("res://core/party.gd")
 const Growth := preload("res://core/growth.gd")
 const DexArt := preload("res://core/dex_art.gd")
+const DexCatalog := preload("res://core/dex_catalog.gd")
 const DexEffect := preload("res://core/dex_effect.gd")
 
 const UI := preload("res://core/field_ui.gd")
@@ -17,6 +18,9 @@ const HP_MID := Color(0.94, 0.78, 0.34)
 const HP_LO := Color(0.90, 0.40, 0.36)
 
 var battle
+var alola_rules := false
+var alola_ring := false
+var alola_ultra := false
 var kalos_rules := false
 var kalos_ring := false
 var observe_variant: Callable
@@ -57,6 +61,9 @@ func setup(p_team: Array, e_team: Array, seed_value: int = 0, p_bag: Array = [],
 	enemy_team = e_team
 	bag = p_bag
 	battle = _battle_engine(seed_value)
+	battle.alola_rules=alola_rules
+	battle.alola_ring=alola_ring
+	battle.alola_ultra=alola_ultra
 	battle.kalos_rules=kalos_rules
 	battle.kalos_ring=kalos_ring
 	if observe_variant.is_valid():
@@ -164,10 +171,9 @@ func _make_hpbox(pos: Vector2, c: Dictionary, player: bool) -> Control:
 	name_l.position = Vector2(left, 1)
 	name_l.clip_text = true
 	name_l.size = Vector2(126, 20)
-	name_l.text = _display_name(c)
-	name_l.add_theme_font_size_override("font_size", 15)
 	name_l.add_theme_color_override("font_color", HUD_INK)
 	box.add_child(name_l)
+	_set_hpbox_name(name_l, c)
 
 	var lv := Label.new()
 	lv.name = "Lv"
@@ -536,6 +542,7 @@ func _begin_resolve() -> void:
 
 func _do_z(idx: int) -> void:
 	var r: Dictionary = battle.use_z("a", idx)
+	if not r.ok:return
 	_begin_resolve()
 	pending.clear()
 	pending.append(String(r.get("text", "")))
@@ -555,7 +562,7 @@ func _do_tera() -> void:
 	wait = _dur(0.1)
 
 func _do_transform(form_key: String) -> void:
-	if kalos_rules:
+	if kalos_rules or alola_rules:
 		var active: Dictionary=battle.cur_a()
 		if not battle.available_forms("a").any(func(form):return form.key==form_key):return
 		active.kalos_intent=form_key
@@ -572,7 +579,7 @@ func _do_transform(form_key: String) -> void:
 	msg.text = ""
 	wait = _dur(0.1)
 
-const BALL_BONUS := {"重复球":1.0,"巢穴球":1.0,"捕网球":1.0,"潜水球":1.0,"先机球":1.0,"黑暗球":1.0,"治愈球":1.0,"豪华球":1.0, "纪念球":1.0, "计时球":1.0, "竞赛球":1.5, "精灵球": 1.0, "超级球": 1.5, "高级球": 2.0, "大师球": 255.0, "等级球":1.0, "诱饵球":1.0, "月亮球":1.0, "友友球":1.0, "速度球":1.0, "沉重球":1.0, "甜蜜球":1.0}
+const BALL_BONUS := {"究极球":1.0,"重复球":1.0,"巢穴球":1.0,"捕网球":1.0,"潜水球":1.0,"先机球":1.0,"黑暗球":1.0,"治愈球":1.0,"豪华球":1.0, "纪念球":1.0, "计时球":1.0, "竞赛球":1.5, "精灵球": 1.0, "超级球": 1.5, "高级球": 2.0, "大师球": 255.0, "等级球":1.0, "诱饵球":1.0, "月亮球":1.0, "友友球":1.0, "速度球":1.0, "沉重球":1.0, "甜蜜球":1.0}
 
 ## Share the field bag with battle. Trainer battles only allow battle supplies.
 func _open_balls() -> void:
@@ -811,7 +818,26 @@ func _sync_sprites() -> void:
 
 func _display_name(mon: Dictionary) -> String:
 	var marker: String = {"star":"★ ", "square":"◇ "}.get(Party.shiny_kind(mon), "")
-	return marker + str(mon.get("name", "?"))
+	var display := str(mon.get("name", "?"))
+	var form := str(mon.get("form", ""))
+	if not form.is_empty():
+		var sid := int(mon.get("species_id", 0))
+		var base := str(Data.species_of(sid).get("name", ""))
+		if display.begins_with(base + "（"):
+			for variant in DexCatalog.variants(sid):
+				if int(variant.species_id) == sid and variant.get("form", "") == form:
+					var label := str(variant.label).trim_suffix("的样子")
+					display = label if label.contains(base) else base + "·" + label
+					break
+	return marker + display
+
+func _set_hpbox_name(label: Label, mon: Dictionary) -> void:
+	label.text = _display_name(mon)
+	var font := label.get_theme_font("font")
+	var points := 15
+	while points > 9 and font.get_string_size(label.text, HORIZONTAL_ALIGNMENT_LEFT, -1, points).x > label.size.x:
+		points -= 1
+	label.add_theme_font_size_override("font_size", points)
 
 func _apply_appearance(sprite: TextureRect, mon: Dictionary) -> void:
 	var sid := int(mon.get("species_id", 0))
@@ -859,7 +885,7 @@ func _update_hpbox(box: Control, c: Dictionary) -> void:
 		exp_fill.size = Vector2(roundf(ratio_exp * 64) * 2, 4)
 	var nm: Label = box.get_node_or_null("Name")
 	if nm:
-		nm.text = _display_name(c)
+		_set_hpbox_name(nm, c)
 	var lv2: Label = box.get_node_or_null("Lv")
 	if lv2:
 		lv2.text = "Lv %d" % int(c.get("level", 1))

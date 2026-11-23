@@ -84606,6 +84606,51 @@
     "battle": true,
     "sprite": "res://assets/mon/forms/778_busted.png",
     "evolves": []
+   },
+   {
+    "key": "MIMIKYU_TOTEM_DISGUISED",
+    "label": "霸主·化形",
+    "types": [
+     "ghost",
+     "fairy"
+    ],
+    "base": {
+     "hp": 55,
+     "atk": 90,
+     "def": 80,
+     "spa": 50,
+     "spd": 105,
+     "spe": 96
+    },
+    "abilities": [
+     209
+    ],
+    "kind": "form",
+    "sprite": "res://assets/mon/forms/778_totem_disguised.png",
+    "evolves": []
+   },
+   {
+    "key": "MIMIKYU_TOTEM_BUSTED",
+    "label": "霸主·现形",
+    "types": [
+     "ghost",
+     "fairy"
+    ],
+    "base": {
+     "hp": 55,
+     "atk": 90,
+     "def": 80,
+     "spa": 50,
+     "spd": 105,
+     "spe": 96
+    },
+    "abilities": [
+     209
+    ],
+    "kind": "form",
+    "sprite": "res://assets/mon/forms/778_totem_busted.png",
+    "evolves": [],
+    "battle": true
    }
   ]
  },
