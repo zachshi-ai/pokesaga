@@ -1,0 +1,3053 @@
+{
+ "events": [
+  {
+   "id": "g_home",
+   "map": "galar_player_home",
+   "who": "赫普",
+   "at": [
+    5,
+    5
+   ],
+   "guests": [
+    {
+     "name": "妈妈",
+     "at": [
+      3,
+      5
+     ]
+    }
+   ],
+   "require": [
+    "g_started"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "冠军对战看完了吗？哥哥今天坐火车回来！先带上包，我们在我家碰头。"
+     ]
+    },
+    {
+     "who": "妈妈",
+     "say": [
+      "小悠，帽子和背包都在这儿。去赫普家时别靠近西边的森林。"
+     ]
+    },
+    {
+     "flag": "g_home"
+    }
+   ]
+  },
+  {
+   "id": "g_hop_house",
+   "map": "galar_hop_home",
+   "who": "赫普",
+   "at": [
+    5,
+    4
+   ],
+   "guests": [],
+   "require": [
+    "g_home"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "哥哥还没回来，他肯定又在站台边给大家签名了。穿过１号道路，咱们去木杆镇车站接他！"
+     ]
+    },
+    {
+     "flag": "g_hop_house"
+    }
+   ]
+  },
+  {
+   "id": "g_leon_arrives",
+   "map": "galar_wedgehurst",
+   "who": "丹帝",
+   "at": [
+    15,
+    13
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      13,
+      14
+     ]
+    }
+   ],
+   "require": [
+    "g_hop_house"
+   ],
+   "steps": [
+    {
+     "who": "丹帝",
+     "say": [
+      "喷火龙，和大家打个招呼！……赫普！你来得正好，我给你们带了三个伙伴。咱们回家看看。"
+     ]
+    },
+    {
+     "flag": "g_leon_arrives"
+    }
+   ]
+  },
+  {
+   "id": "g_partner",
+   "map": "galar_postwick",
+   "who": "丹帝",
+   "at": [
+    28,
+    12
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      26,
+      13
+     ]
+    },
+    {
+     "name": "敲音猴",
+     "at": [
+      29,
+      13
+     ]
+    },
+    {
+     "name": "炎兔儿",
+     "at": [
+      27,
+      14
+     ]
+    },
+    {
+     "name": "泪眼蜥",
+     "at": [
+      28,
+      14
+     ]
+    }
+   ],
+   "require": [
+    "g_leon_arrives"
+   ],
+   "steps": [
+    {
+     "who": "丹帝",
+     "say": [
+      "在院子里认识一下吧。敲音猴在敲树枝，炎兔儿跑得飞快，泪眼蜥躲到水边去了。你想和谁一起旅行？"
+     ]
+    },
+    {
+     "galar_starter": true
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "我也选好啦！我从小就和毛辫羊练习，明天在这儿来我的第一场正式对战吧。"
+     ]
+    },
+    {
+     "who": "丹帝",
+     "say": [
+      "剩下的这孩子就跟我和喷火龙一起旅行。今晚先让大家好好休息。"
+     ]
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_partner"
+    }
+   ]
+  },
+  {
+   "id": "g_hop_first",
+   "map": "galar_postwick",
+   "who": "赫普",
+   "at": [
+    28,
+    13
+   ],
+   "guests": [
+    {
+     "name": "丹帝",
+     "at": [
+      30,
+      12
+     ]
+    }
+   ],
+   "require": [
+    "g_partner"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "两只对一只可别吃惊。这是我从小一起长大的毛辫羊！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "赫普",
+      "team": [
+       {
+        "species": 831,
+        "level": 3,
+        "moves": [
+         33
+        ]
+       }
+      ],
+      "prize": 400,
+      "galar_hop": "first",
+      "galar_starter_only": true,
+      "finish_on_loss": true,
+      "lose_say": [
+       "今天就到这儿！哥哥，等我们再练练，一定挑战你。"
+      ]
+     }
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "西边的栅栏破了！那只毛辫羊冲进了微寐森林，赶快跟上。"
+     ]
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_hop_first"
+    }
+   ]
+  },
+  {
+   "id": "g_mist",
+   "map": "galar_weald",
+   "who": "赫普",
+   "at": [
+    13,
+    17
+   ],
+   "guests": [],
+   "require": [
+    "g_hop_first"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "毛辫羊就在里面。听，那是什么叫声？前面的雾越来越浓了……"
+     ]
+    },
+    {
+     "galar_mist": true
+    },
+    {
+     "who": "丹帝",
+     "say": [
+      "找到你们了！毛辫羊也平安。看不清路时要先照顾好伙伴。"
+     ]
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "刚才那头宝可梦……等我拿到图鉴，一定要弄明白。先回家向妈妈报个平安。"
+     ]
+    },
+    {
+     "flag": "g_mist"
+    }
+   ]
+  },
+  {
+   "id": "g_farewell",
+   "map": "galar_player_home",
+   "who": "妈妈",
+   "at": [
+    6,
+    4
+   ],
+   "guests": [],
+   "require": [
+    "g_mist"
+   ],
+   "steps": [
+    {
+     "who": "妈妈",
+     "say": [
+      "听丹帝说你带着伙伴回来了。连图鉴都还没有就跑进森林，真叫人操心。这些钱路上用，先去木杆镇的宝可梦研究所吧。包里也放了五个精灵球。"
+     ]
+    },
+    {
+     "money": 30000
+    },
+    {
+     "give_item": {
+      "name": "精灵球",
+      "count": 5,
+      "category": "ball"
+     }
+    },
+    {
+     "flag": "g_farewell"
+    }
+   ]
+  },
+  {
+   "id": "g_dex",
+   "map": "galar_wedgehurst_lab_room",
+   "who": "索妮亚",
+   "at": [
+    6,
+    5
+   ],
+   "guests": [
+    {
+     "name": "丹帝",
+     "at": [
+      8,
+      4
+     ]
+    },
+    {
+     "name": "来电汪",
+     "at": [
+      7,
+      6
+     ]
+    }
+   ],
+   "require": [
+    "g_farewell"
+   ],
+   "steps": [
+    {
+     "who": "索妮亚",
+     "say": [
+      "来电汪把你们带过来了呀。我是索妮亚，木兰博士是我奶奶。把手机洛托姆给我一下……好，图鉴装好了。"
+     ]
+    },
+    {
+     "who": "丹帝",
+     "say": [
+      "奶奶正在二号道路尽头研究极巨化。去见她前，我会把捕捉的方法教给你。"
+     ]
+    },
+    {
+     "galar_key": "伽勒尔宝可梦图鉴"
+    },
+    {
+     "flag": "g_dex"
+    }
+   ]
+  },
+  {
+   "id": "g_catching",
+   "map": "galar_2",
+   "who": "丹帝",
+   "at": [
+    20,
+    7
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      18,
+      8
+     ]
+    }
+   ],
+   "require": [
+    "g_dex"
+   ],
+   "steps": [
+    {
+     "who": "丹帝",
+     "say": [
+      "禾草里有毛辫羊。准备好精灵球，我们沿二号道路去湖边。"
+     ]
+    },
+    {
+     "galar_catch": true
+    },
+    {
+     "give_item": {
+      "name": "精灵球",
+      "category": "ball",
+      "count": 20
+     }
+    },
+    {
+     "flag": "g_catching"
+    }
+   ]
+  },
+  {
+   "id": "g_magnolia",
+   "map": "galar_2_lakeside_room",
+   "who": "木兰博士",
+   "at": [
+    10,
+    4
+   ],
+   "guests": [
+    {
+     "name": "丹帝",
+     "at": [
+      11,
+      3
+     ]
+    },
+    {
+     "name": "赫普",
+     "at": [
+      8,
+      5
+     ]
+    }
+   ],
+   "require": [
+    "g_catching"
+   ],
+   "steps": [
+    {
+     "who": "木兰博士",
+     "say": [
+      "伽勒尔有些地方会冒出能量，让宝可梦变得巨大。我就在这湖边研究它。"
+     ]
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "哥，请写推荐函吧！我和小悠想去道馆挑战。"
+     ]
+    },
+    {
+     "who": "丹帝",
+     "say": [
+      "那就让我在院子里看看，你们这一趟学到了什么。"
+     ]
+    },
+    {
+     "flag": "g_magnolia"
+    }
+   ]
+  },
+  {
+   "id": "g_endorsement",
+   "map": "galar_2",
+   "who": "赫普",
+   "at": [
+    34,
+    7
+   ],
+   "guests": [
+    {
+     "name": "丹帝",
+     "at": [
+      36,
+      7
+     ]
+    },
+    {
+     "name": "木兰博士",
+     "at": [
+      35,
+      7
+     ]
+    }
+   ],
+   "require": [
+    "g_magnolia"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "哥哥，这次你可得认真看！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "赫普",
+      "team": [
+       {
+        "species": 831,
+        "level": 6,
+        "moves": [
+         33,
+         45
+        ]
+       },
+       {
+        "species": 821,
+        "level": 5,
+        "moves": [
+         43,
+         64
+        ]
+       }
+      ],
+      "prize": 640,
+      "galar_hop": "lake"
+     }
+    },
+    {
+     "who": "丹帝",
+     "say": [
+      "从相识到能互相信任，你们做得很好。这是给两位的推荐函。机擎市体育场的报名处见。"
+     ]
+    },
+    {
+     "galar_key": "推荐函"
+    },
+    {
+     "flag": "g_endorsement"
+    }
+   ]
+  },
+  {
+   "id": "g_star",
+   "map": "galar_2",
+   "who": "赫普",
+   "at": [
+    35,
+    7
+   ],
+   "guests": [
+    {
+     "name": "木兰博士",
+     "at": [
+      36,
+      7
+     ]
+    }
+   ],
+   "require": [
+    "g_endorsement"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "看天上！两颗发光的石头，一颗落在你脚边。"
+     ]
+    },
+    {
+     "who": "木兰博士",
+     "say": [
+      "那是许愿星。今晚在我家住下吧，我想到了它们的用处。"
+     ]
+    },
+    {
+     "galar_key": "许愿星"
+    },
+    {
+     "flag": "g_star"
+    }
+   ]
+  },
+  {
+   "id": "g_band",
+   "map": "galar_2_lakeside_room",
+   "who": "木兰博士",
+   "at": [
+    10,
+    4
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      8,
+      5
+     ]
+    },
+    {
+     "name": "索妮亚",
+     "at": [
+      9,
+      5
+     ]
+    }
+   ],
+   "require": [
+    "g_star"
+   ],
+   "steps": [
+    {
+     "who": "木兰博士",
+     "say": [
+      "我已经把昨夜的许愿星装进腕带了。在能量充足的地点，你和伙伴可以借它极巨化。"
+     ]
+    },
+    {
+     "remove_item": "许愿星"
+    },
+    {
+     "galar_key": "极巨腕带"
+    },
+    {
+     "heal": true
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "木杆站见！坐上火车，我们就是道馆挑战者了。"
+     ]
+    },
+    {
+     "flag": "g_band"
+    }
+   ]
+  },
+  {
+   "id": "g_train",
+   "map": "galar_wedgehurst_station_room",
+   "who": "赫普",
+   "at": [
+    4,
+    6
+   ],
+   "guests": [
+    {
+     "name": "妈妈",
+     "at": [
+      2,
+      6
+     ]
+    }
+   ],
+   "require": [
+    "g_band"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "我们要坐开往机擎市的列车了！这个高速星星的招式学习器送给你。"
+     ]
+    },
+    {
+     "galar_key": "伽勒尔招式学习器40·高速星星"
+    },
+    {
+     "who": "妈妈",
+     "say": [
+      "差一点赶不上！把露营组合带上。到了野外，记得让伙伴出来歇歇脚。"
+     ]
+    },
+    {
+     "galar_key": "露营组合"
+    },
+    {
+     "who": "列车员",
+     "say": [
+      "前方铁轨上聚着一群毛辫羊。本车暂时停靠旷野地带车站。"
+     ]
+    },
+    {
+     "flag": "g_train"
+    },
+    {
+     "galar_train": "galar_wild_south"
+    }
+   ]
+  },
+  {
+   "id": "g_wild_area",
+   "map": "galar_wild_south",
+   "who": "索妮亚",
+   "at": [
+    9,
+    14
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      7,
+      15
+     ]
+    }
+   ],
+   "require": [
+    "g_train"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "湖对面红砖墙那边就是机擎市。我们分头去认识旷野里的宝可梦吧！"
+     ]
+    },
+    {
+     "who": "索妮亚",
+     "say": [
+      "这个「宝可梦盒」可以远程接通电脑。就算人在草地上，也可以更换一起旅行的伙伴。"
+     ]
+    },
+    {
+     "galar_key": "宝可梦盒"
+    },
+    {
+     "flag": "g_wild_area"
+    }
+   ]
+  },
+  {
+   "id": "g_leon_card",
+   "map": "galar_motostoke",
+   "who": "索妮亚",
+   "at": [
+    18,
+    21
+   ],
+   "guests": [
+    {
+     "name": "丹帝",
+     "at": [
+      20,
+      21
+     ]
+    }
+   ],
+   "require": [
+    "g_wild_area"
+   ],
+   "steps": [
+    {
+     "who": "索妮亚",
+     "say": [
+      "商店的洛托姆终端能交换联盟卡。这张是丹帝的。"
+     ]
+    },
+    {
+     "galar_key": "丹帝的联盟卡"
+    },
+    {
+     "who": "丹帝",
+     "say": [
+      "道馆挑战者先到机擎竞技场前台出示推荐函。开幕式之前，记得去含羞苞旅店办理住宿。"
+     ]
+    },
+    {
+     "galar_partner_item": true
+    },
+    {
+     "flag": "g_leon_card"
+    }
+   ]
+  },
+  {
+   "id": "g_registration",
+   "map": "galar_motostoke_stadium",
+   "who": "联盟接待员",
+   "at": [
+    10,
+    16
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      8,
+      17
+     ]
+    },
+    {
+     "name": "彼特",
+     "at": [
+      12,
+      17
+     ]
+    }
+   ],
+   "require": [
+    "g_leon_card"
+   ],
+   "steps": [
+    {
+     "who": "联盟接待员",
+     "say": [
+      "冠军的推荐函收到了。请选一个背号，之后参加开幕式和道馆战都穿着它。"
+     ]
+    },
+    {
+     "galar_number": true
+    },
+    {
+     "who": "彼特",
+     "say": [
+      "你们拿到的是冠军的推荐？我可是会长亲自选中的挑战者。希望各位能走远一点。"
+     ]
+    },
+    {
+     "who": "联盟接待员",
+     "say": [
+      "登记好了。房间在含羞苞旅店，请去办理入住。"
+     ]
+    },
+    {
+     "flag": "g_registration"
+    }
+   ]
+  },
+  {
+   "id": "g_hero",
+   "map": "galar_motostoke_inn",
+   "who": "索妮亚",
+   "at": [
+    6,
+    6
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      4,
+      7
+     ]
+    }
+   ],
+   "require": [
+    "g_registration"
+   ],
+   "steps": [
+    {
+     "who": "索妮亚",
+     "say": [
+      "看这尊英雄雕像。传说很久以前，黑色旋涡笼罩伽勒尔，拿着剑和盾的英雄平息了灾难。"
+     ]
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "那边有人堵着柜台。明天还要参加开幕式呢，我们去看看吧。"
+     ]
+    },
+    {
+     "flag": "g_hero"
+    }
+   ]
+  },
+  {
+   "id": "g_yell_one",
+   "map": "galar_motostoke_inn",
+   "who": "呐喊队男队员",
+   "at": [
+    15,
+    7
+   ],
+   "guests": [
+    {
+     "name": "呐喊队女队员",
+     "at": [
+      13,
+      8
+     ]
+    }
+   ],
+   "require": [
+    "g_hero"
+   ],
+   "steps": [
+    {
+     "who": "呐喊队男队员",
+     "say": [
+      "先让玛俐的加油队住下！想过去登记？先赢过我！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "呐喊队男队员",
+      "team": [
+       {
+        "species": 263,
+        "level": 9,
+        "moves": [
+         33,
+         122
+        ],
+        "form": "ZIGZAGOON_GALAR"
+       }
+      ],
+      "prize": 720
+     }
+    },
+    {
+     "flag": "g_yell_one"
+    }
+   ]
+  },
+  {
+   "id": "g_yell_two",
+   "map": "galar_motostoke_inn",
+   "who": "呐喊队女队员",
+   "at": [
+    15,
+    7
+   ],
+   "guests": [
+    {
+     "name": "呐喊队男队员",
+     "at": [
+      13,
+      8
+     ]
+    }
+   ],
+   "require": [
+    "g_yell_one"
+   ],
+   "steps": [
+    {
+     "who": "呐喊队女队员",
+     "say": [
+      "呐喊要整齐，比赛也一样。偷儿狐，轮到我们了！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "呐喊队女队员",
+      "team": [
+       {
+        "species": 827,
+        "level": 9,
+        "moves": [
+         98,
+         39
+        ]
+       }
+      ],
+      "prize": 720
+     }
+    },
+    {
+     "flag": "g_yell_two"
+    }
+   ]
+  },
+  {
+   "id": "g_yell_pair",
+   "map": "galar_motostoke_inn",
+   "who": "赫普",
+   "at": [
+    13,
+    8
+   ],
+   "guests": [
+    {
+     "name": "呐喊队男队员",
+     "at": [
+      11,
+      9
+     ]
+    },
+    {
+     "name": "呐喊队女队员",
+     "at": [
+      15,
+      9
+     ]
+    }
+   ],
+   "require": [
+    "g_yell_two"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "我帮你恢复伙伴。现在我们两个站在一起，跟他们来一场双打！"
+     ]
+    },
+    {
+     "heal": true
+    },
+    {
+     "battle": {
+      "name": "呐喊队两名队员",
+      "team": [
+       {
+        "species": 263,
+        "level": 9,
+        "moves": [
+         43,
+         122,
+         555
+        ],
+        "form": "ZIGZAGOON_GALAR",
+        "trainer_group": "first"
+       },
+       {
+        "species": 827,
+        "level": 9,
+        "moves": [
+         39,
+         98
+        ],
+        "trainer_group": "second"
+       }
+      ],
+      "prize": 1440,
+      "double": true,
+      "ally": "galar",
+      "galar_hop": "ally"
+     }
+    },
+    {
+     "flag": "g_yell_pair"
+    }
+   ]
+  },
+  {
+   "id": "g_marnie",
+   "map": "galar_motostoke_inn",
+   "who": "玛俐",
+   "at": [
+    15,
+    7
+   ],
+   "guests": [
+    {
+     "name": "莫鲁贝可",
+     "at": [
+      13,
+      8
+     ]
+    },
+    {
+     "name": "赫普",
+     "at": [
+      17,
+      8
+     ]
+    }
+   ],
+   "require": [
+    "g_yell_pair"
+   ],
+   "steps": [
+    {
+     "who": "玛俐",
+     "say": [
+      "够了，各位。给我加油当然开心，挡住别的挑战者就不对了。小悠，你没事吧？"
+     ]
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "解决了！在旅店休息一晚，明早去竞技场换上制服。"
+     ]
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_marnie"
+    }
+   ]
+  },
+  {
+   "id": "g_ceremony",
+   "map": "galar_motostoke_stadium",
+   "who": "洛兹",
+   "at": [
+    15,
+    7
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      13,
+      8
+     ]
+    },
+    {
+     "name": "丹帝",
+     "at": [
+      17,
+      8
+     ]
+    },
+    {
+     "name": "奥利薇",
+     "at": [
+      12,
+      7
+     ]
+    },
+    {
+     "name": "亚洛",
+     "at": [
+      18,
+      7
+     ]
+    },
+    {
+     "name": "露璃娜",
+     "at": [
+      17,
+      6
+     ]
+    },
+    {
+     "name": "卡芜",
+     "at": [
+      14,
+      6
+     ]
+    },
+    {
+     "name": "彩豆",
+     "at": [
+      7,
+      7
+     ],
+     "version": "sword"
+    },
+    {
+     "name": "欧尼奥",
+     "at": [
+      7,
+      7
+     ],
+     "version": "shield"
+    },
+    {
+     "name": "波普菈",
+     "at": [
+      20,
+      7
+     ]
+    },
+    {
+     "name": "玛瓜",
+     "at": [
+      22,
+      7
+     ],
+     "version": "sword"
+    },
+    {
+     "name": "美蓉",
+     "at": [
+      22,
+      7
+     ],
+     "version": "shield"
+    },
+    {
+     "name": "奇巴纳",
+     "at": [
+      24,
+      7
+     ]
+    }
+   ],
+   "require": [
+    "g_marnie"
+   ],
+   "steps": [
+    {
+     "who": "洛兹",
+     "say": [
+      "欢迎来到道馆挑战开幕式！伽勒尔的观众们，和我一起迎接道馆馆主。"
+     ]
+    },
+    {
+     "galar_parade": true
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "轮到我们进场了！以后我也要站在冠军对面。第一站是草路镇，我在机擎市西门等你。"
+     ]
+    },
+    {
+     "flag": "g_ceremony"
+    }
+   ]
+  },
+  {
+   "id": "g_taxi",
+   "map": "galar_motostoke",
+   "who": "联盟工作人员",
+   "at": [
+    17,
+    17
+   ],
+   "guests": [],
+   "require": [
+    "g_ceremony"
+   ],
+   "steps": [
+    {
+     "who": "联盟工作人员",
+     "say": [
+      "这部飞翔出租车可以把你送回到过的伽勒尔城镇。旷野里的路再长，也能叫钢铠鸦接你。"
+     ]
+    },
+    {
+     "galar_key": "飞翔出租车"
+    },
+    {
+     "flag": "g_taxi"
+    }
+   ]
+  },
+  {
+   "id": "g_hop_west",
+   "map": "galar_motostoke",
+   "who": "赫普",
+   "at": [
+    4,
+    17
+   ],
+   "guests": [],
+   "require": [
+    "g_taxi"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "等等，小悠！在上三号道路前，来一场正式挑战者之间的较量！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "赫普",
+      "team": [
+       {
+        "species": 831,
+        "level": 11,
+        "moves": [
+         33,
+         45
+        ]
+       },
+       {
+        "species": 821,
+        "level": 12,
+        "moves": [
+         64,
+         43
+        ]
+       }
+      ],
+      "prize": 1120,
+      "galar_hop": "city"
+     }
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "这张联盟卡给你！穿过三号道路和伽勒尔矿山，就能看到草路镇的田野。"
+     ]
+    },
+    {
+     "galar_key": "赫普的联盟卡"
+    },
+    {
+     "flag": "g_hop_west"
+    }
+   ]
+  },
+  {
+   "id": "g_rope",
+   "map": "galar_3",
+   "who": "索妮亚",
+   "at": [
+    18,
+    13
+   ],
+   "guests": [],
+   "require": [
+    "g_hop_west"
+   ],
+   "steps": [
+    {
+     "who": "索妮亚",
+     "say": [
+      "看那边的工厂。伽勒尔把极巨化的能量送进城市，我想查清这和传说有什么联系。"
+     ]
+    },
+    {
+     "who": "索妮亚",
+     "say": [
+      "进矿山时带上离洞绳。它可以反复用，能把你带回进来的那边。"
+     ]
+    },
+    {
+     "galar_key": "伽勒尔离洞绳"
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_rope"
+    }
+   ]
+  },
+  {
+   "id": "g_bede",
+   "map": "galar_mine",
+   "who": "彼特",
+   "at": [
+    16,
+    32
+   ],
+   "guests": [],
+   "require": [
+    "g_rope"
+   ],
+   "steps": [
+    {
+     "who": "彼特",
+     "say": [
+      "我在为洛兹会长收集许愿星。想去矿井另一头？好，让我看看冠军的推荐到底值不值。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "彼特",
+      "team": [
+       {
+        "species": 577,
+        "level": 13,
+        "moves": [
+         93,
+         283
+        ]
+       },
+       {
+        "species": 574,
+        "level": 15,
+        "moves": [
+         60,
+         321,
+         1
+        ]
+       },
+       {
+        "species": 856,
+        "level": 16,
+        "moves": [
+         93,
+         496,
+         574
+        ]
+       }
+      ],
+      "prize": 1920
+     }
+    },
+    {
+     "who": "彼特",
+     "say": [
+      "……这次只是大意了。我还有会长交代的工作，下次再见。"
+     ]
+    },
+    {
+     "flag": "g_bede"
+    }
+   ]
+  },
+  {
+   "id": "g_milo",
+   "map": "galar_4",
+   "who": "亚洛",
+   "at": [
+    44,
+    15
+   ],
+   "guests": [
+    {
+     "name": "毛辫羊",
+     "at": [
+      44,
+      16
+     ]
+    }
+   ],
+   "require": [
+    "g_bede"
+   ],
+   "steps": [
+    {
+     "who": "亚洛",
+     "say": [
+      "危险！这只毛辫羊一兴奋就爱滚到路上。没撞疼你吧？"
+     ]
+    },
+    {
+     "who": "亚洛",
+     "say": [
+      "我叫亚洛，在草路镇照看牧场，也负责那里的道馆。等你到了，咱们在草地上见。"
+     ]
+    },
+    {
+     "flag": "g_milo"
+    }
+   ]
+  },
+  {
+   "id": "g_yamper",
+   "map": "galar_turffield",
+   "who": "来电汪",
+   "at": [
+    7,
+    13
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      5,
+      14
+     ]
+    }
+   ],
+   "require": [
+    "g_milo"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "索妮亚要带你看山坡上的地画。跟着她的来电汪走吧，我先进道馆！"
+     ]
+    },
+    {
+     "who": "来电汪",
+     "say": [
+      "汪！汪！"
+     ]
+    },
+    {
+     "flag": "g_yamper"
+    }
+   ]
+  },
+  {
+   "id": "g_gym_ready",
+   "map": "galar_turffield",
+   "who": "索妮亚",
+   "at": [
+    7,
+    7
+   ],
+   "guests": [
+    {
+     "name": "来电汪",
+     "at": [
+      7,
+      8
+     ]
+    }
+   ],
+   "require": [
+    "g_yamper"
+   ],
+   "steps": [
+    {
+     "who": "索妮亚",
+     "say": [
+      "从这里往下看。地画上的宝可梦比人高出许多倍，头顶还有黑云。古人见到的会不会就是极巨化？"
+     ]
+    },
+    {
+     "who": "索妮亚",
+     "say": [
+      "谢谢你陪我看地画。这是亚洛的联盟卡，还有两个活力碎片。道馆就在山坡下面。"
+     ]
+    },
+    {
+     "galar_key": "亚洛的联盟卡"
+    },
+    {
+     "give_item": {
+      "name": "活力碎片",
+      "category": "heal",
+      "count": 2
+     }
+    },
+    {
+     "flag": "g_gym_ready"
+    }
+   ]
+  }
+ ],
+ "gates": {
+  "galar_postwick": {
+   "require": "g_home",
+   "message": "先在家里听赫普说完，带上行装再出门。"
+  },
+  "galar_1": {
+   "require": "g_hop_house",
+   "message": "先到赫普家和他约好，再一起去木杆站。"
+  },
+  "galar_wedgehurst": {
+   "require": "g_hop_house",
+   "message": "先到赫普家和他约好，再一起去木杆站。"
+  },
+  "galar_weald": {
+   "require": "g_hop_first",
+   "message": "微寐森林外的栅栏还关着。先完成与赫普的初战。"
+  },
+  "galar_wedgehurst_lab_room": {
+   "require": "g_farewell",
+   "message": "索妮亚还没有约你进研究所。先回化朗镇看看毛辫羊和妈妈。"
+  },
+  "galar_2": {
+   "require": "g_dex",
+   "message": "先去木杆镇的研究所，让索妮亚安装伽勒尔图鉴。"
+  },
+  "galar_2_lakeside_room": {
+   "require": "g_catching",
+   "message": "丹帝正在二号道路教你投球，先去找他。"
+  },
+  "galar_wedgehurst_station_room": {
+   "require": "g_band",
+   "message": "先在二号道路见木兰博士，拿到推荐函和极巨腕带。"
+  },
+  "galar_wild_south": {
+   "require": "g_train",
+   "message": "先到木杆镇车站，和赫普一起踏上道馆挑战之旅。"
+  },
+  "galar_wild_lake": {
+   "require": "g_train",
+   "message": "先到木杆镇车站，和赫普一起踏上道馆挑战之旅。"
+  },
+  "galar_motostoke": {
+   "require": "g_wild_area",
+   "message": "先在旷野地带入口和赫普、索妮亚碰面。"
+  },
+  "galar_motostoke_stadium": {
+   "require": "g_leon_card",
+   "message": "索妮亚与丹帝还在机擎市等你。"
+  },
+  "galar_motostoke_inn": {
+   "require": "g_registration",
+   "message": "参加道馆挑战的客房请先在竞技场报名。"
+  },
+  "galar_motostoke_station_room": {
+   "require": "g_wild_area",
+   "message": "先在旷野地带入口和赫普、索妮亚碰面。"
+  },
+  "galar_3": {
+   "require": "g_hop_west",
+   "message": "出发去三号道路前，先完成开幕式与赫普的对战。"
+  },
+  "galar_mine": {
+   "require": "g_rope",
+   "message": "先沿三号道路见索妮亚，再去伽勒尔矿山。"
+  },
+  "galar_4": {
+   "require": "g_bede",
+   "message": "彼特还在矿山出口调查许愿星。"
+  },
+  "galar_turffield": {
+   "require": "g_milo",
+   "message": "先在四号道路帮亚洛找回跑散的毛辫羊。"
+  },
+  "galar_turffield_pitch_room": {
+   "require": "g_gym_ready",
+   "message": "索妮亚在山坡地画旁等你，先跟来电汪过去看看。"
+  }
+ },
+ "encounters": {
+  "galar_1": {
+   "rate": 0.115,
+   "shared": [
+    {
+     "species": 819,
+     "min": 3,
+     "max": 6,
+     "weight": 50
+    },
+    {
+     "species": 821,
+     "min": 3,
+     "max": 6,
+     "weight": 30
+    },
+    {
+     "species": 831,
+     "min": 3,
+     "max": 6,
+     "weight": 15
+    },
+    {
+     "species": 827,
+     "min": 3,
+     "max": 6,
+     "weight": 5
+    },
+    {
+     "species": 819,
+     "min": 2,
+     "max": 5,
+     "weight": 40
+    },
+    {
+     "species": 824,
+     "min": 2,
+     "max": 5,
+     "weight": 30
+    },
+    {
+     "species": 10,
+     "min": 2,
+     "max": 5,
+     "weight": 15
+    },
+    {
+     "species": 736,
+     "min": 2,
+     "max": 5,
+     "weight": 10
+    },
+    {
+     "species": 163,
+     "min": 2,
+     "max": 5,
+     "weight": 5
+    }
+   ]
+  },
+  "galar_weald": {
+   "rate": 0.115,
+   "shared": [
+    {
+     "species": 819,
+     "min": 2,
+     "max": 3,
+     "weight": 40
+    },
+    {
+     "species": 821,
+     "min": 2,
+     "max": 3,
+     "weight": 30
+    },
+    {
+     "species": 824,
+     "min": 2,
+     "max": 3,
+     "weight": 20
+    },
+    {
+     "species": 736,
+     "min": 2,
+     "max": 3,
+     "weight": 10
+    },
+    {
+     "species": 819,
+     "min": 2,
+     "max": 3,
+     "weight": 50
+    },
+    {
+     "species": 821,
+     "min": 2,
+     "max": 3,
+     "weight": 20
+    },
+    {
+     "species": 163,
+     "min": 2,
+     "max": 3,
+     "weight": 15
+    },
+    {
+     "species": 824,
+     "min": 2,
+     "max": 3,
+     "weight": 10
+    },
+    {
+     "species": 736,
+     "min": 2,
+     "max": 3,
+     "weight": 5
+    }
+   ]
+  },
+  "galar_2": {
+   "rate": 0.115,
+   "shared": [
+    {
+     "species": 819,
+     "min": 5,
+     "max": 7,
+     "weight": 38
+    },
+    {
+     "species": 821,
+     "min": 5,
+     "max": 7,
+     "weight": 30
+    },
+    {
+     "species": 827,
+     "min": 5,
+     "max": 7,
+     "weight": 15
+    },
+    {
+     "species": 833,
+     "min": 5,
+     "max": 7,
+     "weight": 10
+    },
+    {
+     "species": 835,
+     "min": 5,
+     "max": 7,
+     "weight": 5
+    },
+    {
+     "species": 263,
+     "min": 5,
+     "max": 7,
+     "weight": 2,
+     "form": "ZIGZAGOON_GALAR"
+    },
+    {
+     "species": 824,
+     "min": 4,
+     "max": 6,
+     "weight": 40
+    },
+    {
+     "species": 821,
+     "min": 4,
+     "max": 6,
+     "weight": 25
+    },
+    {
+     "species": 509,
+     "min": 4,
+     "max": 6,
+     "weight": 10
+    },
+    {
+     "species": 163,
+     "min": 4,
+     "max": 6,
+     "weight": 5
+    }
+   ],
+   "sword": [
+    {
+     "species": 273,
+     "min": 4,
+     "max": 6,
+     "weight": 20
+    }
+   ],
+   "shield": [
+    {
+     "species": 270,
+     "min": 4,
+     "max": 6,
+     "weight": 20
+    }
+   ]
+  },
+  "galar_wild_south": {
+   "rate": 0.115,
+   "shared": [
+    {
+     "species": 415,
+     "min": 7,
+     "max": 10,
+     "weight": 60
+    },
+    {
+     "species": 659,
+     "min": 7,
+     "max": 10,
+     "weight": 25
+    },
+    {
+     "species": 11,
+     "min": 7,
+     "max": 10,
+     "weight": 10
+    },
+    {
+     "species": 236,
+     "min": 7,
+     "max": 10,
+     "weight": 5
+    },
+    {
+     "species": 659,
+     "min": 7,
+     "max": 9,
+     "weight": 40
+    },
+    {
+     "species": 572,
+     "min": 7,
+     "max": 9,
+     "weight": 35
+    },
+    {
+     "species": 761,
+     "min": 7,
+     "max": 9,
+     "weight": 20
+    },
+    {
+     "species": 11,
+     "min": 7,
+     "max": 9,
+     "weight": 5
+    }
+   ]
+  },
+  "galar_wild_lake": {
+   "rate": 0.115,
+   "shared": [
+    {
+     "species": 759,
+     "min": 10,
+     "max": 15,
+     "weight": 50
+    },
+    {
+     "species": 43,
+     "min": 10,
+     "max": 15,
+     "weight": 35
+    },
+    {
+     "species": 761,
+     "min": 10,
+     "max": 15,
+     "weight": 15
+    },
+    {
+     "species": 43,
+     "min": 8,
+     "max": 12,
+     "weight": 45
+    },
+    {
+     "species": 659,
+     "min": 8,
+     "max": 12,
+     "weight": 30
+    },
+    {
+     "species": 519,
+     "min": 8,
+     "max": 12,
+     "weight": 20
+    },
+    {
+     "species": 759,
+     "min": 8,
+     "max": 12,
+     "weight": 5
+    }
+   ]
+  },
+  "galar_3": {
+   "rate": 0.115,
+   "shared": [
+    {
+     "species": 263,
+     "min": 10,
+     "max": 14,
+     "weight": 38,
+     "form": "ZIGZAGOON_GALAR"
+    },
+    {
+     "species": 829,
+     "min": 10,
+     "max": 14,
+     "weight": 30
+    },
+    {
+     "species": 434,
+     "min": 10,
+     "max": 14,
+     "weight": 10
+    },
+    {
+     "species": 568,
+     "min": 10,
+     "max": 14,
+     "weight": 5
+    },
+    {
+     "species": 236,
+     "min": 10,
+     "max": 14,
+     "weight": 2
+    },
+    {
+     "species": 821,
+     "min": 8,
+     "max": 13,
+     "weight": 35
+    },
+    {
+     "species": 66,
+     "min": 8,
+     "max": 13,
+     "weight": 20
+    },
+    {
+     "species": 674,
+     "min": 8,
+     "max": 13,
+     "weight": 20
+    },
+    {
+     "species": 749,
+     "min": 8,
+     "max": 13,
+     "weight": 15
+    },
+    {
+     "species": 599,
+     "min": 8,
+     "max": 13,
+     "weight": 9
+    },
+    {
+     "species": 850,
+     "min": 8,
+     "max": 13,
+     "weight": 1
+    }
+   ],
+   "sword": [
+    {
+     "species": 37,
+     "min": 10,
+     "max": 14,
+     "weight": 15
+    }
+   ],
+   "shield": [
+    {
+     "species": 58,
+     "min": 10,
+     "max": 14,
+     "weight": 15
+    }
+   ]
+  },
+  "galar_mine": {
+   "rate": 0.115,
+   "shared": [
+    {
+     "species": 837,
+     "min": 11,
+     "max": 14,
+     "weight": 35
+    },
+    {
+     "species": 524,
+     "min": 11,
+     "max": 14,
+     "weight": 25
+    },
+    {
+     "species": 527,
+     "min": 11,
+     "max": 14,
+     "weight": 15
+    },
+    {
+     "species": 50,
+     "min": 11,
+     "max": 14,
+     "weight": 10
+    },
+    {
+     "species": 529,
+     "min": 11,
+     "max": 14,
+     "weight": 10
+    },
+    {
+     "species": 532,
+     "min": 11,
+     "max": 14,
+     "weight": 5
+    }
+   ]
+  },
+  "galar_4": {
+   "rate": 0.115,
+   "shared": [
+    {
+     "species": 309,
+     "min": 14,
+     "max": 16,
+     "weight": 30
+    },
+    {
+     "species": 52,
+     "min": 14,
+     "max": 16,
+     "weight": 23,
+     "form": "MEOWTH_GALAR"
+    },
+    {
+     "species": 835,
+     "min": 14,
+     "max": 16,
+     "weight": 20
+    },
+    {
+     "species": 710,
+     "min": 14,
+     "max": 16,
+     "weight": 10
+    },
+    {
+     "species": 710,
+     "min": 14,
+     "max": 16,
+     "weight": 5,
+     "form": "PUMPKABOO_SMALL"
+    },
+    {
+     "species": 710,
+     "min": 14,
+     "max": 16,
+     "weight": 5,
+     "form": "PUMPKABOO_LARGE"
+    },
+    {
+     "species": 710,
+     "min": 14,
+     "max": 16,
+     "weight": 1,
+     "form": "PUMPKABOO_SUPER"
+    },
+    {
+     "species": 52,
+     "min": 13,
+     "max": 15,
+     "weight": 35,
+     "form": "MEOWTH_GALAR"
+    },
+    {
+     "species": 831,
+     "min": 13,
+     "max": 15,
+     "weight": 25
+    },
+    {
+     "species": 868,
+     "min": 13,
+     "max": 15,
+     "weight": 20
+    },
+    {
+     "species": 595,
+     "min": 13,
+     "max": 15,
+     "weight": 10
+    },
+    {
+     "species": 742,
+     "min": 13,
+     "max": 15,
+     "weight": 5
+    },
+    {
+     "species": 406,
+     "min": 13,
+     "max": 15,
+     "weight": 4
+    },
+    {
+     "species": 597,
+     "min": 13,
+     "max": 15,
+     "weight": 1
+    }
+   ],
+   "sword": [
+    {
+     "species": 25,
+     "min": 14,
+     "max": 16,
+     "weight": 5
+    },
+    {
+     "species": 133,
+     "min": 14,
+     "max": 16,
+     "weight": 1
+    }
+   ],
+   "shield": [
+    {
+     "species": 133,
+     "min": 14,
+     "max": 16,
+     "weight": 5
+    },
+    {
+     "species": 25,
+     "min": 14,
+     "max": 16,
+     "weight": 1
+    }
+   ]
+  }
+ },
+ "trainers": {
+  "galar_2": [
+   {
+    "name": "短裤小子 杰克",
+    "at": [
+     18,
+     15
+    ],
+    "gfx": "youngster",
+    "lines": [
+     "贪心栗鼠，一起冲过去！"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 819,
+       "level": 6,
+       "moves": [
+        33,
+        39
+       ]
+      }
+     ],
+     "prize": 240
+    }
+   },
+   {
+    "name": "迷你裙 劳伦",
+    "at": [
+     24,
+     16
+    ],
+    "gfx": "lass",
+    "lines": [
+     "咬咬龟刚从湖边爬上来。来比赛吧！"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 833,
+       "level": 6,
+       "moves": [
+        33
+       ]
+      }
+     ],
+     "prize": 240
+    }
+   },
+   {
+    "name": "短裤小子 本杰明",
+    "at": [
+     30,
+     10
+    ],
+    "gfx": "youngster",
+    "lines": [
+     "我有两只伙伴，一只比一只厉害！"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 824,
+       "level": 5,
+       "moves": [
+        522
+       ]
+      },
+      {
+       "species": 827,
+       "level": 7,
+       "moves": [
+        39,
+        98
+       ]
+      }
+     ],
+     "prize": 280
+    }
+   }
+  ],
+  "galar_3": [
+   {
+    "name": "迷你裙 小玲",
+    "at": [
+     34,
+     15
+    ],
+    "gfx": "lass",
+    "lines": [
+     "六尾的毛整理好了，可以对战了！"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 37,
+       "level": 12,
+       "moves": [
+        98,
+        52,
+        39
+       ]
+      }
+     ],
+     "prize": 480
+    }
+   },
+   {
+    "name": "女学生 汉娜",
+    "at": [
+     29,
+     17
+    ],
+    "gfx": "lass",
+    "lines": [
+     "顽皮熊猫，把上课学的投技演给他看！"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 674,
+       "level": 13,
+       "moves": [
+        33,
+        509
+       ]
+      }
+     ],
+     "prize": 520
+    }
+   },
+   {
+    "name": "男学生 马文",
+    "at": [
+     24,
+     12
+    ],
+    "gfx": "youngster",
+    "lines": [
+     "我在观察草系宝可梦怎样扎根。"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 406,
+       "level": 12,
+       "moves": [
+        71
+       ]
+      },
+      {
+       "species": 829,
+       "level": 12,
+       "moves": [
+        670,
+        229,
+        230
+       ]
+      }
+     ],
+     "prize": 480
+    }
+   },
+   {
+    "name": "女学生 凯莉",
+    "at": [
+     18,
+     19
+    ],
+    "gfx": "lass",
+    "lines": [
+     "想在放学路上遇见新的对手！"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 509,
+       "level": 12,
+       "moves": [
+        10,
+        45
+       ]
+      },
+      {
+       "species": 819,
+       "level": 13,
+       "moves": [
+        33,
+        39
+       ]
+      }
+     ],
+     "prize": 520
+    }
+   },
+   {
+    "name": "邮递员 泰德",
+    "at": [
+     11,
+     12
+    ],
+    "gfx": "sailor",
+    "lines": [
+     "包裹按时送到了，信使鸟也想打一场！"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 225,
+       "level": 14,
+       "moves": [
+        217
+       ]
+      }
+     ],
+     "prize": 560
+    }
+   },
+   {
+    "name": "男学生 彼得",
+    "at": [
+     5,
+     13
+    ],
+    "gfx": "youngster",
+    "lines": [
+     "进矿山前，再看看我的虫系队伍吧。"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 850,
+       "level": 13,
+       "moves": [
+        44,
+        52,
+        35
+       ]
+      },
+      {
+       "species": 825,
+       "level": 14,
+       "moves": [
+        93,
+        522,
+        113
+       ]
+      }
+     ],
+     "prize": 560
+    }
+   }
+  ],
+  "galar_mine": [
+   {
+    "name": "工人 基思",
+    "at": [
+     34,
+     12
+    ],
+    "gfx": "hiker",
+    "lines": [
+     "矿山里有时连岩石都会发出叫声。"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 524,
+       "level": 14,
+       "moves": [
+        33,
+        106
+       ]
+      }
+     ],
+     "prize": 560
+    }
+   },
+   {
+    "name": "工人 乔治娅",
+    "at": [
+     26,
+     16
+    ],
+    "gfx": "battle_girl",
+    "lines": [
+     "我们一起搬过铁轨，配合得可好了！"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 532,
+       "level": 14,
+       "moves": [
+        1,
+        88,
+        67
+       ]
+      },
+      {
+       "species": 532,
+       "level": 14,
+       "moves": [
+        1,
+        67,
+        116
+       ]
+      },
+      {
+       "species": 532,
+       "level": 14,
+       "moves": [
+        1,
+        43,
+        88
+       ]
+      }
+     ],
+     "prize": 560
+    }
+   },
+   {
+    "name": "工人 桑德拉",
+    "at": [
+     16,
+     22
+    ],
+    "gfx": "battle_girl",
+    "lines": [
+     "钻进地里之后，要从哪边出来呢？"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 50,
+       "level": 14,
+       "moves": [
+        10,
+        45,
+        310
+       ]
+      },
+      {
+       "species": 529,
+       "level": 15,
+       "moves": [
+        10,
+        229
+       ]
+      }
+     ],
+     "prize": 600
+    }
+   },
+   {
+    "name": "工人 拉塞尔",
+    "at": [
+     13,
+     28
+    ],
+    "gfx": "hiker",
+    "lines": [
+     "这里的石丸子和小炭仔可别认错了。"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 837,
+       "level": 15,
+       "moves": [
+        33,
+        229
+       ]
+      }
+     ],
+     "prize": 600
+    }
+   }
+  ],
+  "galar_4": [
+   {
+    "name": "培育家 杰米",
+    "at": [
+     20,
+     6
+    ],
+    "gfx": "breeder",
+    "lines": [
+     "牧场里每个孩子都有自己喜欢的饲料。"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 52,
+       "level": 14,
+       "moves": [
+        252,
+        10,
+        45
+       ],
+       "form": "MEOWTH_GALAR"
+      },
+      {
+       "species": 273,
+       "level": 14,
+       "moves": [
+        205,
+        71,
+        33
+       ]
+      },
+      {
+       "species": 12,
+       "level": 15,
+       "moves": [
+        81,
+        93,
+        48
+       ]
+      }
+     ],
+     "prize": 600
+    }
+   },
+   {
+    "name": "宝可梦小朋友 夏恩",
+    "at": [
+     26,
+     10
+    ],
+    "gfx": "youngster",
+    "lines": [
+     "皮卡丘，先用电磁波！"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 25,
+       "level": 15,
+       "moves": [
+        86,
+        486,
+        98
+       ]
+      }
+     ],
+     "prize": 600
+    }
+   },
+   {
+    "name": "培育家 布拉德利",
+    "at": [
+     26,
+     19
+    ],
+    "gfx": "breeder",
+    "lines": [
+     "今天是我们队伍第一次并肩出门。"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 309,
+       "level": 15,
+       "moves": [
+        33,
+        43,
+        98
+       ]
+      },
+      {
+       "species": 270,
+       "level": 15,
+       "moves": [
+        55,
+        71,
+        45
+       ]
+      }
+     ],
+     "prize": 600
+    }
+   },
+   {
+    "name": "宝可梦小朋友 米娅",
+    "at": [
+     33,
+     11
+    ],
+    "gfx": "lass",
+    "lines": [
+     "猜猜看，扮成伊布的我带了谁？"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 133,
+       "level": 15,
+       "moves": [
+        98,
+        608,
+        39,
+        33
+       ]
+      }
+     ],
+     "prize": 600
+    }
+   },
+   {
+    "name": "宝可梦小朋友 里斯",
+    "at": [
+     38,
+     14
+    ],
+    "gfx": "youngster",
+    "lines": [
+     "虫系也能在金黄的田野里找到朋友。"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 595,
+       "level": 14,
+       "moves": [
+        527,
+        450,
+        81
+       ]
+      },
+      {
+       "species": 736,
+       "level": 14,
+       "moves": [
+        11,
+        450,
+        44
+       ]
+      }
+     ],
+     "prize": 560
+    }
+   },
+   {
+    "name": "宝可梦小朋友 桑妮",
+    "at": [
+     39,
+     20
+    ],
+    "gfx": "lass",
+    "lines": [
+     "小仙奶最喜欢牧场里的香气了！"
+    ],
+    "post": [
+     "下次碰到你时，我要让伙伴试试新招式。"
+    ],
+    "battle": {
+     "team": [
+      {
+       "species": 868,
+       "level": 15,
+       "moves": [
+        577,
+        230
+       ]
+      }
+     ],
+     "prize": 600
+    }
+   }
+  ]
+ },
+ "side_events": [
+  {
+   "id": "g_route3_cheri",
+   "map": "galar_3",
+   "who": "露营者 贝卡",
+   "at": [
+    14,
+    15
+   ],
+   "guests": [],
+   "require": [
+    "g_hop_west"
+   ],
+   "steps": [
+    {
+     "who": "露营者 贝卡",
+     "say": [
+      "路上饿了吗？送你一颗樱子果。在背包里打开露营组合，用树果煮一锅咖喱，大家就能精神起来。"
+     ]
+    },
+    {
+     "galar_berry": "cheri"
+    },
+    {
+     "flag": "g_route3_cheri"
+    }
+   ]
+  }
+ ],
+ "swift_species": [
+  4,
+  5,
+  6,
+  12,
+  25,
+  26,
+  27,
+  28,
+  37,
+  38,
+  41,
+  42,
+  52,
+  53,
+  54,
+  55,
+  58,
+  59,
+  63,
+  64,
+  65,
+  77,
+  78,
+  79,
+  80,
+  81,
+  82,
+  83,
+  90,
+  91,
+  104,
+  105,
+  106,
+  107,
+  116,
+  117,
+  118,
+  119,
+  120,
+  121,
+  123,
+  125,
+  133,
+  134,
+  135,
+  136,
+  137,
+  142,
+  144,
+  145,
+  146,
+  147,
+  148,
+  149,
+  150,
+  151,
+  163,
+  164,
+  169,
+  172,
+  175,
+  176,
+  177,
+  178,
+  183,
+  184,
+  196,
+  197,
+  199,
+  211,
+  212,
+  215,
+  223,
+  224,
+  225,
+  226,
+  227,
+  230,
+  233,
+  236,
+  237,
+  239,
+  243,
+  244,
+  245,
+  249,
+  250,
+  251,
+  252,
+  253,
+  254,
+  256,
+  257,
+  263,
+  264,
+  274,
+  275,
+  278,
+  279,
+  280,
+  281,
+  282,
+  291,
+  309,
+  310,
+  315,
+  318,
+  319,
+  329,
+  330,
+  333,
+  334,
+  337,
+  338,
+  342,
+  349,
+  350,
+  359,
+  373,
+  375,
+  376,
+  380,
+  381,
+  384,
+  385,
+  403,
+  404,
+  405,
+  406,
+  407,
+  416,
+  425,
+  426,
+  427,
+  428,
+  434,
+  435,
+  443,
+  444,
+  445,
+  447,
+  448,
+  458,
+  461,
+  462,
+  466,
+  468,
+  470,
+  471,
+  474,
+  475,
+  479,
+  480,
+  481,
+  482,
+  483,
+  484,
+  487,
+  488,
+  494,
+  509,
+  510,
+  517,
+  518,
+  519,
+  520,
+  521,
+  527,
+  528,
+  546,
+  547,
+  550,
+  561,
+  566,
+  567,
+  570,
+  571,
+  572,
+  573,
+  587,
+  595,
+  596,
+  610,
+  611,
+  612,
+  617,
+  619,
+  620,
+  627,
+  628,
+  629,
+  630,
+  638,
+  639,
+  640,
+  643,
+  644,
+  646,
+  647,
+  649,
+  661,
+  662,
+  663,
+  677,
+  678,
+  694,
+  695,
+  700,
+  701,
+  714,
+  715,
+  716,
+  717,
+  718,
+  722,
+  723,
+  724,
+  742,
+  743,
+  745,
+  757,
+  758,
+  767,
+  768,
+  772,
+  773,
+  777,
+  780,
+  785,
+  791,
+  792,
+  795,
+  802,
+  804,
+  807,
+  810,
+  811,
+  812,
+  813,
+  814,
+  815,
+  816,
+  817,
+  818,
+  821,
+  822,
+  823,
+  827,
+  828,
+  835,
+  836,
+  846,
+  847,
+  849,
+  862,
+  876,
+  877,
+  885,
+  886,
+  887,
+  888,
+  889,
+  892,
+  893,
+  894,
+  897,
+  898
+ ],
+ "swift_excluded_forms": [
+  "MEOWTH_GALAR",
+  "FARFETCHD_GALAR",
+  "LYCANROC_MIDNIGHT",
+  "LYCANROC_DUSK"
+ ]
+}

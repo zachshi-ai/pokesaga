@@ -3,6 +3,9 @@ extends Node2D
 
 const Alola := preload("res://core/alola_campaign.gd")
 const AlolaField := preload("res://core/alola_field.gd")
+const Galar := preload("res://core/galar_campaign.gd")
+const GalarMoves := preload("res://core/galar_moves.gd")
+const GalarGym := preload("res://core/galar_gym.gd")
 const AlolaSide := preload("res://core/alola_side.gd")
 const AlolaZ := preload("res://core/alola_z.gd")
 const KalosForms := preload("res://core/kalos_forms.gd")
@@ -680,7 +683,7 @@ func _show_title() -> void:
 		if stored.region=="unova":Data.set_unova_era(UnovaField.era(stored.get("flags",{})))
 		var last_map: Dictionary = Data.load_map(str(stored.region), str(stored.map))
 		summary = {"location":str(stored.get("location_label", last_map.get("name", stored.map))),
-			"badge_count":Journey.badges(stored,stored.region).size() if stored.region in ["unova","kalos","alola"] else stored.get("badges", []).size()}
+			"badge_count":Journey.badges(stored,stored.region).size() if stored.region in ["unova","kalos","alola","galar"] else stored.get("badges", []).size()}
 	title_layer = CanvasLayer.new()
 	title_layer.layer = 12
 	add_child(title_layer)
@@ -716,7 +719,7 @@ func _refresh_hud() -> void:
 	if money_label and save_data.has("money"):
 		money_label.text = "¥%d" % int(save_data.get("money", 0))
 	if badges_label:
-		var bs: Array = Journey.badges(save_data,world.map_data.region) if world.map_data.get("region","") in ["unova","kalos","alola"] else save_data.get("badges", [])
+		var bs: Array = Journey.badges(save_data,world.map_data.region) if world.map_data.get("region","") in ["unova","kalos","alola","galar"] else save_data.get("badges", [])
 		badges_label.text = ("徽章 %d" % bs.size()) if not bs.is_empty() else ""
 
 ## 站在坡上方时直接把「按 ↓ 能跳下去」写出来，省得靠坐标对位置
@@ -875,7 +878,8 @@ func _story_fire(kind: String, ctx: Dictionary) -> bool:
 		preload("res://core/sevii_campaign.gd").sync(save_data)
 	var candidates := preload("res://core/johto_rival.gd").scene_flags(str(world.map_data.get("id","")),flags)
 	var ev: Dictionary
-	if chapter=="alola":ev=Alola.event(self,kind,ctx)
+	if chapter=="galar":ev=Galar.event(self,kind,ctx)
+	elif chapter=="alola":ev=Alola.event(self,kind,ctx)
 	elif chapter=="kalos":ev=Kalos.event(self,kind,ctx)
 	elif chapter=="unova":
 		if kind=="talk":
@@ -913,6 +917,7 @@ func _story_step() -> void:
 		if act.has("unova_sequel"):
 			_choose_unova_sequel()
 			return
+		if world.map_data.region=="galar" and Galar.prompt(self,act):return
 		if world.map_data.region=="alola" and Alola.prompt(self,act):return
 		if world.map_data.region=="kalos" and Kalos.prompt(self,act):return
 		if world.map_data.region=="unova" and Unova.prompt(self,act):return
@@ -949,14 +954,14 @@ func _story_done() -> void:
 	if _flags().get("rival_bridge",false) and _bag_count("名人传言器")==0:_give_item("名人传言器",1,"key")
 	_persist()
 	if story_abort:
-		if world.map_data.get("region","") in ["kanto","johto","sinnoh","unova","kalos","alola"]: world.refresh_story_actors(_flags())
+		if world.map_data.get("region","") in ["kanto","johto","sinnoh","unova","kalos","alola","galar"]: world.refresh_story_actors(_flags())
 		story_abort = false
 		cur_story = {}
 		return
 	if not cur_story.is_empty() and story != null:
 		story.mark_finished(cur_story, _flags())
 		if cur_story.get("id","")=="h_magma_gate": world._rebuild(_flags())
-		if world.map_data.get("region","") in ["kanto","sevii","johto","hoenn","sinnoh","unova","kalos","alola"]:
+		if world.map_data.get("region","") in ["kanto","sevii","johto","hoenn","sinnoh","unova","kalos","alola","galar"]:
 			world.refresh_story_actors(_flags())
 			_apply_defeated()
 		save_data["flags"] = _flags()
@@ -971,6 +976,7 @@ func _story_battle(cfg) -> void:
 	if conf.has("johto_rival"):
 		conf = conf.merged({"team":preload("res://core/johto_campaign.gd").team(conf.johto_rival,_flags())},true)
 	match world.map_data.region:
+		"galar": conf=Galar.team(conf,_flags())
 		"alola": conf=Alola.team(conf,_flags())
 		"kalos": conf=Kalos.team(conf,_flags())
 		"unova": conf=Unova.team(conf,_flags())
@@ -1028,6 +1034,7 @@ func _story_battle(cfg) -> void:
 
 ## 单个剧情动作
 func _story_do(act: Dictionary) -> void:
+	if world.map_data.region=="galar":Galar.action(self,act)
 	if world.map_data.region=="alola":Alola.action(self,act)
 	if world.map_data.region=="kalos":
 		Kalos.action(self,act)
@@ -1141,8 +1148,8 @@ func _dialog(lines: Array, speaker := "") -> Node:
 			if panel_open == 0:
 				_set_hud_visible(true))
 	dlg.call("setup", lines, speaker)
-	if world.map_data.get("region","")=="alola":dlg.show_portrait(load("res://core/alola_cast.gd").portrait(speaker))
-	if world.map_data.get("region","")=="kalos":dlg.show_portrait(load("res://core/kalos_cast.gd").portrait(speaker))
+	if world.REGIONAL_CASTS.has(world.map_data.get("region","")):
+		dlg.show_portrait(world.REGIONAL_CASTS[world.map_data.region].portrait(speaker))
 	return dlg
 
 ## 护士：原版那句话 + 是/否，确认了才真的治疗
@@ -1233,6 +1240,7 @@ func _required_field_badge(key: String) -> String:
 	return badge if badge not in Journey.badges(save_data,str(world.map_data.region)) else ""
 
 func _party_can_move(key: String) -> bool:
+	if world.map_data.region=="galar" and _flags().get("g_started",false):return false
 	if world.map_data.region=="alola":return AlolaField.allowed(_flags(),key)
 	if world.map_data.region=="kalos":return KalosField.allowed(self,key)
 	if world.map_data.region=="unova":return UnovaField.allowed(self,key)
@@ -1240,6 +1248,7 @@ func _party_can_move(key: String) -> bool:
 	return _required_field_badge(key).is_empty() and _party_has_move(key)
 
 func _field_move_hint(key: String, move_name: String) -> String:
+	if world.map_data.region=="galar":return "伽勒尔的道馆挑战沿当地的道路和车站前进。"
 	if world.map_data.region=="alola":return "需要先在阿罗拉登记对应的宝可骑行。"
 	if world.map_data.region=="kalos":return "要取得卡洛斯当地许可，并带上会%s的伙伴。"%move_name
 	if world.map_data.region=="unova":return "要在这一段合众旅程取得相应秘传学习器，并带上会%s的队员。" % move_name
@@ -1599,6 +1608,18 @@ func _update_music() -> void:
 func _do_warp(target: Dictionary) -> void:
 	if int(save_data.get("kalos_style",0))>=190:_flags().k_o_stylish=true
 	var destination_region := str(target.get("region",""))
+	if destination_region=="galar":
+		if _offer_chapter("galar"):return
+		if target.get("regional_travel",false):
+			var landing: Dictionary=Data.travel_regions().galar.hub if _flags().get("g_starter",0) else Journey.HOMES.galar
+			target=target.merged(landing,true)
+		var message: String=Galar.gate(target,_flags(),world.map_data)
+		if not message.is_empty():
+			held_dir=""
+			run_held=false
+			_dialog([message])
+			return
+	if (destination_region=="galar" or world.map_data.region=="galar") and GalarGym.warp(self,target):return
 	if destination_region=="alola":
 		if _offer_chapter("alola"):return
 		if target.get("regional_travel",false) or world.map_data.region!="alola" and not _flags().get("a_visited_"+str(target.map),false):
@@ -1779,7 +1800,7 @@ func _do_warp(target: Dictionary) -> void:
 	if target.get("sea_connection",false):
 		world.surfing=world.is_water(world.player_pos)
 		world._sync_player()
-	if next_map.region in ["kanto","sevii","johto","hoenn","sinnoh","unova","kalos","alola"] and world.npcs.any(func(n):return n.get("heal",false) and n.get("name","")=="护士"):
+	if next_map.region in ["kanto","sevii","johto","hoenn","sinnoh","unova","kalos","alola","galar"] and world.npcs.any(func(n):return n.get("heal",false) and n.get("name","")=="护士"):
 		save_data["last_pokemon_center"] = {"region":next_map.region,"map":next_map.id,"at":next_map.spawn.duplicate()}
 		save_data.get_or_add("centers",{})[next_map.region] = save_data.last_pokemon_center
 	_start_after_step = false
@@ -1797,6 +1818,7 @@ func _do_warp(target: Dictionary) -> void:
 
 func _after_step() -> void:
 	if world.map_data.get("region","")=="kalos":KalosOPower.walk(self)
+	if world.map_data.region=="galar" and GalarGym.step(self):return
 	if preload("res://core/emerald_cycling.gd").field_step(self):return
 	if preload("res://core/frontier_challenge.gd").field_step(self):return
 	if preload("res://core/frlg_safari.gd").step(self):return
@@ -1875,7 +1897,8 @@ func _try_encounter() -> void:
 		return
 	# 踩草遇敌；在海上冲浪也算「有东西会冒出来」
 	if world.map_data.has("unova_native") and UnovaSpots.step(self):return
-	var on_grass: bool = world.wild_tile_here()
+	var galar: bool = world.map_data.region=="galar"
+	var on_grass: bool = world.wild_tile_here() or (galar and world.map_data.id=="galar_mine")
 	if world.map_data.id==preload("res://core/crystal_ruins.gd").HALL:
 		var letters:=preload("res://core/crystal_ruins.gd").letters(_flags())
 		if not letters.is_empty() and EncounterScript.should_encounter(rng,0.12*preload("res://core/crystal_radio.gd").factor(self),grass_streak+1):
@@ -1944,6 +1967,11 @@ func _try_encounter() -> void:
 		var reg: Dictionary = Data.load_region(String(world.map_data.get("region", "")))
 		pool = reg.get("encounters", [])
 		rate = float(reg.get("encounter_rate", 0.12))
+	if galar:
+		var habitat: Dictionary = Galar.encounters(world.map_data.id,_flags())
+		if not habitat.is_empty():
+			pool = habitat.pool
+			rate = habitat.rate
 	if pool.is_empty():
 		return
 	if rate <= 0.0:
@@ -1991,7 +2019,7 @@ func _try_encounter() -> void:
 				break
 	var sid := int(wild["species"])
 	var form := preload("res://core/frlg_sidequests.gd").unown(self) if sid==201 and world.map_data.region=="sevii" else _roll_regional(sid)
-	if world.map_data.region in ["kalos","unova","alola"]:form=str(wild.get("form",""))
+	if world.map_data.region in ["kalos","unova","alola","galar"]:form=str(wild.get("form",""))
 	if form=="locked":return
 	_start_wild_battle(sid, int(wild["level"]), form)
 
@@ -2741,6 +2769,7 @@ func _talk_to_npc(npc: Dictionary) -> void:
 	if story_on and rid in Journey.HOMES and not save_data.get("chapters",{}).has(rid) and not npc.get("transit",false) and (npc.has("gives_mon") or npc.has("badge") or (rid=="hoenn" and npc.has("source_script") and not npc.get("heal",false) and not npc.get("shop",false))):
 		_offer_chapter(rid)
 		return
+	if rid=="galar" and GalarGym.talk(self,npc):return
 	if rid=="alola" and npc.has("alola_trainer") and _flags().get(npc.alola_trainer,false):
 		_dialog(npc.post,npc.name)
 		return
@@ -3037,7 +3066,7 @@ func _party_fainted() -> bool:
 
 func _blackout() -> void:
 	var region := str(world.map_data.region)
-	if region not in ["kanto","sevii","johto","hoenn","sinnoh","unova","kalos","alola"]: return
+	if region not in ["kanto","sevii","johto","hoenn","sinnoh","unova","kalos","alola","galar"]: return
 	var home: Dictionary = Journey.HOMES.get(region,Journey.HOMES.kanto).merged({"region":"kanto" if region=="sevii" else region})
 	if region=="unova" and UnovaField.era(_flags())=="b2": home=Journey.SEQUEL_HOME.merged({"region":"unova"})
 	if region == "hoenn" and _flags().get("h_started",false):
@@ -3142,7 +3171,7 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 			# 没写招式就按它的等级从学习表里配
 			var mvs = e.get("moves", null)
 			if not (mvs is Array) or (mvs as Array).is_empty():
-				mvs = AlolaField.moves_for(sid,lv,_flags(),str(e.get("form",""))) if world.map_data.region=="alola" else KalosField.moves_for(sid,lv) if world.map_data.region=="kalos" else UnovaField.moves_for(sid,lv,_flags()) if world.map_data.region=="unova" else EncounterScript.moves_for(sid,lv)
+				mvs = GalarMoves.moves_for(sid,lv,str(e.get("form",""))) if world.map_data.region=="galar" else AlolaField.moves_for(sid,lv,_flags(),str(e.get("form",""))) if world.map_data.region=="alola" else KalosField.moves_for(sid,lv) if world.map_data.region=="kalos" else UnovaField.moves_for(sid,lv,_flags()) if world.map_data.region=="unova" else EncounterScript.moves_for(sid,lv)
 			var form: String=KalosForms.key(sid,int(e.xy_form)) if e.has("xy_form") else str(e.get("form",""))
 			var opponent := BattleScript.make_combatant(sid,lv,mvs,form)
 			if e.has("ability"):
@@ -3164,8 +3193,8 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 	var mine: Array = cfg.crystal_party.duplicate(true) if cfg.has("crystal_party") else _make_team()
 	if cfg.get("platinum_battle",false): mine=cfg.player.duplicate(true)
 	var first_partner: Dictionary = {}
-	if cfg.get("alola_starter_only",false) or cfg.get("kalos_starter_only",false) or cfg.get("sinnoh_starter_only",false) or cfg.has("unova_starter_only"):
-		first_partner=Alola.partner(save_data) if cfg.get("alola_starter_only",false) else Kalos.partner(save_data) if cfg.get("kalos_starter_only",false) else UnovaField.partner(save_data,int(cfg.unova_starter_only)) if cfg.has("unova_starter_only") else SinnohField.partner(save_data)
+	if cfg.get("galar_starter_only",false) or cfg.get("alola_starter_only",false) or cfg.get("kalos_starter_only",false) or cfg.get("sinnoh_starter_only",false) or cfg.has("unova_starter_only"):
+		first_partner=Galar.partner(save_data) if cfg.get("galar_starter_only",false) else Alola.partner(save_data) if cfg.get("alola_starter_only",false) else Kalos.partner(save_data) if cfg.get("kalos_starter_only",false) else UnovaField.partner(save_data,int(cfg.unova_starter_only)) if cfg.has("unova_starter_only") else SinnohField.partner(save_data)
 		if first_partner.is_empty():
 			push_error("Regional starter missing before rival battle")
 			return
@@ -3185,12 +3214,12 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 		lucario.held="LUCARIONITE"
 		mine=[lucario]
 		team_slots=[]
-	if cfg.get("ally","") in ["steven","sinnoh","unova","kalos","alola"]:
+	if cfg.get("ally","") in ["steven","sinnoh","unova","kalos","alola","galar"]:
 		# The allied trainers bring three each. Keep the player's party/PC slots intact.
 		mine = mine.slice(0,3)
 		team_slots.resize(mini(3,team_slots.size()))
 		for mon in mine: mon.trainer_group="first"
-		var partners: Array = cfg.ally_team if cfg.ally in ["sinnoh","unova","kalos","alola"] else preload("res://core/hoenn_campaign.gd").data().steven
+		var partners: Array = cfg.ally_team if cfg.ally in ["sinnoh","unova","kalos","alola","galar"] else preload("res://core/hoenn_campaign.gd").data().steven
 		for row in partners:
 			var partner := BattleScript.make_combatant(int(row.species),int(row.level),row.moves,str(row.get("form","")))
 			if row.has("ability"):
@@ -3224,7 +3253,7 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 				enemy.append(helper)
 		if cfg.get("battle_type","")=="triple": ui.positions=3
 	else: ui=BattleUI.new()
-	if cfg.get("double",false): ui.companion=cfg.get("ally","") in ["steven","sinnoh","unova","kalos","alola"]
+	if cfg.get("double",false): ui.companion=cfg.get("ally","") in ["steven","sinnoh","unova","kalos","alola","galar"]
 	ui.alola_rules=world.map_data.region=="alola"
 	ui.alola_ring=_flags().get("a_z_ring",false)
 	ui.alola_ultra=AlolaField.group(_flags())=="18"
@@ -3236,6 +3265,7 @@ func _start_battle(npc: Dictionary, on_done := Callable()) -> void:
 	held_dir = ""
 	layer.add_child(ui)
 	ui.setup(mine, enemy, rng.randi(), [] if cfg.has("crystal_party") or cfg.get("platinum_battle",false) else bag_items, String(npc.get("name", "训练家")))
+	if world.map_data.region=="galar":GalarGym.battle_rules(self,ui,npc)
 	if ui.kalos_rules and not cfg.get("tower",false) and not cfg.get("kalos_trial",false):KalosOPower.enter_battle(self,ui.battle)
 	SinnohSide.capsule_effect(ui,mine)
 	if _has_party():TravelStories.record(self,"TRAINER_BATTLES")
@@ -3325,7 +3355,7 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 	if world.map_data.region=="sinnoh" and SinnohSide.marsh_encounter(self,species_id,level,form_key): return
 	if preload("res://core/hoenn_safari.gd").encounter(self,species_id,level,form_key):return
 	if preload("res://core/frlg_safari.gd").encounter(self,species_id,level,form_key):return
-	var roster_moves := AlolaField.moves_for(species_id,level,_flags(),form_key) if world.map_data.region=="alola" else KalosField.moves_for(species_id,level) if world.map_data.region=="kalos" else UnovaField.moves_for(species_id,level,_flags()) if world.map_data.region=="unova" else SinnohSide.moves_for(species_id,level,form_key) if world.map_data.region=="sinnoh" else EncounterScript.moves_for(species_id,level)
+	var roster_moves := GalarMoves.moves_for(species_id,level,form_key) if world.map_data.region=="galar" else AlolaField.moves_for(species_id,level,_flags(),form_key) if world.map_data.region=="alola" else KalosField.moves_for(species_id,level) if world.map_data.region=="kalos" else UnovaField.moves_for(species_id,level,_flags()) if world.map_data.region=="unova" else SinnohSide.moves_for(species_id,level,form_key) if world.map_data.region=="sinnoh" else EncounterScript.moves_for(species_id,level)
 	var mon := PartyScript.make(species_id, level, roster_moves, form_key)
 	if world.map_data.region=="kalos" and species_id==370 and roamer.is_empty() and rng.randf()<0.5:mon.held="HEART_SCALE"
 	var shiny_draw:=shiny_kind
@@ -3368,6 +3398,7 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 	held_dir = ""
 	layer.add_child(ui)
 	ui.setup(mine, enemy, rng.randi(), supplies)
+	if world.map_data.region=="galar":GalarGym.battle_rules(self,ui,{})
 	if ui.alola_rules:ui.battle.kalos_o_capture=AlolaSide.factor(self,"catch")
 	if ui.kalos_rules:KalosOPower.enter_battle(self,ui.battle)
 	ui.battle.previously_caught=species_id in save_data.get("dex",{}).get("caught",[])
@@ -3400,7 +3431,8 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 			preload("res://core/hoenn_match_call.gd").after_battle(self,true)
 			preload("res://core/hoenn_daily.gd").wild_news(self)
 		if result == "caught":
-			if world.map_data.region in ["kalos","alola"] and borrowed==0 and not contest:_award_exp([mon],0,"",{},ui.player_team)
+			if world.map_data.region=="galar":_flags().g_caught_locally=true
+			if world.map_data.region in ["kalos","alola","galar"] and borrowed==0 and not contest:_award_exp([mon],0,"",{},ui.player_team)
 			if borrowed==0:TravelStories.record(self,"POKEMON_CAPTURES")
 			var caught: Dictionary = ui.battle.cur_b()
 			mon["pp"] = caught.pp.duplicate()
@@ -3456,12 +3488,12 @@ func _award_exp(enemies: Array, prize: int = 0, badge: String = "", only: Dictio
 			continue
 		var before := int(mon.get("level", 1))
 		var shared:=false
-		if world.map_data.region in ["kalos","alola"] and only.is_empty() and not combatants.is_empty():
+		if world.map_data.region in ["kalos","alola","galar"] and only.is_empty() and not combatants.is_empty():
 			var battle_slot:=team_slots.find(i)
 			var participated: bool=battle_slot>=0 and battle_slot<combatants.size() and combatants[battle_slot].get("kalos_participated",false)
 			shared=not participated
 			if shared:
-				var enabled:bool=_flags().get("a_exp_share",false) and not _flags().get("a_exp_off",false) if world.map_data.region=="alola" else _flags().get("k_alexa",false) and not _flags().get("k_exp_off",false)
+				var enabled:bool=true if world.map_data.region=="galar" else _flags().get("a_exp_share",false) and not _flags().get("a_exp_off",false) if world.map_data.region=="alola" else _flags().get("k_alexa",false) and not _flags().get("k_exp_off",false)
 				if not enabled:continue
 		var gained := 0
 		for opponent in enemies:
@@ -3473,7 +3505,7 @@ func _award_exp(enemies: Array, prize: int = 0, badge: String = "", only: Dictio
 		if shared:gained=maxi(1,gained/2)
 		if world.map_data.region=="kalos":gained=int(gained*KalosOPower.factor(self,"exp"))
 		if world.map_data.region=="alola":gained=int(gained*AlolaSide.factor(self,"exp"))
-		if mon.get("held","")=="EXP_SHARE" and world.map_data.region!="kalos":
+		if mon.get("held","")=="EXP_SHARE" and world.map_data.region not in ["kalos","galar"]:
 			gained += maxi(1, gained/2)
 		var previous_friendship:=int(mon.get("friendship",70))
 		var grew := GrowthScript.add_exp(mon, gained) if before < GrowthScript.MAX_LEVEL else 0
@@ -3510,7 +3542,7 @@ func _award_exp(enemies: Array, prize: int = 0, badge: String = "", only: Dictio
 func _learn_new_moves(mon: Dictionary, from_lv: int = 0, to_lv: int = 0) -> void:
 	var moves: Array = mon.get("moves", [])
 	var pp: Array = mon.get("pp", [])
-	var learnset := AlolaField.learnset(int(mon.species_id),_flags(),str(mon.get("form",""))) if world.map_data.region=="alola" else KalosField.learnset(int(mon.species_id)) if world.map_data.get("region","")=="kalos" else UnovaField.learnset(int(mon.species_id),_flags()) if world.map_data.get("region","")=="unova" else SinnohSide.learnset(int(mon.species_id),str(mon.get("form",""))) if world.map_data.get("region","")=="sinnoh" else []
+	var learnset := GalarMoves.learnset(int(mon.species_id),str(mon.get("form",""))) if world.map_data.region=="galar" else AlolaField.learnset(int(mon.species_id),_flags(),str(mon.get("form",""))) if world.map_data.region=="alola" else KalosField.learnset(int(mon.species_id)) if world.map_data.get("region","")=="kalos" else UnovaField.learnset(int(mon.species_id),_flags()) if world.map_data.get("region","")=="unova" else SinnohSide.learnset(int(mon.species_id),str(mon.get("form",""))) if world.map_data.get("region","")=="sinnoh" else []
 	var got: Array = GrowthScript.moves_learned(mon, from_lv, to_lv, learnset)
 	for id in got:
 		var mid := int(id)
@@ -5349,6 +5381,8 @@ func _test_held_items() -> bool:
 	var counters: Dictionary = Data.load_json("res://content/alola_side_bp.json")
 	for purchase in counters.sm:
 		shop_held[purchase[1]] = true
+	for gift: Array in Galar.PARTNER_GIFTS.values():
+		quest_held[gift[1]] = ["galar_motostoke",gift[0]]
 	quest_held["THICK_CLUB"] = ["alola_wela", "粗骨头"]
 	quest_held["BOTTLE_CAP"] = ["alola_paniola", "银色王冠"]
 	quest_held["GOLD_BOTTLE_CAP"] = ["alola_heahea", "金色王冠"]
@@ -8402,7 +8436,7 @@ func _restore_from_save() -> void:
 	var region := String(save_data.get("region", start_region))
 	var map_id := String(save_data.get("map", start_map))
 	var saved_pos: Array = save_data.get("pos", [])
-	if region in ["kalos","unova","alola"] and not save_data.chapters.has(region):
+	if region in ["kalos","unova","alola","galar"] and not save_data.chapters.has(region):
 		map_id=Journey.HOMES[region].map
 		saved_pos=Journey.HOMES[region].at.duplicate()
 	var has_saved_spot := saved_pos.size() == 2
@@ -9122,13 +9156,15 @@ func _offer_chapter(region: String, truck := false) -> bool:
 	if not story_on or region not in Journey.HOMES or save_data.get("chapters",{}).has(region): return false
 	held_dir = ""
 	run_held = false
-	if region not in ["sinnoh","unova","kalos","alola"] and not _has_party():
+	if region not in ["sinnoh","unova","kalos","alola","galar"] and not _has_party():
 		_begin_chapter(region,"carried",truck)
 		return true
 	_pick("初到%s · 现有队伍怎么安排？" % Journey.NAMES[region],["带现有队伍出发","寄存队伍，重新组队"],func(i: int) -> void:
 		var mode:="carried" if i==0 else "boxed"
 		if region=="alola":
 			_pick("阿罗拉的版本",AlolaField.TITLES,func(v):_begin_chapter(region,mode,truck,AlolaField.VERSIONS[v]))
+		elif region=="galar":
+			_pick("伽勒尔的版本",["《剑》","《盾》"],func(v):_begin_chapter(region,mode,truck,"sword" if v==0 else "shield"))
 		elif region=="kalos":
 			_pick("卡洛斯的版本",["《X》","《Y》"],func(v):_begin_chapter(region,mode,truck,"x" if v==0 else "y"))
 		else:_begin_chapter(region,mode,truck))
@@ -9271,6 +9307,8 @@ func _use_bag_item(nm: String) -> void:
 		_dialog(["学习装置已关闭。" if _flags().k_exp_off else "学习装置已打开。没有上场的健康队员也能获得经验。"])
 		return
 	if _bag_count(nm)>0 and preload("res://core/sinnoh_contests.gd").use_item(self,nm): return
+	if GalarGym.use_item(self,nm):return
+	if (world.map_data.region=="galar" or nm==preload("res://core/galar_items.gd").SWIFT) and _bag_count(nm)>0 and Galar.use(self,nm):return
 	if world.map_data.region=="alola" and _bag_count(nm)>0 and Alola.use_fusion(self,nm):return
 	if _bag_count(nm)>0 and (AlolaField.use(self,nm) or (world.map_data.region=="alola" and AlolaSide.use_item(self,nm))):return
 	if world.map_data.region=="alola" and (nm in KalosItems.REPEL or nm=="离洞绳") and _bag_count(nm)>0 and KalosItems.use(self,nm):return

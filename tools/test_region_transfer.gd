@@ -86,8 +86,11 @@ func trip(region: String, repeat_tap := false) -> bool:
 	await frames()
 	if region=="hoenn" and game.panel_open>0:
 		if not press(game.menu_layer.get_child(-1),"直接抵达"): return false
-	if region in ["sinnoh","unova","kalos","alola"] and not game.save_data.chapters.has(region):
+	if region in ["sinnoh","unova","kalos","alola","galar"] and not game.save_data.chapters.has(region):
 		if not press(game.menu_layer.get_child(-1),"带现有队伍出发"): return false
+		if region=="galar":
+			await frames()
+			if not press(game.menu_layer.get_child(-1),"《剑》"):return false
 		if region=="alola":
 			await frames()
 			if not press(game.menu_layer.get_child(-1),"《究极之日》"):return false
@@ -98,6 +101,7 @@ func trip(region: String, repeat_tap := false) -> bool:
 	game._close_all_dialogs()
 	await frames()
 	var hub: Dictionary = destination.hub
+	if region=="galar" and not game._flags().get("g_starter",0):hub=preload("res://core/region_journey.gd").HOMES.galar.merged({"region":"galar"})
 	if region=="alola" and not game._flags().get("a_visited_alola_hauoli",false):
 		hub={"region":"alola","map":"alola_home","at":[8,7]}
 	if first_arrival and not at_hub(hub) and region in ["hoenn","johto","sinnoh","unova","kalos"]:

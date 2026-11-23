@@ -488,8 +488,9 @@
  {
   "key": "CHARCOAL",
   "name": "木炭",
-  "desc": "携带时火属性招式的伤害提高一成。",
-  "id": 82
+  "desc": "携带后能增强火属性招式。",
+  "id": 82,
+  "type_boost": "fire"
  },
  {
   "key": "SHARP_BEAK",
@@ -543,7 +544,7 @@
  {
   "key": "MIRACLE_SEED",
   "name": "奇迹种子",
-  "desc": "携带时，对应属性招式的威力提高10%。",
+  "desc": "携带后能增强草属性招式。",
   "id": 90,
   "type_boost": "grass"
  },
@@ -625,5 +626,12 @@
   "name": "金色王冠",
   "desc": "在好奥乐市购物广场，让等级 100 的伙伴对全部能力进行极限特训。",
   "id": 103
+ },
+ {
+  "key": "MYSTIC_WATER",
+  "name": "神秘水滴",
+  "desc": "携带后能增强水属性招式。",
+  "id": 104,
+  "type_boost": "water"
  }
 ]

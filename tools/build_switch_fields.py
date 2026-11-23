@@ -825,6 +825,11 @@ def build(source):
         (BASE / r / "region.json").write_text(
             json.dumps(rec, ensure_ascii=False, indent=1)
         )
+    # Reattach the playable chapter venues after rebuilding their original city and lobby.
+    from build_motostoke_venues import build as build_motostoke
+    from build_galar_grass_gym import main as build_turffield
+    build_motostoke()
+    build_turffield()
     print(
         f"{len(maps)} source locations, {newrooms} entered buildings, {sum(len(v[0]['warps']) for v in output.values())} exits; {sum(v[1].width * v[1].height // 256 for v in output.values())} movement cells"
     )

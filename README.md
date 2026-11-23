@@ -1,8 +1,14 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.63.0-study`，versionCode 为 96，包名为 `com.stepx.pokesaga.study`。已安装 4.62 学习版可直接覆盖升级并继续原存档。4.46 版包名不同，两份应用可以同时安装并分别保存进度。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.64.0-study`，versionCode 为 97，包名为 `com.stepx.pokesaga.study`。已安装 4.63 学习版可直接覆盖升级并继续原存档。4.46 版包名不同，两份应用可以同时安装并分别保存进度。
 
-[下载 4.63 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.63.0-study/PokeSaga-4.63.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.63.0-study)
+[下载 4.64 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.64.0-study/PokeSaga-4.64.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.64.0-study)
+
+## 伽勒尔的第一枚徽章
+
+打开 **START → 背包 → 重要道具 → 地区转移器 → 伽勒尔**。首次抵达选择带队或寄存，再选《剑》或《盾》。小悠从化朗镇家里出发，与赫普接丹帝，在微寐森林追毛辫羊，经木杆镇和旷野地带前往机擎市报名。开幕式结束后，沿３号道路穿过伽勒尔矿山，到草路镇挑战亚洛。
+
+草路道馆用方向键赶羊。绕到羊群背后，把每片牧场的 20 只送上草垫。和亚洛交手时，打开**特殊行动**选择极巨化，再选招式。这个版本的伽勒尔剧情做到草之徽章。[人物、道具和道馆玩法](doc/伽勒尔道馆挑战.md) · [安卓模拟器画面](.github/preview/v4.64-galar.png)
 
 ## 后世代地图重绘
 

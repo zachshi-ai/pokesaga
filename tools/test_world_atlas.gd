@@ -107,15 +107,18 @@ func run() -> void:
 	var hubs := 0
 	var here: Dictionary = origin
 	for id in catalog:
-		if world.map_data.id=="alola_home":game._use_bag_item("地区转移器")
+		if world.map_data.id in ["alola_home","galar_player_home"]:game._use_bag_item("地区转移器")
 		elif not use_navigator(here): break
 		atlas = game.menu_layer.get_child(-1)
 		if not click(atlas,catalog[id].name) or not click(atlas,"出发前往"+str(catalog[id].name)):
 			break
 		await process_frame
 		if id=="hoenn": click(game.menu_layer.get_child(-1),"直接抵达")
-		if id in ["sinnoh","unova","kalos","alola"] and not game.save_data.chapters.has(id):
+		if id in ["sinnoh","unova","kalos","alola","galar"] and not game.save_data.chapters.has(id):
 			click(game.menu_layer.get_child(-1),"带现有队伍出发")
+			if id=="galar":
+				await process_frame
+				click(game.menu_layer.get_child(-1),"《盾》")
 			if id=="alola":
 				await process_frame
 				click(game.menu_layer.get_child(-1),"《月亮》")
@@ -136,7 +139,9 @@ func run() -> void:
 			await process_frame
 			if id=="hoenn": click(game.menu_layer.get_child(-1),"直接抵达")
 			await process_frame
-		here = {"region":"alola","map":"alola_home","at":[8,7]} if id=="alola" else catalog[id].hub
+		here = catalog[id].hub
+		if id in ["alola","galar"]:
+			here = preload("res://core/region_journey.gd").HOMES[id].merged({"region":id})
 		var stored := Save.existing()
 		expect(world.map_data.region==here.region and world.map_data.id==here.map and world.player_pos==tile(here.at),"arrival "+id)
 		expect(tile(stored.pos)==world.player_pos and stored.region==here.region and stored.map==here.map,"save "+id)

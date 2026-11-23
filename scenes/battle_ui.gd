@@ -142,6 +142,8 @@ func _make_sprite(c: Dictionary, pos: Vector2, scale_f: float, rear := false) ->
 	t.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	t.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	t.set_meta("rear",rear)
+	t.set_meta("normal_scale",scale_f)
+	t.set_meta("home_x",pos.x)
 	var effect := DexEffect.new()
 	effect.name = "Appearance"
 	t.add_child(effect)
@@ -281,6 +283,7 @@ func _make_menu() -> Control:
 	return panel
 
 func _open_commands(focus_key := "fight", prompt := "") -> void:
+	if battle.galar_rules:battle.cur_a().erase("galar_intent")
 	_close_sheet()
 	move_menu.hide()
 	menu.show()
@@ -309,6 +312,8 @@ func _open_moves() -> void:
 		UI.place(move_menu,first,8,26,311,42)
 	for i in (0 if exhausted else mini(moves.size(),4)):
 		var mv: Dictionary = Data.move_of(int(moves[i]))
+		var base_pp := int(mv.get("pp",0))
+		if battle.galar_rules and (c.get("galar_intent",false) or c.has("galar_base_hp")):mv=battle.galar_move(c,mv)
 		var b := _choice("",_on_move.bind(i))
 		b.name = "Move%d" % i
 		b.accessibility_name = str(mv.get("name","招式"))
@@ -320,7 +325,7 @@ func _open_moves() -> void:
 		b.disabled = uses <= 0
 		var power := int(mv.get("power",0))
 		var effect := "变化" if str(mv.get("category","")) == "status" else ("威力%d" % power if power > 0 else "威力—")
-		var max_pp := int(mv.get("pp",uses)) + int(c.get("pp_bonus",{}).get(str(moves[i]),0))
+		var max_pp := base_pp + int(c.get("pp_bonus",{}).get(str(moves[i]),0))
 		var details := UI.label("%s · %s · PP %d/%d" % [Data.type_name(str(mv.get("type","normal"))),effect,uses,max_pp],
 			10,Color("#5c7369") if uses > 0 else Color("#a05340"))
 		UI.place(b,details,18,23,138,15)
@@ -562,6 +567,11 @@ func _do_tera() -> void:
 	wait = _dur(0.1)
 
 func _do_transform(form_key: String) -> void:
+	if battle.galar_rules:
+		if form_key!="DYNAMAX" or battle.available_forms("a").is_empty():return
+		battle.cur_a().galar_intent=true
+		_open_moves()
+		return
 	if kalos_rules or alola_rules:
 		var active: Dictionary=battle.cur_a()
 		if not battle.available_forms("a").any(func(form):return form.key==form_key):return
@@ -790,6 +800,9 @@ func _refresh_field_label() -> void:
 	if f == null:
 		field_label.text = ""
 		return
+	if battle.galar_rules:
+		for pair in [[battle.cur_a(),"我方"],[battle.cur_b(),"对手"]]:
+			if pair[0].has("galar_turns"): parts.append("%s极巨 %d"%[pair[1],int(pair[0].galar_turns)])
 	if String(f.weather) != "":
 		var wn: String = {"sun": "晴", "rain": "雨", "sandstorm": "沙暴",
 			"snow": "雪", "fog": "雾"}.get(String(f.weather), String(f.weather))
@@ -853,7 +866,10 @@ func _apply_appearance(sprite: TextureRect, mon: Dictionary) -> void:
 	var texture := DexArt.battle_texture(sid, form, shine != "none", rear)
 	sprite.texture = texture if texture != null else load(Data.sprite_path(sid, form))
 	var feet := float(sprite.texture.get_meta("feet", 56))
-	var ground_y := (222.0 if rear else 134.0) - feet * 2.0
+	var size_factor:=float(sprite.get_meta("normal_scale",2.0))*(1.28 if mon.has("galar_base_hp") else 1.0)
+	sprite.scale=Vector2.ONE*size_factor
+	sprite.position.x=float(sprite.get_meta("home_x",sprite.position.x))-32.0*(size_factor-2.0)
+	var ground_y := (222.0 if rear else 134.0) - feet * size_factor
 	sprite.set_meta("ground_y", ground_y)
 	sprite.position.y = ground_y
 	var effect = sprite.get_node("Appearance")

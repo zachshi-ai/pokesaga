@@ -1,4 +1,9 @@
 extends Node2D
+const REGIONAL_CASTS := {
+	"alola": preload("res://core/alola_cast.gd"), "kalos": preload("res://core/kalos_cast.gd"),
+	"galar": preload("res://core/galar_cast.gd")
+}
+
 ## 地图渲染与移动。
 ## 瓦片图集：assets/tiles.png（4 列 × 12 行，16×16）
 ##   0-15 独立瓦片；16-31 土路 autotile；32-47 水域 autotile
@@ -1047,10 +1052,9 @@ func _check_talk() -> void:
 		var index := npcs.find(npc)
 		if index>=0 and index*2+1<_npc_nodes.size():
 			var sprite: Sprite2D = _npc_nodes[index*2+1]
-			var alola_identity := str(sprite.get_meta("alola_identity",""))
-			if not alola_identity.is_empty():load("res://core/alola_cast.gd").draw(sprite,alola_identity,{"left":"right","right":"left","up":"down","down":"up"}[facing])
-			var kalos_identity := str(sprite.get_meta("kalos_identity",""))
-			if not kalos_identity.is_empty():load("res://core/kalos_cast.gd").draw(sprite,kalos_identity,{"left":"right","right":"left","up":"down","down":"up"}[facing])
+			var atlas_identity := str(sprite.get_meta("atlas_identity",""))
+			if not atlas_identity.is_empty():
+				REGIONAL_CASTS[map_data.region].draw(sprite,atlas_identity,{"left":"right","right":"left","up":"down","down":"up"}[facing])
 			var unova_identity := str(sprite.get_meta("unova_identity",""))
 			if not unova_identity.is_empty():
 				preload("res://core/unova_cast.gd").draw(sprite,unova_identity,{"left":"right","right":"left","up":"down","down":"up"}[facing])
@@ -1180,7 +1184,8 @@ func _sync_player() -> void:
 	var f: int = int(FACE_FRAME.get(facing, 0))
 	var afloat := surfing and is_water(player_pos)
 	var sheet: Texture2D = PLAYER_SURF if afloat else PLAYER_WALK
-	if taken.get("a_guide_worn",false):sheet=preload("res://assets/alola/guide_player_surf.png") if afloat else preload("res://assets/alola/guide_player_emerald.png")
+	if taken.get("g_grass_uniform_worn",false):sheet=preload("res://assets/galar/grass_gym/uniform_surf.png") if afloat else preload("res://assets/galar/grass_gym/uniform_walk.png")
+	elif taken.get("a_guide_worn",false):sheet=preload("res://assets/alola/guide_player_surf.png") if afloat else preload("res://assets/alola/guide_player_emerald.png")
 	elif taken.has("ks_cap"):sheet=preload("res://core/kalos_skate_appearance.gd").sheet(sheet,taken.ks_cap,afloat)
 	if _player_sprite.texture != sheet:
 		_player_sprite.texture = sheet
@@ -1411,18 +1416,13 @@ func _draw_npcs() -> void:
 		var identity := JohtoCast.character(n) if johto else ""
 		var tex: Texture2D
 		var unova_identity: String = preload("res://core/unova_cast.gd").character(n) if map_data.has("unova_native") else ""
-		var alola_identity:String=load("res://core/alola_cast.gd").character(n) if map_data.get("region","")=="alola" else ""
-		var kalos_identity: String=load("res://core/kalos_cast.gd").character(n) if map_data.get("region","")=="kalos" else ""
+		var atlas_identity: String = REGIONAL_CASTS[map_data.region].character(n) if REGIONAL_CASTS.has(map_data.get("region","")) else ""
 		var sinnoh_identity := SinnohCast.character(n) if map_data.has("platinum_native") else ""
 		if n.has("unova_prop"):
 			tex=EmeraldField.prop_texture(str(n.unova_prop))
-		elif not alola_identity.is_empty():
-			s.set_meta("alola_identity",alola_identity)
-			load("res://core/alola_cast.gd").draw(s,alola_identity,n.get("facing","down"))
-			tex=s.texture
-		elif not kalos_identity.is_empty():
-			s.set_meta("kalos_identity",kalos_identity)
-			load("res://core/kalos_cast.gd").draw(s,kalos_identity,n.get("facing","down"))
+		elif not atlas_identity.is_empty():
+			s.set_meta("atlas_identity",atlas_identity)
+			REGIONAL_CASTS[map_data.region].draw(s,atlas_identity,n.get("facing","down"))
 			tex=s.texture
 		elif not unova_identity.is_empty():
 			s.set_meta("unova_identity",unova_identity)
@@ -1486,13 +1486,12 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 	var sprite: Sprite2D = _npc_nodes[index*2+1]
 	var shadow: Sprite2D = _npc_nodes[index*2]
 	var npc_position := Vector2i(int(row.at[0]),int(row.at[1]))
-	var alola_identity:=str(sprite.get_meta("alola_identity",""))
-	var kalos_identity:=str(sprite.get_meta("kalos_identity",""))
+	var atlas_identity:=str(sprite.get_meta("atlas_identity",""))
 	var johto_identity := str(sprite.get_meta("johto_identity",""))
 	var unova_identity := str(sprite.get_meta("unova_identity",""))
 	var sinnoh_identity := str(sprite.get_meta("sinnoh_identity",""))
 	var emerald: bool = map_data.has("emerald_original") and row.has("source_gfx")
-	if johto_identity.is_empty() and sinnoh_identity.is_empty() and unova_identity.is_empty() and kalos_identity.is_empty() and alola_identity.is_empty() and not emerald:
+	if johto_identity.is_empty() and sinnoh_identity.is_empty() and unova_identity.is_empty() and atlas_identity.is_empty() and not emerald:
 		sprite.texture = preload("res://assets/npc/fr_oak_walk.png")
 		sprite.hframes = 9
 	var actor_face := "down"
@@ -1504,8 +1503,7 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 			var delta: Vector2i = directions[npc_path[i]]
 			npc_position+=delta
 			actor_face = faces[npc_path[i]]
-			if not alola_identity.is_empty():load("res://core/alola_cast.gd").draw(sprite,alola_identity,actor_face,1+i%2)
-			elif not kalos_identity.is_empty():load("res://core/kalos_cast.gd").draw(sprite,kalos_identity,actor_face,1+i%2)
+			if not atlas_identity.is_empty():REGIONAL_CASTS[map_data.region].draw(sprite,atlas_identity,actor_face,1+i%2)
 			elif not unova_identity.is_empty(): preload("res://core/unova_cast.gd").draw(sprite,unova_identity,actor_face,1+i%2)
 			elif not sinnoh_identity.is_empty(): SinnohCast.draw(sprite,sinnoh_identity,actor_face,1+i%2)
 			elif emerald: preload("res://core/hoenn_field.gd").draw(sprite,row,actor_face,1+i%2)
@@ -1524,8 +1522,7 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 			player_pos+=Vector2i(directions[player_path[i]])
 			tween.tween_method(_render_story_step,render_pos,Vector2(player_pos),0.11)
 		await tween.finished
-		if not alola_identity.is_empty():load("res://core/alola_cast.gd").draw(sprite,alola_identity,actor_face)
-		elif not kalos_identity.is_empty():load("res://core/kalos_cast.gd").draw(sprite,kalos_identity,actor_face)
+		if not atlas_identity.is_empty():REGIONAL_CASTS[map_data.region].draw(sprite,atlas_identity,actor_face)
 		elif not unova_identity.is_empty(): preload("res://core/unova_cast.gd").draw(sprite,unova_identity,actor_face)
 		elif not sinnoh_identity.is_empty(): SinnohCast.draw(sprite,sinnoh_identity,actor_face)
 		elif emerald: preload("res://core/hoenn_field.gd").draw(sprite,row,actor_face)

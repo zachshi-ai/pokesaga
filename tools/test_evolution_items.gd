@@ -156,6 +156,11 @@ func check_markets() -> void:
 			game._close_all_dialogs()
 			for flag in load("res://core/sinnoh_campaign.gd").data().gates[mid].require:
 				game._flags()[flag]=true
+		if region=="galar":
+			expect(await preload("regional_start.gd").enter(game,"galar","carried","sword"),"register the Galar chapter")
+			game._close_all_dialogs()
+			# This market is beyond Turffield. Gate behaviour is exercised by test_galar_entry.
+			game._flags().g_badge_1=true
 		game._do_warp({"region":region, "map":mid, "at":db.load_map(region, mid).spawn})
 		game._close_all_dialogs()
 		var clerk := {}

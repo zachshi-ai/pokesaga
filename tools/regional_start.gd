@@ -48,6 +48,9 @@ static func enter(g, region: String, mode := "carried", version := "x") -> bool:
 			await tree.process_frame
 			var field=load("res://core/alola_field.gd")
 			if version not in field.VERSIONS or not press(g.menu_layer,field.TITLES[field.VERSIONS.find(version)]):return false
+		if region=="galar":
+			await tree.process_frame
+			if not press(g.menu_layer,"《盾》" if version=="shield" else "《剑》"):return false
 		if region=="kalos":
 			await tree.process_frame
 			if not press(g.menu_layer,"《Y》" if version=="y" else "《X》"):return false

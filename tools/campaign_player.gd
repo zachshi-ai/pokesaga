@@ -9,6 +9,8 @@ var mode := "travel"
 var requested_ball := ""
 var requested_species := 0
 var z_inputs := 0
+var galar_dynamax_inputs := 0
+var galar_first_rival_party := []
 var turns := 0
 var steps := 0
 var obstruction := []
@@ -90,6 +92,8 @@ func battle() -> void:
 	var ui = game.active_battle
 	var wild: bool = str(ui.trainer_name).is_empty()
 	var enemy: Dictionary = ui.battle.cur_b()
+	if world.map_data.id=="galar_postwick" and ui.trainer_name=="赫普":
+		galar_first_rival_party=ui.battle.team_a.map(func(mon):return int(mon.species_id))
 	var owned: bool = game.save_data.dex.caught.any(func(n): return int(n) == int(enemy.species_id))
 	var capture: bool = wild and mode == "collect" and not owned
 	for frame in 3500:
@@ -135,12 +139,13 @@ func battle() -> void:
 					if power > high:
 						best = i
 						high = power
-				if world.map_data.get("region","") in ["kalos","alola"] or game.world.map_data.get("mechanisms",{}).has("hill") or str(ui.trainer_name) in ["花月","芙蓉","波妮","源治","米可利"]:
+				if world.map_data.get("region","") in ["kalos","alola","galar"] or game.world.map_data.get("mechanisms",{}).has("hill") or str(ui.trainer_name) in ["花月","芙蓉","波妮","源治","米可利"]:
 					var selected:=matchup_move(ui,paired)
 					best=int(selected[0])
 					if paired:ui.target_buttons[selected[1]].pressed.emit()
 				ui.menu.get_node("fight").pressed.emit()
-				if not paired and world.map_data.get("region","")=="kalos":
+				var galar_transform := false
+				if not paired and world.map_data.get("region","") in ["kalos","galar"]:
 					var forms: Array=ui.battle.available_forms("a")
 					var more=ui.move_menu.get_node_or_null("Special")
 					if more!=null and not forms.is_empty():
@@ -148,7 +153,10 @@ func battle() -> void:
 						var form_button=button(ui.get_node("SpecialPanel"),str(forms[0].label))
 						if form_button:
 							form_button.pressed.emit()
-							print("MEGA INPUT ",ui.trainer_name," ",forms[0].key)
+							if world.map_data.get("region","")=="galar":
+								galar_transform=true
+							else:
+								print("MEGA INPUT ",ui.trainer_name," ",forms[0].key)
 				if not paired and world.map_data.get("region","")=="alola" and ui._has_z_move():
 					ui.move_menu.get_node("Special").pressed.emit()
 					button(ui.get_node("SpecialPanel"),"Z 招式").pressed.emit()
@@ -161,6 +169,8 @@ func battle() -> void:
 					continue
 				var move_button: Button = ui.move_menu.get_node("Move%d"%best if best>=0 else "Struggle")
 				move_button.pressed.emit()
+				if galar_transform and ui.battle.galar_used.a:
+					galar_dynamax_inputs+=1
 		ui._process(5.0)
 	if game.active_battle == ui:
 		problem = "Battle did not finish: %s, state=%s, turn=%s" % [ui.trainer_name,ui.state,turns]
@@ -216,7 +226,7 @@ func status() -> Dictionary:
 		for b in game.menu_layer.get_child(-1).find_children("*","Button",true,false):
 			if b.is_visible_in_tree() and not b.disabled: panels.append(b.text)
 	return {"pos":current(),"elevation":world.last_elevation,"tower_mode":str(game._flags().get("fr_tower",{}).get("mode","")),"party":mons,"bag":items,"flags":game._flags().keys().filter(func(k): return game._flags()[k]),
-		"z_inputs":z_inputs,"ice":{"k_ice_turn_pink":game._flags().get("k_ice_turn_pink",0),"k_ice_turn_blue":game._flags().get("k_ice_turn_blue",0),"k_ice_turn_green":game._flags().get("k_ice_turn_green",0),"k_ice_turn_yellow":game._flags().get("k_ice_turn_yellow",0)},
+		"z_inputs":z_inputs,"galar_dynamax_inputs":galar_dynamax_inputs,"galar_first_rival_party":galar_first_rival_party,"ice":{"k_ice_turn_pink":game._flags().get("k_ice_turn_pink",0),"k_ice_turn_blue":game._flags().get("k_ice_turn_blue",0),"k_ice_turn_green":game._flags().get("k_ice_turn_green",0),"k_ice_turn_yellow":game._flags().get("k_ice_turn_yellow",0)},
 		"pl_obstacles":world.objects.filter(func(o):return o.get("kind","") in ["rock","cut","boulder"]).map(func(o):return [o.at,o.kind]) if world.map_data.has("platinum_native") else [],
 		"pl_gym_state":game._flags().get("pl_gym_"+str(world.map_data.id),{}),"pl_gym_collision":world.emerald_collision if world.map_data.has("platinum_gym") else [],
 		"gym_button":int(game._flags().get("h_wattson_switch",0)),"gym_local":world.hoenn_local,"badges":game.save_data.badges,"money":game.save_data.money,"dex":game.save_data.dex.caught,"defeated":game.save_data.get("defeated",{}),
