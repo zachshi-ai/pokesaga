@@ -171,9 +171,9 @@ func _change(key: Vector2i,show_chunk: bool) -> void:
 		add_child(objects)
 		for p in props_by_chunk.get(key,[]):
 			var sprite := Sprite2D.new()
-			sprite.texture = prop_texture(p[0])
+			sprite.texture = load(p[0]) if str(p[0]).begins_with("res://") else prop_texture(p[0])
 			sprite.centered = false
-			var anchor: Array = _catalog.anchors[p[0]]
+			var anchor: Array = p[3] if p.size() > 3 else _catalog.anchors[p[0]]
 			sprite.position = Vector2(p[1]*CELL+8-anchor[0],(p[2]+1)*CELL-anchor[1])
 			sprite.z_index = 99+int(p[2])*2
 			objects.add_child(sprite)

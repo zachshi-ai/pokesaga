@@ -13,6 +13,7 @@ from scipy import ndimage
 from platinum_layout import catalog, write, ROOT, OUT, SEABREAK, BLOOM_FIELDS
 from platinum_art import Art
 from platinum_map_names import map_name
+import platinum_first_routes
 import platinum_travel
 import platinum_cycling
 import platinum_league_art
@@ -226,6 +227,7 @@ def compile_fields(src,samples,art,bloom):
                 'allow_cycling':r['header']['isBikeAllowed'],'allow_running':r['header']['isRunningAllowed'],
                 'allow_fly':r['header']['isFlyAllowed'],'hoenn_art':art.make(r,phys,warps)}
         compiled['hoenn_art']['p'].extend(atlas_props)
+        platinum_first_routes.dress(compiled)
         links=platinum_travel.links(r,META)
         if links:compiled['platinum_script_links']=links
         if platinum_travel.technical(name):compiled['platinum_technical']=True

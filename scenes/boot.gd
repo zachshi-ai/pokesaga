@@ -8439,6 +8439,8 @@ func _restore_from_save() -> void:
 			spot = preload("res://core/hoenn_field.gd").saved_position(world,spot,save_data.get("surfing",false))
 		if map.has("hgss") and not save_data.has("johto_field_revision"):
 			spot = preload("res://core/hgss_field.gd").saved_position(world,spot,save_data.get("surfing",false))
+		if map.has("kalos_opening_revision") and not save_data.has("kalos_opening_revision"):
+			spot = preload("res://core/kalos_geometry.gd").opening_position(world,spot)
 		# Before 4.51 the interior and connecting exterior of Saffron City overlapped.
 		if map_id == "kanto_main" and not save_data.has("field_revision") and Rect2i(264,120,66,55).has_point(spot):
 			var city_spot := spot + Vector2i(48,30)
@@ -8523,6 +8525,7 @@ func _persist() -> bool:
 	save_data["map"] = String(world.map_data.get("id", "littleroot_town"))
 	save_data["pos"] = [world.player_pos.x, world.player_pos.y]
 	save_data["field_revision"] = 1
+	if world.map_data.has("kalos_opening_revision"): save_data["kalos_opening_revision"] = 1
 	if world.map_data.has("hgss"): save_data["johto_field_revision"] = 1
 	if world.map_data.has("emerald_original"): save_data["hoenn_field_revision"] = 1
 	save_data["field_elevation"] = world.last_elevation

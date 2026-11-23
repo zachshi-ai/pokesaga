@@ -9,7 +9,7 @@ var show_label:=true
 
 func setup(field, passages: Array) -> void:
 	world=field
-	z_index=91
+	z_index=1001 if field.map_data.get("alola_native",false) else 91
 	for p in passages:
 		if p.has("kalos_label") or p.has("alola_label"):exits.append(p)
 	queue_redraw()

@@ -50,7 +50,7 @@ def texture(folder,g,binary,material):
     if color is None:return None
     return np.array([[np.array(color)*255]],dtype='uint8')
 
-def render_mesh(path,offset,rotation,pixels,depth):
+def render_mesh(path,offset,rotation,pixels,depth, field_ground=False):
     g,b=glb(path);ox,oy,oz=offset
     ct=np.cos(rotation);st=np.sin(rotation)
     h,w=depth.shape
@@ -64,6 +64,16 @@ def render_mesh(path,offset,rotation,pixels,depth):
             if tex is None:continue
             xyz=values(g,b,attrs['POSITION']);uv=values(g,b,attrs['TEXCOORD_0'])
             x=xyz[:,0]*ct+xyz[:,2]*st+ox;z=xyz[:,2]*ct-xyz[:,0]*st+oz;y=xyz[:,1]+oy
+            if field_ground:
+                from unova_streets import grass_tile
+                if name.startswith(('ue_grass','michi_hage','michi_hibi','kisetu_yuki')):
+                    continue
+                if name.startswith(('grass01','yamagrs','kusa_ec')):
+                    tex=grass_tile('tall' if name.startswith('kusa_ec') else 'grass')
+                    uv=np.column_stack((x,z))/16
+                elif name.startswith(('michi01','michi02')):
+                    from unova_streets import path_texture
+                    tex=path_texture(tex)
             a=np.ascontiguousarray(np.column_stack((x,z-y*.36,z*.36+y,uv)),dtype=np.float32)
             inds=np.ascontiguousarray(values(g,b,pr['indices']).ravel(),dtype=np.uint32)
             raster()(pixels.ctypes.data,depth.ctypes.data,w,h,a.ctypes.data,inds.ctypes.data,len(inds)//3,tex.ctypes.data,tex.shape[1],tex.shape[0])
@@ -86,13 +96,26 @@ def landmark(z):
 
 def bake(src,a):
     z=a['z']
-    if not landmark(z):return None
+    from unova_first_routes import OPENING, native_grass
+    outdoor=z['mid'] in OPENING[src.era]
+    from unova_streets import Streets, family
+    street=Streets(a) if outdoor else None
+    if not outdoor and not landmark(z):return None
+    if outdoor and src.era=='bw' and not hasattr(src,'black_glbs'):
+        # The sequel changes roads and buildings. Reuse the committed Black scene
+        # when a geometry-only checkout lacks the first game's converted meshes.
+        dest=ROOT/'assets/unova/landmarks/bw'/(z['mid']+'.png')
+        if dest.exists():
+            original=ROOT/'content/unova_native/bw'/(z['mid']+'.json')
+            a['street_facades']=json.loads(original.read_text())['hoenn_art']['p']
+            return ['res://'+str(dest.relative_to(ROOT)),0,0]
+        raise ValueError('Generate original Black GLBs before rebuilding '+z['mid'])
     w,h=a['size'];ox,oz=a['origin'];pixels=np.zeros((h*16,w*16,4),'uint8');depth=np.full(pixels.shape[:2],-1e10,'float32')
     for (bx,bz),model in a['blocks'].items():
         path=src.visual_model(z,bx,bz,model)
         if not path:continue
         x=(bx*32-ox)*16+256;y=(bz*32-oz)*16+256
-        render_mesh(path,(x,0,y),0,pixels,depth)
+        render_mesh(path,(x,0,y),0,pixels,depth,field_ground=outdoor)
         same=z if src.era=='b2' else src.companion.zones[z['i']]
         area=src.area_info(same['area']);kind='exterior' if area['exterior'] else 'interior';bundle=src.prop_bundle(z)
         directory=src.field/'props'/kind/'models'/str(area['prop_bundle']).lower().removeprefix('field_props_'+kind+'_')
@@ -104,12 +127,24 @@ def bake(src,a):
             props=[((hi<<8)|lo,(px/4096,py/4096,-pz/4096),rot*2*np.pi/65536) for px,py,pz,rot,hi,lo in struct.iter_unpack('<iiiHBB',raw[off+4:])]
         for pid,(px,py,pz),rot in props:
             if pid not in bundle:continue
+            if street:
+                kind=family(bundle[pid],z['mid'])
+                if kind:
+                    street.collect(kind,x+px,y+pz)
+                    continue
             prop=directory/bundle[pid]/'model.glb'
             if prop.exists():render_mesh(prop,(x+px,py,y+pz),rot,pixels,depth)
     from unova_landmark_models import placements
     for model,(x,y,zp) in placements(src,z):
         render_mesh(model,(x-ox*16,y,zp-oz*16),0,pixels,depth)
-    im=Image.fromarray(pixels);bbox=im.getbbox()
+    if street:a['street_facades']=street.sprites()
+    im=Image.fromarray(pixels)
+    if street:
+        from unova_streets import finish_ground
+        im=finish_ground(im,street)
+    if outdoor and a.get('grass') is not None and a['grass'].size:
+        im=native_grass(im,a['grass'])
+    bbox=(0,0,w*16,h*16) if outdoor and im.getbbox() else im.getbbox()
     if not bbox:return None
     im=im.crop(bbox)
     # Crisp two-pixel source motifs survive a DS-to-GBA palette reduction.

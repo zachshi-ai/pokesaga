@@ -362,5 +362,9 @@ def atlas(raw,zones,areas):
         save(p,j)
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('source',type=Path)
+    from asset_paths import source_path
+    from kalos_opening import install
+    parser.add_argument("--emerald-source",type=Path,default=Path(source_path("emerald")))
     args=parser.parse_args();zs,ms=build(args.source);atlas(args.source,zs,ms)
+    install(args.emerald_source)
     print('Kalos maps',len(ms),'warps',sum(len(a.warps) for a in ms),'anchors',sum(len(a.anchors) for a in ms))

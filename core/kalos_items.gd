@@ -64,6 +64,15 @@ static func use(g,name: String) -> bool:
 	return true
 
 static func counter(g,npc: Dictionary) -> bool:
+	if npc.get("kalos_intro_potion",false):
+		if g._flags().get("k_aquacorde_potion",false):
+			g._dialog(["伤药能回复宝可梦的体力。"],npc.name)
+		else:
+			g._give_item("伤药",1,"heal")
+			g._flags().k_aquacorde_potion=true
+			g._persist()
+			g._dialog(["出发旅行了？这瓶伤药带上吧。"],npc.name)
+		return true
 	if not (npc.get("kalos_shop",false) or npc.get("alola_shop",false)):return false
 	var bag: Array=g.bag_items.filter(func(item):return item.name in TREASURES and int(item.count)>0)
 	if bag.is_empty():return false

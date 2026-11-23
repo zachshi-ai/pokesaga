@@ -1,8 +1,14 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.61.0-study`，versionCode 为 94，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.62.0-study`，versionCode 为 95，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
 
-[下载 4.61 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.61.0-study/PokeSaga-4.61.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.61.0-study)
+[下载 4.62 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.62.0-study/PokeSaga-4.62.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.62.0-study)
+
+## 后世代开场地图
+
+神奥、合众、卡洛斯、阿罗拉和伽勒尔的部分开场地图重新绘制。逐处的原版依据、游戏内前后对照，以及仍使用通用布局的地区，见[地图与建筑对照](doc/后世代地图对照.md)。
+
+[神奥和合众的门前对照](.github/preview/v4.62-sinnoh-unova.png) · [名水镇与利利小镇的变化](.github/preview/v4.62-kalos-alola.png) · [化朗镇与 1 号道路](.github/preview/v4.62-galar.png) · [安卓模拟器触屏实拍](.github/preview/v4.62-android.png)
 
 ## 从美乐美乐岛开始四岛巡礼
 

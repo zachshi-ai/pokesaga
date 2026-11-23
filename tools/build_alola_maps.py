@@ -322,6 +322,8 @@ def main(cache):
     chart(cache,places,locs,ROOT/'assets/atlas/alola.webp')
     alola['locations']=locs+old
     allowed={r['map'] for r in locs+old};alola['connections']=sorted([['alola_'+a,'alola_'+b] for a,b in edges if {'alola_'+a,'alola_'+b}<=allowed]);save(dest,all_data)
+    from alola_melemele import main as build_gba_streets
+    build_gba_streets()
     print('Alola maps',len(maps),'native meshes or sectors',sum(bool(a.scene) for a in maps.values()),'links',sum(len(a.warps) for a in maps.values()),'items',sum(len(a.items) for a in maps.values()),'trainers',sum(len(a.trainers) for a in maps.values()))
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('atlas',type=Path);main(ap.parse_args().atlas)

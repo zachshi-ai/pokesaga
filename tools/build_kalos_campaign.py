@@ -203,7 +203,7 @@ def next_id(name,species,level):
     raise ValueError(name)
 
 
-def place_cast():
+def place_cast(scripted_events):
     """Stage meetings at doors, road junctions and the four positions of the NW hedge maze."""
     doors={'welcome':'home_1f','first_battle':'1','catch_lesson':'aquacorde','forest_friends':'2','rules':'forest',
            'skates':'gym_santalune','alexa':'4','dex_helpers':'lumiose','sleeping':'7_west','snorlax':'7_west',
@@ -220,7 +220,7 @@ def place_cast():
         for w in m.get('warps',[]):
             t=w['to']
             if t.get('at'):arrivals.setdefault(t['map'],set()).add(tuple(t['at']))
-    for e in events:
+    for e in scripted_events:
         key=e['id'][2:]
         if key in ('broadcast','parade'):e['on_entry']=True
         if key in approaches:e['on_approach']=3
@@ -318,7 +318,7 @@ if __name__ == '__main__':
     trainers=json.loads((ROOT/'content/kalos_trainers.json').read_text())
     build()
     roads()
-    place_cast()
+    place_cast(events)
     out={'events':events,'gates':gates}
     (ROOT/'content/kalos_campaign.json').write_text(json.dumps(out,ensure_ascii=False,indent=1)+'\n')
     print(len(events),'events;',len(gates),'map gates')

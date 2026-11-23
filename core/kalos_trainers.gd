@@ -69,6 +69,9 @@ static func challenge(g) -> bool:
 	return false
 
 static func goods(g) -> Array:
+	match g.world.map_data.id:
+		"kalos_zone_10":return [{"name":"伤药","category":"heal","price":300}]
+		"kalos_zone_11":return [{"name":"精灵球","category":"ball","price":200}]
 	var badges:=preload("res://core/region_journey.gd").badges(g.save_data,"kalos").size()
 	var stock: Array=[]
 	for item in [[0,"精灵球","ball",200],[0,"伤药","heal",300],[0,"解毒药","heal",100],[0,"解麻药","heal",200],[1,"解眠药","heal",250],[1,"灼伤药","heal",250],[1,"解冻药","heal",250],[1,"好伤药","heal",700],[1,"除虫喷雾","other",350],[2,"超级球","ball",600],[3,"活力碎片","heal",1500],[3,"离洞绳","other",550],[3,"白银喷雾","other",500],[4,"高级球","ball",1200],[5,"厉害伤药","heal",1200],[5,"万灵药","heal",600],[6,"黄金喷雾","other",700],[7,"全满药","heal",2500],[8,"全复药","heal",3000]]:

@@ -32,6 +32,8 @@ func audit() -> void:
 				if person.get("transit", false):
 					expected = "navigator"
 					navigators += 1
+				elif region == "galar" and file == "galar_player_home.json" and person.name == "妈妈":
+					expected = "mom"
 				elif person.get("heal", false):
 					expected = "nurse"
 				elif person.get("shop", false):

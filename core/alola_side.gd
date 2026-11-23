@@ -203,6 +203,9 @@ static func step(g) -> bool:
 	return false
 
 static func talk(g,npc: Dictionary) -> bool:
+	if npc.get("alola_malasada_counter",false):
+		preload("res://core/alola_side_towns.gd").visit(g,{"action":"malasada","name":npc.name})
+		return true
 	var id: String=npc.get("alola_side","")
 	if id.is_empty():return false
 	var row: Dictionary=rows().get(id,{})

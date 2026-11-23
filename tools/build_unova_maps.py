@@ -303,7 +303,7 @@ def build(era,src,args):
             art['scene']=picture
         if art.get('scene'):
             art['t']=encode(np.zeros(a['collision'].shape,dtype='uint16'))
-            art['p']=[]
+            art['p']=a.get('street_facades',art.get('p',[]) if geometry_only else [])
         enc=z['encounters']
         if era=='b2' and enc:enc='ENCOUNTERS_'+enc.upper()
         doc=dict(id=z['mid'],region='unova',name=z['name'],unova_native=True,unova_zone=z['key'],unova_zone_id=z['i'],unova_event_bank=z['bank'],unova_encounter=enc,unova_era=era,unova_origin=tolist(a['origin']),unova_mechanisms=a.get('mechanisms',[]),unova_script_links=a.get('script_links',[]),unova_dynamic_exits=bool(a.get('dynamic_exits')),unova_technical=bool(a.get('technical')),unova_technical_reason=a.get('technical',''),unova_anchors=a['anchors'],unova_cast=cast,spawn=a['spawn'],size=a['size'],physics=physics,warps=a['warps'],npcs=npcs,objects=objects,allow_fly=z['fly_from'],allow_cycling=z['cycling'],allow_running=True,hoenn_art=art)
