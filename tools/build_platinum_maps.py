@@ -74,6 +74,19 @@ def compile_maps(src,emerald,samples):
     compile_fields(src,samples,art,True)
     art.save()
     platinum_league_art.dress(emerald)
+    # Export the source terrain and prop banks before painting them on the GBA grid.
+    import subprocess, tempfile
+    from platinum_scenery import dress
+    with tempfile.TemporaryDirectory(prefix='platinum-scenery-') as tmp:
+        cache=Path(tmp);jobs=cache/'matrices.json'
+        rows=catalog(src)
+        picks={(land,v['area']) for v in rows.values() for land in v['rows'].values()}
+        picks.update((land,rows['MAP_HEADER_ROUTE_224']['area']) for land in SEABREAK.values())
+        write(jobs,sorted(picks))
+        subprocess.run(['cargo','run','--quiet','--release','--manifest-path',
+                        str(ROOT/'tools/hgss_render/Cargo.toml'),'--example','platinum_scenery','--',
+                        str(src),str(jobs),str(cache)],check=True)
+        dress(src,cache,set())
 
 def compile_fields(src,samples,art,bloom):
     global META

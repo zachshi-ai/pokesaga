@@ -367,4 +367,6 @@ if __name__=='__main__':
     parser.add_argument("--emerald-source",type=Path,default=Path(source_path("emerald")))
     args=parser.parse_args();zs,ms=build(args.source);atlas(args.source,zs,ms)
     install(args.emerald_source)
+    import subprocess, sys
+    subprocess.run([sys.executable,str(ROOT/'tools/kalos_field_art.py'),str(args.source)],check=True)
     print('Kalos maps',len(ms),'warps',sum(len(a.warps) for a in ms),'anchors',sum(len(a.anchors) for a in ms))

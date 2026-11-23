@@ -1,0 +1,92 @@
+# Location | hand-painted terrain, north to south | footpath control points (tenths) | landmarks and buildings, door/foot position (tenths)
+# F woodland, G pasture, B blossoms, Y meadow, A tilled soil, O orchard, M luminous wood, H bamboo, T autumn wood,
+# C cliff, D dunes, S sand, W water, E reeds, X peat, J worked stone, P paving, L firs, N snow, I ice, K cave wall, V cave floor, Z crystal.
+[galar]
+2 | FFFGGFFWW/FGGGGWWWW/FGGYGGWWW/GYYGGGWWF/FGGFFFFGG | 46 44 64 75 | lakeside@72, jetty@66, berry@34
+3 | CCCFCCCGG/CCCGGGGGF/YGGGGCFFF/GYGGGGCCF/FFFFCCCCC | 16 34 54 68 85 | chimney@65, ore@24, crate@72
+4 | FFOOOYYFF/OYYYGGYYY/YYGYYYYGY/YGGGYYGGG/FFOOGGGFF | 35 34 64 66 87 | barn@73, hay@26, hay@82
+5 | FFFGGWFFF/FGYGGWGGF/FGGGGWGYF/FGGWWWGGG/GGWWGGGFF | 24 35 65 83 | nursery@26, viaduct@55, berry@74
+6 | CCCDDDCCC/DDCCDDDCC/CDDDCCDDC/CCDDDDCCD/CDDCCCDDD | 14 36 44 62 82 | fossil@36, ruin@72, ore@85
+7 | CCGGGCGCC/FYGGGGGGF/FFFCCWGGG/GGGWWWYYG/CCWWWWFGG | 25 45 65 73 | viaduct@45, crate@76, standing@31
+8 | CCCJJJCCC/CJJCGCJCC/CCCGJGJCC/CJJJGCCLL/CCCLLLNNN | 55 72 73 86 | arch@46, column@32, standing@76, ruin@27
+9 | LNNNIIWWW/NCNNSSWWW/WWIWWSSWW/WIWWISSNW/WWWNNNIWW | 24 35 56 68 77 | floe@35, floe@66, camp@73
+10 | LLLNNCCNN/NNNCLLNNN/CCNNNNNCC/LNNNCCNNN/NNCLLNNNL | 48 34 53 62 51 | lamp@43, camp@67, fir@74
+ballonlea | MMMMFFFFM/MMGBGGBMM/MBGGGGGMM/MMGGGMGGM/MMMFFFMMM | 41 55 74 67 | fairy@63, cottage@27, bulb@36, bulb@76, cottage@74, cottage@34
+circhester | LLLNNNCCC/NPPPPPNNL/NNPPIIPPN/NPPIIIPPN/LNNNPPNNN | 14 54 68 85 | hotel@33, bath@66, steep@83, hotel@77, cottage@24
+hammerlocke | CCCJJCCCC/CCPJJJPPP/PPPPPJPPP/PWWPPWWPP/FWWGGWWFF | 45 45 63 64 | castle@53, station@84, arch@28, column@68, cottage@27, cottage@77
+hulbury | FFGGGCCWW/PGPPPPSSW/PPPPSSSWW/SSPPSSWWW/WWWWSSSWW | 15 46 66 68 | lighthouse@73, fishmarket@35, jetty@76, crate@63, cottage@33, cottage@67
+lake_out | CCCFWFFWW/FFGWWWWWW/GGGCWWCGG/GGCWCJJJG/FFWWJGGFF | 14 35 54 77 | stones@77, jetty@46, standing@35
+mine | KKKVVKKKK/KVVWVVVKK/KVWWWVVVV/KVVVZVVKK/KKVVVVKKK | 85 64 44 47 58 | minecart@46, ore@64, timbers@75, ore@27
+mine2 | KKVVWWWKK/KVVWWWVVK/VVVVVWVVK/KZZVWWVWK/KKKWWWWKK | 52 73 64 35 15 | pump@62, ore@27, timberbridge@45, crate@32
+motostoke | CCCCJCCPC/PJJPPPPPP/PPPPPPPPP/WWPWPPPWW/WWWWWPPWW | 15 35 43 66 86 | works@33, station@76, arch@45, chimney@83, shutter@23, cottage@67
+rose | PPPPPP/PPPPPP/PPPPPP/PPPPPP | 58 | interior
+slope | LNNLLLLLC/NCCNNNCCC/NNCNNNNCC/LNNCCNNNL/LLLNNNLLL | 47 35 52 75 77 | viaduct@44, fir@63, lamp@75
+spikemuth | CCCCCCCCC/PPPPJPPPP/JJPPPPJJP/PPJJJPPJP/CCCCPCCCC | 42 64 67 47 | club@63, shutter@27, stage@75, crate@44, shutter@64, shutter@37
+stadium | PPPPPP/PPPPPP/PPPPPP/PPPPPP | 48 | interior
+stow | CCDCCCCCC/CCDJJDDCC/DDDDPPDDD/DDCCDDDDC/CCCDDDCCC | 16 34 53 68 | mural@43, bazaar@75, crate@63, column@24, cottage@62, cottage@37
+tangle | MMMMMFMMM/MMGGMMBMM/GGBGMMGGM/MMGGGGMMG/MMMFFGMMM | 52 33 36 55 76 58 | bulb@34, stump@56, bulb@76, log@67
+tunnel | KKKKKVVKK/KVVVVVVKK/KVVVVVVVV/KKKVVKKKK/KKKKKKKKK | 52 34 66 85 | timbers@53, minecart@75, lamp@36
+turffield | CCCGGAACG/CYGGGAAGG/CGGPPGGGG/GGOOAYYGG/FFOOAAYFF | 15 35 63 85 | pitch@64, geoglyph@26, barn@77, hay@36, cottage@34, cottage@82
+weald | FFFFWWFFF/FFGGWWGGF/FGGWWGFFF/FGGGGGGGF/FFFFGGFFF | 85 65 66 35 26 | altar@35, stump@64, log@47
+wedgehurst | FFGGFFGGG/GGPGGAGGG/PPPPPPPGG/GPPPGGPPP/GGGGPGGPG | 58 44 63 84 | lab@74, station@27, cottage@34, berry@65, cottage@66
+wild_lake | FGGGWWGGF/GYYWWWWGG/GGWWWWGWG/GGGGWWGGG/FFGGGGGFF | 15 34 57 65 87 | jetty@35, camp@75, reed@26
+wild_north | CCCGGGCCC/CCGGYGGCC/GGYGGCGGG/GGGGCCCCG/CCGGGCCCG | 14 44 63 86 | standing@43, quarry@66, ruin@74
+wild_south | FFFGGGGWW/FFBYYGGGW/GGYYGWWGG/GYGGGGBGG/FFGGFFFFG | 15 35 64 53 | camp@35, berry@72, stones@76
+wyndon | FPJPPPPCF/PPJPPWPPP/PPPWWWWPP/PPPWPWWPP/FFGGPPFFF | 52 64 36 57 | ferris@74, fountain@57, lamp@43, tower@86, hotel@44, station@75, cafe@36, terrace@83
+pass_armor_fields | WWSCCWWWW/WWSSSSWWW/WWSSSWWWW/WWWSSSSWW/WWSSSCWWW | 51 64 46 58 | jetty@55, buoy@35, crate@76
+pass_crown_freezington | NNLLNNNLL/LNNCCNNNL/LNNNCNNNN/LLNNNCNNL/LLLNNNLLL | 52 46 65 73 | timbers@53, rail@66, fir@25
+pass_kalos_cyllage | KKKKKVVKK/KVVVVVVVK/VVVWWWVVV/KVVWWVVKK/KKVKVVKKK | 15 34 63 85 | pump@65, timbers@34, lamp@76
+[hisui]
+jubilife | FFFGGGGFF/FGGPGAGGF/GGPPPPPGG/FGGAAPPGG/FFGAAPPFF | 15 35 65 85 | lodgings@43, craft@74, stall@65, gate@82, lodgings@27, lodgings@67, craft@83, lodgings@23
+obsidian | FFFGGWFFG/FGGBGWGGG/GGYYWWWYF/FFWGGGWWF/FFFBBGGWW | 14 34 65 86 | camp@34, timberbridge@65, gianttree@76, ore@27
+mirelands | FXXWWEFCC/EWWWXXECC/EXXWEWXGG/WWXXWWEXX/XXWWEXXWW | 15 35 64 85 | ruins@65, reed@24, camp@35, ore@76
+coastlands | FCCCSSWWW/CCSSSWWWW/SSSWWWSSW/FGSSSWWSS/FFFGSSSSW | 15 33 53 65 78 | wreck@64, driftwood@77, camp@34, cairn@56
+heights | CCCGGCCCF/CCGGGCCCF/GGCGGGGGF/GGGCCCGGG/CCCGGCGGG | 15 33 62 65 48 | campbig@44, bench@56, ore@77, tent@65
+highlands | CCCWCCCCC/CCDWCCGCC/CGGWGCCGC/CCGGGGGCC/CCCCGCCCG | 51 32 44 66 58 | ruinarch@67, waterfall@45, ore@34, camp@74
+icelands | CCCNNNIII/LNNNCCNNI/IIINNNCCN/NNNCCNNNL/LLNNNNNLL | 52 34 56 68 | icearch@66, camp@34, floe@77, fir@27
+temple | CCCJJJCCC/CJJJJJJJC/CJJJJJJJC/CCJJJJJCC/CCCJJJCCC | 51 54 56 58 | shrine@57, columns@45, column@76, column@26
+village | PPPPPP/PPPPPP/PPPPPP/PPPPPP | 48 | interior
+[paldea]
+academy | PPPPPP/PPPPPP/PPPPPP/PPPPPP | 48 | interior
+alfornada | CCCCCCCGG/CCPPJJPGG/PPJJPPPPP/CPPPPGGGC/CCCGGCCCC | 15 45 65 77 | kiln@43, mosaic@76, housewhite@27, urn@66, housewhite@65, studio@83
+artazon | FFOBBFFGG/GGBGGGBGG/GBPPBBGGB/GGBGGGGGG/FFBOOGFFF | 56 35 62 77 | windmill@63, studio@35, sunflower@66, maze@76, terrace@25, housewhite@83
+asado | CDDDDCDDD/DDDDDCDDD/DDCDDDDDD/DDDDCCDDD/DDDCCDDDC | 51 34 47 65 58 | watchtower@65, ruin@35, ore@77, cactus@38
+bamboo | HHHHWWHHH/HHGGWGGHH/GGGWWGGGH/HGWWGGGHH/HHHGGHHHH | 15 34 64 67 | waterfall@54, bamboo@76, shrinegate@68
+cabo | FFGGGGCCC/FGGBGGGSC/GGGGPPGSS/GGBBSCSSW/CGGSSSWWW | 15 34 56 75 | family@34, manor@73, court@77, flowers@57
+cascarrafa | DDJJPPCCC/PPWWPPJCC/PWWPPWWPP/PPPPWWPPP/PJJPPPPJJ | 51 34 66 58 | waterworks@33, lift@66, housewhite@75, fountain@55, housewhite@27, housewhite@83
+cave | KKKVVVKKK/KVKVZVVKK/VVVKVVVVV/KKVVVVKVK/KKKZKVKKK | 15 34 67 65 85 | arch@64, ore@37, timbers@75
+cortondo | OOOOOOGGG/GGGAGGPPP/GGAPPPPGG/OOOOOGGGG/OOOOOOOFG | 15 35 64 85 | bakery@64, barn@35, olive@76, hay@27, housewhite@26, housewhite@83
+e1 | GGGGGFFWW/FCCGGBGWW/CGYGGFFGW/FFGGGCCGG/CCFFGGGGG | 15 34 55 74 85 | watchtower@43, camp@76, berry@56
+e2 | FGGWWWWWW/GGGGSWWWW/GGYGGSSWW/GGGCCSSSW/FFFGGGSSS | 15 35 55 67 58 | jetty@65, turbine@37, ore@73
+e3 | CCCDDDDCC/CDDDCCCCD/DDDCCDDDD/CCDDDDCCC/DDCCDDDDC | 51 34 44 67 58 | quarry@56, minecart@64, ore@36
+gate | CCCCCCFFF/CCGPPGCCC/CGPPPPGGC/CGGCCCGGC/CCGGGCGCC | 51 44 65 85 | gatehouse@55, barrier@64, lamp@36
+glaseado | CCLNNNNCC/CNNNLLNNC/LNNNCCNNN/NNCCNNINN/LCNNNNLLL | 58 34 56 66 51 | slopeflags@36, camp@75, fir@65
+inlet | KKVVWWWKK/KVVVSSWWK/KKVSSVVVV/KSWWVVKKK/WWWWVKKKK | 85 64 44 53 | waterfall@56, arch@34, driftwood@76
+lab | PPPPPP/PPPPPP/PPPPPP/PPPPPP | 48 | interior
+lake | WWWWWWWGG/WWGGWWGWW/WGGWWGGWW/WWWWWWWGG/WWWGGGGGG | 85 64 56 48 52 | lookout@65, jetty@46, buoy@34, standing@77
+league | FFGPPGGFF/FGPPJPPGF/GGGPPGGGG/GGPPPYYGG/FFFFFFGGG | 51 45 56 77 | leaguehall@64, court@46, lamp@55
+levincia | GPPPPPGCC/PWPPPPPPP/WWWPPPWWW/PPPPPPPPP/CCGPPGGCC | 51 46 66 58 | neon@74, piercafe@37, coil@56, viaduct@66, terrace@26, books@83, piercafe@37
+marinada | CCCGPPPGG/CCPPPPSWW/PPPPSSWWW/SSPSSWWWW/WWWWWWWWW | 15 34 55 75 | market@44, fishmarket@73, jetty@76, crate@65, terrace@26, housewhite@82
+medali | FGGGGFFGG/GPPPPPGGG/GPPPJPPPP/FGGPPPPPG/FFFGGGGFF | 15 34 64 57 58 | eatery@64, terrace@33, awning@76, bench@45, terrace@26, eatery@83
+mesagoza | CCCJJPPCC/PPPJJPPPP/PPPPJPPPP/PJJPPPPJP/GGGPPPGGG | 15 35 55 73 | stairs@65, plaza@57, books@34, cafe@77, terrace@24, terrace@84, housewhite@67
+montenevera | LLLNNNLLL/LNPPNNNLL/NNPPPJJNN/LNNPPPPNN/LLNNNLLLL | 52 35 55 67 58 | lodge@33, stage@65, concert@74, fir@26, lodge@27, lodge@83
+n1 | CCCGGWCCC/CCGWWWWCC/CGGWGGGCC/CCGGGGCWC/CCCCGGCCC | 51 34 55 67 58 | ruinarch@65, ore@34, camp@77
+n2 | HHHCCGHHH/HGGCGGHHH/GGGGGHHHG/HGHHGGGGH/HHHGGHHHH | 15 36 54 64 85 | bamboo@35, shrinegate@64, ruin@77
+n3 | FFBBGCCGG/GBBBGGGWW/GBBGWWWWW/FBGGGGWWW/FFGGBBBGG | 15 35 54 65 58 | lighthouse@64, flowers@34, camp@76
+pass_kitakami_road | FFCCGCCFF/FGGGGCCCF/CCGGGGCCF/CCCGGGCFF/FGGGGGFFF | 48 35 63 76 28 | shrinegate@63, camp@36, cairn@74
+pass_unova_undella | WWWSSSWWW/WWSSPGGWW/WSSSSWWWW/WWSSSWSSW/WWWSSSWWW | 85 65 34 37 83 | jetty@64, lighthouse@34, buoy@76
+platos | FFOGGGFFF/GGBGGWWFF/GGPGGWWGG/GGGOOGGGF/FFGGGGFFF | 15 35 65 85 | housewhite@34, cafe@64, fountain@55, berry@76, housewhite@26
+poco | FCGGGGCCC/CCGGYGGCC/GGYYGBGGC/CGGGGGSSS/CCGCCSWWW | 15 35 55 76 85 | lighthouse@65, bench@45, berry@36
+s1 | FFGGGFFFF/GYGGWGGGF/GGGWWWGGG/FFGGGBBGG/FGGGGFFFF | 58 35 54 65 85 | timberbridge@55, berry@34, ruin@76
+s2 | OOOGGFFFF/OOGGGAAGG/GGAGGGGGG/GCCGGGOOO/FFFGGOOOO | 15 34 54 67 58 | olive@36, watchtower@65, hay@76
+s3 | CCUDDCCCC/CUDDCCUDC/DDCCDUDDD/UDDDCCDDC/CCDUUCCDC | 15 34 64 58 | quarry@63, standing@34, arch@77
+s4 | FGWGGGFFF/FGWWCCGGF/GGGWCCGGG/FGGGGGWWW/FFGGWWWWF | 58 34 55 76 85 | waterfall@45, standing@63, camp@76
+s5 | GGWWEEWWW/FEWWWXEEW/FFGGEEXXW/FGGGWWSSW/FFFFSSSWW | 58 36 55 76 85 | reed@37, lookout@64, jetty@76
+s6 | CGCCCCCFC/CGGGCCGFC/CCGGCCGGG/GGGGGCCCG/CCFFGGGCC | 15 33 54 67 85 | arch@66, cairn@44, watchtower@75
+socarrat | TTTTWWTTT/TTGGWGGTT/TGGTGGGTT/TTGGTGGGT/TTTTGTTTT | 58 36 52 66 | gianttree@55, log@36, shrine@76
+tagtree | FFTFTFTFF/TFGGTTGGT/FGGGFGGTF/TTTGGGGFT/FFTFTFTFF | 51 34 56 76 85 | painted@45, painted@65, camp@77
+w1 | FFGGGCCGC/CGGGOOGGC/GCGYYYYGG/GGGGGCCGG/FFFFGGGGG | 85 65 44 57 58 | turbine@63, turbine@35, ore@76
+w2 | CGGGSSWWW/GGCCGSSWW/CCGGSSWWW/GYGGGSWWW/CCGGGSSWW | 51 34 46 65 58 | lighthouse@65, lookout@33, reed@76
+w3 | OOGGGFFWW/OGGGGGWWW/GGGGYCCGG/GCCGGGGGF/FFFFGGOOO | 15 36 55 64 85 | ruins@63, olive@36, watchtower@76
+zapapico | CCCDDCCGG/CCGPPPDDC/PPPPPPPGG/DDGGGCCCC/CCCGGGCCC | 51 34 55 67 58 | workshop@64, fountain@45, ore@75, housewhite@33, housewhite@73
+zero | CCCGGWCCC/CGBGWWWCC/CCGGGWWGC/ZZZGGWWWG/CCZZZZZCC | 15 34 55 67 77 | stationzero@65, crystal@47, waterfall@74, crystal@36

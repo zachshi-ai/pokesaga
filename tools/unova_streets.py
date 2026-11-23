@@ -143,14 +143,14 @@ def finish_ground(im, street):
     p[y,x,:3]=np.where(((x+y)%3==0)[:,None],(170,170,115),(183,182,127))
     out=Image.fromarray(p)
     pen=ImageDraw.Draw(out)
-    for x,y in street.thresholds:
+    for x,y in street.thresholds if street else ():
         x=x*16;y=y*16
         pen.rectangle((x+1,y,x+14,y+5),fill='#777b7c')
         pen.rectangle((x+2,y,x+13,y+2),fill='#c6c6b4')
         pen.line((x+2,y+5,x+13,y+5),fill='#8d9289')
         pen.rectangle((x+1,y+6,x+14,y+8),fill='#a5aa9e')
         pen.line((x+1,y+6,x+14,y+6),fill='#dbdac4')
-    for x,y in street.side_entries:
+    for x,y in street.side_entries if street else ():
         left,top=x*16,y*16
         # The upper entrances share a one-cell stair between the two solid warehouse walls.
         for step in range(0,45,5):

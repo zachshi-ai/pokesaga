@@ -143,6 +143,9 @@ class KalosPlayer(EmeraldPlayer):
             if any(r[3]=='b' for r in self.state['fights']):
                 print('WHITEOUT',key,self.pos,flush=True)
                 if key.startswith('k_elite_') or key=='k_diantha':return False
+                if key=='k_factory':
+                    # The second Grunt's Manectric can sweep a Greninja-led team.
+                    self.train_at('kalos_14',self.state['party'][0][2]+2,'kalos_center_laverre')
                 self.prepare(event)
                 continue
             raise RuntimeError((key,self.pos,self.state['dialog'],self.state['buttons']))

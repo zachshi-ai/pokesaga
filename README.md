@@ -1,10 +1,16 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.62.0-study`，versionCode 为 95，包名为 `com.stepx.pokesaga.study`。它可以和 4.46 版同时安装，两份应用分别保存进度。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.63.0-study`，versionCode 为 96，包名为 `com.stepx.pokesaga.study`。已安装 4.62 学习版可直接覆盖升级并继续原存档。4.46 版包名不同，两份应用可以同时安装并分别保存进度。
 
-[下载 4.62 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.62.0-study/PokeSaga-4.62.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.62.0-study)
+[下载 4.63 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.63.0-study/PokeSaga-4.63.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.63.0-study)
 
-## 后世代开场地图
+## 后世代地图重绘
+
+用背包里的地区转移器前往各地，原进度继续保存在同一份档里。可以去家缘市看华丽大赛会场，在可霓可市进丽姿的店买进化石，或从小匙镇的两栋住宅走向海崖。此次重画范围包括神奥、合众两个时代、卡洛斯、阿罗拉、伽勒尔、洗翠、帕底亚及扩展地区。[逐区数量、地点与验收方法](doc/后世代地图重绘.md)
+
+[家缘市、雷文市与天箭桥](.github/preview/v4.63-ds-scenes.png) · [卡洛斯十二处](.github/preview/v4.63-kalos.png) · [阿罗拉与扩展地区](.github/preview/v4.63-islands.png) · [伽勒尔、洗翠与帕底亚](.github/preview/v4.63-switch-fields.png) · [安卓覆盖安装前后](.github/preview/v4.63-android.png)
+
+## 4.62 的开场地图
 
 神奥、合众、卡洛斯、阿罗拉和伽勒尔的部分开场地图重新绘制。逐处的原版依据、游戏内前后对照，以及仍使用通用布局的地区，见[地图与建筑对照](doc/后世代地图对照.md)。
 

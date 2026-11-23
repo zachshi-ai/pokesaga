@@ -2011,7 +2011,9 @@ func _roll_regional(species_id: int) -> String:
 ## 商店：读货架，买完改背包和钱
 func _open_shop(merchant: Dictionary={}) -> void:
 	var goods := Data.load_shop(str(world.map_data.get("region", "kanto")))
-	if merchant.get("alola_shop",false):
+	if merchant.has("counter_goods"):
+		goods = merchant.counter_goods
+	elif merchant.get("alola_shop",false):
 		goods=load("res://core/alola_routes.gd").goods(self)
 		for entry in goods:entry.price=maxi(1,int(entry.price*AlolaSide.factor(self,"bargain")))
 	elif merchant.get("kalos_shop",false):
@@ -8435,12 +8437,20 @@ func _restore_from_save() -> void:
 	var spot := start_at
 	if has_saved_spot:
 		spot = Vector2i(int(saved_pos[0]), int(saved_pos[1]))
+		var old_spawn: Array = map.get("platinum_previous_spawn", map.get("unova_previous_spawn", []))
+		if old_spawn.size() == 2 and spot == Vector2i(int(old_spawn[0]), int(old_spawn[1])):
+			spot = Vector2i(int(map.spawn[0]), int(map.spawn[1]))
 		if map.has("emerald_original") and not save_data.has("hoenn_field_revision"):
 			spot = preload("res://core/hoenn_field.gd").saved_position(world,spot,save_data.get("surfing",false))
 		if map.has("hgss") and not save_data.has("johto_field_revision"):
 			spot = preload("res://core/hgss_field.gd").saved_position(world,spot,save_data.get("surfing",false))
 		if map.has("kalos_opening_revision") and not save_data.has("kalos_opening_revision"):
 			spot = preload("res://core/kalos_geometry.gd").opening_position(world,spot)
+		var redrawn: bool = (map.has("switch_field_revision") or map.has("island_field_revision")
+				or map.has("kalos_furniture_feet") or map_id == "kalos_pass_paldea_n3"
+				or (region == "frontier" and map_id in ["harbor", "tower_lobby"]))
+		if redrawn and not save_data.has("regional_redraw_revision"):
+			spot = world.restored_field_position(spot, bool(save_data.get("surfing", false)))
 		# Before 4.51 the interior and connecting exterior of Saffron City overlapped.
 		if map_id == "kanto_main" and not save_data.has("field_revision") and Rect2i(264,120,66,55).has_point(spot):
 			var city_spot := spot + Vector2i(48,30)
@@ -8525,6 +8535,7 @@ func _persist() -> bool:
 	save_data["map"] = String(world.map_data.get("id", "littleroot_town"))
 	save_data["pos"] = [world.player_pos.x, world.player_pos.y]
 	save_data["field_revision"] = 1
+	save_data["regional_redraw_revision"] = 1
 	if world.map_data.has("kalos_opening_revision"): save_data["kalos_opening_revision"] = 1
 	if world.map_data.has("hgss"): save_data["johto_field_revision"] = 1
 	if world.map_data.has("emerald_original"): save_data["hoenn_field_revision"] = 1

@@ -97,11 +97,20 @@ def landmark(z):
 def bake(src,a):
     z=a['z']
     from unova_first_routes import OPENING, native_grass
-    outdoor=z['mid'] in OPENING[src.era]
+    opening=z['mid'] in OPENING[src.era]
+    outdoor=opening or (not landmark(z) and (z['matrix'] in (0,1) or z['fly_from']))
     from unova_streets import Streets, family
-    street=Streets(a) if outdoor else None
-    if not outdoor and not landmark(z):return None
-    if outdoor and src.era=='bw' and not hasattr(src,'black_glbs'):
+    street=Streets(a) if opening else None
+    authored=opening or landmark(z)
+    from unova_transit_art import PLACES
+    if z['mid'] in PLACES:return None
+    if not authored and src.era=='bw' and not hasattr(src,'black_glbs'):
+        original=ROOT/'content/unova_native/bw'/(z['mid']+'.json')
+        if original.exists():
+            scene=json.loads(original.read_bytes())['hoenn_art'].get('scene')
+            if scene:return scene
+        raise ValueError('Generate original Black GLBs before rebuilding '+z['mid'])
+    if opening and src.era=='bw' and not hasattr(src,'black_glbs'):
         # The sequel changes roads and buildings. Reuse the committed Black scene
         # when a geometry-only checkout lacks the first game's converted meshes.
         dest=ROOT/'assets/unova/landmarks/bw'/(z['mid']+'.png')
@@ -139,17 +148,21 @@ def bake(src,a):
         render_mesh(model,(x-ox*16,y,zp-oz*16),0,pixels,depth)
     if street:a['street_facades']=street.sprites()
     im=Image.fromarray(pixels)
-    if street:
+    if outdoor:
         from unova_streets import finish_ground
         im=finish_ground(im,street)
     if outdoor and a.get('grass') is not None and a['grass'].size:
         im=native_grass(im,a['grass'])
-    bbox=(0,0,w*16,h*16) if outdoor and im.getbbox() else im.getbbox()
+    bbox=(0,0,w*16,h*16) if opening and im.getbbox() else im.getbbox()
     if not bbox:return None
     im=im.crop(bbox)
     # Crisp two-pixel source motifs survive a DS-to-GBA palette reduction.
     quant=im.convert('RGB').quantize(palette=palette(),dither=Image.Dither.NONE)
-    quant.putpalette(quant.getpalette());quant=quant.convert('RGBA');quant.putalpha(im.getchannel('A'))
-    out=ROOT/'assets/unova/landmarks'/src.era;out.mkdir(parents=True,exist_ok=True)
-    file=out/(z['mid']+'.png');quant.save(file,optimize=True)
+    if authored:
+        quant=quant.convert('RGBA');quant.putalpha(im.getchannel('A'))
+        out=ROOT/'assets/unova/landmarks'/src.era;out.mkdir(parents=True,exist_ok=True)
+        file=out/(z['mid']+'.png');quant.save(file,optimize=True)
+    else:
+        from ds_pixel_art import save_scene
+        file=save_scene(quant,im.getchannel('A'),ROOT/'assets/unova/scenery')
     return ['res://'+str(file.relative_to(ROOT)),bbox[0],bbox[1]]

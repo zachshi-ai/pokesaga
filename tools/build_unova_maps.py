@@ -302,12 +302,24 @@ def build(era,src,args):
         if picture:
             art['scene']=picture
         if art.get('scene'):
-            art['t']=encode(np.zeros(a['collision'].shape,dtype='uint16'))
+            if '/scenery/' not in art['scene'][0]:
+                art['t']=encode(np.zeros(a['collision'].shape,dtype='uint16'))
             art['p']=a.get('street_facades',art.get('p',[]) if geometry_only else [])
         enc=z['encounters']
         if era=='b2' and enc:enc='ENCOUNTERS_'+enc.upper()
         doc=dict(id=z['mid'],region='unova',name=z['name'],unova_native=True,unova_zone=z['key'],unova_zone_id=z['i'],unova_event_bank=z['bank'],unova_encounter=enc,unova_era=era,unova_origin=tolist(a['origin']),unova_mechanisms=a.get('mechanisms',[]),unova_script_links=a.get('script_links',[]),unova_dynamic_exits=bool(a.get('dynamic_exits')),unova_technical=bool(a.get('technical')),unova_technical_reason=a.get('technical',''),unova_anchors=a['anchors'],unova_cast=cast,spawn=a['spawn'],size=a['size'],physics=physics,warps=a['warps'],npcs=npcs,objects=objects,allow_fly=z['fly_from'],allow_cycling=z['cycling'],allow_running=True,hoenn_art=art)
         if 241<=i<=248:doc['map_type']='MAP_TYPE_UNDERWATER'
+        from unova_transit_art import PLACES, paint as draw_transit
+        if doc['id'] in PLACES:
+            draw_transit(doc)
+        elif '/scenery/' in doc['hoenn_art'].get('scene',[''])[0]:
+            from ds_pixel_art import fit_spawn
+            from PIL import Image
+            scene=doc['hoenn_art']['scene']
+            with Image.open(ROOT/scene[0][6:]) as sheet:
+                fit_spawn(doc,sheet.convert('RGBA'),'unova_previous_spawn',scene[1:])
+        from ds_stage_floor import light_floor
+        light_floor(doc)
         from unova_services import decorate, add_phenomena
         decorate(doc)
         add_phenomena(doc,a['env'])
@@ -320,6 +332,8 @@ def build(era,src,args):
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--bw',type=Path,required=True);p.add_argument('--b2',type=Path,required=True);p.add_argument('--emerald',type=Path,required=True);p.add_argument('--geometry-only',action='store_true');p.add_argument('--apicula',type=Path);p.add_argument('--cache',type=Path,default=Path('/tmp/pokesaga-unova-models'));p.add_argument('--era',choices=['bw','b2','both'],default='both');args=p.parse_args()
     atlas(Emerald(args.emerald))
+    from unova_transit_art import atlas as draw_transit_tiles
+    draw_transit_tiles()
     sequel=UnovaSource(args.bw,args.b2,'b2')
     for era in (['bw','b2'] if args.era=='both' else [args.era]):
         src=sequel if era=='b2' else UnovaSource(args.bw,args.b2,era)

@@ -12,7 +12,13 @@
   "hisui_mirelands",
   "hisui_obsidian",
   "hisui_temple",
-  "hisui_village"
+  "hisui_village",
+  "hisui_jubilife_craft4_room",
+  "hisui_jubilife_craft_room",
+  "hisui_jubilife_lodgings2_room",
+  "hisui_jubilife_lodgings3_room",
+  "hisui_jubilife_lodgings5_room",
+  "hisui_jubilife_lodgings_room"
  ],
  "encounters": [
   {

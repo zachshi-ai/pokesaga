@@ -324,6 +324,13 @@ def main(cache):
     allowed={r['map'] for r in locs+old};alola['connections']=sorted([['alola_'+a,'alola_'+b] for a,b in edges if {'alola_'+a,'alola_'+b}<=allowed]);save(dest,all_data)
     from alola_melemele import main as build_gba_streets
     build_gba_streets()
+    # The island fields consume the clean survey before its single-use collision edits are applied.
+    from build_island_fields import build as build_fields
+    from island_places import ALOLA, parse
+    from island_households import ROOMS
+    fields={"alola_"+key for key in parse(ALOLA)} | {"alola_1"}
+    fields.update("alola_"+home[1] for home in ROOMS)
+    build_fields(ROOT,fields)
     print('Alola maps',len(maps),'native meshes or sectors',sum(bool(a.scene) for a in maps.values()),'links',sum(len(a.warps) for a in maps.values()),'items',sum(len(a.items) for a in maps.values()),'trainers',sum(len(a.trainers) for a in maps.values()))
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('atlas',type=Path);main(ap.parse_args().atlas)

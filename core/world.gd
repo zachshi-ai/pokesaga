@@ -400,6 +400,40 @@ func is_blocked(p: Vector2i) -> bool:
 			return true
 	return false
 
+## Use the nearest tile in the spawn's connected walking area when a field is redrawn.
+## A previous surf save can stay on water. Doors and occupied tiles are never fallback landings.
+func restored_field_position(previous: Vector2i, was_surfing: bool) -> Vector2i:
+	var size_cells := Vector2i(int(map_data.size[0]), int(map_data.size[1]))
+	var bounds := Rect2i(Vector2i.ZERO, size_cells)
+	if was_surfing and bounds.has_point(previous) and is_water(previous) and _npc_at(previous).is_empty() and warp_at(previous).is_empty():
+		return previous
+	# Some Kalos rooms have separate floors joined by a lift or a puzzle teleport.
+	# Only move an old save on an actual new obstruction in those rooms.
+	if map_data.has("kalos_furniture_feet") and bounds.has_point(previous) and not is_blocked(previous) and not is_water(previous) and warp_at(previous).is_empty():
+		return previous
+	var start := Vector2i(int(map_data.spawn[0]), int(map_data.spawn[1]))
+	var pending: Array[Vector2i] = [start]
+	var seen := {start: true}
+	var best := start
+	var best_distance := 2147483647
+	var index := 0
+	while index < pending.size():
+		var cell := pending[index]
+		index += 1
+		if not is_blocked(cell) and not is_water(cell) and warp_at(cell).is_empty():
+			var distance := cell.distance_squared_to(previous)
+			if distance < best_distance:
+				best = cell
+				best_distance = distance
+			if distance == 0: break
+		for direction in [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT]:
+			var next: Vector2i = cell + direction
+			if seen.has(next) or not bounds.has_point(next): continue
+			seen[next] = true
+			if not can_enter(next, direction) or is_water(next) or not warp_at(next).is_empty(): continue
+			pending.append(next)
+	return best
+
 ## 方向阻挡：1 北 / 2 南 / 4 东 / 8 西，表示"从这个方向进不来"
 func dir_mask(p: Vector2i) -> int:
 	if p.y < 0 or p.y >= emerald_dir.size():
