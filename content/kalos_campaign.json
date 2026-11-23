@@ -1,0 +1,4320 @@
+{
+ "events": [
+  {
+   "id": "k_dressed",
+   "map": "kalos_home_2f",
+   "who": "镜子",
+   "require": [
+    "k_started"
+   ],
+   "steps": [
+    {
+     "who": "镜子",
+     "say": [
+      "小悠换好衣服。窗外传来小箭雀的叫声，楼下已经有人起来了。"
+     ]
+    },
+    {
+     "flag": "k_dressed"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_dressed"
+   },
+   "route": true
+  },
+  {
+   "id": "k_welcome",
+   "map": "kalos_vaniville",
+   "who": "莎莉娜",
+   "require": [
+    "k_dressed"
+   ],
+   "steps": [
+    {
+     "who": "莎莉娜",
+     "say": [
+      "小悠？我是隔壁的莎莉娜。博士想把宝可梦托付给我们五个人，去名水镇露天桌旁集合吧。"
+     ]
+    },
+    {
+     "flag": "k_welcome"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_welcome"
+   },
+   "route": true,
+   "guests": [
+    "莎娜"
+   ],
+   "on_approach": 3,
+   "positions": [
+    [
+     30,
+     13
+    ],
+    [
+     28,
+     15
+    ]
+   ]
+  },
+  {
+   "id": "k_starter_gift",
+   "map": "kalos_aquacorde",
+   "who": "提耶鲁诺",
+   "require": [
+    "k_welcome"
+   ],
+   "steps": [
+    {
+     "who": "提耶鲁诺",
+     "say": [
+      "莎娜、多罗巴、莎莉娜，都到了！博士把三个精灵球交给我，请你先挑一个吧。"
+     ]
+    },
+    {
+     "kalos_starter": true
+    },
+    {
+     "who": "多罗巴",
+     "say": [
+      "宝可梦图鉴交给你。遇到的每一位新伙伴，都可以在这里留下记录。"
+     ]
+    },
+    {
+     "kalos_key": "卡洛斯图鉴"
+    },
+    {
+     "kalos_key": "博士的信"
+    },
+    {
+     "who": "提耶鲁诺",
+     "say": [
+      "这封信是写给你妈妈的，出发前先带回家。"
+     ]
+    },
+    {
+     "flag": "k_starter_gift"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_starter_gift"
+   },
+   "route": true,
+   "guests": [
+    "莎莉娜",
+    "莎娜",
+    "多罗巴"
+   ]
+  },
+  {
+   "id": "k_first_battle",
+   "map": "kalos_aquacorde",
+   "who": "莎娜",
+   "require": [
+    "k_starter_gift"
+   ],
+   "steps": [
+    {
+     "who": "莎娜",
+     "say": [
+      "等等，我也选好伙伴了！回家之前，和我打一场吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "莎娜",
+      "kalos_starter_only": true,
+      "finish_on_loss": true,
+      "kalos_variants": [
+       137,
+       138,
+       139
+      ]
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "k_first_battle"
+    }
+   ],
+   "anchor": "guest1",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_first_battle"
+   },
+   "route": true,
+   "on_approach": 3,
+   "positions": [
+    [
+     65,
+     83
+    ]
+   ]
+  },
+  {
+   "id": "k_moms_map",
+   "map": "kalos_home_1f",
+   "who": "妈妈",
+   "require": [
+    "k_first_battle"
+   ],
+   "steps": [
+    {
+     "who": "妈妈",
+     "say": [
+      "布拉塔诺博士写来了邀请信。你要去那么远的地方，带上地图和伤药。铁甲犀牛也来送你了！"
+     ]
+    },
+    {
+     "kalos_take": "博士的信"
+    },
+    {
+     "kalos_key": "城镇地图"
+    },
+    {
+     "kalos_key": "全息影像通讯器"
+    },
+    {
+     "give_item": {
+      "name": "伤药",
+      "count": 1,
+      "category": "medicine"
+     }
+    },
+    {
+     "flag": "k_moms_map"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_moms_map"
+   },
+   "route": true
+  },
+  {
+   "id": "k_catch_lesson",
+   "map": "kalos_2",
+   "who": "莎莉娜",
+   "require": [
+    "k_moms_map"
+   ],
+   "steps": [
+    {
+     "who": "莎莉娜",
+     "say": [
+      "你看，我先让伙伴削弱它的体力。等它慢下来再投球，更有把握。"
+     ]
+    },
+    {
+     "kalos_catch_demo": true
+    },
+    {
+     "give_item": {
+      "name": "精灵球",
+      "count": 10,
+      "category": "ball"
+     }
+    },
+    {
+     "flag": "k_catch_lesson"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_catch_lesson"
+   },
+   "route": true,
+   "guests": [
+    "莎娜"
+   ],
+   "on_approach": 3,
+   "positions": [
+    [
+     23,
+     90
+    ],
+    [
+     21,
+     91
+    ]
+   ]
+  },
+  {
+   "id": "k_forest_friends",
+   "map": "kalos_forest",
+   "who": "莎娜",
+   "require": [
+    "k_catch_lesson"
+   ],
+   "steps": [
+    {
+     "who": "莎娜",
+     "say": [
+      "森林的草丛在摇晃。一起走吧！你的伙伴累了，我来帮它们恢复。"
+     ]
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "k_forest_friends"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_forest_friends"
+   },
+   "route": true,
+   "guests": [
+    "多罗巴",
+    "提耶鲁诺"
+   ],
+   "on_approach": 3,
+   "positions": [
+    [
+     54,
+     105
+    ],
+    [
+     50,
+     107
+    ],
+    [
+     56,
+     107
+    ]
+   ]
+  },
+  {
+   "id": "k_rules",
+   "map": "kalos_3",
+   "who": "莎莉娜",
+   "require": [
+    "k_forest_friends"
+   ],
+   "steps": [
+    {
+     "who": "莎莉娜",
+     "say": [
+      "穿过森林就是白檀市。我们各走各的路之前，把大家商量的冒险心得也带上吧。"
+     ]
+    },
+    {
+     "kalos_key": "探险心得"
+    },
+    {
+     "flag": "k_rules"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_rules"
+   },
+   "route": true,
+   "guests": [
+    "莎娜",
+    "提耶鲁诺",
+    "多罗巴"
+   ],
+   "on_approach": 3,
+   "positions": [
+    [
+     69,
+     42
+    ],
+    [
+     67,
+     44
+    ],
+    [
+     71,
+     44
+    ],
+    [
+     69,
+     44
+    ]
+   ]
+  },
+  {
+   "id": "k_skates",
+   "map": "kalos_santalune",
+   "who": "轮滑手凛香",
+   "require": [
+    "k_rules"
+   ],
+   "steps": [
+    {
+     "who": "轮滑手凛香",
+     "say": [
+      "想试试轮滑鞋吗？先和我的蛇纹熊比一场！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "轮滑手凛香",
+      "kalos_team": 166
+     }
+    },
+    {
+     "kalos_key": "轮滑鞋"
+    },
+    {
+     "flag": "k_skates"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_skates"
+   },
+   "route": true,
+   "positions": [
+    [
+     93,
+     47
+    ]
+   ]
+  },
+  {
+   "id": "k_badge_1",
+   "map": "kalos_gym_santalune_web",
+   "who": "紫罗兰",
+   "require": [
+    "k_skates"
+   ],
+   "steps": [
+    {
+     "who": "紫罗兰",
+     "say": [
+      "站到蛛网上别着急，焦点就在你的宝可梦身上！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "紫罗兰",
+      "kalos_team": 6
+     }
+    },
+    {
+     "who": "紫罗兰",
+     "say": [
+      "这场对战的瞬间，我会记在照片里。虫子徽章属于你了。"
+     ]
+    },
+    {
+     "kalos_badge": "虫子徽章"
+    },
+    {
+     "kalos_tm": 83
+    },
+    {
+     "flag": "k_badge_1"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_badge_1"
+   },
+   "route": true,
+   "resident": "这场对战的瞬间，我会记在照片里。虫子徽章属于你了。"
+  },
+  {
+   "id": "k_alexa",
+   "map": "kalos_santalune",
+   "who": "三色堇",
+   "require": [
+    "k_badge_1"
+   ],
+   "steps": [
+    {
+     "who": "三色堇",
+     "say": [
+      "原来你就是赢过我妹妹的训练家！学习装置可以让没有上场的伙伴也分享经验。"
+     ]
+    },
+    {
+     "kalos_key": "学习装置"
+    },
+    {
+     "flag": "k_alexa"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_alexa"
+   },
+   "route": true,
+   "positions": [
+    [
+     83,
+     41
+    ]
+   ]
+  },
+  {
+   "id": "k_dex_helpers",
+   "map": "kalos_4",
+   "who": "德克希欧",
+   "require": [
+    "k_alexa"
+   ],
+   "steps": [
+    {
+     "who": "德克希欧",
+     "say": [
+      "橙色花海后面就是密阿雷。我们在博士的研究所工作，一起去见布拉塔诺博士吧。"
+     ]
+    },
+    {
+     "kalos_tm": 27
+    },
+    {
+     "flag": "k_dex_helpers"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_dex_helpers"
+   },
+   "route": true,
+   "guests": [
+    "吉娜"
+   ],
+   "on_approach": 3
+  },
+  {
+   "id": "k_sycamore",
+   "map": "kalos_sycamore_lab",
+   "who": "布拉塔诺",
+   "require": [
+    "k_dex_helpers"
+   ],
+   "steps": [
+    {
+     "who": "布拉塔诺",
+     "say": [
+      "我在研究超级进化。先让我用来自关都的三位伙伴，看看你一路学到了什么。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "布拉塔诺",
+      "kalos_team": 327
+     }
+    },
+    {
+     "who": "布拉塔诺",
+     "say": [
+      "你和哪一位合得来？它和对应的超级石都交给你。"
+     ]
+    },
+    {
+     "kalos_kanto_gift": true
+    },
+    {
+     "flag": "k_sycamore"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_sycamore"
+   },
+   "route": true,
+   "guests": [
+    "莎莉娜",
+    "莎娜"
+   ]
+  },
+  {
+   "id": "k_lysandre_intro",
+   "map": "kalos_sycamore_lab_lobby",
+   "who": "弗拉达利",
+   "require": [
+    "k_sycamore"
+   ],
+   "steps": [
+    {
+     "who": "弗拉达利",
+     "say": [
+      "博士所挑选的孩子？愿你把自己的才能用在更美好的世界上。"
+     ]
+    },
+    {
+     "flag": "k_lysandre_intro"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_lysandre_intro"
+   },
+   "route": true,
+   "guests": [
+    "布拉塔诺"
+   ]
+  },
+  {
+   "id": "k_diantha_cafe",
+   "map": "kalos_cafe_soleil",
+   "who": "卡露妮",
+   "require": [
+    "k_lysandre_intro"
+   ],
+   "steps": [
+    {
+     "who": "卡露妮",
+     "say": [
+      "即使上了年纪，我也想演那时候的自己。对战也一样，每次相遇都会让我改变。"
+     ]
+    },
+    {
+     "flag": "k_diantha_cafe"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_diantha_cafe"
+   },
+   "route": true,
+   "guests": [
+    "弗拉达利",
+    "莎莉娜"
+   ]
+  },
+  {
+   "id": "k_korrina_5",
+   "map": "kalos_5",
+   "who": "可尔妮",
+   "require": [
+    "k_diantha_cafe"
+   ],
+   "steps": [
+    {
+     "who": "可尔妮",
+     "say": [
+      "路卡利欧，回来！奇怪，它很少对刚认识的训练家这么亲近。我们一定会再相遇。"
+     ]
+    },
+    {
+     "flag": "k_korrina_5"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_korrina_5"
+   },
+   "route": true,
+   "guests": [
+    "路卡利欧"
+   ],
+   "on_approach": 3
+  },
+  {
+   "id": "k_dance",
+   "map": "kalos_5",
+   "who": "提耶鲁诺",
+   "require": [
+    "k_korrina_5"
+   ],
+   "steps": [
+    {
+     "who": "提耶鲁诺",
+     "say": [
+      "我的龙虾小兵学会了新动作！你愿意陪我练练舞步吗？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "提耶鲁诺",
+      "kalos_team": 573
+     }
+    },
+    {
+     "flag": "k_dance"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_dance"
+   },
+   "route": true,
+   "guests": [
+    "多罗巴"
+   ]
+  },
+  {
+   "id": "k_castle",
+   "map": "kalos_shabboneau_castle",
+   "who": "城主",
+   "require": [
+    "k_dance"
+   ],
+   "steps": [
+    {
+     "who": "城主",
+     "say": [
+      "城堡中的宝物早被带走了……什么？七号道路的桥上又有宝可梦睡着了？我们到桥边去！"
+     ]
+    },
+    {
+     "flag": "k_castle"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_castle"
+   },
+   "route": true,
+   "guests": [
+    "莎娜"
+   ]
+  },
+  {
+   "id": "k_sleeping",
+   "map": "kalos_7",
+   "who": "空手道王",
+   "require": [
+    "k_castle"
+   ],
+   "steps": [
+    {
+     "who": "空手道王",
+     "say": [
+      "卡比兽把路占得严严实实。唤醒它的宝可梦之笛在巴尔法姆香殿。"
+     ]
+    },
+    {
+     "flag": "k_sleeping"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_sleeping"
+   },
+   "route": true,
+   "guests": [
+    "卡比兽",
+    "莎娜"
+   ],
+   "positions": [
+    [
+     158,
+     79
+    ],
+    [
+     160,
+     81
+    ],
+    [
+     160,
+     79
+    ]
+   ]
+  },
+  {
+   "id": "k_palace",
+   "map": "kalos_palace",
+   "who": "香殿主人",
+   "require": [
+    "k_sleeping"
+   ],
+   "steps": [
+    {
+     "who": "香殿主人",
+     "say": [
+      "我的多丽米亚不见了！它会不会跑进庭院的树篱？请帮我找找。"
+     ]
+    },
+    {
+     "flag": "k_palace"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_palace"
+   },
+   "route": true,
+   "guests": [
+    "莎娜"
+   ]
+  },
+  {
+   "id": "k_garden_watch",
+   "map": "kalos_parfum_garden",
+   "who": "莎娜",
+   "require": [
+    "k_palace"
+   ],
+   "steps": [
+    {
+     "who": "莎娜",
+     "say": [
+      "我在岔路口挡住它。你从后面走，让它朝中间的树篱去。"
+     ]
+    },
+    {
+     "flag": "k_garden_watch"
+    }
+   ],
+   "anchor": "guest1",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_garden_watch"
+   },
+   "route": true,
+   "positions": [
+    [
+     42,
+     58
+    ]
+   ]
+  },
+  {
+   "id": "k_garden_lure",
+   "map": "kalos_parfum_garden",
+   "who": "多丽米亚",
+   "require": [
+    "k_garden_watch"
+   ],
+   "steps": [
+    {
+     "who": "多丽米亚",
+     "say": [
+      "多丽米亚回头看了一眼，沿着树篱向另一边跑开了。"
+     ]
+    },
+    {
+     "flag": "k_garden_lure"
+    }
+   ],
+   "anchor": "guest2",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_garden_lure"
+   },
+   "route": true,
+   "guests": [
+    "莎娜"
+   ],
+   "positions": [
+    [
+     52,
+     46
+    ],
+    [
+     50,
+     48
+    ]
+   ]
+  },
+  {
+   "id": "k_garden_block",
+   "map": "kalos_parfum_garden",
+   "who": "莎娜",
+   "require": [
+    "k_garden_lure"
+   ],
+   "steps": [
+    {
+     "who": "莎娜",
+     "say": [
+      "它到了另一头！这次我守着左边的出口，你从右边靠近。"
+     ]
+    },
+    {
+     "flag": "k_garden_block"
+    }
+   ],
+   "anchor": "guest3",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_garden_block"
+   },
+   "route": true,
+   "positions": [
+    [
+     31,
+     45
+    ]
+   ]
+  },
+  {
+   "id": "k_garden_dog",
+   "map": "kalos_parfum_garden",
+   "who": "多丽米亚",
+   "require": [
+    "k_garden_block"
+   ],
+   "steps": [
+    {
+     "who": "多丽米亚",
+     "say": [
+      "多丽米亚停在尽头，摇着尾巴回到莎娜身边。主人邀请你们一起去阳台看烟花。"
+     ]
+    },
+    {
+     "flag": "k_garden_dog"
+    }
+   ],
+   "anchor": "guest2",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_garden_dog"
+   },
+   "route": true,
+   "guests": [
+    "莎娜",
+    "香殿主人"
+   ],
+   "positions": [
+    [
+     42,
+     33
+    ],
+    [
+     40,
+     35
+    ],
+    [
+     44,
+     35
+    ]
+   ]
+  },
+  {
+   "id": "k_flute",
+   "map": "kalos_zone_301",
+   "who": "莎娜",
+   "require": [
+    "k_garden_dog"
+   ],
+   "steps": [
+    {
+     "who": "莎娜",
+     "say": [
+      "烟花亮起来了！从前我是一个人看，多亏了你，这次可以和朋友一起记住它。"
+     ]
+    },
+    {
+     "kalos_scene": "fireworks"
+    },
+    {
+     "who": "管家",
+     "say": [
+      "既然要唤醒卡比兽，请借用这支宝可梦之笛。这是大家约定好的谢礼。"
+     ]
+    },
+    {
+     "kalos_key": "宝可梦之笛"
+    },
+    {
+     "kalos_tm": 17
+    },
+    {
+     "flag": "k_flute"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_flute"
+   },
+   "route": true,
+   "guests": [
+    "管家"
+   ]
+  },
+  {
+   "id": "k_snorlax",
+   "map": "kalos_7",
+   "who": "空手道王",
+   "require": [
+    "k_flute"
+   ],
+   "steps": [
+    {
+     "who": "空手道王",
+     "say": [
+      "你借到了笛子！小悠，请你接住醒来的卡比兽。"
+     ]
+    },
+    {
+     "kalos_require_item": "宝可梦之笛"
+    },
+    {
+     "battle": {
+      "name": "卡比兽",
+      "wild": true,
+      "finish_on_escape": true,
+      "team": [
+       {
+        "species": 143,
+        "level": 15
+       }
+      ]
+     }
+    },
+    {
+     "kalos_take": "宝可梦之笛"
+    },
+    {
+     "who": "城主",
+     "say": [
+      "谢谢你。笛子由我保管，桥上可以通行了。"
+     ]
+    },
+    {
+     "flag": "k_snorlax"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_snorlax"
+   },
+   "route": true,
+   "guests": [
+    "卡比兽",
+    "城主"
+   ],
+   "positions": [
+    [
+     158,
+     79
+    ],
+    [
+     160,
+     81
+    ],
+    [
+     160,
+     79
+    ]
+   ]
+  },
+  {
+   "id": "k_route7_tag",
+   "map": "kalos_7_west",
+   "who": "提耶鲁诺",
+   "require": [
+    "k_snorlax"
+   ],
+   "steps": [
+    {
+     "who": "提耶鲁诺",
+     "say": [
+      "小悠和莎莉娜一组，我和多罗巴一组。两边同时指挥，要看好同伴的动作哦。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "提耶鲁诺与多罗巴",
+      "kalos_team": 438,
+      "kalos_other": 439,
+      "double": true,
+      "ally": "kalos",
+      "kalos_ally": [
+       596,
+       597,
+       598
+      ]
+     }
+    },
+    {
+     "flag": "k_route7_tag"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_route7_tag"
+   },
+   "route": true,
+   "guests": [
+    "多罗巴",
+    "莎莉娜"
+   ]
+  },
+  {
+   "id": "k_coastal",
+   "map": "kalos_8",
+   "who": "吉娜",
+   "require": [
+    "k_route7_tag"
+   ],
+   "steps": [
+    {
+     "who": "吉娜",
+     "say": [
+      "中央卡洛斯以外还有海岸的生态。已经帮你打开海岸图鉴了！"
+     ]
+    },
+    {
+     "flag": "k_coastal"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_coastal"
+   },
+   "route": true,
+   "guests": [
+    "德克希欧"
+   ],
+   "on_approach": 3
+  },
+  {
+   "id": "k_fossil_lab",
+   "map": "kalos_ambrette_fossil_lab",
+   "who": "化石研究员",
+   "require": [
+    "k_coastal"
+   ],
+   "steps": [
+    {
+     "who": "化石研究员",
+     "say": [
+      "同事去闪耀洞窟实地考察，还没回来。出镇后，可以骑铁甲犀牛越过九号道路的石坡。"
+     ]
+    },
+    {
+     "flag": "k_fossil_lab"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_fossil_lab"
+   },
+   "route": true,
+   "guests": [
+    "莎莉娜"
+   ]
+  },
+  {
+   "id": "k_glitter_grunts",
+   "map": "kalos_glitter",
+   "who": "闪焰队员",
+   "require": [
+    "k_fossil_lab"
+   ],
+   "steps": [
+    {
+     "who": "闪焰队员",
+     "say": [
+      "这洞窟里的化石就由闪焰队收下了。穿这么讲究，怎么能空手回去！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "闪焰队员",
+      "kalos_team": 107
+     }
+    },
+    {
+     "battle": {
+      "name": "闪焰队员",
+      "kalos_team": 110
+     }
+    },
+    {
+     "battle": {
+      "name": "闪焰队搭档",
+      "kalos_team": 108,
+      "kalos_other": 111,
+      "double": true,
+      "ally": "kalos",
+      "kalos_ally": [
+       575,
+       576,
+       577
+      ]
+     }
+    },
+    {
+     "flag": "k_glitter_grunts"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_glitter_grunts"
+   },
+   "route": true,
+   "guests": [
+    "莎莉娜",
+    "闪焰队女团员"
+   ]
+  },
+  {
+   "id": "k_fossil",
+   "map": "kalos_glitter",
+   "who": "化石研究员",
+   "require": [
+    "k_glitter_grunts"
+   ],
+   "steps": [
+    {
+     "who": "化石研究员",
+     "say": [
+      "刚才的骚动我还没注意到呢。我挖出了两块化石，请你选一块，把它带回实验室吧。"
+     ]
+    },
+    {
+     "kalos_fossil": true
+    },
+    {
+     "flag": "k_fossil"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_fossil"
+   },
+   "route": true,
+   "guests": [
+    "莎莉娜"
+   ]
+  },
+  {
+   "id": "k_grant_slope",
+   "map": "kalos_cyllage",
+   "who": "查克洛",
+   "require": [
+    "k_fossil"
+   ],
+   "steps": [
+    {
+     "who": "查克洛",
+     "say": [
+      "抱歉，骑车比赛刚结束。这个秘传学习器给你，从岩壁向上爬，我们在道馆顶上见。"
+     ]
+    },
+    {
+     "kalos_hm": 4
+    },
+    {
+     "flag": "k_grant_slope"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_grant_slope"
+   },
+   "route": true
+  },
+  {
+   "id": "k_badge_2",
+   "map": "kalos_gym_cyllage",
+   "who": "查克洛",
+   "require": [
+    "k_grant_slope"
+   ],
+   "steps": [
+    {
+     "who": "查克洛",
+     "say": [
+      "眼前的墙越高，登顶时就越能看清楚。让我看看你攀过了哪些困难！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "查克洛",
+      "kalos_team": 76
+     }
+    },
+    {
+     "who": "查克洛",
+     "say": [
+      "岩壁徽章属于你了。有了它，怪力就能挪动挡路的大岩石。"
+     ]
+    },
+    {
+     "kalos_badge": "岩壁徽章"
+    },
+    {
+     "kalos_tm": 39
+    },
+    {
+     "flag": "k_badge_2"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_badge_2"
+   },
+   "route": true,
+   "resident": "岩壁徽章属于你了。有了它，怪力就能挪动挡路的大岩石。"
+  },
+  {
+   "id": "k_stones",
+   "map": "kalos_10",
+   "who": "闪焰队员",
+   "require": [
+    "k_badge_2"
+   ],
+   "steps": [
+    {
+     "who": "闪焰队员",
+     "say": [
+      "你在洞窟遇见过我们吧？这些列石埋着很久以前的秘密，小孩子少来打听。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "闪焰队员",
+      "kalos_team": 109
+     }
+    },
+    {
+     "flag": "k_stones"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_stones"
+   },
+   "route": true
+  },
+  {
+   "id": "k_geosenge",
+   "map": "kalos_geosenge",
+   "who": "莎莉娜",
+   "require": [
+    "k_stones"
+   ],
+   "steps": [
+    {
+     "who": "莎莉娜",
+     "say": [
+      "那人往西北去了，可是石头后面明明没有路。先沿十一号道路去娑罗市吧。"
+     ]
+    },
+    {
+     "flag": "k_geosenge"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_geosenge"
+   },
+   "route": true,
+   "guests": [
+    "闪焰队员"
+   ]
+  },
+  {
+   "id": "k_korrina_duo",
+   "map": "kalos_geosenge",
+   "who": "可尔妮",
+   "require": [
+    "k_geosenge"
+   ],
+   "steps": [
+    {
+     "who": "可尔妮",
+     "say": [
+      "又见面了！我的两只路卡利欧都想和你切磋。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "可尔妮",
+      "kalos_team": 613
+     }
+    },
+    {
+     "flag": "k_korrina_duo"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_korrina_duo"
+   },
+   "route": true,
+   "guests": [
+    "路卡利欧"
+   ],
+   "on_approach": 3,
+   "positions": [
+    [
+     100,
+     79
+    ],
+    [
+     98,
+     81
+    ]
+   ]
+  },
+  {
+   "id": "k_reflection",
+   "map": "kalos_reflection",
+   "who": "提耶鲁诺",
+   "require": [
+    "k_korrina_duo"
+   ],
+   "steps": [
+    {
+     "who": "提耶鲁诺",
+     "say": [
+      "镜壁照到了背后有人。侧着看影子，别在岔路绕回原地。带着闪光，到了昏暗的地方也能照亮前路。"
+     ]
+    },
+    {
+     "kalos_tm": 70
+    },
+    {
+     "flag": "k_reflection"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_reflection"
+   },
+   "route": true
+  },
+  {
+   "id": "k_gurkinn",
+   "map": "kalos_mastery",
+   "who": "可可布尔",
+   "require": [
+    "k_reflection"
+   ],
+   "steps": [
+    {
+     "who": "可可布尔",
+     "say": [
+      "超级进化不只需要超级石，还需要手持钥石的训练家。如今只有一枚手环可以托付。"
+     ]
+    },
+    {
+     "flag": "k_gurkinn"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_gurkinn"
+   },
+   "route": true,
+   "guests": [
+    "可尔妮",
+    "莎莉娜",
+    "莎娜"
+   ]
+  },
+  {
+   "id": "k_ring_rival",
+   "map": "kalos_mastery",
+   "who": "莎莉娜",
+   "require": [
+    "k_gurkinn"
+   ],
+   "steps": [
+    {
+     "who": "莎莉娜",
+     "say": [
+      "我们都想解开超级进化的秘密。这枚手环该交给谁，用一场对战来决定吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "莎莉娜",
+      "kalos_variants": [
+       581,
+       582,
+       583
+      ]
+     }
+    },
+    {
+     "flag": "k_ring_rival"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_ring_rival"
+   },
+   "route": true,
+   "guests": [
+    "可可布尔",
+    "可尔妮"
+   ]
+  },
+  {
+   "id": "k_badge_3",
+   "map": "kalos_gym_shalour",
+   "who": "可尔妮",
+   "require": [
+    "k_ring_rival"
+   ],
+   "steps": [
+    {
+     "who": "可尔妮",
+     "say": [
+      "我绕了这座轮滑场好多圈，一直在等这场道馆赛。我们都拿出真本事吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "可尔妮",
+      "kalos_team": 21
+     }
+    },
+    {
+     "who": "可尔妮",
+     "say": [
+      "你已经获得战斗徽章。再上一次精练之塔，到顶上来练习超级进化吧！"
+     ]
+    },
+    {
+     "kalos_badge": "战斗徽章"
+    },
+    {
+     "kalos_tm": 98
+    },
+    {
+     "flag": "k_badge_3"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_badge_3"
+   },
+   "route": true,
+   "resident": "你已经获得战斗徽章。再上一次精练之塔，到顶上来练习超级进化吧！"
+  },
+  {
+   "id": "k_mega_ring",
+   "map": "kalos_mastery_summit",
+   "who": "可尔妮",
+   "require": [
+    "k_badge_3"
+   ],
+   "steps": [
+    {
+     "who": "可尔妮",
+     "say": [
+      "给你超级环，里面嵌着钥石。它会和路卡利欧身上的超级石呼应。"
+     ]
+    },
+    {
+     "kalos_key": "超级环"
+    },
+    {
+     "flag": "k_mega_ring"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_mega_ring"
+   },
+   "route": true,
+   "guests": [
+    "路卡利欧"
+   ]
+  },
+  {
+   "id": "k_mega_trial",
+   "map": "kalos_mastery_summit",
+   "who": "可尔妮",
+   "require": [
+    "k_mega_ring"
+   ],
+   "steps": [
+    {
+     "who": "可尔妮",
+     "say": [
+      "这只路卡利欧自己选择了你。借你试一次，在出招前通过钥石回应它！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "可尔妮",
+      "kalos_trial": true,
+      "finish_on_loss": true,
+      "kalos_team": 188
+     }
+    },
+    {
+     "flag": "k_mega_trial"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_mega_trial"
+   },
+   "route": true,
+   "guests": [
+    "路卡利欧"
+   ]
+  },
+  {
+   "id": "k_lucario",
+   "map": "kalos_mastery_summit",
+   "who": "可尔妮",
+   "require": [
+    "k_mega_trial"
+   ],
+   "steps": [
+    {
+     "who": "可尔妮",
+     "say": [
+      "它还想和你一起走。愿意让这只带着超级石的路卡利欧加入吗？"
+     ]
+    },
+    {
+     "kalos_lucario": true
+    },
+    {
+     "flag": "k_lucario"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_lucario"
+   },
+   "route": true,
+   "guests": [
+    "路卡利欧"
+   ]
+  },
+  {
+   "id": "k_reclaim_lucario",
+   "map": "kalos_mastery_summit",
+   "who": "可尔妮",
+   "require": [
+    "k_lucario"
+   ],
+   "steps": [
+    {
+     "who": "可尔妮",
+     "say": [
+      "它一直在塔上等你。今天要接它一起旅行吗？"
+     ]
+    },
+    {
+     "kalos_reclaim": true
+    },
+    {
+     "flag": "k_reclaim_lucario"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_reclaim_lucario"
+   },
+   "route": false,
+   "guests": [
+    "路卡利欧"
+   ]
+  },
+  {
+   "id": "k_surf",
+   "map": "kalos_shalour",
+   "who": "莎莉娜",
+   "require": [
+    "k_lucario"
+   ],
+   "steps": [
+    {
+     "who": "莎莉娜",
+     "say": [
+      "你亲眼见到超级进化了！十二号道路前面有水，把冲浪教给合适的伙伴再出发吧。"
+     ]
+    },
+    {
+     "kalos_hm": 3
+    },
+    {
+     "flag": "k_surf"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_surf"
+   },
+   "route": true
+  },
+  {
+   "id": "k_monorail",
+   "map": "kalos_coumarine_monorail_west",
+   "who": "布拉塔诺",
+   "require": [
+    "k_surf"
+   ],
+   "steps": [
+    {
+     "who": "布拉塔诺",
+     "say": [
+      "搭单轨列车越过山崖，才能抵达道馆所在的高地。这里还有一份飞翔的秘传学习器。"
+     ]
+    },
+    {
+     "kalos_hm": 2
+    },
+    {
+     "flag": "k_monorail"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_monorail"
+   },
+   "route": true,
+   "guests": [
+    "卡露妮"
+   ]
+  },
+  {
+   "id": "k_coumarine_rival",
+   "map": "kalos_coumarine_hill",
+   "who": "莎莉娜",
+   "require": [
+    "k_monorail"
+   ],
+   "steps": [
+    {
+     "who": "莎莉娜",
+     "say": [
+      "这次不是为了手环。我想知道，我们各自做出的选择会带来怎样的对战。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "莎莉娜",
+      "kalos_variants": [
+       578,
+       579,
+       580
+      ]
+     }
+    },
+    {
+     "flag": "k_coumarine_rival"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_coumarine_rival"
+   },
+   "route": true,
+   "on_approach": 3,
+   "positions": [
+    [
+     43,
+     66
+    ]
+   ]
+  },
+  {
+   "id": "k_badge_4",
+   "map": "kalos_gym_coumarine",
+   "who": "福爷",
+   "require": [
+    "k_coumarine_rival"
+   ],
+   "steps": [
+    {
+     "who": "福爷",
+     "say": [
+      "捧起泥土就知道根扎得深不深。你的伙伴，一定也在旅途中长出了自己的根。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "福爷",
+      "kalos_team": 22
+     }
+    },
+    {
+     "who": "福爷",
+     "say": [
+      "植物徽章给你。飞过这片土地时，也望一望脚下的树。"
+     ]
+    },
+    {
+     "kalos_badge": "植物徽章"
+    },
+    {
+     "kalos_tm": 86
+    },
+    {
+     "flag": "k_badge_4"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_badge_4"
+   },
+   "route": true,
+   "resident": "植物徽章给你。飞过这片土地时，也望一望脚下的树。"
+  },
+  {
+   "id": "k_mountain",
+   "map": "kalos_13",
+   "who": "德克希欧",
+   "require": [
+    "k_badge_4"
+   ],
+   "steps": [
+    {
+     "who": "德克希欧",
+     "say": [
+      "海岸的记录很漂亮。荒地通向山脉地带，我们把山岳图鉴也交给你。"
+     ]
+    },
+    {
+     "flag": "k_mountain"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_mountain"
+   },
+   "route": true,
+   "guests": [
+    "吉娜"
+   ]
+  },
+  {
+   "id": "k_pass_grunt",
+   "map": "kalos_13",
+   "who": "闪焰队员",
+   "require": [
+    "k_mountain"
+   ],
+   "steps": [
+    {
+     "who": "闪焰队员",
+     "say": [
+      "别靠近发电厂！糟了，我放行用的证件呢？刚才还在九步左右外的大石旁……"
+     ]
+    },
+    {
+     "battle": {
+      "name": "闪焰队员",
+      "kalos_team": 308
+     }
+    },
+    {
+     "flag": "k_pass_grunt"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_pass_grunt"
+   },
+   "route": true
+  },
+  {
+   "id": "k_power_pass",
+   "map": "kalos_13",
+   "who": "大岩石",
+   "require": [
+    "k_pass_grunt"
+   ],
+   "steps": [
+    {
+     "who": "大岩石",
+     "say": [
+      "石头背风的一侧卡着一张发电厂通行证。"
+     ]
+    },
+    {
+     "kalos_key": "发电厂通行证"
+    },
+    {
+     "flag": "k_power_pass"
+    }
+   ],
+   "anchor": "guest2",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_power_pass"
+   },
+   "route": true
+  },
+  {
+   "id": "k_plant",
+   "map": "kalos_power_plant",
+   "who": "闪焰队干部",
+   "require": [
+    "k_power_pass"
+   ],
+   "steps": [
+    {
+     "who": "闪焰队干部",
+     "say": [
+      "密阿雷北部的电已经送到别处了。谁让你进来的？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "闪焰队干部",
+      "kalos_team": 174
+     }
+    },
+    {
+     "battle": {
+      "name": "阿可碧",
+      "kalos_team": 175
+     }
+    },
+    {
+     "who": "工程师",
+     "say": [
+      "供电恢复了！北边的街区和棱镜塔都能重新点亮。"
+     ]
+    },
+    {
+     "flag": "k_plant"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_plant"
+   },
+   "route": true,
+   "guests": [
+    "阿可碧",
+    "工程师"
+   ]
+  },
+  {
+   "id": "k_giant",
+   "map": "kalos_13",
+   "who": "ＡＺ",
+   "require": [
+    "k_plant"
+   ],
+   "steps": [
+    {
+     "who": "ＡＺ",
+     "say": [
+      "花的宝可梦……永恒之花的宝可梦……"
+     ]
+    },
+    {
+     "flag": "k_giant"
+    }
+   ],
+   "anchor": "guest1",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_giant"
+   },
+   "route": true
+  },
+  {
+   "id": "k_prism",
+   "map": "kalos_lumiose_north",
+   "who": "莎娜",
+   "require": [
+    "k_giant"
+   ],
+   "steps": [
+    {
+     "who": "莎娜",
+     "say": [
+      "快看！希特隆和柚丽嘉就站在塔下！"
+     ]
+    },
+    {
+     "who": "希特隆",
+     "say": [
+      "供电稳定。准备好了，棱镜塔，亮起来吧！"
+     ]
+    },
+    {
+     "flag": "k_prism"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_prism"
+   },
+   "route": true,
+   "guests": [
+    "希特隆",
+    "柚丽嘉"
+   ]
+  },
+  {
+   "id": "k_badge_5",
+   "map": "kalos_gym_lumiose",
+   "who": "希特隆",
+   "require": [
+    "k_prism"
+   ],
+   "steps": [
+    {
+     "who": "希特隆",
+     "say": [
+      "我造了这些问答装置，想让大家用不同方式认识宝可梦。最后这一题，是我们来对战！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "希特隆",
+      "kalos_team": 23
+     }
+    },
+    {
+     "who": "希特隆",
+     "say": [
+      "答案正确。请收下电压徽章和十万伏特。"
+     ]
+    },
+    {
+     "kalos_badge": "电压徽章"
+    },
+    {
+     "kalos_tm": 24
+    },
+    {
+     "flag": "k_badge_5"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_badge_5"
+   },
+   "route": true,
+   "resident": "答案正确。请收下电压徽章和十万伏特。"
+  },
+  {
+   "id": "k_kings_rock",
+   "map": "kalos_lysandre_cafe",
+   "who": "弗拉达利",
+   "require": [
+    "k_badge_5"
+   ],
+   "steps": [
+    {
+     "who": "弗拉达利",
+     "say": [
+      "有位国王为了自己珍惜的一切，给这片土地留下了伤痕。愿你善用这块王者之证。"
+     ]
+    },
+    {
+     "kalos_held": "KINGS_ROCK"
+    },
+    {
+     "flag": "k_kings_rock"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_kings_rock"
+   },
+   "route": true,
+   "guests": [
+    "布拉塔诺"
+   ]
+  },
+  {
+   "id": "k_marsh_rival",
+   "map": "kalos_14",
+   "who": "莎莉娜",
+   "require": [
+    "k_kings_rock"
+   ],
+   "steps": [
+    {
+     "who": "莎莉娜",
+     "say": [
+      "多罗巴想比图鉴。我倒更想和你比一场对战。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "莎莉娜",
+      "kalos_variants": [
+       584,
+       585,
+       586
+      ]
+     }
+    },
+    {
+     "flag": "k_marsh_rival"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_marsh_rival"
+   },
+   "route": true,
+   "guests": [
+    "多罗巴"
+   ],
+   "on_approach": 3,
+   "positions": [
+    [
+     22,
+     121
+    ],
+    [
+     20,
+     118
+    ]
+   ]
+  },
+  {
+   "id": "k_scary_house",
+   "map": "kalos_scary_house",
+   "who": "讲故事的老人",
+   "require": [
+    "k_marsh_rival"
+   ],
+   "steps": [
+    {
+     "who": "讲故事的老人",
+     "say": [
+      "夜里独行的人敲响山屋的门。他们哪里知道，身后的路早已消失……"
+     ]
+    },
+    {
+     "who": "莎娜",
+     "say": [
+      "你也听到最后了吗？出来才发现，大家挤得好近！"
+     ]
+    },
+    {
+     "flag": "k_scary_house"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_scary_house"
+   },
+   "route": true,
+   "guests": [
+    "莎娜",
+    "提耶鲁诺",
+    "多罗巴"
+   ]
+  },
+  {
+   "id": "k_badge_6",
+   "map": "kalos_gym_laverre",
+   "who": "玛绣",
+   "require": [
+    "k_scary_house"
+   ],
+   "steps": [
+    {
+     "who": "玛绣",
+     "say": [
+      "站在这间屋子里，偶尔会觉得自己也变成了宝可梦。你听得见伙伴的声音吗？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "玛绣",
+      "kalos_team": 24
+     }
+    },
+    {
+     "who": "玛绣",
+     "say": [
+      "请收下妖精徽章。希望这道光，也能照见你们之间的心意。"
+     ]
+    },
+    {
+     "kalos_badge": "妖精徽章"
+    },
+    {
+     "kalos_tm": 99
+    },
+    {
+     "flag": "k_badge_6"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_badge_6"
+   },
+   "route": true,
+   "resident": "请收下妖精徽章。希望这道光，也能照见你们之间的心意。"
+  },
+  {
+   "id": "k_factory_gate",
+   "map": "kalos_factory_gate",
+   "who": "莎娜",
+   "require": [
+    "k_badge_6"
+   ],
+   "steps": [
+    {
+     "who": "莎娜",
+     "say": [
+      "守卫拦着我们不让参观？我去问问！咦，他追过来了——小悠，你和莎莉娜趁现在进去！"
+     ]
+    },
+    {
+     "flag": "k_factory_gate"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_factory_gate"
+   },
+   "route": true,
+   "guests": [
+    "多罗巴",
+    "提耶鲁诺",
+    "莎莉娜"
+   ]
+  },
+  {
+   "id": "k_factory",
+   "map": "kalos_factory",
+   "who": "闪焰队干部",
+   "require": [
+    "k_factory_gate"
+   ],
+   "steps": [
+    {
+     "who": "闪焰队干部",
+     "say": [
+      "我们给了会长一个选择。交出工厂，或者交出所有的精灵球。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "闪焰队干部",
+      "kalos_team": 304
+     }
+    },
+    {
+     "battle": {
+      "name": "克蕾儿与芭菈",
+      "kalos_team": 348,
+      "kalos_other": 350,
+      "double": true,
+      "ally": "kalos",
+      "kalos_ally": [
+       607,
+       608,
+       609
+      ]
+     }
+    },
+    {
+     "flag": "k_factory"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_factory"
+   },
+   "route": true,
+   "guests": [
+    "克蕾儿",
+    "芭菈",
+    "莎莉娜"
+   ]
+  },
+  {
+   "id": "k_factory_reward",
+   "map": "kalos_factory",
+   "who": "工厂会长",
+   "require": [
+    "k_factory"
+   ],
+   "steps": [
+    {
+     "who": "工厂会长",
+     "say": [
+      "真是多亏你们。大师球和巨大金珠都拿去吧！有些东西的价值，可不是用金钱就能称量的。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "大师球",
+      "count": 1,
+      "category": "ball"
+     }
+    },
+    {
+     "give_item": {
+      "name": "巨大金珠",
+      "count": 1,
+      "category": "other"
+     }
+    },
+    {
+     "flag": "k_factory_reward"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_factory_reward"
+   },
+   "route": true,
+   "guests": [
+    "莎莉娜"
+   ]
+  },
+  {
+   "id": "k_frost_news",
+   "map": "kalos_dendemille",
+   "who": "布拉塔诺",
+   "require": [
+    "k_factory_reward"
+   ],
+   "steps": [
+    {
+     "who": "布拉塔诺",
+     "say": [
+      "传说中的宝可梦究竟何时醒来？对了，镇上的象牙猪似乎不肯离开冰结洞窟。"
+     ]
+    },
+    {
+     "flag": "k_frost_news"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_frost_news"
+   },
+   "route": true,
+   "guests": [
+    "多罗巴"
+   ]
+  },
+  {
+   "id": "k_abomasnow",
+   "map": "kalos_frost",
+   "who": "茉蜜姬",
+   "require": [
+    "k_frost_news"
+   ],
+   "steps": [
+    {
+     "who": "茉蜜姬",
+     "say": [
+      "这只暴雪王释放出的能量可以帮助我们的计划。你们偏偏要来干涉？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "闪焰队员",
+      "kalos_team": 317
+     }
+    },
+    {
+     "battle": {
+      "name": "茉蜜姬",
+      "kalos_team": 346
+     }
+    },
+    {
+     "who": "多罗巴",
+     "say": [
+      "暴雪王恢复了精神，你可以过去看看它。象牙猪现在能安心回雪道了。"
+     ]
+    },
+    {
+     "flag": "k_abomasnow"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_abomasnow"
+   },
+   "route": true,
+   "guests": [
+    "多罗巴",
+    "暴雪王"
+   ]
+  },
+  {
+   "id": "k_anistar_rival",
+   "map": "kalos_anistar",
+   "who": "莎莉娜",
+   "require": [
+    "k_abomasnow"
+   ],
+   "steps": [
+    {
+     "who": "莎莉娜",
+     "say": [
+      "日晷的影子正好走到这里。道馆开门前，先看看我们这段时间的成长吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "莎莉娜",
+      "kalos_variants": [
+       587,
+       588,
+       589
+      ]
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "k_anistar_rival"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_anistar_rival"
+   },
+   "route": true,
+   "on_approach": 3,
+   "positions": [
+    [
+     99,
+     41
+    ]
+   ]
+  },
+  {
+   "id": "k_badge_7",
+   "map": "kalos_gym_anistar",
+   "who": "葛吉花",
+   "require": [
+    "k_anistar_rival"
+   ],
+   "steps": [
+    {
+     "who": "葛吉花",
+     "say": [
+      "星轨交错。站在此刻的你，要怎样通往属于你的未来？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "葛吉花",
+      "kalos_team": 25
+     }
+    },
+    {
+     "who": "葛吉花",
+     "say": [
+      "精神徽章，见证此刻。你的未来还有一次重大抉择。"
+     ]
+    },
+    {
+     "kalos_badge": "精神徽章"
+    },
+    {
+     "kalos_tm": 4
+    },
+    {
+     "flag": "k_badge_7"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_badge_7"
+   },
+   "route": true,
+   "resident": "精神徽章，见证此刻。你的未来还有一次重大抉择。"
+  },
+  {
+   "id": "k_broadcast",
+   "map": "kalos_anistar",
+   "who": "全息影像通讯器",
+   "require": [
+    "k_badge_7"
+   ],
+   "steps": [
+    {
+     "who": "全息影像通讯器",
+     "say": [
+      "弗拉达利的影像占满屏幕：“我将启动最终兵器。只有闪焰队，能留在美丽的世界。”"
+     ]
+    },
+    {
+     "who": "莎莉娜",
+     "say": [
+      "去密阿雷，红色的弗拉达利咖啡馆。他一定和那里有关！"
+     ]
+    },
+    {
+     "flag": "k_broadcast"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_broadcast"
+   },
+   "route": true,
+   "guests": [
+    "莎莉娜"
+   ],
+   "on_entry": true,
+   "positions": [
+    [
+     99,
+     41
+    ],
+    [
+     97,
+     43
+    ]
+   ]
+  },
+  {
+   "id": "k_cafe_password",
+   "map": "kalos_lysandre_cafe",
+   "who": "咖啡店员",
+   "require": [
+    "k_broadcast"
+   ],
+   "steps": [
+    {
+     "who": "咖啡店员",
+     "say": [
+      "这里没什么隐藏的研究所！更没有通往地下的书架……"
+     ]
+    },
+    {
+     "battle": {
+      "name": "闪焰队员",
+      "kalos_team": 326
+     }
+    },
+    {
+     "battle": {
+      "name": "闪焰队女团员",
+      "kalos_team": 352
+     }
+    },
+    {
+     "who": "咖啡店员",
+     "say": [
+      "暗号是“向闪焰队致敬”。书架后的通路……被你找到了。"
+     ]
+    },
+    {
+     "flag": "k_cafe_password"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_cafe_password"
+   },
+   "route": true
+  },
+  {
+   "id": "k_lysandre_lab",
+   "map": "kalos_flare_labs",
+   "who": "弗拉达利",
+   "require": [
+    "k_cafe_password"
+   ],
+   "steps": [
+    {
+     "who": "弗拉达利",
+     "say": [
+      "宝可梦、人类、世界上的资源，都有极限。要阻止我，就先找到电梯钥匙。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "弗拉达利",
+      "kalos_team": 303
+     }
+    },
+    {
+     "flag": "k_lysandre_lab"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_lysandre_lab"
+   },
+   "route": true
+  },
+  {
+   "id": "k_lab_aliana",
+   "map": "kalos_flare_labs",
+   "who": "阿可碧",
+   "require": [
+    "k_lysandre_lab"
+   ],
+   "steps": [
+    {
+     "who": "阿可碧",
+     "say": [
+      "我在发电厂见过你。红蓝传送装置间的这条路，可没那么好走。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "阿可碧",
+      "kalos_team": 344
+     }
+    },
+    {
+     "flag": "k_lab_aliana"
+    }
+   ],
+   "anchor": "guest1",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_lab_aliana"
+   },
+   "route": true
+  },
+  {
+   "id": "k_lab_celosia",
+   "map": "kalos_flare_labs",
+   "who": "克蕾儿",
+   "require": [
+    "k_lab_aliana"
+   ],
+   "steps": [
+    {
+     "who": "克蕾儿",
+     "say": [
+      "我已经收集到了巨石的资料。你的招式能不能比我的计算更快？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "克蕾儿",
+      "kalos_team": 349
+     }
+    },
+    {
+     "flag": "k_lab_celosia"
+    }
+   ],
+   "anchor": "guest2",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_lab_celosia"
+   },
+   "route": true
+  },
+  {
+   "id": "k_lab_bryony",
+   "map": "kalos_flare_labs",
+   "who": "芭菈",
+   "require": [
+    "k_lab_celosia"
+   ],
+   "steps": [
+    {
+     "who": "芭菈",
+     "say": [
+      "追踪能量数据是我的工作，拖住你也是。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "芭菈",
+      "kalos_team": 351
+     }
+    },
+    {
+     "flag": "k_lab_bryony"
+    }
+   ],
+   "anchor": "guest3",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_lab_bryony"
+   },
+   "route": true
+  },
+  {
+   "id": "k_lift_key",
+   "map": "kalos_flare_labs",
+   "who": "茉蜜姬",
+   "require": [
+    "k_lab_bryony"
+   ],
+   "steps": [
+    {
+     "who": "茉蜜姬",
+     "say": [
+      "电梯钥匙在我手里。想去地下二层，就来拿吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "茉蜜姬",
+      "kalos_team": 347
+     }
+    },
+    {
+     "kalos_key": "电梯钥匙"
+    },
+    {
+     "flag": "k_lift_key"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_lift_key"
+   },
+   "route": true
+  },
+  {
+   "id": "k_az_cell",
+   "map": "kalos_flare_labs_b2",
+   "who": "ＡＺ",
+   "require": [
+    "k_lift_key"
+   ],
+   "steps": [
+    {
+     "who": "ＡＺ",
+     "say": [
+      "三千年前，我造出机器救回了最重要的伙伴。随后我又把它变成了武器。那朵花离开了我，直到今天。"
+     ]
+    },
+    {
+     "who": "ＡＺ",
+     "say": [
+      "不要让同样的事情再发生。启动兵器的钥匙，就在弗拉达利身上。"
+     ]
+    },
+    {
+     "flag": "k_az_cell"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_az_cell"
+   },
+   "route": true,
+   "guests": [
+    "弗拉达利"
+   ]
+  },
+  {
+   "id": "k_two_buttons",
+   "map": "kalos_flare_labs_b3",
+   "who": "库瑟洛斯奇",
+   "require": [
+    "k_az_cell"
+   ],
+   "steps": [
+    {
+     "who": "库瑟洛斯奇",
+     "say": [
+      "蓝色与红色的按钮。先打赢我，再选择要不要启动最终兵器。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "库瑟洛斯奇",
+      "kalos_team": 345
+     }
+    },
+    {
+     "kalos_button_choice": true
+    },
+    {
+     "flag": "k_two_buttons"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_two_buttons"
+   },
+   "route": true
+  },
+  {
+   "id": "k_crater_gate",
+   "map": "kalos_geosenge",
+   "who": "闪焰队员",
+   "require": [
+    "k_two_buttons"
+   ],
+   "steps": [
+    {
+     "who": "闪焰队员",
+     "say": [
+      "石香镇中心的巨石升起来了。秘密基地就在兵器下方，但你休想进去！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "闪焰队员",
+      "kalos_team": 313
+     }
+    },
+    {
+     "flag": "k_crater_gate"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_crater_gate"
+   },
+   "route": true,
+   "guests": [
+    "莎莉娜"
+   ]
+  },
+  {
+   "id": "k_lysandre_hq",
+   "map": "kalos_flare_hq",
+   "who": "弗拉达利",
+   "require": [
+    "k_crater_gate"
+   ],
+   "steps": [
+    {
+     "who": "弗拉达利",
+     "say": [
+      "只要再汲取一点能量，最终兵器就会完成。你们还想说服我？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "弗拉达利",
+      "kalos_team": 525
+     }
+    },
+    {
+     "flag": "k_lysandre_hq"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_lysandre_hq"
+   },
+   "route": true,
+   "guests": [
+    "莎莉娜"
+   ]
+  },
+  {
+   "id": "k_hq_pairs",
+   "map": "kalos_zone_340",
+   "who": "闪焰队干部",
+   "require": [
+    "k_lysandre_hq"
+   ],
+   "steps": [
+    {
+     "who": "闪焰队干部",
+     "say": [
+      "关上通往能源室的门！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "闪焰队搭档",
+      "kalos_team": 470,
+      "kalos_other": 611,
+      "double": true,
+      "ally": "kalos",
+      "kalos_ally": [
+       590,
+       591,
+       592
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "闪焰队搭档",
+      "kalos_team": 476,
+      "kalos_other": 612,
+      "double": true,
+      "ally": "kalos",
+      "kalos_ally": [
+       590,
+       591,
+       592
+      ]
+     }
+    },
+    {
+     "battle": {
+      "name": "闪焰队搭档",
+      "kalos_team": 472,
+      "kalos_other": 610,
+      "double": true,
+      "ally": "kalos",
+      "kalos_ally": [
+       590,
+       591,
+       592
+      ]
+     }
+    },
+    {
+     "who": "莎娜",
+     "say": [
+      "这个电子锁和解谜游戏里的好像。希特隆给我的机器能打开它！"
+     ]
+    },
+    {
+     "flag": "k_hq_pairs"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_hq_pairs"
+   },
+   "route": true,
+   "guests": [
+    "莎莉娜",
+    "莎娜"
+   ]
+  },
+  {
+   "id": "k_hq_admins",
+   "map": "kalos_flare_hq_control",
+   "who": "闪焰队干部",
+   "require": [
+    "k_hq_pairs"
+   ],
+   "steps": [
+    {
+     "who": "闪焰队干部",
+     "say": [
+      "不能让任何人接近沉睡的宝可梦。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "闪焰队干部",
+      "kalos_team": 478
+     }
+    },
+    {
+     "battle": {
+      "name": "闪焰队干部",
+      "kalos_team": 477
+     }
+    },
+    {
+     "battle": {
+      "name": "闪焰队干部",
+      "kalos_team": 479
+     }
+    },
+    {
+     "battle": {
+      "name": "闪焰队干部",
+      "kalos_team": 473
+     }
+    },
+    {
+     "flag": "k_hq_admins"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_hq_admins"
+   },
+   "route": true
+  },
+  {
+   "id": "k_legend",
+   "map": "kalos_flare_hq_control",
+   "who": "能源装置",
+   "require": [
+    "k_hq_admins"
+   ],
+   "steps": [
+    {
+     "who": "能源装置",
+     "say": [
+      "供能管道断开了。传说宝可梦正在从沉眠中醒来……"
+     ]
+    },
+    {
+     "kalos_legend": true
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "k_legend"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_legend"
+   },
+   "route": true
+  },
+  {
+   "id": "k_last_lysandre",
+   "map": "kalos_flare_hq_control",
+   "who": "弗拉达利",
+   "require": [
+    "k_legend"
+   ],
+   "steps": [
+    {
+     "who": "弗拉达利",
+     "say": [
+      "连传说宝可梦也选择了你？那就看看暴鲤龙和我的钥石！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "弗拉达利",
+      "kalos_team": 526
+     }
+    },
+    {
+     "kalos_final_shot": true
+    },
+    {
+     "flag": "k_last_lysandre"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_last_lysandre"
+   },
+   "route": true,
+   "guests": [
+    "莎莉娜",
+    "莎娜"
+   ]
+  },
+  {
+   "id": "k_weapon",
+   "map": "kalos_geosenge",
+   "who": "ＡＺ",
+   "require": [
+    "k_last_lysandre"
+   ],
+   "steps": [
+    {
+     "who": "ＡＺ",
+     "say": [
+      "巨大的花沉入了地下。谢谢你把那些宝可梦从武器里解放出来。"
+     ]
+    },
+    {
+     "flag": "k_weapon"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_weapon"
+   },
+   "route": true,
+   "guests": [
+    "莎莉娜",
+    "莎娜"
+   ]
+  },
+  {
+   "id": "k_couriway_prof",
+   "map": "kalos_couriway",
+   "who": "布拉塔诺",
+   "require": [
+    "k_weapon"
+   ],
+   "steps": [
+    {
+     "who": "布拉塔诺",
+     "say": [
+      "我没能早些看清老朋友的心事。小悠，陪我对战吧，我想亲眼看看你和伙伴将要走出的未来。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "布拉塔诺",
+      "kalos_team": 328
+     }
+    },
+    {
+     "flag": "k_couriway_prof"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_couriway_prof"
+   },
+   "route": true
+  },
+  {
+   "id": "k_bridge_shauna",
+   "map": "kalos_19",
+   "who": "莎娜",
+   "require": [
+    "k_couriway_prof"
+   ],
+   "steps": [
+    {
+     "who": "莎娜",
+     "say": [
+      "一起走过这么多地方，还记得名水镇的第一战吗？我想让你看看，我们都长大了。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "莎娜",
+      "kalos_variants": [
+       321,
+       322,
+       323
+      ]
+     }
+    },
+    {
+     "flag": "k_bridge_shauna"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_bridge_shauna"
+   },
+   "route": true
+  },
+  {
+   "id": "k_bridge_tierno",
+   "map": "kalos_19",
+   "who": "提耶鲁诺",
+   "require": [
+    "k_bridge_shauna"
+   ],
+   "steps": [
+    {
+     "who": "提耶鲁诺",
+     "say": [
+      "到我啦。这回我让舞蹈队的伙伴们一起上场！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "提耶鲁诺",
+      "kalos_team": 324
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "k_bridge_tierno"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_bridge_tierno"
+   },
+   "route": true,
+   "guests": [
+    "莎娜"
+   ]
+  },
+  {
+   "id": "k_bridge_trevor",
+   "map": "kalos_19",
+   "who": "多罗巴",
+   "require": [
+    "k_bridge_tierno"
+   ],
+   "steps": [
+    {
+     "who": "多罗巴",
+     "say": [
+      "以前我总在比较图鉴。今天希望你认识的是和我并肩走来的伙伴。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "多罗巴",
+      "kalos_team": 325
+     }
+    },
+    {
+     "kalos_hm": 5
+    },
+    {
+     "flag": "k_bridge_trevor"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_bridge_trevor"
+   },
+   "route": true,
+   "guests": [
+    "莎娜",
+    "提耶鲁诺"
+   ]
+  },
+  {
+   "id": "k_village",
+   "map": "kalos_village",
+   "who": "得抚",
+   "require": [
+    "k_bridge_trevor"
+   ],
+   "steps": [
+    {
+     "who": "得抚",
+     "say": [
+      "这里是受过伤的宝可梦能安心生活的地方。它们没有躲开你……我们回映雪道馆吧。"
+     ]
+    },
+    {
+     "flag": "k_village"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_village"
+   },
+   "route": true,
+   "positions": [
+    [
+     75,
+     40
+    ]
+   ]
+  },
+  {
+   "id": "k_badge_8",
+   "map": "kalos_gym_snowbelle",
+   "who": "得抚",
+   "require": [
+    "k_village"
+   ],
+   "steps": [
+    {
+     "who": "得抚",
+     "say": [
+      "冰也有许多不同的样子，融化、凝结，再次改变。你准备怎么打破这层冰呢？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "得抚",
+      "kalos_team": 26
+     }
+    },
+    {
+     "who": "得抚",
+     "say": [
+      "冰山徽章给你。八枚徽章都齐了，去挑战联盟吧。"
+     ]
+    },
+    {
+     "kalos_badge": "冰山徽章"
+    },
+    {
+     "kalos_tm": 13
+    },
+    {
+     "flag": "k_badge_8"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_badge_8"
+   },
+   "route": true,
+   "resident": "冰山徽章给你。八枚徽章都齐了，去挑战联盟吧。"
+  },
+  {
+   "id": "k_league_gate",
+   "map": "kalos_league_gate",
+   "who": "精英训练家",
+   "require": [
+    "k_badge_8"
+   ],
+   "steps": [
+    {
+     "who": "精英训练家",
+     "say": [
+      "检查徽章，确认八枚齐全。还有一道考验，通过就能进入冠军之路！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "徽章关守卫",
+      "kalos_team": 302
+     }
+    },
+    {
+     "flag": "k_league_gate"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_league_gate"
+   },
+   "route": true
+  },
+  {
+   "id": "k_road_rival",
+   "map": "kalos_zone_325",
+   "who": "莎莉娜",
+   "require": [
+    "k_league_gate"
+   ],
+   "steps": [
+    {
+     "who": "莎莉娜",
+     "say": [
+      "联盟就在前面。这是属于我这个邻居的最后一场挑战，拿出你最好的队伍吧。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "莎莉娜",
+      "kalos_variants": [
+       593,
+       594,
+       595
+      ]
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "k_road_rival"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_road_rival"
+   },
+   "route": true,
+   "on_approach": 3
+  },
+  {
+   "id": "k_league",
+   "map": "kalos_league_lobby",
+   "who": "联盟向导",
+   "require": [
+    "k_road_rival"
+   ],
+   "steps": [
+    {
+     "who": "联盟向导",
+     "say": [
+      "挑战厅设有四道门，各位天王的房间可以自由选择。全部获胜后，光之大厅才会开放。"
+     ]
+    },
+    {
+     "flag": "k_league"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_league"
+   },
+   "route": true
+  },
+  {
+   "id": "k_elite_malva",
+   "map": "kalos_e4_malva",
+   "who": "帕琦拉",
+   "require": [
+    "k_league"
+   ],
+   "steps": [
+    {
+     "who": "帕琦拉",
+     "say": [
+      "火焰的新闻你一定看过。接下来，我会亲自采访这位打倒闪焰队的训练家。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "帕琦拉",
+      "kalos_team": 269
+     }
+    },
+    {
+     "flag": "k_elite_malva"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_elite_malva"
+   },
+   "route": false
+  },
+  {
+   "id": "k_elite_siebold",
+   "map": "kalos_e4_siebold",
+   "who": "志米",
+   "require": [
+    "k_league"
+   ],
+   "steps": [
+    {
+     "who": "志米",
+     "say": [
+      "料理和对战都是艺术。你能在这里呈现什么样的作品？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "志米",
+      "kalos_team": 271
+     }
+    },
+    {
+     "flag": "k_elite_siebold"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_elite_siebold"
+   },
+   "route": false
+  },
+  {
+   "id": "k_elite_wikstrom",
+   "map": "kalos_e4_wikstrom",
+   "who": "雁铠",
+   "require": [
+    "k_league"
+   ],
+   "steps": [
+    {
+     "who": "雁铠",
+     "say": [
+      "吾与钢铁之剑在此候战。堂堂正正，一分高下！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "雁铠",
+      "kalos_team": 187
+     }
+    },
+    {
+     "flag": "k_elite_wikstrom"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_elite_wikstrom"
+   },
+   "route": false
+  },
+  {
+   "id": "k_elite_drasna",
+   "map": "kalos_e4_drasna",
+   "who": "朵拉塞娜",
+   "require": [
+    "k_league"
+   ],
+   "steps": [
+    {
+     "who": "朵拉塞娜",
+     "say": [
+      "听说你走了很远才来到这里。欢迎来和我的龙们打个招呼。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "朵拉塞娜",
+      "kalos_team": 270
+     }
+    },
+    {
+     "flag": "k_elite_drasna"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_elite_drasna"
+   },
+   "route": false
+  },
+  {
+   "id": "k_diantha",
+   "map": "kalos_champion_room",
+   "who": "卡露妮",
+   "require": [
+    "k_elite_malva",
+    "k_elite_siebold",
+    "k_elite_wikstrom",
+    "k_elite_drasna"
+   ],
+   "steps": [
+    {
+     "who": "卡露妮",
+     "say": [
+      "密阿雷的咖啡馆、比翼市的车站……原来在那些地方遇见的孩子，就是今天的挑战者。和我一同完成这场对战吧！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "卡露妮",
+      "kalos_team": 276
+     }
+    },
+    {
+     "who": "卡露妮",
+     "say": [
+      "这个瞬间，我会永远记住。来，一起去名人堂。"
+     ]
+    },
+    {
+     "flag": "k_diantha"
+    },
+    {
+     "kalos_warp": "kalos_hall_of_fame"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_diantha"
+   },
+   "route": true
+  },
+  {
+   "id": "k_champion",
+   "map": "kalos_hall_of_fame",
+   "who": "卡露妮",
+   "require": [
+    "k_diantha"
+   ],
+   "steps": [
+    {
+     "who": "卡露妮",
+     "say": [
+      "在这块石碑前，留下冠军和每一位同行伙伴的名字吧。"
+     ]
+    },
+    {
+     "kalos_hall": true
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "k_champion"
+    },
+    {
+     "kalos_warp": "kalos_lumiose_north"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_champion"
+   },
+   "route": true
+  },
+  {
+   "id": "k_parade",
+   "map": "kalos_lumiose_north",
+   "who": "布拉塔诺",
+   "require": [
+    "k_champion"
+   ],
+   "steps": [
+    {
+     "who": "布拉塔诺",
+     "say": [
+      "今天的庆典献给这五位守护卡洛斯的朋友。这是卡洛斯勋章！"
+     ]
+    },
+    {
+     "kalos_key": "卡洛斯勋章"
+    },
+    {
+     "who": "ＡＺ",
+     "say": [
+      "小悠，和我对战吧。我想重新知道，训练家和宝可梦一起前行是怎样的感觉。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "ＡＺ",
+      "finish_on_loss": true,
+      "kalos_team": 602
+     }
+    },
+    {
+     "kalos_scene": "floette"
+    },
+    {
+     "who": "ＡＺ",
+     "say": [
+      "你终于回来了……我的花叶蒂。"
+     ]
+    },
+    {
+     "who": "莎娜",
+     "say": [
+      "人群中，有一朵从天空缓缓飘下来的花。等待了三千年的两位伙伴，终于重逢了。"
+     ]
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "k_parade"
+    },
+    {
+     "kalos_warp": "kalos_home_2f"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_parade"
+   },
+   "route": true,
+   "guests": [
+    "ＡＺ",
+    "莎娜",
+    "莎莉娜",
+    "提耶鲁诺",
+    "多罗巴"
+   ],
+   "on_entry": true
+  },
+  {
+   "id": "k_again_malva",
+   "map": "kalos_e4_malva",
+   "who": "帕琦拉",
+   "require": [
+    "k_parade"
+   ],
+   "steps": [
+    {
+     "who": "帕琦拉",
+     "say": [
+      "火焰的新闻你一定看过。接下来，我会亲自采访这位打倒闪焰队的训练家。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "帕琦拉",
+      "kalos_team": 269
+     }
+    },
+    {
+     "flag": "k_again_malva"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_again_malva"
+   },
+   "route": false
+  },
+  {
+   "id": "k_again_siebold",
+   "map": "kalos_e4_siebold",
+   "who": "志米",
+   "require": [
+    "k_parade"
+   ],
+   "steps": [
+    {
+     "who": "志米",
+     "say": [
+      "料理和对战都是艺术。你能在这里呈现什么样的作品？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "志米",
+      "kalos_team": 271
+     }
+    },
+    {
+     "flag": "k_again_siebold"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_again_siebold"
+   },
+   "route": false
+  },
+  {
+   "id": "k_again_wikstrom",
+   "map": "kalos_e4_wikstrom",
+   "who": "雁铠",
+   "require": [
+    "k_parade"
+   ],
+   "steps": [
+    {
+     "who": "雁铠",
+     "say": [
+      "吾与钢铁之剑在此候战。堂堂正正，一分高下！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "雁铠",
+      "kalos_team": 187
+     }
+    },
+    {
+     "flag": "k_again_wikstrom"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_again_wikstrom"
+   },
+   "route": false
+  },
+  {
+   "id": "k_again_drasna",
+   "map": "kalos_e4_drasna",
+   "who": "朵拉塞娜",
+   "require": [
+    "k_parade"
+   ],
+   "steps": [
+    {
+     "who": "朵拉塞娜",
+     "say": [
+      "听说你走了很远才来到这里。欢迎来和我的龙们打个招呼。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "朵拉塞娜",
+      "kalos_team": 270
+     }
+    },
+    {
+     "flag": "k_again_drasna"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_again_drasna"
+   },
+   "route": false
+  },
+  {
+   "id": "k_again_champion",
+   "map": "kalos_champion_room",
+   "who": "卡露妮",
+   "require": [
+    "k_again_malva",
+    "k_again_siebold",
+    "k_again_wikstrom",
+    "k_again_drasna"
+   ],
+   "steps": [
+    {
+     "who": "卡露妮",
+     "say": [
+      "又见面了，我一直在等你下一场演出。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "卡露妮",
+      "kalos_team": 276
+     }
+    },
+    {
+     "kalos_repeat_hall": true
+    },
+    {
+     "flag": "k_again_champion"
+    },
+    {
+     "kalos_warp": "kalos_home_2f"
+    }
+   ],
+   "anchor": "story",
+   "trigger": {
+    "kind": "talk",
+    "actor": "k_again_champion"
+   },
+   "route": false
+  }
+ ],
+ "gates": {
+  "kalos_vaniville": {
+   "require": [
+    "k_dressed"
+   ],
+   "message": "先在自己卧室的镜子前换好衣服。"
+  },
+  "kalos_1": {
+   "require": [
+    "k_welcome"
+   ],
+   "message": "邻居在朝香镇自己家门口等你。"
+  },
+  "kalos_aquacorde": {
+   "require": [
+    "k_welcome"
+   ],
+   "message": "邻居在朝香镇自己家门口等你。"
+  },
+  "kalos_2": {
+   "require": [
+    "k_moms_map"
+   ],
+   "message": "先把博士的信交给朝香镇家里的妈妈。"
+  },
+  "kalos_forest": {
+   "require": [
+    "k_catch_lesson"
+   ],
+   "message": "莎莉娜在二号道路等着示范捕捉。"
+  },
+  "kalos_3": {
+   "require": [
+    "k_forest_friends"
+   ],
+   "message": "莎娜还在森林里等你一起前进。"
+  },
+  "kalos_santalune": {
+   "require": [
+    "k_rules"
+   ],
+   "message": "先在三号道路和一起穿过森林的伙伴道别。"
+  },
+  "kalos_gym_santalune": {
+   "require": [
+    "k_skates"
+   ],
+   "message": "先在白檀道馆门外挑战轮滑手凛香。"
+  },
+  "kalos_4": {
+   "require": [
+    "k_alexa"
+   ],
+   "message": "先取得虫子徽章，在白檀市北面找三色堇。"
+  },
+  "kalos_lumiose": {
+   "require": [
+    "k_dex_helpers"
+   ],
+   "message": "吉娜和德克希欧在四号道路的花圃旁等你。"
+  },
+  "kalos_sycamore_lab": {
+   "require": [
+    "k_dex_helpers"
+   ],
+   "message": "吉娜和德克希欧在四号道路的花圃旁等你。"
+  },
+  "kalos_cafe_soleil": {
+   "require": [
+    "k_dex_helpers"
+   ],
+   "message": "吉娜和德克希欧在四号道路的花圃旁等你。"
+  },
+  "kalos_5": {
+   "require": [
+    "k_diantha_cafe"
+   ],
+   "message": "莎莉娜约你去密阿雷南边的日轮咖啡馆。"
+  },
+  "kalos_camphrier": {
+   "require": [
+    "k_dance"
+   ],
+   "message": "提耶鲁诺还在五号道路练习。"
+  },
+  "kalos_shabboneau_castle": {
+   "require": [
+    "k_dance"
+   ],
+   "message": "提耶鲁诺还在五号道路练习。"
+  },
+  "kalos_7": {
+   "require": [
+    "k_castle"
+   ],
+   "message": "去古木镇的城堡，向城主打听七号道路。"
+  },
+  "kalos_6": {
+   "require": [
+    "k_sleeping"
+   ],
+   "message": "先到七号道路的桥边，看看是什么拦住了去路。"
+  },
+  "kalos_palace": {
+   "require": [
+    "k_sleeping"
+   ],
+   "message": "先到七号道路的桥边，看看是什么拦住了去路。"
+  },
+  "kalos_parfum_garden": {
+   "require": [
+    "k_sleeping"
+   ],
+   "message": "先到七号道路的桥边，看看是什么拦住了去路。"
+  },
+  "kalos_7_west": {
+   "require": [
+    "k_snorlax"
+   ],
+   "message": "卡比兽正睡在七号道路的桥中央。"
+  },
+  "kalos_cave": {
+   "require": [
+    "k_snorlax"
+   ],
+   "message": "卡比兽正睡在七号道路的桥中央。"
+  },
+  "kalos_8": {
+   "require": [
+    "k_route7_tag"
+   ],
+   "message": "莎莉娜、提耶鲁诺和多罗巴在七号道路等你。"
+  },
+  "kalos_ambrette": {
+   "require": [
+    "k_coastal"
+   ],
+   "message": "吉娜和德克希欧在八号道路等你。"
+  },
+  "kalos_ambrette_fossil_lab": {
+   "require": [
+    "k_coastal"
+   ],
+   "message": "吉娜和德克希欧在八号道路等你。"
+  },
+  "kalos_9": {
+   "require": [
+    "k_fossil_lab"
+   ],
+   "message": "化石研究员离开实验室去了闪耀洞窟。"
+  },
+  "kalos_glitter": {
+   "require": [
+    "k_fossil_lab"
+   ],
+   "message": "化石研究员离开实验室去了闪耀洞窟。"
+  },
+  "kalos_cyllage": {
+   "require": [
+    "k_fossil"
+   ],
+   "message": "先帮助闪耀洞窟内的化石研究员。"
+  },
+  "kalos_gym_cyllage": {
+   "require": [
+    "k_grant_slope"
+   ],
+   "message": "查克洛在遥香市的车道上等你。"
+  },
+  "kalos_10": {
+   "require": [
+    "k_badge_2"
+   ],
+   "message": "到遥香道馆取得岩壁徽章。"
+  },
+  "kalos_geosenge": {
+   "require": [
+    "k_stones"
+   ],
+   "message": "十号道路列石间的闪焰队员还有行动。"
+  },
+  "kalos_11": {
+   "require": [
+    "k_korrina_duo"
+   ],
+   "message": "可尔妮和路卡利欧在石香镇通往十一号道路的出口等你。"
+  },
+  "kalos_reflection": {
+   "require": [
+    "k_korrina_duo"
+   ],
+   "message": "可尔妮和路卡利欧在石香镇通往十一号道路的出口等你。"
+  },
+  "kalos_shalour": {
+   "require": [
+    "k_reflection"
+   ],
+   "message": "先穿过映穴。"
+  },
+  "kalos_mastery": {
+   "require": [
+    "k_reflection"
+   ],
+   "message": "先穿过映穴。"
+  },
+  "kalos_gym_shalour": {
+   "require": [
+    "k_ring_rival"
+   ],
+   "message": "娑罗市精练之塔的可可布尔在等你。"
+  },
+  "kalos_mastery_summit": {
+   "require": [
+    "k_badge_3"
+   ],
+   "message": "可尔妮先在娑罗道馆接受挑战。"
+  },
+  "kalos_12": {
+   "require": [
+    "k_surf"
+   ],
+   "message": "先在精练之塔练习超级进化，再去娑罗市东出口找莎莉娜。"
+  },
+  "kalos_coumarine": {
+   "require": [
+    "k_surf"
+   ],
+   "message": "先在精练之塔练习超级进化，再去娑罗市东出口找莎莉娜。"
+  },
+  "kalos_gym_coumarine": {
+   "require": [
+    "k_coumarine_rival"
+   ],
+   "message": "莎莉娜在比翼道馆前等你。"
+  },
+  "kalos_13": {
+   "require": [
+    "k_badge_4"
+   ],
+   "message": "先到比翼道馆挑战福爷。"
+  },
+  "kalos_power_plant": {
+   "require": [
+    "k_power_pass"
+   ],
+   "message": "需要十三号道路岩石旁的发电厂通行证。"
+  },
+  "kalos_lumiose_north": {
+   "require": [
+    "k_plant"
+   ],
+   "message": "密阿雷北部还在停电。要从十三号道路去发电厂恢复供电。"
+  },
+  "kalos_gym_lumiose": {
+   "require": [
+    "k_prism"
+   ],
+   "message": "去北部棱镜塔下寻找莎娜和希特隆。"
+  },
+  "kalos_lysandre_cafe": {
+   "require": [
+    "k_badge_5"
+   ],
+   "message": "弗拉达利邀请你在取得电压徽章后去咖啡馆。"
+  },
+  "kalos_14": {
+   "require": [
+    "k_kings_rock"
+   ],
+   "message": "先在弗拉达利咖啡馆与博士见面。"
+  },
+  "kalos_scary_house": {
+   "require": [
+    "k_kings_rock"
+   ],
+   "message": "先在弗拉达利咖啡馆与博士见面。"
+  },
+  "kalos_laverre": {
+   "require": [
+    "k_scary_house"
+   ],
+   "message": "十四号道路边的屋子里，有人在等你们一起听故事。"
+  },
+  "kalos_gym_laverre": {
+   "require": [
+    "k_marsh_rival"
+   ],
+   "message": "莎莉娜在十四号道路等你。"
+  },
+  "kalos_factory": {
+   "require": [
+    "k_factory_gate"
+   ],
+   "message": "守卫还堵着精灵球工厂的正门。"
+  },
+  "kalos_15": {
+   "require": [
+    "k_factory_reward"
+   ],
+   "message": "到精灵球工厂找会长和莎莉娜。"
+  },
+  "kalos_16": {
+   "require": [
+    "k_factory_reward"
+   ],
+   "message": "到精灵球工厂找会长和莎莉娜。"
+  },
+  "kalos_lost_hotel": {
+   "require": [
+    "k_factory_reward"
+   ],
+   "message": "到精灵球工厂找会长和莎莉娜。"
+  },
+  "kalos_dendemille": {
+   "require": [
+    "k_factory_reward"
+   ],
+   "message": "到精灵球工厂找会长和莎莉娜。"
+  },
+  "kalos_frost": {
+   "require": [
+    "k_frost_news"
+   ],
+   "message": "象牙猪似乎在冰结洞窟里感觉到了什么。"
+  },
+  "kalos_17": {
+   "require": [
+    "k_abomasnow"
+   ],
+   "message": "暴雪阻挡了十七号道路，先去冰结洞窟查看。"
+  },
+  "kalos_anistar": {
+   "require": [
+    "k_abomasnow"
+   ],
+   "message": "暴雪阻挡了十七号道路，先去冰结洞窟查看。"
+  },
+  "kalos_gym_anistar": {
+   "require": [
+    "k_anistar_rival"
+   ],
+   "message": "莎莉娜在百刻市道馆前等你。"
+  },
+  "kalos_flare_labs": {
+   "require": [
+    "k_cafe_password"
+   ],
+   "message": "密阿雷红色咖啡馆的店员看守着书架后的门。"
+  },
+  "kalos_flare_labs_b2": {
+   "require": [
+    "k_lift_key"
+   ],
+   "message": "研究所电梯要用茉蜜姬持有的钥匙。"
+  },
+  "kalos_flare_labs_b3": {
+   "require": [
+    "k_az_cell"
+   ],
+   "message": "先在研究所地下二层探望被囚禁的巨人。"
+  },
+  "kalos_flare_hq": {
+   "require": [
+    "k_crater_gate"
+   ],
+   "message": "石香镇西北入口仍被堵住。"
+  },
+  "kalos_flare_hq_control": {
+   "require": [
+    "k_hq_pairs"
+   ],
+   "message": "通往能源室的电子锁还没有打开。"
+  },
+  "kalos_18": {
+   "require": [
+    "k_weapon"
+   ],
+   "message": "闪焰队仍在威胁卡洛斯，十八号道路暂未开放。"
+  },
+  "kalos_couriway": {
+   "require": [
+    "k_weapon"
+   ],
+   "message": "闪焰队仍在威胁卡洛斯，十八号道路暂未开放。"
+  },
+  "kalos_19": {
+   "require": [
+    "k_couriway_prof"
+   ],
+   "message": "布拉塔诺博士在连理镇的桥边等你。"
+  },
+  "kalos_snowbelle": {
+   "require": [
+    "k_bridge_trevor"
+   ],
+   "message": "十九号道路桥上的伙伴还想与你见最后一面。"
+  },
+  "kalos_20": {
+   "require": [
+    "k_bridge_trevor"
+   ],
+   "message": "十九号道路桥上的伙伴还想与你见最后一面。"
+  },
+  "kalos_village": {
+   "require": [
+    "k_bridge_trevor"
+   ],
+   "message": "十九号道路桥上的伙伴还想与你见最后一面。"
+  },
+  "kalos_gym_snowbelle": {
+   "require": [
+    "k_village"
+   ],
+   "message": "映雪道馆闭馆中。得抚去了二十号道路另一端的宝可梦村。"
+  },
+  "kalos_21": {
+   "require": [
+    "k_badge_8"
+   ],
+   "message": "冠军之路的守卫要查验卡洛斯的八枚徽章。"
+  },
+  "kalos_league_gate": {
+   "require": [
+    "k_badge_8"
+   ],
+   "message": "冠军之路的守卫要查验卡洛斯的八枚徽章。"
+  },
+  "kalos_victory": {
+   "require": [
+    "k_league_gate"
+   ],
+   "message": "联盟守卫的资格赛还没有完成。"
+  },
+  "kalos_league": {
+   "require": [
+    "k_road_rival"
+   ],
+   "message": "莎莉娜在冠军之路的后半段等待挑战。"
+  },
+  "kalos_e4_malva": {
+   "require": [
+    "k_league"
+   ],
+   "message": "先向联盟向导登记挑战。"
+  },
+  "kalos_e4_siebold": {
+   "require": [
+    "k_league"
+   ],
+   "message": "先向联盟向导登记挑战。"
+  },
+  "kalos_e4_wikstrom": {
+   "require": [
+    "k_league"
+   ],
+   "message": "先向联盟向导登记挑战。"
+  },
+  "kalos_e4_drasna": {
+   "require": [
+    "k_league"
+   ],
+   "message": "先向联盟向导登记挑战。"
+  },
+  "kalos_champion_room": {
+   "require": [
+    "k_elite_malva",
+    "k_elite_siebold",
+    "k_elite_wikstrom",
+    "k_elite_drasna"
+   ],
+   "message": "只有本轮战胜四位天王的训练家，才能进入冠军大厅。"
+  },
+  "kalos_hall_of_fame": {
+   "require": [
+    "k_diantha"
+   ],
+   "message": "名人堂只对赢得卡洛斯联盟挑战的队伍开放。"
+  },
+  "kalos_kiloude": {
+   "require": [
+    "k_parade"
+   ],
+   "message": "先完成卡洛斯联盟及密阿雷的庆典。"
+  }
+ }
+}

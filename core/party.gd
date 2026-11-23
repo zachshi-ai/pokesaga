@@ -212,6 +212,12 @@ static func insert_into(slots: Array, mon: Dictionary, capacity: int) -> bool:
 		return true
 	return false
 
+static func restore_trim(mon: Variant, deposited := false) -> void:
+	if not mon is Dictionary or not mon.has("kalos_trim_until"):return
+	if deposited or int(Time.get_unix_time_from_system())>=int(mon.kalos_trim_until):
+		mon.erase("kalos_trim_until")
+		if int(mon.get("species_id",0))==676:set_form(mon,"")
+
 static func store_in_boxes(boxes: Array, mon: Dictionary) -> bool:
 	for i in BOX_COUNT:
 		if i == boxes.size():
@@ -220,6 +226,7 @@ static func store_in_boxes(boxes: Array, mon: Dictionary) -> bool:
 			if not boxes[i].has("mons"):
 				boxes[i]["mons"] = []
 			if boxes[i].mons is Array and insert_into(boxes[i].mons, mon, BOX_SIZE):
+				restore_trim(mon,true)
 				return true
 	return false
 

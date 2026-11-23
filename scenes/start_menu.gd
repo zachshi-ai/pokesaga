@@ -16,6 +16,8 @@ const WINDOW_WIDTH := 153
 
 var has_fusion := false
 var unova_memory := false
+var kalos_invert := false
+var kalos_opowers := false
 var registered:=""
 var tools_open := false
 var selected := 0
@@ -79,6 +81,8 @@ func _populate(focus_row: int) -> void:
 	var labels: Array = TOOLS.duplicate() if tools_open else MAIN
 	if tools_open:
 		if unova_memory: labels.append("回忆链接")
+		if kalos_opowers:labels.append("Ｏ力量")
+		if kalos_invert:labels.append("倒转掌机")
 		if registered!="":labels.append("快捷道具")
 		if has_fusion:
 			labels.append("融合")

@@ -1,8 +1,9 @@
 extends RefCounted
 
-const NAMES := {"kanto":"关都","johto":"城都","hoenn":"丰缘","sinnoh":"神奥","unova":"合众"}
+const NAMES := {"kanto":"关都","johto":"城都","hoenn":"丰缘","sinnoh":"神奥","unova":"合众","kalos":"卡洛斯"}
 const SEQUEL_HOME := {"map":"unova_b2_home","at":[4,6]}
 const HOMES := {
+	"kalos":{"map":"kalos_home_2f","at":[14,11]},
 	"unova":{"map":"unova_bw_home_2f","at":[5,6]},
 	"sinnoh":{"map":"sinnoh_twinleaf_town_player_house_2f","at":[4,6]},
 	"kanto":{"map":"pallet_town_players_house_2f","at":[3,6]},
@@ -15,7 +16,7 @@ const J2 := ["brock","misty","ltsurge","erika","janine","sabrina","blaine","blue
 
 static func migrate(data: Dictionary) -> void:
 	if data.has("chapters"):
-		for key in ["sinnoh","unova","unova_bw2"]:
+		for key in ["sinnoh","unova","unova_bw2","kalos"]:
 			data.get_or_add("regional_badges",{}).get_or_add(key,[])
 		return
 	var origin := str(data.get("origin","kanto"))
@@ -27,7 +28,7 @@ static func migrate(data: Dictionary) -> void:
 	data.chapters = chapters
 	if chapters.has("kanto") and data.has("bag"):
 		data.import_kanto_items = true
-	var regional := {"kanto":[],"johto":[],"hoenn":[],"sinnoh":[],"unova":[],"unova_bw2":[]}
+	var regional := {"kanto":[],"johto":[],"hoenn":[],"sinnoh":[],"unova":[],"unova_bw2":[],"kalos":[]}
 	for badge in data.get("badges",[]):
 		if badge in JOHTO: regional.johto.append(badge)
 		elif badge in KANTO:
@@ -55,7 +56,7 @@ static func grant(data: Dictionary, region: String, badge: String) -> void:
 	if badge not in local: local.append(badge)
 	if badge not in data.badges: data.badges.append(badge)
 
-static func begin(data: Dictionary, region: String, mode: String) -> Dictionary:
+static func begin(data: Dictionary, region: String, mode: String, version := "x") -> Dictionary:
 	if region not in HOMES or mode not in ["boxed","carried"]: return {}
 	var staged := data.duplicate(true)
 	migrate(staged)
@@ -75,6 +76,10 @@ static func begin(data: Dictionary, region: String, mode: String) -> Dictionary:
 	if region == "johto": staged.johto_field_revision = 1
 	if region == "sinnoh": staged.flags.s_started = true
 	if region == "unova": staged.flags.u1_started = true
+	if region=="kalos":
+		if version not in ["x","y"]:return {}
+		staged.flags.k_started=true
+		staged.flags.k_version=version
 	return staged
 
 ## Copy the entire slot before changing the era. A full PC or a cancelled arrival

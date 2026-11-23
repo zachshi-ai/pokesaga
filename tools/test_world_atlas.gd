@@ -113,12 +113,18 @@ func run() -> void:
 			break
 		await process_frame
 		if id=="hoenn": click(game.menu_layer.get_child(-1),"直接抵达")
-		if id in ["sinnoh","unova"] and not game.save_data.chapters.has(id): click(game.menu_layer.get_child(-1),"带现有队伍出发")
+		if id in ["sinnoh","unova","kalos"] and not game.save_data.chapters.has(id):
+			click(game.menu_layer.get_child(-1),"带现有队伍出发")
+			if id == "kalos":
+				await process_frame
+				click(game.menu_layer.get_child(-1),"《Y》")
 		await process_frame
 		game._close_all_dialogs()
 		await process_frame
-		if id in ["hoenn","johto","sinnoh","unova"] and (world.map_data.id!=catalog[id].hub.map or world.player_pos!=tile(catalog[id].hub.at)):
+		if id in ["hoenn","johto","sinnoh","unova","kalos"] and (world.map_data.id!=catalog[id].hub.map or world.player_pos!=tile(catalog[id].hub.at)):
 			expect(game.save_data.chapters.has(id),"first visit began local story")
+			if id=="kalos":
+				if not expect(preload("regional_start.gd").dress_in_vaniville(game),"walk to the mirror before leaving the house"):break
 			game._use_bag_item("地区转移器")
 			atlas = game.menu_layer.get_child(-1)
 			click(atlas,catalog[id].name)

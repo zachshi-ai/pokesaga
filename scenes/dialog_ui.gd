@@ -233,3 +233,15 @@ func _process(delta: float) -> void:
 func _close() -> void:
 	closed.emit()
 	queue_free()
+
+func show_portrait(picture: Texture2D) -> void:
+	if picture==null:return
+	var portrait:=TextureRect.new()
+	portrait.texture=picture
+	portrait.position=Vector2(12,-78)
+	portrait.size=Vector2(64,64)
+	portrait.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
+	portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+	portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	box.add_child(portrait)

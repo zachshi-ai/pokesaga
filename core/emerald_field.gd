@@ -101,6 +101,8 @@ func setup(owner_world: Node2D,plan: Dictionary, overrides: Array = []) -> void:
 		scene.centered = false
 		scene.texture = load(plan.scene[0])
 		scene.position = Vector2(plan.scene[1], plan.scene[2])
+		if world.map_data.has("kalos_native"):
+			scene.scale=Vector2(extent*CELL)/scene.texture.get_size()
 		add_child(scene)
 	if not above_data.is_empty():
 		above = _layer()
@@ -181,7 +183,7 @@ func _change(key: Vector2i,show_chunk: bool) -> void:
 		active.erase(key)
 
 func _set_tile(layer: TileMapLayer,pos: Vector2i,id: int) -> void:
-	if world.map_data.has("unova_native"):
+	if world.map_data.has("unova_native") or world.map_data.has("kalos_native"):
 		if id: layer.set_cell(pos,5,Vector2i(id%16,floori(id/16.0)))
 	elif world.map_data.has("platinum_native"):
 		if id: layer.set_cell(pos,4,Vector2i(id%16,floori(id/16.0)))

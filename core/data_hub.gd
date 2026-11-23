@@ -227,6 +227,12 @@ func load_map(region_id: String, map_id: String) -> Dictionary:
 
 	data["id"] = map_id
 	data["region"] = region_id
+	if region_id=="kalos" and data.has("kalos_zone"):
+		data.objects=load("res://core/kalos_side.gd").map_objects(data).duplicate()
+		data.objects.append_array(preload("res://core/kalos_items.gd").objects(data))
+		data.objects.append_array(preload("res://core/kalos_hotel.gd").objects(data))
+		if data.get("kalos_center",false):
+			data.objects.append({"kind":"pc","name":"电脑","at":data.kalos_anchors.pc})
 	if data.has("platinum_native"): preload("res://core/sinnoh_field.gd").populate(data)
 	region["maps"][map_id] = data
 	return data
@@ -365,6 +371,10 @@ func berry_name(key: String) -> String:
 	return String(d.get("name", key))
 
 func item_name(key: String) -> String:
+	if preload("res://core/kalos_mega.gd").STONES.has(key):return load("res://core/kalos_side.gd").stone_name(key)
+	if key=="HEART_SCALE":return "心之鳞片"
+	if key in ["WEAKNESS_POLICY","SAFETY_GOGGLES"]:
+		return str(load("res://core/kalos_side.gd").data().items[key])
 	if key.ends_with("_GEM") and not held_items.has(key):return load("res://core/unova_side.gd").item_name(key)
 	return String((held_items.get(key, {}) as Dictionary).get("name", key))
 

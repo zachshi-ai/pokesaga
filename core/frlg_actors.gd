@@ -103,6 +103,11 @@ static func actor(row: Dictionary, spec: Dictionary, flags: Dictionary) -> Dicti
 
 static func roster(map: Dictionary, flags: Dictionary) -> Array:
 	var base: Array = map.get("npcs",[])
+	if map.get("region","")=="kalos" and map.has("kalos_zone"):
+		var residents: Array=load("res://core/kalos_trainers.gd").roster(map,flags,base)
+		residents=load("res://core/kalos_lumiose.gd").roster(map,flags,residents)
+		var cast: Array=load("res://core/kalos_campaign.gd").roster(map,flags,residents)
+		return load("res://core/kalos_opowers.gd").roster(map,flags,load("res://core/kalos_side.gd").decorate(map,flags,cast))
 	if map.get("region","")=="unova":
 		var residents: Array=load("res://core/unova_trainers.gd").roster(map,flags,base)
 		var cast: Array=load("res://core/unova_campaign.gd").roster(map,flags,residents)

@@ -15,7 +15,18 @@ static func open_trip(g, region: String) -> bool:
 	var atlas = g.menu_layer.get_child(-1)
 	return press(atlas,NAMES[region]) and press(atlas,"出发前往"+str(NAMES[region]))
 
-static func enter(g, region: String, mode := "carried") -> bool:
+static func dress_in_vaniville(g) -> bool:
+	if g.world.map_data.id!="kalos_home_2f" or g.world.player_pos!=Vector2i(14,11):return false
+	for leg in [[Vector2i.LEFT,6],[Vector2i.UP,3]]:
+		for step in range(leg[1]):
+			if not g.world.step(leg[0]):return false
+			g.world.finish_walk()
+	g.world.facing="up"
+	g._on_action()
+	while not g._dialogs.is_empty():g._on_action()
+	return g._flags().get("k_dressed",false)
+
+static func enter(g, region: String, mode := "carried", version := "x") -> bool:
 	var tree: SceneTree = g.get_tree()
 	if is_instance_valid(g.title_screen):
 		if is_instance_valid(g.title_screen.continue_button):
@@ -33,6 +44,9 @@ static func enter(g, region: String, mode := "carried") -> bool:
 		await tree.process_frame
 	if not g.save_data.get("chapters",{}).has(region):
 		if not press(g.menu_layer,"寄存队伍，重新组队" if mode=="boxed" else "带现有队伍出发"): return false
+		if region=="kalos":
+			await tree.process_frame
+			if not press(g.menu_layer,"《Y》" if version=="y" else "《X》"):return false
 	await tree.process_frame
 	for frame in 600:
 		if not g._escort_active: break

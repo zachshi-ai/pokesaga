@@ -84,6 +84,7 @@ func _select(i:int) -> void:
 	else:
 		src[i]={}
 		if showing_party:
+			Party.restore_trim(m,true)
 			party.assign(Party.compact(party))
 		notice="%s已%s" % [str(m.get("name","")),("存入"+str(box.name)) if showing_party else "回到队伍"]
 		if on_change.is_valid(): on_change.call(boxes,party)

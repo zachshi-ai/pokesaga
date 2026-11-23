@@ -72,6 +72,7 @@ func at_hub(hub: Dictionary) -> bool:
 
 func trip(region: String, repeat_tap := false) -> bool:
 	var destination: Dictionary = catalog[region]
+	var first_arrival: bool = not game.save_data.get("chapters",{}).has(region)
 	var atlas := atlas_from_bag()
 	if atlas == null or not press(atlas, destination.name):
 		return false
@@ -85,14 +86,19 @@ func trip(region: String, repeat_tap := false) -> bool:
 	await frames()
 	if region=="hoenn" and game.panel_open>0:
 		if not press(game.menu_layer.get_child(-1),"直接抵达"): return false
-	if region in ["sinnoh","unova"] and not game.save_data.chapters.has(region):
+	if region in ["sinnoh","unova","kalos"] and not game.save_data.chapters.has(region):
 		if not press(game.menu_layer.get_child(-1),"带现有队伍出发"): return false
+		if region == "kalos":
+			await frames()
+			if not press(game.menu_layer.get_child(-1),"《X》"): return false
 	await frames()
 	game._close_all_dialogs()
 	await frames()
 	var hub: Dictionary = destination.hub
-	if not at_hub(hub) and region in ["hoenn","johto","sinnoh","unova"]:
+	if first_arrival and not at_hub(hub) and region in ["hoenn","johto","sinnoh","unova","kalos"]:
 		check(game.save_data.chapters.has(region),"first arrival opened local story")
+		if region=="kalos":
+			if not check(game._flags().get("k_version")=="x" and preload("regional_start.gd").dress_in_vaniville(game),"Kalos adventure starts at the bedroom mirror in X"):return false
 		return await trip(region)
 	var saved := Save.existing()
 	check(at_hub(hub), "arrival in " + region)

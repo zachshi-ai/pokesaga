@@ -248,7 +248,7 @@ func end_turn(sides: Array) -> Array:
 		match weather:
 			"sandstorm":
 				if not (types.has("rock") or types.has("ground") or types.has("steel")) \
-						and not _weather_immune(String(c.get("ability_name", ""))):
+						and not _weather_immune(String(c.get("ability_name", ""))) and (c.get("held","")!="SAFETY_GOGGLES" or c.get("ability_name","")=="笨拙"):
 					var dmg: int = maxi(1, int(int(c["max_hp"]) / 16.0))
 					c["hp"] = maxi(0, int(c["hp"]) - dmg)
 					out.append("%s 被沙暴刮伤了。" % c.get("name", "?"))

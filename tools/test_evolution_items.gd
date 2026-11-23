@@ -16,8 +16,7 @@ const CLASSIC_STONES := {
 }
 const MARKETS := {
 	"sinnoh":"sinnoh_canalave_city_mart", "galar":"galar_hammerlocke", "hisui":"hisui_jubilife",
-	"paldea":"paldea_mesagoza", "kitakami":"kitakami_mossui", "hoenn":"em_oldale_town_mart",
-	"kalos":"kalos_ambrette"
+	"paldea":"paldea_mesagoza", "kitakami":"kitakami_mossui", "hoenn":"em_oldale_town_mart"
 }
 var failed := false
 var game
@@ -99,6 +98,44 @@ func check_classic_stones() -> void:
 	expect(count == 21, "Classic stone path count differs")
 	print("Classic stones: ", count, " paths, four map regions and special-form restrictions verified")
 
+func approach_clerk(clerk: Dictionary) -> bool:
+	var spot := Vector2i(clerk.at[0], clerk.at[1])
+	for dir in [Vector2i.UP, Vector2i.LEFT, Vector2i.DOWN, Vector2i.RIGHT]:
+		var stand: Vector2i=spot-dir
+		if game.world.is_blocked(stand) or not game.world.warp_at(stand).is_empty():continue
+		game.world.warp_to(stand)
+		game.world.facing={Vector2i.UP:"up",Vector2i.DOWN:"down",Vector2i.LEFT:"left",Vector2i.RIGHT:"right"}[dir]
+		game._on_action()
+		return true
+	return false
+
+func check_kalos_exchange(bought: Dictionary) -> void:
+	# The postgame Maison clerk supplies the repeatable X/Y evolution prizes for BP.
+	expect(await preload("regional_start.gd").enter(game,"kalos"),"register the Kalos chapter")
+	game._close_all_dialogs()
+	game._flags().k_train_pass=true
+	game._flags().k_parade=true
+	game.save_data.kalos_bp=128
+	var mid:="kalos_battle_maison"
+	var map:Dictionary=db.load_map("kalos",mid)
+	game._do_warp({"region":"kalos","map":mid,"at":map.spawn,"kalos_native":true})
+	game._close_all_dialogs()
+	expect(game.world.map_data.id==mid,"arrive at the Maison")
+	var clerks:Array=game.world.npcs.filter(func(n):return n.get("kalos_side","")=="maison_bp")
+	expect(clerks.size()==1,"Maison prize counter is open")
+	if clerks.size()!=1:return
+	for id in ["SACHET","WHIPPED_DREAM"]:
+		var label:String=db.evo_item_name(id)
+		var start:int=game._bag_count(label)
+		for i in 2:
+			var balance:int=game.save_data.kalos_bp
+			expect(approach_clerk(clerks[0]),"approach Maison clerk for "+id)
+			tap(game.menu_layer,label+"　32 BP")
+			game._close_all_dialogs()
+			await process_frame
+			expect(game.save_data.kalos_bp==balance-32 and game._bag_count(label)==start+i+1,"repeat BP exchange "+id)
+		bought[id]=true
+
 func check_markets() -> void:
 	var bought := {}
 	game.save_data.money = 500000
@@ -127,16 +164,7 @@ func check_markets() -> void:
 				break
 		expect(not clerk.is_empty(), mid + " has no merchant")
 		if clerk.is_empty(): continue
-		var spot := Vector2i(clerk.at[0], clerk.at[1])
-		var approached := false
-		for dir in [Vector2i.UP, Vector2i.LEFT, Vector2i.DOWN, Vector2i.RIGHT]:
-			if not game.world.is_blocked(spot - dir):
-				game.world.warp_to(spot - dir)
-				game.world.facing = {Vector2i.UP:"up",Vector2i.DOWN:"down",Vector2i.LEFT:"left",Vector2i.RIGHT:"right"}[dir]
-				game._on_action()
-				approached = true
-				break
-		expect(approached, mid + " merchant is inaccessible")
+		expect(approach_clerk(clerk), mid + " merchant is inaccessible")
 		if region=="sinnoh": tap(game.menu_layer,"进化材料产地")
 		var shop = panel(Shop)
 		if shop == null: continue
@@ -162,6 +190,7 @@ func check_markets() -> void:
 			bought[row.evo] = true
 		tap(shop, "返回")
 		await process_frame
+	await check_kalos_exchange(bought)
 	expect(bought.size() == 40, "Reachable markets only stocked %d items" % bought.size())
 	print("Regional markets supplied ", bought.size(), " items, each purchased twice")
 

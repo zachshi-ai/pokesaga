@@ -134,18 +134,27 @@ func battle() -> void:
 					if power > high:
 						best = i
 						high = power
-				if game.world.map_data.get("mechanisms",{}).has("hill") or str(ui.trainer_name) in ["花月","芙蓉","波妮","源治","米可利"]:
+				if world.map_data.get("region","")=="kalos" or game.world.map_data.get("mechanisms",{}).has("hill") or str(ui.trainer_name) in ["花月","芙蓉","波妮","源治","米可利"]:
 					var selected:=matchup_move(ui,paired)
 					best=int(selected[0])
 					if paired:ui.target_buttons[selected[1]].pressed.emit()
 				ui.menu.get_node("fight").pressed.emit()
+				if not paired and world.map_data.get("region","")=="kalos":
+					var forms: Array=ui.battle.available_forms("a")
+					var more=ui.move_menu.get_node_or_null("Special")
+					if more!=null and not forms.is_empty():
+						more.pressed.emit()
+						var form_button=button(ui.get_node("SpecialPanel"),str(forms[0].label))
+						if form_button:
+							form_button.pressed.emit()
+							print("MEGA INPUT ",ui.trainer_name," ",forms[0].key)
 				var move_button: Button = ui.move_menu.get_node("Move%d"%best if best>=0 else "Struggle")
 				move_button.pressed.emit()
 		ui._process(5.0)
 	if game.active_battle == ui:
 		problem = "Battle did not finish: %s, state=%s, turn=%s" % [ui.trainer_name,ui.state,turns]
 		return
-	if not wild or ui.battle.winner in ["caught","b"] or ui.battle.fishing_encounter:
+	if not wild or mode=="wild-survey" or ui.battle.winner in ["caught","b"] or ui.battle.fishing_encounter:
 		fights.append([str(ui.trainer_name),enemy.name,enemy.level,ui.battle.winner])
 	await process_frame
 
@@ -196,10 +205,11 @@ func status() -> Dictionary:
 		for b in game.menu_layer.get_child(-1).find_children("*","Button",true,false):
 			if b.is_visible_in_tree() and not b.disabled: panels.append(b.text)
 	return {"pos":current(),"elevation":world.last_elevation,"tower_mode":str(game._flags().get("fr_tower",{}).get("mode","")),"party":mons,"bag":items,"flags":game._flags().keys().filter(func(k): return game._flags()[k]),
+		"ice":{"k_ice_turn_pink":game._flags().get("k_ice_turn_pink",0),"k_ice_turn_blue":game._flags().get("k_ice_turn_blue",0),"k_ice_turn_green":game._flags().get("k_ice_turn_green",0),"k_ice_turn_yellow":game._flags().get("k_ice_turn_yellow",0)},
 		"pl_obstacles":world.objects.filter(func(o):return o.get("kind","") in ["rock","cut","boulder"]).map(func(o):return [o.at,o.kind]) if world.map_data.has("platinum_native") else [],
 		"pl_gym_state":game._flags().get("pl_gym_"+str(world.map_data.id),{}),"pl_gym_collision":world.emerald_collision if world.map_data.has("platinum_gym") else [],
 		"gym_button":int(game._flags().get("h_wattson_switch",0)),"gym_local":world.hoenn_local,"badges":game.save_data.badges,"money":game.save_data.money,"dex":game.save_data.dex.caught,"defeated":game.save_data.get("defeated",{}),
-		"actors":world.npcs.map(func(n):return [n.at,n.get("role",""),n.get("name",""),n.get("shop",false),n.get("legacy_at",n.at),n.get("story_map",world.map_data.id),n.get("heal",false),n.get("hgss_source",""),n.get("local_id",-1),n.get("source_script",""),n.get("unova_trainer","")]),
+		"actors":world.npcs.map(func(n):return [n.at,n.get("role",""),n.get("name",""),n.get("shop",false),n.get("legacy_at",n.at),n.get("story_map",world.map_data.id),n.get("heal",false),n.get("hgss_source",""),n.get("local_id",-1),n.get("source_script",""),n.get("kalos_trainer",n.get("unova_trainer",""))]),
 		"bins":[game._flags().get("surge_bin",-1),game._flags().get("surge_second_bin",-1)],"history":game.save_data.get("return_passages",{}),"buttons":panels,"panels":game.panel_open,"held":game.save_data.party.map(func(m):return m.get("held","")),"problem":problem,"fights":fights,
 		"dialog":lines,"turns":turns,"steps":steps,"obstruction":obstruction,"hall":game.save_data.get("hall_of_fame",{})}
 
@@ -323,7 +333,7 @@ func run() -> void:
 	var region := ""
 	var mode := "carried"
 	var fresh := false
-	for candidate in ["hoenn","johto","sinnoh","unova"]:
+	for candidate in ["hoenn","johto","sinnoh","unova","kalos"]:
 		if "new-"+candidate in args or candidate+"-carried" in args or candidate+"-boxed" in args:
 			region=candidate
 			mode="boxed" if candidate+"-boxed" in args else "carried"
@@ -334,7 +344,7 @@ func run() -> void:
 			push_error("Unexpected save slot for regional journey")
 			quit(1)
 			return
-		if not await preload("regional_start.gd").enter(game,region,mode):
+		if not await preload("regional_start.gd").enter(game,region,mode,"y" if "y" in args else "x"):
 			quit(1)
 			return
 	elif game.title_screen.continue_button == null:

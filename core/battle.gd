@@ -13,6 +13,9 @@ const FieldScript := preload("res://core/field.gd")
 var team_a: Array = []
 var team_b: Array = []
 var fishing_encounter := false
+var water_encounter := false
+var dark_encounter := false
+var previously_caught := false
 var active_a := 0
 var active_b := 0
 var log: Array = []
@@ -163,6 +166,7 @@ static func normalize_team(team: Array) -> Array:
 
 func start(a_team: Array, b_team: Array) -> void:
 	completed_turns=0
+	kalos_used={"a":false,"b":false}
 	guard_turns = {"a":0, "b":0}
 	acting_side = ""
 	field.reset()
@@ -188,6 +192,7 @@ func start(a_team: Array, b_team: Array) -> void:
 ## Consumers copy the value
 ## before another combatant acts or the same move deals a second hit.
 func _set_hp(mon: Dictionary, value: int, at_line := -1) -> void:
+	if not inverse_record.is_empty() and value<=0 and team_a.has(mon):inverse_record.fainted=true
 	mon.hp = value
 	if at_line < 0: at_line = log.size()
 	if not team_a.is_empty() and is_same(mon, cur_a()):
@@ -195,10 +200,24 @@ func _set_hp(mon: Dictionary, value: int, at_line := -1) -> void:
 	elif not team_b.is_empty() and is_same(mon, cur_b()):
 		health_changed.emit(at_line, "b", active_b, mon)
 
+# X/Y checks the trainer's Key Stone and the active Pokémon's held stone.
+var inverse_record: Dictionary = {}
+var kalos_rules := false
+var kalos_o_stages: Array=[]
+var kalos_o_capture:=1.0
+var kalos_ring := false
+var kalos_used := {"a":false,"b":false}
+
 func available_forms(side: String) -> Array:
 	var c: Dictionary = cur_a() if side == "a" else cur_b()
 	if c["fainted"] or int(c.get("forms_used", 0)) > 0:
 		return []
+	if kalos_rules:
+		if kalos_used[side] or (side=="a" and not kalos_ring):return []
+		var key: String=preload("res://core/kalos_mega.gd").STONES.get(str(c.get("held","")),"")
+		if key.is_empty() or not str(c.get("form","")).is_empty():return []
+		var form:=Data.form_of(int(c.species_id),key)
+		return [] if form.is_empty() else [form]
 	var list: Array = Data.battle_forms_of(int(c.get("species_id", 0)))
 	var cur_form := String(c.get("form", ""))
 	var out: Array = []
@@ -234,9 +253,13 @@ func transform(side: String, form_key: String) -> Dictionary:
 	if f.is_empty():
 		return {"ok": false, "text": "没有这个形态。"}
 	var kind := String(f.get("kind", ""))
+	if kalos_rules and not available_forms(side).any(func(row):return row.key==form_key):
+		return {"ok":false,"text":"超级进化需要钥石和对应的超级石，一场对战只能使用一次。"}
 	var old_name := String(c["name"])
 	var base: Dictionary = f.get("base", {})
 	var lv := int(c["level"])
+	var previous: Dictionary=c.stats.duplicate()
+	var previous_base: Dictionary=Data.stats_of(int(c.species_id),str(c.get("form",""))).get("base",{})
 	# 血量按比例迁移，极巨化额外翻倍
 	var ratio := 1.0
 	if int(c["max_hp"]) > 0:
@@ -262,6 +285,26 @@ func transform(side: String, form_key: String) -> Dictionary:
 	}
 	c["forms_used"] = int(c.get("forms_used", 0)) + 1
 	c["gmax_active"] = kind == "gmax"
+	if kalos_rules:
+		kalos_used[side]=true
+		for stat in c.stats:
+			var training: int=31 + int(c.get("effort",{}).get(stat,0))/4 + 2*int(c.get("stat_plus",{}).get(stat,0))
+			var old_value:=floori((2*int(previous_base.get(stat,1))+training)*lv/100.0)
+			var new_value:=floori((2*int(base.get(stat,1))+training)*lv/100.0)
+			c.stats[stat]=maxi(1,int(previous[stat])+new_value-old_value)
+		var abilities: Array=f.get("abilities",[])
+		if not abilities.is_empty():
+			var former:=str(c.get("ability_name",""))
+			for id in Data.abilities:
+				var ability: Dictionary=Data.abilities[id]
+				if ability.key==abilities[0]:
+					c.ability=int(id)
+					c.ability_name=ability.name
+					break
+			if former!=c.ability_name and c.ability_name in ["日照","扬沙","降雪"]:
+				log.append(field.set_weather({"日照":"sun","扬沙":"sandstorm","降雪":"snow"}[c.ability_name],5))
+			if former!=c.ability_name and c.ability_name=="威吓":
+				_apply_stage(cur_b() if side=="a" else cur_a(),"atk",-1,log)
 	variant_seen.emit(side, c)
 	var verb := "极巨化了" if kind == "gmax" else "Mega 进化了"
 	return {"ok": true, "text": "%s %s！" % [old_name, verb]}
@@ -491,6 +534,7 @@ func z_move_of(c: Dictionary, move_id: int) -> int:
 	return Data.z_move_for_type(String(mv.get("type", "normal")))
 
 func can_use_z(side: String) -> bool:
+	if kalos_rules:return false
 	var c: Dictionary = cur_a() if side == "a" else cur_b()
 	if c.get("fainted", false) or int(c.get("z_used", 0)) > 0:
 		return false
@@ -529,6 +573,7 @@ func z_move_data(c: Dictionary, base_id: int) -> Dictionary:
 ## ---------------- 太晶化 ----------------
 ## 一场战斗一次：属性换成太晶属性，本系加成提到 2 倍。
 func can_use_tera(side: String) -> bool:
+	if kalos_rules:return false
 	var c: Dictionary = cur_a() if side == "a" else cur_b()
 	if c.get("fainted", false) or int(c.get("tera_used", 0)) > 0 or bool(c.get("tera_active", false)):
 		return false
@@ -576,6 +621,7 @@ func _on_send_out(side: String) -> void:
 	var foe: Dictionary = cur_b() if side == "a" else cur_a()
 	if me.get("fainted", false):
 		return
+	if kalos_rules and side=="a":me.kalos_participated=true
 	me.erase("metronome_move")
 	me.erase("metronome_chain")
 	me.erase("acted_this_turn")
@@ -687,9 +733,20 @@ func _on_send_out(side: String) -> void:
 
 ## 投球。纯概率，不改血量以外的状态：血越少、捕获率越高、球越好，越容易成。
 ## 返回值给界面拿去播报：{ok: bool, shakes: int, text: String}
+func catch_bonus(ball_name: String, base: float, target: Dictionary) -> float:
+	match ball_name:
+		"计时球":return minf(4.0,1.0+float(completed_turns)*(1229.0/4096.0 if kalos_rules else 0.1))
+		"重复球":return 3.0 if previously_caught else 1.0
+		"巢穴球":return clampf((41.0-int(target.level))/10.0,1.0,4.0)
+		"捕网球":return 3.0 if "water" in target.types or "bug" in target.types else 1.0
+		"潜水球":return 3.5 if water_encounter or fishing_encounter else 1.0
+		"先机球":return 5.0 if completed_turns==0 else 1.0
+		"黑暗球":return 3.5 if dark_encounter else 1.0
+	return base
+
 func throw_ball(ball_bonus: float = 1.0, ball_name: String = "精灵球") -> Dictionary:
-	if ball_name=="计时球":ball_bonus=minf(4.0,1.0+float(completed_turns)*0.1)
 	var target: Dictionary = cur_b()
+	ball_bonus=catch_bonus(ball_name,ball_bonus,target)*kalos_o_capture
 	var mx := maxi(1, int(target.get("max_hp", 1)))
 	var hp := clampi(int(target.get("hp", 0)), 0, mx)
 	var sp: Dictionary = Data.species_of(int(target.get("species_id", 1)))
@@ -787,7 +844,10 @@ func effectiveness(atk_type: String, def_types: Array) -> float:
 	var table: Dictionary = Data.types.get(atk_type, {})
 	var mult := 1.0
 	for t in def_types:
-		mult *= float(table.get(t, 1.0))
+		var factor:=float(table.get(t, 1.0))
+		if not inverse_record.is_empty():
+			factor = 0.5 if factor>1 else 2.0 if factor<1 else 1.0
+		mult *= factor
 	return mult
 
 ## 这一只在不在场上（"a" / "b"）
@@ -1975,13 +2035,38 @@ func _clear_round_hits() -> void:
 		mon["hit_this_turn"] = 0
 		mon.erase("acted_this_turn")
 
+func kalos_before_move(side: String, choice: String) -> void:
+	if not kalos_rules:return
+	var active: Dictionary=cur_a() if side=="a" else cur_b()
+	var requested: String=active.get("kalos_intent","")
+	active.erase("kalos_intent")
+	if not choice.begins_with("move:"):return
+	if side=="b":
+		var forms:=available_forms(side)
+		if not forms.is_empty():requested=forms[0].key
+	if not requested.is_empty() and available_forms(side).any(func(form):return form.key==requested):
+		log.append(transform(side,requested).text)
+
+func apply_kalos_power() -> void:
+	if kalos_o_stages.is_empty():return
+	var stage:Array=kalos_o_stages.pop_front()
+	var mon:Dictionary=cur_a()
+	log.append("Ｏ力量回应了%s！"%mon.name)
+	if stage[0]=="critical":mon.crit_stage=mini(4,int(mon.get("crit_stage",0))+int(stage[1]))
+	else:_apply_stage(mon,str(stage[0]),int(stage[1]),log)
+
 func run_turn(a_choice: String, b_choice: String) -> void:
 	if over:
 		return
 
+	completed_turns+=1
 	_clear_round_hits()
+	apply_kalos_power()
+	# X/Y sorts the turn using the speed before Mega Evolution.
 	var pa := _speed(cur_a())
 	var pb := _speed(cur_b())
+	kalos_before_move("a",a_choice)
+	kalos_before_move("b",b_choice)
 	var prio_a := _priority("a", a_choice)
 	var prio_b := _priority("b", b_choice)
 
@@ -2606,7 +2691,6 @@ func _extra_effect(effect: String, attacker: Dictionary, defender: Dictionary, m
 
 ## 回合末结算：中毒/灼伤扣血 + 特性带来的回合末效果
 func _end_of_turn() -> void:
-	completed_turns+=1
 	for c in [cur_a(), cur_b()]:
 		if c["fainted"] or int(c["hp"]) <= 0:
 			continue
@@ -3362,15 +3446,14 @@ func _take_action(side: String, choice: String) -> void:
 		_apply_field_move(side, defender, fr)
 		return
 
-	# 防尘：粉末类招式无效
-	if bool((mv.get("flags", {}) as Dictionary).get("powder", false)) \
-			and bool(Data.ability_effect(_ab(defender)).get("powder_immune", false)):
-		log.append("%s 的%s不吃粉末类招式！" % [defender["name"], _ab(defender)])
+	var mvflags: Dictionary = mv.get("flags", {})
+	var dabe0: Dictionary = Data.ability_effect(_ab(defender))
+	var goggles: bool = defender.get("held", "") == "SAFETY_GOGGLES" and not dabe0.get("ignore_own_item", false)
+	if mvflags.get("powder", false) and (dabe0.get("powder_immune", false) or goggles):
+		log.append("%s 不受粉末类招式影响！" % defender["name"])
 		return
 
 	# 防音 / 防弹：整类招式直接无效
-	var mvflags: Dictionary = mv.get("flags", {})
-	var dabe0: Dictionary = Data.ability_effect(_ab(defender))
 	var bflag := String(dabe0.get("block_flag", ""))
 	if bflag != "" and bool(mvflags.get(bflag, false)):
 		log.append("%s 的%s挡下了这一招！" % [defender["name"], _ab(defender)])
@@ -3514,6 +3597,14 @@ func _take_action(side: String, choice: String) -> void:
 		else:
 			log.append("%s 靠气势披带撑住了！" % defender["name"])
 		var eff := effectiveness_on(String(mv.get("type", "normal")), defender)
+		if not inverse_record.is_empty() and side=="a" and dealt>0:
+			inverse_record.score += 1 if eff>1 else -1 if eff<1 else 0
+		var policy: bool = defender.get("held", "") == "WEAKNESS_POLICY" and not dabe0.get("ignore_own_item", false)
+		if policy and eff > 1.0 and dealt > 0 and int(defender.hp) > 0 and (int(defender.stages.atk) < 6 or int(defender.stages.spa) < 6):
+			defender.held=""
+			_apply_stage(defender,"atk",2,log)
+			_apply_stage(defender,"spa",2,log)
+			log.append("%s 使用了弱点保险！"%defender.name)
 		if eff > 1.5:
 			log.append("效果绝佳！")
 		elif eff < 1.0 and eff > 0.0:

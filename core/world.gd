@@ -157,6 +157,7 @@ func _ready() -> void:
 
 ## 原版地图：由 tools/render_emerald_maps.py 从 rom 数据整张渲染好，
 ## 这里只贴图 + 读碰撞表，不再按 16 类地形去拼，房子和道路就是原版的样子。
+var terrain_phase := ""
 var emerald_png_path := ""
 var emerald_collision: Array = []
 var emerald_counter: Array = []
@@ -219,7 +220,7 @@ func load_map(data: Dictionary) -> void:
 	_directional_passages.clear()
 	for w in preload("res://core/world_passages.gd").active(data):
 		var p := Vector2i(int(w.at[0]), int(w.at[1]))
-		if (data.has("emerald_original") or data.has("platinum_native") or data.has("unova_native")) and WARP_DIR.has(w.get("trigger","")):
+		if (data.has("emerald_original") or data.has("platinum_native") or data.has("unova_native") or data.has("kalos_native")) and WARP_DIR.has(w.get("trigger","")):
 			_directional_passages[[p,WARP_DIR[w.trigger]]]=w
 		if not _passages.has(p):
 			_passages[p] = w
@@ -231,7 +232,7 @@ func load_map(data: Dictionary) -> void:
 	walk_timer = 0.0
 	frame_col = 0
 	var em: String = String(data.get("emerald", ""))
-	if em != "" or data.has("platinum_native") or data.has("unova_native"):
+	if em != "" or data.has("platinum_native") or data.has("unova_native") or data.has("kalos_native"):
 		_load_emerald_map(em)
 		return
 	# 切到自建图（开拓区这类）必须把原版地图的几张表清掉，
@@ -275,7 +276,7 @@ func load_map(data: Dictionary) -> void:
 func _load_emerald_map(name: String) -> void:
 	var meta_path := "res://content/emerald_maps/%s.json" % name
 	var meta: Dictionary = {}
-	if map_data.has("emerald_original") or map_data.has("platinum_native") or map_data.has("unova_native"):
+	if map_data.has("emerald_original") or map_data.has("platinum_native") or map_data.has("unova_native") or map_data.has("kalos_native"):
 		meta=map_data.physics
 	elif map_data.has("hgss"):
 		meta = preload("res://core/hgss_field.gd").grids(map_data.hgss)
@@ -308,6 +309,8 @@ func _load_emerald_map(name: String) -> void:
 	tile_size = Vector2i(int(sz[0]), int(sz[1]))
 	tiles = []
 	emerald_png_path = "res://content/emerald_maps/%s.png" % name
+	if map_data.has("kalos_image"):
+		emerald_png_path="res://assets/kalos/maps/%s.png" % map_data.kalos_image
 	var sp: Array = map_data.get("spawn", [1, 1])
 	player_pos = Vector2i(int(sp[0]), int(sp[1]))
 	facing = _prev_facing if _prev_facing != "" else "down"
@@ -429,6 +432,7 @@ func _dir_bit(dir: Vector2i) -> int:
 
 ## 从 dir 方向走进 p 这一格行不行（方向性阻挡只挡对应方向）
 func can_enter(p: Vector2i, dir: Vector2i, ignore_mask: bool = false) -> bool:
+	if map_data.get("id","")=="kalos_gym_snowbelle" and not preload("res://core/kalos_gyms.gd").ice_gate(p,taken):return false
 	if not preload("res://core/hoenn_base_effects.gd").allows(self,p,dir):return false
 	if map_data.has("emerald_original") and not preload("res://core/hoenn_items.gd").can_enter(self,p,dir): return false
 	if map_data.get("hgss",{}).get("header","")=="MAP_OLIVINE_LIGHTHOUSE_LIGHT_ROOM" and p==Vector2i(8,12) and not taken.get("j_sick_amphy",false): return false
@@ -821,6 +825,7 @@ func step(dir: Vector2i) -> bool:
 	if map_data.has("mechanisms") and passage.is_empty(): HoennMechanisms.gate(self,player_pos+dir,dir,true)
 	if not emerald_elevation.is_empty() and elevation_at(player_pos) != 15:
 		last_elevation = elevation_at(player_pos)
+	var skate_factor:=preload("res://core/kalos_skate_appearance.gd").speed(self,last_dir,dir)
 	last_dir = dir
 	anim_from = Vector2(player_pos)
 	var target := player_pos + dir
@@ -841,7 +846,7 @@ func step(dir: Vector2i) -> bool:
 	if surfing and not is_water(player_pos):
 		surfing = false
 	jumping = is_jump
-	_step_duration = jump_dur if jumping else (run_dur if running and passage.is_empty() else walk_dur)
+	_step_duration = jump_dur if jumping else (run_dur * skate_factor if running and passage.is_empty() else walk_dur)
 	if rift_move:
 		_step_duration=clampf(sqrt(anim_from.distance_to(Vector2(player_pos)))*0.16,0.24,0.95)
 		if not is_jump:
@@ -1004,6 +1009,8 @@ func _check_talk() -> void:
 		var index := npcs.find(npc)
 		if index>=0 and index*2+1<_npc_nodes.size():
 			var sprite: Sprite2D = _npc_nodes[index*2+1]
+			var kalos_identity := str(sprite.get_meta("kalos_identity",""))
+			if not kalos_identity.is_empty():load("res://core/kalos_cast.gd").draw(sprite,kalos_identity,{"left":"right","right":"left","up":"down","down":"up"}[facing])
 			var unova_identity := str(sprite.get_meta("unova_identity",""))
 			if not unova_identity.is_empty():
 				preload("res://core/unova_cast.gd").draw(sprite,unova_identity,{"left":"right","right":"left","up":"down","down":"up"}[facing])
@@ -1132,7 +1139,8 @@ func _sync_player() -> void:
 		return
 	var f: int = int(FACE_FRAME.get(facing, 0))
 	var afloat := surfing and is_water(player_pos)
-	var sheet := PLAYER_SURF if afloat else PLAYER_WALK
+	var sheet: Texture2D = PLAYER_SURF if afloat else PLAYER_WALK
+	if taken.has("ks_cap"):sheet=preload("res://core/kalos_skate_appearance.gd").sheet(sheet,taken.ks_cap,afloat)
 	if _player_sprite.texture != sheet:
 		_player_sprite.texture = sheet
 		_player_sprite.hframes = 3 if afloat else 9
@@ -1142,6 +1150,7 @@ func _sync_player() -> void:
 		f = int(WALK_B.get(facing, 0))
 	_player_sprite.frame = f
 	_player_sprite.flip_h = facing == "right"
+	preload("res://core/kalos_skate_appearance.gd").pose(self,_player_sprite)
 	# 取整到物理像素：不取整的话像素图会每帧落在半像素上，
 	# 描边时粗时细、看着像在抖
 	var px: float = round(render_pos.x * TILE)
@@ -1255,6 +1264,8 @@ func _rebuild(story_flags: Variant = null) -> void:
 		apply_light()
 		return
 	var plan := EmeraldField.plan_for(map_data)
+	if map_data.get("id","") in ["kalos_geosenge","kalos_crystals"]:
+		plan=preload("res://core/kalos_geometry.gd").town(self,plan,taken if story_flags==null else story_flags)
 	var mansion: Dictionary = plan.get("mansion",{})
 	mansion_switches.clear()
 	for xy in mansion.get("statues",[]):
@@ -1297,6 +1308,10 @@ func _rebuild(story_flags: Variant = null) -> void:
 		var field := EmeraldField.new()
 		add_child(field)
 		field.setup(self, plan, overrides)
+		if map_data.has("kalos_native"):
+			var exits:=preload("res://core/kalos_exit_signs.gd").new()
+			field.add_child(exits)
+			exits.setup(self,map_data.warps)
 		if map_data.has("mechanisms"): HoennMechanisms.draw(field,self)
 		_tile_nodes.append(field)
 	else:
@@ -1326,6 +1341,9 @@ func refresh_story_actors(flags: Dictionary) -> void:
 	for row in npcs:
 		if row.get("form_items",false): updated.append(row)
 	npcs = updated
+	if map_data.get("id","") in ["kalos_geosenge","kalos_crystals"] and terrain_phase!=preload("res://core/kalos_geometry.gd").phase(flags):
+		_rebuild(flags)
+		return
 	if map_data.has("platinum_gym"):
 		_rebuild(flags)
 		return
@@ -1352,9 +1370,14 @@ func _draw_npcs() -> void:
 		var identity := JohtoCast.character(n) if johto else ""
 		var tex: Texture2D
 		var unova_identity: String = preload("res://core/unova_cast.gd").character(n) if map_data.has("unova_native") else ""
+		var kalos_identity: String=load("res://core/kalos_cast.gd").character(n) if map_data.get("region","")=="kalos" else ""
 		var sinnoh_identity := SinnohCast.character(n) if map_data.has("platinum_native") else ""
 		if n.has("unova_prop"):
 			tex=EmeraldField.prop_texture(str(n.unova_prop))
+		elif not kalos_identity.is_empty():
+			s.set_meta("kalos_identity",kalos_identity)
+			load("res://core/kalos_cast.gd").draw(s,kalos_identity,n.get("facing","down"))
+			tex=s.texture
 		elif not unova_identity.is_empty():
 			s.set_meta("unova_identity",unova_identity)
 			preload("res://core/unova_cast.gd").draw(s,unova_identity,n.get("facing","down"))
@@ -1417,11 +1440,12 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 	var sprite: Sprite2D = _npc_nodes[index*2+1]
 	var shadow: Sprite2D = _npc_nodes[index*2]
 	var npc_position := Vector2i(int(row.at[0]),int(row.at[1]))
+	var kalos_identity:=str(sprite.get_meta("kalos_identity",""))
 	var johto_identity := str(sprite.get_meta("johto_identity",""))
 	var unova_identity := str(sprite.get_meta("unova_identity",""))
 	var sinnoh_identity := str(sprite.get_meta("sinnoh_identity",""))
 	var emerald: bool = map_data.has("emerald_original") and row.has("source_gfx")
-	if johto_identity.is_empty() and sinnoh_identity.is_empty() and unova_identity.is_empty() and not emerald:
+	if johto_identity.is_empty() and sinnoh_identity.is_empty() and unova_identity.is_empty() and kalos_identity.is_empty() and not emerald:
 		sprite.texture = preload("res://assets/npc/fr_oak_walk.png")
 		sprite.hframes = 9
 	var actor_face := "down"
@@ -1433,7 +1457,8 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 			var delta: Vector2i = directions[npc_path[i]]
 			npc_position+=delta
 			actor_face = faces[npc_path[i]]
-			if not unova_identity.is_empty(): preload("res://core/unova_cast.gd").draw(sprite,unova_identity,actor_face,1+i%2)
+			if not kalos_identity.is_empty():load("res://core/kalos_cast.gd").draw(sprite,kalos_identity,actor_face,1+i%2)
+			elif not unova_identity.is_empty(): preload("res://core/unova_cast.gd").draw(sprite,unova_identity,actor_face,1+i%2)
 			elif not sinnoh_identity.is_empty(): SinnohCast.draw(sprite,sinnoh_identity,actor_face,1+i%2)
 			elif emerald: preload("res://core/hoenn_field.gd").draw(sprite,row,actor_face,1+i%2)
 			elif johto_identity.is_empty():
@@ -1451,7 +1476,8 @@ func play_actor_paths(role: String, npc_path: String, player_path: String) -> vo
 			player_pos+=Vector2i(directions[player_path[i]])
 			tween.tween_method(_render_story_step,render_pos,Vector2(player_pos),0.11)
 		await tween.finished
-		if not unova_identity.is_empty(): preload("res://core/unova_cast.gd").draw(sprite,unova_identity,actor_face)
+		if not kalos_identity.is_empty():load("res://core/kalos_cast.gd").draw(sprite,kalos_identity,actor_face)
+		elif not unova_identity.is_empty(): preload("res://core/unova_cast.gd").draw(sprite,unova_identity,actor_face)
 		elif not sinnoh_identity.is_empty(): SinnohCast.draw(sprite,sinnoh_identity,actor_face)
 		elif emerald: preload("res://core/hoenn_field.gd").draw(sprite,row,actor_face)
 		elif johto_identity.is_empty(): sprite.frame = FACE_FRAME[actor_face]
@@ -1504,6 +1530,8 @@ func _build_legacy_ground() -> void:
 func _object_texture(o: Dictionary) -> Texture2D:
 	var kind := String(o.get("kind", ""))
 	var name := kind
+	if kind=="hotel_work":
+		return load("res://assets/npc/kalos_mega_glint.png")
 	match kind:
 		"item":
 			name = "ball"
@@ -1537,6 +1565,7 @@ func _draw_objects() -> void:
 	_obj_nodes.clear()
 	var has_emerald := map_data.has("hgss") or not EmeraldField.plan_for(map_data).is_empty()
 	for o in objects:
+		if o.get("kind","")=="hotel_work" and not preload("res://core/kalos_hotel.gd").visible(map_data,o,taken):continue
 		var flag := String(o.get("flag", ""))
 		var key := _object_key(o)
 		if taken.get(key, false) or (flag != "" and taken.get(flag, false)) or o.get("baked",false):
@@ -1580,6 +1609,7 @@ func object_at(p: Vector2i) -> Dictionary:
 	if p in mansion_switches:
 		return {"kind":"mansion_switch","at":[p.x,p.y]}
 	for o in objects:
+		if o.get("kind","")=="hotel_work" and not preload("res://core/kalos_hotel.gd").visible(map_data,o,taken):continue
 		var at: Array = o.get("at", [0, 0])
 		if Vector2i(int(at[0]), int(at[1])) == p:
 			var key := _object_key(o)
@@ -1967,6 +1997,8 @@ func arrive(target: Dictionary) -> void:
 	var pos := Vector2i(int(target.at[0]), int(target.at[1]))
 	if map_data.has("emerald_original") and not target.get("hoenn_native",false) and map_data.has("legacy_size"):
 		pos=preload("res://core/hoenn_field.gd").saved_position(self,pos)
+	if map_data.has("kalos_native") and (target.get("regional_travel",false) or not target.get("kalos_native",false)):
+		pos=Vector2i(int(map_data.spawn[0]),int(map_data.spawn[1]))
 	if map_data.has("unova_native") and target.get("regional_travel",false):
 		pos=Vector2i(int(map_data.spawn[0]),int(map_data.spawn[1]))
 	if map_data.has("platinum_native") and (target.get("regional_travel",false) or not target.get("platinum_native",false)):

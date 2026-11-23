@@ -97,6 +97,8 @@ class Player:
                     for options in [("冲浪", "好", "使用居合斩"), ("好",)]:
                         choice = next((b for b in options if b in self.state["buttons"]), None)
                         if choice: self.do("click", label=choice)
+                    # Accepting Surf boards the water tile immediately in native GBA fields.
+                    if self.pos != stuck[0]: break
                     self.do("walk", legs=[[key, end]])
                     if self.pos != stuck[0]: break
                 self.routes.denied.add((stuck[0],key))

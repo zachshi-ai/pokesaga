@@ -215,16 +215,19 @@ static func actor_walk(g, move: Dictionary) -> void:
 	g._story_step()
 
 static func wally_tutorial(g) -> void:
+	catch_demonstration(g,280,5,[45],263,7,[33],["满充派出了千里借给他的蛇纹熊。","满充：蛇纹熊，用撞击！","满充投出精灵球……抓到拉鲁拉丝了！"])
+
+static func catch_demonstration(g, wild_id: int, wild_level: int, wild_moves: Array, lead_id: int, lead_level: int, lead_moves: Array, lines: Array) -> void:
 	var battle_core=load("res://core/battle.gd")
-	var learner: Dictionary=battle_core.make_combatant(263,7,[33])
-	var ralts: Dictionary=battle_core.make_combatant(280,5,[45])
+	var learner: Dictionary=battle_core.make_combatant(lead_id,lead_level,lead_moves)
+	var wild_mon: Dictionary=battle_core.make_combatant(wild_id,wild_level,wild_moves)
 	var overlay=CanvasLayer.new()
 	overlay.layer=6
 	g.add_child(overlay)
 	var ui=load("res://scenes/battle_ui.gd").new()
 	overlay.add_child(ui)
 	ui.backdrop="grass"
-	ui.setup([learner],[ralts],141)
+	ui.setup([learner],[wild_mon],141)
 	ui.state="watch"
 	ui.menu.hide()
 	ui.move_menu.hide()
@@ -232,15 +235,15 @@ static func wally_tutorial(g) -> void:
 	g._escort_active=true
 	g.held_dir=""
 	g._set_hud_visible(false)
-	ui.msg.text="满充派出了千里借给他的蛇纹熊。"
+	ui.msg.text=lines[0]
 	await g.get_tree().create_timer(0.9).timeout
-	ui.msg.text="满充：蛇纹熊，用撞击！"
+	ui.msg.text=lines[1]
 	ui.battle.run_turn("move:0","move:0")
-	var advance_hp=func(h: float): ui._draw_hp(ui.enemy_hp,roundi(h),int(ralts.max_hp))
+	var advance_hp=func(h: float): ui._draw_hp(ui.enemy_hp,roundi(h),int(wild_mon.max_hp))
 	var tween=g.create_tween()
-	tween.tween_method(advance_hp,float(ralts.max_hp),float(ralts.hp),0.45)
+	tween.tween_method(advance_hp,float(wild_mon.max_hp),float(wild_mon.hp),0.45)
 	await tween.finished
-	ui.msg.text="满充投出精灵球……抓到拉鲁拉丝了！"
+	ui.msg.text=lines[2]
 	ui.enemy_sprite.hide()
 	await g.get_tree().create_timer(0.95).timeout
 	overlay.queue_free()

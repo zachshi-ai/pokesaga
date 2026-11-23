@@ -17,6 +17,8 @@ const HP_MID := Color(0.94, 0.78, 0.34)
 const HP_LO := Color(0.90, 0.40, 0.36)
 
 var battle
+var kalos_rules := false
+var kalos_ring := false
 var observe_variant: Callable
 var enemy_team: Array = []
 var player_team: Array = []
@@ -55,6 +57,8 @@ func setup(p_team: Array, e_team: Array, seed_value: int = 0, p_bag: Array = [],
 	enemy_team = e_team
 	bag = p_bag
 	battle = _battle_engine(seed_value)
+	battle.kalos_rules=kalos_rules
+	battle.kalos_ring=kalos_ring
 	if observe_variant.is_valid():
 		battle.variant_seen.connect(observe_variant)
 	battle.start(player_team, enemy_team)
@@ -551,6 +555,12 @@ func _do_tera() -> void:
 	wait = _dur(0.1)
 
 func _do_transform(form_key: String) -> void:
+	if kalos_rules:
+		var active: Dictionary=battle.cur_a()
+		if not battle.available_forms("a").any(func(form):return form.key==form_key):return
+		active.kalos_intent=form_key
+		_open_moves()
+		return
 	_begin_resolve()
 	var r: Dictionary = battle.transform("a", form_key)
 	_apply_appearance(player_sprite, battle.cur_a())
@@ -562,7 +572,7 @@ func _do_transform(form_key: String) -> void:
 	msg.text = ""
 	wait = _dur(0.1)
 
-const BALL_BONUS := {"豪华球":1.0, "纪念球":1.0, "计时球":1.0, "竞赛球":1.5, "精灵球": 1.0, "超级球": 1.5, "高级球": 2.0, "大师球": 255.0, "等级球":1.0, "诱饵球":1.0, "月亮球":1.0, "友友球":1.0, "速度球":1.0, "沉重球":1.0, "甜蜜球":1.0}
+const BALL_BONUS := {"重复球":1.0,"巢穴球":1.0,"捕网球":1.0,"潜水球":1.0,"先机球":1.0,"黑暗球":1.0,"治愈球":1.0,"豪华球":1.0, "纪念球":1.0, "计时球":1.0, "竞赛球":1.5, "精灵球": 1.0, "超级球": 1.5, "高级球": 2.0, "大师球": 255.0, "等级球":1.0, "诱饵球":1.0, "月亮球":1.0, "友友球":1.0, "速度球":1.0, "沉重球":1.0, "甜蜜球":1.0}
 
 ## Share the field bag with battle. Trainer battles only allow battle supplies.
 func _open_balls() -> void:

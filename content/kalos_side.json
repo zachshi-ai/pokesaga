@@ -1,0 +1,5135 @@
+{
+ "stones": {
+  "GENGARITE": "耿鬼进化石",
+  "GARDEVOIRITE": "沙奈朵进化石",
+  "AMPHAROSITE": "电龙进化石",
+  "VENUSAURITE": "妙蛙花进化石",
+  "CHARIZARDITE_X": "喷火龙进化石Ｘ",
+  "BLASTOISINITE": "水箭龟进化石",
+  "MEWTWONITE_X": "超梦进化石Ｘ",
+  "MEWTWONITE_Y": "超梦进化石Ｙ",
+  "BLAZIKENITE": "火焰鸡进化石",
+  "MEDICHAMITE": "恰雷姆进化石",
+  "HOUNDOOMINITE": "黑鲁加进化石",
+  "AGGRONITE": "波士可多拉进化石",
+  "BANETTITE": "诅咒娃娃进化石",
+  "TYRANITARITE": "班基拉斯进化石",
+  "SCIZORITE": "巨钳螳螂进化石",
+  "PINSIRITE": "凯罗斯进化石",
+  "AERODACTYLITE": "化石翼龙进化石",
+  "LUCARIONITE": "路卡利欧进化石",
+  "ABOMASITE": "暴雪王进化石",
+  "KANGASKHANITE": "袋兽进化石",
+  "GYARADOSITE": "暴鲤龙进化石",
+  "ABSOLITE": "阿勃梭鲁进化石",
+  "CHARIZARDITE_Y": "喷火龙进化石Ｙ",
+  "ALAKAZITE": "胡地进化石",
+  "HERACRONITE": "赫拉克罗斯进化石",
+  "MAWILITE": "大嘴娃进化石",
+  "MANECTITE": "雷电兽进化石",
+  "GARCHOMPITE": "烈咬陆鲨进化石"
+ },
+ "events": [
+  {
+   "id": "train",
+   "map": "kalos_lumiose_station",
+   "name": "布拉塔诺",
+   "action": "train",
+   "anchor": "side1",
+   "gfx": "scientist",
+   "requires": [
+    "k_champion"
+   ],
+   "until": [
+    "ks_train"
+   ]
+  },
+  {
+   "id": "maison",
+   "map": "kalos_battle_maison",
+   "name": "对战柜台",
+   "action": "maison",
+   "anchor": "side1",
+   "gfx": "clerk",
+   "requires": [
+    "k_train_pass"
+   ],
+   "until": []
+  },
+  {
+   "id": "maison_bp",
+   "map": "kalos_battle_maison",
+   "name": "奖品兑换员",
+   "action": "bp",
+   "anchor": "side2",
+   "gfx": "clerk",
+   "requires": [
+    "k_train_pass"
+   ],
+   "until": []
+  },
+  {
+   "id": "rival",
+   "map": "kalos_kiloude",
+   "name": "莎莉娜",
+   "action": "rival",
+   "anchor": "side1",
+   "gfx": "lass",
+   "requires": [
+    "ks_maison_played"
+   ],
+   "until": []
+  },
+  {
+   "id": "sundial",
+   "map": "kalos_anistar_sundial",
+   "name": "布拉塔诺",
+   "action": "sundial",
+   "anchor": "side1",
+   "gfx": "scientist",
+   "requires": [
+    "ks_rival"
+   ],
+   "until": [
+    "ks_sundial"
+   ]
+  },
+  {
+   "id": "fossils",
+   "map": "kalos_ambrette_fossil_lab",
+   "name": "化石研究员",
+   "action": "revive",
+   "anchor": "side1",
+   "gfx": "scientist",
+   "requires": [
+    "k_starter"
+   ],
+   "until": []
+  },
+  {
+   "id": "quarry",
+   "map": "kalos_glitter",
+   "name": "松动的岩石",
+   "action": "fossil_rock",
+   "anchor": "side3",
+   "gfx": "kalos_fossil_rock",
+   "requires": [
+    "k_starter"
+   ],
+   "until": []
+  },
+  {
+   "id": "aerodactylite",
+   "map": "kalos_ambrette_fossil_lab",
+   "name": "化石研究员",
+   "action": "stone",
+   "anchor": "side2",
+   "gfx": "scientist",
+   "requires": [
+    "k_fossil"
+   ],
+   "until": [
+    "ks_aerodactylite"
+   ],
+   "key": "AERODACTYLITE",
+   "txt": "多亏你把助手平安带了回来。我在闪耀洞窟里发现了这块石头。"
+  },
+  {
+   "id": "lapras",
+   "map": "kalos_12",
+   "name": "宝可梦培育家",
+   "action": "gift_mon",
+   "anchor": "side1",
+   "gfx": "breeder",
+   "requires": [
+    "k_badge_3"
+   ],
+   "until": [
+    "ks_lapras"
+   ],
+   "species": 131,
+   "level": 30,
+   "txt": "这只拉普拉斯很喜欢和人亲近。你愿意带它一起冲浪吗？"
+  },
+  {
+   "id": "ampharosite",
+   "map": "kalos_azure",
+   "name": "垂钓老人",
+   "action": "stone",
+   "anchor": "side1",
+   "gfx": "old_man",
+   "requires": [
+    "k_badge_3"
+   ],
+   "until": [
+    "ks_ampharosite"
+   ],
+   "key": "AMPHAROSITE",
+   "txt": "它曾带着光跨过海湾。这块闪亮的石头属于一只电龙。"
+  },
+  {
+   "id": "abomasite",
+   "map": "kalos_frost",
+   "name": "暴雪王",
+   "action": "stone",
+   "anchor": "side1",
+   "gfx": "kalos_mon_460",
+   "requires": [
+    "k_abomasnow"
+   ],
+   "until": [
+    "ks_abomasite"
+   ],
+   "key": "ABOMASITE",
+   "txt": "暴雪王俯下身子，把一枚结着冰霜的石头放到你手里。"
+  },
+  {
+   "id": "gengarite",
+   "map": "kalos_laverre",
+   "name": "灵异迷",
+   "action": "stone",
+   "anchor": "side1",
+   "gfx": "hex_maniac",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_gengarite"
+   ],
+   "key": "GENGARITE",
+   "condition": "seen_92",
+   "txt": "你见过鬼斯一族的伙伴吧。这是我替耿鬼保管的宝物。"
+  },
+  {
+   "id": "emporium",
+   "map": "kalos_stone_emporium",
+   "name": "石头收藏家",
+   "action": "emporium",
+   "anchor": "side1",
+   "gfx": "gentleman",
+   "requires": [
+    "ks_kanto_gift"
+   ],
+   "until": []
+  },
+  {
+   "id": "mewtwo",
+   "map": "kalos_unknown_dungeon",
+   "name": "超梦",
+   "action": "legend",
+   "anchor": "side1",
+   "gfx": "fr_mewtwo",
+   "requires": [
+    "k_champion"
+   ],
+   "until": [
+    "ks_mewtwo"
+   ],
+   "species": 150,
+   "level": 70
+  },
+  {
+   "id": "zygarde",
+   "map": "kalos_terminus_cave",
+   "name": "基格尔德",
+   "action": "legend",
+   "anchor": "side1",
+   "gfx": "kalos_mon_718",
+   "requires": [
+    "k_champion"
+   ],
+   "until": [
+    "ks_zygarde"
+   ],
+   "species": 718,
+   "level": 70
+  },
+  {
+   "id": "bird",
+   "map": "kalos_sea_spirits_den",
+   "name": "传说的鸟宝可梦",
+   "action": "legend",
+   "anchor": "side1",
+   "gfx": "fr_side_articuno",
+   "requires": [
+    "ks_bird_nested"
+   ],
+   "until": [
+    "ks_bird"
+   ],
+   "level": 70
+  },
+  {
+   "id": "dusk_alakazite",
+   "map": "kalos_zone_308",
+   "name": "石头的闪光",
+   "action": "dusk",
+   "anchor": "side1",
+   "gfx": "kalos_mega_glint",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_dusk_alakazite"
+   ],
+   "key": "ALAKAZITE",
+   "version": "",
+   "txt": "映穴"
+  },
+  {
+   "id": "dusk_banettite",
+   "map": "kalos_chamber_emptiness",
+   "name": "石头的闪光",
+   "action": "dusk",
+   "anchor": "side1",
+   "gfx": "kalos_mega_glint",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_dusk_banettite"
+   ],
+   "key": "BANETTITE",
+   "version": "",
+   "txt": "空虚之间"
+  },
+  {
+   "id": "dusk_garchompite",
+   "map": "kalos_zone_327",
+   "name": "石头的闪光",
+   "action": "dusk",
+   "anchor": "side1",
+   "gfx": "kalos_mega_glint",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_dusk_garchompite"
+   ],
+   "key": "GARCHOMPITE",
+   "version": "",
+   "txt": "冠军之路"
+  },
+  {
+   "id": "dusk_gyaradosite",
+   "map": "kalos_couriway",
+   "name": "石头的闪光",
+   "action": "dusk",
+   "anchor": "side3",
+   "gfx": "kalos_mega_glint",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_dusk_gyaradosite"
+   ],
+   "key": "GYARADOSITE",
+   "version": "",
+   "txt": "连理镇"
+  },
+  {
+   "id": "dusk_kangaskhanite",
+   "map": "kalos_glitter",
+   "name": "石头的闪光",
+   "action": "dusk",
+   "anchor": "side4",
+   "gfx": "kalos_mega_glint",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_dusk_kangaskhanite"
+   ],
+   "key": "KANGASKHANITE",
+   "version": "",
+   "txt": "闪耀洞窟"
+  },
+  {
+   "id": "dusk_mawilite",
+   "map": "kalos_shabboneau_castle",
+   "name": "石头的闪光",
+   "action": "dusk",
+   "anchor": "side1",
+   "gfx": "kalos_mega_glint",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_dusk_mawilite"
+   ],
+   "key": "MAWILITE",
+   "version": "",
+   "txt": "古木镇的枯木宫"
+  },
+  {
+   "id": "dusk_medichamite",
+   "map": "kalos_laverre",
+   "name": "石头的闪光",
+   "action": "dusk",
+   "anchor": "side3",
+   "gfx": "kalos_mega_glint",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_dusk_medichamite"
+   ],
+   "key": "MEDICHAMITE",
+   "version": "",
+   "txt": "香薰市水井边"
+  },
+  {
+   "id": "dusk_scizorite",
+   "map": "kalos_frost",
+   "name": "石头的闪光",
+   "action": "dusk",
+   "anchor": "side3",
+   "gfx": "kalos_mega_glint",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_dusk_scizorite"
+   ],
+   "key": "SCIZORITE",
+   "version": "",
+   "txt": "风霜洞窟"
+  },
+  {
+   "id": "dusk_pinsirite",
+   "map": "kalos_forest",
+   "name": "石头的闪光",
+   "action": "dusk",
+   "anchor": "side1",
+   "gfx": "kalos_mega_glint",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_dusk_pinsirite"
+   ],
+   "key": "PINSIRITE",
+   "version": "x",
+   "txt": "白檀森林"
+  },
+  {
+   "id": "dusk_heracronite",
+   "map": "kalos_forest",
+   "name": "石头的闪光",
+   "action": "dusk",
+   "anchor": "side1",
+   "gfx": "kalos_mega_glint",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_dusk_heracronite"
+   ],
+   "key": "HERACRONITE",
+   "version": "y",
+   "txt": "白檀森林"
+  },
+  {
+   "id": "dusk_manectite",
+   "map": "kalos_16",
+   "name": "石头的闪光",
+   "action": "dusk",
+   "anchor": "side1",
+   "gfx": "kalos_mega_glint",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_dusk_manectite"
+   ],
+   "key": "MANECTITE",
+   "version": "x",
+   "txt": "16号道路"
+  },
+  {
+   "id": "dusk_houndoominite",
+   "map": "kalos_16",
+   "name": "石头的闪光",
+   "action": "dusk",
+   "anchor": "side1",
+   "gfx": "kalos_mega_glint",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_dusk_houndoominite"
+   ],
+   "key": "HOUNDOOMINITE",
+   "version": "y",
+   "txt": "16号道路"
+  },
+  {
+   "id": "dusk_tyranitarite",
+   "map": "kalos_gym_cyllage",
+   "name": "石头的闪光",
+   "action": "dusk",
+   "anchor": "side1",
+   "gfx": "kalos_mega_glint",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_dusk_tyranitarite"
+   ],
+   "key": "TYRANITARITE",
+   "version": "x",
+   "txt": "遥香道馆"
+  },
+  {
+   "id": "dusk_aggronite",
+   "map": "kalos_gym_cyllage",
+   "name": "石头的闪光",
+   "action": "dusk",
+   "anchor": "side1",
+   "gfx": "kalos_mega_glint",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_dusk_aggronite"
+   ],
+   "key": "AGGRONITE",
+   "version": "y",
+   "txt": "遥香道馆"
+  },
+  {
+   "id": "farfetch",
+   "map": "kalos_santalune",
+   "name": "交换宝可梦的男孩",
+   "action": "trade",
+   "anchor": "side1",
+   "gfx": "youngster",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_farfetch"
+   ],
+   "wanted": 659,
+   "species": 83,
+   "level": 10,
+   "held": "STICK"
+  },
+  {
+   "id": "steelix",
+   "map": "kalos_cyllage",
+   "name": "爱钓鱼的训练家",
+   "action": "trade",
+   "anchor": "side1",
+   "gfx": "youngster",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_steelix"
+   ],
+   "wanted": 370,
+   "species": 208,
+   "level": 20,
+   "held": "SOOTHE_BELL"
+  },
+  {
+   "id": "bisharp",
+   "map": "kalos_snowbelle",
+   "name": "交换宝可梦的女孩",
+   "action": "trade",
+   "anchor": "side1",
+   "gfx": "lass",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_bisharp"
+   ],
+   "wanted": 39,
+   "species": 625,
+   "level": 50,
+   "held": ""
+  },
+  {
+   "id": "diantha",
+   "map": "kalos_cafe_soleil",
+   "name": "卡露妮",
+   "action": "trade",
+   "anchor": "side1",
+   "gfx": "lass",
+   "requires": [
+    "k_champion"
+   ],
+   "until": [
+    "ks_diantha"
+   ],
+   "wanted": 0,
+   "species": 280,
+   "level": 5,
+   "held": "GARDEVOIRITE"
+  },
+  {
+   "id": "shauna",
+   "map": "kalos_vaniville",
+   "name": "莎娜",
+   "action": "trade",
+   "anchor": "side1",
+   "gfx": "lass",
+   "requires": [
+    "k_champion"
+   ],
+   "until": [
+    "ks_shauna"
+   ],
+   "wanted": 0,
+   "species": 0,
+   "level": 5,
+   "held": ""
+  },
+  {
+   "id": "battle_chateau",
+   "map": "kalos_battle_chateau",
+   "name": "对战城堡管家",
+   "action": "chateau",
+   "anchor": "side1",
+   "gfx": "gentleman",
+   "requires": [
+    "k_starter"
+   ],
+   "until": []
+  },
+  {
+   "id": "daycare",
+   "map": "kalos_daycare",
+   "name": "培育屋婆婆",
+   "action": "daycare",
+   "anchor": "side1",
+   "gfx": "old_woman",
+   "requires": [
+    "k_starter"
+   ],
+   "until": []
+  },
+  {
+   "id": "old_rod",
+   "map": "kalos_ambrette",
+   "name": "钓鱼大叔",
+   "action": "rod",
+   "anchor": "side4",
+   "gfx": "fisherman",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_old_rod"
+   ],
+   "key": "破旧钓竿"
+  },
+  {
+   "id": "good_rod",
+   "map": "kalos_coumarine",
+   "name": "钓鱼大叔",
+   "action": "rod",
+   "anchor": "side4",
+   "gfx": "fisherman",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_good_rod"
+   ],
+   "key": "好钓竿"
+  },
+  {
+   "id": "super_rod",
+   "map": "kalos_16",
+   "name": "钓鱼大叔",
+   "action": "rod",
+   "anchor": "side4",
+   "gfx": "fisherman",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_super_rod"
+   ],
+   "key": "厉害钓竿"
+  },
+  {
+   "id": "herbs",
+   "map": "kalos_herboriste",
+   "name": "药草师",
+   "action": "herbs",
+   "anchor": "side2",
+   "gfx": "old_woman",
+   "requires": [
+    "k_starter"
+   ],
+   "until": []
+  },
+  {
+   "id": "blaziken",
+   "map": "kalos_center_santalune",
+   "name": "配信礼物派送员",
+   "action": "torchic",
+   "anchor": "side5",
+   "gfx": "clerk",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_blaziken"
+   ]
+  },
+  {
+   "id": "charm",
+   "map": "kalos_sycamore_lab",
+   "name": "布拉塔诺",
+   "action": "charms",
+   "anchor": "side4",
+   "gfx": "scientist",
+   "requires": [
+    "k_champion"
+   ],
+   "until": []
+  },
+  {
+   "id": "case1",
+   "map": "kalos_looker_bureau",
+   "name": "帅哥",
+   "action": "scene",
+   "anchor": "side1",
+   "gfx": "man",
+   "requires": [
+    "ks_sundial"
+   ],
+   "until": [
+    "ks_case1"
+   ],
+   "txt": "我在密阿雷新开了侦探事务所。五张帅哥券分别藏在洋红广场的中心、棱镜塔、药草店、大酒店和美术馆。想当助手，就去把它们找齐！"
+  },
+  {
+   "id": "ticket1",
+   "map": "kalos_lumiose_center_magenta",
+   "name": "闪闪发亮的纸片",
+   "action": "ticket",
+   "anchor": "side6",
+   "gfx": "kalos_ticket",
+   "requires": [
+    "ks_case1"
+   ],
+   "until": [
+    "ks_ticket1"
+   ]
+  },
+  {
+   "id": "ticket2",
+   "map": "kalos_tower",
+   "name": "闪闪发亮的纸片",
+   "action": "ticket",
+   "anchor": "side6",
+   "gfx": "kalos_ticket",
+   "requires": [
+    "ks_case1"
+   ],
+   "until": [
+    "ks_ticket2"
+   ]
+  },
+  {
+   "id": "ticket3",
+   "map": "kalos_herboriste",
+   "name": "闪闪发亮的纸片",
+   "action": "ticket",
+   "anchor": "side6",
+   "gfx": "kalos_ticket",
+   "requires": [
+    "ks_case1"
+   ],
+   "until": [
+    "ks_ticket3"
+   ]
+  },
+  {
+   "id": "ticket4",
+   "map": "kalos_hotel",
+   "name": "闪闪发亮的纸片",
+   "action": "ticket",
+   "anchor": "side6",
+   "gfx": "kalos_ticket",
+   "requires": [
+    "ks_case1"
+   ],
+   "until": [
+    "ks_ticket4"
+   ]
+  },
+  {
+   "id": "ticket5",
+   "map": "kalos_lumiose_museum",
+   "name": "闪闪发亮的纸片",
+   "action": "ticket",
+   "anchor": "side6",
+   "gfx": "kalos_ticket",
+   "requires": [
+    "ks_case1"
+   ],
+   "until": [
+    "ks_ticket5"
+   ]
+  },
+  {
+   "id": "case2",
+   "map": "kalos_looker_bureau",
+   "name": "帅哥",
+   "action": "ticket_return",
+   "anchor": "side1",
+   "gfx": "man",
+   "requires": [
+    "ks_case1"
+   ],
+   "until": [
+    "ks_case2"
+   ],
+   "txt": "这本笔记交给你。南侧胡同的孩子最近一直没有上学，我们去看看。"
+  },
+  {
+   "id": "alley0",
+   "map": "kalos_lumiose",
+   "name": "小朋友",
+   "action": "case_fight",
+   "anchor": "side3",
+   "gfx": "man",
+   "requires": [
+    "ks_case2"
+   ],
+   "until": [
+    "ks_alley0"
+   ],
+   "txt": "找玛琪艾儿？先看看你对宝可梦怎么样。",
+   "team": 496
+  },
+  {
+   "id": "alley1",
+   "map": "kalos_lumiose",
+   "name": "幼儿园小朋友",
+   "action": "case_fight",
+   "anchor": "side4",
+   "gfx": "man",
+   "requires": [
+    "ks_alley0"
+   ],
+   "until": [
+    "ks_alley1"
+   ],
+   "txt": "找玛琪艾儿？先看看你对宝可梦怎么样。",
+   "team": 497
+  },
+  {
+   "id": "alley2",
+   "map": "kalos_lumiose",
+   "name": "女学生",
+   "action": "case_fight",
+   "anchor": "side5",
+   "gfx": "man",
+   "requires": [
+    "ks_alley1"
+   ],
+   "until": [
+    "ks_alley2"
+   ],
+   "txt": "找玛琪艾儿？先看看你对宝可梦怎么样。",
+   "team": 498
+  },
+  {
+   "id": "alley3",
+   "map": "kalos_lumiose",
+   "name": "男学生",
+   "action": "case_fight",
+   "anchor": "side6",
+   "gfx": "man",
+   "requires": [
+    "ks_alley2"
+   ],
+   "until": [
+    "ks_alley3"
+   ],
+   "txt": "找玛琪艾儿？先看看你对宝可梦怎么样。",
+   "team": 499
+  },
+  {
+   "id": "emma",
+   "map": "kalos_lumiose",
+   "name": "玛琪艾儿",
+   "action": "scene",
+   "anchor": "side7",
+   "gfx": "man",
+   "requires": [
+    "ks_alley3"
+   ],
+   "until": [
+    "ks_emma"
+   ],
+   "txt": "小弥不习惯陌生人，它往北侧胡同跑了。你能替我找找它吗？",
+   "team": 0
+  },
+  {
+   "id": "mimi",
+   "map": "kalos_lumiose_north",
+   "name": "小弥",
+   "action": "mimi",
+   "anchor": "side8",
+   "gfx": "kalos_mon_677",
+   "requires": [
+    "ks_emma"
+   ],
+   "until": [
+    "ks_mimi"
+   ]
+  },
+  {
+   "id": "tourist",
+   "map": "kalos_looker_bureau",
+   "name": "玛琪艾儿",
+   "action": "scene",
+   "anchor": "side1",
+   "gfx": "man",
+   "requires": [
+    "ks_mimi"
+   ],
+   "until": [
+    "ks_tourist"
+   ],
+   "txt": "这位旅客说，她的宝可梦被抢走了。我听得懂她的语言！她最后是在密阿雷车站看到那伙人的。",
+   "team": 0
+  },
+  {
+   "id": "gang0",
+   "map": "kalos_lumiose_station",
+   "name": "艾莉丝帮成员",
+   "action": "case_fight",
+   "anchor": "side2",
+   "gfx": "man",
+   "requires": [
+    "ks_tourist"
+   ],
+   "until": [
+    "ks_gang0"
+   ],
+   "txt": "丢失的精灵球？拿出对战的本领再说。",
+   "team": 500
+  },
+  {
+   "id": "gang1",
+   "map": "kalos_lumiose_station",
+   "name": "街头帮成员",
+   "action": "case_fight",
+   "anchor": "side3",
+   "gfx": "man",
+   "requires": [
+    "ks_gang0"
+   ],
+   "until": [
+    "ks_gang1"
+   ],
+   "txt": "丢失的精灵球？拿出对战的本领再说。",
+   "team": 501
+  },
+  {
+   "id": "gang2",
+   "map": "kalos_lumiose_station",
+   "name": "街头帮首领",
+   "action": "case_fight",
+   "anchor": "side4",
+   "gfx": "man",
+   "requires": [
+    "ks_gang1"
+   ],
+   "until": [
+    "ks_gang2"
+   ],
+   "txt": "丢失的精灵球？拿出对战的本领再说。",
+   "team": 502
+  },
+  {
+   "id": "museum_case",
+   "map": "kalos_looker_bureau",
+   "name": "帅哥",
+   "action": "scene",
+   "anchor": "side1",
+   "gfx": "man",
+   "requires": [
+    "ks_gang2"
+   ],
+   "until": [
+    "ks_museum_case"
+   ],
+   "txt": "事务所收到报案。有人在美术馆的一幅画上涂鸦，随后又冒充训练家偷精灵球。",
+   "team": 0
+  },
+  {
+   "id": "canvas",
+   "map": "kalos_lumiose_museum",
+   "name": "美术馆馆长",
+   "action": "scene",
+   "anchor": "side1",
+   "gfx": "man",
+   "requires": [
+    "ks_museum_case"
+   ],
+   "until": [
+    "ks_canvas"
+   ],
+   "txt": "画还挂在墙上，颜料却被抹花了。有人看见犯人往北侧胡同逃去。",
+   "team": 0
+  },
+  {
+   "id": "suit0",
+   "map": "kalos_lumiose_north",
+   "name": "可疑的女人",
+   "action": "case_fight",
+   "anchor": "side8",
+   "gfx": "man",
+   "requires": [
+    "ks_canvas"
+   ],
+   "until": [
+    "ks_suit0"
+   ],
+   "txt": "她刚刚还穿着别人的衣服，转过身时已经变成了蒙面人。",
+   "team": 503
+  },
+  {
+   "id": "suit1",
+   "map": "kalos_lumiose_north",
+   "name": "可疑的孩子",
+   "action": "case_fight",
+   "anchor": "side9",
+   "gfx": "man",
+   "requires": [
+    "ks_suit0"
+   ],
+   "until": [
+    "ks_suit1"
+   ],
+   "txt": "她刚刚还穿着别人的衣服，转过身时已经变成了蒙面人。",
+   "team": 504
+  },
+  {
+   "id": "suit2",
+   "map": "kalos_lumiose_north",
+   "name": "可疑的女士",
+   "action": "case_fight",
+   "anchor": "side10",
+   "gfx": "man",
+   "requires": [
+    "ks_suit1"
+   ],
+   "until": [
+    "ks_suit2"
+   ],
+   "txt": "她刚刚还穿着别人的衣服，转过身时已经变成了蒙面人。",
+   "team": 505
+  },
+  {
+   "id": "hotel_tip",
+   "map": "kalos_looker_bureau",
+   "name": "玛琪艾儿",
+   "action": "scene",
+   "anchor": "side1",
+   "gfx": "man",
+   "requires": [
+    "ks_suit2"
+   ],
+   "until": [
+    "ks_hotel_tip"
+   ],
+   "txt": "帅哥先生说要去医院。大酒店里有一位认识他的人，请你去见她。",
+   "team": 0
+  },
+  {
+   "id": "malva",
+   "map": "kalos_hotel",
+   "name": "帕琦拉",
+   "action": "case_fight",
+   "anchor": "side1",
+   "gfx": "man",
+   "requires": [
+    "ks_hotel_tip"
+   ],
+   "until": [
+    "ks_malva"
+   ],
+   "txt": "有个问题你值得知道答案。先和我的火炎狮打上一场。",
+   "team": 507
+  },
+  {
+   "id": "lab0",
+   "map": "kalos_flare_labs_b2",
+   "name": "研究所工作人员",
+   "action": "case_fight",
+   "anchor": "side2",
+   "gfx": "man",
+   "requires": [
+    "ks_malva"
+   ],
+   "until": [
+    "ks_lab0"
+   ],
+   "txt": "有人在下面操控强化服。想去里面，就先过我这关。",
+   "team": 516
+  },
+  {
+   "id": "lab1",
+   "map": "kalos_flare_labs_b2",
+   "name": "研究所工作人员",
+   "action": "case_fight",
+   "anchor": "side3",
+   "gfx": "man",
+   "requires": [
+    "ks_lab0"
+   ],
+   "until": [
+    "ks_lab1"
+   ],
+   "txt": "有人在下面操控强化服。想去里面，就先过我这关。",
+   "team": 517
+  },
+  {
+   "id": "lab2",
+   "map": "kalos_flare_labs_b2",
+   "name": "研究所工作人员",
+   "action": "case_fight",
+   "anchor": "side4",
+   "gfx": "man",
+   "requires": [
+    "ks_lab1"
+   ],
+   "until": [
+    "ks_lab2"
+   ],
+   "txt": "有人在下面操控强化服。想去里面，就先过我这关。",
+   "team": 518
+  },
+  {
+   "id": "lab3",
+   "map": "kalos_flare_labs_b3",
+   "name": "研究所工作人员",
+   "action": "case_fight",
+   "anchor": "side5",
+   "gfx": "man",
+   "requires": [
+    "ks_lab2"
+   ],
+   "until": [
+    "ks_lab3"
+   ],
+   "txt": "有人在下面操控强化服。想去里面，就先过我这关。",
+   "team": 508
+  },
+  {
+   "id": "lab4",
+   "map": "kalos_flare_labs_b3",
+   "name": "研究所工作人员",
+   "action": "case_fight",
+   "anchor": "side6",
+   "gfx": "man",
+   "requires": [
+    "ks_lab3"
+   ],
+   "until": [
+    "ks_lab4"
+   ],
+   "txt": "有人在下面操控强化服。想去里面，就先过我这关。",
+   "team": 509
+  },
+  {
+   "id": "lab5",
+   "map": "kalos_flare_labs_b3",
+   "name": "研究所工作人员",
+   "action": "case_fight",
+   "anchor": "side7",
+   "gfx": "man",
+   "requires": [
+    "ks_lab4"
+   ],
+   "until": [
+    "ks_lab5"
+   ],
+   "txt": "有人在下面操控强化服。想去里面，就先过我这关。",
+   "team": 510
+  },
+  {
+   "id": "notes",
+   "map": "kalos_flare_labs_b3",
+   "name": "库瑟洛斯奇",
+   "action": "scene",
+   "anchor": "side8",
+   "gfx": "man",
+   "requires": [
+    "ks_lab5"
+   ],
+   "until": [
+    "ks_notes"
+   ],
+   "txt": "强化服发出的指令直达神经。玛琪艾儿并不知道自己穿着它做了什么。",
+   "team": 0
+  },
+  {
+   "id": "essentia0",
+   "map": "kalos_flare_labs_b3",
+   "name": "艾丝普莉",
+   "action": "case_fight",
+   "anchor": "side9",
+   "gfx": "man",
+   "requires": [
+    "ks_notes"
+   ],
+   "until": [
+    "ks_essentia0"
+   ],
+   "txt": "强化服启动了另一种战斗程式。",
+   "team": 511
+  },
+  {
+   "id": "essentia1",
+   "map": "kalos_flare_labs_b3",
+   "name": "艾丝普莉",
+   "action": "case_fight",
+   "anchor": "side9",
+   "gfx": "man",
+   "requires": [
+    "ks_essentia0"
+   ],
+   "until": [
+    "ks_essentia1"
+   ],
+   "txt": "强化服启动了另一种战斗程式。",
+   "team": 512
+  },
+  {
+   "id": "essentia2",
+   "map": "kalos_flare_labs_b3",
+   "name": "艾丝普莉",
+   "action": "case_fight",
+   "anchor": "side9",
+   "gfx": "man",
+   "requires": [
+    "ks_essentia1"
+   ],
+   "until": [
+    "ks_essentia2"
+   ],
+   "txt": "强化服启动了另一种战斗程式。",
+   "team": 513
+  },
+  {
+   "id": "essentia3",
+   "map": "kalos_flare_labs_b3",
+   "name": "艾丝普莉",
+   "action": "case_fight",
+   "anchor": "side9",
+   "gfx": "man",
+   "requires": [
+    "ks_essentia2"
+   ],
+   "until": [
+    "ks_essentia3"
+   ],
+   "txt": "强化服启动了另一种战斗程式。",
+   "team": 514
+  },
+  {
+   "id": "letter",
+   "map": "kalos_looker_bureau",
+   "name": "玛琪艾儿",
+   "action": "scene",
+   "anchor": "side1",
+   "gfx": "man",
+   "requires": [
+    "ks_essentia3"
+   ],
+   "until": [
+    "ks_letter"
+   ],
+   "txt": "这封信是帅哥先生留下的。他把事务所托付给我了，可我还没有好好道别。",
+   "team": 0
+  },
+  {
+   "id": "last_witness",
+   "map": "kalos_lumiose_museum",
+   "name": "美术馆馆长",
+   "action": "scene",
+   "anchor": "side1",
+   "gfx": "man",
+   "requires": [
+    "ks_letter"
+   ],
+   "until": [
+    "ks_last_witness"
+   ],
+   "txt": "我看见那位穿风衣的人去了弗拉达利咖啡馆。现在过去还来得及。",
+   "team": 0
+  },
+  {
+   "id": "farewell",
+   "map": "kalos_lysandre_cafe",
+   "name": "帅哥",
+   "action": "scene",
+   "anchor": "side1",
+   "gfx": "man",
+   "requires": [
+    "ks_last_witness"
+   ],
+   "until": [
+    "ks_farewell"
+   ],
+   "txt": "玛琪艾儿，事务所就交给你了。库瑟洛斯奇愿意为他做过的事负责，我们该出发了。",
+   "team": 0
+  },
+  {
+   "id": "essentia_rematch",
+   "map": "kalos_looker_bureau",
+   "name": "玛琪艾儿",
+   "action": "rematch",
+   "anchor": "side1",
+   "gfx": "lass",
+   "requires": [
+    "ks_farewell"
+   ],
+   "until": [],
+   "team": 515
+  },
+  {
+   "id": "shop_shalour",
+   "map": "kalos_center_shalour",
+   "name": "招式学习器柜员",
+   "action": "tm_shop",
+   "anchor": "side12",
+   "gfx": "scientist",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "stock": {
+    "7": 50000,
+    "20": 30000,
+    "28": 10000,
+    "37": 50000,
+    "84": 10000
+   }
+  },
+  {
+   "id": "shop_lumiose",
+   "map": "kalos_center_lumiose",
+   "name": "招式学习器柜员",
+   "action": "tm_shop",
+   "anchor": "side12",
+   "gfx": "scientist",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "stock": {
+    "11": 50000,
+    "18": 50000,
+    "75": 10000,
+    "76": 10000,
+    "78": 10000
+   }
+  },
+  {
+   "id": "shop_anistar",
+   "map": "kalos_center_anistar",
+   "name": "招式学习器柜员",
+   "action": "tm_shop",
+   "anchor": "side12",
+   "gfx": "scientist",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "stock": {
+    "14": 70000,
+    "15": 90000,
+    "25": 70000,
+    "38": 70000,
+    "52": 70000
+   }
+  },
+  {
+   "id": "shop_kiloude",
+   "map": "kalos_center_kiloude",
+   "name": "招式学习器柜员",
+   "action": "tm_shop",
+   "anchor": "side12",
+   "gfx": "scientist",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "stock": {
+    "16": 30000,
+    "33": 30000,
+    "50": 80000,
+    "68": 90000,
+    "93": 50000
+   }
+  },
+  {
+   "id": "tm1",
+   "map": "kalos_5",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm1"
+   ],
+   "tm": 1
+  },
+  {
+   "id": "tm2",
+   "map": "kalos_victory",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm2"
+   ],
+   "tm": 2
+  },
+  {
+   "id": "tm3",
+   "map": "kalos_victory",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side9",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm3"
+   ],
+   "tm": 3
+  },
+  {
+   "id": "tm6",
+   "map": "kalos_14",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm6"
+   ],
+   "tm": 6
+  },
+  {
+   "id": "tm61",
+   "map": "kalos_14",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side9",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm61"
+   ],
+   "tm": 61
+  },
+  {
+   "id": "tm8",
+   "map": "kalos_snowbelle",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm8"
+   ],
+   "tm": 8
+  },
+  {
+   "id": "tm9",
+   "map": "kalos_6",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm9"
+   ],
+   "tm": 9
+  },
+  {
+   "id": "tm10",
+   "map": "kalos_anistar",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm10"
+   ],
+   "tm": 10
+  },
+  {
+   "id": "tm12",
+   "map": "kalos_flare_labs",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm12"
+   ],
+   "tm": 12
+  },
+  {
+   "id": "hm1",
+   "map": "kalos_parfum_garden",
+   "name": "秘传学习器",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_hm1"
+   ],
+   "tm": 1,
+   "hidden": true
+  },
+  {
+   "id": "tm19",
+   "map": "kalos_8",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm19"
+   ],
+   "tm": 19
+  },
+  {
+   "id": "tm21",
+   "map": "kalos_cave",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm21"
+   ],
+   "tm": 21
+  },
+  {
+   "id": "tm40",
+   "map": "kalos_cave",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side9",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm40"
+   ],
+   "tm": 40
+  },
+  {
+   "id": "tm22",
+   "map": "kalos_21",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm22"
+   ],
+   "tm": 22
+  },
+  {
+   "id": "tm26",
+   "map": "kalos_22",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm26"
+   ],
+   "tm": 26
+  },
+  {
+   "id": "tm29",
+   "map": "kalos_village",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm29"
+   ],
+   "tm": 29
+  },
+  {
+   "id": "tm30",
+   "map": "kalos_terminus_cave",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm30"
+   ],
+   "tm": 30
+  },
+  {
+   "id": "tm31",
+   "map": "kalos_terminus_cave",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side9",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm31"
+   ],
+   "tm": 31
+  },
+  {
+   "id": "tm36",
+   "map": "kalos_19",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm36"
+   ],
+   "tm": 36
+  },
+  {
+   "id": "tm41",
+   "map": "kalos_laverre",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm41"
+   ],
+   "tm": 41
+  },
+  {
+   "id": "tm42",
+   "map": "kalos_dendemille",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm42"
+   ],
+   "tm": 42
+  },
+  {
+   "id": "tm43",
+   "map": "kalos_power_plant",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm43"
+   ],
+   "tm": 43
+  },
+  {
+   "id": "tm44",
+   "map": "kalos_cyllage",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm44"
+   ],
+   "tm": 44
+  },
+  {
+   "id": "tm45",
+   "map": "kalos_12",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm45"
+   ],
+   "tm": 45
+  },
+  {
+   "id": "tm46",
+   "map": "kalos_camphrier",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm46"
+   ],
+   "tm": 46
+  },
+  {
+   "id": "tm47",
+   "map": "kalos_mastery",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm47"
+   ],
+   "tm": 47
+  },
+  {
+   "id": "tm49",
+   "map": "kalos_hotel",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm49"
+   ],
+   "tm": 49
+  },
+  {
+   "id": "tm88",
+   "map": "kalos_hotel",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side9",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm88"
+   ],
+   "tm": 88
+  },
+  {
+   "id": "tm53",
+   "map": "kalos_20",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm53"
+   ],
+   "tm": 53
+  },
+  {
+   "id": "tm54",
+   "map": "kalos_lumiose",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm54"
+   ],
+   "tm": 54
+  },
+  {
+   "id": "tm55",
+   "map": "kalos_couriway",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm55"
+   ],
+   "tm": 55
+  },
+  {
+   "id": "tm80",
+   "map": "kalos_couriway",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side9",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm80"
+   ],
+   "tm": 80
+  },
+  {
+   "id": "tm89",
+   "map": "kalos_couriway",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side10",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm89"
+   ],
+   "tm": 89
+  },
+  {
+   "id": "tm56",
+   "map": "kalos_lost_hotel",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm56"
+   ],
+   "tm": 56
+  },
+  {
+   "id": "tm95",
+   "map": "kalos_lost_hotel",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side9",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm95"
+   ],
+   "tm": 95
+  },
+  {
+   "id": "tm57",
+   "map": "kalos_13",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm57"
+   ],
+   "tm": 57
+  },
+  {
+   "id": "tm58",
+   "map": "kalos_kiloude",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm58"
+   ],
+   "tm": 58
+  },
+  {
+   "id": "tm91",
+   "map": "kalos_kiloude",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side9",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm91"
+   ],
+   "tm": 91
+  },
+  {
+   "id": "tm65",
+   "map": "kalos_glitter",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm65"
+   ],
+   "tm": 65
+  },
+  {
+   "id": "tm66",
+   "map": "kalos_geosenge",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm66"
+   ],
+   "tm": 66
+  },
+  {
+   "id": "tm69",
+   "map": "kalos_11",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm69"
+   ],
+   "tm": 69
+  },
+  {
+   "id": "tm74",
+   "map": "kalos_reflection",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side9",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm74"
+   ],
+   "tm": 74
+  },
+  {
+   "id": "tm71",
+   "map": "kalos_frost",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm71"
+   ],
+   "tm": 71
+  },
+  {
+   "id": "tm79",
+   "map": "kalos_frost",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side9",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm79"
+   ],
+   "tm": 79
+  },
+  {
+   "id": "tm73",
+   "map": "kalos_10",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm73"
+   ],
+   "tm": 73
+  },
+  {
+   "id": "tm81",
+   "map": "kalos_azure",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm81"
+   ],
+   "tm": 81
+  },
+  {
+   "id": "tm82",
+   "map": "kalos_lumiose_museum",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm82"
+   ],
+   "tm": 82
+  },
+  {
+   "id": "tm94",
+   "map": "kalos_ambrette",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm94"
+   ],
+   "tm": 94
+  },
+  {
+   "id": "tm96",
+   "map": "kalos_ambrette_hotel",
+   "name": "训练家",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "ace_trainer_m",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm96"
+   ],
+   "tm": 96
+  },
+  {
+   "id": "tm97",
+   "map": "kalos_16",
+   "name": "道具球",
+   "action": "machine",
+   "anchor": "side8",
+   "gfx": "fr_item_ball",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_tm97"
+   ],
+   "tm": 97
+  },
+  {
+   "id": "tm_clock",
+   "map": "kalos_center_anistar",
+   "name": "灵异迷",
+   "action": "tm_clock",
+   "anchor": "side7",
+   "gfx": "woman",
+   "requires": [
+    "k_starter"
+   ],
+   "until": []
+  },
+  {
+   "id": "tm_quiz",
+   "map": "kalos_coumarine",
+   "name": "海角的女孩",
+   "action": "tm_quiz",
+   "anchor": "side7",
+   "gfx": "lass",
+   "requires": [
+    "k_starter"
+   ],
+   "until": []
+  },
+  {
+   "id": "museum_tour",
+   "map": "kalos_lumiose_museum",
+   "name": "美术馆导览员",
+   "action": "museum",
+   "anchor": "side5",
+   "gfx": "scientist",
+   "requires": [
+    "k_starter"
+   ],
+   "until": []
+  },
+  {
+   "id": "safari",
+   "map": "kalos_friend_safari_gate",
+   "name": "狩猎区接待员",
+   "action": "safari",
+   "anchor": "side1",
+   "gfx": "clerk",
+   "requires": [
+    "k_train_pass"
+   ],
+   "until": []
+  },
+  {
+   "id": "berries",
+   "map": "kalos_berry_fields",
+   "name": "树果园主人",
+   "action": "orchard",
+   "anchor": "side1",
+   "gfx": "old_man",
+   "requires": [
+    "k_starter"
+   ],
+   "until": []
+  },
+  {
+   "id": "soil0",
+   "map": "kalos_berry_fields",
+   "name": "第1垄果圃",
+   "action": "plot",
+   "anchor": "side2",
+   "gfx": "kalos_soil",
+   "requires": [
+    "ks_orchard"
+   ],
+   "until": [],
+   "index": 0
+  },
+  {
+   "id": "soil1",
+   "map": "kalos_berry_fields",
+   "name": "第2垄果圃",
+   "action": "plot",
+   "anchor": "side3",
+   "gfx": "kalos_soil",
+   "requires": [
+    "ks_orchard"
+   ],
+   "until": [],
+   "index": 1
+  },
+  {
+   "id": "soil2",
+   "map": "kalos_berry_fields",
+   "name": "第3垄果圃",
+   "action": "plot",
+   "anchor": "side4",
+   "gfx": "kalos_soil",
+   "requires": [
+    "ks_orchard"
+   ],
+   "until": [],
+   "index": 2
+  },
+  {
+   "id": "soil3",
+   "map": "kalos_berry_fields",
+   "name": "第4垄果圃",
+   "action": "plot",
+   "anchor": "side5",
+   "gfx": "kalos_soil",
+   "requires": [
+    "ks_orchard"
+   ],
+   "until": [],
+   "index": 3
+  },
+  {
+   "id": "soil4",
+   "map": "kalos_berry_fields",
+   "name": "第5垄果圃",
+   "action": "plot",
+   "anchor": "side6",
+   "gfx": "kalos_soil",
+   "requires": [
+    "ks_orchard"
+   ],
+   "until": [],
+   "index": 4
+  },
+  {
+   "id": "soil5",
+   "map": "kalos_berry_fields",
+   "name": "第6垄果圃",
+   "action": "plot",
+   "anchor": "side7",
+   "gfx": "kalos_soil",
+   "requires": [
+    "ks_orchard"
+   ],
+   "until": [],
+   "index": 5
+  },
+  {
+   "id": "compost",
+   "map": "kalos_berry_fields",
+   "name": "堆肥机",
+   "action": "compost",
+   "anchor": "side8",
+   "gfx": "kalos_compost",
+   "requires": [
+    "ks_orchard"
+   ],
+   "until": []
+  },
+  {
+   "id": "radar",
+   "map": "kalos_sycamore_lab_2f",
+   "name": "研究员",
+   "action": "radar",
+   "anchor": "side1",
+   "gfx": "scientist",
+   "requires": [
+    "k_champion"
+   ],
+   "until": []
+  },
+  {
+   "id": "dowsing",
+   "map": "kalos_8",
+   "name": "泳装姐姐",
+   "action": "dowsing",
+   "anchor": "side6",
+   "gfx": "swimmer_f",
+   "requires": [
+    "k_fossil"
+   ],
+   "until": [
+    "ks_dowsing"
+   ]
+  },
+  {
+   "id": "tree_oran",
+   "map": "kalos_5",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side6",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "oran",
+   "moves": []
+  },
+  {
+   "id": "tree_aguav",
+   "map": "kalos_6",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side12",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "aguav",
+   "moves": []
+  },
+  {
+   "id": "tree_persim",
+   "map": "kalos_7_west",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side9",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "persim",
+   "moves": []
+  },
+  {
+   "id": "tree_mago",
+   "map": "kalos_8",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side4",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "mago",
+   "moves": []
+  },
+  {
+   "id": "tree_iapapa",
+   "map": "kalos_10",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side3",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "iapapa",
+   "moves": []
+  },
+  {
+   "id": "tree_sitrus",
+   "map": "kalos_11",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side4",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "sitrus",
+   "moves": []
+  },
+  {
+   "id": "tree_aspear",
+   "map": "kalos_12",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side9",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "aspear",
+   "moves": [
+    "CUT"
+   ]
+  },
+  {
+   "id": "tree_roseli",
+   "map": "kalos_14",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side5",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "roseli",
+   "moves": [
+    "CUT"
+   ]
+  },
+  {
+   "id": "tree_leppa",
+   "map": "kalos_15",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side4",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "leppa",
+   "moves": []
+  },
+  {
+   "id": "tree_lum",
+   "map": "kalos_16",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side11",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "lum",
+   "moves": []
+  },
+  {
+   "id": "tree_wacan",
+   "map": "kalos_18",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side10",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "wacan",
+   "moves": [
+    "CUT"
+   ]
+  },
+  {
+   "id": "tree_yache",
+   "map": "kalos_19",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side3",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "yache",
+   "moves": [
+    "SURF"
+   ]
+  },
+  {
+   "id": "tree_kasib",
+   "map": "kalos_20",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side5",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "kasib",
+   "moves": []
+  },
+  {
+   "id": "tree_figy",
+   "map": "kalos_21",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side7",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "figy",
+   "moves": [
+    "CUT",
+    "STRENGTH",
+    "SURF"
+   ]
+  },
+  {
+   "id": "tree_tanga",
+   "map": "kalos_22",
+   "name": "野生树果树",
+   "action": "wild_berry",
+   "anchor": "side6",
+   "gfx": "tree",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "berry": "tanga",
+   "moves": [
+    "SURF",
+    "WATERFALL"
+   ]
+  },
+  {
+   "id": "inver",
+   "map": "kalos_zone_280",
+   "name": "反转先生",
+   "gfx": "psychic",
+   "action": "inver",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "anchor": "side1"
+  },
+  {
+   "id": "galette",
+   "map": "kalos_lumiose_galettes",
+   "name": "格雷派饼师傅",
+   "gfx": "fr_tower_gentleman",
+   "action": "galette",
+   "anchor": "side1",
+   "requires": [
+    "k_starter"
+   ],
+   "until": []
+  },
+  {
+   "id": "coupon",
+   "map": "kalos_center_santalune",
+   "name": "配信配送员",
+   "gfx": "fr_policeman",
+   "action": "coupon",
+   "anchor": "side1",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [
+    "ks_coupon"
+   ]
+  },
+  {
+   "id": "boutique_santalune",
+   "map": "kalos_zone_57",
+   "name": "试衣间店员",
+   "gfx": "woman",
+   "action": "boutique",
+   "anchor": "side1",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "couture": false
+  },
+  {
+   "id": "boutique_lumiose",
+   "map": "kalos_zone_90",
+   "name": "试衣间店员",
+   "gfx": "woman",
+   "action": "boutique",
+   "anchor": "side1",
+   "requires": [
+    "k_starter"
+   ],
+   "until": [],
+   "couture": true
+  },
+  {
+   "id": "trick_parallel",
+   "map": "kalos_zone_91",
+   "name": "轮滑手",
+   "gfx": "fr_biker",
+   "action": "skater",
+   "anchor": "side1",
+   "requires": [
+    "k_skates"
+   ],
+   "until": [],
+   "trick": "parallel"
+  },
+  {
+   "id": "trick_dash",
+   "map": "kalos_lumiose_plazas_south",
+   "name": "轮滑手",
+   "gfx": "fr_biker",
+   "action": "skater",
+   "anchor": "side1",
+   "requires": [
+    "k_skates"
+   ],
+   "until": [],
+   "trick": "dash"
+  },
+  {
+   "id": "trick_backflip",
+   "map": "kalos_lumiose_north",
+   "name": "轮滑手",
+   "gfx": "fr_biker",
+   "action": "skater",
+   "anchor": "side1",
+   "requires": [
+    "k_skates"
+   ],
+   "until": [],
+   "trick": "backflip"
+  },
+  {
+   "id": "trick_spin",
+   "map": "kalos_zone_130",
+   "name": "轮滑手",
+   "gfx": "fr_biker",
+   "action": "skater",
+   "anchor": "side1",
+   "requires": [
+    "k_skates"
+   ],
+   "until": [],
+   "trick": "spin"
+  },
+  {
+   "id": "trick_cosmic",
+   "map": "kalos_lost_hotel",
+   "name": "轮滑团首领",
+   "gfx": "fr_biker",
+   "action": "skater",
+   "anchor": "side1",
+   "requires": [
+    "k_skates"
+   ],
+   "until": [],
+   "trick": "cosmic"
+  },
+  {
+   "id": "reminder",
+   "map": "kalos_zone_34",
+   "name": "招式回忆女士",
+   "gfx": "woman",
+   "action": "recall",
+   "anchor": "side1",
+   "requires": [
+    "k_starter"
+   ],
+   "until": []
+  },
+  {
+   "id": "deleter",
+   "map": "kalos_zone_34",
+   "name": "招式遗忘爷爷",
+   "gfx": "old_man",
+   "action": "delete",
+   "anchor": "side2",
+   "requires": [
+    "k_starter"
+   ],
+   "until": []
+  }
+ ],
+ "chateau": {
+  "guests": [
+   [
+    189,
+    "Moray",
+    0
+   ],
+   [
+    190,
+    "Ardmore",
+    1
+   ],
+   [
+    191,
+    "Glen",
+    2
+   ],
+   [
+    192,
+    "Arran",
+    3
+   ],
+   [
+    193,
+    "Turner",
+    4
+   ],
+   [
+    194,
+    "Evran",
+    0
+   ],
+   [
+    195,
+    "Marseille",
+    0
+   ],
+   [
+    196,
+    "Lyon",
+    0
+   ],
+   [
+    197,
+    "Orvault",
+    0
+   ],
+   [
+    198,
+    "Herisson",
+    0
+   ],
+   [
+    199,
+    "Gourdon",
+    1
+   ],
+   [
+    200,
+    "Braine",
+    1
+   ],
+   [
+    201,
+    "Herault",
+    1
+   ],
+   [
+    202,
+    "Royan",
+    2
+   ],
+   [
+    203,
+    "Caen",
+    3
+   ],
+   [
+    204,
+    "Lormont",
+    4
+   ],
+   [
+    205,
+    "Denis",
+    0
+   ],
+   [
+    206,
+    "Cullinan",
+    1
+   ],
+   [
+    207,
+    "Tolkowsky",
+    1
+   ],
+   [
+    208,
+    "Orloff",
+    1
+   ],
+   [
+    209,
+    "Lesotho",
+    2
+   ],
+   [
+    210,
+    "Gruosi",
+    2
+   ],
+   [
+    211,
+    "Nassak",
+    2
+   ],
+   [
+    212,
+    "Sancy",
+    2
+   ],
+   [
+    213,
+    "Nizam",
+    2
+   ],
+   [
+    214,
+    "Grisognono",
+    3
+   ],
+   [
+    215,
+    "Hennessy",
+    4
+   ],
+   [
+    216,
+    "Maryline",
+    0
+   ],
+   [
+    217,
+    "Estelle",
+    0
+   ],
+   [
+    218,
+    "Maelys",
+    0
+   ],
+   [
+    219,
+    "Cadette",
+    0
+   ],
+   [
+    220,
+    "Francine",
+    0
+   ],
+   [
+    221,
+    "Danielle",
+    1
+   ],
+   [
+    222,
+    "Anne-Laure",
+    1
+   ],
+   [
+    223,
+    "Beatrice",
+    1
+   ],
+   [
+    224,
+    "Anita",
+    2
+   ],
+   [
+    225,
+    "Alyssa",
+    3
+   ],
+   [
+    226,
+    "Robin",
+    4
+   ],
+   [
+    227,
+    "Renée",
+    0
+   ],
+   [
+    228,
+    "Ayla",
+    1
+   ],
+   [
+    229,
+    "Mathilde",
+    1
+   ],
+   [
+    230,
+    "Regine",
+    1
+   ],
+   [
+    231,
+    "Mira",
+    2
+   ],
+   [
+    232,
+    "Eliane",
+    2
+   ],
+   [
+    233,
+    "Patricia",
+    2
+   ],
+   [
+    234,
+    "Edith",
+    2
+   ],
+   [
+    235,
+    "Adele",
+    2
+   ],
+   [
+    236,
+    "Amandine",
+    3
+   ],
+   [
+    237,
+    "Odele",
+    4
+   ],
+   [
+    238,
+    "Camille",
+    0
+   ],
+   [
+    239,
+    "Julia",
+    1
+   ],
+   [
+    240,
+    "Ida",
+    2
+   ],
+   [
+    241,
+    "Amelie",
+    3
+   ],
+   [
+    242,
+    "Elise",
+    4
+   ],
+   [
+    244,
+    "Fiona",
+    3
+   ],
+   [
+    246,
+    "Keira",
+    3
+   ],
+   [
+    247,
+    "Sabine",
+    4
+   ],
+   [
+    249,
+    "Yolande",
+    3
+   ],
+   [
+    251,
+    "Meriel",
+    3
+   ],
+   [
+    252,
+    "Rosalie",
+    4
+   ],
+   [
+    253,
+    "Ione",
+    4
+   ],
+   [
+    254,
+    "Viola",
+    3
+   ],
+   [
+    255,
+    "Korrina",
+    3
+   ],
+   [
+    256,
+    "Ramos",
+    3
+   ],
+   [
+    257,
+    "Clemont",
+    3
+   ],
+   [
+    258,
+    "Valerie",
+    3
+   ],
+   [
+    259,
+    "Olympia",
+    3
+   ],
+   [
+    260,
+    "Wulfric",
+    3
+   ],
+   [
+    261,
+    "Grant",
+    3
+   ],
+   [
+    262,
+    "Viola",
+    3
+   ],
+   [
+    263,
+    "Korrina",
+    3
+   ],
+   [
+    264,
+    "Ramos",
+    3
+   ],
+   [
+    265,
+    "Clemont",
+    3
+   ],
+   [
+    266,
+    "Valerie",
+    3
+   ],
+   [
+    267,
+    "Olympia",
+    3
+   ],
+   [
+    268,
+    "Wulfric",
+    3
+   ],
+   [
+    272,
+    "Wikstrom",
+    4
+   ],
+   [
+    273,
+    "Malva",
+    4
+   ],
+   [
+    274,
+    "Drasna",
+    4
+   ],
+   [
+    275,
+    "Siebold",
+    4
+   ],
+   [
+    277,
+    "Diantha",
+    5
+   ],
+   [
+    278,
+    "Nicolette",
+    4
+   ],
+   [
+    279,
+    "Grant",
+    3
+   ],
+   [
+    618,
+    "UNKNOWN",
+    1
+   ],
+   [
+    621,
+    "UNKNOWN",
+    1
+   ],
+   [
+    644,
+    "UNKNOWN",
+    2
+   ],
+   [
+    645,
+    "UNKNOWN",
+    2
+   ],
+   [
+    646,
+    "UNKNOWN",
+    2
+   ],
+   [
+    647,
+    "UNKNOWN",
+    2
+   ],
+   [
+    648,
+    "UNKNOWN",
+    2
+   ],
+   [
+    660,
+    "UNKNOWN",
+    3
+   ],
+   [
+    715,
+    "UNKNOWN",
+    4
+   ],
+   [
+    716,
+    "UNKNOWN",
+    4
+   ],
+   [
+    717,
+    "UNKNOWN",
+    4
+   ],
+   [
+    732,
+    "UNKNOWN",
+    3
+   ],
+   [
+    737,
+    "UNKNOWN",
+    3
+   ],
+   [
+    738,
+    "UNKNOWN",
+    3
+   ],
+   [
+    739,
+    "UNKNOWN",
+    3
+   ],
+   [
+    763,
+    "UNKNOWN",
+    3
+   ],
+   [
+    764,
+    "UNKNOWN",
+    4
+   ],
+   [
+    765,
+    "UNKNOWN",
+    0
+   ],
+   [
+    766,
+    "UNKNOWN",
+    0
+   ],
+   [
+    767,
+    "UNKNOWN",
+    0
+   ],
+   [
+    768,
+    "UNKNOWN",
+    0
+   ],
+   [
+    784,
+    "UNKNOWN",
+    1
+   ]
+  ]
+ },
+ "dex": {
+  "kalos": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   34,
+   39,
+   40,
+   41,
+   42,
+   43,
+   44,
+   45,
+   50,
+   51,
+   54,
+   55,
+   60,
+   61,
+   62,
+   63,
+   64,
+   65,
+   66,
+   67,
+   68,
+   69,
+   70,
+   71,
+   72,
+   73,
+   74,
+   75,
+   76,
+   79,
+   80,
+   81,
+   82,
+   83,
+   84,
+   85,
+   90,
+   91,
+   92,
+   93,
+   94,
+   95,
+   100,
+   101,
+   102,
+   103,
+   104,
+   105,
+   108,
+   111,
+   112,
+   115,
+   116,
+   117,
+   118,
+   119,
+   120,
+   121,
+   122,
+   123,
+   124,
+   127,
+   128,
+   129,
+   130,
+   131,
+   132,
+   133,
+   134,
+   135,
+   136,
+   142,
+   143,
+   147,
+   148,
+   149,
+   161,
+   162,
+   163,
+   164,
+   165,
+   166,
+   167,
+   168,
+   169,
+   170,
+   171,
+   172,
+   174,
+   179,
+   180,
+   181,
+   182,
+   183,
+   184,
+   185,
+   186,
+   187,
+   188,
+   189,
+   193,
+   194,
+   195,
+   196,
+   197,
+   198,
+   199,
+   202,
+   206,
+   207,
+   208,
+   209,
+   210,
+   211,
+   212,
+   213,
+   214,
+   215,
+   216,
+   217,
+   218,
+   219,
+   220,
+   221,
+   222,
+   223,
+   224,
+   225,
+   226,
+   227,
+   228,
+   229,
+   230,
+   235,
+   238,
+   241,
+   246,
+   247,
+   248,
+   261,
+   262,
+   263,
+   264,
+   270,
+   271,
+   272,
+   276,
+   277,
+   278,
+   279,
+   280,
+   281,
+   282,
+   283,
+   284,
+   290,
+   291,
+   292,
+   293,
+   294,
+   295,
+   296,
+   297,
+   298,
+   299,
+   300,
+   301,
+   302,
+   303,
+   304,
+   305,
+   306,
+   307,
+   308,
+   309,
+   310,
+   311,
+   312,
+   313,
+   314,
+   315,
+   316,
+   317,
+   318,
+   319,
+   320,
+   321,
+   324,
+   325,
+   326,
+   327,
+   328,
+   329,
+   330,
+   333,
+   334,
+   335,
+   336,
+   337,
+   338,
+   339,
+   340,
+   341,
+   342,
+   352,
+   353,
+   354,
+   358,
+   359,
+   360,
+   366,
+   367,
+   368,
+   369,
+   370,
+   371,
+   372,
+   373,
+   396,
+   397,
+   398,
+   399,
+   400,
+   406,
+   407,
+   412,
+   413,
+   414,
+   415,
+   416,
+   417,
+   418,
+   419,
+   425,
+   426,
+   430,
+   433,
+   434,
+   435,
+   438,
+   439,
+   441,
+   443,
+   444,
+   445,
+   446,
+   447,
+   448,
+   449,
+   450,
+   451,
+   452,
+   453,
+   454,
+   455,
+   458,
+   459,
+   460,
+   461,
+   462,
+   463,
+   464,
+   469,
+   470,
+   471,
+   472,
+   473,
+   475,
+   476,
+   479,
+   504,
+   505,
+   509,
+   510,
+   511,
+   512,
+   513,
+   514,
+   515,
+   516,
+   524,
+   525,
+   526,
+   527,
+   528,
+   531,
+   532,
+   533,
+   534,
+   538,
+   539,
+   543,
+   544,
+   545,
+   550,
+   551,
+   552,
+   553,
+   557,
+   558,
+   559,
+   560,
+   561,
+   568,
+   569,
+   570,
+   571,
+   574,
+   575,
+   576,
+   577,
+   578,
+   579,
+   580,
+   581,
+   582,
+   583,
+   584,
+   587,
+   588,
+   589,
+   590,
+   591,
+   594,
+   597,
+   598,
+   607,
+   608,
+   609,
+   610,
+   611,
+   612,
+   613,
+   614,
+   615,
+   616,
+   617,
+   618,
+   619,
+   620,
+   621,
+   622,
+   623,
+   624,
+   625,
+   631,
+   632,
+   633,
+   634,
+   635,
+   650,
+   651,
+   652,
+   653,
+   654,
+   655,
+   656,
+   657,
+   658,
+   659,
+   660,
+   661,
+   662,
+   663,
+   664,
+   665,
+   666,
+   667,
+   668,
+   669,
+   670,
+   671,
+   672,
+   673,
+   674,
+   675,
+   676,
+   677,
+   678,
+   679,
+   680,
+   681,
+   682,
+   683,
+   684,
+   685,
+   686,
+   687,
+   688,
+   689,
+   690,
+   691,
+   692,
+   693,
+   694,
+   695,
+   696,
+   697,
+   698,
+   699,
+   700,
+   701,
+   702,
+   703,
+   704,
+   705,
+   706,
+   707,
+   708,
+   709,
+   710,
+   711,
+   712,
+   713,
+   714,
+   715,
+   716,
+   717,
+   718
+  ],
+  "national": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43,
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   53,
+   54,
+   55,
+   56,
+   57,
+   58,
+   59,
+   60,
+   61,
+   62,
+   63,
+   64,
+   65,
+   66,
+   67,
+   68,
+   69,
+   70,
+   71,
+   72,
+   73,
+   74,
+   75,
+   76,
+   77,
+   78,
+   79,
+   80,
+   81,
+   82,
+   83,
+   84,
+   85,
+   86,
+   87,
+   88,
+   89,
+   90,
+   91,
+   92,
+   93,
+   94,
+   95,
+   96,
+   97,
+   98,
+   99,
+   100,
+   101,
+   102,
+   103,
+   104,
+   105,
+   106,
+   107,
+   108,
+   109,
+   110,
+   111,
+   112,
+   113,
+   114,
+   115,
+   116,
+   117,
+   118,
+   119,
+   120,
+   121,
+   122,
+   123,
+   124,
+   125,
+   126,
+   127,
+   128,
+   129,
+   130,
+   131,
+   132,
+   133,
+   134,
+   135,
+   136,
+   137,
+   138,
+   139,
+   140,
+   141,
+   142,
+   143,
+   144,
+   145,
+   146,
+   147,
+   148,
+   149,
+   150,
+   152,
+   153,
+   154,
+   155,
+   156,
+   157,
+   158,
+   159,
+   160,
+   161,
+   162,
+   163,
+   164,
+   165,
+   166,
+   167,
+   168,
+   169,
+   170,
+   171,
+   172,
+   173,
+   174,
+   175,
+   176,
+   177,
+   178,
+   179,
+   180,
+   181,
+   182,
+   183,
+   184,
+   185,
+   186,
+   187,
+   188,
+   189,
+   190,
+   191,
+   192,
+   193,
+   194,
+   195,
+   196,
+   197,
+   198,
+   199,
+   200,
+   201,
+   202,
+   203,
+   204,
+   205,
+   206,
+   207,
+   208,
+   209,
+   210,
+   211,
+   212,
+   213,
+   214,
+   215,
+   216,
+   217,
+   218,
+   219,
+   220,
+   221,
+   222,
+   223,
+   224,
+   225,
+   226,
+   227,
+   228,
+   229,
+   230,
+   231,
+   232,
+   233,
+   234,
+   235,
+   236,
+   237,
+   238,
+   239,
+   240,
+   241,
+   242,
+   243,
+   244,
+   245,
+   246,
+   247,
+   248,
+   249,
+   250,
+   252,
+   253,
+   254,
+   255,
+   256,
+   257,
+   258,
+   259,
+   260,
+   261,
+   262,
+   263,
+   264,
+   265,
+   266,
+   267,
+   268,
+   269,
+   270,
+   271,
+   272,
+   273,
+   274,
+   275,
+   276,
+   277,
+   278,
+   279,
+   280,
+   281,
+   282,
+   283,
+   284,
+   285,
+   286,
+   287,
+   288,
+   289,
+   290,
+   291,
+   292,
+   293,
+   294,
+   295,
+   296,
+   297,
+   298,
+   299,
+   300,
+   301,
+   302,
+   303,
+   304,
+   305,
+   306,
+   307,
+   308,
+   309,
+   310,
+   311,
+   312,
+   313,
+   314,
+   315,
+   316,
+   317,
+   318,
+   319,
+   320,
+   321,
+   322,
+   323,
+   324,
+   325,
+   326,
+   327,
+   328,
+   329,
+   330,
+   331,
+   332,
+   333,
+   334,
+   335,
+   336,
+   337,
+   338,
+   339,
+   340,
+   341,
+   342,
+   343,
+   344,
+   345,
+   346,
+   347,
+   348,
+   349,
+   350,
+   351,
+   352,
+   353,
+   354,
+   355,
+   356,
+   357,
+   358,
+   359,
+   360,
+   361,
+   362,
+   363,
+   364,
+   365,
+   366,
+   367,
+   368,
+   369,
+   370,
+   371,
+   372,
+   373,
+   374,
+   375,
+   376,
+   377,
+   378,
+   379,
+   380,
+   381,
+   382,
+   383,
+   384,
+   387,
+   388,
+   389,
+   390,
+   391,
+   392,
+   393,
+   394,
+   395,
+   396,
+   397,
+   398,
+   399,
+   400,
+   401,
+   402,
+   403,
+   404,
+   405,
+   406,
+   407,
+   408,
+   409,
+   410,
+   411,
+   412,
+   413,
+   414,
+   415,
+   416,
+   417,
+   418,
+   419,
+   420,
+   421,
+   422,
+   423,
+   424,
+   425,
+   426,
+   427,
+   428,
+   429,
+   430,
+   431,
+   432,
+   433,
+   434,
+   435,
+   436,
+   437,
+   438,
+   439,
+   440,
+   441,
+   442,
+   443,
+   444,
+   445,
+   446,
+   447,
+   448,
+   449,
+   450,
+   451,
+   452,
+   453,
+   454,
+   455,
+   456,
+   457,
+   458,
+   459,
+   460,
+   461,
+   462,
+   463,
+   464,
+   465,
+   466,
+   467,
+   468,
+   469,
+   470,
+   471,
+   472,
+   473,
+   474,
+   475,
+   476,
+   477,
+   478,
+   479,
+   480,
+   481,
+   482,
+   483,
+   484,
+   485,
+   486,
+   487,
+   488,
+   495,
+   496,
+   497,
+   498,
+   499,
+   500,
+   501,
+   502,
+   503,
+   504,
+   505,
+   506,
+   507,
+   508,
+   509,
+   510,
+   511,
+   512,
+   513,
+   514,
+   515,
+   516,
+   517,
+   518,
+   519,
+   520,
+   521,
+   522,
+   523,
+   524,
+   525,
+   526,
+   527,
+   528,
+   529,
+   530,
+   531,
+   532,
+   533,
+   534,
+   535,
+   536,
+   537,
+   538,
+   539,
+   540,
+   541,
+   542,
+   543,
+   544,
+   545,
+   546,
+   547,
+   548,
+   549,
+   550,
+   551,
+   552,
+   553,
+   554,
+   555,
+   556,
+   557,
+   558,
+   559,
+   560,
+   561,
+   562,
+   563,
+   564,
+   565,
+   566,
+   567,
+   568,
+   569,
+   570,
+   571,
+   572,
+   573,
+   574,
+   575,
+   576,
+   577,
+   578,
+   579,
+   580,
+   581,
+   582,
+   583,
+   584,
+   585,
+   586,
+   587,
+   588,
+   589,
+   590,
+   591,
+   592,
+   593,
+   594,
+   595,
+   596,
+   597,
+   598,
+   599,
+   600,
+   601,
+   602,
+   603,
+   604,
+   605,
+   606,
+   607,
+   608,
+   609,
+   610,
+   611,
+   612,
+   613,
+   614,
+   615,
+   616,
+   617,
+   618,
+   619,
+   620,
+   621,
+   622,
+   623,
+   624,
+   625,
+   626,
+   627,
+   628,
+   629,
+   630,
+   631,
+   632,
+   633,
+   634,
+   635,
+   636,
+   637,
+   638,
+   639,
+   640,
+   641,
+   642,
+   643,
+   644,
+   645,
+   646,
+   650,
+   651,
+   652,
+   653,
+   654,
+   655,
+   656,
+   657,
+   658,
+   659,
+   660,
+   661,
+   662,
+   663,
+   664,
+   665,
+   666,
+   667,
+   668,
+   669,
+   670,
+   671,
+   672,
+   673,
+   674,
+   675,
+   676,
+   677,
+   678,
+   679,
+   680,
+   681,
+   682,
+   683,
+   684,
+   685,
+   686,
+   687,
+   688,
+   689,
+   690,
+   691,
+   692,
+   693,
+   694,
+   695,
+   696,
+   697,
+   698,
+   699,
+   700,
+   701,
+   702,
+   703,
+   704,
+   705,
+   706,
+   707,
+   708,
+   709,
+   710,
+   711,
+   712,
+   713,
+   714,
+   715,
+   716,
+   717,
+   718
+  ]
+ },
+ "items": {
+  "HP_UP": "ＨＰ增强剂",
+  "PROTEIN": "攻击增强剂",
+  "IRON": "防御增强剂",
+  "CARBOS": "速度增强剂",
+  "CALCIUM": "特攻增强剂",
+  "RARE_CANDY": "神奇糖果",
+  "ZINC": "特防增强剂",
+  "BRIGHT_POWDER": "光粉",
+  "WHITE_HERB": "白色香草",
+  "CHOICE_BAND": "讲究头带",
+  "FOCUS_BAND": "气势头带",
+  "SCOPE_LENS": "焦点镜",
+  "UP_GRADE": "升级数据",
+  "WIDE_LENS": "广角镜",
+  "MUSCLE_BAND": "力量头带",
+  "WISE_GLASSES": "博识眼镜",
+  "LIFE_ORB": "生命宝珠",
+  "POWER_HERB": "强力香草",
+  "TOXIC_ORB": "剧毒宝珠",
+  "FLAME_ORB": "火焰宝珠",
+  "FOCUS_SASH": "气势披带",
+  "ZOOM_LENS": "对焦镜",
+  "IRON_BALL": "黑色铁球",
+  "CHOICE_SCARF": "讲究围巾",
+  "POWER_BRACER": "力量护腕",
+  "POWER_BELT": "力量腰带",
+  "POWER_LENS": "力量镜",
+  "POWER_BAND": "力量束带",
+  "POWER_ANKLET": "力量护踝",
+  "POWER_WEIGHT": "力量负重",
+  "CHOICE_SPECS": "讲究眼镜",
+  "PROTECTOR": "护具",
+  "ELECTIRIZER": "电力增幅器",
+  "MAGMARIZER": "熔岩增幅器",
+  "DUBIOUS_DISC": "可疑补丁",
+  "REAPER_CLOTH": "灵界之布",
+  "RAZOR_CLAW": "锐利之爪",
+  "RAZOR_FANG": "锐利之牙",
+  "TM05": "招式学习器０５",
+  "TM23": "招式学习器２３",
+  "TM34": "招式学习器３４",
+  "TM48": "招式学习器４８",
+  "TM51": "招式学习器５１",
+  "TM59": "招式学习器５９",
+  "TM60": "招式学习器６０",
+  "TM64": "招式学习器６４",
+  "TM67": "招式学习器６７",
+  "TM72": "招式学习器７２",
+  "TM85": "招式学习器８５",
+  "TM87": "招式学习器８７",
+  "AIR_BALLOON": "气球",
+  "RED_CARD": "红牌",
+  "RING_TARGET": "标靶",
+  "BINDING_BAND": "紧绑束带",
+  "ABSORB_BULB": "球根",
+  "CELL_BATTERY": "充电电池",
+  "EJECT_BUTTON": "逃脱按键",
+  "WEAKNESS_POLICY": "弱点保险",
+  "ASSAULT_VEST": "突击背心",
+  "ABILITY_CAPSULE": "特性胶囊",
+  "WHIPPED_DREAM": "泡沫奶油",
+  "SACHET": "香袋",
+  "SAFETY_GOGGLES": "防尘护目镜"
+ },
+ "tm_sources": {
+  "1": [
+   "5",
+   "find"
+  ],
+  "2": [
+   "victory",
+   "find"
+  ],
+  "3": [
+   "victory",
+   "find"
+  ],
+  "6": [
+   "14",
+   "find"
+  ],
+  "7": [
+   "shalour",
+   "shop"
+  ],
+  "8": [
+   "snowbelle",
+   "gift"
+  ],
+  "9": [
+   "6",
+   "find"
+  ],
+  "10": [
+   "anistar",
+   "gift"
+  ],
+  "11": [
+   "lumiose",
+   "shop"
+  ],
+  "12": [
+   "flare_labs",
+   "find"
+  ],
+  "14": [
+   "anistar",
+   "shop"
+  ],
+  "15": [
+   "anistar",
+   "shop"
+  ],
+  "16": [
+   "kiloude",
+   "shop"
+  ],
+  "17": [
+   "parfum_garden",
+   "find"
+  ],
+  "18": [
+   "lumiose",
+   "shop"
+  ],
+  "19": [
+   "8",
+   "find"
+  ],
+  "20": [
+   "shalour",
+   "shop"
+  ],
+  "21": [
+   "cave",
+   "gift"
+  ],
+  "22": [
+   "21",
+   "find"
+  ],
+  "25": [
+   "anistar",
+   "shop"
+  ],
+  "26": [
+   "22",
+   "find"
+  ],
+  "27": [
+   "4",
+   "gift"
+  ],
+  "28": [
+   "shalour",
+   "shop"
+  ],
+  "29": [
+   "village",
+   "find"
+  ],
+  "30": [
+   "terminus_cave",
+   "find"
+  ],
+  "31": [
+   "terminus_cave",
+   "find"
+  ],
+  "32": [
+   "anistar",
+   "clock"
+  ],
+  "33": [
+   "kiloude",
+   "shop"
+  ],
+  "35": [
+   "anistar",
+   "clock"
+  ],
+  "36": [
+   "19",
+   "find"
+  ],
+  "37": [
+   "shalour",
+   "shop"
+  ],
+  "38": [
+   "anistar",
+   "shop"
+  ],
+  "40": [
+   "cave",
+   "find"
+  ],
+  "41": [
+   "laverre",
+   "gift"
+  ],
+  "42": [
+   "dendemille",
+   "gift"
+  ],
+  "43": [
+   "power_plant",
+   "find"
+  ],
+  "44": [
+   "cyllage",
+   "gift"
+  ],
+  "45": [
+   "12",
+   "gift"
+  ],
+  "46": [
+   "camphrier",
+   "gift"
+  ],
+  "47": [
+   "mastery",
+   "gift"
+  ],
+  "49": [
+   "hotel",
+   "gift"
+  ],
+  "50": [
+   "kiloude",
+   "shop"
+  ],
+  "52": [
+   "anistar",
+   "shop"
+  ],
+  "53": [
+   "20",
+   "find"
+  ],
+  "54": [
+   "lumiose",
+   "gift"
+  ],
+  "55": [
+   "couriway",
+   "find"
+  ],
+  "56": [
+   "lost_hotel",
+   "find"
+  ],
+  "57": [
+   "13",
+   "find"
+  ],
+  "58": [
+   "kiloude",
+   "find"
+  ],
+  "61": [
+   "14",
+   "find"
+  ],
+  "62": [
+   "coumarine",
+   "quiz"
+  ],
+  "63": [
+   "coumarine",
+   "quiz"
+  ],
+  "65": [
+   "glitter",
+   "find"
+  ],
+  "66": [
+   "geosenge",
+   "gift"
+  ],
+  "68": [
+   "kiloude",
+   "shop"
+  ],
+  "69": [
+   "11",
+   "find"
+  ],
+  "70": [
+   "reflection",
+   "gift"
+  ],
+  "71": [
+   "frost",
+   "find"
+  ],
+  "73": [
+   "10",
+   "find"
+  ],
+  "74": [
+   "reflection",
+   "find"
+  ],
+  "75": [
+   "lumiose",
+   "shop"
+  ],
+  "76": [
+   "lumiose",
+   "shop"
+  ],
+  "77": [
+   "anistar",
+   "clock"
+  ],
+  "78": [
+   "lumiose",
+   "shop"
+  ],
+  "79": [
+   "frost",
+   "find"
+  ],
+  "80": [
+   "couriway",
+   "find"
+  ],
+  "81": [
+   "azure",
+   "find"
+  ],
+  "82": [
+   "lumiose_museum",
+   "find"
+  ],
+  "84": [
+   "shalour",
+   "shop"
+  ],
+  "88": [
+   "hotel",
+   "gift"
+  ],
+  "89": [
+   "couriway",
+   "gift"
+  ],
+  "90": [
+   "anistar",
+   "clock"
+  ],
+  "91": [
+   "kiloude",
+   "gift"
+  ],
+  "92": [
+   "coumarine",
+   "quiz"
+  ],
+  "93": [
+   "kiloude",
+   "shop"
+  ],
+  "94": [
+   "ambrette",
+   "gift"
+  ],
+  "95": [
+   "lost_hotel",
+   "find"
+  ],
+  "96": [
+   "ambrette_hotel",
+   "gift"
+  ],
+  "97": [
+   "16",
+   "find"
+  ],
+  "100": [
+   "coumarine",
+   "quiz"
+  ]
+ },
+ "inverse": [
+  [
+   105,
+   [
+    155,
+    200,
+    332,
+    444
+   ],
+   "THICK_CLUB"
+  ],
+  [
+   122,
+   [
+    227,
+    115,
+    94,
+    605
+   ],
+   "LIGHT_CLAY"
+  ],
+  [
+   134,
+   [
+    503,
+    58,
+    304,
+    324
+   ],
+   "CHOICE_SPECS"
+  ],
+  [
+   135,
+   [
+    204,
+    87,
+    247,
+    86
+   ],
+   "MAGNET"
+  ],
+  [
+   136,
+   [
+    98,
+    231,
+    91,
+    394
+   ],
+   "MUSCLE_BAND"
+  ],
+  [
+   143,
+   [
+    428,
+    416,
+    484,
+    276
+   ],
+   "LIFE_ORB"
+  ],
+  [
+   184,
+   [
+    487,
+    401,
+    583,
+    204
+   ],
+   "LUM_BERRY"
+  ],
+  [
+   208,
+   [
+    231,
+    89,
+    444,
+    38
+   ],
+   "WIDE_LENS"
+  ],
+  [
+   210,
+   [
+    423,
+    424,
+    422,
+    583
+   ],
+   "EXPERT_BELT"
+  ],
+  [
+   219,
+   [
+    53,
+    504,
+    246,
+    281
+   ],
+   "LAX_INCENSE"
+  ],
+  [
+   229,
+   [
+    126,
+    555,
+    188,
+    247
+   ],
+   "CHARCOAL"
+  ],
+  [
+   284,
+   [
+    405,
+    403,
+    412,
+    352
+   ],
+   "QUICK_CLAW"
+  ],
+  [
+   292,
+   [
+    566,
+    404,
+    92,
+    104
+   ],
+   "SAFETY_GOGGLES"
+  ],
+  [
+   308,
+   [
+    7,
+    9,
+    8,
+    428
+   ],
+   "ASSAULT_VEST"
+  ],
+  [
+   326,
+   [
+    408,
+    94,
+    590,
+    269
+   ],
+   "SITRUS_BERRY"
+  ],
+  [
+   330,
+   [
+    337,
+    523,
+    211,
+    157
+   ],
+   "KING'S_ROCK"
+  ],
+  [
+   334,
+   [
+    585,
+    406,
+    355,
+    195
+   ],
+   "PETAYA_BERRY"
+  ],
+  [
+   352,
+   [
+    163,
+    389,
+    156,
+    214
+   ],
+   "RED_CARD"
+  ],
+  [
+   435,
+   [
+    364,
+    400,
+    398,
+    163
+   ],
+   "RAZOR_CLAW"
+  ],
+  [
+   460,
+   [
+    59,
+    412,
+    258,
+    182
+   ],
+   "ICY_ROCK"
+  ],
+  [
+   461,
+   [
+    400,
+    404,
+    332,
+    8
+   ],
+   "CHOICE_SCARF"
+  ],
+  [
+   464,
+   [
+    283,
+    89,
+    525,
+    446
+   ],
+   "BRIGHT_POWDER"
+  ],
+  [
+   476,
+   [
+    408,
+    192,
+    199,
+    89
+   ],
+   "ORAN_BERRY"
+  ],
+  [
+   539,
+   [
+    370,
+    398,
+    514,
+    444
+   ],
+   "WEAKNESS_POLICY"
+  ],
+  [
+   558,
+   [
+    350,
+    404,
+    421,
+    175
+   ],
+   "SCOPE_LENS"
+  ],
+  [
+   587,
+   [
+    521,
+    369,
+    86,
+    113
+   ],
+   "RAZOR_FANG"
+  ],
+  [
+   591,
+   [
+    275,
+    202,
+    188,
+    92
+   ],
+   "BLACK_SLUDGE"
+  ],
+  [
+   598,
+   [
+    360,
+    371,
+    275,
+    174
+   ],
+   "LEFTOVERS"
+  ],
+  [
+   623,
+   [
+    359,
+    89,
+    566,
+    428
+   ],
+   "CHOICE_BAND"
+  ],
+  [
+   625,
+   [
+    368,
+    334,
+    400,
+    259
+   ],
+   "FOCUS_SASH"
+  ],
+  [
+   663,
+   [
+    413,
+    211,
+    394,
+    98
+   ],
+   "SHELL_BELL"
+  ],
+  [
+   668,
+   [
+    497,
+    315,
+    46,
+    269
+   ],
+   "WHITE_HERB"
+  ],
+  [
+   673,
+   [
+    532,
+    528,
+    280,
+    332
+   ],
+   "LIECHI_BERRY"
+  ],
+  [
+   695,
+   [
+    399,
+    87,
+    447,
+    57
+   ],
+   "WISE_GLASSES"
+  ],
+  [
+   701,
+   [
+    560,
+    211,
+    227,
+    259
+   ],
+   "SALAC_BERRY"
+  ],
+  [
+   709,
+   [
+    532,
+    566,
+    174,
+    182
+   ],
+   "BIG_ROOT"
+  ],
+  [
+   711,
+   [
+    567,
+    218,
+    331,
+    261
+   ],
+   "ROCKY_HELMET"
+  ]
+ ]
+}

@@ -89,7 +89,11 @@ func find_target(side: String, pos: int, preferred: int, choice: String) -> int:
 
 func round_actions(player_orders: Dictionary) -> void:
 	if over: return
+	completed_turns+=1
 	_clear_round_hits()
+	if not kalos_o_stages.is_empty():
+		pair("a",choose_lane("a",0),choose_lane("b",0))
+		apply_kalos_power()
 	var order := []
 	for side in ["a","b"]:
 		for pos in positions:
@@ -103,6 +107,10 @@ func round_actions(player_orders: Dictionary) -> void:
 			var who: Dictionary = cur_a() if side=="a" else cur_b()
 			order.append({"side":side,"pos":pos,"move":choice,"target":target,"prio":_priority(side,choice),
 				"speed":_speed(who)*(-1 if field.trick_room else 1),"tie":rng.randf()})
+	if kalos_rules:
+		for action in order:
+			pair(action.side,action.pos,action.target)
+			kalos_before_move(action.side,action.move)
 	order.sort_custom(func(l,r):
 		if l.prio!=r.prio:return l.prio>r.prio
 		if l.speed!=r.speed:return l.speed>r.speed

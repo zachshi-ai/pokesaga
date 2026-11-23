@@ -1,6 +1,8 @@
 extends Sprite2D
 ## A walking story partner occupies the tile the player just left without blocking backtracking.
 var world
+var cast=preload("res://core/sinnoh_cast.gd")
+var tile: Vector2i
 var header: String
 var identity: String
 var face: String
@@ -8,14 +10,15 @@ var target: Vector2
 var stride:=0
 var walking:=false
 
-func follow(w,who: String,map_id: String,tile: Vector2i,direction: String):
+func follow(w,who: String,map_id: String,footing: Vector2i,direction: String):
 	var is_new: bool=world==null or header!=map_id or identity!=who
 	world=w
+	tile=footing
 	header=map_id
 	identity=who
 	face=direction
 	stride=1-stride
-	preload("res://core/sinnoh_cast.gd").draw(self,identity,face,stride+1)
+	cast.draw(self,identity,face,stride+1)
 	scale=Vector2.ONE*world._field_actor_scale()
 	texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
 	target=Vector2(tile.x*16+8,(tile.y+1)*16)
@@ -33,4 +36,4 @@ func _process(delta):
 		position=position.move_toward(target,delta*140.0)
 		if position==target:
 			walking=false
-			preload("res://core/sinnoh_cast.gd").draw(self,identity,face,0)
+			cast.draw(self,identity,face,0)
