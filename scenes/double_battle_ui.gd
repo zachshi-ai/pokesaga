@@ -156,6 +156,7 @@ func _refresh_hp() -> void:
 			_apply_appearance(sprite,group[idx])
 			var factor:=1.55 if side=="a" else 1.35
 			if positions==3:factor=1.12
+			if group[idx].has("galar_base_hp"):factor*=1.2
 			var feet:=float(sprite.texture.get_meta("feet",56))
 			sprite.scale=Vector2.ONE*factor
 			var ground_y:=float((213-i*25) if side=="a" else (115+i*14))-feet*factor

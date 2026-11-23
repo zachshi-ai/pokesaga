@@ -168,6 +168,11 @@ static func normalize_team(team: Array) -> Array:
 func start(a_team: Array, b_team: Array) -> void:
 	completed_turns=0
 	galar_used={"a":false,"b":false}
+	galar_side_damage.clear()
+	galar_competitor.clear()
+	galar_rival_reserves.clear()
+	galar_target_rival=false
+	galar_hitting_rival=false
 	kalos_used={"a":false,"b":false}
 	alola_z_used={"a":false,"b":false}
 	alola_heal_replacement.clear()
@@ -202,13 +207,18 @@ func _set_hp(mon: Dictionary, value: int, at_line := -1) -> void:
 	if at_line < 0: at_line = log.size()
 	if not team_a.is_empty() and is_same(mon, cur_a()):
 		health_changed.emit(at_line, "a", active_a, mon)
-	elif not team_b.is_empty() and is_same(mon, cur_b()):
+	elif not galar_hitting_rival and not team_b.is_empty() and is_same(mon, cur_b()):
 		health_changed.emit(at_line, "b", active_b, mon)
 
 # X/Y checks the trainer's Key Stone and the active Pokémon's held stone.
 var galar_rules := false
 var galar_power_spot := false
 var galar_band := false
+var galar_competitor:Dictionary={}
+var galar_rival_reserves:Array=[]
+var galar_target_rival:=false
+var galar_hitting_rival:=false
+var galar_side_damage:Dictionary={}
 var galar_ace := 0
 var galar_used := {"a":false,"b":false}
 var inverse_record: Dictionary = {}
@@ -229,7 +239,7 @@ func available_forms(side: String) -> Array:
 	if c["fainted"] or int(c.get("forms_used", 0)) > 0:
 		return []
 	if galar_rules:
-		return [{"key":GalarDynamax.KEY,"kind":"gmax","label":"极巨化"}] if GalarDynamax.available(self,side) else []
+		return [{"key":GalarDynamax.KEY,"kind":"gmax","label":"极巨化" if GalarDynamax.giant_key(c).is_empty() else "超极巨化"}] if GalarDynamax.available(self,side) else []
 	if alola_rules and alola_ultra and c.get("held","")=="ULTRANECROZIUM_Z" and c.get("form","") in ["NECROZMA_DAWN_WINGS","NECROZMA_DUSK_MANE"] and (side=="b" or alola_ring):
 		var burst:=Data.form_of(800,"NECROZMA_ULTRA")
 		return [] if burst.is_empty() else [burst]
@@ -431,6 +441,11 @@ func _form_switch_on_send_out(c: Dictionary) -> void:
 		suffix_form = "ZACIAN_CROWNED"
 	elif sid == 889 and held == "RUSTED_SHIELD":
 		suffix_form = "ZAMAZENTA_CROWNED"
+	if suffix_form in ["ZACIAN_CROWNED","ZAMAZENTA_CROWNED"]:
+		for slot in c.moves.size():
+			if int(c.moves[slot])==442:
+				c.get_or_add("galar_crowned_slots",[]).append(slot)
+				c.moves[slot]=709 if sid==888 else 710
 	if suffix_form != "":
 		switch_form(side, suffix_form, "%s 借着%s改变了形态！" % [c["name"], Data.item_name(held)])
 
@@ -1283,7 +1298,7 @@ func damage(attacker: Dictionary, defender: Dictionary, move: Dictionary) -> int
 	if bool(attacker.get("dire_hit", false)): cs += 2
 	if cs > 0:
 		crit_chance = [0.0625, 0.125, 0.25, 0.33, 0.5][mini(cs, 4)]
-	if alola_rules:crit_chance=[1.0/24.0,0.125,0.5,1.0][mini(cs,3)]
+	if alola_rules or galar_rules:crit_chance=[1.0/24.0,0.125,0.5,1.0][mini(cs,3)]
 	if int(attacker.get("crit_up", 0)) > 0:
 		crit_chance = 0.5
 	var crit := 1.0
@@ -2208,12 +2223,16 @@ func run_turn(a_choice: String, b_choice: String) -> void:
 		if not over and not cur_a()["fainted"]:
 			_take_action("a", a_choice)
 
+	if not galar_competitor.is_empty() and not cur_b().fainted and not cur_a().fainted and not over:
+		preload("res://core/galar_league_gyms.gd").rival_attack(self)
 	acting_side = ""
 	_end_of_turn()
 	_end_of_turn_volatile()
 	_end_of_turn_gmax()
 	_end_of_turn_field()
-	if galar_rules:GalarDynamax.finish_turn(self)
+	if galar_rules:
+		GalarDynamax.lingering(self)
+		GalarDynamax.finish_turn(self)
 	for side in guard_turns:
 		guard_turns[side] = maxi(0, int(guard_turns[side]) - 1)
 	_check_end()
@@ -3335,6 +3354,18 @@ func _blocked_by_status(c: Dictionary) -> bool:
 	return false
 
 func _take_action(side: String, choice: String) -> void:
+	if side=="a" and choice.begins_with("move:") and galar_target_rival and not galar_hitting_rival and not galar_competitor.is_empty():
+		var wild:=cur_b()
+		galar_hitting_rival=true
+		team_b[active_b]=galar_competitor
+		_take_action(side,choice)
+		team_b[active_b]=wild
+		galar_hitting_rival=false
+		if galar_competitor.fainted:
+			galar_competitor=galar_rival_reserves.pop_front() if not galar_rival_reserves.is_empty() else {}
+			if not galar_competitor.is_empty():log.append("竞赛对手派出了%s！"%galar_competitor.name)
+			galar_target_rival=false
+		return
 	if choice=="palace_wait":
 		log.append("这只宝可梦没能使出合适的招式。")
 		return
@@ -3652,8 +3683,9 @@ func _take_action(side: String, choice: String) -> void:
 		return
 
 	# 守住：挡下这一下
-	var max_hit:bool=galar_rules and mv.get("kind","")=="max" and mv.category!="status"
-	if bool(defender.get("protected", false)) and (defender.get("galar_guard",false) or not bool(Data.ability_effect(_ab(attacker)).get("no_protect", false))):
+	var max_hit:bool=galar_rules and mv.get("kind","") in ["max","gmax"] and mv.category!="status"
+	var pierces:bool=galar_rules and str(mv.get("key","")) in ["G_MAX_ONE_BLOW","G_MAX_RAPID_FLOW"]
+	if not pierces and bool(defender.get("protected", false)) and (defender.get("galar_guard",false) or not bool(Data.ability_effect(_ab(attacker)).get("no_protect", false))):
 		if defender.get("galar_guard",false) or not (max_hit or mv.get("alola_z",false)) or mv.category=="status":
 			log.append("%s 保护住了自己，没有受到伤害。" % defender["name"])
 			return
@@ -3674,7 +3706,7 @@ func _take_action(side: String, choice: String) -> void:
 	var dealt := int(damage(attacker, defender, mv)*repeat_scale)
 	if mv.get("alola_z",false):
 		if mv.key=="GUARDIAN_OF_ALOLA":dealt=maxi(1,int(defender.hp)*3/4)
-		if (max_hit or mv.get("alola_z",false)) and defender.get("protected",false) and dealt>0:dealt=maxi(1,dealt/4)
+		if not pierces and (max_hit or mv.get("alola_z",false)) and defender.get("protected",false) and dealt>0:dealt=maxi(1,dealt/4)
 	var gem:=str(mv.get("type","normal")).to_upper()+"_GEM"
 	if dealt>0 and attacker.get("held","")==gem and not aabe0.get("ignore_own_item",false):
 		repeat_scale*=1.5
@@ -3822,7 +3854,9 @@ func _take_action(side: String, choice: String) -> void:
 		if mv.key=="CLANGOROUS_SOULBLAZE":
 			for stat in ["atk","def","spa","spd","spe"]:_apply_stage(attacker,stat,1,log)
 	if galar_rules and dealt>0 and _ab(defender)=="棉絮":_apply_stage(attacker,"spe",-1,log)
-	if max_hit and dealt>0:GalarDynamax.after_hit(self,attacker,defender,mv)
+	if max_hit and dealt>0:
+		if str(mv.get("key","")).begins_with("MAX_"):GalarDynamax.after_hit(self,attacker,defender,mv)
+		elif GalarDynamax.handled(str(mv.key)):GalarDynamax.special_hit(self,attacker,defender,mv)
 	var extra := _apply_effect(attacker, defender, mv, dealt)
 	if extra != "":
 		log.append(extra)
@@ -3969,6 +4003,13 @@ func _try_status(defender: Dictionary, st: String) -> String:
 ## 极巨化后的招式：属性不变，威力按档换算；超极巨专属招式优先
 func galar_move(c: Dictionary, base: Dictionary) -> Dictionary:
 	if base.get("category","")=="status":return Data.move_of(884)
+	if galar_rules and c.get("galar_intent",false) and not c.has("galar_base_hp"):
+		var preview:=c.duplicate()
+		var giant:=GalarDynamax.giant_key(c)
+		if not giant.is_empty():
+			preview.galar_original_form=c.get("form","")
+			preview.form=giant
+			return _max_move_data(preview,base)
 	return _max_move_data(c,base)
 
 func _max_move_data(c: Dictionary, base: Dictionary) -> Dictionary:
@@ -3977,11 +4018,11 @@ func _max_move_data(c: Dictionary, base: Dictionary) -> Dictionary:
 	var key := String(sp.get("key", ""))
 	# 超极巨形态用的是形态自己的键（CHARIZARD_GMAX）
 	var form_key := String(c.get("form", ""))
-	var gid := 0 if galar_rules else Data.gmax_move_for(form_key, ty)
+	var gid := Data.gmax_move_for(form_key, ty) if not galar_rules or c.has("galar_original_form") else 0
 	if gid <= 0 and not galar_rules:
 		gid = Data.gmax_move_for(key, ty)
 	var mid := gid if gid > 0 else Data.max_move_for_type(ty)
-	if galar_rules and ty=="normal":mid=885 # Max Strike. Max Guard is reserved for status moves.
+	if galar_rules and ty=="normal" and gid==0:mid=885 # Max Strike. Max Guard is reserved for status moves.
 	var out: Dictionary = (Data.move_of(mid) as Dictionary).duplicate(true)
 	if out.is_empty():
 		return base
@@ -3990,7 +4031,7 @@ func _max_move_data(c: Dictionary, base: Dictionary) -> Dictionary:
 	out["category"] = String(base.get("category", "physical"))
 	# 超极巨专属招式的额外机制跟着招式一起带出去
 	var eff := Data.gmax_effect(mid)
-	if not eff.is_empty():
+	if not eff.is_empty() and not (galar_rules and GalarDynamax.handled(str(out.key))):
 		out["gmax_effect"] = eff
 	return out
 
@@ -4059,6 +4100,13 @@ func _do_switch(side: String, index: int, forced: bool = false) -> void:
 	for stat in old["stages"]:
 		old["stages"][stat] = 0
 	old["trapped"] = false
+	old.erase("galar_bind")
+	old.erase("galar_terror_source")
+	if galar_rules:
+		for foe in GalarDynamax.active_mons(self,"b" if side=="a" else "a"):
+			if foe.has("galar_terror_source") and int(foe.galar_terror_source)==team.find(old):
+				foe.trapped=int(foe.get("galar_bind",0))>0
+				foe.erase("galar_terror_source")
 	if side == "a":
 		active_a = index
 	else:

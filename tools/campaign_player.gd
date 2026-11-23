@@ -7,10 +7,13 @@ var world
 var db
 var mode := "travel"
 var requested_ball := ""
+var soften_target := true
 var requested_species := 0
 var z_inputs := 0
 var galar_dynamax_inputs := 0
 var galar_first_rival_party := []
+var galar_quiz_answers := []
+var galar_raids := []
 var turns := 0
 var steps := 0
 var obstruction := []
@@ -92,12 +95,30 @@ func battle() -> void:
 	var ui = game.active_battle
 	var wild: bool = str(ui.trainer_name).is_empty()
 	var enemy: Dictionary = ui.battle.cur_b()
+	if ui.get_script().resource_path=="res://scenes/galar_raid_ui.gd":
+		galar_raids.append([ui.raid_config.galar_raid,int(enemy.species_id),ui.battle.allies.map(func(m):return int(m.species_id))])
 	if world.map_data.id=="galar_postwick" and ui.trainer_name=="赫普":
 		galar_first_rival_party=ui.battle.team_a.map(func(mon):return int(mon.species_id))
 	var owned: bool = game.save_data.dex.caught.any(func(n): return int(n) == int(enemy.species_id))
 	var capture: bool = wild and mode == "collect" and not owned
+	var requested_galar := false
+	var recorded_galar := false
 	for frame in 3500:
 		if game.active_battle != ui: break
+		if str(world.map_data.id).begins_with("galar_gym_5"):
+			var quiz=ui.find_child("FairyQuiz",true,false)
+			if quiz!=null and not quiz.is_queued_for_deletion() and quiz.is_visible_in_tree():
+				var answered:=false
+				for text in ["毒属性","钢属性","安妮特","煎蛋卷","魔法师","紫色","16岁"]:
+					var answer:=button(quiz,text)
+					if answer:
+						galar_quiz_answers.append(text)
+						answer.pressed.emit()
+						answered=true
+						break
+				if not answered:
+					problem="Unknown Ballonlea quiz answers"
+					return
 		if ui.state == "menu":
 			turns += 1
 			var ball := ""
@@ -108,7 +129,7 @@ func battle() -> void:
 					if count_item(kind) > 0:
 						ball = kind
 						break
-			var weaken := soften_move(ui, enemy) if (capture or mode=="throw") and ball not in ["", "大师球"] else -1
+			var weaken := soften_move(ui, enemy) if (capture or mode=="throw") and soften_target and ball not in ["", "大师球"] else -1
 			if weaken >= 0:
 				ui._on_command_kind("fight")
 				ui._on_move(weaken)
@@ -144,8 +165,8 @@ func battle() -> void:
 					best=int(selected[0])
 					if paired:ui.target_buttons[selected[1]].pressed.emit()
 				ui.menu.get_node("fight").pressed.emit()
-				var galar_transform := false
-				if not paired and world.map_data.get("region","") in ["kalos","galar"]:
+				var region: String=world.map_data.get("region","")
+				if (region=="kalos" and not paired) or (region=="galar" and not requested_galar):
 					var forms: Array=ui.battle.available_forms("a")
 					var more=ui.move_menu.get_node_or_null("Special")
 					if more!=null and not forms.is_empty():
@@ -154,7 +175,7 @@ func battle() -> void:
 						if form_button:
 							form_button.pressed.emit()
 							if world.map_data.get("region","")=="galar":
-								galar_transform=true
+								requested_galar=true
 							else:
 								print("MEGA INPUT ",ui.trainer_name," ",forms[0].key)
 				if not paired and world.map_data.get("region","")=="alola" and ui._has_z_move():
@@ -169,13 +190,14 @@ func battle() -> void:
 					continue
 				var move_button: Button = ui.move_menu.get_node("Move%d"%best if best>=0 else "Struggle")
 				move_button.pressed.emit()
-				if galar_transform and ui.battle.galar_used.a:
+				if requested_galar and not recorded_galar and ui.battle.galar_used.a:
+					recorded_galar=true
 					galar_dynamax_inputs+=1
 		ui._process(5.0)
 	if game.active_battle == ui:
 		problem = "Battle did not finish: %s, state=%s, turn=%s" % [ui.trainer_name,ui.state,turns]
 		return
-	if not wild or mode=="wild-survey" or ui.battle.winner in ["caught","b"] or ui.battle.fishing_encounter:
+	if not wild or mode in ["wild-survey","throw"] or ui.battle.winner in ["caught","b"] or ui.battle.fishing_encounter:
 		fights.append([str(ui.trainer_name),enemy.name,enemy.level,ui.battle.winner])
 	await process_frame
 
@@ -226,7 +248,7 @@ func status() -> Dictionary:
 		for b in game.menu_layer.get_child(-1).find_children("*","Button",true,false):
 			if b.is_visible_in_tree() and not b.disabled: panels.append(b.text)
 	return {"pos":current(),"elevation":world.last_elevation,"tower_mode":str(game._flags().get("fr_tower",{}).get("mode","")),"party":mons,"bag":items,"flags":game._flags().keys().filter(func(k): return game._flags()[k]),
-		"z_inputs":z_inputs,"galar_dynamax_inputs":galar_dynamax_inputs,"galar_first_rival_party":galar_first_rival_party,"ice":{"k_ice_turn_pink":game._flags().get("k_ice_turn_pink",0),"k_ice_turn_blue":game._flags().get("k_ice_turn_blue",0),"k_ice_turn_green":game._flags().get("k_ice_turn_green",0),"k_ice_turn_yellow":game._flags().get("k_ice_turn_yellow",0)},
+		"z_inputs":z_inputs,"galar_dynamax_inputs":galar_dynamax_inputs,"galar_first_rival_party":galar_first_rival_party,"galar_quiz_answers":galar_quiz_answers,"galar_raids":galar_raids,"bike":world.bike,"surfing":world.surfing,"ice":{"k_ice_turn_pink":game._flags().get("k_ice_turn_pink",0),"k_ice_turn_blue":game._flags().get("k_ice_turn_blue",0),"k_ice_turn_green":game._flags().get("k_ice_turn_green",0),"k_ice_turn_yellow":game._flags().get("k_ice_turn_yellow",0)},
 		"pl_obstacles":world.objects.filter(func(o):return o.get("kind","") in ["rock","cut","boulder"]).map(func(o):return [o.at,o.kind]) if world.map_data.has("platinum_native") else [],
 		"pl_gym_state":game._flags().get("pl_gym_"+str(world.map_data.id),{}),"pl_gym_collision":world.emerald_collision if world.map_data.has("platinum_gym") else [],
 		"gym_button":int(game._flags().get("h_wattson_switch",0)),"gym_local":world.hoenn_local,"badges":game.save_data.badges,"money":game.save_data.money,"dex":game.save_data.dex.caught,"defeated":game.save_data.get("defeated",{}),
@@ -261,6 +283,11 @@ func act(cmd: Dictionary) -> void:
 			world.tick_walk(1.0)
 			world.facing = DIR[cmd.dir]
 			game._on_action()
+		"lamp":
+			var panel=game.menu_layer.get_child(-1)
+			var lamp=panel.get_node_or_null("Lamp"+str(int(cmd.slot)+1)) as Button
+			if lamp and lamp.toggle_mode:lamp.button_pressed=not lamp.button_pressed
+			else:problem="Missing ruin floor lamp"
 		"click":
 			if not click(cmd.label): problem = "Missing button: " + str(cmd.label)
 		"back": game._on_back()
@@ -268,6 +295,7 @@ func act(cmd: Dictionary) -> void:
 		"throw_with":
 			requested_ball=cmd.item
 			requested_species=int(cmd.get("species",0))
+			soften_target=bool(cmd.get("soften",true))
 			mode="throw"
 		"equip":
 			game._open_party()
@@ -284,10 +312,11 @@ func act(cmd: Dictionary) -> void:
 				party_ui._open_detail(slot)
 				click("设为首发")
 			party_ui.handle_back()
-		"deposit":
-			game._open_pc()
+		"deposit", "withdraw":
+			game._open_pc(false)
 			var pc = game.menu_layer.get_child(-1)
-			pc._mode(true)
+			pc._mode(cmd.action=="deposit")
+			for _page in int(cmd.get("box_index",0)):pc._turn(1)
 			var slot := int(cmd.slot)
 			if slot >= 0 and slot < pc.contents.get_child_count() and pc.contents.get_child(slot) is Button:
 				pc.contents.get_child(slot).pressed.emit()

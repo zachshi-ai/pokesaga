@@ -1,0 +1,1485 @@
+[
+ {
+  "id": "dlc_pass",
+  "map": "galar_wedgehurst_station_room",
+  "who": "呆呆兽",
+  "at": [
+   3,
+   8
+  ],
+  "require": [
+   "g_train"
+  ],
+  "steps": [
+   {
+    "say": [
+     "一只伽勒尔呆呆兽挤在检票口，列车员正等它让路。"
+    ]
+   },
+   {
+    "battle": {
+     "wild": true,
+     "must_catch": true,
+     "name": "伽勒尔呆呆兽",
+     "team": [
+      {
+       "species": 79,
+       "form": "SLOWPOKE_GALAR",
+       "level": 12
+      }
+     ]
+    }
+   },
+   {
+    "give_item": {
+     "name": "铠岛车票",
+     "count": 1,
+     "category": "key"
+    }
+   },
+   {
+    "give_item": {
+     "name": "王冠车票",
+     "count": 1,
+     "category": "key"
+    }
+   },
+   {
+    "say": [
+     "去铠岛或王冠雪原，请找车站检票员。"
+    ],
+    "who": "列车员"
+   }
+  ]
+ },
+ {
+  "id": "dlc_armor_arrival",
+  "map": "armor_fields",
+  "who": "$rival",
+  "require": [
+   "g_train"
+  ],
+  "steps": [
+   {
+    "say": [
+     "你也收到武馆的邀请了？先让我看看新徒弟的身手。"
+    ]
+   },
+   {
+    "exp_action": "rival",
+    "round": 1
+   }
+  ],
+  "at": [
+   14,
+   14
+  ]
+ },
+ {
+  "id": "dlc_dojo",
+  "map": "armor_dojo",
+  "who": "马士德",
+  "require": [
+   "dlc_armor_arrival"
+  ],
+  "steps": [
+   {
+    "say": [
+     "换上修行服前，得让我这把老骨头先陪你活动一下。"
+    ]
+   },
+   {
+    "battle": {
+     "name": "马士德",
+     "team": [
+      {
+       "species": 619,
+       "level": 13
+      },
+      {
+       "species": 403,
+       "level": 13
+      }
+     ],
+     "armor_scale": true
+    }
+   }
+  ],
+  "at": [
+   11,
+   8
+  ]
+ },
+ {
+  "id": "dlc_slow_start",
+  "map": "armor_dojo",
+  "who": "马士德",
+  "require": [
+   "dlc_dojo"
+  ],
+  "steps": [
+   {
+    "say": [
+     "三只跑得飞快的呆呆兽把修行服抢走了！去清凉湿原，把衣服找回来。"
+    ]
+   }
+  ],
+  "at": [
+   11,
+   8
+  ]
+ },
+ {
+  "id": "dlc_slow1",
+  "map": "armor_wetland",
+  "who": "呆呆兽",
+  "require": [
+   "dlc_slow_start"
+  ],
+  "steps": [
+   {
+    "say": [
+     "呆呆兽停下来抖了抖叼在嘴里的修行服。"
+    ]
+   },
+   {
+    "battle": {
+     "name": "飞奔的呆呆兽",
+     "team": [
+      {
+       "species": 79,
+       "level": 17,
+       "form": "SLOWPOKE_GALAR"
+      }
+     ],
+     "armor_scale": true
+    }
+   }
+  ],
+  "at": [
+   9,
+   8
+  ]
+ },
+ {
+  "id": "dlc_slow2",
+  "map": "armor_wetland",
+  "who": "呆呆兽",
+  "require": [
+   "dlc_slow_start"
+  ],
+  "steps": [
+   {
+    "say": [
+     "呆呆兽停下来抖了抖叼在嘴里的修行服。"
+    ]
+   },
+   {
+    "battle": {
+     "name": "飞奔的呆呆兽",
+     "team": [
+      {
+       "species": 79,
+       "level": 17,
+       "form": "SLOWPOKE_GALAR"
+      }
+     ],
+     "armor_scale": true
+    }
+   }
+  ],
+  "at": [
+   19,
+   4
+  ]
+ },
+ {
+  "id": "dlc_slow3",
+  "map": "armor_wetland",
+  "who": "呆呆兽",
+  "require": [
+   "dlc_slow_start"
+  ],
+  "steps": [
+   {
+    "say": [
+     "呆呆兽停下来抖了抖叼在嘴里的修行服。"
+    ]
+   },
+   {
+    "battle": {
+     "name": "飞奔的呆呆兽",
+     "team": [
+      {
+       "species": 79,
+       "level": 17,
+       "form": "SLOWPOKE_GALAR"
+      }
+     ],
+     "armor_scale": true
+    }
+   }
+  ],
+  "at": [
+   25,
+   17
+  ]
+ },
+ {
+  "id": "dlc_mush_start",
+  "map": "armor_dojo",
+  "who": "马士德",
+  "require": [
+   "dlc_slow1",
+   "dlc_slow2",
+   "dlc_slow3"
+  ],
+  "steps": [
+   {
+    "say": [
+     "第二场修行要煮极巨汤。穿过专注森林，在热身洞穴的红色菌丛找三朵极巨菇菇。"
+    ]
+   }
+  ],
+  "at": [
+   11,
+   8
+  ]
+ },
+ {
+  "id": "dlc_mushrooms",
+  "map": "armor_cave",
+  "who": "$rival",
+  "require": [
+   "dlc_mush_start"
+  ],
+  "steps": [
+   {
+    "say": [
+     "等一下！这些极巨菇菇是我先看见的！"
+    ]
+   },
+   {
+    "exp_action": "rival",
+    "round": 2
+   },
+   {
+    "give_item": {
+     "name": "极巨菇菇",
+     "count": 3,
+     "category": "other"
+    }
+   }
+  ],
+  "at": [
+   20,
+   12
+  ]
+ },
+ {
+  "id": "dlc_trial3",
+  "map": "armor_dojo",
+  "who": "$rival",
+  "require": [
+   "dlc_mushrooms"
+  ],
+  "steps": [
+   {
+    "say": [
+     "最后的修行，在武馆对战场分出胜负。"
+    ]
+   },
+   {
+    "exp_action": "trial_soup"
+   },
+   {
+    "exp_action": "rival",
+    "round": 3
+   }
+  ],
+  "at": [
+   18,
+   10
+  ]
+ },
+ {
+  "id": "dlc_kubfu",
+  "map": "armor_dojo",
+  "who": "马士德",
+  "require": [
+   "dlc_trial3"
+  ],
+  "steps": [
+   {
+    "say": [
+     "这是我的秘传铠甲。来，熊徒弟，跟新搭档打个招呼！带它去岛上看风景，再来选一座双拳塔。"
+    ]
+   },
+   {
+    "exp_gift": {
+     "species": 891,
+     "level": 10,
+     "tag": "armor_kubfu"
+    }
+   }
+  ],
+  "at": [
+   11,
+   8
+  ]
+ },
+ {
+  "id": "dlc_gift_starter",
+  "map": "armor_dojo",
+  "who": "蜜叶",
+  "require": [
+   "dlc_mush_start"
+  ],
+  "steps": [
+   {
+    "say": [
+     "这两个孩子都能超极巨化。你想和哪一个继续旅行？"
+    ]
+   },
+   {
+    "exp_action": "starter_gift"
+   }
+  ],
+  "at": [
+   7,
+   13
+  ]
+ },
+ {
+  "id": "dlc_view1",
+  "map": "armor_fields",
+  "who": "武馆门生",
+  "require": [
+   "dlc_kubfu"
+  ],
+  "steps": [
+   {
+    "say": [
+     "把熊徒弟带在身边，一起在这里看看岛上的风景吧。"
+    ]
+   },
+   {
+    "exp_action": "view"
+   }
+  ],
+  "at": [
+   25,
+   14
+  ]
+ },
+ {
+  "id": "dlc_view2",
+  "map": "armor_forest",
+  "who": "武馆门生",
+  "require": [
+   "dlc_kubfu"
+  ],
+  "steps": [
+   {
+    "say": [
+     "把熊徒弟带在身边，一起在这里看看岛上的风景吧。"
+    ]
+   },
+   {
+    "exp_action": "view"
+   }
+  ],
+  "at": [
+   13,
+   10
+  ]
+ },
+ {
+  "id": "dlc_view3",
+  "map": "armor_steps",
+  "who": "武馆门生",
+  "require": [
+   "dlc_kubfu"
+  ],
+  "steps": [
+   {
+    "say": [
+     "把熊徒弟带在身边，一起在这里看看岛上的风景吧。"
+    ]
+   },
+   {
+    "exp_action": "view"
+   }
+  ],
+  "at": [
+   25,
+   17
+  ]
+ },
+ {
+  "id": "dlc_view4",
+  "map": "armor_water_tower",
+  "who": "武馆门生",
+  "require": [
+   "dlc_kubfu"
+  ],
+  "steps": [
+   {
+    "say": [
+     "把熊徒弟带在身边，一起在这里看看岛上的风景吧。"
+    ]
+   },
+   {
+    "exp_action": "view"
+   }
+  ],
+  "at": [
+   16,
+   13
+  ]
+ },
+ {
+  "id": "dlc_tower_choice",
+  "map": "armor_dojo",
+  "who": "马士德",
+  "require": [
+   "dlc_kubfu"
+  ],
+  "steps": [
+   {
+    "say": [
+     "一座塔教出一门拳法。恶之塔修行一击流，水之塔修行连击流。你决定去哪里？"
+    ]
+   },
+   {
+    "exp_action": "tower"
+   }
+  ],
+  "at": [
+   11,
+   8
+  ]
+ },
+ {
+  "id": "dlc_dark1",
+  "map": "armor_dark_floor_1",
+  "who": "塔中门生",
+  "require": [
+   "dlc_tower_choice"
+  ],
+  "steps": [
+   {
+    "say": [
+     "在塔内只用熊徒弟，和我切磋吧。"
+    ]
+   },
+   {
+    "exp_action": "kubfu_battle",
+    "foe": 570,
+    "floor": 1
+   }
+  ],
+  "branch": [
+   "dlc_tower",
+   "dark"
+  ],
+  "at": [
+   8,
+   5
+  ]
+ },
+ {
+  "id": "dlc_dark2",
+  "map": "armor_dark_floor_2",
+  "who": "塔中门生",
+  "require": [
+   "dlc_dark1"
+  ],
+  "steps": [
+   {
+    "say": [
+     "在塔内只用熊徒弟，和我切磋吧。"
+    ]
+   },
+   {
+    "exp_action": "kubfu_battle",
+    "foe": 559,
+    "floor": 2
+   }
+  ],
+  "branch": [
+   "dlc_tower",
+   "dark"
+  ],
+  "at": [
+   8,
+   5
+  ]
+ },
+ {
+  "id": "dlc_dark3",
+  "map": "armor_dark_floor_3",
+  "who": "塔中门生",
+  "require": [
+   "dlc_dark2"
+  ],
+  "steps": [
+   {
+    "say": [
+     "在塔内只用熊徒弟，和我切磋吧。"
+    ]
+   },
+   {
+    "exp_action": "kubfu_battle",
+    "foe": 686,
+    "floor": 3
+   }
+  ],
+  "branch": [
+   "dlc_tower",
+   "dark"
+  ],
+  "at": [
+   8,
+   5
+  ]
+ },
+ {
+  "id": "dlc_dark4",
+  "map": "armor_dark_floor_4",
+  "who": "塔中门生",
+  "require": [
+   "dlc_dark3"
+  ],
+  "steps": [
+   {
+    "say": [
+     "在塔内只用熊徒弟，和我切磋吧。"
+    ]
+   },
+   {
+    "exp_action": "kubfu_battle",
+    "foe": 552,
+    "floor": 4
+   }
+  ],
+  "branch": [
+   "dlc_tower",
+   "dark"
+  ],
+  "at": [
+   8,
+   5
+  ]
+ },
+ {
+  "id": "dlc_dark5",
+  "map": "armor_dark_floor_5",
+  "who": "马士德",
+  "require": [
+   "dlc_dark4"
+  ],
+  "steps": [
+   {
+    "say": [
+     "我的熊徒弟练了很多年。让我们看看你的拳法！"
+    ]
+   },
+   {
+    "exp_action": "kubfu_battle",
+    "foe": 891,
+    "floor": 5
+   },
+   {
+    "exp_action": "scroll",
+    "style": "dark"
+   }
+  ],
+  "branch": [
+   "dlc_tower",
+   "dark"
+  ],
+  "at": [
+   8,
+   5
+  ]
+ },
+ {
+  "id": "dlc_water1",
+  "map": "armor_water_floor_1",
+  "who": "塔中门生",
+  "require": [
+   "dlc_tower_choice"
+  ],
+  "steps": [
+   {
+    "say": [
+     "在塔内只用熊徒弟，和我切磋吧。"
+    ]
+   },
+   {
+    "exp_action": "kubfu_battle",
+    "foe": 54,
+    "floor": 1
+   }
+  ],
+  "branch": [
+   "dlc_tower",
+   "water"
+  ],
+  "at": [
+   8,
+   5
+  ]
+ },
+ {
+  "id": "dlc_water2",
+  "map": "armor_water_floor_2",
+  "who": "塔中门生",
+  "require": [
+   "dlc_water1"
+  ],
+  "steps": [
+   {
+    "say": [
+     "在塔内只用熊徒弟，和我切磋吧。"
+    ]
+   },
+   {
+    "exp_action": "kubfu_battle",
+    "foe": 98,
+    "floor": 2
+   }
+  ],
+  "branch": [
+   "dlc_tower",
+   "water"
+  ],
+  "at": [
+   8,
+   5
+  ]
+ },
+ {
+  "id": "dlc_water3",
+  "map": "armor_water_floor_3",
+  "who": "塔中门生",
+  "require": [
+   "dlc_water2"
+  ],
+  "steps": [
+   {
+    "say": [
+     "在塔内只用熊徒弟，和我切磋吧。"
+    ]
+   },
+   {
+    "exp_action": "kubfu_battle",
+    "foe": 120,
+    "floor": 3
+   }
+  ],
+  "branch": [
+   "dlc_tower",
+   "water"
+  ],
+  "at": [
+   8,
+   5
+  ]
+ },
+ {
+  "id": "dlc_water4",
+  "map": "armor_water_floor_4",
+  "who": "塔中门生",
+  "require": [
+   "dlc_water3"
+  ],
+  "steps": [
+   {
+    "say": [
+     "在塔内只用熊徒弟，和我切磋吧。"
+    ]
+   },
+   {
+    "exp_action": "kubfu_battle",
+    "foe": 61,
+    "floor": 4
+   }
+  ],
+  "branch": [
+   "dlc_tower",
+   "water"
+  ],
+  "at": [
+   8,
+   5
+  ]
+ },
+ {
+  "id": "dlc_water5",
+  "map": "armor_water_floor_5",
+  "who": "马士德",
+  "require": [
+   "dlc_water4"
+  ],
+  "steps": [
+   {
+    "say": [
+     "我的熊徒弟练了很多年。让我们看看你的拳法！"
+    ]
+   },
+   {
+    "exp_action": "kubfu_battle",
+    "foe": 891,
+    "floor": 5
+   },
+   {
+    "exp_action": "scroll",
+    "style": "water"
+   }
+  ],
+  "branch": [
+   "dlc_tower",
+   "water"
+  ],
+  "at": [
+   8,
+   5
+  ]
+ },
+ {
+  "id": "dlc_honey_intro",
+  "map": "armor_dojo",
+  "who": "赫普",
+  "require": [
+   "dlc_urshifu",
+   "g_hop_final"
+  ],
+  "steps": [
+   {
+    "say": [
+     "武道熊师嫌菇菇的味道苦。我在专注森林看见蜂巢，说不定有办法。"
+    ]
+   }
+  ],
+  "at": [
+   17,
+   14
+  ]
+ },
+ {
+  "id": "dlc_petilil",
+  "map": "armor_forest",
+  "who": "百合根娃娃",
+  "require": [
+   "dlc_honey_intro"
+  ],
+  "steps": [
+   {
+    "say": [
+     "百合根娃娃在找妈妈。对面林间的裙儿小姐听见叫声，循着声音牵它回家。"
+    ]
+   }
+  ],
+  "at": [
+   11,
+   16
+  ]
+ },
+ {
+  "id": "dlc_applin",
+  "map": "armor_forest",
+  "who": "啃果虫",
+  "require": [
+   "dlc_petilil"
+  ],
+  "steps": [
+   {
+    "say": [
+     "啃果虫落下的酸甜汁液引来了三蜜蜂。顺着蜂群去看看！"
+    ]
+   }
+  ],
+  "at": [
+   24,
+   10
+  ]
+ },
+ {
+  "id": "dlc_honey",
+  "map": "armor_fields",
+  "who": "蜂巢",
+  "require": [
+   "dlc_applin"
+  ],
+  "steps": [
+   {
+    "say": [
+     "蜂巢深处，极巨化的蜂女王被惊醒了！"
+    ]
+   },
+   {
+    "battle": {
+     "name": "蜂女王",
+     "team": [
+      {
+       "species": 416,
+       "level": 60
+      }
+     ],
+     "galar_raid": "stadium",
+     "galar_power_spot": true,
+     "galar_solo_raid": true
+    }
+   },
+   {
+    "give_item": {
+     "name": "极巨甜蜜蜜",
+     "count": 1,
+     "category": "other"
+    }
+   }
+  ],
+  "at": [
+   27,
+   7
+  ]
+ },
+ {
+  "id": "dlc_urshifu_soup",
+  "map": "armor_dojo",
+  "who": "蜜叶",
+  "require": [
+   "dlc_honey"
+  ],
+  "steps": [
+   {
+    "say": [
+     "给武道熊师的极巨汤要三朵极巨菇菇和一份极巨甜蜜蜜。"
+    ]
+   },
+   {
+    "exp_action": "urshifu_soup"
+   }
+  ],
+  "at": [
+   7,
+   13
+  ]
+ },
+ {
+  "id": "dlc_mustard",
+  "map": "armor_dojo",
+  "who": "马士德",
+  "require": [
+   "dlc_urshifu_soup"
+  ],
+  "steps": [
+   {
+    "say": [
+     "轮到师徒俩认真打一场了。武馆门前集合！"
+    ]
+   },
+   {
+    "exp_action": "mustard"
+   }
+  ],
+  "at": [
+   11,
+   8
+  ]
+ },
+ {
+  "id": "dlc_peony",
+  "map": "crown_slope",
+  "who": "皮欧尼",
+  "require": [
+   "g_train"
+  ],
+  "steps": [
+   {
+    "say": [
+     "夏科娅，又要溜去极巨大冒险？让爸爸先和这位训练家打一场！"
+    ]
+   },
+   {
+    "battle": {
+     "name": "皮欧尼",
+     "team": [
+      {
+       "species": 879,
+       "level": 70
+      },
+      {
+       "species": 306,
+       "level": 70
+      }
+     ],
+     "finish_on_loss": true
+    }
+   }
+  ],
+  "at": [
+   17,
+   12
+  ]
+ },
+ {
+  "id": "dlc_lair",
+  "map": "crown_slope",
+  "who": "夏科娅",
+  "require": [
+   "dlc_peony"
+  ],
+  "steps": [
+   {
+    "say": [
+     "巢穴的粒子太强了，入口要借一只宝可梦。跟调查员走，岔路上还有同伴接应。"
+    ]
+   },
+   {
+    "exp_action": "adventure"
+   }
+  ],
+  "at": [
+   27,
+   9
+  ]
+ },
+ {
+  "id": "dlc_clues",
+  "map": "crown_freezington",
+  "who": "皮欧尼",
+  "require": [
+   "dlc_lair"
+  ],
+  "steps": [
+   {
+    "say": [
+     "我把三张线索交给探险队长。丰饶之王、遗迹里的巨人，还有大树下的传说鸟。调查哪个由你决定。"
+    ]
+   },
+   {
+    "give_item": {
+     "name": "传说笔记",
+     "count": 1,
+     "category": "key"
+    }
+   },
+   {
+    "give_item": {
+     "name": "极矿石",
+     "count": 8,
+     "category": "other"
+    }
+   }
+  ],
+  "at": [
+   10,
+   14
+  ]
+ },
+ {
+  "id": "dlc_crown",
+  "map": "crown_freezington",
+  "who": "木雕王冠",
+  "require": [
+   "dlc_clues"
+  ],
+  "steps": [
+   {
+    "say": [
+     "村长桌上这块当枕头用的木雕，刚好能装回村口雕像的头顶。"
+    ]
+   }
+  ],
+  "at": [
+   17,
+   9
+  ]
+ },
+ {
+  "id": "dlc_king",
+  "map": "crown_freezington",
+  "who": "蕾冠王",
+  "require": [
+   "dlc_crown"
+  ],
+  "steps": [
+   {
+    "say": [
+     "我借这位大叔的声音和你说话。爱马离开后，人们连我的名字也快忘了。向村民打听它喜欢的食物吧。"
+    ]
+   }
+  ],
+  "at": [
+   18,
+   15
+  ]
+ },
+ {
+  "id": "dlc_seeds",
+  "map": "crown_freezington",
+  "who": "村民",
+  "require": [
+   "dlc_king"
+  ],
+  "steps": [
+   {
+    "say": [
+     "爱马喜欢萝卜。用八块极矿石和我换一袋种子，选一块田播种。"
+    ]
+   },
+   {
+    "exp_action": "seeds"
+   }
+  ],
+  "at": [
+   8,
+   9
+  ]
+ },
+ {
+  "id": "dlc_plot_ice",
+  "map": "crown_slope",
+  "who": "积雪的田地",
+  "require": [
+   "dlc_seeds"
+  ],
+  "steps": [
+   {
+    "say": [
+     "在这里种下萝卜种子？另一种萝卜要到下次冒险才有机会。"
+    ]
+   },
+   {
+    "exp_action": "plant",
+    "style": "ice"
+   }
+  ],
+  "unless": "dlc_horse",
+  "at": [
+   15,
+   7
+  ]
+ },
+ {
+  "id": "dlc_plot_shadow",
+  "map": "crown_bed",
+  "who": "古墓旁的田地",
+  "require": [
+   "dlc_seeds"
+  ],
+  "steps": [
+   {
+    "say": [
+     "在这里种下萝卜种子？另一种萝卜要到下次冒险才有机会。"
+    ]
+   },
+   {
+    "exp_action": "plant",
+    "style": "shadow"
+   }
+  ],
+  "unless": "dlc_horse",
+  "at": [
+   26,
+   16
+  ]
+ },
+ {
+  "id": "dlc_steed",
+  "map": "crown_freezington",
+  "who": "蕾冠王",
+  "require": [
+   "dlc_horse"
+  ],
+  "steps": [
+   {
+    "say": [
+     "爱马闻到萝卜，正冲向村子！请保护村民。"
+    ]
+   },
+   {
+    "exp_action": "steed"
+   }
+  ],
+  "at": [
+   18,
+   15
+  ]
+ },
+ {
+  "id": "dlc_reins",
+  "map": "crown_freezington",
+  "who": "村长",
+  "require": [
+   "dlc_steed"
+  ],
+  "steps": [
+   {
+    "say": [
+     "鬃毛和光辉花瓣能编成牵绊缰绳。拿好它，去王冠神殿找王和爱马。"
+    ]
+   },
+   {
+    "give_item": {
+     "name": "牵绊缰绳",
+     "count": 1,
+     "category": "key"
+    }
+   }
+  ],
+  "at": [
+   11,
+   8
+  ]
+ },
+ {
+  "id": "dlc_king_capture",
+  "map": "crown_peak",
+  "who": "蕾冠王",
+  "require": [
+   "dlc_reins",
+   "g_champion"
+  ],
+  "steps": [
+   {
+    "say": [
+     "在王冠神殿，蕾冠王握紧缰绳，骑上了爱马。它在等待能与它同行的冠军。"
+    ]
+   },
+   {
+    "exp_action": "king_capture"
+   }
+  ],
+  "at": [
+   16,
+   9
+  ]
+ },
+ {
+  "id": "dlc_tree",
+  "map": "crown_tree",
+  "who": "传说的大树",
+  "require": [
+   "dlc_clues"
+  ],
+  "steps": [
+   {
+    "say": [
+     "三只鸟在树冠上争食，被洛托姆的声音惊散了。一只奔向旷野，一只飞去铠岛，最后一只消失在雪原。"
+    ]
+   }
+  ],
+  "at": [
+   20,
+   9
+  ]
+ },
+ {
+  "id": "dlc_articuno",
+  "map": "crown_slope",
+  "who": "急冻鸟",
+  "require": [
+   "dlc_tree"
+  ],
+  "steps": [
+   {
+    "say": [
+     "它落到了你的面前。"
+    ]
+   },
+   {
+    "battle": {
+     "name": "野生宝可梦",
+     "wild": true,
+     "must_catch": true,
+     "team": [
+      {
+       "species": 144,
+       "level": 70,
+       "form": "ARTICUNO_GALAR"
+      }
+     ]
+    }
+   }
+  ],
+  "at": [
+   26,
+   14
+  ]
+ },
+ {
+  "id": "dlc_zapdos",
+  "map": "galar_wild_south",
+  "who": "闪电鸟",
+  "require": [
+   "dlc_tree"
+  ],
+  "steps": [
+   {
+    "say": [
+     "它落到了你的面前。"
+    ]
+   },
+   {
+    "battle": {
+     "name": "野生宝可梦",
+     "wild": true,
+     "must_catch": true,
+     "team": [
+      {
+       "species": 145,
+       "level": 70,
+       "form": "ZAPDOS_GALAR"
+      }
+     ]
+    }
+   }
+  ],
+  "at": [
+   24,
+   13
+  ]
+ },
+ {
+  "id": "dlc_moltres",
+  "map": "armor_fields",
+  "who": "火焰鸟",
+  "require": [
+   "dlc_tree"
+  ],
+  "steps": [
+   {
+    "say": [
+     "它落到了你的面前。"
+    ]
+   },
+   {
+    "battle": {
+     "name": "野生宝可梦",
+     "wild": true,
+     "must_catch": true,
+     "team": [
+      {
+       "species": 146,
+       "level": 70,
+       "form": "MOLTRES_GALAR"
+      }
+     ]
+    }
+   }
+  ],
+  "at": [
+   12,
+   9
+  ]
+ },
+ {
+  "id": "dlc_steel",
+  "map": "crown_bed",
+  "who": "钢铁遗迹",
+  "require": [
+   "dlc_clues"
+  ],
+  "steps": [
+   {
+    "say": [
+     "让响亮的声音唤醒沉睡的钢铁巨人。"
+    ]
+   },
+   {
+    "exp_action": "temple",
+    "kind": "steel"
+   },
+   {
+    "battle": {
+     "name": "野生宝可梦",
+     "wild": true,
+     "must_catch": true,
+     "team": [
+      {
+       "species": 379,
+       "level": 70,
+       "form": ""
+      }
+     ]
+    }
+   }
+  ],
+  "at": [
+   12,
+   12
+  ]
+ },
+ {
+  "id": "dlc_rock",
+  "map": "crown_bed",
+  "who": "岩山遗迹",
+  "require": [
+   "dlc_clues"
+  ],
+  "steps": [
+   {
+    "say": [
+     "让第一只宝可梦握住不变之石。"
+    ]
+   },
+   {
+    "exp_action": "temple",
+    "kind": "rock"
+   },
+   {
+    "battle": {
+     "name": "野生宝可梦",
+     "wild": true,
+     "must_catch": true,
+     "team": [
+      {
+       "species": 377,
+       "level": 70,
+       "form": ""
+      }
+     ]
+    }
+   }
+  ],
+  "at": [
+   26,
+   9
+  ]
+ },
+ {
+  "id": "dlc_ice",
+  "map": "crown_slope",
+  "who": "冰山遗迹",
+  "require": [
+   "dlc_clues"
+  ],
+  "steps": [
+   {
+    "say": [
+     "让雪花般的宝可梦走在队伍最前方。"
+    ]
+   },
+   {
+    "exp_action": "temple",
+    "kind": "ice"
+   },
+   {
+    "battle": {
+     "name": "野生宝可梦",
+     "wild": true,
+     "must_catch": true,
+     "team": [
+      {
+       "species": 378,
+       "level": 70,
+       "form": ""
+      }
+     ]
+    }
+   }
+  ],
+  "at": [
+   21,
+   16
+  ]
+ },
+ {
+  "id": "dlc_split",
+  "map": "crown_ruins",
+  "who": "抉择遗迹",
+  "require": [
+   "dlc_steel",
+   "dlc_rock",
+   "dlc_ice"
+  ],
+  "steps": [
+   {
+    "say": [
+     "带上三位巨人。地板上的灯点成电纹或龙首，决定你遇见的第四位巨人。"
+    ]
+   },
+   {
+    "exp_action": "split"
+   }
+  ],
+  "at": [
+   18,
+   8
+  ]
+ },
+ {
+  "id": "dlc_report",
+  "map": "crown_freezington",
+  "who": "皮欧尼",
+  "require": [
+   "dlc_split",
+   "dlc_articuno",
+   "dlc_moltres",
+   "dlc_zapdos",
+   "dlc_king_capture"
+  ],
+  "steps": [
+   {
+    "say": [
+     "三条线索全解开了！这些调查报告就交给你。这张掉在地上的纸，画的是极巨巢穴里的奇妙生物。"
+    ]
+   }
+  ],
+  "at": [
+   10,
+   14
+  ]
+ },
+ {
+  "id": "dlc_beast",
+  "map": "crown_slope",
+  "who": "巢穴调查员",
+  "require": [
+   "dlc_report"
+  ],
+  "steps": [
+   {
+    "say": [
+     "巢穴里出现了来自异世界的究极气场。借一只伙伴，进去确认传说笔记最后的线索吧。"
+    ]
+   },
+   {
+    "exp_action": "adventure",
+    "beast": true
+   }
+  ],
+  "at": [
+   27,
+   9
+  ]
+ },
+ {
+  "id": "dlc_star_invite",
+  "map": "galar_stadium",
+  "who": "丹帝",
+  "at": [
+   13,
+   9
+  ],
+  "require": [
+   "g_hop_final",
+   "dlc_mustard",
+   "dlc_report"
+  ],
+  "steps": [
+   {
+    "say": [
+     "道馆馆主和道场的大家都来了。选一个伙伴，参加伽勒尔明星赛的三轮双打吧！"
+    ]
+   },
+   {
+    "exp_action": "star"
+   }
+  ]
+ }
+]

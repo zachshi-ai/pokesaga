@@ -1,12 +1,13 @@
 extends RefCounted
 ## The Galar chapter shares a party and boxes with the other regions.
+const Later := preload("res://core/galar_later.gd")
 const Hoenn := preload("res://core/hoenn_campaign.gd")
 const Party := preload("res://core/party.gd")
 const PARTNER_GIFTS := {810:["奇迹种子","MIRACLE_SEED"],813:["木炭","CHARCOAL"],816:["神秘水滴","MYSTIC_WATER"]}
 const STARTERS := [810,813,816]
 const NAMES := ["敲音猴","炎兔儿","泪眼蜥"]
 const STARTER_MOVES := {810:[10,45],813:[33,45],816:[1,45]}
-const RIVAL_MOVES := {810:[10,45,785,269],813:[33,45,52,98],816:[1,45,55,20]}
+const RIVAL_MOVES := {810:[10,45,713,269],813:[33,45,52,98],816:[1,45,55,20]}
 const TOWN_ROOMS := {"galar_hop":"galar_postwick","galar_wedgehurst":"galar_wedgehurst","galar_motostoke":"galar_motostoke","galar_4_":"galar_4","galar_turffield":"galar_turffield"}
 static var book: Dictionary
 static var by_map: Dictionary
@@ -16,6 +17,10 @@ static func data() -> Dictionary:
 		book=JSON.parse_string(FileAccess.get_file_as_string("res://content/galar_campaign.json"))
 		book.swift_species=PackedInt32Array(book.swift_species)
 		for e in book.events+book.get("side_events",[]):by_map.get_or_add(e.map,[]).append(e)
+		var later:=Later.data()
+		for e in later.events+later.side_events:
+			e.galar_later=true
+			by_map.get_or_add(e.map,[]).append(e)
 	return book
 
 static func version(flags: Dictionary) -> String:
@@ -38,7 +43,7 @@ static func event(g,kind: String,ctx: Dictionary) -> Dictionary:
 				break
 	if kind=="talk":
 		for e in by_map.get(mid,[]):
-			if e.id in [ctx.get("actor",""),ctx.get("local_id","")] and active(e,g._flags()):return e
+			if e.id in [ctx.get("actor",""),ctx.get("local_id","")] and active(e,g._flags()):return Later.resolve(e,g._flags())
 	return {}
 
 static func roster(m: Dictionary,flags: Dictionary,rows: Array=[]) -> Array:
@@ -46,8 +51,11 @@ static func roster(m: Dictionary,flags: Dictionary,rows: Array=[]) -> Array:
 	var result: Array=rows.duplicate()
 	if flags.get("g_catching",false):
 		result.append_array(data().get("trainers",{}).get(m.id,[]).duplicate(true))
-	for e in by_map.get(m.id,[]):
-		if not active(e,flags):continue
+	if flags.get("g_badge_1",false):
+		result.append_array(Later.field_data().trainers.get(m.id,[]).duplicate(true))
+	for row in by_map.get(m.id,[]):
+		if not active(row,flags):continue
+		var e:=Later.resolve(row,flags)
 		var cast: Array=[{"name":e.who,"at":e.at}]+e.get("guests",[])
 		for i in cast.size():
 			var actor: Dictionary=cast[i]
@@ -63,6 +71,8 @@ static func gate(target: Dictionary,flags: Dictionary,_current: Dictionary={}) -
 	var mid:=str(target.get("map",""))
 	if mid=="galar_player_home":return ""
 	if not flags.get("g_started",false):return "第一次来伽勒尔，先到化朗镇的家和赫普碰面。"
+	var later_gate:=Later.gate(mid,flags)
+	if not later_gate.is_empty():return later_gate.message
 	var gates: Dictionary=data().gates
 	var key:=mid
 	if mid in ["galar_turffield_pitch","galar_turffield_mission"]:
@@ -79,7 +89,7 @@ static func gate(target: Dictionary,flags: Dictionary,_current: Dictionary={}) -
 
 static func team(cfg: Dictionary,flags: Dictionary) -> Dictionary:
 	var stage:=str(cfg.get("galar_hop",""))
-	if stage.is_empty():return cfg
+	if stage.is_empty():return Later.team(cfg,flags)
 	var result:=cfg.duplicate(true)
 	var index:=maxi(0,STARTERS.find(int(flags.get("g_starter",810))))
 	var species: int=STARTERS[(index+2)%3]
@@ -188,6 +198,7 @@ static func _mist_turn(g,ui,layer: CanvasLayer,fog: ColorRect,ally: Dictionary,t
 	if veil is ColorRect:veil.color.a=0.35
 
 static func prompt(g,act: Dictionary) -> bool:
+	if Later.prompt(g,act):return true
 	if act.has("galar_starter"):
 		if int(g._flags().get("g_starter",0)) in STARTERS:return false
 		_choose_starter(g)
@@ -208,6 +219,7 @@ static func prompt(g,act: Dictionary) -> bool:
 	return true
 
 static func action(g,act: Dictionary) -> void:
+	Later.action(g,act)
 	if act.has("heal") and g.cur_story.get("id","") in ["g_partner","g_hop_first"]:
 		var starter:=partner(g.save_data)
 		if not starter.is_empty():_heal_partner(g,starter)
@@ -232,6 +244,6 @@ static func encounters(mid: String,flags: Dictionary) -> Dictionary:
 	if not mid.begins_with("galar_"):return {}
 	if not flags.get("g_partner",false) or (mid=="galar_weald" and not flags.get("g_hop_first",false)):return {"pool":[],"rate":0.0}
 	var tables: Dictionary=data().get("encounters",{})
-	if not tables.has(mid):return {}
+	if not tables.has(mid):return Later.encounter_data(mid,flags)
 	var field: Dictionary=tables[mid]
 	return {"rate":field.rate,"pool":field.shared+field.get(version(flags),[])}

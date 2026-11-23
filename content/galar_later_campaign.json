@@ -1,0 +1,3500 @@
+{
+ "events": [
+  {
+   "id": "g_bridge_yell",
+   "map": "galar_5",
+   "who": "呐喊队男队员",
+   "at": [
+    20,
+    13
+   ],
+   "guests": [
+    {
+     "name": "医生",
+     "at": [
+      18,
+      14
+     ]
+    },
+    {
+     "name": "呐喊队女队员",
+     "at": [
+      22,
+      14
+     ]
+    }
+   ],
+   "require": [
+    "g_badge_1"
+   ],
+   "steps": [
+    {
+     "who": "呐喊队男队员",
+     "say": [
+      "这车一加速就能超过别的挑战者。先借我们给玛俐助威！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "呐喊队男队员",
+      "galar_team": "route5_5",
+      "prize": 1440
+     }
+    },
+    {
+     "who": "呐喊队女队员",
+     "say": [
+      "一个人拦不住你？那就换我！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "呐喊队女队员",
+      "galar_team": "route5_6",
+      "prize": 1440
+     }
+    },
+    {
+     "who": "医生",
+     "say": [
+      "差点连车都保不住！洛托姆可以附在它的马达上。来，这辆自行车给你。"
+     ]
+    },
+    {
+     "galar_key": "洛托姆自行车"
+    },
+    {
+     "flag": "g_bridge_yell"
+    }
+   ]
+  },
+  {
+   "id": "g_bridge_hop",
+   "map": "galar_5",
+   "who": "赫普",
+   "at": [
+    36,
+    13
+   ],
+   "guests": [],
+   "require": [
+    "g_bridge_yell"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "桥那头就是水舟镇。咱们带着第一枚徽章，再认真打一场！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "赫普",
+      "galar_team": "route5_7",
+      "prize": 1680,
+      "galar_variant": [
+       "route5_7",
+       "route5_8",
+       "route5_9"
+      ]
+     }
+    },
+    {
+     "give_item": {
+      "name": "活力碎片",
+      "category": "heal",
+      "count": 1
+     }
+    },
+    {
+     "flag": "g_bridge_hop"
+    }
+   ]
+  },
+  {
+   "id": "g_hulbury_rose",
+   "map": "galar_hulbury",
+   "who": "洛兹",
+   "at": [
+    12,
+    16
+   ],
+   "guests": [
+    {
+     "name": "奥利薇",
+     "at": [
+      10,
+      20
+     ]
+    },
+    {
+     "name": "彼特",
+     "at": [
+      14,
+      18
+     ]
+    }
+   ],
+   "require": [
+    "g_bridge_hop"
+   ],
+   "steps": [
+    {
+     "who": "洛兹",
+     "say": [
+      "彼特，那些许愿星就拜托你了。啊，你就是丹帝推荐的挑战者？两枚徽章到手时，来防波亭一起吃饭吧。"
+     ]
+    },
+    {
+     "who": "奥利薇",
+     "say": [
+      "会长的时间有限，请先到东边的灯塔找露璃娜。"
+     ]
+    },
+    {
+     "flag": "g_hulbury_rose"
+    }
+   ]
+  },
+  {
+   "id": "g_gym_2_ready",
+   "map": "galar_hulbury",
+   "who": "露璃娜",
+   "at": [
+    20,
+    17
+   ],
+   "guests": [],
+   "require": [
+    "g_hulbury_rose"
+   ],
+   "steps": [
+    {
+     "who": "露璃娜",
+     "say": [
+      "从这里能听见海潮，也能看见竞技场。我的水系队伍在场内等你。"
+     ]
+    },
+    {
+     "galar_card": "露璃娜",
+     "rare": false
+    },
+    {
+     "flag": "g_gym_2_ready"
+    }
+   ]
+  },
+  {
+   "id": "g_dinner",
+   "map": "galar_seafood",
+   "who": "洛兹",
+   "at": [
+    10,
+    6
+   ],
+   "guests": [
+    {
+     "name": "索妮亚",
+     "at": [
+      8,
+      7
+     ]
+    },
+    {
+     "name": "奥利薇",
+     "at": [
+      12,
+      7
+     ]
+    }
+   ],
+   "require": [
+    "g_badge_2"
+   ],
+   "steps": [
+    {
+     "who": "洛兹",
+     "say": [
+      "能量支撑着整座伽勒尔。索妮亚，拳关市的宝物库里有些很旧的挂毯，也许能解答你的疑问。"
+     ]
+    },
+    {
+     "who": "索妮亚",
+     "say": [
+      "那就从记载英雄的挂毯查起。对了，赫普打听到卡芜正在第二矿山训练。"
+     ]
+    },
+    {
+     "galar_machine": 79
+    },
+    {
+     "flag": "g_dinner"
+    }
+   ]
+  },
+  {
+   "id": "g_bede_mine2",
+   "map": "galar_mine2",
+   "who": "彼特",
+   "at": [
+    10,
+    12
+   ],
+   "guests": [],
+   "require": [
+    "g_dinner"
+   ],
+   "steps": [
+    {
+     "who": "彼特",
+     "say": [
+      "会长让我收集许愿星。你的徽章还不足以说明你能与我并肩。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "彼特",
+      "galar_team": "galarmineno_2_0",
+      "prize": 1840
+     }
+    },
+    {
+     "galar_card": "彼特",
+     "rare": false
+    },
+    {
+     "flag": "g_bede_mine2"
+    }
+   ]
+  },
+  {
+   "id": "g_mine_yell",
+   "map": "galar_mine2",
+   "who": "赫普",
+   "at": [
+    24,
+    18
+   ],
+   "guests": [
+    {
+     "name": "呐喊队男队员",
+     "at": [
+      24,
+      19
+     ]
+    },
+    {
+     "name": "呐喊队女队员",
+     "at": [
+      31,
+      19
+     ]
+    }
+   ],
+   "require": [
+    "g_bede_mine2"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "别挡着矿工的路。小悠，这回我们站同一边！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "矿道里的呐喊队",
+      "galar_team": "galarmineno_2_6",
+      "prize": 1760,
+      "double": true,
+      "ally": "galar",
+      "galar_other": "galarmineno_2_7",
+      "galar_allies": [
+       "galarmineno_2_3",
+       "galarmineno_2_4",
+       "galarmineno_2_5"
+      ]
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_mine_yell"
+    }
+   ]
+  },
+  {
+   "id": "g_mine_kabu",
+   "map": "galar_mine2",
+   "who": "卡芜",
+   "at": [
+    36,
+    22
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      34,
+      23
+     ]
+    },
+    {
+     "name": "呐喊队男队员",
+     "at": [
+      38,
+      23
+     ]
+    }
+   ],
+   "require": [
+    "g_mine_yell"
+   ],
+   "steps": [
+    {
+     "who": "卡芜",
+     "say": [
+      "他们已经答应帮受伤的矿工。我先回机擎竞技场。挑战者也需要休息，今晚到旅店住下吧。"
+     ]
+    },
+    {
+     "flag": "g_mine_kabu"
+    }
+   ]
+  },
+  {
+   "id": "g_inn_marnie",
+   "map": "galar_motostoke_inn",
+   "who": "玛俐",
+   "at": [
+    13,
+    8
+   ],
+   "guests": [
+    {
+     "name": "莫鲁贝可",
+     "at": [
+      11,
+      9
+     ]
+    }
+   ],
+   "require": [
+    "g_mine_kabu"
+   ],
+   "steps": [
+    {
+     "who": "玛俐",
+     "say": [
+      "训练了一天，莫鲁贝可还是很有精神。睡前要不要和我打一场？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "玛俐",
+      "galar_team": "motostoke_10",
+      "prize": 2080
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_inn_marnie"
+    }
+   ]
+  },
+  {
+   "id": "g_gym_3_ready",
+   "map": "galar_motostoke_inn",
+   "who": "玛俐",
+   "at": [
+    16,
+    6
+   ],
+   "guests": [
+    {
+     "name": "莫鲁贝可",
+     "at": [
+      14,
+      7
+     ]
+    }
+   ],
+   "require": [
+    "g_inn_marnie"
+   ],
+   "steps": [
+    {
+     "who": "玛俐",
+     "say": [
+      "早上好！我已经拿到火之徽章了。这张是卡芜的联盟卡，带上灼伤药去吧。"
+     ]
+    },
+    {
+     "galar_card": "卡芜",
+     "rare": false
+    },
+    {
+     "give_item": {
+      "name": "灼伤药",
+      "category": "heal",
+      "count": 2
+     }
+    },
+    {
+     "flag": "g_gym_3_ready"
+    }
+   ]
+  },
+  {
+   "id": "g_three_sendoff",
+   "map": "galar_motostoke",
+   "who": "卡芜",
+   "at": [
+    11,
+    20
+   ],
+   "guests": [
+    {
+     "name": "露璃娜",
+     "at": [
+      9,
+      21
+     ]
+    },
+    {
+     "name": "亚洛",
+     "at": [
+      13,
+      21
+     ]
+    },
+    {
+     "name": "赫普",
+     "at": [
+      9,
+      19
+     ]
+    }
+   ],
+   "require": [
+    "g_badge_3"
+   ],
+   "steps": [
+    {
+     "who": "卡芜",
+     "say": [
+      "能通过这里的挑战者已经很少。让我们三个一起，送你们穿过旷野！"
+     ]
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "下一个是拳关市。穿过牙牙湖，走北面的城门！"
+     ]
+    },
+    {
+     "flag": "g_three_sendoff"
+    }
+   ]
+  },
+  {
+   "id": "g_north_bede",
+   "map": "galar_wild_north",
+   "who": "彼特",
+   "at": [
+    17,
+    5
+   ],
+   "guests": [],
+   "require": [
+    "g_three_sendoff"
+   ],
+   "steps": [
+    {
+     "who": "彼特",
+     "say": [
+      "门卫正在数徽章。赫普来挑战我，却连自己的队伍都开始怀疑了。"
+     ]
+    },
+    {
+     "who": "联盟工作人员",
+     "say": [
+      "草、水、火，三枚齐了。欢迎进入拳关市。"
+     ]
+    },
+    {
+     "flag": "g_north_bede"
+    }
+   ]
+  },
+  {
+   "id": "g_hammer_rose",
+   "map": "galar_hammerlocke",
+   "who": "洛兹",
+   "at": [
+    24,
+    16
+   ],
+   "guests": [
+    {
+     "name": "奥利薇",
+     "at": [
+      22,
+      17
+     ]
+    },
+    {
+     "name": "彼特",
+     "at": [
+      26,
+      17
+     ]
+    }
+   ],
+   "require": [
+    "g_north_bede"
+   ],
+   "steps": [
+    {
+     "who": "洛兹",
+     "say": [
+      "竞技场也是座发电厂。这里收集许愿星的能量，供给整个伽勒尔。拿齐七枚徽章之后，才轮到你挑战奇巴纳。"
+     ]
+    },
+    {
+     "flag": "g_hammer_rose"
+    }
+   ]
+  },
+  {
+   "id": "g_vault",
+   "map": "galar_hammerlocke_castle_room",
+   "who": "索妮亚",
+   "at": [
+    7,
+    4
+   ],
+   "guests": [
+    {
+     "name": "奇巴纳",
+     "at": [
+      5,
+      7
+     ]
+    }
+   ],
+   "require": [
+    "g_hammer_rose"
+   ],
+   "steps": [
+    {
+     "who": "奇巴纳",
+     "say": [
+      "宝物库里收藏的可不只是财宝。去看看那些挂毯吧。"
+     ]
+    },
+    {
+     "galar_card": "奇巴纳",
+     "rare": false
+    },
+    {
+     "who": "索妮亚",
+     "say": [
+      "两名少年在许愿星陨落时站了出来，后来戴上了王冠。为什么大家只记得一个英雄？"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "活力碎片",
+      "category": "heal",
+      "count": 2
+     }
+    },
+    {
+     "flag": "g_vault"
+    }
+   ]
+  },
+  {
+   "id": "g_silicobra",
+   "map": "galar_6",
+   "who": "呐喊队男队员",
+   "at": [
+    20,
+    13
+   ],
+   "guests": [
+    {
+     "name": "呐喊队女队员",
+     "at": [
+      18,
+      15
+     ]
+    },
+    {
+     "name": "赫普",
+     "at": [
+      22,
+      14
+     ]
+    },
+    {
+     "name": "波普菈",
+     "at": [
+      18,
+      12
+     ]
+    }
+   ],
+   "require": [
+    "g_vault"
+   ],
+   "steps": [
+    {
+     "who": "呐喊队男队员",
+     "say": [
+      "小声点，沙包蛇正在睡觉！等它自己醒来。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "呐喊队男队员",
+      "galar_team": "route6_0",
+      "prize": 2400
+     }
+    },
+    {
+     "battle": {
+      "name": "呐喊队女队员",
+      "galar_team": "route6_1",
+      "prize": 2400
+     }
+    },
+    {
+     "who": "波普菈",
+     "say": [
+      "这声势倒把沙包蛇叫醒了。去溯传镇吧，看看你还有什么颜色。"
+     ]
+    },
+    {
+     "galar_card": "波普菈",
+     "rare": false
+    },
+    {
+     "flag": "g_silicobra"
+    }
+   ]
+  },
+  {
+   "id": "g_gym_4_ready",
+   "map": "galar_stow",
+   "who": "赫普",
+   "at": [
+    19,
+    13
+   ],
+   "guests": [
+    {
+     "name": "波普菈",
+     "at": [
+      17,
+      15
+     ]
+    }
+   ],
+   "require": [
+    "g_silicobra"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "彼特总说我是给哥哥丢脸。我试着换了一支队伍，到底这样行不行？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "赫普",
+      "galar_team": "sword_hop_12",
+      "prize": 2640,
+      "galar_variant": [
+       "sword_hop_12",
+       "sword_hop_13",
+       "sword_hop_14"
+      ]
+     }
+    },
+    {
+     "who": "波普菈",
+     "say": [
+      "你们各有各的路。把这张馆主的卡收好，溯传竞技场就在前面。"
+     ]
+    },
+    {
+     "galar_card": "@溯传馆主",
+     "rare": false
+    },
+    {
+     "flag": "g_gym_4_ready"
+    }
+   ]
+  },
+  {
+   "id": "g_mural",
+   "map": "galar_stow",
+   "who": "彼特",
+   "at": [
+    22,
+    13
+   ],
+   "guests": [
+    {
+     "name": "索妮亚",
+     "at": [
+      20,
+      14
+     ]
+    },
+    {
+     "name": "洛兹",
+     "at": [
+      24,
+      14
+     ]
+    },
+    {
+     "name": "奥利薇",
+     "at": [
+      19,
+      12
+     ]
+    }
+   ],
+   "require": [
+    "g_badge_4"
+   ],
+   "steps": [
+    {
+     "who": "彼特",
+     "say": [
+      "大王铜象，继续！壁画后面一定还有许愿星，会长需要它们。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "彼特",
+      "galar_team": "sword_bede_2",
+      "prize": 2800
+     }
+    },
+    {
+     "who": "洛兹",
+     "say": [
+      "毁伤历史也要搜集许愿星？彼特，你失去了参加道馆挑战的资格。"
+     ]
+    },
+    {
+     "who": "索妮亚",
+     "say": [
+      "裂开的墙后面……两座人的雕像，还有剑与盾的两只宝可梦。被人遗忘的是它们！"
+     ]
+    },
+    {
+     "flag": "g_mural"
+    }
+   ]
+  },
+  {
+   "id": "g_gym_5_ready",
+   "map": "galar_ballonlea",
+   "who": "波普菈",
+   "at": [
+    20,
+    17
+   ],
+   "guests": [],
+   "require": [
+    "g_mural"
+   ],
+   "steps": [
+    {
+     "who": "波普菈",
+     "say": [
+      "你穿过了迷光森林。进场时留意问题的答案；我想知道谁能接过这间道馆。"
+     ]
+    },
+    {
+     "flag": "g_gym_5_ready"
+    }
+   ]
+  },
+  {
+   "id": "g_pink",
+   "map": "galar_hammerlocke",
+   "who": "波普菈",
+   "at": [
+    15,
+    15
+   ],
+   "guests": [
+    {
+     "name": "彼特",
+     "at": [
+      13,
+      16
+     ]
+    }
+   ],
+   "require": [
+    "g_badge_5"
+   ],
+   "steps": [
+    {
+     "who": "彼特",
+     "say": [
+      "我还要见会长，重新证明自己的价值。"
+     ]
+    },
+    {
+     "who": "波普菈",
+     "say": [
+      "粉红色！就是这种毫不退让的粉红色！孩子，来舞姿镇当我的继承人。"
+     ]
+    },
+    {
+     "flag": "g_pink"
+    }
+   ]
+  },
+  {
+   "id": "g_hammer_tremor",
+   "map": "galar_hammerlocke",
+   "who": "索妮亚",
+   "at": [
+    27,
+    16
+   ],
+   "guests": [
+    {
+     "name": "丹帝",
+     "at": [
+      25,
+      17
+     ]
+    }
+   ],
+   "require": [
+    "g_pink"
+   ],
+   "steps": [
+    {
+     "who": "索妮亚",
+     "say": [
+      "听见了吗？墙后传来了轰鸣。那不是比赛的声音。"
+     ]
+    },
+    {
+     "who": "丹帝",
+     "say": [
+      "调查能源工厂交给我。你们去七号道路，继续道馆挑战！"
+     ]
+    },
+    {
+     "flag": "g_hammer_tremor"
+    }
+   ]
+  },
+  {
+   "id": "g_hop_seven",
+   "map": "galar_7",
+   "who": "赫普",
+   "at": [
+    33,
+    12
+   ],
+   "guests": [],
+   "require": [
+    "g_hammer_tremor"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "我终于知道盲目换队帮不了我。来见见我找回状态的伙伴！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "赫普",
+      "galar_team": "route7_0",
+      "prize": 2960,
+      "galar_variant": [
+       "route7_0",
+       "route7_1",
+       "route7_2"
+      ]
+     }
+    },
+    {
+     "flag": "g_hop_seven"
+    }
+   ]
+  },
+  {
+   "id": "g_gym_6_ready",
+   "map": "galar_circhester",
+   "who": "赫普",
+   "at": [
+    17,
+    16
+   ],
+   "guests": [],
+   "require": [
+    "g_hop_seven"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "输了！我明明已经想出了战术。这张馆主的卡给你，你先去试试！"
+     ]
+    },
+    {
+     "galar_card": "@战竞馆主",
+     "rare": false
+    },
+    {
+     "flag": "g_gym_6_ready"
+    }
+   ]
+  },
+  {
+   "id": "g_bob",
+   "map": "galar_circhester_grill",
+   "who": "索妮亚",
+   "at": [
+    10,
+    6
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      8,
+      7
+     ]
+    }
+   ],
+   "require": [
+    "g_badge_6"
+   ],
+   "steps": [
+    {
+     "who": "索妮亚",
+     "say": [
+      "牛排馆墙上还有一幅挂毯。两位英雄把剑和盾收在身边，那两只宝可梦后来去了哪里？"
+     ]
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "来英雄之浴看看。这回让我的老伙伴上场。"
+     ]
+    },
+    {
+     "flag": "g_bob"
+    }
+   ]
+  },
+  {
+   "id": "g_hero_bath",
+   "map": "galar_circhester",
+   "who": "赫普",
+   "at": [
+    14,
+    17
+   ],
+   "guests": [
+    {
+     "name": "索妮亚",
+     "at": [
+      12,
+      18
+     ]
+    }
+   ],
+   "require": [
+    "g_bob"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "毛辫羊从出门那天起就跟着我。现在是毛毛角羊了，正好再和你比一场。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "赫普",
+      "galar_team": "circhester_0",
+      "prize": 3280,
+      "galar_variant": [
+       "circhester_0",
+       "circhester_1",
+       "circhester_2"
+      ]
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_hero_bath"
+    }
+   ]
+  },
+  {
+   "id": "g_water_bike",
+   "map": "galar_9",
+   "who": "医生",
+   "at": [
+    17,
+    14
+   ],
+   "guests": [
+    {
+     "name": "呐喊队男队员",
+     "at": [
+      15,
+      14
+     ]
+    },
+    {
+     "name": "呐喊队女队员",
+     "at": [
+      19,
+      14
+     ]
+    }
+   ],
+   "require": [
+    "g_hero_bath"
+   ],
+   "steps": [
+    {
+     "who": "呐喊队男队员",
+     "say": [
+      "没看到这里的龟脚脚要带我们横渡吗？别来搅局！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "呐喊队男队员",
+      "galar_team": "route9_2",
+      "prize": 3200
+     }
+    },
+    {
+     "who": "医生",
+     "say": [
+      "又是你救了我。这一对浮囊装好后，洛托姆自行车就能直接驶进水里。"
+     ]
+    },
+    {
+     "galar_water_bike": true
+    },
+    {
+     "flag": "g_water_bike"
+    }
+   ]
+  },
+  {
+   "id": "g_gym_7_ready",
+   "map": "galar_circhester_bay",
+   "who": "玛俐",
+   "at": [
+    18,
+    16
+   ],
+   "guests": [
+    {
+     "name": "莫鲁贝可",
+     "at": [
+      16,
+      17
+     ]
+    }
+   ],
+   "require": [
+    "g_water_bike"
+   ],
+   "steps": [
+    {
+     "who": "玛俐",
+     "say": [
+      "呐喊队把大门封了。我知道沿岸的小路，先和我打一场再带你进去。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "玛俐",
+      "galar_team": "route9_12",
+      "prize": 3520
+     }
+    },
+    {
+     "galar_card": "聂梓",
+     "rare": false
+    },
+    {
+     "flag": "g_gym_7_ready"
+    }
+   ]
+  },
+  {
+   "id": "g_tunnel_blast",
+   "map": "galar_tunnel",
+   "who": "丹帝",
+   "at": [
+    21,
+    14
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      19,
+      15
+     ]
+    },
+    {
+     "name": "聂梓",
+     "at": [
+      22,
+      15
+     ]
+    }
+   ],
+   "require": [
+    "g_badge_7"
+   ],
+   "steps": [
+    {
+     "who": "丹帝",
+     "say": [
+      "隧道口那只喵头目突然极巨化了。我已经让它平静下来，但这里原本没有能量点。"
+     ]
+    },
+    {
+     "who": "聂梓",
+     "say": [
+      "我的竞技场也一直没有能量点。城门另一边暂时安全，先去拳关市吧。"
+     ]
+    },
+    {
+     "flag": "g_tunnel_blast"
+    }
+   ]
+  },
+  {
+   "id": "g_gym_8_ready",
+   "map": "galar_hammerlocke",
+   "who": "索妮亚",
+   "at": [
+    23,
+    15
+   ],
+   "guests": [
+    {
+     "name": "丹帝",
+     "at": [
+      21,
+      16
+     ]
+    },
+    {
+     "name": "木兰博士",
+     "at": [
+      25,
+      16
+     ]
+    },
+    {
+     "name": "赫普",
+     "at": [
+      20,
+      14
+     ]
+    }
+   ],
+   "require": [
+    "g_tunnel_blast"
+   ],
+   "steps": [
+    {
+     "who": "木兰博士",
+     "say": [
+      "许愿星和突然喷涌的红光一定有关。索妮亚，你已经找到自己的研究方向了。"
+     ]
+    },
+    {
+     "who": "丹帝",
+     "say": [
+      "最后一枚徽章在奇巴纳那里。去吧，冠军杯等着你！"
+     ]
+    },
+    {
+     "flag": "g_gym_8_ready"
+    }
+   ]
+  },
+  {
+   "id": "g_professor_sonia",
+   "map": "galar_hammerlocke",
+   "who": "木兰博士",
+   "at": [
+    23,
+    15
+   ],
+   "guests": [
+    {
+     "name": "索妮亚",
+     "at": [
+      21,
+      16
+     ]
+    }
+   ],
+   "require": [
+    "g_badge_8"
+   ],
+   "steps": [
+    {
+     "who": "木兰博士",
+     "say": [
+      "索妮亚，把这件白大褂穿上吧。沿途的发现，都是你自己的研究。"
+     ]
+    },
+    {
+     "who": "索妮亚",
+     "say": [
+      "谢谢奶奶。小悠，每次要摸清英雄的线索，你都在。下一段路请带着八枚徽章去宫门！"
+     ]
+    },
+    {
+     "flag": "g_professor_sonia"
+    }
+   ]
+  },
+  {
+   "id": "g_train_wyndon",
+   "map": "galar_hammerlocke_station_room",
+   "who": "赫普",
+   "at": [
+    5,
+    7
+   ],
+   "guests": [
+    {
+     "name": "奇巴纳",
+     "at": [
+      3,
+      8
+     ]
+    }
+   ],
+   "require": [
+    "g_professor_sonia"
+   ],
+   "steps": [
+    {
+     "who": "奇巴纳",
+     "say": [
+      "八枚徽章都镶上了。列车会把你们送到十号道路的白丘车站，从雪坡往北就是宫门市。"
+     ]
+    },
+    {
+     "flag": "g_train_wyndon"
+    },
+    {
+     "galar_train": "galar_10"
+    },
+    {
+     "flag": "g_train_wyndon"
+    }
+   ]
+  },
+  {
+   "id": "g_wyndon_arrival",
+   "map": "galar_wyndon",
+   "who": "赫普",
+   "at": [
+    17,
+    14
+   ],
+   "guests": [],
+   "require": [
+    "g_train_wyndon"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "那就是宫门竞技场。半决赛要由挑战者争夺最后的参赛资格，我们场内见！"
+     ]
+    },
+    {
+     "flag": "g_wyndon_arrival"
+    }
+   ]
+  },
+  {
+   "id": "g_semi_marnie",
+   "map": "galar_stadium",
+   "who": "玛俐",
+   "at": [
+    14,
+    7
+   ],
+   "guests": [
+    {
+     "name": "聂梓",
+     "at": [
+      12,
+      8
+     ]
+    }
+   ],
+   "require": [
+    "g_wyndon_arrival"
+   ],
+   "steps": [
+    {
+     "who": "玛俐",
+     "say": [
+      "尖钉镇的大家都在看。莫鲁贝可，我们走到这里可不只是为了给别人加油！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "玛俐",
+      "galar_team": "sword_championcup_0",
+      "prize": 3920,
+      "galar_power_spot": true
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_semi_marnie"
+    }
+   ]
+  },
+  {
+   "id": "g_semi_hop",
+   "map": "galar_stadium",
+   "who": "赫普",
+   "at": [
+    14,
+    7
+   ],
+   "guests": [
+    {
+     "name": "丹帝",
+     "at": [
+      12,
+      8
+     ]
+    }
+   ],
+   "require": [
+    "g_semi_marnie"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "我们的第一场对战是在化朗镇的院子。今天真正的比赛场，就是这里！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "赫普",
+      "galar_team": "sword_championcup_1",
+      "prize": 3920,
+      "galar_power_spot": true,
+      "galar_ordinary_max": true,
+      "galar_variant": [
+       "sword_championcup_1",
+       "sword_championcup_2",
+       "sword_championcup_3"
+      ]
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_semi_hop"
+    }
+   ]
+  },
+  {
+   "id": "g_missing_leon",
+   "map": "galar_wyndon_hotel_room",
+   "who": "聂梓",
+   "at": [
+    6,
+    5
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      4,
+      6
+     ]
+    },
+    {
+     "name": "玛俐",
+     "at": [
+      9,
+      6
+     ]
+    }
+   ],
+   "require": [
+    "g_semi_hop"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "哥哥说好来旅馆吃饭，一直到现在都没来。"
+     ]
+    },
+    {
+     "who": "聂梓",
+     "say": [
+      "他和洛兹去了大厦。奥利薇把单轨车的钥匙交给戴墨镜的职员，去广场找。"
+     ]
+    },
+    {
+     "flag": "g_missing_leon"
+    }
+   ]
+  },
+  {
+   "id": "g_staff_1",
+   "map": "galar_wyndon",
+   "who": "马洛科蒙职员",
+   "at": [
+    16,
+    17
+   ],
+   "guests": [
+    {
+     "name": "玛俐",
+     "at": [
+      11,
+      18
+     ]
+    },
+    {
+     "name": "赫普",
+     "at": [
+      17,
+      18
+     ]
+    }
+   ],
+   "require": [
+    "g_missing_leon"
+   ],
+   "steps": [
+    {
+     "who": "马洛科蒙职员",
+     "say": [
+      "藏在街边也会被你找到？钥匙可不能给你。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "马洛科蒙职员",
+      "galar_team": "wyndon_2",
+      "prize": 3760
+     }
+    },
+    {
+     "flag": "g_staff_1"
+    }
+   ]
+  },
+  {
+   "id": "g_staff_2",
+   "map": "galar_wyndon",
+   "who": "马洛科蒙职员",
+   "at": [
+    23,
+    18
+   ],
+   "guests": [
+    {
+     "name": "玛俐",
+     "at": [
+      21,
+      18
+     ]
+    },
+    {
+     "name": "赫普",
+     "at": [
+      25,
+      18
+     ]
+    }
+   ],
+   "require": [
+    "g_staff_1"
+   ],
+   "steps": [
+    {
+     "who": "马洛科蒙职员",
+     "say": [
+      "喷泉边这么多人，你还是追上来了。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "马洛科蒙职员",
+      "galar_team": "wyndon_3",
+      "prize": 3760
+     }
+    },
+    {
+     "flag": "g_staff_2"
+    }
+   ]
+  },
+  {
+   "id": "g_staff_3",
+   "map": "galar_wyndon",
+   "who": "马洛科蒙职员",
+   "at": [
+    12,
+    14
+   ],
+   "guests": [
+    {
+     "name": "玛俐",
+     "at": [
+      10,
+      15
+     ]
+    },
+    {
+     "name": "赫普",
+     "at": [
+      15,
+      15
+     ]
+    }
+   ],
+   "require": [
+    "g_staff_2"
+   ],
+   "steps": [
+    {
+     "who": "马洛科蒙职员",
+     "say": [
+      "连电话亭也藏不住了……来最后一场！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "马洛科蒙职员",
+      "galar_team": "wyndon_4",
+      "prize": 3760
+     }
+    },
+    {
+     "galar_key": "单轨列车钥匙"
+    },
+    {
+     "who": "聂梓",
+     "say": [
+      "听见呐喊队的伴奏了吗？趁现在，上单轨列车！"
+     ]
+    },
+    {
+     "flag": "g_staff_3"
+    }
+   ]
+  },
+  {
+   "id": "g_tower_doorman",
+   "map": "galar_rose",
+   "who": "马洛科蒙职员",
+   "at": [
+    11,
+    9
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      9,
+      10
+     ]
+    }
+   ],
+   "require": [
+    "g_staff_3"
+   ],
+   "steps": [
+    {
+     "who": "马洛科蒙职员",
+     "say": [
+      "没有预约不能上楼。这座塔上面可有最重要的客人。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "大厦门卫",
+      "galar_team": "rosetower_0",
+      "prize": 3840
+     }
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "电梯开了，一起上去！"
+     ]
+    },
+    {
+     "flag": "g_tower_doorman"
+    }
+   ]
+  },
+  {
+   "id": "g_lift_1",
+   "map": "galar_rose_lift",
+   "who": "马洛科蒙职员",
+   "at": [
+    8,
+    7
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      6,
+      8
+     ]
+    },
+    {
+     "name": "大厦同事",
+     "at": [
+      10,
+      8
+     ]
+    }
+   ],
+   "require": [
+    "g_tower_doorman"
+   ],
+   "steps": [
+    {
+     "who": "马洛科蒙职员",
+     "say": [
+      "电梯暂时停在下层，请两位回去。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "马洛科蒙职员",
+      "galar_team": "rosetower_4",
+      "prize": 3840,
+      "double": true,
+      "ally": "galar",
+      "galar_other": "rosetower_5",
+      "galar_allies": [
+       "rosetower_1",
+       "rosetower_2",
+       "rosetower_3"
+      ]
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_lift_1"
+    }
+   ]
+  },
+  {
+   "id": "g_lift_2",
+   "map": "galar_rose_lift",
+   "who": "马洛科蒙职员",
+   "at": [
+    8,
+    7
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      6,
+      8
+     ]
+    },
+    {
+     "name": "大厦同事",
+     "at": [
+      10,
+      8
+     ]
+    }
+   ],
+   "require": [
+    "g_lift_1"
+   ],
+   "steps": [
+    {
+     "who": "马洛科蒙职员",
+     "say": [
+      "这一层也得检查。上面正在谈大事！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "马洛科蒙职员",
+      "galar_team": "rosetower_6",
+      "prize": 3840,
+      "double": true,
+      "ally": "galar",
+      "galar_other": "rosetower_7",
+      "galar_allies": [
+       "rosetower_1",
+       "rosetower_2",
+       "rosetower_3"
+      ]
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_lift_2"
+    }
+   ]
+  },
+  {
+   "id": "g_lift_3",
+   "map": "galar_rose_lift",
+   "who": "马洛科蒙职员",
+   "at": [
+    8,
+    7
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      6,
+      8
+     ]
+    },
+    {
+     "name": "大厦同事",
+     "at": [
+      10,
+      8
+     ]
+    }
+   ],
+   "require": [
+    "g_lift_2"
+   ],
+   "steps": [
+    {
+     "who": "马洛科蒙职员",
+     "say": [
+      "到达顶层之前，这是最后一道检查。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "马洛科蒙职员",
+      "galar_team": "rosetower_8",
+      "prize": 3920,
+      "double": true,
+      "ally": "galar",
+      "galar_other": "rosetower_9",
+      "galar_allies": [
+       "rosetower_1",
+       "rosetower_2",
+       "rosetower_3"
+      ]
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_lift_3"
+    }
+   ]
+  },
+  {
+   "id": "g_oleana",
+   "map": "galar_rose_suite",
+   "who": "奥利薇",
+   "at": [
+    10,
+    6
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      8,
+      7
+     ]
+    }
+   ],
+   "require": [
+    "g_lift_3"
+   ],
+   "steps": [
+    {
+     "who": "奥利薇",
+     "say": [
+      "会长有比你们的比赛更重要的事。你们再往前一步，我可不会客气。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "奥利薇",
+      "galar_team": "rosetower_10",
+      "prize": 4160,
+      "galar_power_spot": true
+     }
+    },
+    {
+     "who": "洛兹",
+     "say": [
+      "一千年后伽勒尔的能源将会用尽。冠军，为什么一定要等比赛结束？"
+     ]
+    },
+    {
+     "who": "丹帝",
+     "say": [
+      "我答应协助调查。可我也答应了观众，明天会出现在竞技场。"
+     ]
+    },
+    {
+     "flag": "g_oleana"
+    }
+   ]
+  },
+  {
+   "id": "g_final_bede",
+   "map": "galar_stadium",
+   "who": "彼特",
+   "at": [
+    15,
+    7
+   ],
+   "guests": [
+    {
+     "name": "波普菈",
+     "at": [
+      13,
+      8
+     ]
+    }
+   ],
+   "require": [
+    "g_oleana"
+   ],
+   "steps": [
+    {
+     "who": "彼特",
+     "say": [
+      "我已经不再是会长的挑战者。作为妖精道馆的新馆主，让我在这里重新介绍自己！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "彼特",
+      "galar_team": "sword_championcup_4",
+      "prize": 4240,
+      "galar_power_spot": true
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_final_bede"
+    }
+   ]
+  },
+  {
+   "id": "g_final_nessa",
+   "map": "galar_stadium",
+   "who": "露璃娜",
+   "at": [
+    15,
+    7
+   ],
+   "guests": [],
+   "require": [
+    "g_final_bede"
+   ],
+   "steps": [
+    {
+     "who": "露璃娜",
+     "say": [
+      "这一次，浪潮会把你带到哪里？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "露璃娜",
+      "galar_team": "sword_championcup_5",
+      "prize": 4240,
+      "galar_power_spot": true
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_final_nessa"
+    }
+   ]
+  },
+  {
+   "id": "g_final_version",
+   "map": "galar_stadium",
+   "who": "@溯传馆主",
+   "at": [
+    15,
+    7
+   ],
+   "guests": [],
+   "require": [
+    "g_final_nessa"
+   ],
+   "steps": [
+    {
+     "who": "@溯传馆主",
+     "say": [
+      "我们在溯传交过手。看看离开那里之后，你变强了多少。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "@溯传馆主",
+      "galar_team": "sword_championcup_6",
+      "prize": 4320,
+      "galar_power_spot": true,
+      "galar_shield_team": "sword_championcup_7"
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_final_version"
+    }
+   ]
+  },
+  {
+   "id": "g_final_raihan",
+   "map": "galar_stadium",
+   "who": "奇巴纳",
+   "at": [
+    15,
+    7
+   ],
+   "guests": [],
+   "require": [
+    "g_final_version"
+   ],
+   "steps": [
+    {
+     "who": "奇巴纳",
+     "say": [
+      "天气也好，场馆里的风也好，全在我的计划里！这一场决定谁能挑战丹帝。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "奇巴纳",
+      "galar_team": "sword_championcup_8",
+      "prize": 4400,
+      "galar_power_spot": true
+     }
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_final_raihan"
+    }
+   ]
+  },
+  {
+   "id": "g_dark_day",
+   "map": "galar_stadium",
+   "who": "丹帝",
+   "at": [
+    15,
+    7
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      13,
+      8
+     ]
+    }
+   ],
+   "require": [
+    "g_final_raihan"
+   ],
+   "steps": [
+    {
+     "who": "丹帝",
+     "say": [
+      "终于等到和你在冠军战相遇。等等，那块大屏幕……"
+     ]
+    },
+    {
+     "who": "洛兹",
+     "say": [
+      "为了让能源永不枯竭，我已经启动了让许愿星释放能量的计划。"
+     ]
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "天空变红了！哥哥去拦洛兹，我们回微寐森林找传说中的伙伴。"
+     ]
+    },
+    {
+     "flag": "g_dark_day"
+    }
+   ]
+  },
+  {
+   "id": "g_woods_call",
+   "map": "galar_weald",
+   "who": "索妮亚",
+   "at": [
+    13,
+    18
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      11,
+      19
+     ]
+    }
+   ],
+   "require": [
+    "g_dark_day"
+   ],
+   "steps": [
+    {
+     "who": "索妮亚",
+     "say": [
+      "你们初次在雾里看到的宝可梦，也许还在林子深处。听，远处有叫声！"
+     ]
+    },
+    {
+     "flag": "g_woods_call"
+    }
+   ]
+  },
+  {
+   "id": "g_rusted_relic",
+   "map": "galar_weald_altar",
+   "who": "赫普",
+   "at": [
+    12,
+    8
+   ],
+   "guests": [
+    {
+     "name": "苍响",
+     "at": [
+      10,
+      9
+     ]
+    },
+    {
+     "name": "藏玛然特",
+     "at": [
+      14,
+      9
+     ]
+    }
+   ],
+   "require": [
+    "g_woods_call"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "它们没有丢下我们。看，石台上锈蚀的剑和盾！我们一人带一件，赶回拳关。"
+     ]
+    },
+    {
+     "galar_relic": true
+    },
+    {
+     "flag": "g_rusted_relic"
+    }
+   ]
+  },
+  {
+   "id": "g_plant_open",
+   "map": "galar_hammerlocke",
+   "who": "奥利薇",
+   "at": [
+    24,
+    15
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      22,
+      16
+     ]
+    }
+   ],
+   "require": [
+    "g_rusted_relic"
+   ],
+   "steps": [
+    {
+     "who": "奥利薇",
+     "say": [
+      "求求你们！会长就在能源工厂，可无极汰那已经不听指挥。请搭拳关竞技场里的升降机下去！"
+     ]
+    },
+    {
+     "flag": "g_plant_open"
+    }
+   ]
+  },
+  {
+   "id": "g_rose",
+   "map": "galar_energy_plant",
+   "who": "洛兹",
+   "at": [
+    15,
+    8
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      13,
+      9
+     ]
+    }
+   ],
+   "require": [
+    "g_plant_open"
+   ],
+   "steps": [
+    {
+     "who": "洛兹",
+     "say": [
+      "等到燃料耗尽才行动就来不及了。我必须为伽勒尔争取未来。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "洛兹",
+      "galar_team": "energyplant_0",
+      "prize": 4560,
+      "galar_power_spot": true
+     }
+    },
+    {
+     "who": "洛兹",
+     "say": [
+      "我的计划错了。无极汰那飞上塔顶，冠军正在追它。电梯在那里！"
+     ]
+    },
+    {
+     "flag": "g_rose"
+    }
+   ]
+  },
+  {
+   "id": "g_eternatus",
+   "map": "galar_tower_summit",
+   "who": "丹帝",
+   "at": [
+    14,
+    9
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      12,
+      10
+     ]
+    }
+   ],
+   "require": [
+    "g_rose"
+   ],
+   "steps": [
+    {
+     "who": "丹帝",
+     "say": [
+      "我会保护伽勒尔。精灵球，去吧！……碎了！小心！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "无极汰那",
+      "team": [
+       {
+        "species": 890,
+        "level": 60,
+        "moves": [
+         690,
+         406,
+         53,
+         440
+        ]
+       }
+      ],
+      "prize": 0
+     }
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "能量还在聚集，它的身体变得比整座塔都大了！"
+     ]
+    },
+    {
+     "flag": "g_eternatus"
+    }
+   ]
+  },
+  {
+   "id": "g_eternamax",
+   "map": "galar_tower_summit",
+   "who": "赫普",
+   "at": [
+    14,
+    9
+   ],
+   "guests": [],
+   "require": [
+    "g_eternatus"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "招式消失在红光里了！小悠，现在拿出腐朽的剑和盾！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "无极巨化无极汰那",
+      "id": "g_eternamax",
+      "galar_raid": "eternamax",
+      "galar_power_spot": true,
+      "team": [
+       {
+        "species": 890,
+        "form": "ETERNATUS_ETERNAMAX",
+        "level": 60,
+        "moves": [
+         690,
+         406,
+         53,
+         440
+        ]
+       }
+      ],
+      "prize": 0
+     }
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "苍响和藏玛然特帮我们压住了能量。趁现在，投球！"
+     ]
+    },
+    {
+     "flag": "g_eternamax"
+    }
+   ]
+  },
+  {
+   "id": "g_eternatus_caught",
+   "map": "galar_tower_summit",
+   "who": "赫普",
+   "at": [
+    14,
+    9
+   ],
+   "guests": [
+    {
+     "name": "丹帝",
+     "at": [
+      12,
+      10
+     ]
+    }
+   ],
+   "require": [
+    "g_eternamax"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "你带的精灵球都在这里。无极汰那已经收住力量了。"
+     ]
+    },
+    {
+     "galar_eternatus_ball": true
+    },
+    {
+     "who": "丹帝",
+     "say": [
+      "闇夜结束了。洛兹已经自首，等大家休息三天，就回宫门竞技场继续那场约定的决赛。"
+     ]
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_eternatus_caught"
+    }
+   ]
+  },
+  {
+   "id": "g_champion",
+   "map": "galar_stadium",
+   "who": "丹帝",
+   "at": [
+    15,
+    7
+   ],
+   "guests": [],
+   "require": [
+    "g_eternatus_caught"
+   ],
+   "steps": [
+    {
+     "who": "丹帝",
+     "say": [
+      "今天由我们两队自己决定伽勒尔的冠军。喷火龙，这一次要使出全力！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "丹帝",
+      "galar_team": "sword_championcup_9",
+      "prize": 5200,
+      "galar_power_spot": true,
+      "galar_variant": [
+       "sword_championcup_9",
+       "sword_championcup_10",
+       "sword_championcup_11"
+      ]
+     }
+    },
+    {
+     "who": "丹帝",
+     "say": [
+      "从化朗镇的院子到这座竞技场……你和伙伴们赢得了冠军的称号！"
+     ]
+    },
+    {
+     "galar_hall": true
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_champion"
+    }
+   ]
+  },
+  {
+   "id": "g_master_ball",
+   "map": "galar_player_home",
+   "who": "木兰博士",
+   "at": [
+    5,
+    5
+   ],
+   "guests": [
+    {
+     "name": "妈妈",
+     "at": [
+      3,
+      5
+     ]
+    }
+   ],
+   "require": [
+    "g_champion"
+   ],
+   "steps": [
+    {
+     "who": "木兰博士",
+     "say": [
+      "从前是我建议会长利用许愿星。谢谢你和伙伴守住了伽勒尔。这颗大师球能捕获任何野生宝可梦。"
+     ]
+    },
+    {
+     "give_item": {
+      "name": "大师球",
+      "category": "ball",
+      "count": 1
+     }
+    },
+    {
+     "flag": "g_master_ball"
+    }
+   ]
+  },
+  {
+   "id": "g_hop_altar",
+   "map": "galar_weald_altar",
+   "who": "赫普",
+   "at": [
+    12,
+    8
+   ],
+   "guests": [
+    {
+     "name": "索妮亚",
+     "at": [
+      10,
+      9
+     ]
+    }
+   ],
+   "require": [
+    "g_master_ball"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "我们第一次进森林时什么也不知道。一转眼，你就成了冠军。能和现在的你打一场吗？"
+     ]
+    },
+    {
+     "battle": {
+      "name": "赫普",
+      "galar_team": "slumberingweald_0",
+      "prize": 4800,
+      "galar_variant": [
+       "slumberingweald_0",
+       "slumberingweald_1",
+       "slumberingweald_2"
+      ]
+     }
+    },
+    {
+     "who": "索妮亚",
+     "say": [
+      "我的研究终于写成书了，送你一本。我们把借来的剑盾还给那两位英雄吧。"
+     ]
+    },
+    {
+     "galar_key": "索妮亚的书"
+    },
+    {
+     "galar_return_relic": true
+    },
+    {
+     "flag": "g_hop_altar"
+    }
+   ]
+  },
+  {
+   "id": "g_royal_thieves",
+   "map": "galar_weald_altar",
+   "who": "@贵族",
+   "at": [
+    12,
+    8
+   ],
+   "guests": [
+    {
+     "name": "@兄弟",
+     "at": [
+      10,
+      9
+     ]
+    },
+    {
+     "name": "赫普",
+     "at": [
+      14,
+      9
+     ]
+    },
+    {
+     "name": "索妮亚",
+     "at": [
+      10,
+      7
+     ]
+    }
+   ],
+   "require": [
+    "g_hop_altar"
+   ],
+   "steps": [
+    {
+     "who": "@贵族",
+     "say": [
+      "竟有人把这种书当历史？我们才是古代王族的后人！这对剑盾理应归我们。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "@贵族",
+      "galar_team": "slumberingweald_3",
+      "prize": 4800,
+      "galar_shield_team": "slumberingweald_4"
+     }
+    },
+    {
+     "galar_relic": true
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "我没守住另一件……他拿走了！我得追上去。"
+     ]
+    },
+    {
+     "flag": "g_royal_thieves"
+    }
+   ]
+  },
+  {
+   "id": "g_lab_alarm",
+   "map": "galar_wedgehurst_lab_room",
+   "who": "索妮亚",
+   "at": [
+    6,
+    6
+   ],
+   "guests": [
+    {
+     "name": "女助手",
+     "at": [
+      4,
+      7
+     ]
+    }
+   ],
+   "require": [
+    "g_royal_thieves"
+   ],
+   "steps": [
+    {
+     "who": "索妮亚",
+     "say": [
+      "能量点探测器在没有比赛的草路竞技场亮起来了。先到那里，看是谁在释放能量。"
+     ]
+    },
+    {
+     "flag": "g_lab_alarm"
+    }
+   ]
+  },
+  {
+   "id": "g_raid_grass",
+   "map": "galar_turffield_pitch",
+   "who": "亚洛",
+   "at": [
+    12,
+    12
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      10,
+      13
+     ]
+    },
+    {
+     "name": "聂梓",
+     "at": [
+      14,
+      13
+     ]
+    }
+   ],
+   "require": [
+    "g_lab_alarm"
+   ],
+   "steps": [
+    {
+     "who": "亚洛",
+     "say": [
+      "大家已经撤离。我们四个一起，让甜冷美后平静下来！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "暴走的极巨化宝可梦",
+      "id": "g_raid_763",
+      "galar_raid": "stadium",
+      "galar_power_spot": true,
+      "galar_team": "sword_sordwardshielbert_2"
+     }
+    },
+    {
+     "galar_card": "亚洛",
+     "rare": true
+    },
+    {
+     "who": "索妮亚",
+     "say": [
+      "水舟和机擎也有反应。顺序由你决定，我在研究所继续追踪。"
+     ]
+    },
+    {
+     "flag": "g_raid_grass"
+    }
+   ]
+  },
+  {
+   "id": "g_raid_water",
+   "map": "galar_gym_2_pitch",
+   "who": "露璃娜",
+   "at": [
+    12,
+    14
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      10,
+      15
+     ]
+    },
+    {
+     "name": "聂梓",
+     "at": [
+      14,
+      15
+     ]
+    }
+   ],
+   "require": [
+    "g_raid_grass"
+   ],
+   "steps": [
+    {
+     "who": "露璃娜",
+     "say": [
+      "场内的宝可梦突然膨胀起来了。帮忙引开它的注意，我来保护出口。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "暴走的极巨化宝可梦",
+      "id": "g_raid_130",
+      "galar_raid": "stadium",
+      "galar_power_spot": true,
+      "galar_team": "sword_sordwardshielbert_3"
+     }
+    },
+    {
+     "galar_card": "露璃娜",
+     "rare": true
+    },
+    {
+     "flag": "g_raid_water"
+    }
+   ]
+  },
+  {
+   "id": "g_raid_fire",
+   "map": "galar_gym_3_pitch",
+   "who": "卡芜",
+   "at": [
+    12,
+    14
+   ],
+   "guests": [
+    {
+     "name": "赫普",
+     "at": [
+      10,
+      15
+     ]
+    },
+    {
+     "name": "聂梓",
+     "at": [
+      14,
+      15
+     ]
+    }
+   ],
+   "require": [
+    "g_raid_grass"
+   ],
+   "steps": [
+    {
+     "who": "卡芜",
+     "say": [
+      "场内的宝可梦突然膨胀起来了。帮忙引开它的注意，我来保护出口。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "暴走的极巨化宝可梦",
+      "id": "g_raid_324",
+      "galar_raid": "stadium",
+      "galar_power_spot": true,
+      "galar_team": "sword_sordwardshielbert_4"
+     }
+    },
+    {
+     "galar_card": "卡芜",
+     "rare": true
+    },
+    {
+     "flag": "g_raid_fire"
+    }
+   ]
+  },
+  {
+   "id": "g_lab_theft",
+   "map": "galar_wedgehurst_lab_room",
+   "who": "@贵族",
+   "at": [
+    7,
+    6
+   ],
+   "guests": [
+    {
+     "name": "@兄弟",
+     "at": [
+      5,
+      7
+     ]
+    },
+    {
+     "name": "赫普",
+     "at": [
+      9,
+      7
+     ]
+    },
+    {
+     "name": "索妮亚",
+     "at": [
+      5,
+      5
+     ]
+    },
+    {
+     "name": "女助手",
+     "at": [
+      9,
+      5
+     ]
+    }
+   ],
+   "require": [
+    "g_raid_water",
+    "g_raid_fire"
+   ],
+   "steps": [
+    {
+     "who": "@贵族",
+     "say": [
+      "把研究所收回的许愿星交出来！你们就算两人一起，也不是王族的对手。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "索德与西尔迪",
+      "galar_team": "sword_sordwardshielbert_5",
+      "prize": 4960,
+      "double": true,
+      "ally": "galar",
+      "galar_other": "sword_sordwardshielbert_6",
+      "galar_allies": [
+       "slumberingweald_0",
+       "slumberingweald_1",
+       "slumberingweald_2"
+      ]
+     }
+    },
+    {
+     "who": "女助手",
+     "say": [
+      "许愿星已经到手。两位少爷，我们可以走了。"
+     ]
+    },
+    {
+     "who": "索妮亚",
+     "say": [
+      "原来助手是他们安排的人……还有四个竞技场有反应，我们分头行动。"
+     ]
+    },
+    {
+     "flag": "g_lab_theft"
+    }
+   ]
+  },
+  {
+   "id": "g_raid_stow",
+   "map": "galar_gym_4_pitch",
+   "who": "@溯传馆主",
+   "at": [
+    12,
+    14
+   ],
+   "guests": [],
+   "require": [
+    "g_lab_theft"
+   ],
+   "steps": [
+    {
+     "who": "@溯传馆主",
+     "say": [
+      "这里不用顾虑观众，其他人正在疏散他们。冠军，交给你了！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "暴走的极巨化宝可梦",
+      "id": "g_raid_534",
+      "galar_raid": "stadium",
+      "galar_power_spot": true,
+      "galar_team": "sword_sordwardshielbert_7",
+      "galar_select_version_mon": true,
+      "galar_solo_raid": true
+     }
+    },
+    {
+     "galar_card": "@溯传馆主",
+     "rare": true
+    },
+    {
+     "flag": "g_raid_stow"
+    }
+   ]
+  },
+  {
+   "id": "g_raid_circhester",
+   "map": "galar_gym_6_pitch",
+   "who": "@战竞馆主",
+   "at": [
+    12,
+    14
+   ],
+   "guests": [],
+   "require": [
+    "g_lab_theft"
+   ],
+   "steps": [
+    {
+     "who": "@战竞馆主",
+     "say": [
+      "这里不用顾虑观众，其他人正在疏散他们。冠军，交给你了！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "暴走的极巨化宝可梦",
+      "id": "g_raid_526",
+      "galar_raid": "stadium",
+      "galar_power_spot": true,
+      "galar_team": "sword_sordwardshielbert_9",
+      "galar_select_version_mon": true,
+      "galar_solo_raid": true
+     }
+    },
+    {
+     "galar_card": "@战竞馆主",
+     "rare": true
+    },
+    {
+     "flag": "g_raid_circhester"
+    }
+   ]
+  },
+  {
+   "id": "g_raid_hammer",
+   "map": "galar_gym_8_pitch",
+   "who": "奇巴纳",
+   "at": [
+    12,
+    14
+   ],
+   "guests": [],
+   "require": [
+    "g_lab_theft"
+   ],
+   "steps": [
+    {
+     "who": "奇巴纳",
+     "say": [
+      "这里不用顾虑观众，其他人正在疏散他们。冠军，交给你了！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "暴走的极巨化宝可梦",
+      "id": "g_raid_612",
+      "galar_raid": "stadium",
+      "galar_power_spot": true,
+      "galar_team": "sword_sordwardshielbert_10",
+      "galar_solo_raid": true
+     }
+    },
+    {
+     "galar_card": "奇巴纳",
+     "rare": true
+    },
+    {
+     "flag": "g_raid_hammer"
+    }
+   ]
+  },
+  {
+   "id": "g_raid_fairy",
+   "map": "galar_gym_5_pitch",
+   "who": "彼特",
+   "at": [
+    12,
+    14
+   ],
+   "guests": [
+    {
+     "name": "波普菈",
+     "at": [
+      10,
+      15
+     ]
+    }
+   ],
+   "require": [
+    "g_lab_theft"
+   ],
+   "steps": [
+    {
+     "who": "彼特",
+     "say": [
+      "这里的异常已经由我解决了。作为道馆馆主，我还有一场想和你认真比的比赛。"
+     ]
+    },
+    {
+     "battle": {
+      "name": "彼特",
+      "galar_team": "sword_sordwardshielbert_8",
+      "prize": 5040,
+      "galar_power_spot": true
+     }
+    },
+    {
+     "galar_card": "彼特",
+     "rare": true
+    },
+    {
+     "galar_card": "波普菈",
+     "rare": true
+    },
+    {
+     "flag": "g_raid_fairy"
+    }
+   ]
+  },
+  {
+   "id": "g_plant_unlock",
+   "map": "galar_hammerlocke_castle_room",
+   "who": "索妮亚",
+   "at": [
+    7,
+    7
+   ],
+   "guests": [
+    {
+     "name": "聂梓",
+     "at": [
+      5,
+      7
+     ]
+    },
+    {
+     "name": "赫普",
+     "at": [
+      8,
+      7
+     ]
+    }
+   ],
+   "require": [
+    "g_raid_fairy",
+    "g_raid_stow",
+    "g_raid_circhester",
+    "g_raid_hammer"
+   ],
+   "steps": [
+    {
+     "who": "索妮亚",
+     "say": [
+      "其他场馆的能量终于安静了。电子锁已经解开，西索二人组就在工厂里。"
+     ]
+    },
+    {
+     "flag": "g_plant_unlock"
+    }
+   ]
+  },
+  {
+   "id": "g_royal_plant",
+   "map": "galar_energy_plant",
+   "who": "@贵族",
+   "at": [
+    15,
+    8
+   ],
+   "guests": [
+    {
+     "name": "@兄弟",
+     "at": [
+      13,
+      9
+     ]
+    }
+   ],
+   "require": [
+    "g_plant_unlock"
+   ],
+   "steps": [
+    {
+     "who": "@贵族",
+     "say": [
+      "为了向世人证明传说是假的，我们要让那只狼在众人面前暴走！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "@贵族",
+      "galar_team": "energyplant_1",
+      "prize": 5120,
+      "galar_shield_team": "energyplant_2"
+     }
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "塔顶还在摇晃！快，它没法控制力量了。"
+     ]
+    },
+    {
+     "flag": "g_royal_plant"
+    }
+   ]
+  },
+  {
+   "id": "g_wolf_rage",
+   "map": "galar_tower_summit",
+   "who": "赫普",
+   "at": [
+    14,
+    9
+   ],
+   "guests": [
+    {
+     "name": "索妮亚",
+     "at": [
+      12,
+      10
+     ]
+    },
+    {
+     "name": "聂梓",
+     "at": [
+      16,
+      10
+     ]
+    }
+   ],
+   "require": [
+    "g_royal_plant"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "许愿星的能量让它很痛苦。先和它战斗，别扔精灵球！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "失控的传说宝可梦",
+      "galar_team": "sword_sordwardshielbert_13",
+      "galar_select_version_mon": true,
+      "prize": 0
+     }
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "我去追它！另一只把目光转向你了。"
+     ]
+    },
+    {
+     "flag": "g_wolf_rage"
+    }
+   ]
+  },
+  {
+   "id": "g_wolf_caught",
+   "map": "galar_tower_summit",
+   "who": "@己方狼",
+   "at": [
+    14,
+    9
+   ],
+   "guests": [
+    {
+     "name": "聂梓",
+     "at": [
+      12,
+      10
+     ]
+    },
+    {
+     "name": "索妮亚",
+     "at": [
+      16,
+      10
+     ]
+    }
+   ],
+   "require": [
+    "g_wolf_rage"
+   ],
+   "steps": [
+    {
+     "who": "索妮亚",
+     "say": [
+      "它看见你带着的锈蚀遗物，停下来了。它要亲自考验选择的训练家。"
+     ]
+    },
+    {
+     "galar_wolf_catch": true
+    },
+    {
+     "galar_card": "聂梓",
+     "rare": true
+    },
+    {
+     "who": "索妮亚",
+     "say": [
+      "赫普去了微寐森林最深处。去见见成为搭档的他们吧。"
+     ]
+    },
+    {
+     "flag": "g_wolf_caught"
+    }
+   ]
+  },
+  {
+   "id": "g_hop_final",
+   "map": "galar_weald_altar",
+   "who": "赫普",
+   "at": [
+    12,
+    8
+   ],
+   "guests": [
+    {
+     "name": "@另一只狼",
+     "at": [
+      10,
+      9
+     ]
+    },
+    {
+     "name": "索妮亚",
+     "at": [
+      14,
+      9
+     ]
+    }
+   ],
+   "require": [
+    "g_wolf_caught"
+   ],
+   "steps": [
+    {
+     "who": "赫普",
+     "say": [
+      "它听到了我的声音，自己走进了球里。现在，我要和新的搭档一起，再向冠军挑战！"
+     ]
+    },
+    {
+     "battle": {
+      "name": "赫普",
+      "galar_team": "slumberingweald_5",
+      "prize": 5600,
+      "galar_variant": [
+       "slumberingweald_5",
+       "slumberingweald_6",
+       "slumberingweald_7"
+      ],
+      "galar_shield_variant": [
+       "slumberingweald_8",
+       "slumberingweald_9",
+       "slumberingweald_10"
+      ]
+     }
+    },
+    {
+     "galar_card": "赫普",
+     "rare": true
+    },
+    {
+     "who": "赫普",
+     "say": [
+      "我找到了自己的目标。我想和索妮亚一起，成为能帮助宝可梦的博士。"
+     ]
+    },
+    {
+     "who": "@贵族",
+     "say": [
+      "冠军，对不起。你连我们也保护了。我们会用自己的行动弥补过错。"
+     ]
+    },
+    {
+     "heal": true
+    },
+    {
+     "flag": "g_hop_final"
+    }
+   ]
+  }
+ ],
+ "side_events": [
+  {
+   "id": "g_toxel",
+   "map": "galar_5_nursery_room",
+   "who": "培育家",
+   "at": [
+    6,
+    5
+   ],
+   "guests": [],
+   "require": [
+    "g_badge_1"
+   ],
+   "steps": [
+    {
+     "who": "培育家",
+     "say": [
+      "这是前几天从蛋里孵化的毒电婴。能帮我带它看看这个世界吗？"
+     ]
+    },
+    {
+     "galar_toxel": true
+    },
+    {
+     "give_item": {
+      "name": "经验糖果XS",
+      "category": "other",
+      "count": 5
+     }
+    },
+    {
+     "flag": "g_toxel"
+    }
+   ]
+  },
+  {
+   "id": "g_rose_card",
+   "map": "galar_mine",
+   "who": "奥利薇",
+   "at": [
+    15,
+    22
+   ],
+   "guests": [],
+   "require": [
+    "g_champion"
+   ],
+   "steps": [
+    {
+     "who": "奥利薇",
+     "say": [
+      "会长正在为自己的行为负责。我也来矿山帮忙。这张卡上是他以前的照片。"
+     ]
+    },
+    {
+     "galar_card": "洛兹",
+     "rare": true
+    },
+    {
+     "flag": "g_rose_card"
+    }
+   ]
+  }
+ ],
+ "gates": {
+  "galar_5": {
+   "require": "g_badge_1",
+   "message": "取得草之徽章后，从草路镇东边走上五号道路。"
+  },
+  "galar_hulbury": {
+   "require": "g_bridge_hop",
+   "message": "赫普在五号道路桥上等着你。"
+  },
+  "galar_seafood": {
+   "require": "g_badge_2",
+   "message": "洛兹会长约在取得水之徽章后用餐。"
+  },
+  "galar_mine2": {
+   "require": "g_dinner",
+   "message": "在防波亭和洛兹、索妮亚谈过，再沿第二矿山回机擎市。"
+  },
+  "galar_wild_north": {
+   "require": "g_three_sendoff",
+   "message": "拿齐前三枚徽章，到机擎市参加馆主们的送行。"
+  },
+  "galar_hammerlocke": {
+   "require": "g_north_bede",
+   "message": "先在旷野地带北门向门卫出示三枚徽章。"
+  },
+  "galar_6": {
+   "require": "g_vault",
+   "message": "先在拳关城的宝物库听索妮亚说明挂毯。"
+  },
+  "galar_stow": {
+   "require": "g_silicobra",
+   "message": "六号道路的呐喊队还守着熟睡的沙包蛇。"
+  },
+  "galar_tangle": {
+   "require": "g_mural",
+   "message": "溯传镇的壁画传来巨响，先到壁画前看看。"
+  },
+  "galar_ballonlea": {
+   "require": "g_mural",
+   "message": "溯传镇的壁画传来巨响，先到壁画前看看。"
+  },
+  "galar_7": {
+   "require": "g_hammer_tremor",
+   "message": "返回拳关市，找到波普菈、彼特和调查巨响的丹帝。"
+  },
+  "galar_8": {
+   "require": "g_hop_seven",
+   "message": "赫普在七号道路的桥边等着挑战。"
+  },
+  "galar_circhester": {
+   "require": "g_hop_seven",
+   "message": "穿过七号与八号道路前往战竞镇。"
+  },
+  "galar_circhester_grill": {
+   "require": "g_badge_6",
+   "message": "索妮亚与你约好在取得战竞徽章后见面。"
+  },
+  "galar_9": {
+   "require": "g_hero_bath",
+   "message": "先到英雄之浴与赫普比试。"
+  },
+  "galar_lake_out": {
+   "require": "g_water_bike",
+   "message": "这片湖需要可以在水上行驶的洛托姆自行车。"
+  },
+  "galar_circhester_bay": {
+   "require": "g_water_bike",
+   "message": "先在九号道路营地附近救出医生，为洛托姆自行车加装浮囊。"
+  },
+  "galar_spikemuth": {
+   "require": "g_gym_7_ready",
+   "message": "玛俐在九号道路通往尖钉镇的海岸小路上。"
+  },
+  "galar_tunnel": {
+   "require": "g_badge_7",
+   "message": "先在尖钉镇完成聂梓的道馆挑战。"
+  },
+  "galar_10": {
+   "require": "g_train_wyndon",
+   "message": "八枚徽章集齐后，从拳关站搭火车出发。"
+  },
+  "galar_slope": {
+   "require": "g_train_wyndon",
+   "message": "八枚徽章集齐后，从拳关站搭火车出发。"
+  },
+  "galar_wyndon": {
+   "require": "g_train_wyndon",
+   "message": "八枚徽章集齐后，从拳关站搭火车出发。"
+  },
+  "galar_stadium": {
+   "require": "g_wyndon_arrival",
+   "message": "先在宫门市和赫普确认参赛登记。"
+  },
+  "galar_rose": {
+   "require": "g_staff_3",
+   "message": "取得宏观宇宙职员手里的单轨列车钥匙。"
+  },
+  "galar_rose_lift": {
+   "require": "g_tower_doorman",
+   "message": "洛兹大厦的守卫拦在电梯前。"
+  },
+  "galar_rose_suite": {
+   "require": "g_lift_3",
+   "message": "电梯还没有完成最后一段安检。"
+  },
+  "galar_weald_altar": {
+   "require": "g_woods_call",
+   "message": "微寐森林深处仍然被浓雾封住。"
+  },
+  "galar_energy_plant": {
+   "require": "g_plant_open",
+   "message": "拳关能源工厂的升降机目前对游客关闭。"
+  },
+  "galar_tower_summit": {
+   "require": "g_rose",
+   "message": "解决能源工厂的事件后才能升上塔顶。"
+  }
+ }
+}

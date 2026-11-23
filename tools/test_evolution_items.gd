@@ -159,8 +159,9 @@ func check_markets() -> void:
 		if region=="galar":
 			expect(await preload("regional_start.gd").enter(game,"galar","carried","sword"),"register the Galar chapter")
 			game._close_all_dialogs()
-			# This market is beyond Turffield. Gate behaviour is exercised by test_galar_entry.
-			game._flags().g_badge_1=true
+			# The market opens after the northern Wild Area badge check.
+			for flag in ["g_badge_1","g_badge_2","g_badge_3","g_north_bede"]:
+				game._flags()[flag]=true
 		game._do_warp({"region":region, "map":mid, "at":db.load_map(region, mid).spawn})
 		game._close_all_dialogs()
 		var clerk := {}

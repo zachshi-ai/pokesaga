@@ -282,7 +282,25 @@ func _make_menu() -> Control:
 		UI.place(panel,button,8 + (i%2)*111,6 + floori(i/2.0)*42,111,41)
 	return panel
 
+var galar_quiz:Array=[]
+var galar_quiz_index:=0
+var galar_rival_button:Button
+func _rival_target_button()->void:
+	if not galar_rival_button and battle.galar_competitor.is_empty():return
+	if not galar_rival_button:
+		galar_rival_button=_choice("",func():
+			battle.galar_target_rival=not battle.galar_target_rival
+			_rival_target_button(),12)
+		galar_rival_button.name="GymRivalTarget"
+		UI.place(self,galar_rival_button,8,62,180,40)
+	galar_rival_button.visible=not battle.galar_competitor.is_empty()
+	if galar_rival_button.visible:
+		var rival:Dictionary=battle.galar_competitor
+		galar_rival_button.text="转向野生宝可梦" if battle.galar_target_rival else "干扰对手 · %s %d/%d"%[rival.name,int(rival.hp),int(rival.max_hp)]
+
 func _open_commands(focus_key := "fight", prompt := "") -> void:
+	_rival_target_button()
+	if battle.galar_rules and preload("res://core/galar_league_gyms.gd").ask_quiz(self):return
 	if battle.galar_rules:battle.cur_a().erase("galar_intent")
 	_close_sheet()
 	move_menu.hide()
@@ -532,6 +550,7 @@ func _open_z_moves() -> void:
 		_row(list,"%s → %s" % [base.get("name","?"), zname],_do_z.bind(i),zid<=0 or int(c.pp[i])<=0)
 
 func _begin_resolve() -> void:
+	if galar_rival_button:galar_rival_button.hide()
 	health_cues.clear()
 	spoken_lines = 0
 	line_offset = 0

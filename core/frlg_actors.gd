@@ -104,7 +104,9 @@ static func actor(row: Dictionary, spec: Dictionary, flags: Dictionary) -> Dicti
 static func roster(map: Dictionary, flags: Dictionary) -> Array:
 	var base: Array = map.get("npcs",[])
 	if map.get("region","")=="galar":
-		return load("res://core/galar_campaign.gd").roster(map,flags,base) + load("res://core/galar_gym.gd").actors(map,flags)
+		base=load("res://core/galar_campaign.gd").roster(map,flags,base) + load("res://core/galar_gym.gd").actors(map,flags)
+	if map.get("region","") in ["galar","armor","crown"]:
+		return load("res://core/galar_expansion.gd").roster(map,flags,base)
 	if map.get("region","")=="alola" and map.has("alola_native"):
 		var residents:Array=load("res://core/alola_routes.gd").roster(map,flags,base)
 		var cast:Array=load("res://core/alola_campaign.gd").roster(map,flags,residents)

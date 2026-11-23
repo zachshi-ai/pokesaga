@@ -191,9 +191,10 @@ class GalarPlayer(EmeraldPlayer):
             pace(self, habitat, "throw", 12)
         raise AssertionError("三号道路没有捕获幼棉棉")
 
-    def teach_item(self, item, move, member):
+    def teach_item(self, item, move, member, menu_open=False):
         assert move not in member[5]
-        self.do("key_item", item=item)
+        if not menu_open:
+            self.do("key_item", item=item)
         self.click_exact(member[0])
         def knows():
             return any(m[0] == member[0] and move in m[5] for m in self.state["party"])

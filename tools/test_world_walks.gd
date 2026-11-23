@@ -33,6 +33,9 @@ func fail(reason: String) -> bool:
 func load_at(target: Dictionary) -> void:
 	current = String(target.region) + "/" + String(target.map)
 	world.load_map(places[current])
+	# Circhester Bay is the water-mode Rotom Bike section of the international road circuit.
+	world.bike=(world.map_data.id=="galar_circhester_bay")
+	if world.bike:world.taken.g_water_bike=true
 	world.arrive(target)
 	world.finish_walk()
 	transitions += 1

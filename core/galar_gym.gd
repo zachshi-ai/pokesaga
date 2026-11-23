@@ -1,5 +1,6 @@
 extends RefCounted
 ## Turffield Gym Challenge. Each visible group contains five Wooloo.
+const League := preload("res://core/galar_league_gyms.gd")
 const LOBBY := "galar_turffield_pitch_room"
 const MISSION := "galar_turffield_mission"
 const PITCH := "galar_turffield_pitch"
@@ -29,6 +30,7 @@ static func dog_position(pen:Dictionary,index:int,tick:int,rest:bool)->Array:
 	return [dog_x,int(origin[1])-1]
 
 static func actors(map:Dictionary,f:Dictionary)->Array:
+	if map.has("galar_facility"):return League.actors(map,f)
 	if map.id==LOBBY:
 		return [actor([3,3],"g_gym_reception","道馆工作人员","clerk")]
 	if map.id==PITCH and f.get("g_gym_mission",false):
@@ -65,6 +67,7 @@ static func deny(g,text:String)->bool:
 	return true
 
 static func warp(g,target:Dictionary)->bool:
+	if League.warp(g,target):return true
 	var f:Dictionary=g._flags()
 	var dest:=str(target.map)
 	var here:=str(g.world.map_data.id)
@@ -106,6 +109,7 @@ static func toward_mat(map:Dictionary,from:Vector2i,gate:Vector2i,occupied:Dicti
 	return from
 
 static func step(g)->bool:
+	if League.step(g):return true
 	var map:Dictionary=g.world.map_data
 	var f:Dictionary=g._flags()
 	if map.id!=MISSION or f.get("g_gym_mission",false) or not f.get("g_gym_registered",false):return false
@@ -180,11 +184,20 @@ static func step(g)->bool:
 static func battle_rules(g,ui,npc:Dictionary)->void:
 	var b=ui.battle
 	b.galar_rules=true
-	b.galar_power_spot=bool(g.world.map_data.get("galar_power_spot",false))
+	var cfg:Dictionary=npc.get("battle",{})
+	b.galar_power_spot=bool(cfg.get("galar_power_spot",npc.get("galar_power_spot",g.world.map_data.get("galar_power_spot",false))))
 	b.galar_band=bool(g._flags().get("g_band",false))
-	b.galar_ace=830 if npc.get("role","")=="galar_milo" else 0
+	b.galar_ace=int(cfg.get("galar_ace",npc.get("galar_ace",830 if npc.get("role","")=="galar_milo" else 0)))
+	var specific=cfg.get("galar_gmax",npc.get("galar_gmax",false))
+	if specific:
+		for mon in b.team_b:
+			if int(mon.species_id)==b.galar_ace:
+				mon.gmax_factor=true
+				if specific is String:mon.galar_gmax_key=specific
+	ui.galar_quiz=cfg.get("galar_quiz",[])
 
 static func talk(g,npc:Dictionary)->bool:
+	if League.talk(g,npc):return true
 	var role:=str(npc.get("role",""))
 	var f:Dictionary=g._flags()
 	match role:
@@ -235,11 +248,13 @@ static func talk(g,npc:Dictionary)->bool:
 const MAGICAL_LEAF_USERS := [1,2,3,35,36,103,122,151,173,176,182,251,252,253,254,280,281,282,315,407,420,421,459,460,468,470,475,548,549,640,700,708,709,743,753,754,761,762,763,764,810,811,812,829,830,856,857,858,869,876,893,898]
 
 static func use_item(g,name:String)->bool:
+	if League.use_item(g,name):return true
 	if name not in [TM,UNIFORM] or g._bag_count(name)<=0:return false
 	if name==UNIFORM:
 		var f:Dictionary=g._flags()
 		var wear:=not bool(f.get("g_grass_uniform_worn",false))
 		f.g_grass_uniform_worn=wear
+		if wear:f.g_gym_uniform=""
 		g.world.taken=f
 		g.world._sync_player()
 		g._persist()

@@ -1,7 +1,8 @@
 extends Node2D
 const REGIONAL_CASTS := {
 	"alola": preload("res://core/alola_cast.gd"), "kalos": preload("res://core/kalos_cast.gd"),
-	"galar": preload("res://core/galar_cast.gd")
+	"galar": preload("res://core/galar_cast.gd"),
+	"armor": preload("res://core/galar_cast.gd"), "crown": preload("res://core/galar_cast.gd")
 }
 
 ## 地图渲染与移动。
@@ -199,6 +200,10 @@ var emerald_chunks: Array = []
 var _prev_facing := ""
 
 func load_map(data: Dictionary) -> void:
+	if int(data.get("galar_facility",{}).get("number",0)) in [4,6] and taken.get("g_version","sword")=="shield":
+		data=data.duplicate(true)
+		var layer:Array=data.hoenn_art.scene
+		layer[0]=str(layer[0]).trim_suffix(".png").trim_suffix("_shield")+"_shield.png"
 	if data.get("unova_dynamic_exits",false):data=preload("res://core/unova_ship.gd").active_map(data,taken)
 	if data.get("platinum_flower","")=="closed" and taken.get("s_flower_path",false):
 		data=JSON.parse_string(FileAccess.get_file_as_string("res://content/platinum_native/flower/%s.json" % data.id))
@@ -400,6 +405,7 @@ func is_blocked(p: Vector2i) -> bool:
 	if t == 1 or t == 2 or t == 6 or t == 7:
 		return true
 	for n in npcs:
+		if n.get("pass_through",false):continue
 		var at: Array = n.get("at", [0, 0])
 		if Vector2i(int(at[0]), int(at[1])) == p:
 			return true
@@ -487,7 +493,7 @@ func can_enter(p: Vector2i, dir: Vector2i, ignore_mask: bool = false) -> bool:
 		if p.x < 0 or p.x >= trow.size():
 			return false
 		var tv := int(trow[p.x])
-		if tv in [1, 6, 7] or (tv == 2 and not surfing):
+		if tv in [1, 6, 7] or (tv == 2 and not surfing and not water_bike_ready()):
 			return false
 		for n in npcs:
 			var nat: Array = n.get("at", [0, 0])
@@ -527,6 +533,7 @@ func can_enter(p: Vector2i, dir: Vector2i, ignore_mask: bool = false) -> bool:
 	if _blocked_by_object(p):
 		return false
 	for n in npcs:
+		if n.get("pass_through",false):continue
 		var at: Array = n.get("at", [0, 0])
 		if Vector2i(int(at[0]), int(at[1])) == p:
 			return false
@@ -799,6 +806,9 @@ func hop_wanted(dir: Vector2i) -> bool:
 	return false
 
 
+func water_bike_ready() -> bool:
+	return bike and map_data.get("region","") in ["galar","armor","crown"] and taken.get("g_water_bike",false)
+
 func can_step(dir: Vector2i) -> bool:
 	if not _warp_from(player_pos, dir).is_empty():
 		return true
@@ -886,7 +896,9 @@ func step(dir: Vector2i) -> bool:
 	else:
 		player_pos = target
 	# 一上岸就不再是冲浪状态（原版走到浅滩也算上岸）
-	if surfing and not is_water(player_pos):
+	if water_bike_ready() and is_water(player_pos):
+		surfing=true
+	elif surfing and not is_water(player_pos):
 		surfing = false
 	jumping = is_jump
 	_step_duration = jump_dur if jumping else (run_dur * skate_factor if running and passage.is_empty() else walk_dur)
@@ -1109,6 +1121,7 @@ func display_name() -> String:
 
 func _npc_at(p: Vector2i) -> Dictionary:
 	for n in npcs:
+		if n.get("pass_through",false):continue
 		var at: Array = n.get("at", [0, 0])
 		if Vector2i(int(at[0]), int(at[1])) == p:
 			return n
@@ -1183,8 +1196,14 @@ func _sync_player() -> void:
 		return
 	var f: int = int(FACE_FRAME.get(facing, 0))
 	var afloat := surfing and is_water(player_pos)
+	var riding:bool=bike and map_data.get("region","") in ["galar","armor","crown"]
+	var water_ride:bool=riding and afloat and water_bike_ready()
 	var sheet: Texture2D = PLAYER_SURF if afloat else PLAYER_WALK
-	if taken.get("g_grass_uniform_worn",false):sheet=preload("res://assets/galar/grass_gym/uniform_surf.png") if afloat else preload("res://assets/galar/grass_gym/uniform_walk.png")
+	if riding and (not afloat or water_ride):
+		sheet=preload("res://assets/galar/rotom_bike_water.png") if water_ride else preload("res://assets/galar/rotom_bike_land.png")
+	elif not str(taken.get("g_gym_uniform","")).is_empty():
+		sheet=preload("res://core/galar_league_gyms.gd").uniform_texture(str(taken.g_gym_uniform),afloat,sheet)
+	elif taken.get("g_grass_uniform_worn",false):sheet=preload("res://assets/galar/grass_gym/uniform_surf.png") if afloat else preload("res://assets/galar/grass_gym/uniform_walk.png")
 	elif taken.get("a_guide_worn",false):sheet=preload("res://assets/alola/guide_player_surf.png") if afloat else preload("res://assets/alola/guide_player_emerald.png")
 	elif taken.has("ks_cap"):sheet=preload("res://core/kalos_skate_appearance.gd").sheet(sheet,taken.ks_cap,afloat)
 	if _player_sprite.texture != sheet:
@@ -1208,7 +1227,7 @@ func _sync_player() -> void:
 	_player_sprite.scale = Vector2.ONE * actor_scale
 	_player_shadow.scale = _player_sprite.scale
 	_player_sprite.position = Vector2(px + TILE / 2, py + TILE * (1.0 - actor_scale) - lift)
-	_player_sprite.offset = Vector2(0, 4 if afloat else 0)
+	_player_sprite.offset = Vector2(0, 4 if afloat and not water_ride else 0)
 	_player_shadow.visible = not afloat
 	_player_sprite.z_index = Z_ACTOR + int(render_pos.y) * 2
 	if is_instance_valid(_ride_stone) and _ride_stone.visible:

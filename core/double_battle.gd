@@ -138,6 +138,7 @@ func round_actions(player_orders: Dictionary) -> void:
 			pair(side,pos,target)
 			var choice: String = command.get("move",ai(side))
 			if alola_rules and side=="b":choice=alola_z_choice(choice)
+			if galar_rules:GalarDynamax.before_move(self,side,choice)
 			var who: Dictionary = cur_a() if side=="a" else cur_b()
 			order.append({"side":side,"pos":pos,"move":choice,"target":target,"prio":_priority(side,choice),
 				"speed":_speed(who)*(-1 if field.trick_room else 1),"tie":rng.randf()})
@@ -180,6 +181,12 @@ func round_actions(player_orders: Dictionary) -> void:
 		_end_of_turn_volatile()
 		_end_of_turn_gmax()
 		_end_of_turn_field(pos==0)
+	if galar_rules:
+		GalarDynamax.lingering(self)
+		for side in ["a","b"]:
+			var team:Array=team_a if side=="a" else team_b
+			for slot in lanes[side]:
+				if slot>=0:GalarDynamax.finish_mon(self,team[slot])
 	for side in guard_turns: guard_turns[side]=maxi(0,int(guard_turns[side])-1)
 	for side in ["a","b"]:
 		for pos in positions:
@@ -194,6 +201,8 @@ func round_actions(player_orders: Dictionary) -> void:
 	var a_up := _any_alive(team_a)
 	var b_up := _any_alive(team_b) if alola_totem.is_empty() else viable("b",0) or viable("b",1)
 	if not a_up or not b_up:
+		if galar_rules:
+			for mon:Dictionary in team_a+team_b:GalarDynamax.restore(self,mon)
 		over=true
 		winner="draw" if not a_up and not b_up else ("a" if a_up else "b")
 	if positions==3 and not over:

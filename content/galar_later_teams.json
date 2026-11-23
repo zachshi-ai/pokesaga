@@ -1,0 +1,2845 @@
+{
+ "route5_5": [
+  {
+   "species": 263,
+   "form": "ZIGZAGOON_GALAR",
+   "level": 17,
+   "moves": [
+    33,
+    122,
+    555,
+    608
+   ]
+  },
+  {
+   "species": 828,
+   "level": 18,
+   "moves": [
+    98,
+    555,
+    39,
+    251
+   ]
+  }
+ ],
+ "route5_6": [
+  {
+   "species": 302,
+   "level": 18,
+   "moves": [
+    50,
+    310,
+    10
+   ]
+  }
+ ],
+ "route5_7": [
+  {
+   "species": 831,
+   "level": 18,
+   "moves": [
+    33,
+    45,
+    111,
+    24
+   ]
+  },
+  {
+   "species": 822,
+   "level": 19,
+   "moves": [
+    43,
+    64,
+    31,
+    365
+   ]
+  },
+  {
+   "species": 817,
+   "level": 21,
+   "moves": [
+    496,
+    45,
+    352,
+    20
+   ]
+  }
+ ],
+ "route5_8": [
+  {
+   "species": 831,
+   "level": 18,
+   "moves": [
+    33,
+    45,
+    111,
+    24
+   ]
+  },
+  {
+   "species": 822,
+   "level": 19,
+   "moves": [
+    43,
+    64,
+    31,
+    365
+   ]
+  },
+  {
+   "species": 811,
+   "level": 21,
+   "moves": [
+    496,
+    75,
+    458,
+    103
+   ]
+  }
+ ],
+ "route5_9": [
+  {
+   "species": 831,
+   "level": 18,
+   "moves": [
+    33,
+    45,
+    111,
+    24
+   ]
+  },
+  {
+   "species": 822,
+   "level": 19,
+   "moves": [
+    43,
+    64,
+    31,
+    365
+   ]
+  },
+  {
+   "species": 814,
+   "level": 21,
+   "moves": [
+    496,
+    45,
+    24,
+    488
+   ]
+  }
+ ],
+ "galarmineno_2_0": [
+  {
+   "species": 577,
+   "level": 21,
+   "moves": [
+    473,
+    60,
+    283
+   ]
+  },
+  {
+   "species": 574,
+   "level": 22,
+   "moves": [
+    473,
+    317,
+    60
+   ]
+  },
+  {
+   "species": 77,
+   "form": "PONYTA_GALAR",
+   "level": 22,
+   "moves": [
+    93,
+    584
+   ]
+  },
+  {
+   "species": 856,
+   "level": 23,
+   "moves": [
+    60,
+    574
+   ]
+  }
+ ],
+ "galarmineno_2_6": [
+  {
+   "species": 828,
+   "level": 21,
+   "moves": [
+    555,
+    417,
+    39,
+    98
+   ]
+  },
+  {
+   "species": 510,
+   "level": 22,
+   "moves": [
+    259,
+    154,
+    28,
+    45
+   ]
+  }
+ ],
+ "galarmineno_2_7": [
+  {
+   "species": 264,
+   "form": "LINOONE_GALAR",
+   "level": 22,
+   "moves": [
+    400,
+    608,
+    28,
+    122
+   ]
+  },
+  {
+   "species": 674,
+   "level": 21,
+   "moves": [
+    490,
+    509,
+    526,
+    292
+   ]
+  }
+ ],
+ "galarmineno_2_3": [
+  {
+   "species": 831,
+   "level": 22,
+   "moves": [
+    33,
+    45,
+    111,
+    24
+   ]
+  },
+  {
+   "species": 822,
+   "level": 21,
+   "moves": [
+    365,
+    31,
+    43,
+    64
+   ]
+  },
+  {
+   "species": 817,
+   "level": 24,
+   "moves": [
+    389,
+    669,
+    20,
+    352
+   ]
+  }
+ ],
+ "galarmineno_2_4": [
+  {
+   "species": 831,
+   "level": 22,
+   "moves": [
+    33,
+    45,
+    111,
+    24
+   ]
+  },
+  {
+   "species": 822,
+   "level": 21,
+   "moves": [
+    365,
+    31,
+    43,
+    64
+   ]
+  },
+  {
+   "species": 811,
+   "level": 24,
+   "moves": [
+    458,
+    75,
+    103,
+    269
+   ]
+  }
+ ],
+ "galarmineno_2_5": [
+  {
+   "species": 831,
+   "level": 22,
+   "moves": [
+    33,
+    45,
+    111,
+    24
+   ]
+  },
+  {
+   "species": 822,
+   "level": 21,
+   "moves": [
+    365,
+    31,
+    43,
+    64
+   ]
+  },
+  {
+   "species": 814,
+   "level": 24,
+   "moves": [
+    488,
+    24,
+    98,
+    52
+   ]
+  }
+ ],
+ "motostoke_10": [
+  {
+   "species": 453,
+   "level": 24,
+   "moves": [
+    40,
+    474,
+    279,
+    389
+   ]
+  },
+  {
+   "species": 559,
+   "level": 24,
+   "moves": [
+    251,
+    29,
+    67
+   ]
+  },
+  {
+   "species": 877,
+   "level": 26,
+   "moves": [
+    44,
+    98,
+    84
+   ]
+  }
+ ],
+ "route6_0": [
+  {
+   "species": 434,
+   "level": 29,
+   "moves": [
+    44,
+    364,
+    139
+   ]
+  },
+  {
+   "species": 264,
+   "form": "LINOONE_GALAR",
+   "level": 30,
+   "moves": [
+    468,
+    36,
+    400,
+    608
+   ]
+  }
+ ],
+ "route6_1": [
+  {
+   "species": 510,
+   "level": 30,
+   "moves": [
+    252,
+    154,
+    372,
+    28
+   ]
+  }
+ ],
+ "sword_hop_12": [
+  {
+   "species": 845,
+   "level": 28,
+   "moves": [
+    291,
+    31,
+    365
+   ]
+  },
+  {
+   "species": 848,
+   "level": 29,
+   "moves": [
+    669,
+    609,
+    175,
+    51
+   ]
+  },
+  {
+   "species": 843,
+   "level": 30,
+   "moves": [
+    137,
+    91,
+    656
+   ]
+  },
+  {
+   "species": 817,
+   "level": 33,
+   "moves": [
+    352,
+    389,
+    496,
+    669
+   ]
+  }
+ ],
+ "sword_hop_13": [
+  {
+   "species": 845,
+   "level": 29,
+   "moves": [
+    291,
+    31,
+    365
+   ]
+  },
+  {
+   "species": 848,
+   "level": 29,
+   "moves": [
+    669,
+    609,
+    175,
+    51
+   ]
+  },
+  {
+   "species": 843,
+   "level": 30,
+   "moves": [
+    137,
+    91,
+    656
+   ]
+  },
+  {
+   "species": 811,
+   "level": 33,
+   "moves": [
+    282,
+    75,
+    103,
+    496
+   ]
+  }
+ ],
+ "sword_hop_14": [
+  {
+   "species": 845,
+   "level": 29,
+   "moves": [
+    291,
+    31,
+    365
+   ]
+  },
+  {
+   "species": 848,
+   "level": 29,
+   "moves": [
+    669,
+    609,
+    175,
+    51
+   ]
+  },
+  {
+   "species": 843,
+   "level": 30,
+   "moves": [
+    137,
+    91,
+    656
+   ]
+  },
+  {
+   "species": 814,
+   "level": 33,
+   "moves": [
+    488,
+    97,
+    496,
+    24
+   ]
+  }
+ ],
+ "sword_bede_2": [
+  {
+   "species": 578,
+   "level": 32,
+   "moves": [
+    113,
+    115,
+    473,
+    60
+   ]
+  },
+  {
+   "species": 575,
+   "level": 32,
+   "moves": [
+    313,
+    60,
+    317
+   ]
+  },
+  {
+   "species": 77,
+   "form": "PONYTA_GALAR",
+   "level": 33,
+   "moves": [
+    584,
+    60,
+    97
+   ]
+  },
+  {
+   "species": 857,
+   "level": 35,
+   "moves": [
+    605,
+    60
+   ]
+  }
+ ],
+ "route7_0": [
+  {
+   "species": 709,
+   "level": 34,
+   "moves": [
+    532,
+    421,
+    109
+   ]
+  },
+  {
+   "species": 631,
+   "level": 34,
+   "moves": [
+    643,
+    450,
+    163,
+    122
+   ]
+  },
+  {
+   "species": 143,
+   "level": 35,
+   "moves": [
+    34,
+    254,
+    484
+   ]
+  },
+  {
+   "species": 836,
+   "level": 35,
+   "moves": [
+    209,
+    242,
+    46,
+    609
+   ]
+  },
+  {
+   "species": 818,
+   "level": 37,
+   "moves": [
+    691,
+    389,
+    669,
+    250
+   ]
+  }
+ ],
+ "route7_1": [
+  {
+   "species": 709,
+   "level": 34,
+   "moves": [
+    532,
+    421,
+    109
+   ]
+  },
+  {
+   "species": 631,
+   "level": 34,
+   "moves": [
+    643,
+    450,
+    163,
+    122
+   ]
+  },
+  {
+   "species": 143,
+   "level": 35,
+   "moves": [
+    34,
+    254,
+    484
+   ]
+  },
+  {
+   "species": 836,
+   "level": 35,
+   "moves": [
+    209,
+    242,
+    46,
+    609
+   ]
+  },
+  {
+   "species": 812,
+   "level": 37,
+   "moves": [
+    706,
+    282,
+    21,
+    656
+   ]
+  }
+ ],
+ "route7_2": [
+  {
+   "species": 709,
+   "level": 34,
+   "moves": [
+    532,
+    421,
+    109
+   ]
+  },
+  {
+   "species": 631,
+   "level": 34,
+   "moves": [
+    643,
+    450,
+    163,
+    122
+   ]
+  },
+  {
+   "species": 143,
+   "level": 35,
+   "moves": [
+    34,
+    254,
+    484
+   ]
+  },
+  {
+   "species": 836,
+   "level": 35,
+   "moves": [
+    209,
+    242,
+    46,
+    609
+   ]
+  },
+  {
+   "species": 815,
+   "level": 37,
+   "moves": [
+    708,
+    29,
+    512,
+    97
+   ]
+  }
+ ],
+ "circhester_0": [
+  {
+   "species": 832,
+   "level": 40,
+   "moves": [
+    24,
+    36,
+    45,
+    111
+   ]
+  },
+  {
+   "species": 823,
+   "level": 40,
+   "moves": [
+    65,
+    184,
+    365,
+    31
+   ]
+  },
+  {
+   "species": 871,
+   "level": 39,
+   "moves": [
+    209,
+    61,
+    174
+   ]
+  },
+  {
+   "species": 143,
+   "level": 39,
+   "moves": [
+    484,
+    34,
+    242
+   ]
+  },
+  {
+   "species": 818,
+   "level": 41,
+   "moves": [
+    691,
+    669,
+    389,
+    664
+   ]
+  }
+ ],
+ "circhester_1": [
+  {
+   "species": 832,
+   "level": 40,
+   "moves": [
+    24,
+    36,
+    45,
+    111
+   ]
+  },
+  {
+   "species": 823,
+   "level": 40,
+   "moves": [
+    65,
+    184,
+    365,
+    31
+   ]
+  },
+  {
+   "species": 871,
+   "level": 39,
+   "moves": [
+    209,
+    61,
+    174
+   ]
+  },
+  {
+   "species": 143,
+   "level": 39,
+   "moves": [
+    484,
+    34,
+    242
+   ]
+  },
+  {
+   "species": 812,
+   "level": 41,
+   "moves": [
+    706,
+    458,
+    280,
+    282
+   ]
+  }
+ ],
+ "circhester_2": [
+  {
+   "species": 832,
+   "level": 40,
+   "moves": [
+    24,
+    36,
+    45,
+    111
+   ]
+  },
+  {
+   "species": 823,
+   "level": 40,
+   "moves": [
+    65,
+    184,
+    365,
+    31
+   ]
+  },
+  {
+   "species": 871,
+   "level": 39,
+   "moves": [
+    209,
+    61,
+    174
+   ]
+  },
+  {
+   "species": 143,
+   "level": 39,
+   "moves": [
+    484,
+    34,
+    242
+   ]
+  },
+  {
+   "species": 815,
+   "level": 41,
+   "moves": [
+    708,
+    68,
+    25,
+    24
+   ]
+  }
+ ],
+ "route9_2": [
+  {
+   "species": 264,
+   "form": "LINOONE_GALAR",
+   "level": 39,
+   "moves": [
+    468,
+    400,
+    68
+   ]
+  },
+  {
+   "species": 675,
+   "level": 40,
+   "moves": [
+    242,
+    418,
+    269
+   ]
+  }
+ ],
+ "route9_12": [
+  {
+   "species": 510,
+   "level": 42,
+   "moves": [
+    252,
+    259,
+    417,
+    389
+   ]
+  },
+  {
+   "species": 454,
+   "level": 43,
+   "moves": [
+    474,
+    389,
+    207,
+    398
+   ]
+  },
+  {
+   "species": 560,
+   "level": 43,
+   "moves": [
+    280,
+    184,
+    242,
+    207
+   ]
+  },
+  {
+   "species": 877,
+   "level": 44,
+   "moves": [
+    98,
+    259,
+    209,
+    44
+   ]
+  }
+ ],
+ "sword_championcup_0": [
+  {
+   "species": 510,
+   "level": 47,
+   "moves": [
+    252,
+    259,
+    417,
+    555
+   ]
+  },
+  {
+   "species": 454,
+   "level": 47,
+   "moves": [
+    474,
+    389,
+    207,
+    92
+   ]
+  },
+  {
+   "species": 560,
+   "level": 47,
+   "moves": [
+    207,
+    184,
+    280,
+    242
+   ]
+  },
+  {
+   "species": 877,
+   "level": 48,
+   "moves": [
+    331,
+    259,
+    209,
+    44
+   ]
+  },
+  {
+   "species": 861,
+   "gmax": "GRIMMSNARL_GMAX",
+   "level": 49,
+   "moves": [
+    717,
+    626,
+    339,
+    259
+   ]
+  }
+ ],
+ "sword_championcup_1": [
+  {
+   "species": 832,
+   "level": 48,
+   "moves": [
+    538,
+    179,
+    34,
+    428
+   ]
+  },
+  {
+   "species": 823,
+   "level": 48,
+   "moves": [
+    211,
+    65,
+    184,
+    207
+   ]
+  },
+  {
+   "species": 871,
+   "level": 47,
+   "moves": [
+    85,
+    398,
+    174
+   ]
+  },
+  {
+   "species": 143,
+   "level": 47,
+   "moves": [
+    484,
+    630,
+    359
+   ]
+  },
+  {
+   "species": 818,
+   "level": 49,
+   "moves": [
+    691,
+    341,
+    196,
+    399
+   ]
+  }
+ ],
+ "sword_championcup_2": [
+  {
+   "species": 832,
+   "level": 48,
+   "moves": [
+    538,
+    179,
+    34,
+    428
+   ]
+  },
+  {
+   "species": 823,
+   "level": 48,
+   "moves": [
+    211,
+    65,
+    184,
+    207
+   ]
+  },
+  {
+   "species": 871,
+   "level": 47,
+   "moves": [
+    85,
+    398,
+    174
+   ]
+  },
+  {
+   "species": 143,
+   "level": 47,
+   "moves": [
+    484,
+    630,
+    359
+   ]
+  },
+  {
+   "species": 812,
+   "level": 49,
+   "moves": [
+    706,
+    630,
+    555,
+    253
+   ]
+  }
+ ],
+ "sword_championcup_3": [
+  {
+   "species": 832,
+   "level": 48,
+   "moves": [
+    538,
+    179,
+    34,
+    428
+   ]
+  },
+  {
+   "species": 823,
+   "level": 48,
+   "moves": [
+    211,
+    65,
+    184,
+    207
+   ]
+  },
+  {
+   "species": 871,
+   "level": 47,
+   "moves": [
+    85,
+    398,
+    174
+   ]
+  },
+  {
+   "species": 143,
+   "level": 47,
+   "moves": [
+    484,
+    630,
+    359
+   ]
+  },
+  {
+   "species": 815,
+   "level": 49,
+   "moves": [
+    708,
+    68,
+    441,
+    340
+   ]
+  }
+ ],
+ "wyndon_2": [
+  {
+   "species": 52,
+   "form": "MEOWTH_GALAR",
+   "level": 47,
+   "moves": [
+    163,
+    372,
+    583
+   ]
+  },
+  {
+   "species": 632,
+   "level": 47,
+   "moves": [
+    442,
+    242,
+    404
+   ]
+  }
+ ],
+ "wyndon_3": [
+  {
+   "species": 303,
+   "level": 47,
+   "moves": [
+    442,
+    242
+   ]
+  },
+  {
+   "species": 530,
+   "level": 47,
+   "moves": [
+    232,
+    306,
+    157
+   ]
+  }
+ ],
+ "wyndon_4": [
+  {
+   "species": 597,
+   "level": 47,
+   "moves": [
+    442,
+    430,
+    42
+   ]
+  },
+  {
+   "species": 208,
+   "level": 47,
+   "moves": [
+    21,
+    225,
+    157,
+    242
+   ]
+  }
+ ],
+ "rosetower_0": [
+  {
+   "species": 632,
+   "level": 48,
+   "moves": [
+    442,
+    319,
+    97,
+    242
+   ]
+  }
+ ],
+ "rosetower_4": [
+  {
+   "species": 878,
+   "level": 48,
+   "moves": [
+    442,
+    583,
+    70,
+    91
+   ]
+  }
+ ],
+ "rosetower_5": [
+  {
+   "species": 437,
+   "level": 48,
+   "moves": [
+    326,
+    219,
+    334,
+    319
+   ]
+  }
+ ],
+ "rosetower_1": [
+  {
+   "species": 832,
+   "level": 49,
+   "moves": [
+    428,
+    179,
+    34
+   ]
+  },
+  {
+   "species": 823,
+   "level": 49,
+   "moves": [
+    211,
+    65,
+    184,
+    207
+   ]
+  },
+  {
+   "species": 818,
+   "level": 50,
+   "moves": [
+    691,
+    341,
+    196,
+    399
+   ]
+  }
+ ],
+ "rosetower_2": [
+  {
+   "species": 832,
+   "level": 49,
+   "moves": [
+    428,
+    179,
+    34
+   ]
+  },
+  {
+   "species": 823,
+   "level": 49,
+   "moves": [
+    211,
+    65,
+    184,
+    207
+   ]
+  },
+  {
+   "species": 812,
+   "level": 50,
+   "moves": [
+    706,
+    630,
+    555,
+    253
+   ]
+  }
+ ],
+ "rosetower_3": [
+  {
+   "species": 832,
+   "level": 49,
+   "moves": [
+    428,
+    179,
+    34
+   ]
+  },
+  {
+   "species": 823,
+   "level": 49,
+   "moves": [
+    211,
+    65,
+    184,
+    207
+   ]
+  },
+  {
+   "species": 815,
+   "level": 50,
+   "moves": [
+    708,
+    68,
+    441,
+    340
+   ]
+  }
+ ],
+ "rosetower_6": [
+  {
+   "species": 600,
+   "level": 48,
+   "moves": [
+    508,
+    199,
+    544,
+    103
+   ]
+  }
+ ],
+ "rosetower_7": [
+  {
+   "species": 303,
+   "level": 48,
+   "moves": [
+    442,
+    313,
+    242,
+    310
+   ]
+  }
+ ],
+ "rosetower_8": [
+  {
+   "species": 208,
+   "level": 49,
+   "moves": [
+    21,
+    103,
+    157,
+    174
+   ]
+  }
+ ],
+ "rosetower_9": [
+  {
+   "species": 618,
+   "form": "STUNFISK_GALAR",
+   "level": 49,
+   "moves": [
+    707,
+    330,
+    319,
+    340
+   ]
+  }
+ ],
+ "rosetower_10": [
+  {
+   "species": 478,
+   "level": 50,
+   "moves": [
+    506,
+    196,
+    261,
+    104
+   ]
+  },
+  {
+   "species": 763,
+   "level": 50,
+   "moves": [
+    651,
+    23,
+    213,
+    512
+   ]
+  },
+  {
+   "species": 758,
+   "level": 50,
+   "moves": [
+    474,
+    510,
+    139,
+    406
+   ]
+  },
+  {
+   "species": 350,
+   "level": 51,
+   "moves": [
+    57,
+    219,
+    392,
+    105
+   ]
+  },
+  {
+   "species": 569,
+   "gmax": "GARBODOR_GMAX",
+   "level": 52,
+   "moves": [
+    441,
+    661,
+    350,
+    390
+   ]
+  }
+ ],
+ "sword_championcup_4": [
+  {
+   "species": 303,
+   "level": 51,
+   "moves": [
+    583,
+    442,
+    242
+   ]
+  },
+  {
+   "species": 282,
+   "level": 51,
+   "moves": [
+    605,
+    94,
+    347,
+    273
+   ]
+  },
+  {
+   "species": 78,
+   "form": "RAPIDASH_GALAR",
+   "level": 52,
+   "moves": [
+    427,
+    36,
+    605,
+    98
+   ]
+  },
+  {
+   "species": 858,
+   "gmax": "HATTERENE_GMAX",
+   "level": 53,
+   "moves": [
+    94,
+    605,
+    347,
+    595
+   ]
+  }
+ ],
+ "sword_championcup_5": [
+  {
+   "species": 768,
+   "level": 51,
+   "moves": [
+    623,
+    664,
+    14,
+    421
+   ]
+  },
+  {
+   "species": 279,
+   "level": 51,
+   "moves": [
+    355,
+    403,
+    352,
+    366
+   ]
+  },
+  {
+   "species": 847,
+   "level": 52,
+   "moves": [
+    664,
+    638,
+    423,
+    529
+   ]
+  },
+  {
+   "species": 119,
+   "level": 52,
+   "moves": [
+    647,
+    224,
+    392,
+    127
+   ]
+  },
+  {
+   "species": 834,
+   "gmax": "DREDNAW_GMAX",
+   "level": 53,
+   "moves": [
+    664,
+    692,
+    317,
+    242
+   ]
+  }
+ ],
+ "sword_championcup_6": [
+  {
+   "species": 701,
+   "level": 52,
+   "moves": [
+    560,
+    136,
+    340
+   ]
+  },
+  {
+   "species": 853,
+   "level": 52,
+   "moves": [
+    699,
+    66,
+    20,
+    5
+   ]
+  },
+  {
+   "species": 865,
+   "level": 53,
+   "moves": [
+    348,
+    21,
+    280,
+    656
+   ]
+  },
+  {
+   "species": 870,
+   "level": 53,
+   "moves": [
+    694,
+    339,
+    370,
+    317
+   ]
+  },
+  {
+   "species": 68,
+   "gmax": "MACHAMP_GMAX",
+   "level": 54,
+   "moves": [
+    238,
+    279,
+    7,
+    70
+   ]
+  }
+ ],
+ "sword_championcup_7": [
+  {
+   "species": 477,
+   "level": 52,
+   "moves": [
+    325,
+    9,
+    317,
+    50
+   ]
+  },
+  {
+   "species": 609,
+   "level": 52,
+   "moves": [
+    247,
+    595,
+    261
+   ]
+  },
+  {
+   "species": 864,
+   "level": 53,
+   "moves": [
+    506,
+    631,
+    246,
+    133
+   ]
+  },
+  {
+   "species": 855,
+   "level": 53,
+   "moves": [
+    247,
+    182,
+    417,
+    202
+   ]
+  },
+  {
+   "species": 94,
+   "gmax": "GENGAR_GMAX",
+   "level": 54,
+   "moves": [
+    247,
+    188,
+    399,
+    95
+   ]
+  }
+ ],
+ "sword_championcup_8": [
+  {
+   "species": 324,
+   "level": 53,
+   "moves": [
+    436,
+    704,
+    76,
+    281
+   ]
+  },
+  {
+   "species": 706,
+   "level": 54,
+   "moves": [
+    240,
+    57,
+    87,
+    330
+   ]
+  },
+  {
+   "species": 776,
+   "level": 54,
+   "moves": [
+    241,
+    406,
+    658,
+    126
+   ]
+  },
+  {
+   "species": 330,
+   "level": 54,
+   "moves": [
+    201,
+    337,
+    89,
+    242
+   ]
+  },
+  {
+   "species": 884,
+   "gmax": "DURALUDON_GMAX",
+   "level": 55,
+   "moves": [
+    337,
+    704,
+    444,
+    442
+   ]
+  }
+ ],
+ "energyplant_0": [
+  {
+   "species": 589,
+   "level": 55,
+   "moves": [
+    529,
+    442,
+    224,
+    14
+   ]
+  },
+  {
+   "species": 598,
+   "level": 55,
+   "moves": [
+    360,
+    438,
+    704,
+    174
+   ]
+  },
+  {
+   "species": 863,
+   "level": 55,
+   "moves": [
+    442,
+    103,
+    421,
+    638
+   ]
+  },
+  {
+   "species": 601,
+   "level": 56,
+   "moves": [
+    544,
+    508,
+    528,
+    372
+   ]
+  },
+  {
+   "species": 879,
+   "gmax": "COPPERAJAH_GMAX",
+   "level": 57,
+   "moves": [
+    484,
+    442,
+    630,
+    428
+   ]
+  }
+ ],
+ "sword_championcup_9": [
+  {
+   "species": 681,
+   "level": 62,
+   "moves": [
+    588,
+    247,
+    533,
+    430
+   ]
+  },
+  {
+   "species": 887,
+   "level": 62,
+   "moves": [
+    247,
+    53,
+    85,
+    225
+   ]
+  },
+  {
+   "species": 612,
+   "level": 63,
+   "moves": [
+    398,
+    231,
+    200,
+    89
+   ]
+  },
+  {
+   "species": 537,
+   "level": 64,
+   "moves": [
+    92,
+    409,
+    664,
+    89
+   ]
+  },
+  {
+   "species": 815,
+   "level": 64,
+   "moves": [
+    708,
+    364,
+    512,
+    98
+   ]
+  },
+  {
+   "species": 6,
+   "gmax": "CHARIZARD_GMAX",
+   "level": 65,
+   "moves": [
+    126,
+    403,
+    76,
+    246
+   ]
+  }
+ ],
+ "sword_championcup_10": [
+  {
+   "species": 681,
+   "level": 62,
+   "moves": [
+    588,
+    247,
+    533,
+    430
+   ]
+  },
+  {
+   "species": 887,
+   "level": 62,
+   "moves": [
+    247,
+    53,
+    85,
+    225
+   ]
+  },
+  {
+   "species": 612,
+   "level": 63,
+   "moves": [
+    398,
+    231,
+    200,
+    89
+   ]
+  },
+  {
+   "species": 866,
+   "level": 64,
+   "moves": [
+    298,
+    94,
+    573,
+    85
+   ]
+  },
+  {
+   "species": 818,
+   "level": 64,
+   "moves": [
+    691,
+    399,
+    341,
+    669
+   ]
+  },
+  {
+   "species": 6,
+   "gmax": "CHARIZARD_GMAX",
+   "level": 65,
+   "moves": [
+    126,
+    403,
+    76,
+    246
+   ]
+  }
+ ],
+ "sword_championcup_11": [
+  {
+   "species": 681,
+   "level": 62,
+   "moves": [
+    588,
+    247,
+    533,
+    430
+   ]
+  },
+  {
+   "species": 887,
+   "level": 62,
+   "moves": [
+    247,
+    53,
+    85,
+    225
+   ]
+  },
+  {
+   "species": 612,
+   "level": 63,
+   "moves": [
+    398,
+    231,
+    200,
+    89
+   ]
+  },
+  {
+   "species": 464,
+   "level": 64,
+   "moves": [
+    89,
+    444,
+    224,
+    535
+   ]
+  },
+  {
+   "species": 812,
+   "level": 64,
+   "moves": [
+    706,
+    282,
+    630,
+    283
+   ]
+  },
+  {
+   "species": 6,
+   "gmax": "CHARIZARD_GMAX",
+   "level": 65,
+   "moves": [
+    126,
+    403,
+    76,
+    246
+   ]
+  }
+ ],
+ "slumberingweald_0": [
+  {
+   "species": 832,
+   "level": 59,
+   "moves": [
+    538,
+    24,
+    38,
+    29
+   ]
+  },
+  {
+   "species": 823,
+   "level": 59,
+   "moves": [
+    211,
+    65,
+    184,
+    413
+   ]
+  },
+  {
+   "species": 871,
+   "level": 58,
+   "moves": [
+    670,
+    398,
+    61,
+    31
+   ]
+  },
+  {
+   "species": 143,
+   "level": 58,
+   "moves": [
+    359,
+    630,
+    484,
+    242
+   ]
+  },
+  {
+   "species": 845,
+   "level": 58,
+   "moves": [
+    291,
+    65,
+    638,
+    211
+   ]
+  },
+  {
+   "species": 818,
+   "level": 60,
+   "moves": [
+    691,
+    389,
+    664,
+    369
+   ]
+  }
+ ],
+ "slumberingweald_1": [
+  {
+   "species": 832,
+   "level": 59,
+   "moves": [
+    538,
+    24,
+    38,
+    29
+   ]
+  },
+  {
+   "species": 823,
+   "level": 59,
+   "moves": [
+    211,
+    65,
+    184,
+    413
+   ]
+  },
+  {
+   "species": 871,
+   "level": 58,
+   "moves": [
+    670,
+    398,
+    61,
+    31
+   ]
+  },
+  {
+   "species": 143,
+   "level": 58,
+   "moves": [
+    359,
+    630,
+    484,
+    242
+   ]
+  },
+  {
+   "species": 845,
+   "level": 58,
+   "moves": [
+    291,
+    65,
+    638,
+    211
+   ]
+  },
+  {
+   "species": 812,
+   "level": 60,
+   "moves": [
+    706,
+    21,
+    282,
+    253
+   ]
+  }
+ ],
+ "slumberingweald_2": [
+  {
+   "species": 832,
+   "level": 59,
+   "moves": [
+    538,
+    24,
+    38,
+    29
+   ]
+  },
+  {
+   "species": 823,
+   "level": 59,
+   "moves": [
+    211,
+    65,
+    184,
+    413
+   ]
+  },
+  {
+   "species": 871,
+   "level": 58,
+   "moves": [
+    670,
+    398,
+    61,
+    31
+   ]
+  },
+  {
+   "species": 143,
+   "level": 58,
+   "moves": [
+    359,
+    630,
+    484,
+    242
+   ]
+  },
+  {
+   "species": 845,
+   "level": 58,
+   "moves": [
+    291,
+    65,
+    638,
+    211
+   ]
+  },
+  {
+   "species": 815,
+   "level": 60,
+   "moves": [
+    38,
+    29,
+    708,
+    97
+   ]
+  }
+ ],
+ "slumberingweald_3": [
+  {
+   "species": 865,
+   "level": 60,
+   "moves": [
+    348,
+    21,
+    722,
+    14
+   ]
+  },
+  {
+   "species": 768,
+   "level": 60,
+   "moves": [
+    623,
+    664,
+    404,
+    389
+   ]
+  },
+  {
+   "species": 680,
+   "level": 60,
+   "moves": [
+    533,
+    442,
+    400,
+    14
+   ]
+  },
+  {
+   "species": 625,
+   "level": 60,
+   "moves": [
+    442,
+    400,
+    14,
+    444
+   ]
+  }
+ ],
+ "slumberingweald_4": [
+  {
+   "species": 865,
+   "level": 60,
+   "moves": [
+    348,
+    21,
+    722,
+    334
+   ]
+  },
+  {
+   "species": 437,
+   "level": 60,
+   "moves": [
+    113,
+    326,
+    360,
+    95
+   ]
+  },
+  {
+   "species": 870,
+   "level": 60,
+   "moves": [
+    694,
+    623,
+    370,
+    224
+   ]
+  },
+  {
+   "species": 601,
+   "level": 60,
+   "moves": [
+    544,
+    508,
+    182,
+    528
+   ]
+  }
+ ],
+ "sword_sordwardshielbert_2": [
+  {
+   "species": 763,
+   "level": 62,
+   "moves": [
+    438,
+    136,
+    583,
+    428
+   ]
+  }
+ ],
+ "sword_sordwardshielbert_3": [
+  {
+   "species": 130,
+   "level": 62,
+   "moves": [
+    127,
+    444,
+    242,
+    419
+   ]
+  }
+ ],
+ "sword_sordwardshielbert_4": [
+  {
+   "species": 324,
+   "level": 62,
+   "moves": [
+    436,
+    89,
+    704,
+    231
+   ]
+  }
+ ],
+ "sword_sordwardshielbert_5": [
+  {
+   "species": 768,
+   "level": 62,
+   "moves": [
+    623,
+    664,
+    404,
+    389
+   ]
+  },
+  {
+   "species": 680,
+   "level": 62,
+   "moves": [
+    533,
+    442,
+    400,
+    421
+   ]
+  },
+  {
+   "species": 625,
+   "level": 62,
+   "moves": [
+    442,
+    400,
+    444,
+    14
+   ]
+  }
+ ],
+ "sword_sordwardshielbert_6": [
+  {
+   "species": 437,
+   "level": 62,
+   "moves": [
+    113,
+    326,
+    360,
+    95
+   ]
+  },
+  {
+   "species": 870,
+   "level": 62,
+   "moves": [
+    694,
+    623,
+    370,
+    224
+   ]
+  },
+  {
+   "species": 601,
+   "level": 62,
+   "moves": [
+    544,
+    508,
+    182,
+    528
+   ]
+  }
+ ],
+ "sword_sordwardshielbert_7": [
+  {
+   "species": 534,
+   "level": 62,
+   "moves": [
+    9,
+    8,
+    359,
+    444
+   ]
+  },
+  {
+   "species": 477,
+   "level": 62,
+   "moves": [
+    8,
+    89,
+    9,
+    325
+   ]
+  }
+ ],
+ "sword_sordwardshielbert_9": [
+  {
+   "species": 526,
+   "level": 62,
+   "moves": [
+    157,
+    89,
+    444,
+    638
+   ]
+  },
+  {
+   "species": 478,
+   "level": 62,
+   "moves": [
+    196,
+    247,
+    87,
+    94
+   ]
+  }
+ ],
+ "sword_sordwardshielbert_10": [
+  {
+   "species": 612,
+   "level": 62,
+   "moves": [
+    200,
+    89,
+    231,
+    416
+   ]
+  }
+ ],
+ "sword_sordwardshielbert_8": [
+  {
+   "species": 303,
+   "level": 61,
+   "moves": [
+    583,
+    313,
+    442,
+    242
+   ]
+  },
+  {
+   "species": 282,
+   "level": 61,
+   "moves": [
+    605,
+    94,
+    248,
+    345
+   ]
+  },
+  {
+   "species": 78,
+   "form": "RAPIDASH_GALAR",
+   "level": 62,
+   "moves": [
+    647,
+    427,
+    605,
+    23
+   ]
+  },
+  {
+   "species": 858,
+   "level": 63,
+   "moves": [
+    94,
+    347,
+    605,
+    595
+   ]
+  }
+ ],
+ "energyplant_1": [
+  {
+   "species": 865,
+   "level": 64,
+   "moves": [
+    348,
+    21,
+    722,
+    14
+   ]
+  },
+  {
+   "species": 768,
+   "level": 64,
+   "moves": [
+    623,
+    664,
+    404,
+    389
+   ]
+  },
+  {
+   "species": 680,
+   "level": 64,
+   "moves": [
+    533,
+    442,
+    400,
+    14
+   ]
+  },
+  {
+   "species": 625,
+   "level": 64,
+   "moves": [
+    442,
+    400,
+    14,
+    444
+   ]
+  }
+ ],
+ "energyplant_2": [
+  {
+   "species": 865,
+   "level": 64,
+   "moves": [
+    348,
+    21,
+    722,
+    334
+   ]
+  },
+  {
+   "species": 437,
+   "level": 64,
+   "moves": [
+    113,
+    326,
+    360,
+    95
+   ]
+  },
+  {
+   "species": 870,
+   "level": 64,
+   "moves": [
+    694,
+    623,
+    370,
+    224
+   ]
+  },
+  {
+   "species": 601,
+   "level": 64,
+   "moves": [
+    544,
+    508,
+    182,
+    528
+   ]
+  }
+ ],
+ "sword_sordwardshielbert_13": [
+  {
+   "species": 889,
+   "level": 70,
+   "moves": [
+    583,
+    334,
+    242,
+    442
+   ]
+  },
+  {
+   "species": 888,
+   "level": 70,
+   "moves": [
+    533,
+    14,
+    442,
+    242
+   ]
+  }
+ ],
+ "slumberingweald_5": [
+  {
+   "species": 832,
+   "level": 69,
+   "moves": [
+    538,
+    24,
+    38,
+    29
+   ]
+  },
+  {
+   "species": 143,
+   "level": 68,
+   "moves": [
+    359,
+    89,
+    484,
+    242
+   ]
+  },
+  {
+   "species": 871,
+   "level": 68,
+   "moves": [
+    670,
+    398,
+    664,
+    105
+   ]
+  },
+  {
+   "species": 823,
+   "level": 69,
+   "moves": [
+    211,
+    65,
+    207,
+    113
+   ]
+  },
+  {
+   "species": 818,
+   "level": 70,
+   "moves": [
+    691,
+    389,
+    58,
+    399
+   ]
+  },
+  {
+   "species": 889,
+   "form": "ZAMAZENTA_CROWNED",
+   "level": 70,
+   "moves": [
+    242,
+    710,
+    660,
+    583
+   ],
+   "held": "RUSTED_SHIELD"
+  }
+ ],
+ "slumberingweald_6": [
+  {
+   "species": 832,
+   "level": 69,
+   "moves": [
+    538,
+    24,
+    38,
+    29
+   ]
+  },
+  {
+   "species": 143,
+   "level": 68,
+   "moves": [
+    359,
+    89,
+    484,
+    242
+   ]
+  },
+  {
+   "species": 871,
+   "level": 68,
+   "moves": [
+    670,
+    398,
+    664,
+    105
+   ]
+  },
+  {
+   "species": 823,
+   "level": 69,
+   "moves": [
+    211,
+    65,
+    207,
+    113
+   ]
+  },
+  {
+   "species": 812,
+   "level": 70,
+   "moves": [
+    706,
+    21,
+    282,
+    630
+   ]
+  },
+  {
+   "species": 889,
+   "form": "ZAMAZENTA_CROWNED",
+   "level": 70,
+   "moves": [
+    242,
+    710,
+    660,
+    583
+   ],
+   "held": "RUSTED_SHIELD"
+  }
+ ],
+ "slumberingweald_7": [
+  {
+   "species": 832,
+   "level": 69,
+   "moves": [
+    538,
+    24,
+    38,
+    29
+   ]
+  },
+  {
+   "species": 143,
+   "level": 68,
+   "moves": [
+    359,
+    89,
+    484,
+    242
+   ]
+  },
+  {
+   "species": 871,
+   "level": 68,
+   "moves": [
+    670,
+    398,
+    664,
+    105
+   ]
+  },
+  {
+   "species": 823,
+   "level": 69,
+   "moves": [
+    211,
+    65,
+    207,
+    113
+   ]
+  },
+  {
+   "species": 815,
+   "level": 70,
+   "moves": [
+    441,
+    442,
+    708,
+    428
+   ]
+  },
+  {
+   "species": 889,
+   "form": "ZAMAZENTA_CROWNED",
+   "level": 70,
+   "moves": [
+    242,
+    710,
+    660,
+    583
+   ],
+   "held": "RUSTED_SHIELD"
+  }
+ ],
+ "slumberingweald_8": [
+  {
+   "species": 832,
+   "level": 69,
+   "moves": [
+    538,
+    24,
+    38,
+    29
+   ]
+  },
+  {
+   "species": 143,
+   "level": 68,
+   "moves": [
+    359,
+    89,
+    484,
+    242
+   ]
+  },
+  {
+   "species": 871,
+   "level": 68,
+   "moves": [
+    670,
+    398,
+    664,
+    105
+   ]
+  },
+  {
+   "species": 823,
+   "level": 69,
+   "moves": [
+    211,
+    65,
+    207,
+    113
+   ]
+  },
+  {
+   "species": 818,
+   "level": 70,
+   "moves": [
+    691,
+    389,
+    58,
+    399
+   ]
+  },
+  {
+   "species": 888,
+   "form": "ZACIAN_CROWNED",
+   "level": 70,
+   "moves": [
+    242,
+    709,
+    528,
+    370
+   ],
+   "held": "RUSTED_SWORD"
+  }
+ ],
+ "slumberingweald_9": [
+  {
+   "species": 832,
+   "level": 69,
+   "moves": [
+    538,
+    24,
+    38,
+    29
+   ]
+  },
+  {
+   "species": 143,
+   "level": 68,
+   "moves": [
+    359,
+    89,
+    484,
+    242
+   ]
+  },
+  {
+   "species": 871,
+   "level": 68,
+   "moves": [
+    670,
+    398,
+    664,
+    105
+   ]
+  },
+  {
+   "species": 823,
+   "level": 69,
+   "moves": [
+    211,
+    65,
+    207,
+    113
+   ]
+  },
+  {
+   "species": 812,
+   "level": 70,
+   "moves": [
+    706,
+    21,
+    282,
+    630
+   ]
+  },
+  {
+   "species": 888,
+   "form": "ZACIAN_CROWNED",
+   "level": 70,
+   "moves": [
+    242,
+    709,
+    528,
+    370
+   ],
+   "held": "RUSTED_SWORD"
+  }
+ ],
+ "slumberingweald_10": [
+  {
+   "species": 832,
+   "level": 69,
+   "moves": [
+    538,
+    24,
+    38,
+    29
+   ]
+  },
+  {
+   "species": 143,
+   "level": 68,
+   "moves": [
+    359,
+    89,
+    484,
+    242
+   ]
+  },
+  {
+   "species": 871,
+   "level": 68,
+   "moves": [
+    670,
+    398,
+    664,
+    105
+   ]
+  },
+  {
+   "species": 823,
+   "level": 69,
+   "moves": [
+    211,
+    65,
+    207,
+    113
+   ]
+  },
+  {
+   "species": 815,
+   "level": 70,
+   "moves": [
+    441,
+    442,
+    708,
+    428
+   ]
+  },
+  {
+   "species": 888,
+   "form": "ZACIAN_CROWNED",
+   "level": 70,
+   "moves": [
+    242,
+    709,
+    528,
+    370
+   ],
+   "held": "RUSTED_SWORD"
+  }
+ ]
+}

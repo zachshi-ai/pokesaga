@@ -9,7 +9,10 @@ const CARDS := {
 const FLIGHTS := [
 	["化朗镇","galar_postwick","g_home"],["木杆镇","galar_wedgehurst","g_leon_arrives"],
 	["旷野地带车站","galar_wild_south","g_train"],["机擎市","galar_motostoke","g_leon_card"],
-	["草路镇","galar_turffield","g_yamper"]]
+	["草路镇","galar_turffield","g_yamper"],["水舟镇","galar_hulbury","g_hulbury_rose"],
+	["拳关市","galar_hammerlocke","g_hammer_rose"],["溯传镇","galar_stow","g_gym_4_ready"],
+	["舞姿镇","galar_ballonlea","g_gym_5_ready"],["战竞镇","galar_circhester","g_gym_6_ready"],
+	["尖钉镇","galar_spikemuth","g_badge_7"],["宫门市","galar_wyndon","g_wyndon_arrival"]]
 const CAMPS := ["galar_1","galar_2","galar_3","galar_4","galar_wild_south","galar_wild_lake","galar_wild_north",
 	"galar_5","galar_6","galar_7","galar_8","galar_9","galar_10","galar_lake_out"]
 
@@ -31,7 +34,7 @@ static func use(g,item_name: String) -> bool:
 		if g._flags().has("g_uniform_number"):lines.append("报名已经受理。你的球衣背号是 "+str(g._flags().g_uniform_number)+"。")
 		g._dialog(lines,item_name)
 	elif item_name=="极巨腕带":g._dialog(["木兰博士把许愿星嵌在腕带里。在草路竞技场与亚洛对战时，选择招式页的极巨化，就能激发伙伴的力量。"],item_name)
-	else:return false
+	else:return preload("res://core/galar_later.gd").use(g,item_name)
 	return true
 
 static func _camp(g) -> void:

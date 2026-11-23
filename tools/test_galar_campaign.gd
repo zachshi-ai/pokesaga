@@ -53,6 +53,8 @@ func run() -> void:
 			check(Campaign.gate({"map":"galar_5"},probe.flags)!="","future route open")
 			probe.flags.g_badge_1=true
 			check(Campaign.gate({"map":"galar_5"},probe.flags)=="","old world blocked after badge")
+			check(Campaign.gate({"map":"galar_wyndon"},probe.flags)!="","first badge skipped to Wyndon")
+			check(Campaign.gate({"region":"armor","map":"armor_fields"},probe.flags)=="","mainline blocked island pass")
 			check(Campaign.encounters("galar_1",{}).get("rate",1)==0,"wild before starter")
 	var items=load("res://core/galar_items.gd")
 	for id in [810,813,816,25,52,745]:check(items.swift_compatible({"species_id":id}),"missing Swift compatible species "+str(id))
