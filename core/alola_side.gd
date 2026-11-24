@@ -203,6 +203,13 @@ static func step(g) -> bool:
 	return false
 
 static func talk(g,npc: Dictionary) -> bool:
+	if npc.get("alola_lift",false):
+		var stops: Array = g.world.map_data.warps
+		var floors := {"alola_aether_docks":"船坞","alola_aether_mansion":"宅邸入口","alola_aether_lab":"地下实验区","alola_aether_conservation":"保护区"}
+		var names := stops.map(func(w):return floors.get(str(w.to.map),str(w.alola_label)))
+		g._pick("以太乐园电梯",names,func(index):
+			g._on_warp_ready(stops[index].to))
+		return true
 	if npc.get("alola_malasada_counter",false):
 		preload("res://core/alola_side_towns.gd").visit(g,{"action":"malasada","name":npc.name})
 		return true

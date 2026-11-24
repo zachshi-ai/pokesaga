@@ -130,7 +130,21 @@ def edgepoint(p, old, new):
     ]
 
 
+def galar_facades(props):
+    """Swap just the art at the existing building lot. Each sprite's centreline is its doorway."""
+    for prop in props:
+        if not prop[0].startswith("res://assets/switch_fields/props/"):
+            continue
+        sprite = ROOT / "assets/galar/architecture" / Path(prop[0]).name
+        if sprite.is_file():
+            with Image.open(sprite) as art:
+                prop[0] = "res://" + sprite.relative_to(ROOT).as_posix()
+                prop[3] = [art.width // 2, art.height]
+
+
 def scene(mid, m, im, grid, props):
+    if mid.startswith("galar_"):
+        galar_facades(props)
     ART.mkdir(parents=True, exist_ok=True)
     f = ART / (mid + ".png")
     im.quantize(200, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE).save(
@@ -765,6 +779,9 @@ class Field:
                             width=2,
                         )
         self.m["switch_sites"] = [{"kind": k, "at": [x, y]} for k, x, y in self.placed]
+        if self.mid == "galar_hulbury":
+            from switch_fields.hulbury import waterfront
+            waterfront(self.em, im, self.grid)
         return im, self.grid, self.props
 
 

@@ -6,7 +6,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageOps
 from kalos_gym_rooms import tile, sprite
 from build_galar_grass_gym import pack, stamp, warp, write
-from galar_gym_architecture import wings, floor, pitch_edges
+from galar_gym_architecture import wings, floor, pitch_edges, stadium_front
 
 ROOT=Path(__file__).resolve().parents[1]
 MAPS=ROOT/'content/regions/galar/maps'
@@ -90,10 +90,7 @@ def connect(n):
     props=d['hoenn_art']['p'];marker='res://assets/galar/league_gyms/entry_%d.png'%n
     props[:]=[p for p in props if p[0]!=marker]
     if n in [2,4,6]:
-        im=Image.open(SW/'pitch.png').convert('RGBA');colors=np.array(im);c=np.array(tuple(bytes.fromhex(FACILITIES[n][4][1:])))
-        mask=(colors[:,:,1].astype(int)>colors[:,:,0].astype(int)+14)&(colors[:,:,3]>0)
-        colors[:,:,:3][mask]=(0.4*colors[:,:,:3][mask]+.6*c).astype('uint8')
-        im=Image.fromarray(colors)
+        im=stadium_front(n)
         for yy in range(y-2,y+1):
             for xx in range(x-2,x+3):tiles[yy][xx]=1
         im.save(OUT/('entry_%d.png'%n));props.append([marker,x,y,[im.width//2,im.height-1]])

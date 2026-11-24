@@ -892,7 +892,7 @@
  },
  {
   "id": "dlc_peony",
-  "map": "crown_slope",
+  "map": "crown_slippery",
   "who": "皮欧尼",
   "require": [
    "g_train"
@@ -927,7 +927,7 @@
  },
  {
   "id": "dlc_lair",
-  "map": "crown_slope",
+  "map": "crown_max_lair",
   "who": "夏科娅",
   "require": [
    "dlc_peony"
@@ -943,8 +943,8 @@
    }
   ],
   "at": [
-   27,
-   9
+   14,
+   8
   ]
  },
  {
@@ -1437,7 +1437,7 @@
  },
  {
   "id": "dlc_beast",
-  "map": "crown_slope",
+  "map": "crown_max_lair",
   "who": "巢穴调查员",
   "require": [
    "dlc_report"
@@ -1454,8 +1454,8 @@
    }
   ],
   "at": [
-   27,
-   9
+   14,
+   8
   ]
  },
  {

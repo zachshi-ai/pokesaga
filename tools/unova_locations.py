@@ -1,5 +1,6 @@
 """Stable game IDs for shared Unova places and version-specific interiors."""
 import re
+from unova_castelia import LABELS as CASTELIA_LABELS
 
 SHARED={
     0:'black_city',6:'striaton',15:'striaton_school',10:'fennel_lab',16:'nacrene',17:'museum',
@@ -70,6 +71,7 @@ def assign(src):
         if not name:name='合众设施'
         if 'gym_' in mid:name=LOCATIONS.get(z['place'],name)+'道馆'
         elif mid in LABELS:name=LABELS[mid]
+        elif place=="castelia_city" and z["i"] in CASTELIA_LABELS:name+="·"+CASTELIA_LABELS[z["i"]]
         elif src.era=='bw' and z['i'] in (191,192):name='冷冻仓库'
         elif k.endswith('pokemon_center') or z['bgm']==1060:name+='·宝可梦中心'
         elif z['parent']!=z['i'] and mid.startswith(src.era+'_zone_') and place not in ('royal_unova','medal_office','nature_preserve','rock_peak_chamber','iron_chamber','iceberg_chamber','pledge_grove'):

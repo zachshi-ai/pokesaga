@@ -80,7 +80,7 @@ PALETTES = {
     "abyss": ("#584d84", "#9985b5"),
     "vortexfield": ("#494b77", "#9c91bf"),
     "prismcity": ("#4c617a", "#9abfc1"),
-    "powerland": ("#537975", "#c4cc80"),
+    "powerland": ("#374457", "#96a8b2"),
     "prismtower": ("#535977", "#af96c0"),
     "floatingfall": ("#535878", "#94b5bb"),
     "deepcave": ("#605370", "#b1a1a6"),
@@ -970,6 +970,15 @@ def build(source, only=None):
             processed += 1
             continue
         changed, props = f.render(source, mid)
+        if mid in ("alola_aether_docks","alola_ultra_plant","ultra_plant"):
+            from alola_remote_facilities import place
+            place(m, mid)
+        if mid == "alola_aether_entrance":
+            from alola_aether_lift import floor
+            floor(m)
+        if reg == "alola":
+            from regional_frontages import dress_map
+            dress_map(m, reg)
         write(ROOT / MAPS / reg / "maps" / (mid + ".json"), m)
         print(mid, changed, props, flush=True)
         processed += 1

@@ -10,7 +10,9 @@
   "crown_peak",
   "crown_ruins",
   "crown_slope",
-  "crown_tree"
+  "crown_tree",
+  "crown_slippery",
+  "crown_max_lair"
  ],
  "encounters": [
   {

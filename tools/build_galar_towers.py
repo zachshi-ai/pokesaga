@@ -4,6 +4,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw
 from bake_emerald_field import pack
+import galar_expansion_landmarks
 from island_metatiles import piece
 from kalos_gym_rooms import sprite
 
@@ -82,11 +83,12 @@ def main():
     eventfile=ROOT/"content/galar_expansion.json";events=json.loads(eventfile.read_text())
     for style,outside in (("dark","armor_towers"),("water","armor_water_tower")):
         op=MAPS/(outside+".json");hub=json.loads(op.read_text())
-        default_door={'dark': [16, 6], 'water': [18, 8]}[style]
-        door=next((w["at"] for w in hub["warps"] if w["to"]["map"]==f"armor_{style}_floor_1"),default_door)
-        if not any(w["to"]["map"]==f"armor_{style}_floor_1" for w in hub["warps"]):
-            hub["warps"].append(warp(door,f"armor_{style}_floor_1",[7,10],"up"))
-            hub["objects"].append({"kind":"sign","at":[door[0]+1,door[1]],"text":"双拳塔入口。带着熊徒弟来挑战五层。"})
+        door = ([12,10] if style == "dark" else [18,8])
+        destination = f"armor_{style}_floor_1"
+        hub["warps"] = [row for row in hub["warps"] if row["to"]["map"] != destination]
+        hub["warps"].append(warp(door,destination,[7,10],"up"))
+        hub["objects"] = [row for row in hub["objects"] if not row.get("text","").startswith("双拳塔入口")]
+        hub["objects"].append({"kind":"sign","at":[door[0]+(3 if style=="dark" else 1),door[1]],"text":"双拳塔入口。带着熊徒弟来挑战五层。"})
         hub["tiles"][door[1]][door[0]]=0;hub["tiles"][door[1]+1][door[0]]=0
         save(op,hub)
         for level in range(1,6):
@@ -95,4 +97,6 @@ def main():
             evt=next(e for e in events if e["id"]==f"dlc_{style}{level}")
             evt.update(map=mid,at=[8,5])
     save(index,region);eventfile.write_text(json.dumps(events,ensure_ascii=False,indent=1)+"\n")
+    galar_expansion_landmarks.build()
+
 if __name__=="__main__":main()

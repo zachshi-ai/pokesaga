@@ -350,7 +350,10 @@ def install(source):
                     at[0]+=w["opening_lane"]
                 w["to"]["at"]=at
                 changed=True
-        if changed:write(path,m)
+        if changed:
+            from regional_frontages import dress_map
+            dress_map(m,"kalos")
+            write(path,m)
     world_path=ROOT/"content/world_destinations.json"
     world=json.loads(world_path.read_text());reg=world["regions"]["kalos"]
     for loc in reg["locations"]:

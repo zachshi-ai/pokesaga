@@ -75,6 +75,19 @@ func setup(in_center: bool) -> void:
 	frame.add_child(cursor)
 	_populate(0)
 
+func show_field_status(location: String, cell: Vector2i, money: int, badges: int) -> void:
+	var tag := PanelContainer.new()
+	tag.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	tag.add_theme_stylebox_override("panel", UI.box(Color("#fffee9f5"), Color("#6d8875"), 4))
+	tag.position = Vector2(8, 248)
+	add_child(tag)
+	var lines := VBoxContainer.new()
+	lines.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	lines.add_theme_constant_override("separation", 0)
+	tag.add_child(lines)
+	lines.add_child(UI.label(location, 14, INK))
+	lines.add_child(UI.label("¥%d   徽章 %d   (%d, %d)" % [money, badges, cell.x, cell.y], 12, INK))
+
 func _populate(focus_row: int) -> void:
 	for b in rows:
 		frame.remove_child(b)

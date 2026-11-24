@@ -58,6 +58,7 @@ var snd                     # 原版曲子的 BGM / SFX
 var _last_bump := 0
 var results: Array = []
 var ui_layer: CanvasLayer
+var _location_until := 0
 var name_label: Label
 var hint_label: Label
 var toast: Label
@@ -83,8 +84,6 @@ var _field_fingers := {}
 var _post_warp_keys := {}
 var ui_timer := 0.0
 var touch_layer: CanvasLayer
-var money_label: Label
-var badges_label: Label
 var _talked_once := false
 var bag_items: Array = []
 var _bag_ui = null
@@ -713,21 +712,22 @@ func _enter_game(fresh: bool) -> void:
 	_restore_from_save()
 
 func _refresh_hud() -> void:
-	if name_label:
-		name_label.text = world.display_name()
-	if hint_label:
-		hint_label.text = "位置 %d,%d   方向 %s%s" % [world.player_pos.x, world.player_pos.y, world.facing, _ledge_tip()]
-	if money_label and save_data.has("money"):
-		money_label.text = "¥%d" % int(save_data.get("money", 0))
-	if badges_label:
-		var bs: Array = Journey.badges(save_data,world.map_data.region) if world.map_data.get("region","") in ["unova","kalos","alola","galar"] else save_data.get("badges", [])
-		badges_label.text = ("徽章 %d" % bs.size()) if not bs.is_empty() else ""
+	if not name_label or world.map_data.is_empty():
+		return
+	var place: String = world.display_name()
+	if place != name_label.text:
+		name_label.text = place
+		name_label.reset_size()
+		_location_until = Time.get_ticks_msec() + 2800
+	name_label.visible = touch_layer.visible and Time.get_ticks_msec() < _location_until
+	var tip := _ledge_tip()
+	hint_label.text = tip
+	hint_label.visible = touch_layer.visible and not tip.is_empty()
 
-## 站在坡上方时直接把「按 ↓ 能跳下去」写出来，省得靠坐标对位置
 func _ledge_tip() -> String:
-	for d in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
+	for d in [Vector2i.DOWN, Vector2i.UP, Vector2i.RIGHT, Vector2i.LEFT]:
 		if world.ledge_bits(world.player_pos + d) != 0 and world._ledge_allows(world.player_pos + d, d):
-			return "   坡↓可跳"
+			return "跳下台阶 " + str({Vector2i.DOWN:"↓",Vector2i.UP:"↑",Vector2i.RIGHT:"→",Vector2i.LEFT:"←"}[d])
 	return ""
 
 func _t(name: String, pass_flag: bool) -> bool:
@@ -745,7 +745,7 @@ func _build_touch_controls() -> void:
 	plate.position = Vector2(14, 150)
 	plate.size = Vector2(136, 136)
 	var psb := StyleBoxFlat.new()
-	psb.bg_color = Color(0.05, 0.08, 0.11, 0.42)
+	psb.bg_color = Color(0.05, 0.08, 0.11, 0.15)
 	psb.set_corner_radius_all(68)
 	psb.border_width_left = 1
 	psb.border_width_top = 1
@@ -802,7 +802,7 @@ func _pad_button(txt: String, sz: Vector2) -> Button:
 	var r := int(sz.x / 2)
 	# 常态：半透明深底，细边
 	var n := StyleBoxFlat.new()
-	n.bg_color = Color(0.06, 0.10, 0.13, 0.55)
+	n.bg_color = Color(0.06, 0.10, 0.13, 0.32)
 	n.set_corner_radius_all(r)
 	n.border_width_left = 2
 	n.border_width_top = 2
@@ -1407,8 +1407,6 @@ func _on_back() -> void:
 	top.queue_free()
 	_set_hud_visible(panel_open == 0)
 
-var _bar: Panel
-var _dock: Panel
 var _plate: Panel
 var _dpad: Array = []
 var _btn_a: Button
@@ -1418,42 +1416,24 @@ func _build_ui() -> void:
 	ui_layer = CanvasLayer.new()
 	add_child(ui_layer)
 
-	var bar := Panel.new()
-	bar.position = Vector2(0, 288)
-	bar.size = Vector2(480, 32)
-	var sb := StyleBoxFlat.new()
-	sb.bg_color = Color(0.08, 0.11, 0.16, 0.88)
-	sb.border_width_top = 2
-	sb.border_color = Color(0.42, 0.78, 0.72)
-	sb.corner_radius_bottom_left = 10
-	sb.corner_radius_bottom_right = 10
-	bar.add_theme_stylebox_override("panel", sb)
-	ui_layer.add_child(bar)
-	_bar = bar
-
+	var field_sign := StyleBoxFlat.new()
+	field_sign.bg_color = Color("#273d3de8")
+	field_sign.set_corner_radius_all(3)
+	field_sign.content_margin_left = 8
+	field_sign.content_margin_right = 8
+	field_sign.content_margin_top = 3
+	field_sign.content_margin_bottom = 3
 	name_label = Label.new()
-	name_label.position = Vector2(14, 292)
-	name_label.add_theme_font_size_override("font_size", 16)
-	name_label.add_theme_color_override("font_color", Color(0.92, 0.97, 0.95))
-	ui_layer.add_child(name_label)
-
 	hint_label = Label.new()
-	hint_label.position = Vector2(250, 294)
-	hint_label.add_theme_font_size_override("font_size", 12)
-	hint_label.add_theme_color_override("font_color", Color(0.62, 0.78, 0.74))
-	ui_layer.add_child(hint_label)
-
-	money_label = Label.new()
-	money_label.position = Vector2(14, 268)
-	money_label.add_theme_font_size_override("font_size", 12)
-	money_label.add_theme_color_override("font_color", Color(0.96, 0.86, 0.52))
-	ui_layer.add_child(money_label)
-
-	badges_label = Label.new()
-	badges_label.position = Vector2(150, 268)
-	badges_label.add_theme_font_size_override("font_size", 12)
-	badges_label.add_theme_color_override("font_color", Color(0.72, 0.84, 0.80))
-	ui_layer.add_child(badges_label)
+	for label in [name_label, hint_label]:
+		label.add_theme_stylebox_override("normal", field_sign)
+		label.add_theme_font_size_override("font_size", 13)
+		label.add_theme_color_override("font_color", Color("#fff6d9"))
+		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		label.hide()
+		ui_layer.add_child(label)
+	name_label.position = Vector2(8, 8)
+	hint_label.position = Vector2(8, 38)
 
 	toast = Label.new()
 	# 提示条位于 START 和虚拟方向键之间。
@@ -1480,30 +1460,13 @@ const BASE_H := 320.0
 func _layout_hud() -> void:
 	var w := BASE_W
 	var h := BASE_H
-	var bar_h := 32.0
-	# 操作区不再占掉半屏：按键半透明浮在地图上，只避开最下面那条状态栏
-	if _dock != null:
-		_dock.visible = false
 	if world != null and world.cam != null:
 		world._apply_cam_limits()
 		world.view_shift = 0.0
 		world._sync_player()
-	if _bar != null:
-		_bar.position = Vector2(0, h - bar_h)
-		_bar.size = Vector2(w, bar_h)
-	if name_label != null:
-		name_label.position = Vector2(14, h - bar_h + 7)
-	if hint_label != null:
-		hint_label.position = Vector2(w - 230, h - bar_h + 9)
-		hint_label.size = Vector2(216, 18)
-		hint_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	if money_label != null:
-		money_label.position = Vector2(14, h - bar_h - 18)
-	if badges_label != null:
-		badges_label.position = Vector2(150, h - bar_h - 18)
 	if toast != null:
 		toast.size = Vector2(w, 24)
-	var bottom: float = h - bar_h - 6.0
+	var bottom: float = h - 22.0
 	if _plate != null:
 		_plate.position = Vector2(12, bottom - 132)
 		for d in _dpad:
@@ -1792,7 +1755,7 @@ func _do_warp(target: Dictionary) -> void:
 	if world.map_data.id=="em_inside_of_truck" and next_map.id!="em_inside_of_truck":
 		save_data.erase("hoenn_truck")
 	snd.play_sfx("door")
-	_show_toast("前往 " + String(next_map.get("name", "")))
+	_location_until = Time.get_ticks_msec() + 2800
 	if world.map_data.get("id","") == "four_island_icefall_cave_1f" and next_map.id != world.map_data.id:
 		for rule in preload("res://core/kanto_campaign.gd").field_rules(world.map_data.id):
 			_flags().erase(rule.variants[0].flags[0])
@@ -1810,6 +1773,9 @@ func _do_warp(target: Dictionary) -> void:
 	world.load_map(next_map)
 	UnovaSpots.restore(self)
 	preload("res://core/hoenn_match_call.gd").arrive(self)
+	for finger in _field_fingers:
+		if _field_fingers[finger] != "run":
+			_field_fingers[finger] = "transition"
 	world.arrive(target)
 	if next_map.region in ["galar","armor","crown"] and next_map.get("biome","")=="interior":world.bike=false
 	if next_map.has("platinum_native") and not SinnohField.field(next_map.id).get("bike",false): world.bike=false
@@ -3639,10 +3605,11 @@ func _set_hud_visible(on: bool) -> void:
 	if is_instance_valid(active_battle) and is_instance_valid(start_menu):
 		_remove_start_menu()
 	var field_visible := on and panel_open == 0 and not is_instance_valid(active_battle) and not is_instance_valid(title_screen)
-	for n in [_bar, name_label, hint_label, money_label, badges_label]:
-		if n:
-			n.visible = field_visible
+	for label in [name_label, hint_label]:
+		if label and not field_visible:
+			label.hide()
 	if not field_visible:
+		_field_fingers.clear()
 		held_dir = ""
 		run_held = false
 		if toast:
@@ -8663,7 +8630,29 @@ func _handle_field_touch(event: InputEventScreenTouch) -> bool:
 		return false
 	return true
 
+func _drag_field_pad(event: InputEventScreenDrag) -> bool:
+	if not _field_fingers.has(event.index) or _field_fingers[event.index] in ["run", "transition"]:
+		return false
+	if not touch_layer.visible or not world.pending_warp.is_empty():
+		return true
+	var previous: String = _field_fingers[event.index]
+	var key := _field_key_at(event.position)
+	if key == "run":
+		key = ""
+	if key == previous:
+		return true
+	_field_fingers[event.index] = key
+	if not key.is_empty():
+		held_dir = key
+		_move(key)
+	elif held_dir == previous:
+		held_dir = ""
+	return true
+
 func _input(event: InputEvent) -> void:
+	if event is InputEventScreenDrag and _drag_field_pad(event):
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventScreenTouch and _handle_field_touch(event):
 		get_viewport().set_input_as_handled()
 		return
@@ -8711,6 +8700,10 @@ func _toggle_start_menu() -> void:
 	start_menu.alola_editions=world.map_data.id=="alola_home" and _flags().get("a_started",false)
 	start_menu.alola_pelago=world.map_data.region=="alola" and _flags().get("a_ride_charizard",false)
 	start_menu.setup(_in_pokemon_center())
+	var badge_region: String = world.map_data.region
+	if badge_region in ["armor","crown"]:
+		badge_region = "galar"
+	start_menu.show_field_status(world.display_name(), world.player_pos, int(save_data.get("money", 0)), Journey.badges(save_data, badge_region).size())
 	snd.play_sfx("select")
 
 func _remove_start_menu() -> void:

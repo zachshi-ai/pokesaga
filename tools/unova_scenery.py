@@ -60,7 +60,7 @@ def dress(bw, b2, black_models, era, selected):
             fit_spawn(doc, sheet.convert("RGBA"), "unova_previous_spawn", scene[1:])
         # The model includes signs, foliage and the original architecture. Keep
         # the tile layer below it on walkable rail approaches outside the model.
-        art["p"] = []
+        art["p"] = area.get("street_facades", [])
         light_floor(doc)
         file.write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n")
         total += 1

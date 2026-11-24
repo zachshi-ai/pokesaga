@@ -50,7 +50,7 @@ def texture(folder,g,binary,material):
     if color is None:return None
     return np.array([[np.array(color)*255]],dtype='uint8')
 
-def render_mesh(path,offset,rotation,pixels,depth, field_ground=False):
+def render_mesh(path,offset,rotation,pixels,depth, field_ground=False, rise=0.36):
     g,b=glb(path);ox,oy,oz=offset
     ct=np.cos(rotation);st=np.sin(rotation)
     h,w=depth.shape
@@ -59,7 +59,9 @@ def render_mesh(path,offset,rotation,pixels,depth, field_ground=False):
             attrs=pr['attributes']
             if 'indices' not in pr or 'material' not in pr or 'TEXCOORD_0' not in attrs:continue
             mat=g['materials'][pr['material']];name=mat.get('name','').lower()
-            if any(k in name for k in ('kage','shadow','hikari','hlight','sky_','skybox','_sky','smoke','cloud','kemuri')):continue
+            # The DS blends Black City's cloud layer. Its white unlit texture
+            # becomes an opaque white island in this fixed-palette field view.
+            if name == "bc_kumo01" or any(k in name for k in ('kage','shadow','hikari','hlight','sky_','skybox','_sky','smoke','cloud','kemuri')):continue
             tex=texture(path.parent,g,b,mat)
             if tex is None:continue
             xyz=values(g,b,attrs['POSITION']);uv=values(g,b,attrs['TEXCOORD_0'])
@@ -74,7 +76,7 @@ def render_mesh(path,offset,rotation,pixels,depth, field_ground=False):
                 elif name.startswith(('michi01','michi02')):
                     from unova_streets import path_texture
                     tex=path_texture(tex)
-            a=np.ascontiguousarray(np.column_stack((x,z-y*.36,z*.36+y,uv)),dtype=np.float32)
+            a=np.ascontiguousarray(np.column_stack((x,z-y*rise,z*rise+y,uv)),dtype=np.float32)
             inds=np.ascontiguousarray(values(g,b,pr['indices']).ravel(),dtype=np.uint32)
             raster()(pixels.ctypes.data,depth.ctypes.data,w,h,a.ctypes.data,inds.ctypes.data,len(inds)//3,tex.ctypes.data,tex.shape[1],tex.shape[0])
 
@@ -101,14 +103,17 @@ def bake(src,a):
     outdoor=opening or (not landmark(z) and (z['matrix'] in (0,1) or z['fly_from']))
     from unova_streets import Streets, family
     street=Streets(a) if opening else None
+    elevations=[]
     authored=opening or landmark(z)
     from unova_transit_art import PLACES
     if z['mid'] in PLACES:return None
     if not authored and src.era=='bw' and not hasattr(src,'black_glbs'):
         original=ROOT/'content/unova_native/bw'/(z['mid']+'.json')
         if original.exists():
-            scene=json.loads(original.read_bytes())['hoenn_art'].get('scene')
-            if scene:return scene
+            art=json.loads(original.read_bytes())['hoenn_art']
+            if art.get('scene'):
+                a['street_facades']=art.get('p',[])
+                return art['scene']
         raise ValueError('Generate original Black GLBs before rebuilding '+z['mid'])
     if opening and src.era=='bw' and not hasattr(src,'black_glbs'):
         # The sequel changes roads and buildings. Reuse the committed Black scene
@@ -142,11 +147,23 @@ def bake(src,a):
                     street.collect(kind,x+px,y+pz)
                     continue
             prop=directory/bundle[pid]/'model.glb'
-            if prop.exists():render_mesh(prop,(x+px,py,y+pz),rot,pixels,depth)
+            if not prop.exists():continue
+            if area['exterior'] and not street and not landmark(z):
+                from unova_building_art import ROUTE_GATES, exterior_model, placement, route_gate
+                if z["mid"] in ROUTE_GATES and bundle[pid]=="gate_01":
+                    elevations.append(route_gate(z["mid"]))
+                    continue
+                if exterior_model(bundle[pid]):
+                    prop_art=placement(prop,rot,x+px,py,y+pz,(w,h))
+                    if prop_art:
+                        elevations.append(prop_art)
+                        continue
+            render_mesh(prop,(x+px,py,y+pz),rot,pixels,depth)
     from unova_landmark_models import placements
     for model,(x,y,zp) in placements(src,z):
         render_mesh(model,(x-ox*16,y,zp-oz*16),0,pixels,depth)
     if street:a['street_facades']=street.sprites()
+    elif elevations:a['street_facades']=sorted(elevations,key=lambda row:(row[2],row[1],row[0]))
     im=Image.fromarray(pixels)
     if outdoor:
         from unova_streets import finish_ground

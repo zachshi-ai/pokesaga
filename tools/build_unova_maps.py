@@ -127,9 +127,19 @@ def initialize(src,z):
 def append_warp(a,at,b,landing,trigger='step',source='scripted',**extra):
     a['warps'].append(dict(at=tolist(at),trigger=trigger,source_warp=source,to=dict(region='unova',map=b['z']['mid'],at=tolist(landing),unova_native=True,**extra)))
 
+def center_landing(name, arrival, exits, collision):
+    # On a Center's three-wide south mat the DS transition controls the arrival
+    # animation. Place the GBA character one step inside so DOWN exits normally.
+    x, y = arrival
+    if name.endswith("·宝可梦中心") and (x, y) in exits and y > 0:
+        if not collision[y - 1][x] and (x, y - 1) not in exits:
+            return x, y - 1
+    return arrival
+
+
 def source_links(data):
-    for i,a in data.items():
-        for k,(p,row) in enumerate(zip(a['entries'],a['z']['warps'])):
+    for i, a in data.items():
+        for k, (p, row) in enumerate(zip(a["entries"], a["z"]["warps"])):
             b=data.get(row['zone']);end=row['warp']
             if not b or p is None:continue
             q=b['entries'][end] if end<len(b['entries']) else None
@@ -140,6 +150,9 @@ def source_links(data):
             if np.abs(close-np.array(p)).sum()>1: p=tolist(close)
             x,y=p;a['collision'][y,x]=False
             landing=nearest(b['coords'],q)
+            back={tuple(cell) for cell,event in zip(b['entries'],b['z']['warps'])
+                  if cell is not None and event['zone']==i}
+            landing=center_landing(b['z']['name'],landing,back,b['collision'])
             if b['z']['mid']=='unova_9' and a['z']['mid']=='unova_bw_zone_352' and tolist(landing)==[26,26]:
                 landing=nearest(b['coords'],[26,27])
             if b['z']['mid']=='unova_b2_zone_568' and a['z']['mid']=='unova_b2_zone_586' and tolist(landing)==[2,6]:

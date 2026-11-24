@@ -11,6 +11,7 @@ from PIL import Image, ImageDraw
 from scipy import ndimage
 
 from unova_art import K, ROOT, encode
+from unova_castelia import PAVERS, harbour, paving
 from unova_streets import grass_tile
 
 PLACES = {"unova_skyarrow_bridge", "unova_marine_tube", "unova_castelia"}
@@ -33,11 +34,13 @@ KEYS = (
     "quay",
     "portwater",
     "wharf",
-)
+) + PAVERS
 INDEX = {k: OFFSET + i for i, k in enumerate(KEYS)}
 
 
 def material(key):
+    if key in PAVERS:
+        return paving(key)
     colors = {
         "road": ("#626f80", "#687889"),
         "road_dash": ("#626f80", "#687889"),
@@ -61,7 +64,10 @@ def material(key):
             "shoal": ((34, 77, 96), (69, 111, 123)),
             "portwater": ((49, 101, 140), (87, 151, 170)),
         }[key]
-        a[:, :, :3] = np.array(lo) + (np.array(hi) - lo) * np.clip((light - 50) / 150, 0, 1)[:, :, None]
+        a[:, :, :3] = (
+            np.array(lo)
+            + (np.array(hi) - lo) * np.clip((light - 50) / 150, 0, 1)[:, :, None]
+        )
         return Image.fromarray(a)
     bg, shade = colors[key]
     im = Image.new("RGBA", (16, 16), bg)
@@ -131,7 +137,14 @@ def arch(marine=False):
     else:
         for x in (4, w - 14):
             p.polygon(
-                [(x, h - 1), (x + 1, 19), (x + 4, 8), (x + 7, 8), (x + 10, 19), (x + 10, h - 1)],
+                [
+                    (x, h - 1),
+                    (x + 1, 19),
+                    (x + 4, 8),
+                    (x + 7, 8),
+                    (x + 10, 19),
+                    (x + 10, h - 1),
+                ],
                 fill="#687681",
             )
             p.rectangle((x + 2, 19, x + 5, h - 2), fill="#c9cebd")
@@ -157,7 +170,10 @@ def edge(orientation, marine):
     if orientation in ("w", "e"):
         for x in [4, 5, 7] if orientation == "w" else [8, 10, 11]:
             p.line((x, 0, x, 17), fill=rim if x in (5, 10) else steel)
-        p.rectangle((5 if orientation == "w" else 9, 1, 7 if orientation == "w" else 11, 4), fill="#aabfc0")
+        p.rectangle(
+            (5 if orientation == "w" else 9, 1, 7 if orientation == "w" else 11, 4),
+            fill="#aabfc0",
+        )
     else:
         p.rectangle((0, 7, 15, 11), fill=steel)
         p.line((0, 7, 15, 7), fill=rim)
@@ -167,12 +183,23 @@ def edge(orientation, marine):
 
 @lru_cache(None)
 def tower(style):
-    w, h = {"low": (60, 77), "mid": (65, 125), "tall": (80, 173), "corner": (71, 143)}[style]
+    w, h = {"low": (60, 77), "mid": (65, 125), "tall": (80, 173), "corner": (71, 143)}[
+        style
+    ]
     im = Image.new("RGBA", (w, h))
     p = ImageDraw.Draw(im)
-    body = {"low": "#ae8b70", "mid": "#8499a6", "tall": "#7e8596", "corner": "#91a99b"}[style]
-    shadow = {"low": "#856f63", "mid": "#5b7788", "tall": "#596074", "corner": "#627f80"}[style]
-    p.polygon([(1, 13), (w - 12, 3), (w - 2, 10), (w - 2, h - 1), (2, h - 1)], fill=shadow)
+    body = {"low": "#ae8b70", "mid": "#8499a6", "tall": "#7e8596", "corner": "#91a99b"}[
+        style
+    ]
+    shadow = {
+        "low": "#856f63",
+        "mid": "#5b7788",
+        "tall": "#596074",
+        "corner": "#627f80",
+    }[style]
+    p.polygon(
+        [(1, 13), (w - 12, 3), (w - 2, 10), (w - 2, h - 1), (2, h - 1)], fill=shadow
+    )
     p.rectangle((3, 14, w - 13, h - 2), fill=body)
     for y in range(22, h - 19, 14):
         for x in range(8, w - 19, 12):
@@ -185,6 +212,109 @@ def tower(style):
     p.rectangle((w // 2 - 9, h - 19, w // 2 + 5, h - 1), fill="#394755")
     p.line((w // 2 - 1, h - 17, w // 2 - 1, h - 1), fill="#97b0b0")
     p.rectangle((3, h - 3, w - 13, h - 1), fill="#899591")
+    # Distinct roof wells, projecting stone sills and side bays give the street
+    # towers depth just as the Emerald city houses distinguish roof from wall.
+    d = ImageDraw.Draw(im)
+    eave = w - 14
+    ink = "#494e60"
+    stone = {
+        "low": "#dbb997",
+        "mid": "#bed3cb",
+        "tall": "#c8cada",
+        "corner": "#c5d6b6",
+    }[style]
+    trim = {"low": "#985e4e", "mid": "#496e80", "tall": "#605b77", "corner": "#577b69"}[
+        style
+    ]
+    sky = {"low": "#8ab2af", "mid": "#82b2bd", "tall": "#9babc4", "corner": "#89afad"}[
+        style
+    ]
+    # Side wall recedes into the roof slope. Keep its highlights shorter and
+    # darker than the street-facing glazing to establish the corner.
+    d.polygon(
+        [(eave, 15), (w - 2, 8), (w - 2, h - 7), (eave, h - 1)],
+        fill=shadow,
+        outline=ink,
+    )
+    for y in range(23, h - 21, 14):
+        for step in (2, 7):
+            d.polygon(
+                [
+                    (eave + step, y - step // 2),
+                    (eave + step + 2, y - step // 2 - 1),
+                    (eave + step + 2, y - step // 2 + 4),
+                    (eave + step, y - step // 2 + 5),
+                ],
+                fill="#45556b",
+            )
+        d.line((eave, y + 9, w - 3, y + 4), fill=ink)
+    for y in range(22, h - 20, 14):
+        for x in range(8, eave - 7, 12):
+            d.rectangle((x - 1, y - 1, x + 7, y + 8), fill=trim)
+            d.rectangle((x, y, x + 5, y + 6), fill=sky)
+            d.line((x, y + 3, x + 5, y + 3), fill=shadow)
+            d.line((x + 2, y, x + 2, y + 6), fill=shadow)
+            d.line((x, y + 1, x + 1, y), fill="#d8e2d5")
+            d.line((x - 2, y + 8, x + 7, y + 8), fill=stone)
+        if y % 28 == 22:
+            d.line((3, y + 11, eave - 1, y + 11), fill=stone)
+    for x in (3, eave - 3):
+        d.line((x, 18, x, h - 5), fill=stone)
+        d.line((x + 1, 18, x + 1, h - 6), fill=shadow)
+    d.polygon(
+        [(1, 13), (11, 5), (w - 13, 5), (w - 2, 9), (eave, 16), (1, 16)],
+        fill=stone,
+        outline=ink,
+    )
+    d.polygon([(7, 12), (14, 7), (w - 15, 7), (w - 10, 9), (eave - 2, 12)], fill=shadow)
+    d.line((8, 13, eave - 2, 13), fill=trim)
+    # Roof-top machinery and a raised masonry cap vary the silhouette.
+    if style in ("tall", "corner"):
+        left = 12 if style == "tall" else w // 2 - 6
+        d.polygon(
+            [
+                (left, 6),
+                (left + 5, 1),
+                (left + 18, 1),
+                (left + 20, 3),
+                (left + 15, 8),
+                (left, 8),
+            ],
+            fill=stone,
+            outline=ink,
+        )
+        d.rectangle((left + 2, 5, left + 13, 7), fill=trim)
+        for x in range(left + 3, left + 13, 3):
+            d.point((x, 6), fill=sky)
+    else:
+        d.rectangle((12, 2, 23, 5), fill=ink)
+        d.line((13, 2, 21, 2), fill=stone)
+    # Mixed storefronts face the sidewalk. A cornice casts a visible shadow
+    # behind striped canvas rather than substituting a black hole for the door.
+    for x in range(7, eave - 8, 15):
+        d.rectangle((x, h - 16, x + 9, h - 5), fill=ink)
+        d.rectangle((x + 1, h - 15, x + 8, h - 7), fill=sky)
+        d.line((x + 2, h - 11, x + 5, h - 14), fill=stone)
+        d.line((x + 5, h - 15, x + 5, h - 7), fill=shadow)
+    x = w // 2 - 3
+    d.rectangle((x - 7, h - 18, x + 7, h - 2), fill=ink)
+    d.rectangle((x - 5, h - 16, x + 5, h - 3), fill=shadow)
+    d.line((x, h - 16, x, h - 3), fill=stone)
+    canvas = {
+        "mid": "#648c90",
+        "tall": "#7c7791",
+        "low": "#bb6d57",
+        "corner": "#68926d",
+    }[style]
+    d.polygon(
+        [(4, h - 22), (eave - 2, h - 22), (eave + 1, h - 15), (1, h - 15)],
+        fill=canvas,
+        outline=ink,
+    )
+    for x in range(7, eave - 2, 8):
+        d.line((x, h - 21, x - 1, h - 16), fill=stone, width=2)
+    d.line((3, h - 15, eave - 1, h - 15), fill=shadow)
+    d.line((4, h - 2, eave - 2, h - 2), fill=stone)
     return sprite("castelia_" + style, im), [w // 2 - 2, h]
 
 
@@ -255,49 +385,7 @@ def paint(doc):
 
     # The curved quay follows the five piers and street mouths in the source warp bank.
     if city:
-        shore = ndimage.binary_dilation(walk, iterations=2)
-        apron = ndimage.binary_dilation(walk, iterations=5)
-        tiles[apron] = INDEX["seawall"]
-        tiles[shore] = INDEX["quay"]
-        tiles[walk] = INDEX["cobble"]
-        # The inside of the arc is the city centre. The outer bank opens onto the sea.
-        for x in range(4, walk.shape[1]):
-            rows = np.where(walk[:, x])[0]
-            if not len(rows):
-                continue
-            top = int(rows.min())
-            if x >= 24:
-                tiles[max(0, top - 11) : max(0, top - 2), x] = INDEX["concrete"]
-        avoided = set()
-        for w in doc["warps"]:
-            x, y = w["at"]
-            dest = w["to"]["map"]
-            if dest == mid or any(abs(x - xx) + abs(y - yy) < 6 for xx, yy in avoided):
-                continue
-            if y > 64 and dest.endswith(("_37", "_38", "_39")) or dest == "unova_virbank":
-                # The docks have bollards, quay steps and timber planks.
-                for j in range(max(0, y - 1), min(y + 4, len(walk))):
-                    for i in range(max(0, x - 1), min(x + 2, walk.shape[1])):
-                        if walk[j, i]:
-                            tiles[j, i] = INDEX["wharf"]
-                place(("sign", [8, 15]), x, min(y + 1, len(walk) - 1))
-                avoided.add((x, y))
-                continue
-            if y > 3 and not can_place(walk, x, y - 1):
-                place(tower(("mid", "corner", "low", "tall")[(x + 2 * y) % 4]), x, y - 1)
-                avoided.add((x, y))
-        for x in range(23, 76, 5):
-            rows = np.where(walk[:, x])[0]
-            if not len(rows):
-                continue
-            y = int(rows.min()) - 4
-            if y < 2 or any(abs(x - xx) < 4 and abs(y - yy) < 6 for xx, yy in avoided):
-                continue
-            if not walk[y, max(0, x - 1) : x + 2].any():
-                place(tower(("tall", "corner", "mid")[(x // 5) % 3]), x, y)
-        for y, x in np.argwhere(shore & ~walk):
-            if (x * 3 + y) % 17 == 0 and not can_place(walk, x, int(y) + 2):
-                props.append(["streetlamp", int(x), int(y)])
+        harbour(doc, tiles, walk, props, INDEX, tower)
     else:
         if marine:
             tiles[((xgrid // 4 + 2 * ygrid // 7) % 9 == 0)] = INDEX["shoal"]
@@ -312,7 +400,9 @@ def paint(doc):
         center = ndimage.binary_erosion(walk)
         tiles[center] = INDEX["glass_glow" if marine else "road"]
         if not marine:
-            tiles[center & (xgrid == 114) & ((ygrid // 2) % 3 == 0)] = INDEX["road_dash"]
+            tiles[center & (xgrid == 114) & ((ygrid // 2) % 3 == 0)] = INDEX[
+                "road_dash"
+            ]
         for y in range(1, len(walk) - 1):
             xs = np.where(walk[y])[0]
             if not len(xs):
@@ -334,7 +424,10 @@ def paint(doc):
         if not marine:
             for y in range(271, 303, 3):
                 for x in range(72, 108, 3):
-                    if not boundary[y - 1 : y + 2, x - 1 : x + 2].any() and (x + y) % 5 != 1:
+                    if (
+                        not boundary[y - 1 : y + 2, x - 1 : x + 2].any()
+                        and (x + y) % 5 != 1
+                    ):
                         props.append(["tree", x, y])
     doc["hoenn_art"].pop("scene", None)
     doc["hoenn_art"]["t"] = encode(tiles)

@@ -81,6 +81,48 @@ def audit():
             for p in art["p"]:
                 if p[0].startswith("res://"):
                     assert (ROOT / p[0][6:]).is_file() and len(p) == 4, (name, p)
+            if name == "unova_castelia":
+                # Both copies of a street mouth must read as transitions, including
+                # diagonal entrances around the original city's curved harbour rail.
+                from unova_castelia import DOCKS, SIGNS, number
+
+                signs = [obj for obj in doc["objects"] if obj.get("castelia_board")]
+                assert {obj["text"] for obj in signs} == set(SIGNS.values()), folder
+                warps = {tuple(w["at"]) for w in doc["warps"]}
+                for sign in signs:
+                    x, y = sign["at"]
+                    assert doc["physics"]["collision"][y][x] and (x, y) not in warps
+                    assert ["sign", x, y] in art["p"], (folder, sign)
+                for warp in doc["warps"]:
+                    n = number(warp)
+                    if n in SIGNS:
+                        x, y = warp["at"]
+                        assert (
+                            tiles[y, x]
+                            == INDEX["quay_planks" if n in DOCKS else "street_inlay"]
+                        ), warp
+            if name in ("unova_12", "unova_14"):
+                from unova_building_art import ROUTE_GATES
+
+                door, view = ROUTE_GATES[name]
+                assert any(w["at"] == list(door) for w in doc["warps"]), (folder, name)
+                assert any(p[1:3] == list(door) and p[0].endswith("route_gate_"+view+".png")
+                           for p in art["p"]), (folder, name)
+            if name == "unova_black_city":
+                # The DS cloud texture used to fill four opaque white patches.
+                for pos in ((120,246), (628,246), (120,704), (628,704)):
+                    assert min(img.getpixel(pos)[:3]) < 225, (folder, name, pos)
+                if folder == "unova_native/b2":
+                    tower = next(p for p in art["p"] if p[1:3] == [9,13])
+                    assert image(tower[0]).height <= 96, (folder, name, "blocked street view")
+            if name == "unova_mistralton":
+                # The Pokémon Center and its DS door remain at the native entrance.
+                elevation = [
+                    p for p in art["p"] if "/elevations/" in p[0] and p[1:3] == [44, 48]
+                ]
+                assert any(image(p[0]).height >= 100 for p in elevation), (folder, name)
+                lobby = next(w["to"] for w in doc["warps"] if w["at"] == [44, 48])
+                assert lobby["at"] == [7, 18], (folder, name, lobby)
             migrated = doc.get("platinum_previous_spawn", doc.get("unova_previous_spawn"))
             if migrated:
                 assert migrated != doc["spawn"], (name, migrated)

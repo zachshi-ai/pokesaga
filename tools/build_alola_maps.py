@@ -331,6 +331,8 @@ def main(cache):
     fields={"alola_"+key for key in parse(ALOLA)} | {"alola_1"}
     fields.update("alola_"+home[1] for home in ROOMS)
     build_fields(ROOT,fields)
+    from regional_frontages import install as dress_frontages
+    dress_frontages("alola")
     print('Alola maps',len(maps),'native meshes or sectors',sum(bool(a.scene) for a in maps.values()),'links',sum(len(a.warps) for a in maps.values()),'items',sum(len(a.items) for a in maps.values()),'trainers',sum(len(a.trainers) for a in maps.values()))
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('atlas',type=Path);main(ap.parse_args().atlas)

@@ -283,6 +283,16 @@ def layer_picture(doc, rows, geo, root, cache, bank):
             if left + im.width <= 0 or top + im.height <= 0 or left >= 16 * w or top >= 16 * h:
                 continue
             model = glb_name(path)
+            if doc["id"] == "sinnoh_canalave":
+                if model == "c2_s02":
+                    from platinum_canalave_library import facade
+
+                    library = facade()
+                    top += im.height - library.height
+                    uri, im = store(library), library
+                elif model == "c5_door_s" and (math.floor(x / 16), math.floor(y / 16)) == (5, 14):
+                    # The redrawn portico contains the door at this original Platinum warp.
+                    continue
             if doc["map_type"] == "MAP_TYPE_INDOORS":
                 gba = furnished(model, im.size)
                 if gba:

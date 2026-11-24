@@ -9,7 +9,7 @@ from functools import lru_cache
 from pathlib import Path
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw
 from scipy import ndimage
 from bake_emerald_field import Emerald, normalized
 from johto_gba_outdoor import Hns, climb_wall
@@ -120,8 +120,6 @@ class RoomArt:
             if mat in ('lm9','lm8'):return None
             if 'gym_f4' in mat or 'gym_p' in mat:return self.floor
             return self.e.metatile('SkyPillar_1F',0x241 if not solid else 0x244)
-        if 'Goldenrod' in layout:
-            return self.hns.metatile(layout,0x301 if not solid else 0x2f2)
         if 'Ecruteak' in layout:
             return self.floor if not solid else None
         if 'Blackthorn' in layout:
@@ -133,6 +131,36 @@ class RoomArt:
         if 'Cianwood' in layout:
             return self.e.metatile('GraniteCave_1F',0x201 if not solid else 0x211)
         return self.e.metatile('MauvilleCity_Gym',0x201) if not solid else self.e.metatile('SkyPillar_1F',0x244)
+
+    @lru_cache(None)
+    def goldenrod_tile(self, layout, mat, solid, southern_edge, left_edge, right_edge):
+        # The donor's 0x301 is a vertical column. Use its floor, flower beds
+        # and stair tiles on the corresponding HGSS material and collision cells.
+        if not solid:
+            if "stair" in mat:
+                steps = Image.new("RGBA", (16,16), "#cabb9c")
+                draw = ImageDraw.Draw(steps)
+                for y in (0,5,10,15):
+                    draw.line((0,y,15,y), fill="#8d746c")
+                    draw.line((0,y+1,15,y+1), fill="#f4dfba")
+                return steps
+            tile_id = 0x304
+            # Stair landings are lighter than the lower hall. Keep the pattern
+            # subdued so trainers, platforms and the three stair flights stand out.
+            tile = self.hns.metatile(layout, tile_id).convert("RGBA")
+            pixels = np.array(tile)
+            shade = np.array([232, 202, 184] if mat == "g03yuka_b" else [226, 190, 168])
+            pixels[:,:,:3] = (pixels[:,:,:3].astype(int) + 2 * shade) // 3
+            return Image.fromarray(pixels)
+        if mat == "g03top_c":
+            if southern_edge:
+                return self.hns.metatile(layout, 0x2f2)
+            if left_edge or right_edge:
+                return self.hns.metatile(layout, 0x301)
+            return self.hns.metatile(layout, 0x302)
+        if southern_edge:
+            return self.hns.metatile(layout, 0x2ff)
+        return self.hns.metatile(layout, 0x2fb)
 
     def surfaces(self,m,size):
         w,h=size; out=np.empty((h,w),object);out.fill('')
@@ -210,7 +238,13 @@ class RoomArt:
             b=int(behavior[y,x])
             ground=floor
             mat=names[y,x]
-            if gym and mat:
+            if mid == 'johto_goldenrod_gym' and mat:
+                if not layout:
+                    raise ValueError("Missing Goldenrod Gym tileset")
+                ground = self.goldenrod_tile(layout, mat, not ok[y,x],
+                    y+1 < hgt and bool(ok[y+1,x]), x > 0 and bool(ok[y,x-1]),
+                    x+1 < w and bool(ok[y,x+1]))
+            elif gym and mat:
                 ground=self.gym_tile(layout or mid,mat,not bool(ok[y,x]))
                 if ground is None:continue
             elif cave:
@@ -228,6 +262,16 @@ class RoomArt:
             for dy,texture in ((-2,self.lab_wall if lab else self.wall),(-1,self.wainscot)):
                 if y+dy>=0 and not surface[y+dy,x]:
                     im.alpha_composite(self.cave_wall if cave else texture,(int(x)*16,int(y+dy)*16))
+        if mid == "johto_goldenrod_gym":
+            mark = np.argwhere(names == "g03mark")
+            if len(mark):
+                top,left = mark.min(axis=0)*16
+                right,bottom = left+47,top+47
+                d = ImageDraw.Draw(im)
+                d.ellipse((left+4,top+4,right-4,bottom-4), fill="#b47679", outline="#92636b", width=2)
+                d.pieslice((left+6,top+6,right-6,bottom-6),0,180,fill="#e7ceb0")
+                d.line((left+6,top+23,right-6,top+23),fill="#92636b",width=3)
+                d.ellipse((left+18,top+18,left+29,top+29),fill="#ead2b4",outline="#92636b",width=2)
         if mid=='johto_players_house_2f':
             im.alpha_composite(self.rug,(4*16,6*16))
             self.place(im,self.props['pc'],7.0,4.6)

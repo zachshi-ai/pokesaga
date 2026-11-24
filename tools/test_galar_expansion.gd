@@ -33,6 +33,13 @@ func run():
 				var p=Vector2i(int(cell[0]),int(cell[1]))+d
 				if p.x>=0 and p.y>=0 and p.y<m.tiles.size() and p.x<m.tiles[p.y].size() and int(m.tiles[p.y][p.x]) not in [1,2,6,7]:neighbours+=1
 			expect(neighbours>0,e.id+" interaction")
+	var slope:Dictionary=db.load_map("crown","crown_slippery")
+	var camp:Dictionary=db.load_map("crown","crown_max_lair")
+	var village:Dictionary=db.load_map("crown","crown_freezington")
+	expect(slope.name=="滑溜坡" and exp.maps.crown_slippery.any(func(e):return e.id=="dlc_peony"),"rail arrival and Peony share Slippery Slope")
+	expect(camp.warps.any(func(w):return w.to.map==slope.id) and slope.warps.any(func(w):return w.to.map==camp.id),"Max Lair entrance and exit")
+	expect(village.warps.any(func(w):return w.to.map==slope.id) and slope.warps.any(func(w):return w.to.map==village.id),"Freezington north footpath returns to the station area")
+	expect(exp.maps.crown_max_lair.any(func(e):return e.id=="dlc_lair") and not exp.maps.crown_slope.any(func(e):return e.id=="dlc_lair"),"rental adventure starts inside the research camp")
 	for style in ["water","dark"]:
 		for i in range(1,6):
 			var m: Dictionary=db.load_map("armor","armor_"+style+"_floor_"+str(i))

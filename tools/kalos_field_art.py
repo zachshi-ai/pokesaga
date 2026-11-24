@@ -42,7 +42,7 @@ def inks(texture, key, n, outdoor):
     lum=(red*4+green*7+blue*2)//13
     median=int(np.median(lum[valid])); span=max(66,int(np.quantile(lum[valid],.90)-np.quantile(lum[valid],.10)))
     relief=np.clip(np.rint((lum-median)*2.8/span),-3,3).astype(int)+3
-    if key not in ('atlas','roof'):
+    if key not in ('atlas','roof','building'):
         result[:,:,0]=IDS[key]
         if key in ('grass','water','tall','flower','path','sand','cobble','ground','leaves','autumn','frost','marsh','ice','snow'):
             relief=np.clip(relief,2,4)
@@ -56,7 +56,7 @@ def inks(texture, key, n, outdoor):
         ids[(blue>red+8)&(green>red+2)]=IDS['blueroof' if outdoor else 'glass']
         ids[(blue>green+11)&(red>green+10)]=IDS['silk']
         if key=='roof':ids[(col.max(2)-col.min(2))<19]=IDS['roof']
-        if outdoor:
+        if outdoor and key=='atlas':
             ids[(green>red+18)&(green>blue+25)]=IDS['leaves']
         ids[lum<36]=IDS['coal']
         result[:,:,0]=ids
@@ -131,20 +131,45 @@ def render(raw, parts, m):
         coords=ndimage.distance_transform_edt(floor>1e6,return_distances=False,return_indices=True)
         ground=floor[tuple(coords)]
     else:ground=np.zeros((h,w))
+    # Keep each wall face and roof slope distinct even where the model packed
+    # the entire building into one texture atlas. Local feet remain on the native grid.
+    architecture = n in TOWNS or n in (188, 301, 309, 355, 356)
+    projection = .73 if architecture else .52
     cache={}
     for node,name,p,uv,idx,texture,_ in parts:
         xx=p[:,0]/18-origin[0];zz=p[:,2]/18-origin[1]
         if xx.min()>w+6 or zz.min()>h+15 or xx.max()<-6 or zz.max()<-10:continue
         key=material(node,name,outdoor,n)
         if key is None:continue
+        # Packed house materials contain coloured slate and glazed windows. A
+        # green dormer on an exterior must never inherit the canopy texture.
+        if architecture and key in ('atlas','mirror') and any(part in name.lower() for part in
+            ('minka','build','gymoutside','cstle','school','boutique','hotel','_house','_cafe','_hous','_iedoor','_gate00')):
+            key='building'
         token=(id(texture),key)
         if token not in cache:cache[token]=inks(texture,key,n,outdoor)
         base=ground[np.clip(zz.astype(int),0,h-1),np.clip(xx.astype(int),0,w-1)]
         # The drawn feet stay at X/Y walk coordinates. Compression only affects vertical
         # projection, making a route's ledges readable in the GBA tile camera.
         rise=np.clip(p[:,1]-base,-27,260)/18
-        v=np.column_stack([xx*px,(zz-rise*.52)*px,p[:,1]/18+zz*.52,uv])
-        paint(encoded,depth,v,idx,cache[token])
+        v=np.column_stack([xx*px,(zz-rise*projection)*px,p[:,1]/18+zz*projection,uv])
+        if not architecture or key not in ('roof','atlas','building','plaster','brick','metal','glass','wood','marble'):
+            paint(encoded,depth,v,idx,cache[token])
+            continue
+        faces=p[idx]
+        normal=np.cross(faces[:,1]-faces[:,0], faces[:,2]-faces[:,0])
+        normal/=np.maximum(np.linalg.norm(normal,axis=1,keepdims=True),1e-8)
+        # Orient two-sided surfaces toward the camera; northwest light leaves
+        # street-facing facades below the soffit darker than their roof slopes.
+        normal*=np.where(normal[:,1]+normal[:,2]*projection<0,-1,1)[:,None]
+        shade=np.rint(np.clip(normal[:,1]-.9*normal[:,0]-.85*normal[:,2],-1.9,1.2)).astype(int)
+        for offset in np.unique(shade):
+            shaded=(token,int(offset))
+            if shaded not in cache:
+                tex=cache[token].copy()
+                tex[:,:,1]=np.clip(tex[:,:,1].astype(int)+offset,0,6)
+                cache[shaded]=tex
+            paint(encoded,depth,v,np.ascontiguousarray(idx[shade==offset]),cache[shaded])
     # Align encounter fields with the actual flower/grass masks on the walkable surface.
     for cat,brush in ((GRASS,'tall'),(RED,'redflower'),(PURPLE,'purpleflower'),(YELLOW,'yellowflower'),(ROUGH,'snow' if n==278 else 'ground')):
         ys,xs=np.where(cells==cat)

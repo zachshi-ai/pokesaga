@@ -29,6 +29,18 @@ func touch(id: int, key: String, pressed: bool) -> void:
 	event.pressed = pressed
 	root.push_input(event,true)
 
+func slide(id: int, at: Vector2) -> void:
+	var drag := InputEventScreenDrag.new()
+	drag.index = id
+	drag.position = at
+	root.push_input(drag, true)
+
+func pad_center(key: String) -> Vector2:
+	for spec in game._dpad:
+		if spec.key == key:
+			return spec.btn.get_global_rect().get_center()
+	return Vector2.ZERO
+
 func frames(count: int) -> void:
 	for i in count:
 		game._process(1.0/60.0)
@@ -82,6 +94,25 @@ func run() -> void:
 	touch(1,"run",false)
 	frames(40)
 	check(at("viridiancity_mart",MART) and warp_count == 2,"crossing the mat sideways keeps the player indoors")
+
+	place("viridiancity_mart", MART + Vector2i.LEFT + Vector2i.UP)
+	touch(3,"right",true)
+	slide(3,pad_center("up"))
+	frames(20)
+	check(game.held_dir == "up" and game.world.player_pos.y < MART.y - 1,"rolling the thumb turns at the next tile")
+	slide(3,game._plate.get_global_rect().get_center())
+	frames(40)
+	var rested: Vector2i = game.world.player_pos
+	frames(40)
+	check(game.held_dir == "" and game.world.player_pos == rested,"resting in the centre stops without lifting")
+	touch(3,"up",false)
+	place("kanto_main",STREET)
+	touch(4,"up",true)
+	frames(40)
+	slide(4,pad_center("down"))
+	frames(40)
+	check(at("viridiancity_mart",MART),"a finger held through a doorway cannot drag back out")
+	touch(4,"down",false)
 
 	place("pallet_town_players_house_2f",STAIRS)
 	game._move("left")

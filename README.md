@@ -1,8 +1,12 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.65.0-study`，versionCode 为 98，包名为 `com.stepx.pokesaga.study`。使用学习版的玩家可以覆盖安装，继续同一份存档。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.66.0-study`，versionCode 为 99，包名为 `com.stepx.pokesaga.study`。使用学习版的玩家可以覆盖安装，继续同一份存档。
 
-[下载 4.65 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.65.0-study/PokeSaga-4.65.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.65.0-study)
+[下载 4.66 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.66.0-study/PokeSaga-4.66.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.66.0-study)
+
+## 后世代的建筑与入口
+
+水舟镇的鱼市、灯塔和车站有了各自的轮廓。可以从鱼市绕到灯塔进门，也可以到满金道馆沿花坛找楼梯、在飞云市读路牌，或到以太乐园找接待员选楼层。十字键现在支持按住滑动转向。[逐地区实走记录与同机位截图](doc/后世代建筑实走.md)
 
 ## 伽勒尔
 

@@ -6,6 +6,7 @@ from scipy import ndimage
 from PIL import Image,ImageDraw
 from kalos_gym_rooms import tile,sprite
 from kalos_surfaces import LAND,ROAD,SAND,WATER
+from regional_frontages import BUILDINGS, facade, city_gate
 ROOT=Path(__file__).resolve().parents[1]
 
 def draw(a):
@@ -41,7 +42,7 @@ def draw(a):
     im=Image.fromarray(plane);d=ImageDraw.Draw(im)
     def fixture(name,p,scale=1):
         x,y=p
-        art=sprite(name)
+        art=city_gate() if name=='city_gate' else facade('kalos',name,centered=True) if not rural and name in BUILDINGS else sprite(name)
         art=art.resize((max(1,round(art.width*px/16*scale)),max(1,round(art.height*px/16*scale))),Image.Resampling.NEAREST)
         im.paste(art,(round((x+.5)*px-art.width/2),round((y+1)*px-art.height)),art)
     excluded=np.zeros((h,w),bool);pred=a.warps
@@ -112,7 +113,8 @@ def draw(a):
             x,y=wv['at'];to=wv['to']['map'];source=wv.get('source_warp','')
             if source=='matrix' or 'plaza' in to or 'lumiose_north' in to or 'lumiose_central' in to:continue
             target=([x,y-1],0.)
-            if 'center_' in to:building='center'
+            if to in {'kalos_zone_'+str(n) for n in range(70,75)}:building='city_gate'
+            elif 'center_' in to:building='center'
             elif 'lab_' in to or 'museum' in to:building='academy'
             elif 'station' in to:building='mart'
             elif 'tower' in to:building='gym'

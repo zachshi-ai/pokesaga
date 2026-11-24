@@ -1,6 +1,6 @@
 """Pixel architecture for each Galar mission, aligned to the 16 px collision grid."""
 from random import Random
-from PIL import ImageDraw
+from PIL import Image, ImageDraw
 
 def edged(d, points, dark, light, width):
     d.line(points, fill=dark, width=width)
@@ -199,3 +199,79 @@ def pitch_edges(im,n):
                 d.ellipse((x-10,y-10,x+10,y+10),fill='#413f4b',outline='#8c8085',width=2)
                 d.ellipse((x-4,y-4,x+4,y+4),fill='#a18d91')
         d.polygon([(188,74),(203,49),(219,66),(240,36),(236,64),(262,53),(252,78),(225,88)],fill='#a67e92',outline='#caa4aa',width=2)
+
+
+def stadium_front(number):
+    """Street-side stands on the existing five-cell plots in the three open towns."""
+    from galar_expansion_landmarks import masonry
+
+    im=Image.new("RGBA",(102,65))
+    d=ImageDraw.Draw(im)
+    ink="#374653"
+    concrete=["#686d72","#9b9d94","#acaca1","#8f928a","#c4c5b4"]
+    sandstone=["#715f59","#ab9177","#af9c81","#977e68","#c7b598"]
+    blue="#427891"
+    def glazed(box,fill):
+        l,t,r,b=box
+        d.rectangle(box,fill=fill,outline=ink)
+        for cx in range(l+3,r,8):
+            d.line((cx,t+2,cx-2,b-2),fill="#a9c6c6")
+            d.line((cx+3,t,cx+3,b),fill=ink)
+        d.line((l+1,(b+t)//2,r-1,(b+t)//2), fill="#65818c")
+
+    if number==2:
+        # A curving wave canopy wraps over the glass entrance above the waterfront.
+        masonry(d,(10,33,91,59),concrete,12)
+        d.polygon([(5,27),(13,16),(34,8),(71,7),(90,14),(98,25),(91,37),(9,37)],
+                  fill=blue,outline=ink)
+        d.polygon([(8,25),(18,17),(38,11),(70,10),(87,16),(94,23),(86,21),(66,16),(40,16),(19,23)],
+                  fill="#9cc4c9",outline="#5a909f")
+        for x in range(20,85,8):
+            d.line((x+2,16+(x-51)**2//160,x,24+(x-51)**2//260),fill="#d7e2d6")
+        d.line([(7,30),(21,24),(38,21),(65,21),(83,24),(94,30)],fill="#aecbcb",width=2)
+        for a,b in ((12,38),(64,90)):
+            glazed((a,37,b,50),"#618d9d")
+        d.rectangle((39,29,63,52),fill="#e0ddd0",outline="#73858b")
+        d.polygon([(51,31),(57,39),(57,42),(54,45),(48,45),(45,42),(46,38)],
+                  fill="#4f95af",outline=ink)
+        d.line([(48,42),(49,38),(50,36)],fill="#c9ece0")
+    elif number==4:
+        # Weathered sandstone buttresses and an open sawtooth stand in Stow-on-Side.
+        masonry(d,(10,24,92,60),sandstone,12)
+        d.polygon([(7,30),(18,14),(31,9),(67,9),(82,11),(94,27)],fill="#9a806a",outline=ink)
+        for x in range(19,88,10):
+            d.polygon([(x-4,24),(x+1,12),(x+5,11),(x+7,24)],fill="#b79c80",outline="#816e61")
+        for x in (7,23,71,86):
+            masonry(d,(x,29,x+8,56),sandstone,7)
+            d.rectangle((x-1,28,x+9,30),fill="#cabea0",outline="#8c7c6a")
+        for x in (31,64):
+            d.polygon([(x,34),(x+7,34),(x+7,52),(x+4,55),(x,52)],fill="#9f6650",outline="#655856")
+            d.line((x+2,36,x+2,50),fill="#d5a477")
+        d.polygon([(36,49),(36,34),(43,27),(51,24),(59,27),(66,34),(66,49)],
+                  fill="#8b7b6d",outline=ink)
+        d.polygon([(41,51),(41,35),(47,31),(54,30),(61,36),(61,51)],fill="#beaf97",outline="#6c665e")
+        d.line([(46,38),(51,34),(56,38)],fill="#80685b",width=2)
+    else:
+        # Steam vents, arched window bays and snow pockets match the spa town.
+        masonry(d,(10,30,91,60),concrete,9)
+        d.polygon([(6,32),(8,19),(18,11),(33,10),(38,7),(65,7),(70,10),(87,12),(95,18),(97,31)],
+                  fill="#6b7d85",outline=ink)
+        d.polygon([(8,24),(10,18),(19,12),(33,12),(39,8),(64,8),(69,11),(85,13),(92,17),(92,20),(82,17),(75,18),(70,16),(61,17),(58,15),(45,15),(42,18),(28,16),(22,19),(14,18)],
+                  fill="#e0e6df",outline="#b4c3c5")
+        for x in (18,76):
+            d.rectangle((x,6,x+6,19),fill="#9da9a5",outline="#677883")
+            d.rectangle((x-2,6,x+7,8),fill="#dbe1d7",outline="#83949b")
+            d.line((x+2,3,x+5,1),fill="#e0e5de")
+        for x in (16,65):
+            glazed((x,36,x+19,47),"#789a9f")
+            d.line((x-1,35,x+20,35),fill="#d6ded2",width=2)
+        d.polygon([(34,46),(34,32),(41,25),(60,25),(68,32),(68,46)],fill="#afbab5",outline=ink)
+        d.polygon([(39,33),(43,28),(58,28),(64,33)],fill="#e4e7d8",outline="#8a9aa0")
+    # One dark foyer directly above the door tile with glass light reflected on either side.
+    d.rectangle((42,46,60,60),fill=ink,outline="#646f73")
+    for x in (43,56):
+        d.rectangle((x,48,x+3,58),fill="#79919b")
+        d.line((x,52,x+2,49),fill="#bbd0cb")
+    for i in range(3):
+        d.rectangle((39-i*2,58+i*2,63+i*2,59+i*2),fill=("#b8bab0","#82898b","#c6c5b5")[i])
+    return im

@@ -187,7 +187,7 @@ def unit_approach(a,k,count):
     angle=k*2.399963
     return center+extent*np.array([math.cos(angle),math.sin(angle)])*.84
 
-def build(raw):
+def build(raw, streets_only=False):
     source=json.loads((raw/'map.json').read_text())
     zones={int(n):z for n,z in source['zones'].items()}
     areas={n:Area(raw,n,z) for n,z in zones.items() if n not in TECH}
@@ -295,9 +295,12 @@ def build(raw):
             adj=[(npc[0]+dx,npc[1]+dy) for dx,dy in VEC if (npc[0]+dx,npc[1]+dy) in map(tuple,a.spots)]
             a.spawn=ints(next(c for c in adj if c not in a.used))
         a.finish_anchors()
+    from kalos_streets import draw as streets
+    if streets_only:
+        for n in range(63,70):streets(areas[n])
+        return
     from kalos_gym_rooms import install
     install(all_areas)
-    from kalos_streets import draw as streets
     for n in (0,63,64,65,66,67,68,69):streets(areas[n])
     for a in all_areas:save(MAPS/(a.mid+'.json'),a.data())
     phases={}
@@ -365,7 +368,12 @@ if __name__=='__main__':
     from asset_paths import source_path
     from kalos_opening import install
     parser.add_argument("--emerald-source",type=Path,default=Path(source_path("emerald")))
-    args=parser.parse_args();zs,ms=build(args.source);atlas(args.source,zs,ms)
+    parser.add_argument("--streets-only",action="store_true",help="Redraw only the seven Lumiose streets and plazas")
+    args=parser.parse_args()
+    if args.streets_only:
+        build(args.source, streets_only=True)
+        raise SystemExit(0)
+    zs,ms=build(args.source);atlas(args.source,zs,ms)
     install(args.emerald_source)
     import subprocess, sys
     subprocess.run([sys.executable,str(ROOT/'tools/kalos_field_art.py'),str(args.source)],check=True)

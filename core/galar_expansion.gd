@@ -35,6 +35,10 @@ static func roster(m: Dictionary,f: Dictionary,base: Array) -> Array:
 		result.append({"name":"丹帝","at":[13,9],"role":"dlc_star","galar_actor":"丹帝","gfx":"expert_m","lines":["明星赛又开幕了！"]})
 	if m.id=="galar_wedgehurst_station_room" and f.get("dlc_pass",false):
 		result.append({"name":"列车员","at":[3,8],"role":"dlc_station","galar_actor":"列车员","gfx":"devon_employee","lines":["请出示车票。"]})
+	if m.id=="crown_slippery" and f.get("dlc_pass",false):
+		result.append({"name":"列车员","at":[9,7],"role":"dlc_return_train","galar_actor":"列车员","gfx":"devon_employee","lines":["木杆镇方向的列车停在这个站台。"]})
+	if m.id=="crown_max_lair" and f.get("dlc_lair",false):
+		result.append({"name":"巢穴领队","at":[12,9],"role":"dlc_repeat_lair","gfx":"scientist","lines":["已经记录的巢穴还可以继续调查。"]})
 	if m.id=="armor_dojo" and f.get("dlc_dojo",false):
 		result.append({"name":"武馆医务员","at":[11,14],"role":"dlc_heal","gfx":"nurse","heal":true,"lines":["在武馆歇一会儿，我来照顾你们的伙伴。"]})
 	if m.id=="armor_dojo" and f.get("dlc_mushrooms",false):
@@ -57,7 +61,7 @@ static func event(g,kind: String,ctx: Dictionary) -> Dictionary:
 	if kind!="talk" or g.world.map_data.get("region","") not in ["galar","armor","crown"]:return {}
 	var actor:=str(ctx.get("actor",""))
 	if not actor.begins_with("dlc_"):return {}
-	if actor in ["dlc_soup","dlc_forage","dlc_station","dlc_star"]:
+	if actor in ["dlc_soup","dlc_forage","dlc_station","dlc_return_train","dlc_repeat_lair","dlc_star"]:
 		return {"who":ctx.get("npc",""),"steps":[{"exp_action":actor.trim_prefix("dlc_")}]}
 	load_events()
 	for row in maps.get(g.world.map_data.id,[]):
@@ -131,7 +135,11 @@ static func prompt(g,a: Dictionary) -> bool:
 		"station":
 			choose(g,"木杆镇车站 · 选择目的地",["铠岛 · 揖礼原野","王冠雪原 · 滑溜坡"],func(i):
 				Hoenn.abort_event(g)
-				g._do_warp({"region":["armor","crown"][i],"map":["armor_fields","crown_slope"][i],"at":[[18,12],[21,10]][i]}))
+				g._do_warp({"region":["armor","crown"][i],"map":["armor_fields","crown_slippery"][i],"at":[[18,12],[10,8]][i]}))
+		"return_train":
+			choose(g,"王冠雪原车站",["搭车返回木杆镇","留在滑溜坡"],func(i):
+				Hoenn.abort_event(g)
+				if i==0:g._do_warp({"region":"galar","map":"galar_wedgehurst_station_room","at":[4,9]}))
 		"rival":
 			var round_no:=int(a.round)
 			var teams: Array=[[[543,10],[79,12,"SLOWPOKE_GALAR"]],[[79,18,"SLOWPOKE_GALAR"],[109,18],[544,19]],[[451,23],[110,24,"WEEZING_GALAR"],[544,24],[80,25,"SLOWBRO_GALAR"]]] if sword else [[[63,10],[79,12,"SLOWPOKE_GALAR"]],[[79,18,"SLOWPOKE_GALAR"],[64,18],[527,19]],[[77,23,"PONYTA_GALAR"],[64,24],[528,24],[80,25,"SLOWBRO_GALAR"]]]
@@ -184,6 +192,10 @@ static func prompt(g,a: Dictionary) -> bool:
 		"mustard":
 			var other_style: String="" if f.get("dlc_tower","dark")=="water" else "URSHIFU_RAPID_STRIKE"
 			battle(g,"马士德",[[620,73],[405,73],[823,74],[745,75],[784,75],[892,75,other_style]],{"galar_power_spot":true,"galar_ace":892,"galar_gmax":true})
+		"repeat_lair":
+			var routes:=["水君的巢穴"]
+			if f.get("dlc_beast",false):routes.append("奈克洛兹玛的巢穴")
+			choose(g,"再次调查哪条路线？",routes,func(i):_adventure(g,i==1,true))
 		"adventure":_adventure(g,bool(a.get("beast",false)))
 		"seeds":
 			if g._bag_count("极矿石")<8:stop(g,"交换一袋种子需要八块极矿石。")
@@ -296,12 +308,12 @@ static func _star(g,choice: int,round_no: int) -> void:
 			g.save_data.money=int(g.save_data.get("money",0))+(1000000 if int(flags.dlc_star_wins)==1 else 80000)
 			say(g,"小悠与%s赢得了明星赛！奖金已到账。"%["赫普","玛俐"][choice]))
 
-static func _adventure(g,beast: bool) -> void:
+static func _adventure(g,beast: bool,replay: bool=false) -> void:
 	var choices:=[260,310,282]
 	choose(g,"极巨大冒险 · 租借一只宝可梦",["巨沼怪","雷电兽","沙奈朵"],func(i):
-		_adventure_round(g,beast,mon(choices[i],65),0))
+		_adventure_round(g,beast,mon(choices[i],65),0,replay,[]))
 
-static func _adventure_round(g,beast: bool,rental: Dictionary,stage: int) -> void:
+static func _adventure_round(g,beast: bool,rental: Dictionary,stage: int,replay: bool,found: Array) -> void:
 	var paths:=[[324,437],[350,460],[621,663]]
 	var run_fight:=func(sid: int):
 		var boss: Dictionary={"species":sid,"level":70 if stage==3 else 65}
@@ -310,10 +322,20 @@ static func _adventure_round(g,beast: bool,rental: Dictionary,stage: int) -> voi
 		g._start_battle({"name":"极巨巢穴","battle":cfg},func(result):
 			if result!="a":
 				stop(g,"调查队撤回入口。返还租借宝可梦后，可以再组队出发。")
-			elif stage==3:grant(g,{"species":sid,"level":70})
+			elif stage==3:
+				if not replay:
+					grant(g,{"species":sid,"level":70})
+					return
+				var data=g.get_node("/root/Data")
+				var labels: Array=found.map(func(s):return str(data.species_of(s).name))
+				labels.append("全部放归")
+				choose(g,"选一只沿途遇到的宝可梦带回去",labels,func(i):
+					if i<found.size():grant(g,{"species":found[i],"level":65})
+					else:say(g,"调查记录已交回营地。"))
+
 			else:
 				choose(g,"下一个巢穴",["保留租借伙伴","换用刚才的宝可梦"],func(i):
-					_adventure_round(g,beast,rental if i==0 else mon(sid,65),stage+1)))
+					_adventure_round(g,beast,rental if i==0 else mon(sid,65),stage+1,replay,found+[sid])))
 	if stage==3:run_fight.call(800 if beast else 245)
 	else:
 		var fork: Array=paths[stage]
