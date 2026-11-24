@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6jp2rc4iruil"
-path="res://.godot/imported/744be45903b2f7e3e341f45c.png-8e61fcc8a231f1c365f42b35b04b5b0a.ctex"
+uid="uid://d2355s0x5x5fg"
+path="res://.godot/imported/case_96_island.png-0912b84ac9a341892b5300ce01d59c42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/platinum_native/scenery/744be45903b2f7e3e341f45c.png"
-dest_files=["res://.godot/imported/744be45903b2f7e3e341f45c.png-8e61fcc8a231f1c365f42b35b04b5b0a.ctex"]
+source_file="res://assets/platinum_native/library/case_96_island.png"
+dest_files=["res://.godot/imported/case_96_island.png-0912b84ac9a341892b5300ce01d59c42.ctex"]
 
 [params]
 

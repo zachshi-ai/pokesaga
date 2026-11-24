@@ -25,6 +25,7 @@ const UnovaSpots := preload("res://core/unova_phenomena.gd")
 const UnovaField := preload("res://core/unova_field.gd")
 const Sinnoh := preload("res://core/sinnoh_campaign.gd")
 const SinnohField := preload("res://core/sinnoh_field.gd")
+const SinnohLibrary := preload("res://core/sinnoh_library.gd")
 const SinnohSide := preload("res://core/sinnoh_side.gd")
 const Journey := preload("res://core/region_journey.gd")
 const TitleScreen := preload("res://scenes/title_screen.gd")
@@ -2129,6 +2130,7 @@ func _handle_object(o: Dictionary) -> void:
 		"wall_map":
 			_open_world_atlas(false)
 		"sign":
+			if world.map_data.region == "sinnoh" and SinnohLibrary.shelf(self,o): return
 			var t := String(o.get("text", ""))
 			_dialog([t] if t != "" else ["（字迹被磨掉了）"], "")
 		"item", "hidden":
@@ -2762,6 +2764,7 @@ func _talk_to_npc(npc: Dictionary) -> void:
 	if rid=="kalos" and (KalosOPower.talk(self,npc) or preload("res://core/kalos_lumiose.gd").talk(self,npc) or KalosItems.counter(self,npc) or KalosSide.talk(self,npc) or KalosTrainers.talk(self,npc)):return
 	if rid=="unova" and (UnovaSide.talk(self,npc) or UnovaTrainers.talk(self,npc)):return
 	if rid=="sinnoh":
+		if SinnohLibrary.talk(self,npc): return
 		if preload("res://core/sinnoh_contests.gd").talk(self,npc): return
 		if preload("res://core/sinnoh_frontier.gd").talk(self,npc): return
 		if SinnohSide.talk(self,npc): return

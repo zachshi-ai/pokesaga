@@ -855,6 +855,8 @@ def build(source):
     build_story_sites()
     build_towers()
     build_habitats()
+    from switch_fields.galar_streets import apply as pave_galar_cities
+    pave_galar_cities(em, spec, ROOT)
     print(
         f"{len(maps)} source locations, {newrooms} entered buildings, {sum(len(v[0]['warps']) for v in output.values())} exits; {sum(v[1].width * v[1].height // 256 for v in output.values())} movement cells"
     )

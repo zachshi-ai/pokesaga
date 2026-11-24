@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b38a0o8qk8pat"
-path="res://.godot/imported/c911cb6ac9a899cd0a8e4101.png-5d91a35e2bb024df289562935d855046.ctex"
+uid="uid://dhvo6rg3atbna"
+path="res://.godot/imported/freight_red.png-d4a128a7ff2898e04b96965d89fa577d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/platinum_native/scenery/c911cb6ac9a899cd0a8e4101.png"
-dest_files=["res://.godot/imported/c911cb6ac9a899cd0a8e4101.png-5d91a35e2bb024df289562935d855046.ctex"]
+source_file="res://assets/alola/facilities/freight_red.png"
+dest_files=["res://.godot/imported/freight_red.png-d4a128a7ff2898e04b96965d89fa577d.ctex"]
 
 [params]
 

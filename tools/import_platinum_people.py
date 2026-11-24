@@ -103,6 +103,8 @@ def main(pt,translate):
     speeches=speakers(pt,cn,folders)
     (ROOT/"content/platinum_native/people.json").write_text(json.dumps(
         {"trainers":trainers,"speeches":speeches},ensure_ascii=False,separators=(",",":"))+"\n")
+    from platinum_library_text import export as export_library
+    export_library(pt,cn,ROOT/"content/platinum_native/library.json")
     print(len(trainers),"trainers;",len(speeches),"field scripts")
 
 

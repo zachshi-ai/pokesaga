@@ -828,6 +828,8 @@ def city(f):
     f.layers[kerb & ~np.isin(f.layers, ["quay", "cobbles"])] = "darkgrass"
     f.grass &= ~street
     f.ground()
+    from alola_port_surfaces import hauoli
+    hauoli(f)
     ensure_anchors(f)
     for dest, (p, _) in SHOP_DOORS.items():
         indoor = read(MAPS / ("alola_" + dest + ".json"))

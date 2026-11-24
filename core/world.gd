@@ -1164,7 +1164,7 @@ func _apply_cam_limits() -> void:
 	if cam == null:
 		return
 	cam.zoom = Vector2(3,3) if map_data.get("region","") == "johto" and tile_size.x <= 6 and tile_size.y <= 6 else Vector2(2,2)
-	if map_data.has("hgss"):
+	if map_data.has("hgss") or map_data.get("hoenn_art", {}).has("camera_bounds"):
 		var viewport_size := Vector2i(Vector2(480,320)/cam.zoom)
 		var bounds := preload("res://core/hgss_field.gd").camera_bounds(map_data,viewport_size)
 		cam.limit_left=bounds.position.x
@@ -1437,8 +1437,9 @@ func _draw_npcs() -> void:
 		var unova_identity: String = preload("res://core/unova_cast.gd").character(n) if map_data.has("unova_native") else ""
 		var atlas_identity: String = REGIONAL_CASTS[map_data.region].character(n) if REGIONAL_CASTS.has(map_data.get("region","")) else ""
 		var sinnoh_identity := SinnohCast.character(n) if map_data.has("platinum_native") else ""
-		if n.has("unova_prop"):
-			tex=EmeraldField.prop_texture(str(n.unova_prop))
+		var field_prop: String = n.get("field_prop", n.get("unova_prop", ""))
+		if not field_prop.is_empty():
+			tex=EmeraldField.prop_texture(field_prop)
 		elif not atlas_identity.is_empty():
 			s.set_meta("atlas_identity",atlas_identity)
 			REGIONAL_CASTS[map_data.region].draw(s,atlas_identity,n.get("facing","down"))
@@ -1472,7 +1473,7 @@ func _draw_npcs() -> void:
 		var sh := Sprite2D.new()
 		sh.scale = s.scale
 		sh.texture = _shadow_tex
-		sh.visible = not n.has("unova_prop") and not n.get("in_water_pose",false) and tex!=null and not (n.has("apricorn") or n.has("gives_mon") or n.get("name","")=="道具球")
+		sh.visible = field_prop.is_empty() and not n.get("in_water_pose",false) and tex!=null and not (n.has("apricorn") or n.has("gives_mon") or n.get("name","")=="道具球")
 		var nz: int = Z_ACTOR + int(at[1]) * 2
 		if n.get("source_gfx","")=="OBJ_EVENT_GFX_TRUCK": nz-=1
 		sh.z_index = nz - 1

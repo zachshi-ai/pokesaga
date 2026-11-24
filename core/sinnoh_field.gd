@@ -65,7 +65,10 @@ static func populate(map: Dictionary) -> void:
 			map.npcs.erase(actor)
 			continue
 		var gfx := str(actor.get("platinum_gfx",""))
-		if gfx=="OBJ_EVENT_GFX_POKECENTER_NURSE" and ("Pokecenter" in script or "Nurse" in script):
+		if gfx in ["OBJ_EVENT_GFX_SIGNBOARD","OBJ_EVENT_GFX_GYM_SIGNPOST","OBJ_EVENT_GFX_MAP_SIGNPOST"]:
+			actor.field_prop="sign"
+			actor.name="告示牌"
+		elif gfx=="OBJ_EVENT_GFX_POKECENTER_NURSE" and ("Pokecenter" in script or "Nurse" in script):
 			actor.name="护士"
 			actor.heal=true
 		elif script.ends_with("_CommonVendor") or script.ends_with("_SpecialtyVendor"):

@@ -102,15 +102,23 @@ def paint(parts, pixels, depth, offset, scale=(1, 1, 1), ground=False, outdoor=F
         )
 
 
-def store(im):
-    indexed = im.convert("RGB").quantize(palette=palette(), dither=Image.Dither.NONE)
+def store(im, local_palette=False):
+    rgb = im.convert("RGB")
+    indexed = rgb.quantize(240, dither=Image.Dither.NONE) if local_palette else rgb.quantize(palette=palette(), dither=Image.Dither.NONE)
     file = save_scene(indexed, im.getchannel("A"), OUT_ART)
     return "res://" + str(file.relative_to(ROOT))
 
 
 @lru_cache(768)
-def prop(meshfile, scale):
+def prop(meshfile, scale, moored=False):
     parts = mesh(meshfile)
+    if moored:
+        # The flat animated sailing wake also extends far beyond the stationary boats.
+        parts = [p for p in parts if p[0] != "lambert5"]
+    return projected_prop(parts, scale)
+
+
+def projected_prop(parts, scale):
     if not parts:
         return None
     xyz = np.concatenate([q[1] for q in parts]) * scale
@@ -271,25 +279,44 @@ def layer_picture(doc, rows, geo, root, cache, bank):
                 continue  # Script-controlled berry growth, debug bounding box.
             path = cache / f"{bank}_{pid}.glb"
             scale = tuple(v / 4096 for v in r[7:10])
-            obj = prop(path, scale)
+            model = glb_name(path)
+            x = cx + r[1] / 4096
+            y = cy + r[3] / 4096
+            if doc["id"] == "sinnoh_canalave" and model in ("c2_s03a", "c2_s03b"):
+                from platinum_canalave_library import bridge_layers
+
+                for part, geometry in bridge_layers(mesh(path)).items():
+                    left, top, foot, image = projected_prop(geometry, scale)
+                    left, top = round(x)+left, round(y)+top
+                    if part == "deck":
+                        under.append((top+image.height, left, top, image))
+                    else:
+                        cellx, celly = math.floor(x/16), math.floor((y+foot-1)/16)
+                        anchor = [cellx*16+8-left, (celly+1)*16-top]
+                        props.append([store(image), cellx, celly, anchor])
+                continue
+            moored = doc["id"] == "sinnoh_canalave" and model == "c2_o02"
+            obj = prop(path, scale, moored)
             if not obj:
                 continue
             left, top, front, im = obj
-            uri = None
-            x = cx + r[1] / 4096
-            y = cy + r[3] / 4096
+            uri = store(im) if moored else None
             left = round(x) + left
             top = round(y) + top
             if left + im.width <= 0 or top + im.height <= 0 or left >= 16 * w or top >= 16 * h:
                 continue
-            model = glb_name(path)
             if doc["id"] == "sinnoh_canalave":
                 if model == "c2_s02":
                     from platinum_canalave_library import facade
 
                     library = facade()
                     top += im.height - library.height
-                    uri, im = store(library), library
+                    uri, im = store(library, local_palette=True), library
+                elif model == "c2_h01a":
+                    from platinum_canalave_library import harbour_house
+
+                    im = harbour_house(im)
+                    uri = store(im, local_palette=True)
                 elif model == "c5_door_s" and (math.floor(x / 16), math.floor(y / 16)) == (5, 14):
                     # The redrawn portico contains the door at this original Platinum warp.
                     continue
@@ -314,6 +341,10 @@ def layer_picture(doc, rows, geo, root, cache, bank):
                 [uri or prop_uri(path, scale), cellx, celly, [cellx * 16 + 8 - left, (celly + 1) * 16 - top]]
             )
     bg = Image.fromarray(pixels)
+    if doc["id"] == "sinnoh_canalave":
+        from platinum_canalave_library import quays
+
+        bg = quays(bg)
     if doc["map_type"] == "MAP_TYPE_INDOORS":
         bg = indoor_floor(bg, doc)
     for _, left, top, im in sorted(under, key=lambda a: a[0]):
@@ -398,8 +429,12 @@ def dress(root, cache, selected):
                 missing.append(mid)
                 continue
             if bbox:
-                doc["hoenn_art"]["scene"] = [store(bg.crop(bbox)), bbox[0], bbox[1]]
+                doc["hoenn_art"]["scene"] = [store(bg.crop(bbox), local_palette=mid == "sinnoh_canalave"), bbox[0], bbox[1]]
             doc["hoenn_art"]["p"] = sorted(props, key=lambda p: (p[2], p[1], p[0]))
+            if mid in ("sinnoh_library", "sinnoh_canalave_library_2f", "sinnoh_canalave_library_3f"):
+                from platinum_library_rooms import dress_library
+
+                dress_library(doc)
             write(file, doc)
             count["new fields"] += 1
             if count["new fields"] % 100 == 0:

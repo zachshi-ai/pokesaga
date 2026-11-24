@@ -81,6 +81,32 @@ def audit():
             for p in art["p"]:
                 if p[0].startswith("res://"):
                     assert (ROOT / p[0][6:]).is_file() and len(p) == 4, (name, p)
+            if name == "sinnoh_canalave":
+                # The DS drawbridge mesh used to put an opaque deck over the
+                # player's entire sprite. The central span has no overhead truss.
+                for x in (14, 15):
+                    for y in (20, 21):
+                        px, py = x*16+8, (y+1)*16-12
+                        for prop in art["p"]:
+                            uri, cx, cy = prop[:3]
+                            if not uri.startswith("res://") or cy < y:
+                                continue
+                            ax, ay = prop[3]
+                            u, v = px-(cx*16+8-ax), py-((cy+1)*16-ay)
+                            sprite = image(uri)
+                            if 0 <= u < sprite.width and 0 <= v < sprite.height:
+                                assert sprite.getpixel((u,v))[3] < 128, (name, "deck covers player", x, y)
+            if name in ("sinnoh_library", "sinnoh_canalave_library_2f", "sinnoh_canalave_library_3f"):
+                # The native 32x32 matrix includes unused cells south of the room.
+                # Centering the camera on that entire matrix hides the back wall on entry.
+                left, top, right, bottom = art["camera_bounds"]
+                assert 240 <= right-left <= 344 and 160 <= bottom-top <= 204
+                assert scene and "/platinum_native/library/" in scene[0]
+                for warp in doc["warps"]:
+                    x, y = warp["at"]
+                    px, py = x*16+8, y*16+8
+                    assert left <= px < right and top <= py < bottom
+                    assert img.getpixel((px-ox,py-oy))[3] == 255, (name, warp)
             if name == "unova_castelia":
                 # Both copies of a street mouth must read as transitions, including
                 # diagonal entrances around the original city's curved harbour rail.

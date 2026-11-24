@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0r8pb4cvi16e"
-path="res://.godot/imported/77d95e72e6ea128b52f50c19.png-09190ce1eae2fe528b26c91ebd8574a6.ctex"
+uid="uid://lip2jxjwyt5y"
+path="res://.godot/imported/gatepier.png-abc094228ce7b5320ccf51ac03aefdbf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/platinum_native/scenery/77d95e72e6ea128b52f50c19.png"
-dest_files=["res://.godot/imported/77d95e72e6ea128b52f50c19.png-09190ce1eae2fe528b26c91ebd8574a6.ctex"]
+source_file="res://assets/galar/street/gatepier.png"
+dest_files=["res://.godot/imported/gatepier.png-abc094228ce7b5320ccf51ac03aefdbf.ctex"]
 
 [params]
 

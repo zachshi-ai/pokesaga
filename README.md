@@ -1,8 +1,12 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.66.0-study`，versionCode 为 99，包名为 `com.stepx.pokesaga.study`。使用学习版的玩家可以覆盖安装，继续同一份存档。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.67.0-study`，versionCode 为 100，包名为 `com.stepx.pokesaga.study`。使用学习版的玩家可以覆盖安装，继续同一份存档。
 
-[下载 4.66 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.66.0-study/PokeSaga-4.66.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.66.0-study)
+[下载 4.67 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.67.0-study/PokeSaga-4.67.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.67.0-study)
+
+## 水脉图书馆与城市街面
+
+从西岸进水脉图书馆，沿楼梯上三楼能读神奥传说。出门经过吊桥到东岸，可以看见小悠走在桥板上。飞云市、伽勒尔六个城镇、密阿雷市和以太船坞也重新铺了路。[游戏内前后对照与实走记录](doc/水脉图书馆与城市街面.md)
 
 ## 后世代的建筑与入口
 

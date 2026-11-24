@@ -12,34 +12,23 @@ ROOT=Path(__file__).resolve().parents[1]
 def draw(a):
     rural=a.number==0
     px=16 if rural else 12
-    h,w=a.kind.shape; yy,xx=np.ogrid[:h*px,:w*px]
-    def texture(name):
-        t=np.array(tile(name).resize((px,px),Image.Resampling.NEAREST))
-        if name in ('pave','stone') and not rural:
-            base=np.array([216,204,174] if name=='pave' else [169,167,154])
-            lum=t.mean(axis=2);t=np.uint8(np.clip(base+((lum-lum.mean())*.21)[:,:,None],0,255))
-        return t[yy%px,xx%px]
-    def layer(image,mask,key):
-        sel=np.repeat(np.repeat(mask,px,axis=0),px,axis=1)
-        image[sel]=texture(key)[sel]
-    plane=texture('grass' if rural else 'pave').copy()
+    h,w=a.kind.shape
     walk=~a.solid
     road=(a.kind==ROAD)&walk
-    layer(plane,road,'ground' if rural else 'stone')
-    layer(plane,(a.kind==WATER)&walk,'water')
     if rural:
-        layer(plane,(a.kind==SAND)&walk,'sand')
-        field=a.kind==5
-        layer(plane,field,'flowers')
+        yy,xx=np.ogrid[:h*px,:w*px]
+        def texture(key):
+            return np.asarray(tile(key))[yy%px,xx%px]
+        plane=texture('grass').copy()
+        for mask,key in [(road,'ground'),((a.kind==WATER)&walk,'water'),
+                         ((a.kind==SAND)&walk,'sand'),(a.kind==5,'flowers')]:
+            selected=np.repeat(np.repeat(mask,px,axis=0),px,axis=1)
+            plane[selected]=texture(key)[selected]
+        im=Image.fromarray(plane)
     else:
-        grass=~walk
-        layer(plane,grass,'grass')
-        rim=ndimage.binary_dilation(walk,iterations=1)&~walk
-        layer(plane,rim,'stone')
-        if not road.any():
-            rounded=ndimage.distance_transform_edt(walk)
-            layer(plane,(rounded>3)&walk,'stone')
-    im=Image.fromarray(plane);d=ImageDraw.Draw(im)
+        from kalos_boulevard_ground import surface
+        im=surface(a,walk,road,px)
+    d=ImageDraw.Draw(im)
     def fixture(name,p,scale=1):
         x,y=p
         art=city_gate() if name=='city_gate' else facade('kalos',name,centered=True) if not rural and name in BUILDINGS else sprite(name)
@@ -55,7 +44,8 @@ def draw(a):
     for y in range(3,h-1,3 if rural else 5):
         for x in range(2+(y%3),w-2,3 if rural else 6):
             if density[y,x]<(1.7 if rural else 3):continue
-            if rural or (x//12+y//19)%5 in (0,1):fixture('tree',(x,y))
+            if not rural and density[y,x]>15:continue
+            if rural or (x//16+y//12)%4==0:fixture('tree',(x,y))
             elif density[y,x]>4:fixture(('home_city','home_blue','home_red')[(x//7+y//5)%3],(x,y),1.18)
     if rural:
         # The original west-to-east row has three usable homes, an open gateway and enclosed gardens.

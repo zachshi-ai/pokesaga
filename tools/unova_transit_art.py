@@ -116,8 +116,11 @@ def atlas():
 def sprite(name, im):
     OUT.mkdir(parents=True, exist_ok=True)
     file = OUT / (name + ".png")
-    if not file.is_file() or Image.open(file).convert("RGBA").tobytes() != im.tobytes():
-        im.save(file, optimize=True)
+    if file.is_file():
+        with Image.open(file) as previous:
+            if previous.size == im.size and previous.convert(im.mode).tobytes() == im.tobytes():
+                return "res://" + str(file.relative_to(ROOT))
+    im.save(file, optimize=True)
     return "res://" + str(file.relative_to(ROOT))
 
 
@@ -385,7 +388,12 @@ def paint(doc):
 
     # The curved quay follows the five piers and street mouths in the source warp bank.
     if city:
+        from unova_esplanade import furniture, paving as port_view
+
         harbour(doc, tiles, walk, props, INDEX, tower)
+        furniture(doc, walk, props, sprite)
+        ground = port_view(doc, walk)
+        doc["hoenn_art"]["scene"] = [sprite("castelia_esplanade", ground), 0, 0]
     else:
         if marine:
             tiles[((xgrid // 4 + 2 * ygrid // 7) % 9 == 0)] = INDEX["shoal"]
@@ -429,6 +437,7 @@ def paint(doc):
                         and (x + y) % 5 != 1
                     ):
                         props.append(["tree", x, y])
-    doc["hoenn_art"].pop("scene", None)
+    if not city:
+        doc["hoenn_art"].pop("scene", None)
     doc["hoenn_art"]["t"] = encode(tiles)
     doc["hoenn_art"]["p"] = sorted(props, key=lambda p: (p[2], p[1], p[0]))

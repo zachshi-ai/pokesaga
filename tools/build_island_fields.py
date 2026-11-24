@@ -973,6 +973,10 @@ def build(source, only=None):
         if mid in ("alola_aether_docks","alola_ultra_plant","ultra_plant"):
             from alola_remote_facilities import place
             place(m, mid)
+        if mid == "alola_aether_docks":
+            from alola_port_surfaces import cargo_stacks, docks
+            cargo_stacks(m)
+            docks(m)
         if mid == "alola_aether_entrance":
             from alola_aether_lift import floor
             floor(m)

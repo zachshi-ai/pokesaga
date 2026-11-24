@@ -230,7 +230,7 @@ static func draw(world) -> void:
 		world._tile_nodes.append(sprite)
 
 static func camera_bounds(data: Dictionary, screen: Vector2i) -> Rect2i:
-	var b: Array=data.hgss.get("art",{}).get("bounds",[])
+	var b: Array = data.get("hgss", {}).get("art", {}).get("bounds", data.get("hoenn_art", {}).get("camera_bounds", []))
 	if b.size()!=4:
 		return Rect2i(Vector2i.ZERO,vec(data.size)*16)
 	var start:=Vector2i(int(b[0]),int(b[1]))
