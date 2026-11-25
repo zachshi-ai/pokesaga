@@ -121,7 +121,11 @@ class UnovaRoutes(Routes):
             for warp in field.data["warps"]:
                 dest=self.projection(warp["to"])
                 if not dest:continue
-                left,right=region(mid,*warp["at"]),region(*dest)
+                x, y = warp["at"]
+                # A wall doorway's reachable component is on its south side.
+                # The trigger tile itself is solid in a native Kalos façade.
+                left = region(mid, x, y+1 if warp.get("trigger") == "door" else y)
+                right = region(*dest)
                 if not left[1] or not right[1] or left==right:continue
                 reverse.setdefault(right,set()).add(left)
                 if left==origin:adjacent.append((right,dest))

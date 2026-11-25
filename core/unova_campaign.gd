@@ -171,6 +171,10 @@ static func gate(target: Dictionary, flags: Dictionary, _current: Dictionary={})
 	if not eligible(target.get("unova_requires",[]),flags):return target.get("unova_denied","这条路还没有开放。")
 	if target.get("region","unova")!="unova":return ""
 	var mid: String=target.get("map","")
+	if mid=="unova_bw_zone_352" and not flags.get("u1_ghetsis",false):
+		return "请在结束合众之旅后再来修行岩屋。"
+	if mid=="unova_b2_zone_586" and not flags.get("us_dressing_room",false):
+		return "每部电影都以好结局上映后，专属更衣室才会开放。"
 	if not mid.begins_with("unova_"):return ""
 	var arc:=chapter(flags)
 	if not flags.get("u1_started",false):return "" if mid in ["unova_nuvema","unova_bw_home_1f","unova_bw_home_2f"] else "先到鹿子镇，开始合众的旅程。"

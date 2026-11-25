@@ -231,6 +231,8 @@ var alola_z_used := {"a":false,"b":false}
 var kalos_rules := false
 var kalos_o_stages: Array=[]
 var kalos_o_capture:=1.0
+var galar_caught_count := 0
+var galar_catching_charm := false
 var kalos_ring := false
 var kalos_used := {"a":false,"b":false}
 
@@ -832,7 +834,11 @@ func throw_ball(ball_bonus: float = 1.0, ball_name: String = "精灵球") -> Dic
 	var hp_factor := (3.0 * mx - 2.0 * hp) / (3.0 * mx)
 	var p := clampf((hp_factor * rate / 255.0) * ball_bonus * 1.6, 0.02, 0.96)
 	var shakes := 0
-	if ball_name == "大师球" or rng.randf() < p:
+	var critical := false
+	if galar_caught_count>30 and ball_name!="大师球":
+		var multiplier:=0.5*(1+int(galar_caught_count>150)+int(galar_caught_count>300)+int(galar_caught_count>450)+int(galar_caught_count>600))
+		critical=rng.randf()<minf(1.0,hp_factor*rate*ball_bonus*multiplier*(2.0 if galar_catching_charm else 1.0)/1536.0)
+	if ball_name == "大师球" or rng.randf() < (pow(p,0.25) if critical else p):
 		shakes = 3
 		caught = true
 		target.capture_ball = ball_name
@@ -840,7 +846,7 @@ func throw_ball(ball_bonus: float = 1.0, ball_name: String = "精灵球") -> Dic
 		caught_species = int(target.get("species_id", 0))
 		over = true
 		winner = "caught"
-		return {"ok": true, "shakes": 3, "text": "太好了！抓到 %s 了！" % String(target.get("name", "?"))}
+		return {"ok": true, "shakes": 1 if critical else 3, "text": ("会心捕捉！抓到 %s 了！" if critical else "太好了！抓到 %s 了！") % String(target.get("name", "?"))}
 	shakes = int(clampf(p * 4.0, 0.0, 2.0))
 	# 没抓到，对手照打一下
 	return {"ok": false, "shakes": shakes, "text": "%s 从%s里跑出来了！" % [String(target.get("name", "?")), ball_name]}

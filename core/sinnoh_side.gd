@@ -307,6 +307,9 @@ static func legend_visibility(row: Dictionary,flags: Dictionary) -> int:
 		"FLAG_HIDE_MART_MYSTERY_GIFT_DELIVERYMAN":
 			return int(flags.get("s_dex",false) and not (flags.get("s_secret_key",false) and flags.get("s_member_card",false) and flags.get("s_letter",false) and (not flags.get("s_champion",false) or flags.get("s_event_regigigas",false)) and (not flags.get("s_national_dex",false) or flags.get("s_azure",false))))
 		"FLAG_HIDE_PAL_PARK_LOBBY_PROF_OAK":return int(flags.get("s_national_dex",false) and not flags.get("s_oak_park",false))
+		# Route224 plays Shaymin's bow and run as a cutscene, then removes it.
+		# Its permanent encounter is Flower Paradise, beyond Seabreak Path.
+		"FLAG_HIDE_ROUTE_224_SHAYMIN":return 0
 		"FLAG_HIDE_VALOR_LAKEFRONT_BEAUTY":return int(not flags.get("s_suite_returned",false))
 		"FLAG_HIDE_GRAND_LAKE_VALOR_LAKEFRONT_EAST_HOUSE_BEAUTY":return int(flags.get("s_suite_returned",false))
 		"FLAG_HIDE_STARK_MOUNTAIN_ROOM_1_TEAM_GALACTIC":return int(flags.get("s_national_dex",false) and not flags.get("s_stark_jupiter",false))

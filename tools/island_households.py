@@ -173,3 +173,19 @@ def attach(maps, arrivals, source):
         arrivals.setdefault(("alola", mid), set()).add(tuple(landing))
         arrivals.setdefault(("alola", parent_id), set()).add((x, y + 1))
         maps["alola", mid] = room
+        if key == "malie_library":
+            upstairs = "alola_malie_library_2f"
+            stair = [3,4]
+            foot = [3,5]
+            def stairs(dest, label):
+                return {"at": stair, "trigger": "step", "source_warp": "library_stairs",
+                        "alola_label": label, "to": {"region": "alola", "map": dest,
+                                                    "at": foot, "alola_native": True}}
+            upper = deepcopy(room)
+            upper.update(id=upstairs, name="马利埃图书馆・二楼", alola_image="malie_library_2f",
+                         spawn=foot, alola_anchors={"story": [11,8]}, npcs=[], objects=[],
+                         warps=[stairs(mid, "马利埃图书馆・一楼")])
+            room["warps"].append(stairs(upstairs,upper["name"]))
+            maps["alola",upstairs]=upper
+            for floor in (mid,upstairs):
+                arrivals.setdefault(("alola",floor),set()).add(tuple(foot))

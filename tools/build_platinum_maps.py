@@ -249,6 +249,8 @@ def compile_fields(src,samples,art,bloom):
         if name.startswith('sinnoh_distortion_world_'):compiled['platinum_ride_tile']=art.shelf(15,True)
         if name=='sinnoh_206':compiled['platinum_cycling']=dict(platinum_cycling.layer(src,r))
         if name in BLOOM_FIELDS:compiled['platinum_flower']='open' if bloom else 'closed'
+        from ds_room_envelope import fit_room
+        fit_room(compiled)
         write(OUT/('flower' if bloom else 'maps')/f'{name}.json',compiled)
     write(OUT/'index.json',{k:r['id'] for k,r in META.items()})
     print(f'{len(META)} Platinum fields, {sum(len(r["warps"]) for r in META.values())} passages, {len(art.images)} Emerald tiles')

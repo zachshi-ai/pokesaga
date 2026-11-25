@@ -1,1 +1,1 @@
-{"pieces":[{"png":"room.png","at":[0,0]}],"bounds":[0,0,16,16],"indoors":true}
+{"native_header":"MAP_SAFARI_ZONE_09","size":[32,32],"tile_px":16,"pieces":[{"png":"ground_0_0.png","at":[0,0]},{"png":"res://assets/johto_gba/fields/fr_tree.png","at":[48,42],"sort_y":89},{"png":"res://assets/johto_gba/fields/fr_tree.png","at":[292,266],"sort_y":313},{"png":"res://assets/johto_gba/fields/fr_tree.png","at":[320,266],"sort_y":313},{"png":"res://assets/johto_gba/fields/fr_tree.png","at":[348,266],"sort_y":313}],"doors":[]}

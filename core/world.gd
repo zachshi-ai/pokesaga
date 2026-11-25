@@ -200,6 +200,7 @@ var emerald_chunks: Array = []
 var _prev_facing := ""
 
 func load_map(data: Dictionary) -> void:
+	if data.has("hgss"):data=preload("res://core/johto_safari.gd").field(data,taken)
 	if int(data.get("galar_facility",{}).get("number",0)) in [4,6] and taken.get("g_version","sword")=="shield":
 		data=data.duplicate(true)
 		var layer:Array=data.hoenn_art.scene
@@ -1164,18 +1165,12 @@ func _apply_cam_limits() -> void:
 	if cam == null:
 		return
 	cam.zoom = Vector2(3,3) if map_data.get("region","") == "johto" and tile_size.x <= 6 and tile_size.y <= 6 else Vector2(2,2)
-	if map_data.has("hgss") or map_data.get("hoenn_art", {}).has("camera_bounds"):
-		var viewport_size := Vector2i(Vector2(480,320)/cam.zoom)
-		var bounds := preload("res://core/hgss_field.gd").camera_bounds(map_data,viewport_size)
-		cam.limit_left=bounds.position.x
-		cam.limit_top=bounds.position.y
-		cam.limit_right=bounds.end.x
-		cam.limit_bottom=bounds.end.y
-		return
-	cam.limit_left = 0
-	cam.limit_top = 0
-	cam.limit_right = tile_size.x * TILE
-	cam.limit_bottom = tile_size.y * TILE
+	var viewport_size := Vector2i(Vector2(480, 320) / cam.zoom)
+	var bounds := preload("res://core/hgss_field.gd").camera_bounds(map_data, tile_size * TILE, viewport_size)
+	cam.limit_left = bounds.position.x
+	cam.limit_top = bounds.position.y
+	cam.limit_right = bounds.end.x
+	cam.limit_bottom = bounds.end.y
 
 ## 原版图集是横排九帧，顺序不是「每方向三帧」，而是：
 ## 0 朝南站 / 1 朝北站 / 2 朝西站 / 3,4 朝南走 / 5,6 朝北走 / 7,8 朝西走，
@@ -1206,6 +1201,8 @@ func _sync_player() -> void:
 	elif taken.get("g_grass_uniform_worn",false):sheet=preload("res://assets/galar/grass_gym/uniform_surf.png") if afloat else preload("res://assets/galar/grass_gym/uniform_walk.png")
 	elif taken.get("a_guide_worn",false):sheet=preload("res://assets/alola/guide_player_surf.png") if afloat else preload("res://assets/alola/guide_player_emerald.png")
 	elif taken.has("ks_cap"):sheet=preload("res://core/kalos_skate_appearance.gd").sheet(sheet,taken.ks_cap,afloat)
+	if not riding and (not str(taken.get("g_fashion_worn","")).is_empty() or not str(taken.get("g_fashion_hair","")).is_empty()):
+		sheet=preload("res://core/galar_fashion.gd").sheet(sheet,taken,afloat)
 	if _player_sprite.texture != sheet:
 		_player_sprite.texture = sheet
 		_player_sprite.hframes = 3 if afloat else 9

@@ -54,7 +54,14 @@ func run() -> void:
 			if door.get("atlas", "") == "world" and (arrival.has("unova_native") or arrival.has("platinum_native")):
 				for reverse in arrival.warps:
 					if reverse.get("atlas", "") == "world" and reverse.to.map == data.id: expected = vec(reverse.at)
-			if not walk(vec(door.at)) or current != destination or world.player_pos != expected:
+			var target:=vec(door.at)
+			var reached:=false
+			if door.get("trigger","")=="door":
+				reached=walk(target+Vector2i.DOWN) and world.step(Vector2i.UP)
+				world.tick_walk(1.0)
+				steps+=1
+			else:reached=walk(target)
+			if not reached or current != destination or world.player_pos != expected:
 				fail("%s %s -> %s at %s; arrived %s %s" % [key,door.at,destination,t.at,current,world.player_pos])
 				break
 			if world.is_blocked(world.player_pos) or world.is_water(world.player_pos):

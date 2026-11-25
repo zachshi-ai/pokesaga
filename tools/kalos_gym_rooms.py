@@ -127,6 +127,8 @@ def web():
         r.rect((x-2,y-2,x+2,y+2),'wood')
     r.layout(o,(24,4));r.fix.update(trainer1=(36,38),trainer2=(13,26),trainer3=(24,10))
     stamp(r.pic,'plant_indoor',21,5);stamp(r.pic,'plant_indoor',27,5)
+    from kalos_walk_surfaces import support_web
+    r.pic=support_web(r.pic,np.asarray(r.floor,bool))
     return r
 
 def adventure(n):

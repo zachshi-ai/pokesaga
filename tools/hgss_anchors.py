@@ -72,6 +72,11 @@ def compile_anchors():
                 target = "MAP_"+symbol
             selector, _, override = spec.partition("@")
             bank = banks[str(headers[target]["event_bank"])]
+            if selector == "absent":
+                if "," not in key or bank["objects"]:
+                    raise ValueError((mid, key, "expected an unoccupied HGSS room"))
+                sites[key] = {"header": target, "kind": "absent"}
+                continue
             if selector.startswith("tile"):
                 # A retained visitor from Crystal has no matching HGSS event.
                 # Place visitors on a reviewed free tile without borrowing a different character's sprite.

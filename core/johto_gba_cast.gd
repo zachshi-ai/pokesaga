@@ -6,7 +6,7 @@ const SOURCE_FRAMES := {"down":[0,3,4],"up":[1,5,6],"left":[2,7,8],"right":[2,7,
 const FRUIT := {"红球果":"red","蓝球果":"blue","黄球果":"yellow","绿球果":"green","白球果":"white","黑球果":"black","粉球果":"pink"}
 const EVENT_ROLES := {
 	"j_well_boss":"proton","j_executive":"petrel","j_engine_boss":"ariana","j_broadcast_boss":"archer","j_gs_kurt":"kurt",
-	"j_mr_pokemon":"gentleman","j_elm":"elm","j_oak":"prof_oak","j_eusine":"eusine","j_aide":"scientist_m",
+	"j_baoba":"gentleman","j_mr_pokemon":"gentleman","j_elm":"elm","j_oak":"prof_oak","j_eusine":"eusine","j_aide":"scientist_m",
 	"j_dragon_elder":"old_man","j_true_director":"gentleman","j_fake_director":"gentleman"
 }
 const CHARACTER := {

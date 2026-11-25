@@ -102,6 +102,12 @@ def compile_fields():
             q = local(dest,other[w['anchor']])
             dw,dh = headers[dest]['size']
             if not (0 <= q[0] < dw and 0 <= q[1] < dh): continue
+            # Pal Park's transfer rectangles sit beyond the south edge. The
+            # actual threshold above them has DS south-exit behavior 111.
+            if hid=='MAP_PAL_PARK' and word(hid,p[0],p[1]-1)&255==111:
+                p=(p[0],p[1]-1)
+            if dest=='MAP_PAL_PARK' and word(dest,q[0],q[1]-1)&255==111:
+                q=(q[0],q[1]-2)
             behavior = word(hid,*p) & 255
             dest_behavior = word(dest,*q)&255
             trigger = {98:'right',99:'left',100:'up',101:'down',105:'door',108:'right',109:'left',110:'up',111:'down'}.get(behavior,'step')
@@ -208,6 +214,13 @@ def compile_fields():
                     for sign in (-1,1):
                         p=x+sign*direction[0],y+sign*direction[1]
                         if walkable(p): seeds.append(p)
+        from hgss_safari_fields import AREA, outdoors, passages as safari_passages
+        if outdoors(hid):
+            passages.update(safari_passages(hid,native_ids,lambda key,x,y: not word(key,x,y)&32768))
+        if AREA.fullmatch(hid):
+            # In the DS these twelve unwarped templates are inserted into matrix 212.
+            # Adjacent cells meet at their open north, south, east and west margins.
+            seeds.extend((x,y) for n in range(32) for x,y in ((0,n),(31,n),(n,0),(n,31)) if walkable((x,y)))
         seeds.extend(passages)
         seeds.append((6,6)) if hid.endswith('NEW_BARK_PLAYER_HOUSE_2F') else None
         queue=deque()
@@ -249,6 +262,10 @@ def compile_fields():
         spawn=project(old['spawn']) if old.get('spawn') else list(safe[0])
         if tuple(spawn) not in safe:spawn=list(closest(spawn,safe))
         if hid=='MAP_NEW_BARK_PLAYER_HOUSE_2F':spawn=[6,6]
+        if AREA.fullmatch(hid):spawn=list(closest((15,29),safe))
+        if mid in ('johto_olivine_lighthouse_1f','johto_goldenrod_game_corner','johto_ecruteak_tin_tower_entrance'):
+            interior = [p for p in safe if sum((p[0]+dx,p[1]+dy) in reachable and (p[0]+dx,p[1]+dy) not in passages for dx,dy,_ in DIRS)>=3]
+            if interior:spawn=list(closest(spawn,interior))
         # Preserve custom cross-region footpaths and game-specific rooms.
         targets = {r['to']['map'] for r in passages.values()}
         for w in old.get('warps',[]):
@@ -274,7 +291,7 @@ def compile_fields():
                     v &= 0x7fff
                 words.extend(struct.pack('<H',v))
         bounds=[min(p[0] for p in safe),min(p[1] for p in safe),max(p[0] for p in safe),max(p[1] for p in safe)]
-        body={'header':hid,'encounter_bank':h['encounter_bank'],'name':old.get('name',hid[4:].replace('_',' ').title()),'size':h['size'],'parts':parts,'bounds':bounds,
+        body={'header':hid,'encounter_bank':('SAFARI_'+hid[-2:]) if AREA.fullmatch(hid) else h['encounter_bank'],'name':old.get('name',hid[4:].replace('_',' ').title()),'size':h['size'],'parts':parts,'bounds':bounds,
               'spawn':spawn,'warps':list(passages.values()),'terrain':base64.b64encode(words).decode(),
               'legacy_size':old_size,'legacy_xy':base64.b64encode(converted).decode()}
         if hid in ('MAP_WHIRL_ISLANDS_1F','MAP_ICE_PATH_B2F'):
@@ -311,6 +328,8 @@ def compile_fields():
         index[mid]=hid
     from johto_dynamic_fields import install, registry
     install(fields,native_ids,ident,local)
+    from hgss_safari_fields import install_counter
+    install_counter(fields)
     for mid,field in fields.items():
         dump(out/(mid+'.json'),field)
     dump(DATA/'registry.json',registry(ROOT,fields,index,source.get('merged_maps',{})))

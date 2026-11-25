@@ -1,0 +1,571 @@
+region	map_id	name	size	source_basis	source_zones	source_scene	xy_indexed_destinations_matched	xy_indexed_destinations_count	xy_other_destination	xy_entrance_at_original_tile	xy_known_entrance_coordinates	max_shift_tiles	shift_context	versions	require	closes	floor_walk	crossed	returned	failures
+kalos	kalos_1	1号道路	15×16	XY 分区；本作室内、道馆或开场平面适配	258	0	0	0		0	0						10	6	6	
+kalos	kalos_10	10号道路	92×126	XY 分区及模型；门位按下列数字核对	268	3	1	1		1	1	0					110	2	2	
+kalos	kalos_11	11号道路	126×88	XY 分区及模型；门位按下列数字核对	269	30	2	2		2	2	0					87	2	2	
+kalos	kalos_12	12号道路	126×87	XY 分区及模型；门位按下列数字核对	270	4	2	2		1	2	23	模型实体:1				118	4	4	
+kalos	kalos_13	13号道路	246×134	XY 分区及模型；门位按下列数字核对	272	31	3	3		2	3	2	模型实体:1				160	3	3	
+kalos	kalos_14	14号道路	86×131	XY 分区及模型；门位按下列数字核对	273	5	2	2		2	2	0					142	3	3	
+kalos	kalos_15	15号道路	126×87	XY 分区及模型；门位按下列数字核对	275	6	3	3		1	3	1	模型实体:2				108	4	4	
+kalos	kalos_16	16号道路	126×87	XY 分区及模型；门位按下列数字核对	276	6	3	3		1	3	4	主路隔断:1,模型实体:1				144	4	4	
+kalos	kalos_17	17号道路	130×125	XY 分区及模型；门位按下列数字核对	278	32	2	2		0	2	1	模型实体:2				188	2	2	
+kalos	kalos_18	18号道路	126×87	XY 分区及模型；门位按下列数字核对	279	7	5	5		4	5	1	模型实体:1				102	6	6	
+kalos	kalos_19	19号道路	86×124	XY 分区及模型；门位按下列数字核对	281	215	2	2		1	2	1	模型实体:1				104	2	2	
+kalos	kalos_2	2号道路	23×37	XY 分区；本作室内、道馆或开场平面适配	259	0	3	3		0	3	40	改绘平面坐标:3				35	6	6	
+kalos	kalos_20	20号道路	166×127	XY 分区及模型；门位按下列数字核对	282	217	31	31		17	31	28	主路隔断:4,模型实体:10				213	31	31	
+kalos	kalos_21	21号道路	126×86	XY 分区及模型；门位按下列数字核对	283	218	3	3		1	3	1	模型实体:2				97	3	3	
+kalos	kalos_22	22号道路	106×127	XY 分区及模型；门位按下列数字核对	285	1	2	2		0	2	10	主路隔断:1,模型实体:1				105	3	3	
+kalos	kalos_3	3号道路	86×47	XY 分区及模型；门位按下列数字核对	260	1	1	1		1	1	0					111	2	2	
+kalos	kalos_4	4号道路	125×133	XY 分区及模型；门位按下列数字核对	261	1	1	1		1	1	0					113	2	2	
+kalos	kalos_5	5号道路	133×164	XY 分区及模型；门位按下列数字核对	262	2	1	1		0	1	1	模型实体:1				136	2	2	
+kalos	kalos_6	6号道路	86×125	XY 分区及模型；门位按下列数字核对	263	27	4	4		3	4	5	模型实体:1				112	4	4	
+kalos	kalos_7	7号道路	206×127	XY 分区及模型；门位按下列数字核对	264	2	2	2		1	1	0					64	4	4	
+kalos	kalos_7_west	7号道路・西段	206×127	XY 分区及模型；门位按下列数字核对	264	2	4	4		3	4	3	水域:1				112	5	5	
+kalos	kalos_8	8号道路	166×127	XY 分区及模型；门位按下列数字核对	266	3	2	2		1	2	26	主路隔断:1				67	4	4	
+kalos	kalos_9	9号道路	128×124	XY 分区及模型；门位按下列数字核对	267	29	2	2		1	2	1	模型实体:1				170	2	2	
+kalos	kalos_ambrette	古香镇	86×87	XY 分区及模型；门位按下列数字核对	45	3	6	6		5	6	1	模型实体:1				58	7	7	
+kalos	kalos_ambrette_aquarium	古香水族馆	34×27	XY 分区及模型；门位按下列数字核对	48	25	2	2		2	2	0					28	2	2	
+kalos	kalos_ambrette_fossil_lab	化石研究所	28×30	XY 分区及模型；门位按下列数字核对	49	26	1	1		1	1	0					17	1	1	
+kalos	kalos_ambrette_hotel	古香镇旅馆	32×20	XY 分区及模型；门位按下列数字核对	51	122	2	2		2	2	0					19	2	2	
+kalos	kalos_anistar	百刻市	165×87	XY 分区及模型；门位按下列数字核对	211	214	11	11		9	11	2	模型实体:2				84	11	11	
+kalos	kalos_anistar_sundial	百刻日晷	193×138	XY 分区及模型；门位按下列数字核对	356	158	2	2		2	2	0					49	2	2	
+kalos	kalos_aquacorde	名水镇	31×33	XY 分区；本作室内、道馆或开场平面适配	8	0	3	3		0	3	48	改绘平面坐标:3				33	9	9	
+kalos	kalos_azure	蔚蓝湾	126×207	XY 分区及模型；门位按下列数字核对	357	4	1	1		1	1	0					31	2	2	
+kalos	kalos_battle_chateau	对战城堡	28×19	XY 分区及模型；门位按下列数字核对	329	81	5	5		5	5	0					15	5	5	
+kalos	kalos_battle_institute	对战检验中心	18×21	XY 分区及模型；门位按下列数字核对	110	145	1	1		1	1	0					11	1	1	
+kalos	kalos_battle_maison	对战宅第	28×24	XY 分区及模型；门位按下列数字核对	241	172	2	2		2	2	0					15	2	2	
+kalos	kalos_berry_fields	树果园	76×67	XY 分区及模型；门位按下列数字核对	352	99	2	2		2	2	0					90	2	2	
+kalos	kalos_cafe_soleil	日轮咖啡馆	18×18	XY 分区及模型；门位按下列数字核对	88	213	1	1		1	1	0					11	1	1	
+kalos	kalos_camphrier	古木镇	46×87	XY 分区及模型；门位按下列数字核对	12	2	5	5		4	5	9	模型实体:1				71	7	7	
+kalos	kalos_cave	地穴	96×79	XY 分区及模型；门位按下列数字核对	334	86	4	4		0	4	9	主路隔断:4				149	4	4	
+kalos	kalos_center_ambrette	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	47	49	1	1		1	1	0					20	1	1	
+kalos	kalos_center_anistar	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	214	49	1	1		1	1	0					20	1	1	
+kalos	kalos_center_camphrier	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	13	49	1	1		1	1	0					20	1	1	
+kalos	kalos_center_coumarine	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	190	49	1	1		1	1	0					20	1	1	
+kalos	kalos_center_couriway	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	40	49	1	1		1	1	0					20	1	1	
+kalos	kalos_center_cyllage	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	159	49	1	1		1	1	0					20	1	1	
+kalos	kalos_center_dendemille	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	33	49	1	1		1	1	0					20	1	1	
+kalos	kalos_center_geosenge	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	24	49	1	1		1	1	0					20	1	1	
+kalos	kalos_center_kiloude	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	234	49	1	1		1	1	0					20	1	1	
+kalos	kalos_center_laverre	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	202	49	1	1		1	1	0					20	1	1	
+kalos	kalos_center_league	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	244	49	1	1		1	1	0					20	1	1	
+kalos	kalos_center_lumiose	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	75	49	3	3		3	3	0					20	3	3	
+kalos	kalos_center_lumiose_north	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	76	49	3	3		3	3	0					20	3	3	
+kalos	kalos_center_santalune	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	54	49	1	1		1	1	0					20	1	1	
+kalos	kalos_center_shalour	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	174	49	1	1		1	1	0					20	1	1	
+kalos	kalos_center_snowbelle	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	225	49	1	1		1	1	0					20	1	1	
+kalos	kalos_chamber_emptiness	空虚之间	34×41	XY 分区及模型；门位按下列数字核对	350	219	1	1		0	1	4	主路隔断:1				60	1	1	
+kalos	kalos_champion_room	光辉之间・卡露妮	51×68	XY 分区及模型；门位按下列数字核对	256	113	1	1		0	1	3	模型实体:1				22	2	2	
+kalos	kalos_champion_stairs	光辉之间	40×114	XY 分区及模型；门位按下列数字核对	255	112	2	2		1	2	11	模型实体:1				42	2	2	
+kalos	kalos_coumarine	比翼市	86×127	XY 分区及模型；门位按下列数字核对	187	4	3	3		3	3	0					98	4	4	
+kalos	kalos_coumarine_hill	比翼市	125×124	XY 分区及模型；门位按下列数字核对	188	63	7	7		7	7	0					106	7	7	
+kalos	kalos_coumarine_monorail_east	比翼市・山侧车站	16×20	XY 分区及模型；门位按下列数字核对	193	66	1	1		0	1	11	主路隔断:1				4	2	2	
+kalos	kalos_coumarine_monorail_west	比翼市・海侧车站	16×20	XY 分区及模型；门位按下列数字核对	192	65	1	1		0	1	11	主路隔断:1				3	2	2	
+kalos	kalos_couriway	连理镇	126×87	XY 分区及模型；门位按下列数字核对	38	7	5	5		5	5	0					99	7	7	
+kalos	kalos_crystals	石香镇・巨石遗迹	125×124	XY 分区及模型；门位按下列数字核对	22	207	0	0		0	0						116	1	1	
+kalos	kalos_cyllage	遥香市	166×127	XY 分区及模型；门位按下列数字核对	157	3	12	12		10	12	20	模型实体:2				80	15	15	
+kalos	kalos_cyllage_bike_shop	自行车店	18×14	XY 分区及模型；门位按下列数字核对	165	72	1	1		1	1	0					9	1	1	
+kalos	kalos_daycare	培育屋	17×23	XY 分区及模型；门位按下列数字核对	265	28	1	1		1	1	0					13	1	1	
+kalos	kalos_dendemille	风絮镇	59×87	XY 分区及模型；门位按下列数字核对	29	210	8	8		6	8	1	模型实体:2				92	8	8	
+kalos	kalos_e4_drasna	龙纹之间・朵拉塞娜	38×55	XY 分区及模型；门位按下列数字核对	254	111	1	1		0	1	1	模型实体:1				40	1	1	
+kalos	kalos_e4_malva	火焰之间・帕琦拉	38×53	XY 分区及模型；门位按下列数字核对	251	105	1	1		0	1	1	模型实体:1				39	1	1	
+kalos	kalos_e4_siebold	水门之间・志米	38×55	XY 分区及模型；门位按下列数字核对	252	107	1	1		0	1	1	模型实体:1				53	1	1	
+kalos	kalos_e4_wikstrom	钢铁之间・雁铠	38×53	XY 分区及模型；门位按下列数字核对	253	109	1	1		0	1	1	模型实体:1				55	1	1	
+kalos	kalos_factory	精灵球工厂	38×39	XY 分区及模型；门位按下列数字核对	310	75	3	3		3	3	0					29	3	3	
+kalos	kalos_factory_gate	精灵球工厂	125×128	XY 分区及模型；门位按下列数字核对	309	74	2	2		2	2	0					106	2	2	
+kalos	kalos_flare_hq	闪焰队秘密基地	39×74	XY 分区及模型；门位按下列数字核对	339	88	2	2		2	2	0					31	2	2	
+kalos	kalos_flare_hq_control	最终兵器控制室	74×64	XY 分区及模型；门位按下列数字核对	341	90	1	1		1	1	0					20	1	1	
+kalos	kalos_flare_labs	弗拉达利研究所	62×66	XY 分区及模型；门位按下列数字核对	96	165	20	20		20	20	0					39	22	22	
+kalos	kalos_flare_labs_b2	弗拉达利研究所・地下二层	45×13	XY 分区及模型；门位按下列数字核对	94	140	0	0		0	0						24	2	2	
+kalos	kalos_flare_labs_b3	弗拉达利研究所・地下三层	22×38	XY 分区及模型；门位按下列数字核对	95	141	0	0		0	0						27	1	1	
+kalos	kalos_forest	白檀森林	122×122	XY 分区及模型；门位按下列数字核对	286	8	2	2		2	2	0					119	2	2	
+kalos	kalos_friend_safari	朋友狩猎区	47×44	XY 分区及模型；门位按下列数字核对	354	100	0	0		0	0						41	1	1	
+kalos	kalos_friend_safari_gate	朋友狩猎区	20×20	XY 分区及模型；门位按下列数字核对	355	195	1	1		1	1	0					17	2	2	
+kalos	kalos_frost	冰结洞窟・最深处	65×64	XY 分区及模型；门位按下列数字核对	317	190	1	1		1	1	0					18	1	1	
+kalos	kalos_frost_entrance	冰结洞窟	126×127	XY 分区及模型；门位按下列数字核对	313	212	2	2		2	2	0					129	2	2	
+kalos	kalos_frost_main	冰结洞窟	105×66	XY 分区及模型；门位按下列数字核对	314	76	5	5		5	5	0					42	5	5	
+kalos	kalos_geosenge	石香镇	125×124	XY 分区及模型；门位按下列数字核对	21	206	7	7		7	7	0					116	8	8	
+kalos	kalos_glitter	闪耀洞窟	60×57	XY 分区及模型；门位按下列数字核对	304	71	1	1		1	1	0					111	1	1	
+kalos	kalos_glitter_entrance	闪耀洞窟	53×81	XY 分区及模型；门位按下列数字核对	303	70	2	2		2	2	0					92	2	2	
+kalos	kalos_gym_anistar	百刻市道馆	39×51	XY 分区；本作室内、道馆或开场平面适配	215	68	1	1		0	0						97	1	1	
+kalos	kalos_gym_coumarine	比翼市道馆	39×51	XY 分区；本作室内、道馆或开场平面适配	191	64	1	1		0	1	38	改绘平面坐标:1				81	1	1	
+kalos	kalos_gym_cyllage	遥香市道馆	39×51	XY 分区；本作室内、道馆或开场平面适配	160	58	1	1		0	1	24	改绘平面坐标:1				80	1	1	
+kalos	kalos_gym_laverre	香薰市道馆	50×47	XY 分区；本作室内、道馆或开场平面适配	203	67	1	1		0	1	28	改绘平面坐标:1				14	25	25	
+kalos	kalos_gym_lumiose	棱镜塔道馆	32×31	XY 分区及模型；门位按下列数字核对	78	221	0	0		0	0						22	1	1	
+kalos	kalos_gym_santalune	白檀市道馆	52×50	XY 分区及模型；门位按下列数字核对	55	50	1	1		1	1	0					11	2	2	
+kalos	kalos_gym_santalune_web	白檀道馆・蛛网	49×51	XY 分区；本作室内、道馆或开场平面适配	56	51	0	0		0	0						115	1	1	
+kalos	kalos_gym_shalour	娑罗市道馆	39×51	XY 分区；本作室内、道馆或开场平面适配	175	60	1	1		0	1	59	改绘平面坐标:1				62	1	1	
+kalos	kalos_gym_snowbelle	映雪市道馆	39×51	XY 分区；本作室内、道馆或开场平面适配	226	69	1	1		0	1	47	改绘平面坐标:1				30	1	1	
+kalos	kalos_hall_of_fame	名人堂	28×26	XY 分区及模型；门位按下列数字核对	257	114	0	0		0	0						21	1	1	
+kalos	kalos_herboriste	草药店	18×18	XY 分区及模型；门位按下列数字核对	123	150	1	1		1	1	0					9	1	1	
+kalos	kalos_herboriste_shop	密阿雷市	19×19	XY 分区及模型；门位按下列数字核对	134	156	1	1		0	1	1	模型实体:1				11	1	1	
+kalos	kalos_home_1f	小悠的家	46×42	XY 分区；本作室内、道馆或开场平面适配	2	10	1	1		1	1	0					18	2	2	
+kalos	kalos_home_2f	小悠的卧室	28×20	XY 分区；本作室内、道馆或开场平面适配	1	9	0	0		0	0						16	1	1	
+kalos	kalos_hotel	大酒店	83×71	XY 分区及模型；门位按下列数字核对	135	182	1	1		1	1	0					26	2	2	
+kalos	kalos_kiloude	奇楠市	125×124	XY 分区及模型；门位按下列数字核对	233	223	9	9		8	9	2	模型实体:1				87	9	9	
+kalos	kalos_kiloude_station	奇楠车站	26×89	XY 分区及模型；门位按下列数字核对	236	209	1	1		1	1	0					50	2	2	
+kalos	kalos_laverre	香薰市	86×85	XY 分区及模型；门位按下列数字核对	200	5	10	10		9	10	1	模型实体:1				111	11	11	
+kalos	kalos_league	宝可梦联盟	86×127	XY 分区及模型；门位按下列数字核对	243	101	3	3		3	3	0					85	3	3	
+kalos	kalos_league_gate	徽章检验大门	34×66	XY 分区及模型；门位按下列数字核对	321	79	3	3		1	3	1	模型实体:2				68	3	3	
+kalos	kalos_league_hall	四天王之厅	28×89	XY 分区及模型；门位按下列数字核对	246	103	5	5		0	5	2	模型实体:5				23	6	6	
+kalos	kalos_league_lobby	联盟大厅	45×71	XY 分区及模型；门位按下列数字核对	245	102	1	1		1	1	0					74	2	2	
+kalos	kalos_looker_bureau	帅哥侦探事务所	18×18	XY 分区及模型；门位按下列数字核对	156	153	0	0		0	0						10	1	1	
+kalos	kalos_lost_hotel	荒废旅馆	45×47	XY 分区及模型；门位按下列数字核对	349	98	2	2		1	2	5	主路隔断:1				66	2	2	
+kalos	kalos_lumiose	密阿雷市・南侧大道	183×174	XY 分区；本作室内、道馆或开场平面适配	63	128	10	10		0	0						171	11	11	
+kalos	kalos_lumiose_center_magenta	宝可梦中心	26×26	XY 分区；本作室内、道馆或开场平面适配	359	49	3	3		3	3	0					20	3	3	
+kalos	kalos_lumiose_central	中央广场	126×127	XY 分区；本作室内、道馆或开场平面适配	69	131	3	3		0	0						88	3	3	
+kalos	kalos_lumiose_galettes	密阿雷小巷	59×70	XY 分区及模型；门位按下列数字核对	152	220	1	1		1	1	0					48	1	1	
+kalos	kalos_lumiose_museum	密阿雷美术馆	68×43	XY 分区及模型；门位按下列数字核对	104	142	3	3		1	3	1	模型实体:2				34	3	3	
+kalos	kalos_lumiose_north	密阿雷市・北侧大道	196×213	XY 分区；本作室内、道馆或开场平面适配	65	129	11	11		0	0						203	12	12	
+kalos	kalos_lumiose_north_east	密阿雷市	126×212	XY 分区；本作室内、道馆或开场平面适配	66	129	12	12		0	0						168	13	13	
+kalos	kalos_lumiose_plazas_north	密阿雷市	265×167	XY 分区；本作室内、道馆或开场平面适配	67	130	16	16		0	0						214	17	17	
+kalos	kalos_lumiose_plazas_south	密阿雷市	279×109	XY 分区；本作室内、道馆或开场平面适配	68	130	13	13		0	0						244	14	14	
+kalos	kalos_lumiose_south_west	密阿雷市	112×231	XY 分区；本作室内、道馆或开场平面适配	64	128	8	8		0	0						172	9	9	
+kalos	kalos_lumiose_station	密阿雷车站	86×34	XY 分区及模型；门位按下列数字核对	109	144	1	1		1	1	0					57	2	2	
+kalos	kalos_lysandre_cafe	弗拉达利咖啡馆	18×19	XY 分区及模型；门位按下列数字核对	93	139	2	2		2	2	0					17	2	2	
+kalos	kalos_mastery	精练之塔	34×38	XY 分区及模型；门位按下列数字核对	181	61	10	10		6	10	6	主路隔断:1,重叠门或锚点:3				20	10	10	
+kalos	kalos_mastery_summit	精练之塔・塔顶	301×354	XY 分区及模型；门位按下列数字核对	182	62	1	1		1	1	0					291	1	1	
+kalos	kalos_palace	巴尔法姆香殿	96×40	XY 分区及模型；门位按下列数字核对	288	34	8	8		7	8	1	模型实体:1				69	8	8	
+kalos	kalos_palace_approach	巴尔法姆香殿	86×204	XY 分区及模型；门位按下列数字核对	287	33	2	2		1	1	0					139	2	2	
+kalos	kalos_parfum_garden	香殿后花园	126×164	XY 分区及模型；门位按下列数字核对	302	48	1	1		0	1	6	模型实体:1				133	1	1	
+kalos	kalos_pass_paldea_n3	连理山口	31×23	自建跨区连接													24	2	2	
+kalos	kalos_power_plant	卡洛斯发电厂	26×28	XY 分区及模型；门位按下列数字核对	336	177	3	3		3	3	0					22	3	3	
+kalos	kalos_power_plant_gate	卡洛斯发电厂	14×69	XY 分区及模型；门位按下列数字核对	335	87	2	2		2	2	0					35	2	2	
+kalos	kalos_reflection	镜穴	86×106	XY 分区及模型；门位按下列数字核对	305	73	4	4		4	4	0					49	4	4	
+kalos	kalos_rival_home	朝香镇	22×16	XY 分区及模型；门位按下列数字核对	4	11	2	2		2	2	0					13	2	2	
+kalos	kalos_rival_home_2f	朝香镇	19×19	XY 分区及模型；门位按下列数字核对	5	12	1	1		1	1	0					15	1	1	
+kalos	kalos_santalune	白檀市	106×87	XY 分区及模型；门位按下列数字核对	53	1	8	8		5	8	4	模型实体:3				95	11	11	
+kalos	kalos_scary_house	荒郊小屋	18×20	XY 分区及模型；门位按下列数字核对	274	120	1	1		1	1	0					11	1	1	
+kalos	kalos_sea_spirits_den	海神之穴	36×30	XY 分区及模型；门位按下列数字核对	351	193	1	1		0	1	4	主路隔断:1				50	1	1	
+kalos	kalos_shabboneau_castle	古木镇城堡	36×30	XY 分区及模型；门位按下列数字核对	14	19	3	3		1	3	10	模型实体:2				24	3	3	
+kalos	kalos_shalour	娑罗市	146×144	XY 分区及模型；门位按下列数字核对	172	59	10	10		9	10	1	模型实体:1				96	10	10	
+kalos	kalos_snowbelle	映雪市	118×114	XY 分区及模型；门位按下列数字核对	222	216	11	11		8	11	2	模型实体:3				121	11	11	
+kalos	kalos_stone_emporium	石头馆	18×18	XY 分区及模型；门位按下列数字核对	128	154	1	1		1	1	0					10	1	1	
+kalos	kalos_sushi_high_roller	高级寿司店	32×44	XY 分区及模型；门位按下列数字核对	146	188	1	1		1	1	0					29	1	1	
+kalos	kalos_sycamore_lab	布拉塔诺研究所・三楼	30×19	XY 分区及模型；门位按下列数字核对	85	134	0	0		0	0						14	1	1	
+kalos	kalos_sycamore_lab_2f	布拉塔诺研究所・二楼	30×18	XY 分区及模型；门位按下列数字核对	84	133	0	0		0	0						14	2	2	
+kalos	kalos_sycamore_lab_lobby	布拉塔诺研究所・一楼	30×19	XY 分区及模型；门位按下列数字核对	83	132	1	1		1	1	0					14	2	2	
+kalos	kalos_terminus_cave	终结洞窟	97×89	XY 分区及模型；门位按下列数字核对	346	95	1	1		0	1	8	主路隔断:1				171	1	1	
+kalos	kalos_terminus_entrance	终结洞窟	66×65	XY 分区及模型；门位按下列数字核对	343	92	2	2		0	2	7	主路隔断:2				97	2	2	
+kalos	kalos_tower	棱镜塔	44×67	XY 分区及模型；门位按下列数字核对	77	57	4	4		4	4	0					21	5	5	
+kalos	kalos_unknown_dungeon	无名洞窟	34×41	XY 分区及模型；门位按下列数字核对	319	219	1	1		0	1	4	主路隔断:1				60	1	1	
+kalos	kalos_vaniville	朝香镇	31×22	XY 分区；本作室内、道馆或开场平面适配	0	0	3	3		0	3	13	改绘平面坐标:3				25	6	6	
+kalos	kalos_victory	冠军之路	85×84	XY 分区及模型；门位按下列数字核对	320	78	2	2		2	2	0					58	2	2	
+kalos	kalos_victory_cafe	胜利咖啡馆	18×18	XY 分区及模型；门位按下列数字核对	120	127	1	1		1	1	0					11	1	1	
+kalos	kalos_village	宝可梦村	90×76	XY 分区及模型；门位按下列数字核对	318	77	2	2		2	2	0					100	2	2	
+kalos	kalos_zone_10	名水镇・伤药店	17×15	XY 分区；本作室内、道馆或开场平面适配	10	17	1	1		0	1	3	改绘平面坐标:1				9	1	1	
+kalos	kalos_zone_100	弗拉达利研究所	22×16	XY 分区及模型；门位按下列数字核对	100	169	1	1		1	1	0					15	1	1	
+kalos	kalos_zone_101	弗拉达利研究所	16×22	XY 分区及模型；门位按下列数字核对	101	170	1	1		1	1	0					12	1	1	
+kalos	kalos_zone_102	弗拉达利研究所	62×66	XY 分区及模型；门位按下列数字核对	102	165	15	15		15	15	0					39	16	16	
+kalos	kalos_zone_103	弗拉达利研究所	16×22	XY 分区及模型；门位按下列数字核对	103	170	1	1		1	1	0					12	1	1	
+kalos	kalos_zone_105	密阿雷市	68×43	XY 分区及模型；门位按下列数字核对	105	191	4	4		3	4	1	模型实体:1				36	4	4	
+kalos	kalos_zone_106	密阿雷市	68×44	XY 分区及模型；门位按下列数字核对	106	192	2	2		2	2	0					36	2	2	
+kalos	kalos_zone_107	密阿雷市	28×37	XY 分区及模型；门位按下列数字核对	107	143	2	2		1	2	1	模型实体:1				22	2	2	
+kalos	kalos_zone_108	密阿雷市	45×44	XY 分区及模型；门位按下列数字核对	108	181	1	1		1	1	0					10	1	1	
+kalos	kalos_zone_11	名水镇・精灵球店	17×15	XY 分区；本作室内、道馆或开场平面适配	11	18	1	1		0	1	6	改绘平面坐标:1				9	1	1	
+kalos	kalos_zone_111	密阿雷市	25×20	XY 分区及模型；门位按下列数字核对	111	135	1	1		1	1	0					13	2	2	
+kalos	kalos_zone_112	密阿雷市	25×19	XY 分区及模型；门位按下列数字核对	112	136	0	0		0	0						12	2	2	
+kalos	kalos_zone_113	密阿雷市	25×19	XY 分区及模型；门位按下列数字核对	113	137	0	0		0	0						13	1	1	
+kalos	kalos_zone_114	密阿雷市	25×20	XY 分区及模型；门位按下列数字核对	114	135	1	1		1	1	0					13	2	2	
+kalos	kalos_zone_115	密阿雷市	25×19	XY 分区及模型；门位按下列数字核对	115	136	0	0		0	0						12	2	2	
+kalos	kalos_zone_116	密阿雷市	25×19	XY 分区及模型；门位按下列数字核对	116	137	0	0		0	0						13	1	1	
+kalos	kalos_zone_117	汪汪咖啡修剪沙龙	18×18	XY 分区及模型；门位按下列数字核对	117	146	1	1		1	1	0					10	1	1	
+kalos	kalos_zone_118	密阿雷市	26×23	XY 分区及模型；门位按下列数字核对	118	147	1	1		1	1	0					5	1	1	
+kalos	kalos_zone_119	密阿雷市	18×18	XY 分区及模型；门位按下列数字核对	119	148	1	1		0	1	1	模型实体:1				10	1	1	
+kalos	kalos_zone_121	密阿雷市	18×18	XY 分区及模型；门位按下列数字核对	121	213	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_122	果汁馆	18×18	XY 分区及模型；门位按下列数字核对	122	149	1	1		0	1	1	模型实体:1				11	1	1	
+kalos	kalos_zone_124	密阿雷市	103×21	XY 分区及模型；门位按下列数字核对	124	151	1	1		1	1	0					15	1	1	
+kalos	kalos_zone_125	内向咖啡馆	18×18	XY 分区及模型；门位按下列数字核对	125	127	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_126	二星餐厅	32×44	XY 分区及模型；门位按下列数字核对	126	152	1	1		0	1	1	模型实体:1				28	1	1	
+kalos	kalos_zone_127	密阿雷市	18×18	XY 分区及模型；门位按下列数字核对	127	153	1	1		1	1	0					10	2	2	
+kalos	kalos_zone_129	密阿雷市	18×18	XY 分区及模型；门位按下列数字核对	129	213	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_130	滑轮咖啡馆	18×18	XY 分区及模型；门位按下列数字核对	130	213	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_131	咖啡厅	18×18	XY 分区及模型；门位按下列数字核对	131	155	1	1		1	1	0					10	1	1	
+kalos	kalos_zone_132	密阿雷市	18×18	XY 分区及模型；门位按下列数字核对	132	127	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_133	密阿雷市	18×18	XY 分区及模型；门位按下列数字核对	133	213	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_136	密阿雷市	66×65	XY 分区及模型；门位按下列数字核对	136	189	0	0		0	0						56	2	2	
+kalos	kalos_zone_137	密阿雷市	66×65	XY 分区及模型；门位按下列数字核对	137	189	0	0		0	0						56	2	2	
+kalos	kalos_zone_138	密阿雷市	66×65	XY 分区及模型；门位按下列数字核对	138	189	0	0		0	0						56	2	2	
+kalos	kalos_zone_139	密阿雷市	42×29	XY 分区及模型；门位按下列数字核对	139	183	0	0		0	0						20	1	1	
+kalos	kalos_zone_140	三星餐厅	32×44	XY 分区及模型；门位按下列数字核对	140	186	1	1		0	1	1	模型实体:1				28	1	1	
+kalos	kalos_zone_141	一星餐厅	32×44	XY 分区及模型；门位按下列数字核对	141	187	1	1		0	1	1	模型实体:1				28	1	1	
+kalos	kalos_zone_142	密阿雷市	18×18	XY 分区及模型；门位按下列数字核对	142	127	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_143	密阿雷市	18×18	XY 分区及模型；门位按下列数字核对	143	127	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_144	密阿雷市	25×20	XY 分区及模型；门位按下列数字核对	144	135	1	1		1	1	0					13	2	2	
+kalos	kalos_zone_145	密阿雷市	25×19	XY 分区及模型；门位按下列数字核对	145	136	0	0		0	0						12	1	1	
+kalos	kalos_zone_147	密阿雷市	18×18	XY 分区及模型；门位按下列数字核对	147	127	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_148	密阿雷市	18×18	XY 分区及模型；门位按下列数字核对	148	213	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_149	密阿雷市	25×20	XY 分区及模型；门位按下列数字核对	149	135	1	1		1	1	0					13	1	1	
+kalos	kalos_zone_15	古木镇城堡	20×28	XY 分区及模型；门位按下列数字核对	15	20	3	3		2	3	10	主路隔断:1				11	3	3	
+kalos	kalos_zone_150	密阿雷市	18×18	XY 分区及模型；门位按下列数字核对	150	213	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_151	密阿雷市	18×18	XY 分区及模型；门位按下列数字核对	151	127	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_153	密阿雷市	59×70	XY 分区及模型；门位按下列数字核对	153	220	1	1		1	1	0					48	1	1	
+kalos	kalos_zone_154	密阿雷市	59×70	XY 分区及模型；门位按下列数字核对	154	220	1	1		1	1	0					48	1	1	
+kalos	kalos_zone_155	密阿雷市	59×70	XY 分区及模型；门位按下列数字核对	155	220	1	1		1	1	0					48	1	1	
+kalos	kalos_zone_16	古木镇城堡	20×18	XY 分区及模型；门位按下列数字核对	16	21	1	1		1	1	0					12	1	1	
+kalos	kalos_zone_161	遥香市	32×20	XY 分区及模型；门位按下列数字核对	161	122	2	2		2	2	0					19	2	2	
+kalos	kalos_zone_162	遥香市	32×22	XY 分区及模型；门位按下列数字核对	162	123	1	1		1	1	0					24	1	1	
+kalos	kalos_zone_163	遥香市	29×19	XY 分区及模型；门位按下列数字核对	163	126	1	1		1	1	0					10	2	2	
+kalos	kalos_zone_164	遥香市	28×10	XY 分区及模型；门位按下列数字核对	164	194	0	0		0	0						6	1	1	
+kalos	kalos_zone_166	遥香市	25×20	XY 分区及模型；门位按下列数字核对	166	202	1	1		0	1	1	模型实体:1				14	1	1	
+kalos	kalos_zone_167	遥香市	22×15	XY 分区及模型；门位按下列数字核对	167	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_168	遥香市	22×15	XY 分区及模型；门位按下列数字核对	168	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_169	遥香市	22×15	XY 分区及模型；门位按下列数字核对	169	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_17	古木镇	32×20	XY 分区及模型；门位按下列数字核对	17	122	2	2		2	2	0					19	2	2	
+kalos	kalos_zone_170	遥香市	22×15	XY 分区及模型；门位按下列数字核对	170	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_171	遥香市	22×15	XY 分区及模型；门位按下列数字核对	171	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_173	娑罗市关口	23×14	XY 分区及模型；门位按下列数字核对	173	125	2	2		0	2	1	模型实体:2				11	2	2	
+kalos	kalos_zone_176	娑罗市	22×15	XY 分区及模型；门位按下列数字核对	176	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_177	娑罗市	22×15	XY 分区及模型；门位按下列数字核对	177	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_178	娑罗市	22×15	XY 分区及模型；门位按下列数字核对	178	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_179	娑罗市	22×15	XY 分区及模型；门位按下列数字核对	179	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_18	古木镇	32×22	XY 分区及模型；门位按下列数字核对	18	123	1	1		1	1	0					24	1	1	
+kalos	kalos_zone_180	娑罗市	22×15	XY 分区及模型；门位按下列数字核对	180	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_183	精练之塔	18×17	XY 分区及模型；门位按下列数字核对	183	171	3	3		3	3	0					11	3	3	
+kalos	kalos_zone_184	精练之塔	18×17	XY 分区及模型；门位按下列数字核对	184	171	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_185	精练之塔	18×17	XY 分区及模型；门位按下列数字核对	185	171	3	3		3	3	0					11	3	3	
+kalos	kalos_zone_186	精练之塔	18×17	XY 分区及模型；门位按下列数字核对	186	171	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_189	比翼市关口	18×22	XY 分区及模型；门位按下列数字核对	189	124	2	2		2	2	0					11	2	2	
+kalos	kalos_zone_19	古木镇	18×14	XY 分区及模型；门位按下列数字核对	19	161	1	1		1	1	0					7	1	1	
+kalos	kalos_zone_194	比翼市	32×20	XY 分区及模型；门位按下列数字核对	194	122	2	2		2	2	0					19	2	2	
+kalos	kalos_zone_195	比翼市	32×22	XY 分区及模型；门位按下列数字核对	195	123	1	1		1	1	0					24	1	1	
+kalos	kalos_zone_196	比翼市	22×15	XY 分区及模型；门位按下列数字核对	196	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_197	比翼市	22×15	XY 分区及模型；门位按下列数字核对	197	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_198	比翼市	22×15	XY 分区及模型；门位按下列数字核对	198	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_199	比翼市	22×15	XY 分区及模型；门位按下列数字核对	199	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_20	古木镇	18×14	XY 分区及模型；门位按下列数字核对	20	117	1	1		1	1	0					9	1	1	
+kalos	kalos_zone_201	香薰市关口	23×14	XY 分区及模型；门位按下列数字核对	201	125	2	2		0	2	1	模型实体:2				11	2	2	
+kalos	kalos_zone_204	香薰市	29×19	XY 分区及模型；门位按下列数字核对	204	126	1	1		1	1	0					9	2	2	
+kalos	kalos_zone_205	香薰市	28×10	XY 分区及模型；门位按下列数字核对	205	194	0	0		0	0						7	1	1	
+kalos	kalos_zone_206	香薰市	25×20	XY 分区及模型；门位按下列数字核对	206	203	1	1		0	1	1	模型实体:1				11	1	1	
+kalos	kalos_zone_207	香薰市	18×20	XY 分区及模型；门位按下列数字核对	207	120	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_208	香薰市	18×20	XY 分区及模型；门位按下列数字核对	208	120	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_209	香薰市	18×20	XY 分区及模型；门位按下列数字核对	209	120	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_210	香薰市	18×20	XY 分区及模型；门位按下列数字核对	210	120	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_212	百刻市关口	23×14	XY 分区及模型；门位按下列数字核对	212	125	2	2		0	2	1	模型实体:2				10	2	2	
+kalos	kalos_zone_213	百刻市关口	18×22	XY 分区及模型；门位按下列数字核对	213	124	2	2		2	2	0					11	2	2	
+kalos	kalos_zone_216	百刻市	29×19	XY 分区及模型；门位按下列数字核对	216	126	1	1		1	1	0					10	2	2	
+kalos	kalos_zone_217	百刻市	28×10	XY 分区及模型；门位按下列数字核对	217	194	0	0		0	0						5	1	1	
+kalos	kalos_zone_218	百刻市	25×20	XY 分区及模型；门位按下列数字核对	218	204	1	1		0	1	1	模型实体:1				14	1	1	
+kalos	kalos_zone_219	百刻市	21×17	XY 分区及模型；门位按下列数字核对	219	175	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_220	百刻市	21×17	XY 分区及模型；门位按下列数字核对	220	175	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_221	百刻市	21×17	XY 分区及模型；门位按下列数字核对	221	175	1	1		1	1	0					10	1	1	
+kalos	kalos_zone_223	映雪市关口	23×14	XY 分区及模型；门位按下列数字核对	223	125	2	2		0	2	1	模型实体:2				11	2	2	
+kalos	kalos_zone_224	映雪市关口	23×14	XY 分区及模型；门位按下列数字核对	224	125	2	2		0	2	1	模型实体:2				10	2	2	
+kalos	kalos_zone_227	映雪市	25×20	XY 分区及模型；门位按下列数字核对	227	205	1	1		0	1	1	模型实体:1				14	1	1	
+kalos	kalos_zone_228	映雪市	22×20	XY 分区及模型；门位按下列数字核对	228	176	1	1		1	1	0					15	1	1	
+kalos	kalos_zone_229	映雪市	22×20	XY 分区及模型；门位按下列数字核对	229	176	1	1		1	1	0					13	1	1	
+kalos	kalos_zone_230	映雪市	22×20	XY 分区及模型；门位按下列数字核对	230	176	1	1		1	1	0					14	1	1	
+kalos	kalos_zone_231	映雪市	22×20	XY 分区及模型；门位按下列数字核对	231	176	1	1		1	1	0					15	1	1	
+kalos	kalos_zone_232	映雪市	22×20	XY 分区及模型；门位按下列数字核对	232	176	1	1		1	1	0					13	1	1	
+kalos	kalos_zone_235	奇楠市	24×18	XY 分区及模型；门位按下列数字核对	235	208	1	1		1	1	0					12	1	1	
+kalos	kalos_zone_237	奇楠市	24×18	XY 分区及模型；门位按下列数字核对	237	208	1	1		1	1	0					12	1	1	
+kalos	kalos_zone_238	奇楠市	24×18	XY 分区及模型；门位按下列数字核对	238	208	1	1		1	1	0					12	1	1	
+kalos	kalos_zone_239	奇楠市	24×18	XY 分区及模型；门位按下列数字核对	239	208	1	1		1	1	0					12	1	1	
+kalos	kalos_zone_240	奇楠市	24×18	XY 分区及模型；门位按下列数字核对	240	208	1	1		1	1	0					12	1	1	
+kalos	kalos_zone_242	对战宅第	38×35	XY 分区及模型；门位按下列数字核对	242	173	1	1		1	1	0					56	1	1	
+kalos	kalos_zone_247	火焰之间	24×94	XY 分区及模型；门位按下列数字核对	247	104	2	2		2	2	0					28	2	2	
+kalos	kalos_zone_248	水门之间	24×94	XY 分区及模型；门位按下列数字核对	248	106	2	2		2	2	0					28	2	2	
+kalos	kalos_zone_249	钢铁之间	24×94	XY 分区及模型；门位按下列数字核对	249	108	2	2		2	2	0					28	2	2	
+kalos	kalos_zone_25	石香镇	32×20	XY 分区及模型；门位按下列数字核对	25	122	2	2		2	2	0					19	2	2	
+kalos	kalos_zone_250	龙纹之间	24×94	XY 分区及模型；门位按下列数字核对	250	110	2	2		2	2	0					28	2	2	
+kalos	kalos_zone_26	石香镇	32×22	XY 分区及模型；门位按下列数字核对	26	123	1	1		1	1	0					24	1	1	
+kalos	kalos_zone_27	石香镇	22×22	XY 分区及模型；门位按下列数字核对	27	121	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_271	12号道路	22×15	XY 分区及模型；门位按下列数字核对	271	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_277	16号道路	18×20	XY 分区及模型；门位按下列数字核对	277	120	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_28	石香镇	22×22	XY 分区及模型；门位按下列数字核对	28	121	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_280	18号道路	21×17	XY 分区及模型；门位按下列数字核对	280	175	1	1		1	1	0					10	1	1	
+kalos	kalos_zone_284	21号道路	18×20	XY 分区及模型；门位按下列数字核对	284	120	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_289	巴尔法姆香殿	18×17	XY 分区及模型；门位按下列数字核对	289	35	1	1		1	1	0					10	1	1	
+kalos	kalos_zone_290	巴尔法姆香殿	18×17	XY 分区及模型；门位按下列数字核对	290	36	1	1		1	1	0					10	1	1	
+kalos	kalos_zone_291	巴尔法姆香殿	18×17	XY 分区及模型；门位按下列数字核对	291	37	1	1		1	1	0					10	1	1	
+kalos	kalos_zone_292	巴尔法姆香殿	18×17	XY 分区及模型；门位按下列数字核对	292	38	1	1		1	1	0					12	1	1	
+kalos	kalos_zone_293	巴尔法姆香殿	36×30	XY 分区及模型；门位按下列数字核对	293	39	4	4		4	4	0					24	4	4	
+kalos	kalos_zone_294	巴尔法姆香殿	62×45	XY 分区及模型；门位按下列数字核对	294	40	6	6		6	6	0					45	6	6	
+kalos	kalos_zone_295	巴尔法姆香殿	36×30	XY 分区及模型；门位按下列数字核对	295	41	4	4		4	4	0					25	4	4	
+kalos	kalos_zone_297	巴尔法姆香殿	18×17	XY 分区及模型；门位按下列数字核对	297	43	1	1		1	1	0					17	1	1	
+kalos	kalos_zone_298	巴尔法姆香殿	18×17	XY 分区及模型；门位按下列数字核对	298	44	1	1		1	1	0					17	1	1	
+kalos	kalos_zone_299	巴尔法姆香殿	18×17	XY 分区及模型；门位按下列数字核对	299	45	1	1		1	1	0					10	1	1	
+kalos	kalos_zone_300	巴尔法姆香殿	18×17	XY 分区及模型；门位按下列数字核对	300	46	1	1		1	1	0					10	1	1	
+kalos	kalos_zone_301	巴尔法姆香殿	165×137	XY 分区及模型；门位按下列数字核对	301	47	4	4		4	4	0					97	4	4	
+kalos	kalos_zone_306	镜穴	87×94	XY 分区及模型；门位按下列数字核对	306	162	3	3		3	3	0					101	3	3	
+kalos	kalos_zone_307	镜穴	65×67	XY 分区及模型；门位按下列数字核对	307	163	3	3		3	3	0					44	3	3	
+kalos	kalos_zone_308	镜穴	38×44	XY 分区及模型；门位按下列数字核对	308	164	2	2		2	2	0					10	2	2	
+kalos	kalos_zone_31	风絮镇关口	23×14	XY 分区及模型；门位按下列数字核对	31	125	2	2		0	2	1	模型实体:2				10	2	2	
+kalos	kalos_zone_311	精灵球工厂	18×14	XY 分区及模型；门位按下列数字核对	311	159	1	1		1	1	0					13	1	1	
+kalos	kalos_zone_312	精灵球工厂	17×14	XY 分区及模型；门位按下列数字核对	312	160	1	1		1	1	0					9	1	1	
+kalos	kalos_zone_315	冰结洞窟	105×104	XY 分区及模型；门位按下列数字核对	315	184	7	7		5	7	13	主路隔断:2				85	7	7	
+kalos	kalos_zone_316	冰结洞窟	105×109	XY 分区及模型；门位按下列数字核对	316	185	2	2		2	2	0					64	2	2	
+kalos	kalos_zone_32	风絮镇关口	23×14	XY 分区及模型；门位按下列数字核对	32	125	2	2		0	2	1	模型实体:2				10	2	2	
+kalos	kalos_zone_322	冠军之路	70×93	XY 分区及模型；门位按下列数字核对	322	80	4	4		1	4	29	主路隔断:2,模型实体:1				78	4	4	
+kalos	kalos_zone_323	冠军之路	76×157	XY 分区及模型；门位按下列数字核对	323	196	5	5		1	5	1	模型实体:4				115	5	5	
+kalos	kalos_zone_324	冠军之路	89×101	XY 分区及模型；门位按下列数字核对	324	197	6	6		0	6	8	主路隔断:6				159	6	6	
+kalos	kalos_zone_325	冠军之路	122×87	XY 分区及模型；门位按下列数字核对	325	198	5	5		5	5	0					84	5	5	
+kalos	kalos_zone_326	冠军之路	92×89	XY 分区及模型；门位按下列数字核对	326	199	4	4		0	4	6	主路隔断:4				155	4	4	
+kalos	kalos_zone_327	冠军之路	84×104	XY 分区及模型；门位按下列数字核对	327	200	2	2		1	2	7	主路隔断:1				78	2	2	
+kalos	kalos_zone_328	冠军之路	70×96	XY 分区及模型；门位按下列数字核对	328	201	2	2		1	2	6	水域:1				152	2	2	
+kalos	kalos_zone_330	对战城堡	19×18	XY 分区及模型；门位按下列数字核对	330	82	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_331	对战城堡	19×17	XY 分区及模型；门位按下列数字核对	331	83	1	1		1	1	0					8	1	1	
+kalos	kalos_zone_332	对战城堡	19×18	XY 分区及模型；门位按下列数字核对	332	84	1	1		1	1	0					8	1	1	
+kalos	kalos_zone_333	对战城堡	37×24	XY 分区及模型；门位按下列数字核对	333	85	3	3		3	3	0					29	3	3	
+kalos	kalos_zone_337	卡洛斯发电厂	71×50	XY 分区及模型；门位按下列数字核对	337	178	1	1		1	1	0					58	1	1	
+kalos	kalos_zone_338	卡洛斯发电厂	22×19	XY 分区及模型；门位按下列数字核对	338	179	1	1		1	1	0					16	1	1	
+kalos	kalos_zone_34	风絮镇	22×16	XY 分区及模型；门位按下列数字核对	34	157	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_340	闪焰队秘密基地	79×51	XY 分区及模型；门位按下列数字核对	340	89	2	2		2	2	0					144	2	2	
+kalos	kalos_zone_342	闪焰队秘密基地	53×53	XY 分区及模型；门位按下列数字核对	342	91	2	2		0	2	1	模型实体:2				4	2	2	
+kalos	kalos_zone_344	终结洞窟	86×84	XY 分区及模型；门位按下列数字核对	344	93	4	4		2	4	20	主路隔断:2				53	4	4	
+kalos	kalos_zone_345	终结洞窟	87×84	XY 分区及模型；门位按下列数字核对	345	94	2	2		2	2	0					137	2	2	
+kalos	kalos_zone_347	终结洞窟	45×44	XY 分区及模型；门位按下列数字核对	347	96	1	1		0	1	4	主路隔断:1				49	1	1	
+kalos	kalos_zone_348	终结洞窟	45×44	XY 分区及模型；门位按下列数字核对	348	97	1	1		0	1	4	主路隔断:1				59	1	1	
+kalos	kalos_zone_35	风絮镇	22×16	XY 分区及模型；门位按下列数字核对	35	174	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_353	7号道路	18×14	XY 分区及模型；门位按下列数字核对	353	117	1	1		1	1	0					10	1	1	
+kalos	kalos_zone_36	风絮镇	22×16	XY 分区及模型；门位按下列数字核对	36	174	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_37	风絮镇	22×16	XY 分区及模型；门位按下列数字核对	37	174	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_39	连理镇关口	18×22	XY 分区及模型；门位按下列数字核对	39	124	2	2		2	2	0					11	2	2	
+kalos	kalos_zone_41	连理镇	32×20	XY 分区及模型；门位按下列数字核对	41	122	2	2		2	2	0					19	2	2	
+kalos	kalos_zone_42	连理镇	32×22	XY 分区及模型；门位按下列数字核对	42	123	1	1		1	1	0					24	1	1	
+kalos	kalos_zone_43	连理镇	18×20	XY 分区及模型；门位按下列数字核对	43	120	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_44	连理镇	18×20	XY 分区及模型；门位按下列数字核对	44	120	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_46	古香镇关口	23×14	XY 分区及模型；门位按下列数字核对	46	125	2	2		0	2	1	模型实体:2				10	2	2	
+kalos	kalos_zone_50	古香镇	22×15	XY 分区及模型；门位按下列数字核对	50	119	1	1		1	1	0					11	1	1	
+kalos	kalos_zone_52	古香镇	32×22	XY 分区及模型；门位按下列数字核对	52	123	1	1		1	1	0					24	1	1	
+kalos	kalos_zone_57	白檀时装店	25×20	XY 分区及模型；门位按下列数字核对	57	52	1	1		0	1	1	模型实体:1				11	1	1	
+kalos	kalos_zone_58	白檀市	18×14	XY 分区及模型；门位按下列数字核对	58	117	1	1		1	1	0					10	1	1	
+kalos	kalos_zone_59	白檀市	16×15	XY 分区及模型；门位按下列数字核对	59	118	1	1		1	1	0					8	1	1	
+kalos	kalos_zone_6	朝香镇	19×17	XY 分区及模型；门位按下列数字核对	6	13	2	2		2	2	0					17	2	2	
+kalos	kalos_zone_60	白檀市	16×15	XY 分区及模型；门位按下列数字核对	60	118	1	1		1	1	0					8	1	1	
+kalos	kalos_zone_61	白檀市	16×15	XY 分区及模型；门位按下列数字核对	61	118	1	1		1	1	0					9	1	1	
+kalos	kalos_zone_62	白檀市	21×25	XY 分区及模型；门位按下列数字核对	62	56	1	1		1	1	0					15	1	1	
+kalos	kalos_zone_7	朝香镇	19×13	XY 分区及模型；门位按下列数字核对	7	14	1	1		1	1	0					10	1	1	
+kalos	kalos_zone_70	密阿雷市关口	18×22	XY 分区及模型；门位按下列数字核对	70	124	2	2		2	2	0					11	2	2	
+kalos	kalos_zone_71	密阿雷市关口	23×14	XY 分区及模型；门位按下列数字核对	71	125	2	2		0	2	1	模型实体:2				11	2	2	
+kalos	kalos_zone_72	密阿雷市关口	18×22	XY 分区及模型；门位按下列数字核对	72	124	2	2		2	2	0					11	2	2	
+kalos	kalos_zone_73	密阿雷市关口	18×22	XY 分区及模型；门位按下列数字核对	73	124	2	2		1	2	1	模型实体:1				11	2	2	
+kalos	kalos_zone_74	密阿雷市关口	23×14	XY 分区及模型；门位按下列数字核对	74	125	2	2		0	2	1	模型实体:2				10	2	2	
+kalos	kalos_zone_79	棱镜塔	37×34	XY 分区及模型；门位按下列数字核对	79	222	0	0		0	0						22	2	2	
+kalos	kalos_zone_80	棱镜塔	37×34	XY 分区及模型；门位按下列数字核对	80	222	0	0		0	0						22	2	2	
+kalos	kalos_zone_81	棱镜塔	37×34	XY 分区及模型；门位按下列数字核对	81	222	0	0		0	0						22	2	2	
+kalos	kalos_zone_82	棱镜塔	37×34	XY 分区及模型；门位按下列数字核对	82	222	0	0		0	0						22	2	2	
+kalos	kalos_zone_86	密阿雷市	25×20	XY 分区及模型；门位按下列数字核对	86	135	1	1		1	1	0					13	2	2	
+kalos	kalos_zone_87	密阿雷市	25×19	XY 分区及模型；门位按下列数字核对	87	136	0	0		0	0						12	1	1	
+kalos	kalos_zone_89	时装沙龙	28×19	XY 分区及模型；门位按下列数字核对	89	138	2	2		1	2	1	模型实体:1				13	2	2	
+kalos	kalos_zone_9	名水镇・休息之家	17×15	XY 分区；本作室内、道馆或开场平面适配	9	16	1	1		0	1	4	改绘平面坐标:1				9	1	1	
+kalos	kalos_zone_90	时装沙龙・二楼	27×17	XY 分区及模型；门位按下列数字核对	90	180	1	1		0	1	1	模型实体:1				15	1	1	
+kalos	kalos_zone_91	南侧大道办公楼	25×20	XY 分区及模型；门位按下列数字核对	91	135	1	1		1	1	0					13	2	2	
+kalos	kalos_zone_92	密阿雷市	25×19	XY 分区及模型；门位按下列数字核对	92	136	0	0		0	0						12	1	1	
+kalos	kalos_zone_97	弗拉达利研究所	16×22	XY 分区及模型；门位按下列数字核对	97	166	1	1		1	1	0					14	1	1	
+kalos	kalos_zone_98	弗拉达利研究所	16×22	XY 分区及模型；门位按下列数字核对	98	167	1	1		1	1	0					13	1	1	
+kalos	kalos_zone_99	弗拉达利研究所	22×16	XY 分区及模型；门位按下列数字核对	99	168	1	1		1	1	0					14	1	1	
+alola	alola_1	1号道路	139×65	SM 分区或实景；连接为平面适配	1	0											113	3	3	
+alola	alola_10	10号道路	77×64	SM 分区或实景；连接为平面适配	140	97											82	3	3	
+alola	alola_11	11号道路	91×42	SM 分区或实景；连接为平面适配	141	97											67	2	2	
+alola	alola_12	12号道路	75×126	SM 分区或实景；连接为平面适配	149	97											100	4	4	
+alola	alola_13	13号道路	37×46	SM 分区或实景；连接为平面适配	143,210,217,218	97											44	4	4	
+alola	alola_14	14号道路	78×59	SM 分区或实景；连接为平面适配	145	97											80	2	2	
+alola	alola_15	15号水路	96×112	SM 分区或实景；连接为平面适配	146,207,208	97											142	3	3	
+alola	alola_16	16号道路	80×39	SM 分区或实景；连接为平面适配	147,228	97											56	4	4	
+alola	alola_17	17号道路	77×86	SM 分区或实景；连接为平面适配	148,211	97											79	2	2	
+alola	alola_2	2号道路	110×110	SM 分区或实景；连接为平面适配	3,41,62,63,67	0											109	8	8	
+alola	alola_3	3号道路	77×108	SM 分区或实景；连接为平面适配	2	0											101	3	3	
+alola	alola_4	4号道路	76×69	SM 分区或实景；连接为平面适配	68	49											73	3	3	
+alola	alola_5	5号道路	88×72	SM 分区或实景；连接为平面适配	69,139	49											84	4	4	
+alola	alola_6	6号道路	50×78	SM 分区或实景；连接为平面适配	70	49											65	3	3	
+alola	alola_7	7号道路	73×110	SM 分区或实景；连接为平面适配	71	49											81	3	3	
+alola	alola_8	8号道路	161×116	SM 分区或实景；连接为平面适配	72,119,122,123,136	49											150	6	6	
+alola	alola_9	9号道路	48×45	SM 分区或实景；连接为平面适配	73,127	49											46	3	3	
+alola	alola_abundance	丰收遗迹	22×50	SM 分区或实景；连接为平面适配	165,166,167	107											31	1	1	
+alola	alola_aether_base_8	8号道路・以太基地	41×36	SM 分区或实景；连接为平面适配	129	86											46	1	1	
+alola	alola_aether_conservation	以太乐园・保护区	36×72	SM 分区或实景；连接为平面适配	271	199											57	1	1	
+alola	alola_aether_docks	以太乐园・船坞	196×147	SM 分区或实景；连接为平面适配	268	196											130	5	5	
+alola	alola_aether_entrance	以太乐园	23×18	按地点用途重绘；缺原场景坐标													18	4	4	
+alola	alola_aether_house	以太之家	23×15	按地点用途重绘；缺原场景坐标													16	1	1	
+alola	alola_aether_lab	以太乐园・地下实验区	77×91	SM 分区或实景；连接为平面适配	272	200											117	2	2	
+alola	alola_aether_lab_b	以太乐园・B实验室	77×91	SM 分区或实景；连接为平面适配	273	201											94	1	1	
+alola	alola_aether_mansion	以太乐园・露莎米奈宅邸	19×28	SM 分区或实景；连接为平面适配	276	204											22	2	2	
+alola	alola_akala_outskirts	阿卡拉岛郊外	26×18	按地点用途重绘；缺原场景坐标													19	2	2	
+alola	alola_altar	日轮祭坛	131×162	SM 分区或实景；连接为平面适配	246,247	177											126	5	5	
+alola	alola_ancient_path	波尼古道	81×54	SM 分区或实景；连接为平面适配	232,261,262	168											73	4	4	
+alola	alola_battle_tree	对战树	44×35	按地点用途重绘；缺原场景坐标											a_credits		44	1	1	
+alola	alola_berry_fields	树果园	73×62	SM 分区或实景；连接为平面适配	23,45	13											73	1	1	
+alola	alola_big_wave_beach	大浪海滩	52×29	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon			36	3	3	
+alola	alola_blush_mountain	火特力山	77×96	SM 分区或实景；连接为平面适配	164,216	104											78	1	1	
+alola	alola_brooklet	潺潺之丘	109×150	SM 分区或实景；连接为平面适配	88,89	57											150	2	2	
+alola	alola_brooklet_den	潺潺之丘 (霸主居处)	67×47	SM 分区或实景；连接为平面适配	90	58											54	1	1	
+alola	alola_canyon	波尼大峡谷	160×149	SM 分区或实景；连接为平面适配	240	170											150	2	2	
+alola	alola_canyon_171	波尼大峡谷・第一洞窟	174×156	SM 分区或实景；连接为平面适配	241	171											267	2	2	
+alola	alola_canyon_172	波尼大峡谷・第二洞窟	54×51	SM 分区或实景；连接为平面适配	242	172											44	2	2	
+alola	alola_canyon_173	波尼大峡谷・北侧断崖	43×48	SM 分区或实景；连接为平面适配	243	173											35	2	2	
+alola	alola_canyon_174	波尼大峡谷・吊桥	55×62	SM 分区或实景；连接为平面适配	244	174											48	2	2	
+alola	alola_canyon_175	波尼大峡谷・考验之间	24×89	SM 分区或实景；连接为平面适配	245	175											54	3	3	
+alola	alola_cavern	葱郁洞窟 (考验之地)	41×75	SM 分区或实景；连接为平面适配	24	14											61	2	2	
+alola	alola_cavern_den	葱郁洞窟 (霸主居处)	29×41	SM 分区或实景；连接为平面适配	25	15											28	1	1	
+alola	alola_cemetery	好奥乐墓园	60×50	SM 分区或实景；连接为平面适配	20	10											77	1	1	
+alola	alola_center_10	10号道路・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_center_16	16号道路・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_center_2	2号道路・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_center_5	5号道路・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_center_8	8号道路・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_center_hauoli	好奥乐市 (商业区)・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_center_heahea	慷待市・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_center_hokulani	辉克拉尼山・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_center_konikoni	可霓可市・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_center_lanakila	拉纳基拉山・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_center_malie	马利埃静市・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_center_paniola	欧哈纳镇・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_center_royal	皇家大道・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_center_seafolk	海洋居民之村・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_center_tapu	卡璞村・宝可梦中心	26×26	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_champion_room	联盟・冠军之间	29×24	按地点用途重绘；缺原场景坐标													23	1	1	
+alola	alola_conflict	战争遗迹	24×50	SM 分区或实景；连接为平面适配	15,16,17	7											31	1	1	
+alola	alola_diglett_tunnel	地鼠隧道	109×68	SM 分区或实景；连接为平面适配	85	54											85	2	2	
+alola	alola_dimensional_lab	空间研究所	23×18	按地点用途重绘；缺原场景坐标													17	1	1	
+alola	alola_e4_fighting	联盟・格斗之间	29×24	按地点用途重绘；缺原场景坐标													23	1	1	
+alola	alola_e4_flying	联盟・飞行之间	29×24	按地点用途重绘；缺原场景坐标													23	1	1	
+alola	alola_e4_ghost	联盟・幽灵之间	29×24	按地点用途重绘；缺原场景坐标													23	1	1	
+alola	alola_e4_rock	联盟・岩石之间	29×24	按地点用途重绘；缺原场景坐标													23	1	1	
+alola	alola_exeggutor	椰蛋树岛	44×75	SM 分区或实景；连接为平面适配	255	185											58	1	1	
+alola	alola_farthest_hollow	十克拉山丘 (最深处的空洞)	123×142	SM 分区或实景；连接为平面适配	19	9											93	1	1	
+alola	alola_festival_plaza	圆庆广场	23×18	按地点用途重绘；缺原场景坐标													18	1	1	
+alola	alola_haina	哈伊纳沙漠	292×68	SM 分区或实景；连接为平面适配	153,154,155,156	99											93	3	3	
+alola	alola_haina_100	哈伊纳沙漠・沙漠深处	292×69	SM 分区或实景；连接为平面适配	157,158,159,160	100											64	1	1	
+alola	alola_hala_house	岛屿之王哈拉的家	17×9	按地点用途重绘；缺原场景坐标													16	2	2	
+alola	alola_hano	豪诺豪诺度假地	28×28	SM 地点目录；通路改绘	74,120												23	4	4	
+alola	alola_hano_beach	豪诺豪诺海滩	102×89	SM 分区或实景；连接为平面适配	75	49											88	1	1	
+alola	alola_hauoli	好奥乐市 (商业区)	107×78	SM 分区或实景；连接为平面适配	8,39,42,43,44,54,55,56,58,60,61,64,66	0											130	13	13	
+alola	alola_hauoli_beachfront	好奥乐市 (海滩区)	62×59	SM 分区或实景；连接为平面适配	7	0											106	2	2	
+alola	alola_hauoli_city_hall	好奥乐市政府	26×18	按地点用途重绘；缺原场景坐标													19	1	1	
+alola	alola_hauoli_mall	好奥乐购物中心	28×18	按地点用途重绘；缺原场景坐标													20	1	1	
+alola	alola_hauoli_marina	好奥乐市 (港口区)	33×40	SM 分区或实景；连接为平面适配	9,59	0											20	3	3	
+alola	alola_hauoli_outskirts	1号道路 (好奥乐市郊)	120×77	SM 分区或实景；连接为平面适配	0,27,28,29,38,46,47,48,49,50,51,52,65,281,282,284,285,286,287,288,289,290,291,292,293,294	0											117	7	7	
+alola	alola_hauoli_police	好奥乐市・警察局	23×18	按地点用途重绘；缺原场景坐标													17	1	1	
+alola	alola_heahea	慷待市	94×43	SM 分区或实景；连接为平面适配	77,110,111,112,113,114,115,116,117,118,133,134	49											105	11	11	
+alola	alola_heahea_beach	慷待海滩	53×30	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon	a_sail		41	3	3	
+alola	alola_heahea_office	慷待市・观光服务处	23×18	按地点用途重绘；缺原场景坐标													17	1	1	
+alola	alola_hill	十克拉山丘	98×75	SM 分区或实景；连接为平面适配	18	8											69	3	3	
+alola	alola_hokulani	辉克拉尼山	161×185	SM 分区或实景；连接为平面适配	163,230	103											191	3	3	
+alola	alola_home	小悠的房间	16×12	按地点用途重绘；缺原场景坐标													11	1	1	
+alola	alola_home_1f	小悠的家	23×15	按地点用途重绘；缺原场景坐标													16	2	2	
+alola	alola_hope	彼岸遗迹	22×50	SM 分区或实景；连接为平面适配	250,251,252	182											31	1	1	
+alola	alola_iki	利利小镇	28×28	SM 地点目录；通路改绘	10,11,12,30,31,32,33,34,35,36												24	6	6	
+alola	alola_iki_east_house	利利小镇・东边的民家	10×8	按地点用途重绘；缺原场景坐标													10	2	2	
+alola	alola_iki_south_house	利利小镇・南边的民家	10×9	按地点用途重绘；缺原场景坐标													10	2	2	
+alola	alola_iki_west_house	利利小镇・西边的民家	8×6	按地点用途重绘；缺原场景坐标													6	2	2	
+alola	alola_ilima_room	伊利马的房间	23×15	按地点用途重绘；缺原场景坐标													16	1	1	
+alola	alola_kalae_bay	卡拉蔚湾	107×90	SM 分区或实景；连接为平面适配	4	0											117	1	1	
+alola	alola_konikoni	可霓可市	46×58	SM 分区或实景；连接为平面适配	78,100,101,102,103,104,105,106,107,108,125,126,137	49											51	4	4	
+alola	alola_konikoni_gems	可霓可市・丽姿的宝石店	23×18	按地点用途重绘；缺原场景坐标													17	1	1	
+alola	alola_lab	宝可梦研究所	23×18	按地点用途重绘；缺原场景坐标													17	1	1	
+alola	alola_lake_moone	月轮湖	33×28	SM 分区或实景；连接为平面适配	172,173,174,175	113								sun,ultra_sun			33	1	1	
+alola	alola_lake_sunne	日轮湖	33×28	SM 分区或实景；连接为平面适配	168,169,170,171	109								moon,ultra_moon			33	1	1	
+alola	alola_lanakila	拉纳基拉山	66×118	SM 分区或实景；连接为平面适配	176,180,229	120											82	3	3	
+alola	alola_lanakila_117	拉纳基拉山・山腹	253×138	SM 分区或实景；连接为平面适配	177	117											214	2	2	
+alola	alola_lanakila_118	拉纳基拉山・积雪洞穴	44×68	SM 分区或实景；连接为平面适配	178	118											42	2	2	
+alola	alola_lanakila_119	拉纳基拉山・雪原	118×174	SM 分区或实景；连接为平面适配	179	119											189	2	2	
+alola	alola_league	宝可梦联盟	26×18	按地点用途重绘；缺原场景坐标													19	6	6	
+alola	alola_life	生命遗迹	24×50	SM 分区或实景；连接为平面适配	80,81,82	52											31	1	1	
+alola	alola_lush	树荫丛林	65×60	SM 分区或实景；连接为平面适配	91	59											66	2	2	
+alola	alola_lush_60	树荫丛林・树林西侧	50×50	SM 分区或实景；连接为平面适配	92	60											45	2	2	
+alola	alola_lush_61	树荫丛林・树林北侧	50×40	SM 分区或实景；连接为平面适配	93	61											42	2	2	
+alola	alola_lush_62	树荫丛林・树林东侧	48×43	SM 分区或实景；连接为平面适配	94	62											42	2	2	
+alola	alola_lush_63	树荫丛林・丛林洞窟	44×30	SM 分区或实景；连接为平面适配	95	63											38	1	1	
+alola	alola_mahalo	马哈罗山路	28×28	SM 地点目录；通路改绘	13												60	2	2	
+alola	alola_mahalo_bridge	马哈罗山路 (吊桥)	100×90	SM 分区或实景；连接为平面适配	14	4											118	2	2	
+alola	alola_malasada_shop	好奥乐市・马拉萨达店	14×11	按地点用途重绘；缺原场景坐标													13	2	2	
+alola	alola_malie	马利埃静市	28×28	SM 地点目录；通路改绘	150,195,196,197,198,199,200,201,202,203,204,205,225												26	10	10	
+alola	alola_malie_cape	马利埃静市 (市郊海角)	59×57	SM 分区或实景；连接为平面适配	151	97											57	1	1	
+alola	alola_malie_garden	马利埃庭园	116×110	SM 分区或实景；连接为平面适配	162	102											306	1	1	
+alola	alola_malie_library	马利埃图书馆	23×18	四版本两层通路；缺原室内格坐标													17	2	2	
+alola	alola_malie_library_2f	马利埃图书馆・二楼	23×18	四版本两层通路；缺原室内格坐标													29	1	1	
+alola	alola_malie_marina	马利埃静市・渡船码头	33×20	按地点用途重绘；缺原场景坐标													23	2	2	
+alola	alola_meadow	美乐美乐花园・入口	31×23	按地点用途重绘；缺原场景坐标													24	2	2	
+alola	alola_megalo_tower	大都会塔	23×18	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon			17	1	1	
+alola	alola_megalopolis	究极大都会	33×33	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon			30	3	3	
+alola	alola_megamart	超值超市 (旧址)	36×37	SM 分区或实景；连接为平面适配	192	132											25	2	2	
+alola	alola_megamart_133	超值超市 (旧址)・仓库	31×20	SM 分区或实景；连接为平面适配	193	133											22	2	2	
+alola	alola_megamart_134	超值超市 (旧址)・店铺深处	36×37	SM 分区或实景；连接为平面适配	194	134											28	1	1	
+alola	alola_melemele_meadow	美乐美乐花园	62×65	SM 分区或实景；连接为平面适配	21	11											43	2	2	
+alola	alola_melemele_sea	美乐美乐海	184×109	SM 分区或实景；连接为平面适配	5,6	0											165	2	2	
+alola	alola_memorial_hill	回忆之丘	79×76	SM 分区或实景；连接为平面适配	83,84	53											80	2	2	
+alola	alola_mina_house	茉莉的家	23×15	按地点用途重绘；缺原场景坐标													16	1	1	
+alola	alola_moone	月轮祭坛	131×162	SM 分区或实景；连接为平面适配	248,249	179											126	4	4	
+alola	alola_motel_13	13号道路・汽车旅馆	23×18	按地点用途重绘；缺原场景坐标													17	1	1	
+alola	alola_motel_2	2号道路・汽车旅馆	23×18	按地点用途重绘；缺原场景坐标													17	1	1	
+alola	alola_motel_8	8号道路・汽车旅馆	23×18	按地点用途重绘；缺原场景坐标													17	1	1	
+alola	alola_nursery	宝可梦寄放屋	61×63	SM 分区或实景；连接为平面适配	132	89											64	1	1	
+alola	alola_observatory	辉克拉尼天文台	29×21	SM 分区或实景；连接为平面适配	213,215	150											13	2	2	
+alola	alola_observatory_151	辉克拉尼天文台・观测室	40×21	SM 分区或实景；连接为平面适配	214	151											21	1	1	
+alola	alola_paniola	欧哈纳镇	54×45	SM 分区或实景；连接为平面适配	76,96,97,98,99,138	49											51	4	4	
+alola	alola_paniola_ranch	欧哈纳牧场	91×89	SM 分区或实景；连接为平面适配	130,131	88											120	4	4	
+alola	alola_paniola_salon	欧哈纳镇・餐厅	23×18	按地点用途重绘；缺原场景坐标													17	1	1	
+alola	alola_pass_aether_dock	以太浮台连廊	39×27	自建跨区连接													31	2	2	
+alola	alola_pass_hoenn_pacifidlog	南洋浮桥群	35×27	自建跨区连接													26	2	2	
+alola	alola_pass_ultra_megalopolis	究极之洞光桥	31×31	自建跨区连接													23	2	2	
+alola	alola_pelago_abeens	悠悠度假地	31×24	按地点用途重绘；缺原场景坐标											a_ride_charizard		16	5	5	
+alola	alola_pelago_aphun	怦怦度假地	31×24	按地点用途重绘；缺原场景坐标											a_ride_charizard		16	1	1	
+alola	alola_pelago_aplenny	速速度假地	31×24	按地点用途重绘；缺原场景坐标											a_ride_charizard		16	1	1	
+alola	alola_pelago_avue	暖暖度假地	31×24	按地点用途重绘；缺原场景坐标											a_ride_charizard		19	1	1	
+alola	alola_pelago_evelup	欢欢度假地	31×24	按地点用途重绘；缺原场景坐标											a_ride_charizard		16	1	1	
+alola	alola_photo_hauoli	好奥乐市・阿罗拉摄影俱乐部	23×18	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon	a_hala		18	1	1	
+alola	alola_photo_konikoni	可霓可市・阿罗拉摄影俱乐部	23×18	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon	a_hala		18	1	1	
+alola	alola_pikachu_valley	皮卡丘山谷	31×23	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon			24	1	1	
+alola	alola_plains_grotto	波尼平原・岩洞	23×18	按地点用途重绘；缺原场景坐标											a_credits		18	1	1	
+alola	alola_po	魄镇	47×106	SM 分区或实景；连接为平面适配	152,227	98											79	2	2	
+alola	alola_poni_beach	波尼海滩	55×29	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon	a_flute1		47	2	2	
+alola	alola_poni_breaker_coast	波尼鼓浪岩岸	54×29	SM 分区或实景；连接为平面适配	233	168											45	2	2	
+alola	alola_poni_coast	波尼海岸	41×59	SM 分区或实景；连接为平面适配	236	168									a_credits		45	2	2	
+alola	alola_poni_gauntlet	波尼险路	90×60	SM 分区或实景；连接为平面适配	237	168									a_credits		63	2	2	
+alola	alola_poni_grove	波尼树林	64×43	SM 分区或实景；连接为平面适配	234	168									a_credits		54	2	2	
+alola	alola_poni_meadow	波尼花园	53×117	SM 分区或实景；连接为平面适配	239	169									a_credits		110	2	2	
+alola	alola_poni_plains	波尼旷野	95×95	SM 分区或实景；连接为平面适配	235	168									a_credits		102	4	4	
+alola	alola_poni_wilds_beach	波尼原野・西岸	49×33	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon	a_flute1		42	2	2	
+alola	alola_poni_wormhole	究极之洞	23×18	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon	a_ultra_necrozma		18	10	10	
+alola	alola_resolution_cave	终结洞窟	87×66	SM 分区或实景；连接为平面适配	253	183									a_credits		108	2	2	
+alola	alola_resolution_cave_184	终结洞窟・最深处	88×86	SM 分区或实景；连接为平面适配	254	184									a_credits		74	1	1	
+alola	alola_royal	皇家大道	85×73	SM 分区或实景；连接为平面适配	79,121,124,135	49											84	5	5	
+alola	alola_royal_dome	皇家巨蛋	29×24	按地点用途重绘；缺原场景坐标													23	1	1	
+alola	alola_rr_giovanni	火箭队城堡・首领室	32×24	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon	as_rr_colress	as_rr_end	25	1	1	
+alola	alola_rr_left	火箭队城堡・西翼	32×24	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon	as_rr_guzma	as_rr_end	25	1	1	
+alola	alola_rr_mansion	火箭队城堡	32×24	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon	as_rr_faba	as_rr_end	25	4	4	
+alola	alola_rr_right	火箭队城堡・东翼	32×24	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon	as_rr_guzma	as_rr_end	25	1	1	
+alola	alola_sandy_cave	通海洞穴	35×25	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon			15	1	1	
+alola	alola_school	训练家学校	120×95	SM 分区或实景；连接为平面适配	53	34											121	1	1	
+alola	alola_seafolk	海洋居民之村	61×31	SM 分区或实景；连接为平面适配	238,257,258,259,260,263	168											58	8	8	
+alola	alola_seafolk_restaurant	海洋居民之村・餐厅	23×18	按地点用途重绘；缺原场景坐标													17	1	1	
+alola	alola_seaward_cave	通海洞穴	81×81	SM 分区或实景；连接为平面适配	22	12											68	2	2	
+alola	alola_secluded_shore	乌拉乌拉后海岸	59×48	SM 分区或实景；连接为平面适配	142	97											65	2	2	
+alola	alola_shady_house	可疑宅邸	38×32	SM 分区或实景；连接为平面适配	181,186,188,190	121											23	2	2	
+alola	alola_shady_house_122	可疑宅邸・二楼	34×33	SM 分区或实景；连接为平面适配	182	122											25	2	2	
+alola	alola_shady_house_123	可疑宅邸・小房间	23×19	SM 分区或实景；连接为平面适配	183	123											13	2	2	
+alola	alola_shady_house_124	可疑宅邸・储藏室	17×18	SM 分区或实景；连接为平面适配	184	124											13	2	2	
+alola	alola_shady_house_125	可疑宅邸・卧室	18×18	SM 分区或实景；连接为平面适配	185	125											14	2	2	
+alola	alola_shady_house_127	可疑宅邸・走廊	18×18	SM 分区或实景；连接为平面适配	187	127											12	2	2	
+alola	alola_shady_house_129	可疑宅邸・露台	18×18	SM 分区或实景；连接为平面适配	189	129											8	2	2	
+alola	alola_shady_house_131	可疑宅邸・首领室	81×68	SM 分区或实景；连接为平面适配	191	131											70	1	1	
+alola	alola_tapu	卡璞村	52×34	SM 分区或实景；连接为平面适配	144,226	97											51	5	5	
+alola	alola_thrifty_mart	超值超市	28×18	按地点用途重绘；缺原场景坐标													20	1	1	
+alola	alola_tide_song	听涛酒店	23×18	按地点用途重绘；缺原场景坐标													17	1	1	
+alola	alola_tourism_bureau	好奥乐市・旅游服务中心	24×15	按地点用途重绘；缺原场景坐标													20	2	2	
+alola	alola_ulaula_beach	乌拉乌拉海滩	52×32	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon	a_nihilego		42	3	3	
+alola	alola_ulaula_meadow	乌拉乌拉花园	102×104	SM 分区或实景；连接为平面适配	161	101											102	4	4	
+alola	alola_ultra_crater	究极山谷	56×39	按地点用途重绘；缺原场景坐标										ultra_moon	a_ultra_necrozma		58	1	1	
+alola	alola_ultra_deep_sea	究极空间	55×40	按地点用途重绘；缺原场景坐标													56	3	3	
+alola	alola_ultra_desert	究极沙漠	60×38	按地点用途重绘；缺原场景坐标										ultra_moon	a_ultra_necrozma		61	1	1	
+alola	alola_ultra_forest	究极森林	54×37	按地点用途重绘；缺原场景坐标										ultra_sun	a_ultra_necrozma		86	1	1	
+alola	alola_ultra_jungle	究极丛林	59×44	按地点用途重绘；缺原场景坐标										ultra_sun	a_ultra_necrozma		65	1	1	
+alola	alola_ultra_plant	究极发电厂	49×33	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon	a_ultra_necrozma		52	1	1	
+alola	alola_ultra_ruin	究极大厦	55×42	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon	a_ultra_necrozma		63	1	1	
+alola	alola_ultra_space_wilds	究极空间零地带	59×37	按地点用途重绘；缺原场景坐标										ultra_sun,ultra_moon	a_ultra_necrozma		51	1	1	
+alola	alola_wela	维拉火山公园	91×80	SM 分区或实景；连接为平面适配	86	55											86	2	2	
+alola	alola_wela_den	维拉火山公园 (霸主居处)	91×91	SM 分区或实景；连接为平面适配	87	56											88	1	1	
+alola	alola_wilds	波尼原野	101×86	SM 分区或实景；连接为平面适配	231	168											91	3	3	
+alola	alola_zygarde_lab	以太基地・重组装置	23×18	按地点用途重绘；缺原场景坐标													17	1	1	
+aether	aether_conservation	生态保护区	39×27	自建跨区连接													40	2	2	
+aether	aether_dock	以太乐园码头	39×35	自建跨区连接													33	2	2	
+aether	aether_lab	以太研究层	23×17	自建跨区连接													18	1	1	
+aether	aether_lobby	以太会馆	27×23	自建跨区连接													20	3	3	
+aether	aether_mansion	理事长宅邸	27×19	自建跨区连接													19	1	1	
+ultra	ultra_crater	究极峡谷	31×31	自建跨区连接													28	1	1	
+ultra	ultra_desert	究极沙漠	35×31	自建跨区连接													30	2	2	
+ultra	ultra_forest	究极森林	35×23	自建跨区连接													28	1	1	
+ultra	ultra_megalopolis	究极大都会	43×31	自建跨区连接													34	2	2	
+ultra	ultra_plant	究极发电厂	31×17	自建跨区连接													24	1	1	
+ultra	ultra_tower	究极大都会塔	39×27	自建跨区连接													29	4	4	

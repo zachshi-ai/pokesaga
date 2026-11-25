@@ -1,0 +1,11 @@
+region	map_id	longest_floor_walk	active_exits	crossed	walked_back	no_direct_return	failures
+dream	dream_cottage	10	2	2	2	0	
+dream	dream_manor	24	2	2	2	0	
+dream	dream_oak	32	2	2	2	0	
+dream	dream_sea	36	2	2	2	0	
+dream	dream_sky	22	2	2	2	0	
+dream	dream_village	31	4	4	4	0	
+distortion	distortion_altar	21	2	2	2	0	
+distortion	distortion_cascade	28	2	2	2	0	
+distortion	distortion_pillars	20	2	2	2	0	
+distortion	distortion_threshold	27	3	3	3	0	

@@ -46,6 +46,10 @@ static func roster(map: Dictionary, flags: Dictionary) -> Array:
 		rows.append(row)
 	for row in data().add.get(map.get("id",""),[]):
 		if eligible(row,flags): rows.append(row.duplicate(true))
+	if map.id=="johto_route_39" and not flags.get("j_baoba_contact",false) and not preload("res://core/johto_safari.gd").open(flags):
+		rows.append({"name":"巴奥巴","role":"j_baoba","at":[19,12],"hgss_native":true,"facing":"right","gfx":"gentleman","lines":["你好，旅行的训练家。"]})
+	if map.id==preload("res://core/johto_safari.gd").GATE and preload("res://core/johto_safari.gd").open(flags):
+		rows.append({"name":"巴奥巴","role":"j_baoba","at":[7,12],"hgss_native":true,"facing":"down","gfx":"gentleman","lines":["欢迎来到狩猎地带。"]})
 	return rows
 
 static func sync(save: Dictionary) -> void:
@@ -93,6 +97,7 @@ static func quiz(game, questions: Array, index: int) -> void:
 			prompt.closed.connect(func(): quiz(game,questions,index), CONNECT_ONE_SHOT))
 
 static func interact_field(game) -> bool:
+	if preload("res://core/johto_safari.gd").interact(game):return true
 	if preload("res://core/crystal_home.gd").interact(game):return true
 	if preload("res://core/crystal_wild_events.gd").tree(game):return true
 	if preload("res://core/crystal_ruins.gd").interact(game):return true

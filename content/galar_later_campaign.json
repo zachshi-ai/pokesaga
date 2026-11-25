@@ -3495,6 +3495,74 @@
   "galar_tower_summit": {
    "require": "g_rose",
    "message": "解决能源工厂的事件后才能升上塔顶。"
+  },
+  "galar_meetup": {
+   "require": "g_train",
+   "message": "先到木杆镇车站，和赫普一起踏上道馆挑战之旅。"
+  },
+  "galar_dappled": {
+   "require": "g_train",
+   "message": "先到木杆镇车站，和赫普一起踏上道馆挑战之旅。"
+  },
+  "galar_watchtower": {
+   "require": "g_train",
+   "message": "先到木杆镇车站，和赫普一起踏上道馆挑战之旅。"
+  },
+  "galar_axewell_west": {
+   "require": "g_train",
+   "message": "先到木杆镇车站，和赫普一起踏上道馆挑战之旅。"
+  },
+  "galar_axew_eye": {
+   "require": "g_water_bike",
+   "message": "牙牙湖之眼在湖中，先取得能在水上行驶的洛托姆自行车。"
+  },
+  "galar_miloch_south": {
+   "require": "g_train",
+   "message": "先到木杆镇车站，和赫普一起踏上道馆挑战之旅。"
+  },
+  "galar_miloch_north": {
+   "require": "g_train",
+   "message": "先到木杆镇车站，和赫普一起踏上道馆挑战之旅。"
+  },
+  "galar_riverbank": {
+   "require": "g_three_sendoff",
+   "message": "拿齐前三枚徽章，到机擎市参加馆主们的送行。"
+  },
+  "galar_bridge_field": {
+   "require": "g_three_sendoff",
+   "message": "拿齐前三枚徽章，到机擎市参加馆主们的送行。"
+  },
+  "galar_stony": {
+   "require": "g_three_sendoff",
+   "message": "拿齐前三枚徽章，到机擎市参加馆主们的送行。"
+  },
+  "galar_dusty": {
+   "require": "g_three_sendoff",
+   "message": "拿齐前三枚徽章，到机擎市参加馆主们的送行。"
+  },
+  "galar_giant_mirror": {
+   "require": "g_three_sendoff",
+   "message": "拿齐前三枚徽章，到机擎市参加馆主们的送行。"
+  },
+  "galar_hammer_hills": {
+   "require": "g_three_sendoff",
+   "message": "拿齐前三枚徽章，到机擎市参加馆主们的送行。"
+  },
+  "galar_giant_cap": {
+   "require": "g_three_sendoff",
+   "message": "拿齐前三枚徽章，到机擎市参加馆主们的送行。"
+  },
+  "galar_outskirts": {
+   "require": "g_dinner",
+   "message": "在防波亭和洛兹、索妮亚谈过，再沿第二矿山回机擎市。"
+  },
+  "galar_meetup_station_room": {
+   "require": "g_train",
+   "message": "先到木杆镇车站，和赫普一起踏上道馆挑战之旅。"
+  },
+  "galar_bridge_nursery_room": {
+   "require": "g_three_sendoff",
+   "message": "拿齐前三枚徽章，到机擎市参加馆主们的送行。"
   }
  }
 }

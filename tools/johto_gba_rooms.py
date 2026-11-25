@@ -7,6 +7,7 @@ from collections import Counter
 import struct
 from functools import lru_cache
 from pathlib import Path
+from hgss_safari_fields import outdoors as safari_outdoors
 
 import numpy as np
 from PIL import Image, ImageDraw
@@ -24,7 +25,7 @@ LAB='LittlerootTown_ProfessorBirchsLabWithTable'
 EXTERIORS={'MAP_ILEX_FOREST','MAP_VIRIDIAN_FOREST','MAP_MOUNT_SILVER_CAVE_SUMMIT','MAP_BELL_TOWER_ROOF'}
 
 def outdoor(header, hid):
-    return header['matrix_id']==0 or header['map_type'] in ('MAP_TYPE_ROUTE','MAP_TYPE_CITY_TOWN') or hid in EXTERIORS
+    return safari_outdoors(hid) or header['matrix_id']==0 or header['map_type'] in ('MAP_TYPE_ROUTE','MAP_TYPE_CITY_TOWN') or hid in EXTERIORS
 
 def read(path):return json.loads(path.read_text())
 
@@ -193,6 +194,30 @@ class RoomArt:
     def place(im,s,x,y):
         if s is not None: im.alpha_composite(s,(round(x*16-s.width/2),round(y*16+7-s.height)))
 
+    @lru_cache(None)
+    def institution_floor(self,mid,material):
+        # Carpet, stage and public lanes are already partitioned by the DS model.
+        # Emerald facilities supply the corresponding complete 16px floor chips.
+        carpet = "cpt" in material or "carpet" in material
+        if "battle_frontier_battle_" in mid and "unused" not in mid:
+            if "factory" in mid: layout, n = "BattleFrontier_BattleFactoryLobby", 0x202 if carpet else 0x201
+            elif "arcade" in mid: layout, n = "BattleFrontier_BattleDomeLobby", 0x340 if carpet else 0x341
+            elif "castle" in mid: layout, n = "RustboroCity_DevonCorp_1F", 0x381 if carpet else 0x380
+            elif "hall" in mid: layout, n = "BattleFrontier_BattleArenaLobby", 0x201 if carpet else 0x202
+            else: layout, n = "BattleFrontier_BattleTowerLobby", 0x229 if carpet else 0x200
+        elif "radio_tower" in mid:
+            if carpet: layout,n = "RustboroCity_DevonCorp_1F",0x381
+            else: layout,n = "RustboroCity_PokemonSchool",0x201
+        elif "lighthouse" in mid and "exterior" not in mid:
+            layout,n = "BattleFrontier_BattleFactoryLobby",0x202 if material.startswith("yuka_e") else 0x201
+        elif "museum_of_science" in mid:
+            layout,n = "SlateportCity_OceanicMuseum_1F", 0x202 if carpet else 0x201
+        elif "dept_store" in mid or "department_store" in mid:
+            layout,n = "LilycoveCity_DepartmentStore_1F",0x268
+        else:
+            return None
+        return self.e.metatile(layout,n)
+
     def base(self,mid,cave,lab):
         if cave:return self.cave_floor
         if lab:return self.lab_floor
@@ -253,6 +278,8 @@ class RoomArt:
                 ground=self.e.metatile('SkyPillar_1F',0x241) if solid_stone else self.floor
             elif shop:
                 ground=tile(self.lab,6,6)
+            public_floor=self.institution_floor(mid,mat)
+            if public_floor is not None: ground=public_floor
             if b in (16,17,18,19,20,21,25,42,80,81,82,83): ground=self.water
             elif b==32:ground=self.ice
             im.alpha_composite(ground,(int(x)*16,int(y)*16))
@@ -304,6 +331,8 @@ class RoomArt:
                 self.place(im,self.props['carebench'],nx+4,ny+4.5)
         if mid=='johto_elms_lab':
             self.place(im,self.props['lab_bench'],8.5,4)
+        if mid=='hgss_safari_zone_entrance_interior':
+            self.place(im,self.props['pc'],9.5,6.5)
         for wr in m['warps']:
             if wr.get('edge') or wr.get('atlas'):continue
             x,y=wr['at']; trig=wr.get('trigger')

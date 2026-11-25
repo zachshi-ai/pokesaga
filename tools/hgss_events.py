@@ -81,6 +81,17 @@ def encounter_banks(src):
         water=[{"species":species(row["species"]),"min":version(row["level"]["min"]),"max":version(row["level"]["max"]),"weight":w}
                for row,w in zip(surf["mons"],(60,30,5,4,1))]
         banks[bank["map"]]={"land":timed,"surf":water,"land_rate":land["rate"]/100,"surf_rate":surf["rate"]/100}
+    # D47R0102 supplies the encounter rates; the active field cell selects
+    # ten base slots for each time of day from the separate Safari archive.
+    rates=banks["D47R0102"]
+    for i,area in enumerate(json.loads((src/"files/arc/safari_enc.json").read_text())["encounters"]):
+        def slots(table,period):
+            return [{"species":species(row["species"]),"min":row["level"],"max":row["level"],"weight":10}
+                    for row in area[table]["mons"][period] if species(row["species"])>0]
+        timed={period:slots("land",period) for period in ("morn","day","nite")}
+        water={period:slots("surf",period) for period in ("morn","day","nite")}
+        banks[f"SAFARI_{i+1:02}"]={"land":timed,"surf":water["day"],"surf_timed":water,
+                                     "land_rate":rates["land_rate"],"surf_rate":rates["surf_rate"]}
     return banks
 
 

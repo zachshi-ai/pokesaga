@@ -12,6 +12,7 @@ from functools import lru_cache
 import json
 import re
 from pathlib import Path
+from hgss_safari_fields import outdoors as safari_outdoors
 
 import numpy as np
 from PIL import Image
@@ -27,7 +28,7 @@ EXTRA = {"MAP_ILEX_FOREST", "MAP_VIRIDIAN_FOREST", "MAP_MOUNT_SILVER_CAVE_SUMMIT
 
 
 def outdoor(hid, h):
-    return h["matrix_id"] == 0 or h["map_type"] in {"MAP_TYPE_CITY_TOWN", "MAP_TYPE_ROUTE"} or hid in EXTRA
+    return safari_outdoors(hid) or h["matrix_id"] == 0 or h["map_type"] in {"MAP_TYPE_CITY_TOWN", "MAP_TYPE_ROUTE"} or hid in EXTRA
 
 
 class Hns(Emerald):

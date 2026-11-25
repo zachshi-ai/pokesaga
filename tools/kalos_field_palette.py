@@ -142,6 +142,9 @@ def material(node,name,outdoor,n):
     s=name.lower();node=node.lower()
     if matches(r'^(projection|white$)|shadow|kokage|_kage|_sya|_ref0|_hikari|_kasan|kirakira|camera|farbuild|kakiwari|_sky|_sora|_mist|dummy|_glow|_kiri|_enkei|bloom|_aura|_ray|_kaze|_light|^light$|_reiki|_ref[0-9]|_sdw|_lg[0-9]|_r_light|com_ent_light',s):return None
     floor,feature=room_style(n)
+    if n==172 and s in ('c03_ground03','c03_ground04','c03_ground05'):return 'sand'
+    if n==273 and s.startswith('r14_darktree'):
+        return 'timber' if s in ('r14_darktree01','r14_darktree08') else 'autumn'
     if matches(r'(?:waterfall|_taki|_awa|bubble)',s):return 'aqua'
     if matches(r'(?:funsui|hunsui)',s):return 'marble'
     if matches(r'(?:_mizu|water|_river|bm_w_|_umi|_ike|_pond|_sea)',s):return 'water' if n!=48 else 'tank'

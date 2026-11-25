@@ -69,6 +69,10 @@ static func roster(m: Dictionary,flags: Dictionary,rows: Array=[]) -> Array:
 static func gate(target: Dictionary,flags: Dictionary,_current: Dictionary={}) -> String:
 	if target.get("region","galar")!="galar":return ""
 	var mid:=str(target.get("map",""))
+	if mid.contains("_center_"):mid=mid.get_slice("_center_",0)
+	for room in ["_cafe_room","_boutique_room","_salon_room"]:
+		if mid.ends_with(room):mid=mid.trim_suffix(room);break
+	if mid.begins_with("galar_ionia_"):mid="galar_circhester"
 	if mid=="galar_player_home":return ""
 	if not flags.get("g_started",false):return "第一次来伽勒尔，先到化朗镇的家和赫普碰面。"
 	var later_gate:=Later.gate(mid,flags)

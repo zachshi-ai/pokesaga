@@ -135,7 +135,11 @@ class Area:
         tiles=np.where(self.s,K['wall'],K['grass' if self.out else 'floor']).astype('<u2')
         tiles[self.k==WATER]=K['water'];tiles[self.k==GRASS]=K['tall']
         import base64,zlib
-        return {'id':'alola_'+self.mid,'region':'alola','name':self.name,'alola_native':True,'alola_zone':self.zones[0] if self.zones else -1,'alola_zones':self.zones,'alola_location':self.location,'alola_image':name,'alola_anchors':self.anchors,'alola_center':self.mid.startswith('center_'),'alola_item_tiles':self.items,'alola_trainer_tiles':self.trainers,'size':size,'physics':physics,'spawn':self.spawn,'npcs':self.npcs,'objects':self.objects,'warps':self.warps,'allow_fly':self.out,'allow_running':True,'allow_cycling':self.out,'hoenn_art':{'s':size,'t':base64.b64encode(zlib.compress(tiles.tobytes())).decode(),'p':[],'scene':['res://assets/alola/maps/'+name+'.png',0,0]}}
+        record={'id':'alola_'+self.mid,'region':'alola','name':self.name,'alola_native':True,'alola_zone':self.zones[0] if self.zones else -1,'alola_zones':self.zones,'alola_location':self.location,'alola_image':name,'alola_anchors':self.anchors,'alola_center':self.mid.startswith('center_'),'alola_item_tiles':self.items,'alola_trainer_tiles':self.trainers,'size':size,'physics':physics,'spawn':self.spawn,'npcs':self.npcs,'objects':self.objects,'warps':self.warps,'allow_fly':self.out,'allow_running':True,'allow_cycling':self.out,'hoenn_art':{'s':size,'t':base64.b64encode(zlib.compress(tiles.tobytes())).decode(),'p':[],'scene':['res://assets/alola/maps/'+name+'.png',0,0]}}
+        if record["alola_center"]:
+            from kalos_alola_centers import align
+            align(record,"alola")
+        return record
 def materials(cache):
     locations={r['id']:r for r in load(cache/'locations.json')}
     geos=load(cache/'geometry.json')['zones']

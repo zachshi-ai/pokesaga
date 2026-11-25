@@ -85,4 +85,7 @@ def registry(root, fields, index, merged_ids):
             if key in graph and key not in reached:
                 todo.append(key)
                 reached.add(key)
+    if ('johto','hgss_safari_zone_entrance_exterior') in reached:
+        # All twelve areas can occupy any of the six playable Safari slots.
+        reached.update(('johto',f'hgss_safari_zone_{i:02}') for i in range(1,13))
     return {"native": sorted(mid for mid in index if ('johto', mid) in reached), "merged": sorted(merged_ids)}

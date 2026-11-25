@@ -61,19 +61,8 @@ def bake(source,dest):
                 prop('plant_indoor',39,31);prop('bookshelf_home',22,27);prop('clock',35,25)
                 stamp(living,8,8,28,37,2,1)
         else:
-            for y in range(t,b+1):
-                for x in range(l,r+1):
-                    stamp(clinic,9,0 if y==t else 1 if y==t+1 else 5,x,y)
-            stamp(clinic,4,0,6,4,6,4)
-            for x in range(5,15):stamp(clinic,5,3 if x not in (5,14) else 4,x,8)
-            stamp(clinic,1,1,3,5,3,2);stamp(clinic,10,1,15,5,1,3)
-            for x in (17,19,21):stamp(clinic,2,1,x,5,2,2)
-            # The Poké Mart shares the centre in X/Y. A separate blue counter faces the lobby.
-            dr=ImageDraw.Draw(im)
-            dr.rounded_rectangle((17*16,8*16,22*16-1,10*16-1),4,fill='#506b8d',outline='#384e70',width=2)
-            dr.rectangle((17*16+2,8*16+2,22*16-3,9*16+1),fill='#a4dfdb');dr.line((17*16+2,9*16+4,22*16-3,9*16+4),fill='#e4f4df',width=2)
-            stamp(clinic,1,3,3,13,2);stamp(clinic,10,6,18,15,3,2)
-            stamp(clinic,6,8,11,20,2);prop('plant_indoor',22,12)
+            from kalos_alola_centers import scene
+            im=scene("kalos")
         im.quantize(128,method=Image.Quantize.MEDIANCUT).save(dest/('gba_'+tag+'.png'),optimize=True)
 if __name__=='__main__':
     import sys

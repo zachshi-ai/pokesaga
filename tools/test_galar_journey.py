@@ -38,6 +38,8 @@ class GalarRoutes(Routes):
             self.fields[path.stem] = Field(data, meta)
 
     def projection(self, dest):
+        if dest.get("map") == "galar_rose" and dest.get("at") == [11, 17] and "g_champion" in self.flags:
+            return ("galar_battle_tower", 14, 16)
         requirement = self.book["gates"].get(dest["map"], {}).get("require", [])
         keys = [requirement] if isinstance(requirement, str) else requirement
         if not set(keys) <= self.flags:

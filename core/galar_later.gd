@@ -194,15 +194,16 @@ static func use(g,nm: String)->bool:
 		elif g.world.map_data.get("biome","")=="interior":g._dialog(["请先到户外，再骑洛托姆自行车。"],nm)
 		else:g._toggle_bike()
 	elif nm=="单轨列车钥匙":
-		if g.world.map_data.id in ["galar_wyndon_station_room","galar_rose"] and g._flags().get("g_staff_3",false):
-			var destination:="galar_wyndon_station_room" if g.world.map_data.id=="galar_rose" else "galar_rose"
-			var title:="宫门市车站" if destination=="galar_wyndon_station_room" else "洛兹大厦"
+		if g.world.map_data.id in ["galar_wyndon_station_room","galar_rose","galar_battle_tower"] and g._flags().get("g_staff_3",false):
+			var destination:="galar_wyndon_station_room" if g.world.map_data.id!="galar_wyndon_station_room" else ("galar_battle_tower" if g._flags().get("g_champion",false) else "galar_rose")
+			var title:="宫门市车站" if destination=="galar_wyndon_station_room" else ("对战塔" if destination=="galar_battle_tower" else "洛兹大厦")
 			g._pick("乘坐单轨列车？",["前往"+title,"留在这里"],func(i):
 				if i==0:
 					var m: Dictionary=g.get_node("/root/Data").load_map("galar",destination)
 					g._do_warp({"region":"galar","map":m.id,"at":m.spawn,"facing":"down"}))
 		else:g._dialog(["到宫门市车站或洛兹大厦入口使用钥匙，可以乘坐单轨列车往返。"],nm)
-	elif nm=="经验糖果XS":
+	elif nm in ["经验糖果XS","经验糖果S","经验糖果M","经验糖果L"]:
+		var amount:=int({"经验糖果XS":100,"经验糖果S":800,"经验糖果M":3000,"经验糖果L":10000}[nm])
 		var slots: Array=[]
 		var labels: Array=[]
 		for i in g.save_data.party.size():
@@ -213,14 +214,14 @@ static func use(g,nm: String)->bool:
 		else:g._pick("把经验糖果给谁？",labels,func(i):
 			var m: Dictionary=g.save_data.party[slots[i]]
 			var old:=int(m.level)
-			var gained:=Growth.add_exp(m,100)
+			var gained:=Growth.add_exp(m,amount)
 			if gained>0:
 				Party.recalc(m,true)
 				g._learn_new_moves(m,old,int(m.level))
 				var evolution:=Growth.evolution_of(m)
 				if not evolution.is_empty() and Party.evolve(m,int(evolution.to),str(evolution.get("form",""))):Dex.record(g.save_data,m,true)
 			g._consume_item(nm);g._persist()
-			g._dialog(["%s获得了100点经验值。"%m.name],nm))
+			g._dialog(["%s获得了%d点经验值。"%[m.name,amount]],nm))
 	elif nm=="索妮亚的书":
 		g._dialog(["第三章　两位王者与剑盾","挂毯让我们看见两位少年，溯传遗迹让我们认出与他们一同战斗的宝可梦。微寐森林深处，石碑仍在守候它们。"],nm)
 	elif nm in ["腐朽的剑","腐朽的盾"]:

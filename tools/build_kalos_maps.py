@@ -171,6 +171,9 @@ class Area:
         for color,key in categories.items():
             mask=(self.kind==color)&grass
             if mask.any():physics[key]=mask.astype('uint8').tolist()
+        if out.get("kalos_center"):
+            from kalos_alola_centers import align
+            align(out,"kalos")
         return out
 
 def connect(a,b,s,t,source,caption=None):
@@ -317,6 +320,8 @@ def build(raw, streets_only=False):
             for x,y in [*a.lips.values(),a.spawn,*a.anchors.values(),*[w['at'] for w in a.warps]]:mask[y,x]=False
         phases[tag]={'art':variant.img,'collision':mask.astype('uint8').tolist()}
     save(ROOT/'content/kalos_geosenge.json',phases)
+    from kalos_native_doors import install as install_north_doors
+    install_north_doors(raw)
     used_images={a.img for a in all_areas}|{state['art'] for state in phases.values()}
     for png in (ROOT/'assets/kalos/maps').glob('xy_*.png'):
         if png.stem not in used_images:
@@ -375,6 +380,8 @@ if __name__=='__main__':
         raise SystemExit(0)
     zs,ms=build(args.source);atlas(args.source,zs,ms)
     install(args.emerald_source)
+    from kalos_native_approaches import install as install_approaches
+    install_approaches(args.source)
     import subprocess, sys
     subprocess.run([sys.executable,str(ROOT/'tools/kalos_field_art.py'),str(args.source)],check=True)
     print('Kalos maps',len(ms),'warps',sum(len(a.warps) for a in ms),'anchors',sum(len(a.anchors) for a in ms))

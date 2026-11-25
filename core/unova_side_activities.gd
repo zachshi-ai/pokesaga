@@ -129,6 +129,13 @@ static func dance(g,song: int,beat: int,score: int,name: String) -> void:
 	var options:=["潇洒亮相","轻盈转身","甜蜜挥手","活力跳跃"]
 	g._pick("%s · 第%d拍 · %s"%( [SONGS[song],beat+1,STYLES[cue]]),options,func(choice):dance(g,song,beat+1,score+(1 if choice==cue else 0),name))
 
+static func restore_dressing_room(save: Dictionary) -> void:
+	var journal: Dictionary=save.get("unova_films",{})
+	if journal.size()<FILMS.size():return
+	for number in FILMS.size():
+		if not journal.get(str(number),{}).get("hit",false):return
+	save.get_or_add("flags",{})["us_dressing_room"]=true
+
 static func cinema(g) -> void:
 	var journal: Dictionary=g.save_data.get_or_add("unova_films",{})
 	var available: Array=[]
@@ -193,6 +200,8 @@ static func film_battle(g,number: int,film: Dictionary,on_finish:=Callable()) ->
 		var journal: Dictionary=g.save_data.get_or_add("unova_films",{})
 		var old: Dictionary=journal.get(str(number),{})
 		journal[str(number)]={"hit":result=="a" or old.get("hit",false),"turns":turns}
+		restore_dressing_room(g.save_data)
+		if g.world.map_data.id=="unova_b2_zone_568":g.world.refresh_story_actors(g._flags())
 		g._persist()
 		var d=g._dialog(["你们的作品顺利上映了！" if result=="a" else "这一条没有达到剧本要求。可以重新拍摄。"],FILMS[number])
 		if on_finish.is_valid():d.closed.connect(on_finish.bind(result),CONNECT_ONE_SHOT))

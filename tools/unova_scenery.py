@@ -6,6 +6,7 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image
+from ds_room_envelope import fit_room
 from ds_pixel_art import fit_spawn
 from ds_stage_floor import light_floor
 from unova_art import ROOT
@@ -31,12 +32,14 @@ def dress(bw, b2, black_models, era, selected):
         art = doc["hoenn_art"]
         if doc["id"] in PLACES:
             paint(doc)
+            fit_room(doc)
             file.write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n")
             total += 1
             continue
         if art.get("scene", [""])[0].startswith("res://assets/unova/landmarks/"):
             light_floor(doc)
-            if "/scenery/" in art.get("scene", [""])[0]:
+            fit_room(doc)
+            if "/scenery/" in art.get("scene", [""])[0] or "camera_bounds" in art:
                 file.write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n")
             continue
         zone = source.zones[doc["unova_zone_id"]]
@@ -62,6 +65,7 @@ def dress(bw, b2, black_models, era, selected):
         # the tile layer below it on walkable rail approaches outside the model.
         art["p"] = area.get("street_facades", [])
         light_floor(doc)
+        fit_room(doc)
         file.write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n")
         total += 1
         if total % 50 == 0:

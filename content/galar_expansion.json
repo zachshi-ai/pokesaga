@@ -949,7 +949,7 @@
  },
  {
   "id": "dlc_clues",
-  "map": "crown_freezington",
+  "map": "crown_freezington_peony",
   "who": "皮欧尼",
   "require": [
    "dlc_lair"
@@ -976,8 +976,8 @@
    }
   ],
   "at": [
-   10,
-   14
+   5,
+   3
   ]
  },
  {
@@ -1066,7 +1066,7 @@
  },
  {
   "id": "dlc_plot_shadow",
-  "map": "crown_bed",
+  "map": "crown_cemetery",
   "who": "古墓旁的田地",
   "require": [
    "dlc_seeds"
@@ -1084,7 +1084,7 @@
   ],
   "unless": "dlc_horse",
   "at": [
-   26,
+   23,
    16
   ]
  },
@@ -1112,7 +1112,7 @@
  },
  {
   "id": "dlc_reins",
-  "map": "crown_freezington",
+  "map": "crown_freezington_mayor",
   "who": "村长",
   "require": [
    "dlc_steed"
@@ -1132,8 +1132,8 @@
    }
   ],
   "at": [
-   11,
-   8
+   5,
+   3
   ]
  },
  {
@@ -1279,7 +1279,7 @@
  },
  {
   "id": "dlc_steel",
-  "map": "crown_bed",
+  "map": "crown_iron_temple",
   "who": "钢铁遗迹",
   "require": [
    "dlc_clues"
@@ -1310,13 +1310,13 @@
    }
   ],
   "at": [
-   12,
-   12
+   11,
+   5
   ]
  },
  {
   "id": "dlc_rock",
-  "map": "crown_bed",
+  "map": "crown_rock_temple",
   "who": "岩山遗迹",
   "require": [
    "dlc_clues"
@@ -1347,13 +1347,13 @@
    }
   ],
   "at": [
-   26,
-   9
+   11,
+   5
   ]
  },
  {
   "id": "dlc_ice",
-  "map": "crown_slope",
+  "map": "crown_ice_temple",
   "who": "冰山遗迹",
   "require": [
    "dlc_clues"
@@ -1384,8 +1384,8 @@
    }
   ],
   "at": [
-   21,
-   16
+   11,
+   5
   ]
  },
  {
@@ -1414,7 +1414,7 @@
  },
  {
   "id": "dlc_report",
-  "map": "crown_freezington",
+  "map": "crown_freezington_peony",
   "who": "皮欧尼",
   "require": [
    "dlc_split",
@@ -1431,8 +1431,8 @@
    }
   ],
   "at": [
-   10,
-   14
+   5,
+   3
   ]
  },
  {

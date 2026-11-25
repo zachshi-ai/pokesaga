@@ -1582,12 +1582,22 @@ func _update_music() -> void:
 func _do_warp(target: Dictionary) -> void:
 	if int(save_data.get("kalos_style",0))>=190:_flags().k_o_stylish=true
 	var destination_region := str(target.get("region",""))
+	if destination_region=="crown":
+		var adventure_gate:=preload("res://core/galar_adventure_rooms.gd").gate(str(target.map),_flags())
+		if not adventure_gate.is_empty():
+			_show_toast(adventure_gate)
+			return
+		if target.map=="crown_max_lair" and str(world.map_data.id).begins_with("crown_adventure_"):
+			preload("res://core/galar_adventure_rooms.gd").leave(self)
 	if destination_region=="armor":
 		var tower_gate:=GalarExpansion.gate(target,_flags())
 		if not tower_gate.is_empty():
 			_show_toast(tower_gate)
 			return
 	if destination_region=="galar":
+		target=preload("res://core/galar_tower.gd").switch_map(str(world.map_data.get("id","")),target,_flags())
+		var venue_gate:=preload("res://core/galar_tower.gd").walk_gate(str(target.map),_flags())
+		if not venue_gate.is_empty():_show_toast(venue_gate);return
 		if _offer_chapter("galar"):return
 		if target.get("regional_travel",false):
 			var landing: Dictionary=Data.travel_regions().galar.hub if _flags().get("g_starter",0) else Journey.HOMES.galar
@@ -1800,6 +1810,7 @@ func _do_warp(target: Dictionary) -> void:
 	preload("res://core/johto_items.gd").enter(self)
 
 func _after_step() -> void:
+	if preload("res://core/johto_safari.gd").route_step(self):return
 	if world.map_data.region=="armor" and _flags().get("dlc_mushrooms",false):_flags().dlc_mush_steps=int(_flags().get("dlc_mush_steps",0))+1
 	if world.map_data.get("region","")=="kalos":KalosOPower.walk(self)
 	if world.map_data.region=="galar" and GalarGym.step(self):return
@@ -2132,6 +2143,7 @@ func _handle_object(o: Dictionary) -> void:
 		"sign":
 			if world.map_data.region == "sinnoh" and SinnohLibrary.shelf(self,o): return
 			var t := String(o.get("text", ""))
+			if world.map_data.id=="galar_wyndon" and o.get("at",[])==[14,5] and _flags().get("g_champion",false):t="伽勒尔对战塔入口"
 			_dialog([t] if t != "" else ["（字迹被磨掉了）"], "")
 		"item", "hidden":
 			var nm := String(o.get("name", "道具"))
@@ -2754,6 +2766,13 @@ func _talk_to_npc(npc: Dictionary) -> void:
 	if story_on and rid in Journey.HOMES and not save_data.get("chapters",{}).has(rid) and not npc.get("transit",false) and (npc.has("gives_mon") or npc.has("badge") or (rid=="hoenn" and npc.has("source_script") and not npc.get("heal",false) and not npc.get("shop",false))):
 		_offer_chapter(rid)
 		return
+	if rid=="crown" and str(npc.get("role","")).begins_with("venue_lair_"):
+		if preload("res://core/galar_adventure_rooms.gd").fight(self):return
+	if rid=="galar" and str(npc.get("role","")).begins_with("venue_"):
+		var venue_role:String=npc.role
+		if venue_role.begins_with("venue_tower_"):preload("res://core/galar_tower.gd").talk(self,venue_role)
+		else:preload("res://core/galar_hotel_cafes.gd").talk(self,venue_role)
+		return
 	if rid=="galar" and GalarGym.talk(self,npc):return
 	if rid=="alola" and npc.has("alola_trainer") and _flags().get(npc.alola_trainer,false):
 		_dialog(npc.post,npc.name)
@@ -3365,7 +3384,7 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 	var shiny_draw:=shiny_kind
 	if shiny_draw=="":
 		shiny_draw=PartyScript.roll_shiny(appearance_rng)
-		if ((world.map_data.region=="unova" and _flags().get("us_b2_shiny",false)) or (world.map_data.region=="kalos" and _flags().get("ks_shiny",false))) and roamer.is_empty():
+		if ((world.map_data.region=="unova" and _flags().get("us_b2_shiny",false)) or (world.map_data.region=="kalos" and _flags().get("ks_shiny",false)) or (world.map_data.region in ["galar","armor","crown"] and _bag_count("闪耀护符")>0)) and roamer.is_empty():
 			for roll in 2:
 				if shiny_draw!="none":break
 				shiny_draw=PartyScript.roll_shiny(appearance_rng)
@@ -3403,6 +3422,9 @@ func _start_wild_battle(species_id: int, level: int, form_key: String = "", on_d
 	layer.add_child(ui)
 	ui.setup(mine, enemy, rng.randi(), supplies)
 	if world.map_data.region in ["galar","armor","crown"]:GalarGym.battle_rules(self,ui,{})
+	if world.map_data.region in ["galar","armor","crown"]:
+		ui.battle.galar_caught_count=save_data.get("dex",{}).get("caught",[]).size()
+		ui.battle.galar_catching_charm=_bag_count("不晃捕捉护符")>0
 	if ui.alola_rules:ui.battle.kalos_o_capture=AlolaSide.factor(self,"catch")
 	if ui.kalos_rules:KalosOPower.enter_battle(self,ui.battle)
 	ui.battle.previously_caught=species_id in save_data.get("dex",{}).get("caught",[])
@@ -3632,6 +3654,7 @@ func _show_toast(text: String) -> void:
 		toast.visible = false
 
 func _process(delta: float) -> void:
+	preload("res://core/johto_safari.gd").clock(self,delta)
 	preload("res://core/frlg_tower.gd").clock(self,delta)
 	preload("res://core/frlg_sidequests.gd").fan_clock(self,delta)
 	# HUD 文字四分之一秒刷一次就够，每帧重排 Label 是手机上最贵的开销之一
@@ -8399,6 +8422,7 @@ func _restore_from_save() -> void:
 	Journey.migrate(save_data)
 	for mon in save_data.get("party",[]):
 		PartyScript.restore_trim(mon)
+	load("res://core/unova_side_activities.gd").restore_dressing_room(save_data)
 	Data.set_unova_era(UnovaField.era(save_data.get("flags",{})))
 	preload("res://core/johto_apricorns.gd").sync(save_data)
 	preload("res://core/frlg_actors.gd").migrate_progress(save_data)
@@ -8482,6 +8506,17 @@ func _restore_from_save() -> void:
 		var old_spawn: Array = map.get("platinum_previous_spawn", map.get("unova_previous_spawn", []))
 		if old_spawn.size() == 2 and spot == Vector2i(int(old_spawn[0]), int(old_spawn[1])):
 			spot = Vector2i(int(map.spawn[0]), int(map.spawn[1]))
+		# The former Abyssal Ruins importer snapped all four entrances to isolated
+		# dry tiles. Relocate only a character stranded on one of those cells.
+		if int(map.get("unova_zone_id", -1)) == 245:
+			var surrounded := true
+			for dir in [Vector2i.UP,Vector2i.RIGHT,Vector2i.DOWN,Vector2i.LEFT]:
+				if not world.is_blocked(spot+dir):
+					surrounded=false
+					break
+			if surrounded: spot=world.restored_field_position(spot,false)
+		if map.has("hgss") and map_id.begins_with("hgss_safari_zone_") and spot==Vector2i.ZERO and world.is_blocked(spot):
+			spot=Vector2i(int(map.spawn[0]),int(map.spawn[1]))
 		if map.has("emerald_original") and not save_data.has("hoenn_field_revision"):
 			spot = preload("res://core/hoenn_field.gd").saved_position(world,spot,save_data.get("surfing",false))
 		if map.has("hgss") and not save_data.has("johto_field_revision"):
@@ -9343,7 +9378,7 @@ func _use_bag_item(nm: String) -> void:
 	if _bag_count(nm)>0 and preload("res://core/sinnoh_contests.gd").use_item(self,nm): return
 	if GalarExpansion.use(self,nm):return
 	if GalarGym.use_item(self,nm):return
-	if (world.map_data.region=="galar" or (nm=="洛托姆自行车" and world.map_data.region in ["armor","crown"]) or nm in [preload("res://core/galar_items.gd").SWIFT,"伽勒尔招式学习器79·报仇","经验糖果XS"]) and _bag_count(nm)>0 and Galar.use(self,nm):return
+	if (world.map_data.region=="galar" or (nm=="洛托姆自行车" and world.map_data.region in ["armor","crown"]) or preload("res://core/galar_hotel_cafes.gd").SWEETS.has(nm) or nm.begins_with("经验糖果") or nm in [preload("res://core/galar_hotel_cafes.gd").SCREECH,preload("res://core/galar_hotel_cafes.gd").TEARS,preload("res://core/galar_hotel_cafes.gd").CHARM,preload("res://core/galar_items.gd").SWIFT,"伽勒尔招式学习器79·报仇","经验糖果XS"]) and _bag_count(nm)>0 and Galar.use(self,nm):return
 	if world.map_data.region=="alola" and _bag_count(nm)>0 and Alola.use_fusion(self,nm):return
 	if _bag_count(nm)>0 and (AlolaField.use(self,nm) or (world.map_data.region=="alola" and AlolaSide.use_item(self,nm))):return
 	if world.map_data.region=="alola" and (nm in KalosItems.REPEL or nm=="离洞绳") and _bag_count(nm)>0 and KalosItems.use(self,nm):return
@@ -9425,6 +9460,7 @@ const HEAL_TABLE := {
 	"活力碎片": {"revive": 1}, "活力块": {"revive": 99}, "圣灰": {"revive": 99, "all": true},
 	"解毒药": {"cure": true}, "麻痹药": {"cure": true}, "解眠药": {"cure": true},
 	"灼伤药": {"cure": true}, "解冻药": {"cure": true}, "万灵药": {"cure": true},
+	"树果汁":{"hp":20},"心形甜点":{"hp":20},"森之羊羹":{"cure":true},"愤怒馒头":{"cure":true},"飞云冰淇淋":{"cure":true},"娑罗沙布蕾":{"cure":true},"深灰米果":{"cure":true},
 	"熔岩饼干": {"cure": true}, "大马拉萨达": {"cure": true},
 	"PP 单项小补剂": {"pp": 10}, "PP 单项全补剂": {"pp": 9999},
 	"PP 多项小补剂": {"pp": 10, "multi": true}, "PP 多项全补剂": {"pp": 9999, "multi": true},

@@ -104,6 +104,10 @@ func setup(owner_world: Node2D,plan: Dictionary, overrides: Array = []) -> void:
 		if world.map_data.has("kalos_native"):
 			scene.scale=Vector2(extent*CELL)/scene.texture.get_size()
 		add_child(scene)
+	if plan.has("rift"):
+		var ghosts := preload("res://core/platinum_rift_scenery.gd").new()
+		add_child(ghosts)
+		ghosts.setup(world, plan.rift)
 	if not above_data.is_empty():
 		above = _layer()
 		above.z_index = 997

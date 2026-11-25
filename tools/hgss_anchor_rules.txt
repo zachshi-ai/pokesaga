@@ -100,3 +100,14 @@ cerulean_gym 1,4=stop
 olivine_port 3,9=seaman_2_2 3,10=gswoman2 5,4=tile24,24 5,6=tile19,24 3,11=tile22,25
 vermilion_port 4,3=tile19,21 4,4=tile16,19
 power_plant 2,7=policeman 1,4=gsassistantm_2 3,5=gsassistantm 4,1=policeman_2 3,1=gsassistantm_3 2,2=gsassistantm_4
+# Retail shoppers and patients. Projecting their old Crystal positions onto a
+# stair landing used to place them on the only square from which it can be taken.
+celadon_dept_store_3f 3,2=gsboy1
+cerulean_pokecenter_1f 4,2=gsman1
+fuchsia_pokecenter_1f 4,2=gsman3
+goldenrod_dept_store_2f 1,3=gsgentleman
+goldenrod_dept_store_5f 1,3=gsgirl3
+olivine_pokecenter_1f 4,2=gsbigman
+viridian_pokecenter_1f 4,2=gsman3
+# The HGSS barrier station has the sages in its main room; its corridor has no actors.
+ecruteak_tin_tower_entrance 2,3=absent 2,2=absent 3,4=absent 1,5=absent

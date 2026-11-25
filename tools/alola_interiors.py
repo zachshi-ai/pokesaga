@@ -32,7 +32,8 @@ def design(mid):
     style=theme(mid)
     if style=='center':
         k,solid=physics(3,(26,26));k=np.where(solid,BLOCK,FLOOR)
-        return k,solid,Image.open(ROOT/'assets/kalos/maps/gba_center.png').convert('RGB')
+        from kalos_alola_centers import scene
+        return k,solid,scene('alola')
     outdoors=style in ['dock','plaza','megacity','beach','lake','grove','crater','desert','deep','electric','ruin','wormhole','cave']
     W,H={'bedroom':(16,12),'living':(23,15),'arena':(29,24),'shop':(28,18),'megacity':(33,33),'dock':(33,20),'hall':(26,18),'castle':(32,24),'grove':(31,23),'beach':(31,20),'deep':(29,23)}.get(style,(23,18))
     im=Image.new('RGB',(W*P,H*P),'#1b2834');draw=ImageDraw.Draw(im)

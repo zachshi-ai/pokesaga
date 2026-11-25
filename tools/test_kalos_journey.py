@@ -20,6 +20,8 @@ class KalosRoutes(UnovaRoutes):
         self.regions = ('kalos',)
         self.flags = set()
         self.components = {}
+        self.town_states = read(ROOT/'content/kalos_geosenge.json')
+        self.town_phase = None
         self.avoid = set()
         self.rules = read(ROOT/'content/kalos_campaign.json')['gates']
         for p in (ROOT/'content/regions/kalos/maps').glob('*.json'):
@@ -29,6 +31,22 @@ class KalosRoutes(UnovaRoutes):
             field.holes=set()
             self.fields[d['id']]=field
             self.avoid.update((d['id'],*o['at']) for o in d.get('objects',[]) if o.get('kind')=='kalos_ice_switch')
+
+    def set_flags(self, flags):
+        self.flags = flags
+        if 'k_last_lysandre' in flags or 'k_weapon' in flags:
+            phase = 'crater'
+        elif 'k_two_buttons' in flags:
+            phase = 'weapon'
+        else:
+            phase = 'stones'
+        if phase == self.town_phase:
+            return
+        field = self.fields['kalos_geosenge']
+        field.grid['collision'] = [int(cell) for row in self.town_states[phase]['collision'] for cell in row]
+        self.town_phase = phase
+        self.edges.cache_clear()
+        self.components.clear()
 
     def projection(self, dest):
         keys = self.rules.get(dest.get('map'),{}).get('require',[])
@@ -52,7 +70,7 @@ class KalosPlayer(EmeraldPlayer):
 
     def field_moves(self):
         flags=set(self.state['flags'])
-        self.routes.flags=flags
+        self.routes.set_flags(flags)
         machines={15:(1,1),19:(2,4),57:(3,3),70:(4,2),127:(5,8)}
         return frozenset(mid for mon in self.state['party'] for mid in mon[5] if mid in machines
                          and {f'k_hm_{machines[mid][0]}',f'k_badge_{machines[mid][1]}'}<=flags)

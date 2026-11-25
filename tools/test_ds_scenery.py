@@ -241,9 +241,34 @@ def migration(godot, pack):
                     assert record["pos"] == doc["spawn"] and record["party"] == fixture["party"]
                 finally:
                     close(p)
-        print(
-            "DS OLD SAVE PASS four historical arrivals written, reloaded twice and checked on the new floor"
-        )
+        from scipy.ndimage import label
+        for era in ("bw", "b2"):
+            map_id = f"unova_{era}_zone_245"
+            path = ROOT / f"content/unova_native/{era}/{map_id}.json"
+            doc = json.loads(path.read_bytes())
+            terrain = np.asarray(doc["physics"]["collision"])
+            components, _ = label(terrain == 0)
+            sx, sy = doc["spawn"]
+            for previous in ([1, 18], [1, 114], [97, 146]):
+                fixture = dict(
+                    unova_template, region="unova", map=map_id, pos=previous,
+                    flags=dict(unova_template["flags"], u2_started=era == "b2"),
+                )
+                save.write_text(json.dumps(fixture, ensure_ascii=False))
+                actual = None
+                for _ in range(2):
+                    p = launch()
+                    try:
+                        room, x, y = p.pos
+                        assert room == map_id and components[y, x] == components[sy, sx]
+                        assert [x, y] != previous and actual in (None, p.pos)
+                        actual = p.pos
+                        p.do("save")
+                        assert json.loads(save.read_bytes())["party"] == fixture["party"]
+                    finally:
+                        close(p)
+        print("DS OLD SAVE PASS four scenery arrivals and six stranded Abyssal records "
+              "reloaded twice; position and party retained")
 
 
 if __name__ == "__main__":

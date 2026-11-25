@@ -17,6 +17,7 @@ import struct
 import numpy as np
 from PIL import Image
 
+from ds_room_envelope import fit_room
 from ds_pixel_art import save_scene, fit_spawn
 from platinum_layout import catalog, OUT, ROOT, SEABREAK, write
 from unova_art import glb
@@ -402,7 +403,8 @@ def dress(root, cache, selected):
                 or mid == "sinnoh_villa"
             ):
                 fit_authored_spawn(doc)
-                if doc.get("platinum_previous_spawn"):
+                fit_room(doc)
+                if doc.get("platinum_previous_spawn") or "camera_bounds" in doc["hoenn_art"]:
                     write(file, doc)
                 count["prior authored layouts"] += 1
                 continue
@@ -435,6 +437,7 @@ def dress(root, cache, selected):
                 from platinum_library_rooms import dress_library
 
                 dress_library(doc)
+            fit_room(doc)
             write(file, doc)
             count["new fields"] += 1
             if count["new fields"] % 100 == 0:

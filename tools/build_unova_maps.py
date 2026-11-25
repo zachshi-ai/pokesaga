@@ -93,6 +93,11 @@ def initialize(src,z):
     water=((env&0x20000)!=0)|np.isin(cp,[0x3f,0x40,0x41,0x42,0x43,0x44])
     collision=((env&0x10000)!=0)|(cp==255)
     collision[water]=False
+    # Below the four dive shafts the player walks on the flooded palace floor.
+    # Treating these submerged floor permissions as Surf made the importer snap
+    # four original doorways and the stairs onto isolated dry model anchors.
+    if 245 <= z["i"] <= 248:
+        water[:]=False
     grass=((env&0x40000)!=0)|((env&0x200000)!=0)
     clear=~(collision|water)
     coords=np.argwhere(clear)[:,::-1]
@@ -164,7 +169,8 @@ def source_links(data):
                     tx=x+dx;ty=y+dy
                     if tx>=a['size'][0] or ty>=a['size'][1]:continue
                     if (dx or dy) and a['collision'][ty,tx]:continue
-                    append_warp(a,(tx,ty),b,landing,source='native_'+str(k))
+                    shaft = {'surf_arrival':True} if i==245 and 241<=b['z']['i']<=244 else {}
+                    append_warp(a,(tx,ty),b,landing,source='native_'+str(k),**shaft)
             a['doors'].append(((x,y),b['z']))
     for a in data.values():
         code=a['env']&65535
@@ -336,6 +342,8 @@ def build(era,src,args):
         from unova_services import decorate, add_phenomena
         decorate(doc)
         add_phenomena(doc,a['env'])
+        from ds_room_envelope import fit_room
+        fit_room(doc)
         (out/(z['mid']+'.json')).write_text(json.dumps(doc,default=int,ensure_ascii=False,separators=(',',':'))+'\n')
     registered={a['z']['mid'] for a in data.values()}
     for file in out.glob('*.json'):

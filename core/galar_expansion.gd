@@ -24,7 +24,10 @@ static func who(name: String,f: Dictionary) -> String:
 
 static func roster(m: Dictionary,f: Dictionary,base: Array) -> Array:
 	load_events()
-	var result:=base.duplicate()
+	var result:=base.duplicate(true)
+	if m.id=="crown_adventure_nest" and f.get("dlc_field_adventure",{}).get("beast",false):
+		for n in result:
+			if n.get("role","")=="venue_lair_boss":n.field_art="galar_venue_800"
 	for row in maps.get(m.id,[]):
 		if not available(row,f):continue
 		var name:=who(row.who,f)
@@ -311,36 +314,7 @@ static func _star(g,choice: int,round_no: int) -> void:
 static func _adventure(g,beast: bool,replay: bool=false) -> void:
 	var choices:=[260,310,282]
 	choose(g,"极巨大冒险 · 租借一只宝可梦",["巨沼怪","雷电兽","沙奈朵"],func(i):
-		_adventure_round(g,beast,mon(choices[i],65),0,replay,[]))
-
-static func _adventure_round(g,beast: bool,rental: Dictionary,stage: int,replay: bool,found: Array) -> void:
-	var paths:=[[324,437],[350,460],[621,663]]
-	var run_fight:=func(sid: int):
-		var boss: Dictionary={"species":sid,"level":70 if stage==3 else 65}
-		var cfg: Dictionary={"galar_raid":"adventure","galar_power_spot":true,"team":[boss],"exp_rental":rental,"prize":0,
-			"raid_helpers":[[699,65,573],[49,65,405],[80,65,94]]}
-		g._start_battle({"name":"极巨巢穴","battle":cfg},func(result):
-			if result!="a":
-				stop(g,"调查队撤回入口。返还租借宝可梦后，可以再组队出发。")
-			elif stage==3:
-				if not replay:
-					grant(g,{"species":sid,"level":70})
-					return
-				var data=g.get_node("/root/Data")
-				var labels: Array=found.map(func(s):return str(data.species_of(s).name))
-				labels.append("全部放归")
-				choose(g,"选一只沿途遇到的宝可梦带回去",labels,func(i):
-					if i<found.size():grant(g,{"species":found[i],"level":65})
-					else:say(g,"调查记录已交回营地。"))
-
-			else:
-				choose(g,"下一个巢穴",["保留租借伙伴","换用刚才的宝可梦"],func(i):
-					_adventure_round(g,beast,rental if i==0 else mon(sid,65),stage+1,replay,found+[sid])))
-	if stage==3:run_fight.call(800 if beast else 245)
-	else:
-		var fork: Array=paths[stage]
-		var data=g.get_node("/root/Data")
-		choose(g,"选择巢穴路线　%d / 4"%(stage+1),fork.map(func(s):return str(data.species_of(s).name)),func(i):run_fight.call(fork[i]))
+		preload("res://core/galar_adventure_rooms.gd").start(g,beast,replay,mon(choices[i],65)))
 
 static func use(g,name: String) -> bool:
 	if name not in PRIZES or g._bag_count(name)<1:return false

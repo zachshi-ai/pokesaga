@@ -1,0 +1,64 @@
+# Source area | stable map ID | Chinese town-map name | hand-drawn relief from north to south | scenery (x,y in tenths)
+# L pasture, F wood, H dark thicket, R rock, S shore, W water, G tall grass, N snow, I ice, C cave, P cut stone, D sand, M mud.
+Rolling Fields|galar_wild_south
+East Lake Axewell|galar_wild_lake
+Giant's Seat|galar_wild_north
+Lake of Outrage|galar_lake_out
+Motostoke|galar_motostoke
+Galar Mine No. 2|galar_mine2
+Hammerlocke|galar_hammerlocke
+Meetup Spot|galar_meetup|集汇空地|FFFFRRR/FGLLLSL/FGLPLLL/FFPPLGF/RRPPRFF|station@34,bench@55
+Dappled Grove|galar_dappled|沐光森林|FFFFFFFF/FFGGLFFF/FLLLGLFF/FLGFFGLF/FFGLLFFF/FFFGGGFF|berry@33,log@65,stump@37
+Watchtower Ruins|galar_watchtower|瞭望塔旧址|HHHHFFLL/HPPPLLGG/HLPLLGLF/HPLLPGGF/HHGLLFFF/HHHFLLFF|tower@34,column@55,ruin@36
+West Lake Axewell|galar_axewell_west|牙牙湖西岸|FFSWWWW/LLSWWWW/GLSSWWW/LGLSSWW/FLLLSSW/FFGLSWW|berry@35,driftwood@65
+Axew's Eye|galar_axew_eye|牙牙湖之眼|WWWWWWW/WWWSSWW/WWSLLSW/WSLGGSW/WWSFLSW/WWSSWWW/WWWWWWW|berry@55,rock@65
+South Lake Miloch|galar_miloch_south|美纳斯湖南岸|WWWWSSRR/WWWWSSRG/WWWSSLGG/WSSLGLGG/SSGGLFFF/LLLFFFRR|rock@75,berry@66
+North Lake Miloch|galar_miloch_north|美纳斯湖北岸|RRLLLFFF/GGGGLGGF/FLLLGLGS/LSLLSSSS/WWSSWWWW/WWWWWWWW|berry@34,boulder@66
+Motostoke Riverbank|galar_riverbank|机擎河岸|FFGLLRRF/FLLGLLRR/LLLSSSLR/WWWWWSLL/SSSWWWGL/GLSSSWWW|viaduct@46,berry@73
+Bridge Field|galar_bridge_field|桥间空地|RFFLLLFF/FLGGGGGF/LGLSSGGF/WWSGGLLF/WWSSLGFF/WWWSSLLF|viaduct@45,nursery@66,berry@33
+Stony Wilderness|galar_stony|巨石原野|RRRLLRRR/RRLLLGGR/GGLRRLLL/LLRLLGGL/GGLLRGGF/FFGLLFFF|standing@35,stones@64,boulder@36
+Dusty Bowl|galar_dusty|沙尘洼地|RRRDDRR/DRRSDDD/DSSDDRD/RDDDDSR/RDSSSDR/RRDRRRR|standing@45,fossil@63,cairn@36
+Giant's Mirror|galar_giant_mirror|巨人镜池|FFLLFFRR/FGLLSSRR/GLLSSWWR/LLSWWWWS/GLSWWWSL/FFSSSLLL|berry@34,standing@73
+Hammerlocke Hills|galar_hammer_hills|拳关丘陵|RRRPPRRR/RRLLLGGR/FFGGLGLL/LLLRLGGF/GGLLLGGR/RRLLLRRR|arch@51,berry@34,standing@75
+Giant's Cap|galar_giant_cap|巨人帽岩|RRLLGGRR/RRLGGGFR/LGLLRRRL/GLLLRLLL/WWSSLGGL/WWWSSLLF|standing@43,boulder@65,berry@75
+Motostoke Outskirts|galar_outskirts|机擎市郊外|RRRFFRRR/FGGLLGRR/FFLLLLLL/LLLLSSSS/FSSLWWWW/WWWWWRRR|viaduct@54,berry@34
+Fields of Honor|armor_fields
+Soothing Wetlands|armor_wetland
+Forest of Focus|armor_forest
+Challenge Road|armor_steps
+Brawlers' Cave|armor_cave
+Tower of Waters|armor_water_tower
+Tower of Darkness|armor_towers
+Master Dojo|armor_dojo
+Challenge Beach|armor_challenge_beach|挑战海滩|WWWSSSFF/WSSSSGFF/WSLLGGFF/WSSLGGLL/WWSSSSLF/WWWSSFFF|driftwood@37,boulder@75
+Courageous Cavern|armor_courageous|斗志洞窟|RRCCRRCC/RCCCWCCR/CCWWWCCR/RCCWWCCC/RRCCWCCR/RRCCCRRR|timbers@43,crystal@66
+Loop Lagoon|armor_lagoon|圆环海湾|RRSSSFFF/RSSLLSSF/SWWWWSSL/SWWSSSWW/WWWLSWWW/WWSSSWWW|driftwood@34,berry@54
+Training Lowlands|armor_lowlands|锻炼平原|RRFFRGGR/RLGLLGGR/LLLGGGLL/SSWWLLGF/WWSSLGLF/SSGGLFFF|berry@34,standing@73,log@46
+Warm-Up Tunnel|armor_warmup|热身洞穴|RRRCCRRR/RCCCRRCR/RCRCCCCC/RCCCRRCR/RRRCCCRR/RRRCCRRR|ore@34,cairn@62
+Potbottom Desert|armor_desert|锅底沙漠|RRRRRRRR/RDDSSSDR/RDSSDDDR/RDDDSSDR/RSDDDDSR/RRRDDRRR|fossil@64,cairn@36
+Workout Sea|armor_workout_sea|健身之海|WWSSSWWW/WWSLSSWW/WWWWWWWW/SWWWWWSW/SSWWWSLS/WWWWWWSS|driftwood@32,buoy@66
+Stepping-Stone Sea|armor_stepping_sea|列岛海域|WSSWWWSS/SLSWWWSL/WSSWWWWW/WWWSSWWW/WWWLSWSS/WWWSSWLS|berry@52,driftwood@45
+Insular Sea|armor_insular_sea|离岛海域|WWWWWWWW/WWWSSWWW/WWSLSWWW/WWSLSWWW/WWWSSWWW/SWWWWWSS|rock@44,driftwood@56
+Honeycalm Sea|armor_honey_sea|蜂巢海|SSWWWWSS/LSWWWWSS/WWWWWWWW/WWWSSWWW/WWSLSWWW/WWWSSWWW|buoy@36,driftwood@54
+Honeycalm Island|armor_honey_island|蜂巢岛|WWWSSWWW/WSSLLSSW/WSGLGLSW/SSGFFGSS/WSGLGLSW/WSSLLSSW/WWWSSWWW|gianttree@55,flowers@43,flowers@67
+Slippery Slope|crown_slippery
+Freezington|crown_freezington
+Giant's Bed|crown_bed
+Snowslide Slope|crown_slope
+Crown Shrine|crown_peak
+Ballimere Lake|crown_lake
+Dyna Tree Hill|crown_tree
+Split-Decision Ruins|crown_ruins
+Max Lair|crown_max_lair
+Frostpoint Field|crown_frostpoint|冰点雪原|RRNNNNRR/RNNNFFRR/FNNNNNFF/NNNNLLNF/FFNLLNNF/RRNNNNRR|fir@33,fir@64,boulder@76
+Old Cemetery|crown_cemetery|远古墓地|FFLFFRRF/FPLPPLLF/LPPLLPLF/LPLLPPLF/LLLGGGFF/FFLLLLFF|standing@43,standing@65,column@35
+Tunnel to the Top|crown_top_tunnel|登顶隧道|RRRIIRRR/RCCICCCR/RCRRRCIR/RCCCICIR/RCRRCCCR/RRRCCRRR|icearch@54,crystal@36
+Path to the Peak|crown_peak_path|通顶雪道|RRRNNRRR/RFNNNFRR/RFNNNNFR/RRRNNNFR/RNNNFFFR/RRNNRRRR|fir@35,fir@64,cairn@46
+Giant's Foot|crown_giant_foot|巨人鞋底|RRLLLRRR/RRSLSSRR/LLSWWSSL/FLLSWWSL/FGLLSWWL/FFLLSWWR|boulder@43,berry@36
+Roaring-Sea Caves|crown_roaring|海鸣洞窟|RRCCRRRR/RCCCRRCC/RCRCCWCC/RRCCWWCC/RCCWWWCR/RRCCCRRR|icearch@65,ore@34
+Frigid Sea|crown_frigid|冻海|RRNWWWII/RNWWWWWW/NWWIIWWW/WWIIWWNW/WWWWWNNN/WWWIINRR|floe@46,floe@64
+Three-Point Pass|crown_three_point|三岔平原|RRNNWWSS/RNNNSSLL/NNLLLGGR/LLGLRRRR/GLLRLLLR/RRLLLRRR|standing@33,standing@47,standing@66
+Lakeside Cave|crown_lakeside_cave|湖畔洞窟|RRRRRRRR/RRCCCCRR/RCCCCCCR/RCCRRCCR/RCCWWCCR/RRWWCCRR|ore@35,cairn@64
+Rock Peak Ruins|crown_rock_temple|岩山遗迹|RRRPPPRRR/RRPPPPPRR/RPPPPPPPR/RPPPPPPPR/RPPPPPPPR/RRRPPPRRR|altar@53,column@33,column@73
+Iceberg Ruins|crown_ice_temple|冰山遗迹|RRRIIIRRR/RRPPPPPRR/RPIPPIPPR/RPPPIPPPR/RPIPPIPPR/RRRPPPRRR|icearch@53,column@33,column@73
+Iron Ruins|crown_iron_temple|黑金遗迹|RRRPPPRRR/RRPPPPPRR/RPPPRPPPR/RPPRPRPPR/RPPPRPPPR/RRRPPPRRR|altar@53,column@33,column@73

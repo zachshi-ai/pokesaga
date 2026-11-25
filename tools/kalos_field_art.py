@@ -104,6 +104,7 @@ def marker(pic,m,px):
     d=ImageDraw.Draw(pic);seen=set()
     for w in m['warps']:
         t=w['to'];dest=t['map'];x,y=w['at']
+        if w.get('trigger')=='door':y+=1
         if w.get('source_warp','').startswith(('matrix','interregional')) or (x,y) in seen:continue
         if dest in ('kalos_crystals','kalos_geosenge','kalos_lumiose_central') or dest.removeprefix('kalos_').isdigit():continue
         seen.add((x,y));X=x*px;Y=y*px
@@ -139,6 +140,12 @@ def render(raw, parts, m):
     for node,name,p,uv,idx,texture,_ in parts:
         xx=p[:,0]/18-origin[0];zz=p[:,2]/18-origin[1]
         if xx.min()>w+6 or zz.min()>h+15 or xx.max()<-6 or zz.max()<-10:continue
+        # Looking down the Badge Check passage in two dimensions exposes its
+        # traversable tiled deck and gates beneath the original overhead canopy.
+        if n==321 and name.lower()=='gate_roof':continue
+        # The Scary House fits into the tree line at the original model's door.
+        # Keep nearby foliage and scene shadows, replacing its baked facade.
+        if n==273 and name in ('c06_bm_minka1','com_chip_mado1','c06_bm_iedoor2') and 5<xx.min() and xx.max()<16 and 15<zz.min() and zz.max()<27:continue
         key=material(node,name,outdoor,n)
         if key is None:continue
         # Packed house materials contain coloured slate and glazed windows. A
@@ -195,10 +202,40 @@ def render(raw, parts, m):
                 part=ids[:,x*px:(x+1)*px]
                 if np.isin(part,[IDS['path'],IDS['sand'],IDS['grass'],IDS['ground'],IDS['rock'],IDS['brick'],IDS['cobble']]).mean()>.6:
                     part[:]=IDS['water'];c[:,x*px:(x+1)*px,1]=3
-    pic=draw_plane(encoded,depth,px)
-    pic=dress(pic,m,px)
+    from kalos_walk_surfaces import extend_ground
+    pic,_=extend_ground(draw_plane(encoded,depth,px),m)
+    pic=dress(pic,m,px,parts)
     for kind,x,y,scale in m.get('kalos_furnishings',[]):
         if kind.startswith('xy_'):fixture(pic,kind,x,y,px,scale)
+    if n==172:
+        from kalos_native_approaches import paint_tidal_bar
+        paint_tidal_bar(pic,m,px)
+    if n==273:
+        # Keep a five-tile facade with its door centered over original warp 1.
+        house=sprite('home').copy()
+        wing=house.crop((0,55,40,80))
+        entry=house.crop((40,55,77,80))
+        house.paste(wing.crop((0,0,22,25)),(0,55))
+        house.paste(entry,(22,55))
+        house.paste(wing.crop((1,0,22,25)).transpose(Image.Transpose.FLIP_LEFT_RIGHT),(59,55))
+        # Leaf shadow on old timber, using the original sprite silhouette.
+        rgba=np.array(house)
+        rgba[:,:,:3]=(rgba[:,:,:3].astype(float)*[.85,.82,.79]).astype(np.uint8)
+        house=Image.fromarray(rgba)
+        pic.paste(house,(8*px,23*px-house.height),house)
+    if m.get('kalos_shore_steps'):
+        x,y,w,h=m['kalos_shore_steps']
+        step=Image.new('RGB',(px,px),'#c4b998')
+        treads=ImageDraw.Draw(step)
+        for k in (2,7,12):
+            treads.line((0,k,px-1,k),fill='#e4d8b5')
+            treads.line((0,k+2,px-1,k+2),fill='#998b72')
+            treads.line((0,k+3,px-1,k+3),fill='#a59a7c')
+        for row in range(h):
+            for col in range(w):pic.paste(step,((x+col)*px,(y+row)*px))
+        border=ImageDraw.Draw(pic)
+        for edge in [x*px,(x+w)*px-2]:
+            border.line((edge,y*px,edge,(y+h)*px-1),fill='#716753',width=2)
     marker(pic,m,px)
     return pic
 

@@ -46,7 +46,7 @@ static func install(data: Dictionary, mid: String) -> Dictionary:
 			data["hgss_encounters"]=bank.land
 			data["encounters"]=bank.land[period()]
 			data["encounter_rate"]=bank.land_rate
-			data["water_encounters"]=bank.surf
+			data["water_encounters"]=bank.get("surf_timed",{}).get(period(),bank.surf)
 			data["water_encounter_rate"]=bank.surf_rate
 	data["hgss"] = field
 	data["name"] = field.name
@@ -93,7 +93,7 @@ static func position(data: Dictionary, legacy: Vector2i) -> Vector2i:
 		return legacy
 	var f: Dictionary = data.hgss
 	var anchor: Dictionary = f.anchors.get("sites",{}).get("%d,%d" % [legacy.x,legacy.y],{})
-	if not anchor.is_empty() and anchor.get("header",f.header) == f.header:
+	if anchor.has("at") and anchor.get("header",f.header) == f.header:
 		return vec(anchor.at)
 	var size := vec(f.legacy_size)
 	if legacy.x < 0 or legacy.y < 0 or legacy.x >= size.x or legacy.y >= size.y:
@@ -141,7 +141,7 @@ static func roster(data: Dictionary, rows: Array) -> Array:
 		var key := "%d,%d" % npc.at
 		var site: Dictionary = f.anchors.get("sites",{}).get(key,{})
 		var entry: Dictionary = npc.get("native_anchor",f.anchors.get("roles",{}).get(npc.get("role",""),site))
-		if entry.get("header",f.header) != f.header: continue
+		if entry.get("kind","") == "absent" or entry.get("header",f.header) != f.header: continue
 		var at := position(data,vec(npc.at)) if entry.is_empty() else vec(entry.at)
 		if npc.get("hgss_native",false): at=vec(npc.at)
 		if data.id=="johto_new_bark_town" and npc.get("transit",false): at=Vector2i(16,14)
@@ -229,14 +229,16 @@ static func draw(world) -> void:
 		world.add_child(sprite)
 		world._tile_nodes.append(sprite)
 
-static func camera_bounds(data: Dictionary, screen: Vector2i) -> Rect2i:
-	var b: Array = data.get("hgss", {}).get("art", {}).get("bounds", data.get("hoenn_art", {}).get("camera_bounds", []))
-	if b.size()!=4:
-		return Rect2i(Vector2i.ZERO,vec(data.size)*16)
-	var start:=Vector2i(int(b[0]),int(b[1]))
-	var end:=Vector2i(int(b[2]),int(b[3]))
-	var size: Vector2i=(end-start).max(screen)
-	return Rect2i((start+end-size)/2,size)
+static func camera_bounds(data: Dictionary, map_size: Vector2i, screen: Vector2i) -> Rect2i:
+	var bounds: Array = data.get("hgss", {}).get("art", {}).get("bounds", data.get("hoenn_art", {}).get("camera_bounds", []))
+	var start := Vector2i.ZERO
+	var end := map_size
+	if bounds.size() == 4:
+		start = Vector2i(int(bounds[0]), int(bounds[1]))
+		end = Vector2i(int(bounds[2]), int(bounds[3]))
+	# A room smaller than the visible field needs equal margins at opposite walls.
+	var extent := (end - start).max(screen)
+	return Rect2i(start + (end - start - extent) / 2, extent)
 
 static func source_rows(source: Dictionary, flags: Dictionary) -> Array:
 	var rows := preload("res://core/johto_campaign.gd").roster(source,flags)

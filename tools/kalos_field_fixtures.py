@@ -27,10 +27,11 @@ def mask_paint(pic,mask,patch,p):
     for y,x in np.argwhere(mask):pic.paste(chip,(int(x)*p,int(y)*p))
 
 
-def domestic(m,p):
+def domestic(m,p,parts):
     n=m['kalos_zone'];view=m['kalos_matrix'];w,h=m['size'];phys=m['physics'];free=~np.asarray(phys['collision'],bool)
-    # Tiny disconnected source polygons outside windows stay in the background.
-    labels,_=ndimage.label(free);x,y=m['spawn'];inside=labels==labels[y,x];by,bx=np.where(inside)
+    from kalos_room_models import room_surfaces
+    inside, carpet, stairs, heights, native_fixtures = room_surfaces(m,parts,free,p)
+    by,bx=np.where(inside)
     pic=Image.new('RGB',(w*p,h*p),'#28323b');d=ImageDraw.Draw(pic)
     if not len(by):return pic
     bank=n in (192,193) or view in (124,125,126,194)
@@ -41,7 +42,7 @@ def domestic(m,p):
     floor=Image.fromarray(pattern('laboratory' if office else 'marble' if bank or shop else 'wood' if cafe else 'floor'))
     mask_paint(pic,inside,floor,p)
     top=inside&~np.roll(inside,1,axis=0); top[0]=inside[0]
-    # Each solid north-facing rim is a back wall, including alcoves in the real floor plan.
+    # North edges of the original ground mesh are the wall line.
     for yy,xx in np.argwhere(top):
         x=int(xx*p);y=int(yy*p)
         d.rectangle((x,y-2*p,x+p-1,y-1),fill=wall)
@@ -64,7 +65,7 @@ def domestic(m,p):
     # Wall decoration belongs on the principal rear wall; narrow walkable gaps
     # between wardrobes are not separate rows of room furniture.
     median_back=int(np.quantile(by,.15))-1
-    wall_row=sorted([(x,y) for x,y in front if y<=median_back and len([k for k in (-1,1) if (x+k,y) in front])==2])
+    wall_row=sorted([(x,y) for x,y in front if y<=median_back and not stairs[min(h-1,y+1),x] and len([k for k in (-1,1) if (x+k,y) in front])==2])
     windows=[]
     for frac in (.29,.7):
         if wall_row:
@@ -78,25 +79,30 @@ def domestic(m,p):
     decor=['clock','map'] if bank or office else ['clock','bookshelf_home']
     if wall_row:
         props_at([wall_row[0],wall_row[-1]],decor,2)
-    # Small stitched rugs under the clear floor centre and in front of each doorway.
-    # Choose a whole rectangle of floor; rugs never project through a wall.
-    def rug(x,y,r):
-        x,y=int(x),int(y)
-        if y<1 or x-r<0 or x+r>=w or y+1>=h or not inside[y-1:y+2,x-r:x+r+1].all():return
-        l=(x-r)*p+1;t=(y-1)*p+2;right=(x+r+1)*p-2;b=(y+2)*p-3
-        tint='#91a6ad' if office or bank else '#b996ac' if shop else '#c18a77' if cafe else '#8fa99c'
-        d.rounded_rectangle((l,t,right,b),3,fill=tint,outline=trim,width=2)
-        d.rectangle((l+3,t+3,right-3,b-3),outline='#ded7bd');d.line((l+6,t+5,right-6,t+5),fill=trim)
-        d.line((l+6,b-5,right-6,b-5),fill=trim)
-    rug(np.median(bx),np.median(by),2 if w>=23 else 1)
-    # Islands of furniture wholly inside the source walkable boundary.
-    holes=ndimage.binary_fill_holes(inside)&~inside
-    labs,count=ndimage.label(holes)
-    for i in range(1,count+1):
-        yy,xx=np.where(labs==i)
-        if len(xx)>45:continue
-        y=int(yy.max());x=int(np.median(xx[yy==y]));props_at([(x,y)],['desk','plant_indoor','bookshelf'] if not office else ['pc','desk'],2)
-    for kind,x,y,scale in m.get('kalos_furnishings',[]):fixture(pic,kind,x,y,p,scale)
+    # Preserve the source rug pattern including the weave and outside border.
+    cloth = Image.fromarray(carpet)
+    pic.paste(cloth,(0,0),cloth)
+    labels, runs = ndimage.label(stairs)
+    for run in range(1,runs+1):
+        group = labels == run
+        # The surface normal determines whether a flight ascends north or east.
+        horizontal = group[:,1:] & group[:,:-1]
+        vertical = group[1:,:] & group[:-1,:]
+        xrise = np.mean(np.abs(np.diff(heights,axis=1))[horizontal]) if horizontal.any() else 0
+        yrise = np.mean(np.abs(np.diff(heights,axis=0))[vertical]) if vertical.any() else 0
+        # Stretch one Emerald stair tread across the in-model flight. Repeating
+        # an outdoor stair tile here would draw a separate border on every step.
+        wood = sprite('woodstairs')
+        chip = Image.new('RGB',(p,p),wood.getpixel((18,14))[:3])
+        drawer = ImageDraw.Draw(chip)
+        for at in range(0,p,max(4,p//2)):
+            drawer.rectangle((0,at,p-1,at+1),fill=wood.getpixel((17,9))[:3])
+            drawer.line((0,at+2,p-1,at+2),fill=wood.getpixel((16,11))[:3])
+        if xrise > yrise:chip=chip.transpose(Image.Transpose.ROTATE_90)
+        mask_paint(pic,group,chip,p)
+    furnishings = native_fixtures + list(m.get('kalos_furnishings', []))
+    for kind,x,y,scale in sorted(furnishings, key=lambda item: item[2]):
+        fixture(pic,kind,x,y,p,scale)
     for warp in m['warps']:
         x,y=warp['at'];X=x*p;Y=y*p
         if 'lift' in warp.get('kalos_label','') or '电梯' in warp.get('kalos_label',''):
@@ -207,7 +213,7 @@ def frontage(pic,m,p):
         src=src.resize((src.width*p//16,src.height*p//16),Image.Resampling.NEAREST);pic.paste(src,(left,top),src);built.update(footprint)
 
 
-def dress(pic,m,p):
+def dress(pic,m,p,parts):
     n=m['kalos_zone'];v=m['kalos_matrix']
     if n==266:return coastal_route(pic,m,p)
     if n in (*range(79,83),104,105,106,*range(152,156)):return civic_floor(pic,m,p)
@@ -216,7 +222,7 @@ def dress(pic,m,p):
     if n==48:return aquarium(pic,m,p)
     if n==310:return assembly(m,p)
     if n in (*range(303,309),*range(314,318),319,*range(322,329),334,*range(343,349),350,351):return cave(pic,m,p)
-    if v in DOMESTIC_VIEWS and n not in (192,193,181):return domestic(m,p)
+    if v in DOMESTIC_VIEWS and n not in (192,193,181):return domestic(m,p,parts)
     if n in TOWNS or n==188:frontage(pic,m,p)
     if n==356:sundial(pic,p)
     return pic

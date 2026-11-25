@@ -8,9 +8,26 @@ const GATE:="safarizone_entrance"
 static func site(mid: String) -> bool:
 	return (mid.begins_with("safarizone_") and mid!=GATE) or mid.begins_with("safari_zone_")
 
+static func johto_area(mid: String) -> bool:
+	return mid.begins_with("hgss_safari_zone_") and mid.trim_prefix("hgss_safari_zone_").is_valid_int()
+
 static func passage(g,dst: Dictionary) -> bool:
 	var from: String=g.world.map_data.id
 	var to: String=dst.get("map","")
+	if from=="hgss_safari_zone_entrance_interior" and to=="hgss_safari_zone_entrance_exterior" and not g.save_data.has("j_safari"):
+		if not preload("res://core/johto_safari.gd").open(g._flags()):
+			g._dialog(["狩猎地带仍在筹备。先去看看浅葱灯塔里的电龙吧。"],"接待员");return true
+		g._pick("狩猎地带门票500元，含30枚原野球。",["入园","取消"],func(index):
+			if index!=0:return
+			if int(g.save_data.money)<500:
+				g._dialog(["门票需要500元。"],"接待员");return
+			g.save_data.money-=500
+			g.save_data.j_safari={"balls":30}
+			g._do_warp(dst)
+			g._persist())
+		return true
+	if from=="hgss_safari_zone_entrance_exterior" and to=="hgss_safari_zone_entrance_interior":
+		g.save_data.erase("j_safari")
 	if from==GATE and site(to) and not g.save_data.has("fr_safari"):
 		var ask=g._dialog(["门票500元。领取30枚原野球，在园内走600步。要入园吗？"],"沙湖乐园")
 		ask.ask("入园","离开")
@@ -35,16 +52,20 @@ static func step(g) -> bool:
 	return true
 
 static func finish(g,msg: String) -> void:
-	g.save_data.erase("fr_safari")
-	g._do_warp({"region":"kanto","map":GATE,"at":[4,4],"facing":"down"})
+	if johto_area(g.world.map_data.id):
+		g.save_data.erase("j_safari")
+		g._do_warp({"region":"johto","map":"hgss_safari_zone_entrance_interior","hgss":true,"at":[5,6],"facing":"down"})
+	else:
+		g.save_data.erase("fr_safari")
+		g._do_warp({"region":"kanto","map":GATE,"at":[4,4],"facing":"down"})
 	g._persist()
 	g._dialog([msg],"沙湖乐园")
 
 static func encounter(g,sid: int,level: int,form: String) -> bool:
-	if not site(g.world.map_data.id):return false
+	var johto := johto_area(g.world.map_data.id)
+	if not johto and not site(g.world.map_data.id):return false
 	# A pre-4.57 save already inside the park receives the tools to finish its visit.
-	if not g.save_data.has("fr_safari"):g.save_data.fr_safari={"balls":30,"steps":600}
-	var visit: Dictionary=g.save_data.fr_safari
+	var visit: Dictionary=g.save_data.get_or_add("j_safari",{"balls":30}) if johto else g.save_data.get_or_add("fr_safari",{"balls":30,"steps":600})
 	var mon:=Party.make(sid,level,Encounter.moves_for(sid,level),form)
 	Party.set_shiny_kind(mon,Party.roll_shiny(g.appearance_rng))
 	Dex.record(g.save_data,mon,false)
@@ -58,7 +79,7 @@ static func encounter(g,sid: int,level: int,form: String) -> bool:
 	g.menu_layer.add_child(ui)
 	g.held_dir=""
 	g._set_hud_visible(false)
-	ui.setup(mon,"还剩%d枚原野球　可走%d步"%[visit.balls,visit.steps])
+	ui.setup(mon,"还剩%d枚原野球"%visit.balls if johto else "还剩%d枚原野球　可走%d步"%[visit.balls,visit.steps])
 	ui.action_chosen.connect(func(action):
 		if ui.is_queued_for_deletion():return
 		var done=false
@@ -71,6 +92,7 @@ static func encounter(g,sid: int,level: int,form: String) -> bool:
 				visit.balls-=1
 				var odds:=maxi(1,int(state.catch)*1275/100*15/10/3)
 				if g.rng.randf()<float(odds)/255.0:
+					if johto:mon.johto_safari_caught=true
 					var destination=g._store_mon(mon)
 					done=true
 					message="抓到了%s！%s。"%[mon.name,"加入队伍" if destination=="party" else "已送入电脑"]

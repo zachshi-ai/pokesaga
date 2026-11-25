@@ -16,6 +16,7 @@ from scipy import ndimage
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import dijkstra
 
+import alola_room_suites
 from alola_melemele import CATALOG, STREETS, cell, pack
 from alola_streets import FRONTS
 import island_architecture as architecture
@@ -89,7 +90,12 @@ PALETTES = {
 UNTOUCHED = {str(n) for n in range(1, 18)} | set(
     "home iki hauoli mahalo hala_house iki_west_house iki_east_house iki_south_house tourism_bureau malasada_shop sandy_cave".split()
 )
-ALIASES = {"palm": STREETS / "palm.png"}
+ALIASES = {
+    "palm": STREETS / "palm.png",
+    "library_wall": ROOT / "assets/platinum_native/library/case_64_wall.png",
+    "library_case": ROOT / "assets/platinum_native/library/case_64_island.png",
+    "reading_table": ROOT / "assets/platinum_native/library/reading_table.png",
+}
 
 
 def load(p):
@@ -736,6 +742,8 @@ class Field:
         return False
 
     def furnish(self):
+        if alola_room_suites.furnish(self):
+            return set()
         st = self.style
         fx, fy = self.story
         entered = set()
@@ -840,6 +848,7 @@ class Field:
         original = self.s.copy()
         if not self.native:
             self.carve_expansion()
+        alola_room_suites.clear_old_furniture(self)
         self.terrain_solid = self.s.copy()
         self.survey(source)
         self.trails()
@@ -852,6 +861,7 @@ class Field:
                 self.walkway(architecture.walls(self, self.draw_relief(self.art()))),
             ),
         )
+        image = alola_room_suites.surface(self, image)
         special.conduits(self, image)
         # Every entry gets an identifiable threshold; outdoor passages use inset stones,
         # interiors a short contrasting mat. The centre point is always the step trigger.
@@ -864,6 +874,9 @@ class Field:
                     (l + 1, t + 1, l + 14, t + 10), fill="#ac9981", outline="#776f68"
                 )
                 d.line((l + 2, t + 3, l + 13, t + 3), fill="#e6d2ab")
+                continue
+            if self.mid in ("malie_library","malie_library_2f") and (x,y)==(3,4):
+                alola_room_suites.stairs(image,x,y)
                 continue
             if self.style in INTERIORS:
                 d.rectangle(
@@ -928,6 +941,7 @@ def build(source, only=None):
     for place, plan in {
         "konikoni_gems": "market crystals rack officecounter",
         "malie_library": "study archive bookshelf_home desk",
+        "malie_library_2f": "study archive bookshelf_home desk",
         "paniola_salon": "dining barrel desk rack",
         "heahea_office": "civic archive officecounter clock",
     }.items():
@@ -970,6 +984,9 @@ def build(source, only=None):
             processed += 1
             continue
         changed, props = f.render(source, mid)
+        if reg in ("dream", "distortion"):
+            from dream_distortion_fields import redraw
+            redraw(mid, m)
         if mid in ("alola_aether_docks","alola_ultra_plant","ultra_plant"):
             from alola_remote_facilities import place
             place(m, mid)

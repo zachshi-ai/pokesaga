@@ -17,6 +17,7 @@ const CAMPS := ["galar_1","galar_2","galar_3","galar_4","galar_wild_south","gala
 	"galar_5","galar_6","galar_7","galar_8","galar_9","galar_10","galar_lake_out"]
 
 static func use(g,item_name: String) -> bool:
+	if preload("res://core/galar_hotel_cafes.gd").use(g,item_name):return true
 	if CARDS.has(item_name):g._dialog([CARDS[item_name]],item_name)
 	elif item_name=="伽勒尔宝可梦图鉴":g._open_dex()
 	elif item_name==SWIFT:_swift(g)

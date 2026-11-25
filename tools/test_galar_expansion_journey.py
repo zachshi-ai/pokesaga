@@ -178,6 +178,15 @@ class ExpansionPlayer(GalarPlayer):
         for _ in range(30):
             buttons = self.state["buttons"]
             if not buttons:
+                if key in ("dlc_lair","dlc_beast") and self.pos[0].startswith("crown_adventure_"):
+                    mid = self.pos[0]
+                    if "_fork_" in mid:
+                        floor = int(mid.rsplit("_", 1)[1])
+                        mid = f"crown_adventure_{floor}_{'right' if floor == 2 else 'left'}"
+                        self.enter(mid)
+                    raid = next(a for a in self.state["actors"] if a[1].startswith("venue_lair_"))
+                    self.use_at(mid, raid[0])
+                    continue
                 break
             if key=="dlc_split" and "检查石像" in buttons:
                 for lamp in [1,2,3,5,7,8,9]:self.do("lamp",slot=lamp)

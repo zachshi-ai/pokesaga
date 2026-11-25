@@ -1,0 +1,228 @@
+地区	地图ID	地名	剑盾差分	落脚格	尺寸	实际步数	核准出口	实测出口	原作地点	核对范围
+galar	galar_1	1号道路	shared	[18.0, 13.0]	[35.0, 31.0]	117	6	6		已有场地；本次实测道路与出口
+galar	galar_10	10号道路	shared	[17.0, 14.0]	[47.0, 37.0]	42	2	2		已有场地；本次实测道路与出口
+galar	galar_2	2号道路	shared	[21.0, 15.0]	[53.0, 43.0]	75	3	3		已有场地；本次实测道路与出口
+galar	galar_2_lakeside_room	2号道路・宝可梦博士的家	shared	[7.0, 6.0]	[17.0, 8.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_3	3号道路	shared	[16.0, 12.0]	[43.0, 37.0]	50	2	2		已有场地；本次实测道路与出口
+galar	galar_4	4号道路	shared	[17.0, 13.0]	[53.0, 43.0]	58	3	3		已有场地；本次实测道路与出口
+galar	galar_4_barn_room	4号道路・谷仓	shared	[7.0, 6.0]	[17.0, 8.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_5	5号道路	shared	[22.0, 9.0]	[53.0, 31.0]	91	3	3		已有场地；本次实测道路与出口
+galar	galar_5_nursery_room	5号道路・寄放屋	shared	[2.0, 7.0]	[12.0, 9.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_6	6号道路	shared	[22.0, 12.0]	[53.0, 37.0]	64	2	2		已有场地；本次实测道路与出口
+galar	galar_7	7号道路	shared	[19.0, 15.0]	[53.0, 37.0]	71	3	3		已有场地；本次实测道路与出口
+galar	galar_8	8号道路	shared	[17.0, 15.0]	[53.0, 43.0]	66	2	2		已有场地；本次实测道路与出口
+galar	galar_9	9号道路	shared	[21.0, 14.0]	[53.0, 43.0]	86	2	2		已有场地；本次实测道路与出口
+galar	galar_axew_eye	牙牙湖之眼	shared	[23.0, 17.0]	[47.0, 35.0]	17	1	1	Axew's Eye	具名分区与连接；地貌为二维适配
+galar	galar_axewell_west	牙牙湖西岸	shared	[23.0, 17.0]	[47.0, 35.0]	114	5	5	West Lake Axewell	具名分区与连接；地貌为二维适配
+galar	galar_ballonlea	舞姿镇	shared	[18.0, 16.0]	[35.0, 35.0]	82	6	6		已有场地；本次实测道路与出口
+galar	galar_ballonlea_center_main	舞姿镇・宝可梦中心	shared	[7.0, 7.0]	[14.0, 9.0]	13	2	2	Pokémon Center	原版城市、分店方位与服务；内部为绿宝石风格
+galar	galar_ballonlea_cottage2_room	舞姿镇・居民家	shared	[3.0, 6.0]	[11.0, 8.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_ballonlea_cottage3_room	舞姿镇・居民家	shared	[7.0, 6.0]	[17.0, 8.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_ballonlea_cottage_room	舞姿镇・居民家	shared	[3.0, 7.0]	[10.0, 9.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_ballonlea_fairy_room	舞姿镇・剧场大厅	shared	[6.0, 8.0]	[13.0, 10.0]	8	3	3		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_battle_tower	宫门市・对战塔大厅	shared	[14.0, 16.0]	[29.0, 18.0]	14	2	2	Battle Tower	同址通关后改建、接待处和对战业务；二维室内适配
+galar	galar_battle_tower_field	对战塔・对战场	shared	[12.0, 16.0]	[25.0, 19.0]	2	1	1	Battle Tower	同址通关后改建、接待处和对战业务；二维室内适配
+galar	galar_bridge_field	桥间空地	shared	[23.0, 17.0]	[47.0, 35.0]	44	3	3	Bridge Field	具名分区与连接；地貌为二维适配
+galar	galar_bridge_nursery_room	桥间空地・寄放屋	shared	[2.0, 7.0]	[12.0, 9.0]	3	2	2	galar_bridge_nursery_room	原版建筑用途；室内为绿宝石风格
+galar	galar_circhester	战竞镇	shared	[18.0, 14.0]	[35.0, 31.0]	145	9	9		已有场地；本次实测道路与出口
+galar	galar_circhester_bay	九号道路・战竞湾	shared	[12.0, 4.0]	[33.0, 23.0]	28	2	2		已有场地；本次实测道路与出口
+galar	galar_circhester_boutique_room	战竞镇・时装店	shared	[9.0, 10.0]	[21.0, 12.0]	1	1	1	Galar Boutique	原作城镇、街区与服务；小悠与店内二维重绘
+galar	galar_circhester_center_main	战竞镇・宝可梦中心	shared	[7.0, 7.0]	[14.0, 9.0]	13	2	2	Pokémon Center	原版城市、分店方位与服务；内部为绿宝石风格
+galar	galar_circhester_cottage_room	战竞镇・居民家	shared	[7.0, 6.0]	[17.0, 8.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_circhester_grill	战竞镇・牛排之家	shared	[11.0, 13.0]	[23.0, 16.0]	2	1	1		已有场地；本次实测道路与出口
+galar	galar_circhester_hotel1_room	战竞镇・爱奥尼亚酒店	shared	[6.0, 9.0]	[14.0, 11.0]	12	3	3		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_circhester_hotel_room	战竞镇・爱奥尼亚酒店	shared	[6.0, 9.0]	[14.0, 11.0]	24	4	4		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_circhester_salon_room	战竞镇・美发沙龙	shared	[9.0, 10.0]	[19.0, 12.0]	1	1	1	Hair Salon	原作城镇、街区与服务；小悠与店内二维重绘
+galar	galar_dappled	沐光森林	shared	[23.0, 17.0]	[47.0, 35.0]	61	3	3	Dappled Grove	具名分区与连接；地貌为二维适配
+galar	galar_dusty	沙尘洼地	shared	[23.0, 17.0]	[47.0, 35.0]	89	4	4	Dusty Bowl	具名分区与连接；地貌为二维适配
+galar	galar_energy_plant	拳关市・能源工厂	shared	[16.0, 21.0]	[33.0, 24.0]	21	2	2		已有场地；本次实测道路与出口
+galar	galar_giant_cap	巨人帽岩	shared	[23.0, 16.0]	[47.0, 35.0]	93	4	4	Giant's Cap	具名分区与连接；地貌为二维适配
+galar	galar_giant_mirror	巨人镜池	shared	[23.0, 15.0]	[47.0, 35.0]	65	3	3	Giant's Mirror	具名分区与连接；地貌为二维适配
+galar	galar_gym_2_mission	水舟竞技场・水流控制室	shared	[14.0, 40.0]	[29.0, 43.0]	83	2	2		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_2_pitch	水舟竞技场・对战场	shared	[14.0, 24.0]	[29.0, 27.0]	2	1	1		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_3_mission	机擎竞技场・捕捉竞赛场	shared	[14.0, 40.0]	[29.0, 43.0]	41	2	2		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_3_pitch	机擎竞技场・对战场	shared	[14.0, 24.0]	[29.0, 27.0]	2	1	1		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_4_mission	溯传竞技场・旋转座椅赛道	sword	[14.0, 40.0]	[29.0, 43.0]	46	2	2		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_4_mission	溯传竞技场・旋转座椅赛道	shield	[14.0, 40.0]	[29.0, 43.0]	46	2	2		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_4_pitch	溯传竞技场・对战场	sword	[14.0, 24.0]	[29.0, 27.0]	2	1	1		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_4_pitch	溯传竞技场・对战场	shield	[14.0, 24.0]	[29.0, 27.0]	2	1	1		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_5_mission	舞姿竞技场・选拔剧场	shared	[14.0, 40.0]	[29.0, 43.0]	63	2	2		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_5_pitch	舞姿竞技场・对战场	shared	[14.0, 24.0]	[29.0, 27.0]	2	1	1		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_6_mission	战竞竞技场・陷阱探测场	sword	[14.0, 40.0]	[29.0, 43.0]	65	2	2		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_6_mission	战竞竞技场・陷阱探测场	shield	[14.0, 40.0]	[29.0, 43.0]	65	2	2		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_6_pitch	战竞竞技场・对战场	sword	[14.0, 24.0]	[29.0, 27.0]	2	1	1		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_6_pitch	战竞竞技场・对战场	shield	[14.0, 24.0]	[29.0, 27.0]	2	1	1		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_7_mission	尖钉镇道馆・封锁商店街	shared	[14.0, 40.0]	[29.0, 43.0]	79	2	2		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_7_pitch	尖钉镇道馆・地下舞台	shared	[14.0, 24.0]	[29.0, 27.0]	2	1	1		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_8_mission	拳关竞技场・宝物库训练厅	shared	[14.0, 40.0]	[29.0, 43.0]	49	2	2		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_gym_8_pitch	拳关竞技场・对战场	shared	[14.0, 24.0]	[29.0, 27.0]	2	1	1		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_hammer_hills	拳关丘陵	shared	[23.0, 17.0]	[47.0, 35.0]	103	5	5	Hammerlocke Hills	具名分区与连接；地貌为二维适配
+galar	galar_hammerlocke	拳关市	shared	[22.0, 15.0]	[43.0, 31.0]	323	16	16	Hammerlocke	相邻地区核对；含原工程兼容出口
+galar	galar_hammerlocke_boutique_room	拳关市・时装店	shared	[9.0, 10.0]	[21.0, 12.0]	1	1	1	Galar Boutique	原作城镇、街区与服务；小悠与店内二维重绘
+galar	galar_hammerlocke_cafe_room	拳关市・对战咖啡馆	shared	[7.0, 9.0]	[16.0, 11.0]	1	1	1	Battle Café	原作地点和每日对战服务；二维室内适配
+galar	galar_hammerlocke_castle_room	拳关市・拳关城堡	shared	[9.0, 12.0]	[21.0, 14.0]	31	4	4		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_hammerlocke_center_central	拳关市・中央宝可梦中心	shared	[7.0, 7.0]	[14.0, 9.0]	13	2	2	Pokémon Center	原版城市、分店方位与服务；内部为绿宝石风格
+galar	galar_hammerlocke_center_east	拳关市・东区宝可梦中心	shared	[7.0, 7.0]	[14.0, 9.0]	13	2	2	Pokémon Center	原版城市、分店方位与服务；内部为绿宝石风格
+galar	galar_hammerlocke_center_west	拳关市・西区宝可梦中心	shared	[7.0, 7.0]	[14.0, 9.0]	13	2	2	Pokémon Center	原版城市、分店方位与服务；内部为绿宝石风格
+galar	galar_hammerlocke_cottage3_room	拳关市・居民家	shared	[3.0, 6.0]	[10.0, 8.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_hammerlocke_cottage_room	拳关市・居民家	shared	[3.0, 7.0]	[10.0, 9.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_hammerlocke_salon_room	拳关市・美发沙龙	shared	[9.0, 10.0]	[19.0, 12.0]	1	1	1	Hair Salon	原作城镇、街区与服务；小悠与店内二维重绘
+galar	galar_hammerlocke_station_room	拳关市・车站候车厅	shared	[4.0, 12.0]	[9.0, 14.0]	1	1	1		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_hop_home	化朗镇・赫普和丹帝的家	shared	[6.0, 7.0]	[11.0, 9.0]	14	3	3		已有场地；本次实测道路与出口
+galar	galar_hop_upstairs	化朗镇・赫普家二楼	shared	[8.0, 3.0]	[9.0, 8.0]	3	1	1		已有场地；本次实测道路与出口
+galar	galar_hulbury	水舟镇	shared	[16.0, 18.0]	[35.0, 35.0]	115	8	8		已有场地；本次实测道路与出口
+galar	galar_hulbury_center_main	水舟镇・宝可梦中心	shared	[7.0, 7.0]	[14.0, 9.0]	13	2	2	Pokémon Center	原版城市、分店方位与服务；内部为绿宝石风格
+galar	galar_hulbury_cottage3_room	水舟镇・居民家	shared	[7.0, 6.0]	[17.0, 8.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_hulbury_cottage_room	水舟镇・居民家	shared	[3.0, 6.0]	[10.0, 8.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_hulbury_fishmarket_room	水舟镇・鱼市	shared	[6.0, 8.0]	[15.0, 10.0]	9	3	3		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_hulbury_lighthouse_room	水舟镇・灯塔值班室	shared	[5.0, 7.0]	[12.0, 9.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_ionia_east	爱奥尼亚酒店・东馆二楼	shared	[12.0, 7.0]	[25.0, 10.0]	43	5	5	Hotel Ionia	双馆各四间客房、楼梯和住客用途；二维室内适配
+galar	galar_ionia_east_guest_1	爱奥尼亚酒店・东馆1号客房	shared	[5.0, 8.0]	[12.0, 10.0]	1	1	1	Hotel Ionia	双馆各四间客房、楼梯和住客用途；二维室内适配
+galar	galar_ionia_east_guest_2	爱奥尼亚酒店・东馆2号客房	shared	[5.0, 8.0]	[12.0, 10.0]	1	1	1	Hotel Ionia	双馆各四间客房、楼梯和住客用途；二维室内适配
+galar	galar_ionia_east_guest_3	爱奥尼亚酒店・东馆3号客房	shared	[5.0, 8.0]	[12.0, 10.0]	1	1	1	Hotel Ionia	双馆各四间客房、楼梯和住客用途；二维室内适配
+galar	galar_ionia_east_guest_4	爱奥尼亚酒店・东馆4号客房	shared	[5.0, 8.0]	[12.0, 10.0]	1	1	1	Hotel Ionia	双馆各四间客房、楼梯和住客用途；二维室内适配
+galar	galar_ionia_west	爱奥尼亚酒店・西馆二楼	shared	[12.0, 7.0]	[25.0, 10.0]	43	5	5	Hotel Ionia	双馆各四间客房、楼梯和住客用途；二维室内适配
+galar	galar_ionia_west_guest_1	爱奥尼亚酒店・西馆1号客房	shared	[5.0, 8.0]	[12.0, 10.0]	1	1	1	Hotel Ionia	双馆各四间客房、楼梯和住客用途；二维室内适配
+galar	galar_ionia_west_guest_2	爱奥尼亚酒店・西馆2号客房	shared	[5.0, 8.0]	[12.0, 10.0]	1	1	1	Hotel Ionia	双馆各四间客房、楼梯和住客用途；二维室内适配
+galar	galar_ionia_west_guest_3	爱奥尼亚酒店・西馆3号客房	shared	[5.0, 8.0]	[12.0, 10.0]	1	1	1	Hotel Ionia	双馆各四间客房、楼梯和住客用途；二维室内适配
+galar	galar_ionia_west_guest_4	爱奥尼亚酒店・西馆4号客房	shared	[5.0, 8.0]	[12.0, 10.0]	1	1	1	Hotel Ionia	双馆各四间客房、楼梯和住客用途；二维室内适配
+galar	galar_lake_out	逆鳞湖	shared	[22.0, 13.0]	[53.0, 43.0]	118	3	3	Lake of Outrage	相邻地区核对；含原工程兼容出口
+galar	galar_meetup	集汇空地	shared	[23.0, 17.0]	[47.0, 35.0]	29	2	2	Meetup Spot	具名分区与连接；地貌为二维适配
+galar	galar_meetup_station_room	集汇空地・车站候车厅	shared	[4.0, 12.0]	[9.0, 14.0]	1	1	1	galar_meetup_station_room	原版建筑用途；室内为绿宝石风格
+galar	galar_miloch_north	美纳斯湖北岸	shared	[23.0, 17.0]	[47.0, 35.0]	84	4	4	North Lake Miloch	具名分区与连接；地貌为二维适配
+galar	galar_miloch_south	美纳斯湖南岸	shared	[23.0, 17.0]	[47.0, 35.0]	103	4	4	South Lake Miloch	具名分区与连接；地貌为二维适配
+galar	galar_mine	伽勒尔矿山	shared	[14.0, 14.0]	[43.0, 37.0]	66	2	2		已有场地；本次实测道路与出口
+galar	galar_mine2	第二矿山	shared	[15.0, 17.0]	[47.0, 43.0]	57	3	3	Galar Mine No. 2	相邻地区核对；含原工程兼容出口
+galar	galar_motostoke	机擎市	shared	[16.0, 19.0]	[39.0, 35.0]	325	16	16	Motostoke	相邻地区核对；含原工程兼容出口
+galar	galar_motostoke_boutique_room	机擎市・时装店	shared	[9.0, 10.0]	[21.0, 12.0]	1	1	1	Galar Boutique	原作城镇、街区与服务；小悠与店内二维重绘
+galar	galar_motostoke_cafe_room	机擎市・对战咖啡馆	shared	[7.0, 9.0]	[16.0, 11.0]	1	1	1	Battle Café	原作地点和每日对战服务；二维室内适配
+galar	galar_motostoke_center_south	机擎市・南区宝可梦中心	shared	[7.0, 7.0]	[14.0, 9.0]	13	2	2	Pokémon Center	原版城市、分店方位与服务；内部为绿宝石风格
+galar	galar_motostoke_center_west	机擎市・西区宝可梦中心	shared	[7.0, 7.0]	[14.0, 9.0]	13	2	2	Pokémon Center	原版城市、分店方位与服务；内部为绿宝石风格
+galar	galar_motostoke_cottage_room	机擎市・居民家	shared	[3.0, 7.0]	[10.0, 9.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_motostoke_inn	机擎市・含羞苞旅店	shared	[11.0, 15.0]	[23.0, 18.0]	1	1	1		已有场地；本次实测道路与出口
+galar	galar_motostoke_salon_room	机擎市・美发沙龙	shared	[9.0, 10.0]	[19.0, 12.0]	1	1	1	Hair Salon	原作城镇、街区与服务；小悠与店内二维重绘
+galar	galar_motostoke_shutter_room	机擎市・街角商店	shared	[3.0, 6.0]	[11.0, 8.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_motostoke_stadium	机擎竞技场	shared	[15.0, 22.0]	[31.0, 25.0]	30	2	2		已有场地；本次实测道路与出口
+galar	galar_motostoke_station_room	机擎市・车站候车厅	shared	[4.0, 12.0]	[9.0, 14.0]	1	1	1		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_motostoke_works_room	机擎市・蒸汽工场	shared	[2.0, 13.0]	[21.0, 15.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_outskirts	机擎市郊外	shared	[23.0, 17.0]	[47.0, 35.0]	46	2	2	Motostoke Outskirts	具名分区与连接；地貌为二维适配
+galar	galar_pass_armor_fields	铠岛防波堤	shared	[16.0, 17.0]	[39.0, 31.0]	36	2	2		本作新增跨区通路
+galar	galar_pass_crown_freezington	王冠雪线隧道	shared	[16.0, 10.0]	[31.0, 23.0]	30	2	2		本作新增跨区通路
+galar	galar_pass_kalos_cyllage	伽勒尔海峡隧道	shared	[19.0, 11.0]	[35.0, 23.0]	36	2	2		本作新增跨区通路
+galar	galar_player_home	化朗镇・主角的家	shared	[3.0, 6.0]	[10.0, 8.0]	3	2	2		已有场地；本次实测道路与出口
+galar	galar_postwick	化朗镇	shared	[13.0, 17.0]	[43.0, 35.0]	145	8	8		已有场地；本次实测道路与出口
+galar	galar_riverbank	机擎河岸	shared	[23.0, 17.0]	[47.0, 35.0]	49	2	2	Motostoke Riverbank	具名分区与连接；地貌为二维适配
+galar	galar_rose	洛兹大厦	shared	[10.0, 10.0]	[23.0, 19.0]	22	2	2		已有场地；本次实测道路与出口
+galar	galar_rose_lift	洛兹大厦・观景电梯	shared	[9.0, 12.0]	[19.0, 15.0]	12	2	2		已有场地；本次实测道路与出口
+galar	galar_rose_suite	洛兹大厦・会长办公室	shared	[11.0, 14.0]	[25.0, 17.0]	2	1	1		已有场地；本次实测道路与出口
+galar	galar_seafood	水舟镇・防波亭海鲜餐厅	shared	[11.0, 13.0]	[23.0, 16.0]	2	1	1		已有场地；本次实测道路与出口
+galar	galar_slope	银白山岭	shared	[21.0, 15.0]	[53.0, 37.0]	54	2	2		已有场地；本次实测道路与出口
+galar	galar_spikemuth	尖钉镇	shared	[24.0, 14.0]	[43.0, 31.0]	132	7	7		已有场地；本次实测道路与出口
+galar	galar_spikemuth_center_main	尖钉镇・宝可梦中心	shared	[7.0, 7.0]	[14.0, 9.0]	13	2	2	Pokémon Center	原版城市、分店方位与服务；内部为绿宝石风格
+galar	galar_spikemuth_club_room	尖钉镇・演出场地	shared	[6.0, 8.0]	[13.0, 10.0]	8	3	3		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_spikemuth_shutter2_room	尖钉镇・街角商店	shared	[3.0, 7.0]	[12.0, 9.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_spikemuth_shutter3_room	尖钉镇・街角商店	shared	[3.0, 7.0]	[12.0, 9.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_spikemuth_shutter_room	尖钉镇・街角商店	shared	[3.0, 7.0]	[12.0, 9.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_stadium	宫门竞技场	shared	[16.0, 9.0]	[27.0, 17.0]	17	1	1		已有场地；本次实测道路与出口
+galar	galar_stony	巨石原野	shared	[23.0, 17.0]	[47.0, 35.0]	111	4	4	Stony Wilderness	具名分区与连接；地貌为二维适配
+galar	galar_stow	溯传镇	shared	[21.0, 13.0]	[43.0, 27.0]	109	7	7		已有场地；本次实测道路与出口
+galar	galar_stow_bazaar_room	溯传镇・古物市场	shared	[6.0, 8.0]	[15.0, 10.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_stow_center_main	溯传镇・宝可梦中心	shared	[7.0, 7.0]	[14.0, 9.0]	13	2	2	Pokémon Center	原版城市、分店方位与服务；内部为绿宝石风格
+galar	galar_stow_cottage2_room	溯传镇・居民家	shared	[3.0, 7.0]	[10.0, 9.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_stow_cottage_room	溯传镇・居民家	shared	[5.0, 7.0]	[12.0, 9.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_tangle	迷光森林	shared	[15.0, 10.0]	[47.0, 31.0]	34	2	2		已有场地；本次实测道路与出口
+galar	galar_tower_summit	拳关竞技场・塔顶	shared	[14.0, 15.0]	[29.0, 21.0]	5	1	1		已有场地；本次实测道路与出口
+galar	galar_tunnel	九路隧道	shared	[20.0, 14.0]	[53.0, 37.0]	52	2	2		已有场地；本次实测道路与出口
+galar	galar_turffield	草路镇	shared	[14.0, 12.0]	[35.0, 27.0]	110	7	7		已有场地；本次实测道路与出口
+galar	galar_turffield_barn_room	草路镇・谷仓	shared	[5.0, 7.0]	[11.0, 9.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_turffield_center_main	草路镇・宝可梦中心	shared	[7.0, 7.0]	[14.0, 9.0]	13	2	2	Pokémon Center	原版城市、分店方位与服务；内部为绿宝石风格
+galar	galar_turffield_cottage3_room	草路镇・居民家	shared	[3.0, 6.0]	[11.0, 8.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_turffield_cottage_room	草路镇・居民家	shared	[3.0, 6.0]	[11.0, 8.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_turffield_mission	草路竞技场・牧场任务	shared	[11.0, 57.0]	[25.0, 60.0]	65	2	2		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_turffield_pitch	草路竞技场・对战草坪	shared	[14.0, 24.0]	[29.0, 27.0]	2	1	1		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_turffield_pitch_room	草路竞技场・接待大厅	shared	[6.0, 8.0]	[13.0, 10.0]	11	3	3		已有玩法场地与双向门；本次未逐格对原作
+galar	galar_watchtower	瞭望塔旧址	shared	[23.0, 17.0]	[47.0, 35.0]	61	3	3	Watchtower Ruins	具名分区与连接；地貌为二维适配
+galar	galar_weald	微寐森林	shared	[15.0, 17.0]	[31.0, 31.0]	37	2	2		已有场地；本次实测道路与出口
+galar	galar_weald_altar	微寐森林・英雄的石台	shared	[14.0, 18.0]	[29.0, 21.0]	2	1	1		已有场地；本次实测道路与出口
+galar	galar_wedgehurst	木杆镇	shared	[20.0, 12.0]	[35.0, 27.0]	164	11	11		已有场地；本次实测道路与出口
+galar	galar_wedgehurst_boutique_room	木杆镇・时装店	shared	[9.0, 10.0]	[21.0, 12.0]	1	1	1	Galar Boutique	原作城镇、街区与服务；小悠与店内二维重绘
+galar	galar_wedgehurst_center_lab	木杆镇・宝可梦中心	shared	[7.0, 7.0]	[14.0, 9.0]	13	2	2	Pokémon Center	原版城市、分店方位与服务；内部为绿宝石风格
+galar	galar_wedgehurst_cottage3_room	木杆镇・居民家	shared	[7.0, 6.0]	[17.0, 8.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_wedgehurst_cottage_room	木杆镇・居民家	shared	[3.0, 6.0]	[11.0, 8.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_wedgehurst_lab_room	木杆镇・研究所	shared	[6.0, 11.0]	[13.0, 13.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_wedgehurst_station_room	木杆镇・车站候车厅	shared	[4.0, 12.0]	[9.0, 14.0]	1	1	1		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_wild_lake	牙牙湖	shared	[16.0, 11.0]	[43.0, 37.0]	353	8	8	East Lake Axewell	相邻地区核对；含原工程兼容出口
+galar	galar_wild_north	巨人凳岩	shared	[17.0, 13.0]	[47.0, 31.0]	101	5	5	Giant's Seat	相邻地区核对；含原工程兼容出口
+galar	galar_wild_south	煦丽草原	shared	[18.0, 11.0]	[43.0, 37.0]	118	6	6	Rolling Fields	相邻地区核对；含原工程兼容出口
+galar	galar_wyndon	宫门市	story	[21.0, 15.0]	[39.0, 35.0]	255	11	11	Wyndon	城市与大厦入口在夺冠前后切换
+galar	galar_wyndon	宫门市	champion	[21.0, 15.0]	[39.0, 35.0]	255	11	11	Wyndon	城市与大厦入口在夺冠前后切换
+galar	galar_wyndon_boutique_room	宫门市・时装店	shared	[9.0, 10.0]	[21.0, 12.0]	1	1	1	Galar Boutique	原作城镇、街区与服务；小悠与店内二维重绘
+galar	galar_wyndon_cafe_room	宫门市・对战咖啡馆	shared	[7.0, 9.0]	[16.0, 11.0]	3	2	2	Battle Café	原作地点和每日对战服务；二维室内适配
+galar	galar_wyndon_center_south	宫门市・南区宝可梦中心	shared	[7.0, 7.0]	[14.0, 9.0]	13	2	2	Pokémon Center	原版城市、分店方位与服务；内部为绿宝石风格
+galar	galar_wyndon_center_stadium	宫门市・竞技场前宝可梦中心	shared	[7.0, 7.0]	[14.0, 9.0]	13	2	2	Pokémon Center	原版城市、分店方位与服务；内部为绿宝石风格
+galar	galar_wyndon_hotel_room	宫门市・伦度罗瑟酒店	shared	[6.0, 9.0]	[14.0, 11.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_wyndon_salon_room	宫门市・美发沙龙	shared	[9.0, 10.0]	[19.0, 12.0]	1	1	1	Hair Salon	原作城镇、街区与服务；小悠与店内二维重绘
+galar	galar_wyndon_station_room	宫门市・车站候车厅	shared	[4.0, 12.0]	[9.0, 14.0]	1	1	1		已有建筑门牌与室内出口；本次未逐格对原作
+galar	galar_wyndon_terrace_room	宫门市・露台民居	shared	[5.0, 7.0]	[17.0, 9.0]	3	2	2		已有建筑门牌与室内出口；本次未逐格对原作
+armor	armor_cave	战斗洞窟	shared	[17.0, 16.0]	[31.0, 31.0]	51	3	3	Brawlers' Cave	相邻地区核对；含原工程兼容出口
+armor	armor_challenge_beach	挑战海滩	shared	[23.0, 17.0]	[47.0, 35.0]	105	5	5	Challenge Beach	具名分区与连接；地貌为二维适配
+armor	armor_courageous	斗志洞窟	shared	[14.0, 17.0]	[47.0, 35.0]	67	3	3	Courageous Cavern	具名分区与连接；地貌为二维适配
+armor	armor_dark_floor_1	恶之塔・1层	shared	[7.0, 10.0]	[16.0, 13.0]	13	2	2		已有玩法场地与双向门；本次未逐格对原作
+armor	armor_dark_floor_2	恶之塔・2层	shared	[7.0, 10.0]	[16.0, 13.0]	13	2	2		已有玩法场地与双向门；本次未逐格对原作
+armor	armor_dark_floor_3	恶之塔・3层	shared	[7.0, 10.0]	[16.0, 13.0]	13	2	2		已有玩法场地与双向门；本次未逐格对原作
+armor	armor_dark_floor_4	恶之塔・4层	shared	[7.0, 10.0]	[16.0, 13.0]	13	2	2		已有玩法场地与双向门；本次未逐格对原作
+armor	armor_dark_floor_5	恶之塔・5层	shared	[7.0, 10.0]	[16.0, 13.0]	1	1	1		已有玩法场地与双向门；本次未逐格对原作
+armor	armor_desert	锅底沙漠	shared	[23.0, 17.0]	[47.0, 35.0]	17	1	1	Potbottom Desert	具名分区与连接；地貌为二维适配
+armor	armor_dojo	马师傅武馆	shared	[13.0, 12.0]	[31.0, 23.0]	18	1	1	Master Dojo	相邻地区核对；含原工程兼容出口
+armor	armor_fields	揖礼原野	shared	[18.0, 12.0]	[39.0, 27.0]	66	4	4	Fields of Honor	相邻地区核对；含原工程兼容出口
+armor	armor_forest	专注森林	shared	[18.0, 14.0]	[35.0, 27.0]	81	5	5	Forest of Focus	相邻地区核对；含原工程兼容出口
+armor	armor_honey_island	蜂巢岛	shared	[23.0, 17.0]	[47.0, 35.0]	17	1	1	Honeycalm Island	具名分区与连接；地貌为二维适配
+armor	armor_honey_sea	蜂巢海	shared	[23.0, 17.0]	[47.0, 35.0]	107	5	5	Honeycalm Sea	具名分区与连接；地貌为二维适配
+armor	armor_insular_sea	离岛海域	shared	[23.0, 17.0]	[47.0, 35.0]	40	2	2	Insular Sea	具名分区与连接；地貌为二维适配
+armor	armor_lagoon	圆环海湾	shared	[23.0, 17.0]	[47.0, 35.0]	74	2	2	Loop Lagoon	具名分区与连接；地貌为二维适配
+armor	armor_lowlands	锻炼平原	shared	[23.0, 17.0]	[47.0, 35.0]	105	5	5	Training Lowlands	具名分区与连接；地貌为二维适配
+armor	armor_stepping_sea	列岛海域	shared	[23.0, 17.0]	[47.0, 35.0]	115	5	5	Stepping-Stone Sea	具名分区与连接；地貌为二维适配
+armor	armor_steps	挑战之路	shared	[19.0, 13.0]	[35.0, 31.0]	79	4	4	Challenge Road	相邻地区核对；含原工程兼容出口
+armor	armor_towers	恶之塔	shared	[16.0, 10.0]	[35.0, 23.0]	15	2	2	Tower of Darkness	相邻地区核对；含原工程兼容出口
+armor	armor_warmup	热身洞穴	shared	[23.0, 17.0]	[47.0, 35.0]	34	2	2	Warm-Up Tunnel	具名分区与连接；地貌为二维适配
+armor	armor_water_floor_1	水之塔・1层	shared	[7.0, 10.0]	[16.0, 13.0]	13	2	2		已有玩法场地与双向门；本次未逐格对原作
+armor	armor_water_floor_2	水之塔・2层	shared	[7.0, 10.0]	[16.0, 13.0]	13	2	2		已有玩法场地与双向门；本次未逐格对原作
+armor	armor_water_floor_3	水之塔・3层	shared	[7.0, 10.0]	[16.0, 13.0]	13	2	2		已有玩法场地与双向门；本次未逐格对原作
+armor	armor_water_floor_4	水之塔・4层	shared	[7.0, 10.0]	[16.0, 13.0]	13	2	2		已有玩法场地与双向门；本次未逐格对原作
+armor	armor_water_floor_5	水之塔・5层	shared	[7.0, 10.0]	[16.0, 13.0]	1	1	1		已有玩法场地与双向门；本次未逐格对原作
+armor	armor_water_tower	水之塔	shared	[22.0, 12.0]	[39.0, 23.0]	33	2	2	Tower of Waters	相邻地区核对；含原工程兼容出口
+armor	armor_wetland	清凉湿原	shared	[18.0, 12.0]	[35.0, 23.0]	120	6	6	Soothing Wetlands	相邻地区核对；含原工程兼容出口
+armor	armor_workout_sea	健身之海	shared	[23.0, 8.0]	[47.0, 35.0]	43	3	3	Workout Sea	具名分区与连接；地貌为二维适配
+crown	crown_adventure_1_left	极巨巢穴・第一层西支洞	shared	[13.0, 16.0]	[27.0, 19.0]	17	2	2	Max Lair	租借探险的三次选路和终点；本作固定分支图
+crown	crown_adventure_1_right	极巨巢穴・第一层东支洞	shared	[13.0, 16.0]	[27.0, 19.0]	17	2	2	Max Lair	租借探险的三次选路和终点；本作固定分支图
+crown	crown_adventure_2_left	极巨巢穴・第二层西支洞	shared	[13.0, 16.0]	[27.0, 19.0]	17	2	2	Max Lair	租借探险的三次选路和终点；本作固定分支图
+crown	crown_adventure_2_right	极巨巢穴・第二层东支洞	shared	[13.0, 16.0]	[27.0, 19.0]	17	2	2	Max Lair	租借探险的三次选路和终点；本作固定分支图
+crown	crown_adventure_3_left	极巨巢穴・第三层西支洞	shared	[13.0, 16.0]	[27.0, 19.0]	17	2	2	Max Lair	租借探险的三次选路和终点；本作固定分支图
+crown	crown_adventure_3_right	极巨巢穴・第三层东支洞	shared	[13.0, 16.0]	[27.0, 19.0]	17	2	2	Max Lair	租借探险的三次选路和终点；本作固定分支图
+crown	crown_adventure_fork_1	极巨巢穴・第一处分岔	shared	[12.0, 15.0]	[25.0, 18.0]	40	3	3	Max Lair	租借探险的三次选路和终点；本作固定分支图
+crown	crown_adventure_fork_2	极巨巢穴・第二处分岔	shared	[12.0, 15.0]	[25.0, 18.0]	40	3	3	Max Lair	租借探险的三次选路和终点；本作固定分支图
+crown	crown_adventure_fork_3	极巨巢穴・第三处分岔	shared	[12.0, 15.0]	[25.0, 18.0]	40	3	3	Max Lair	租借探险的三次选路和终点；本作固定分支图
+crown	crown_adventure_nest	极巨巢穴・最深处	shared	[13.0, 16.0]	[27.0, 19.0]	2	1	1	Max Lair	租借探险的三次选路和终点；本作固定分支图
+crown	crown_bed	巨人睡榻	shared	[19.0, 14.0]	[35.0, 27.0]	137	8	8	Giant's Bed	相邻地区核对；含原工程兼容出口
+crown	crown_cemetery	远古墓地	shared	[23.0, 17.0]	[47.0, 35.0]	17	1	1	Old Cemetery	具名分区与连接；地貌为二维适配
+crown	crown_freezington	冻凝村	shared	[14.0, 12.0]	[35.0, 27.0]	88	6	6	Freezington	相邻地区核对；含原工程兼容出口
+crown	crown_freezington_mayor	冻凝村・村长的家	shared	[5.0, 7.0]	[11.0, 9.0]	3	2	2	Freezington	原版建筑用途；室内为绿宝石风格
+crown	crown_freezington_peony	冻凝村・探险基地	shared	[7.0, 6.0]	[17.0, 8.0]	3	2	2	Freezington	原版建筑用途；室内为绿宝石风格
+crown	crown_frigid	冻海	shared	[23.0, 17.0]	[47.0, 35.0]	41	2	2	Frigid Sea	具名分区与连接；地貌为二维适配
+crown	crown_frostpoint	冰点雪原	shared	[23.0, 17.0]	[47.0, 35.0]	34	2	2	Frostpoint Field	具名分区与连接；地貌为二维适配
+crown	crown_giant_foot	巨人鞋底	shared	[20.0, 17.0]	[47.0, 35.0]	43	2	2	Giant's Foot	具名分区与连接；地貌为二维适配
+crown	crown_ice_temple	冰山遗迹	shared	[11.0, 9.0]	[23.0, 19.0]	9	1	1	Iceberg Ruins	具名分区与连接；地貌为二维适配
+crown	crown_iron_temple	黑金遗迹	shared	[12.0, 9.0]	[23.0, 19.0]	12	1	1	Iron Ruins	具名分区与连接；地貌为二维适配
+crown	crown_lake	球湖湖畔	shared	[16.0, 13.0]	[31.0, 23.0]	68	4	4	Ballimere Lake	相邻地区核对；含原工程兼容出口
+crown	crown_lakeside_cave	湖畔洞窟	shared	[18.0, 14.0]	[37.0, 31.0]	18	1	1	Lakeside Cave	具名分区与连接；地貌为二维适配
+crown	crown_max_lair	极巨巢穴・调查营地	shared	[14.0, 16.0]	[29.0, 19.0]	14	2	2	Max Lair	相邻地区核对；含原工程兼容出口
+crown	crown_peak	王冠神殿	shared	[16.0, 14.0]	[31.0, 27.0]	27	2	2	Crown Shrine	相邻地区核对；含原工程兼容出口
+crown	crown_peak_path	通顶雪道	shared	[23.0, 17.0]	[47.0, 35.0]	34	2	2	Path to the Peak	具名分区与连接；地貌为二维适配
+crown	crown_roaring	海鸣洞窟	shared	[23.0, 17.0]	[47.0, 35.0]	54	2	2	Roaring-Sea Caves	具名分区与连接；地貌为二维适配
+crown	crown_rock_temple	岩山遗迹	shared	[11.0, 9.0]	[23.0, 19.0]	9	1	1	Rock Peak Ruins	具名分区与连接；地貌为二维适配
+crown	crown_ruins	抉择遗迹	shared	[18.0, 13.0]	[35.0, 23.0]	34	2	2	Split-Decision Ruins	相邻地区核对；含原工程兼容出口
+crown	crown_slippery	滑溜坡	shared	[10.0, 8.0]	[41.0, 29.0]	55	2	2	Slippery Slope	相邻地区核对；含原工程兼容出口
+crown	crown_slope	雪中溪谷	shared	[21.0, 10.0]	[39.0, 23.0]	62	4	4	Snowslide Slope	相邻地区核对；含原工程兼容出口
+crown	crown_three_point	三岔平原	shared	[23.0, 17.0]	[47.0, 35.0]	41	2	2	Three-Point Pass	具名分区与连接；地貌为二维适配
+crown	crown_top_tunnel	登顶隧道	shared	[18.0, 16.0]	[37.0, 31.0]	40	2	2	Tunnel to the Top	具名分区与连接；地貌为二维适配
+crown	crown_tree	巨树丘陵	shared	[20.0, 13.0]	[39.0, 31.0]	20	1	1	Dyna Tree Hill	相邻地区核对；含原工程兼容出口

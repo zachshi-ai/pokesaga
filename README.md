@@ -1,8 +1,12 @@
 # PokeSaga · 安卓学习版
 
-用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.67.0-study`，versionCode 为 100，包名为 `com.stepx.pokesaga.study`。使用学习版的玩家可以覆盖安装，继续同一份存档。
+用 Godot 4.7.2 开发的横屏宝可梦同人 RPG。当前学习版为 `4.68.0-study`，versionCode 为 101，包名为 `com.stepx.pokesaga.study`。使用学习版的玩家可以覆盖安装，继续同一份存档。
 
-[下载 4.67 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.67.0-study/PokeSaga-4.67.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.67.0-study)
+[下载 4.68 安卓学习版（ARM64 APK）](https://github.com/zachshi-ai/pokesaga/releases/download/v4.68.0-study/PokeSaga-4.68.0-study.apk) · [查看发布说明](https://github.com/zachshi-ai/pokesaga/releases/tag/v4.68.0-study)
+
+## 从城都到伽勒尔的实地走图
+
+在城都可以从场门进入狩猎地带，在合众可以沿海底遗迹一层的四条走廊找到楼梯。在阿罗拉，马利埃图书馆的楼梯通往二层阅览室。在伽勒尔，旷野、铠岛和王冠雪原的命名分区有各自的地形和连接路。各地仍沿用一份存档。[逐图记录、原作依据及实机画面](doc/field-audit/README.md)
 
 ## 水脉图书馆与城市街面
 

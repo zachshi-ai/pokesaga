@@ -1,0 +1,2 @@
+# The last field of a passing audit can be empty. Keep its TSV delimiter.
+*.tsv whitespace=-blank-at-eol

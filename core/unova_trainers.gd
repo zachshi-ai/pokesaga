@@ -48,6 +48,29 @@ static func visible(flag: Variant, flags: Dictionary, era: String) -> bool:
 		if number in [0x040f,0x036a]:return true
 	return false
 
+# These serialized actors stand on the only approach to a scripted transition.
+# The DS script turns or steps aside after validating the visitor's progress.
+const DOOR_STAFF := {
+	"unova_9":[9,"u1_ghetsis",[25,26],"黑带","先走完联盟之旅，再来修行岩屋吧。","现在你可以进岩屋修行了。"],
+	"unova_bw_zone_39":[0,"u1_ghetsis",[18,15],"水手","皇家合众号还没有开放登船。","登船口就在这里。"],
+	"unova_b2_zone_39":[0,"u2_champion",[18,15],"水手","皇家合众号还没有开放登船。","登船口就在这里。"],
+	"unova_b2_zone_568":[4,"us_dressing_room",[2,5],"护卫","这是专属更衣室。请先让每部电影都以好结局上映。","老板已经交代过了。请进入更衣室。"],
+}
+
+static func door_staff(map: Dictionary,flags: Dictionary,rows: Array) -> Array:
+	var job: Array=DOOR_STAFF.get(map.id,[])
+	if job.is_empty():return rows
+	for i in rows.size():
+		if int(rows[i].get("unova_local_id",-1))!=int(job[0]):continue
+		var open: bool=flags.get(job[1],false)
+		var actor: Dictionary=rows[i].duplicate()
+		actor.name=job[3]
+		actor.lines=[job[5] if open else job[4]]
+		if open:actor.at=job[2]
+		rows[i]=actor
+		break
+	return rows
+
 static func roster(map: Dictionary, flags: Dictionary, original: Array) -> Array:
 	var era:=Field.era(flags)
 	var records: Dictionary=data()[era]
@@ -85,13 +108,16 @@ static func roster(map: Dictionary, flags: Dictionary, original: Array) -> Array
 		if map.id=="unova_bw_gym_nacrene" and row.get("defeated",false):
 			if row.get("unova_trainer","")=="u1_trainer_88":row.at=[5,4]
 			elif row.get("unova_trainer","")=="u1_trainer_87":row.at=[12,12]
+		# Cheyenne's original X/Z is the middle of our flat projection's
+		# one-way drop. Preserve her sightline from the ledge's upper bank.
+		if era=="bw" and map.id=="unova_10" and local==5:row.at=[75,21]
 		var previous: Dictionary=occupied.get(str(row.at),{})
 		if not previous.is_empty():
 			if int(previous.get("unova_local_id",-1))!=local:continue
 			rows.erase(previous)
 		rows.append(row)
 		occupied[str(row.at)]=row
-	return rows
+	return door_staff(map,flags,rows)
 
 static func talk(g, row: Dictionary) -> bool:
 	if not row.has("unova_trainer"):return false
